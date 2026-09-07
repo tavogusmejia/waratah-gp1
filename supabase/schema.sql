@@ -21,7 +21,9 @@
 -- MIGRATION
 --   1. In the register, Download JSON. Its `items` array is the payload.
 --      (web/data/seed.json already holds it for the first import.)
---   2. Run this file, then policies.sql, then import-seed.sql.
+--   2. Run this file, then policies.sql, then import-seed.sql. The import
+--      names its columns rather than using `select *` - see the note there,
+--      it is not cosmetic.
 --   3. Expose the schema: Settings -> API -> Exposed schemas -> add `gp1`.
 --   4. Put the project URL and anon key in web/assets/config.js. Nothing in
 --      the render or edit code changes - that is what the store seam is for.

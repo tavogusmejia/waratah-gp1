@@ -23,8 +23,31 @@
 -- page, and a re-import must never overwrite that work with a stale seed.
 -- ============================================================================
 
-insert into gp1.register_item
-select * from jsonb_populate_recordset(null::gp1.register_item, '[]'::jsonb)
+-- The column list is spelled out, and `select *` is deliberately NOT used.
+--
+-- jsonb_populate_recordset fills every column of the row type, and the seed
+-- carries no updated_at / updated_by keys, so it produces NULL for both.
+-- `insert ... select *` then supplies those NULLs EXPLICITLY, which overrides
+-- the column default - and updated_at is `not null default now()`, so the
+-- whole statement fails with 23502. A default only applies to a column the
+-- insert does not mention, so the fix is to not mention them.
+--
+-- updated_at and updated_by belong to the database anyway: the touch trigger
+-- maintains one and the stamp trigger takes the other from the JWT. Neither
+-- should ever arrive from a client payload.
+
+insert into gp1.register_item (
+  id, seq, discipline_code, discipline, sub_category,
+  code_tag, code_new, item, location, manufacturer, model,
+  qty, qty_raw, unit, drawing_ref, spec_url, folder_url,
+  spec_status, approved, procured, notes, source_sheet, source_row
+)
+select
+  id, seq, discipline_code, discipline, sub_category,
+  code_tag, code_new, item, location, manufacturer, model,
+  qty, qty_raw, unit, drawing_ref, spec_url, folder_url,
+  spec_status, approved, procured, notes, source_sheet, source_row
+from jsonb_populate_recordset(null::gp1.register_item, '[]'::jsonb)
 on conflict (id) do update set
   seq             = excluded.seq,
   discipline_code = excluded.discipline_code,
