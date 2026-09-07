@@ -126,8 +126,20 @@
     return got;
   }
 
+  /* A magic-link sign-in comes back as #access_token=...&refresh_token=...
+     Supabase reads that from the URL, but its client is created lazily, well
+     after boot. If the register writes its own filter hash first the token is
+     gone and every sign-in fails silently. So: while auth params are present,
+     do not touch the hash - writeHash() is called again once the session has
+     resolved and the client has consumed them. */
+  function hasAuthHash() {
+    return /(^|[#&])(access_token|refresh_token|provider_token|error_description)=/
+      .test(location.hash || "");
+  }
+
   var writingHash = false;
   function writeHash() {
+    if (hasAuthHash()) return;
     var p = ["v=" + ui.view];
     if (ui.q) p.push("q=" + encodeURIComponent(ui.q));
     if (ui.disciplines.length) p.push("d=" + ui.disciplines.join(","));
@@ -1180,7 +1192,21 @@
 
     /* The register is complete and useful before either of these lands, and
        stays useful if they never do. */
-    window.Store.restoreSession().then(renderActions);
+    window.Store.restoreSession().then(function (u) {
+      renderActions();
+      /* The client has now consumed any auth params, so the hash is ours
+         again - clear the token out of the address bar and restore the
+         filter link. */
+      if (hasAuthHash()) {
+        /* A refused or expired link reports itself here and nowhere else.
+           Say so - a sign-in that just does nothing is the worst outcome. */
+        var err = /error_description=([^&]*)/.exec(location.hash);
+        history.replaceState(null, "", location.pathname + location.search);
+        writeHash();
+        if (err) toast("Sign-in failed: " + decodeURIComponent(err[1].replace(/\+/g, " ")));
+        else if (u) toast("Signed in as " + (u.email || "the project team"));
+      }
+    });
     window.Store.syncFromRemote().then(function (rows) {
       if (!rows || !rows.length) return;
       state.items = rows;
