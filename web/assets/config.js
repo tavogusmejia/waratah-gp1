@@ -15,8 +15,12 @@
    ========================================================================== */
 
 window.GP1_CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: "",
+  SUPABASE_URL: "https://iygkonfuyslvgezgofby.supabase.co",
+  SUPABASE_ANON_KEY:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
+    ".eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml5Z2tvbmZ1eXNsdmdlemdvZmJ5Iiwicm9sZSI6" +
+    "ImFub24iLCJpYXQiOjE3ODg3OTIxOTMsImV4cCI6MjEwNDM2ODE5M30" +
+    ".XgRJrncn3sVg7oAaLD4xAkr7ZicLayS9GYCroYQMAbs",
 
   /* This project's tables live in their own schema, not `public`, because the
      Waratah database is meant to carry other projects later and they would
