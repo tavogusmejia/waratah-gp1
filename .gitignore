@@ -1,0 +1,17 @@
+# Excel lock files
+~$*.xlsx
+
+# Superseded source workbooks - kept locally, not in the repo
+02 Material Register/_Superseded/
+01 GP1 Procurement Tracker/_Superseded/
+
+# Secrets and local tooling
+.env
+.env.local
+.vercel
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db

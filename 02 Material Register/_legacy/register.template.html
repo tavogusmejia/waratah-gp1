@@ -1,0 +1,1622 @@
+<title>GP1-MUR Material Register</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Condensed:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<style id="gp1-style">
+/* ==========================================================================
+   GP1-MUR Material & Hardware Register
+
+   STRUCTURAL INVARIANT - read before editing.
+   The page saves by rebuilding its own complete document from three
+   id-addressed payloads: #gp1-style, #gp1-data, #gp1-app. Therefore:
+     * There must be EXACTLY ONE of each. A second <style> or <script>
+       added here is silently dropped the next time the owner saves.
+     * Look elements up by id only, never querySelector('style').
+     * Any colour used must be defined as a token on bare :root below.
+   ========================================================================== */
+
+:root {
+  /* The platform wrapper's own head sets color-scheme: light on :root.
+     This stylesheet comes later in document order, so restating it here
+     keeps scrollbars and form controls in step with the token set. */
+  color-scheme: light dark;
+
+  /* Neutrals carry a green-grey bias taken from the Sukabumi stone and
+     plaster finishes in this schedule - chosen, not inherited. */
+  --ground:      #f6f5f1;
+  --surface:     #fffffe;
+  --surface-2:   #efeee8;
+  --ink:         #1b1e1a;
+  --ink-2:       #565c53;
+  --ink-3:       #6d7266;
+  --rule:        #dedcd3;
+  --rule-strong: #c6c3b7;
+
+  /* Accent: brushed brass, the hardware finish specified on this project.
+     Spent only on actions and links. */
+  --accent:      #8a6a2f;
+  --accent-soft: #f0e7d4;
+
+  /* Semantic, deliberately not the accent hue. */
+  --ok:          #3f6b4a;
+  --ok-soft:     #e2ece2;
+  --warn:        #9a6d20;
+  --warn-soft:   #f6ecd7;
+  --gap:         #9b4a3c;
+  --gap-soft:    #f4e3df;
+
+  --focus:       #2f6fb0;
+  --on-accent:   #fffdf8;
+
+  --shadow: 0 1px 2px rgba(27, 30, 26, .06), 0 6px 20px rgba(27, 30, 26, .05);
+
+  --sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --cond: "IBM Plex Sans Condensed", "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --r: 3px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:      #131512;
+    --surface:     #1a1d19;
+    --surface-2:   #22261f;
+    --ink:         #eceade;
+    --ink-2:       #a8ae9f;
+    --ink-3:       #969c8d;
+    --rule:        #2e3229;
+    --rule-strong: #434838;
+    --accent:      #c9a668;
+    --accent-soft: #2f2a1c;
+    --ok:          #7fb389;
+    --ok-soft:     #1e2a20;
+    --warn:        #d2a75a;
+    --warn-soft:   #2c2416;
+    --gap:         #d98d7e;
+    --gap-soft:    #2e1e1a;
+    --focus:       #7db2ea;
+    --on-accent:   #17190f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 6px 20px rgba(0, 0, 0, .35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:      #131512;
+  --surface:     #1a1d19;
+  --surface-2:   #22261f;
+  --ink:         #eceade;
+  --ink-2:       #a8ae9f;
+  --ink-3:       #969c8d;
+  --rule:        #2e3229;
+  --rule-strong: #434838;
+  --accent:      #c9a668;
+  --accent-soft: #2f2a1c;
+  --ok:          #7fb389;
+  --ok-soft:     #1e2a20;
+  --warn:        #d2a75a;
+  --warn-soft:   #2c2416;
+  --gap:         #d98d7e;
+  --gap-soft:    #2e1e1a;
+  --focus:       #7db2ea;
+  --on-accent:   #17190f;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .5), 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+/* ---------- base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+.wrap { max-width: 1500px; margin: 0 auto; padding: 0 14px; }
+
+.mono { font-family: var(--mono); font-size: .86em; }
+.num  { font-variant-numeric: tabular-nums; }
+
+/* ---------- title block ---------- */
+
+.titleblock {
+  border-bottom: 1px solid var(--rule-strong);
+  background: var(--surface);
+}
+.tb-grid {
+  display: grid;
+  gap: 0 22px;
+  grid-template-columns: 1fr;
+  padding: 14px 0 12px;
+}
+@media (min-width: 760px) {
+  .tb-grid { grid-template-columns: 1fr auto; align-items: end; }
+}
+.tb-project {
+  font-family: var(--cond);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 3px;
+}
+.tb-name {
+  font-family: var(--cond);
+  font-weight: 600;
+  font-size: clamp(23px, 4.6vw, 32px);
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  text-wrap: balance;
+  margin: 0;
+}
+.tb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 13px;
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.tb-meta b { color: var(--ink-2); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* coverage: the owner's headline number */
+.coverage { margin-top: 12px; min-width: 240px; }
+@media (min-width: 760px) { .coverage { margin-top: 0; } }
+.cov-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  font-family: var(--cond);
+  font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+}
+.cov-fig {
+  font-variant-numeric: tabular-nums;
+  font-size: 14px; color: var(--ink-3);
+}
+.cov-fig b { font-weight: 600; font-size: 26px; color: var(--ink); letter-spacing: -.02em; }
+.cov-bar {
+  margin-top: 7px; height: 9px; border-radius: 99px;
+  background: var(--surface-2); overflow: hidden; display: flex;
+  border: 1px solid var(--rule);
+}
+.cov-bar i { display: block; height: 100%; }
+.cov-bar .b-both  { background: var(--ok); }
+.cov-bar .b-part  { background: var(--warn); }
+.cov-key {
+  margin-top: 7px; display: flex; flex-wrap: wrap; gap: 4px 10px;
+  font-size: 11.5px; color: var(--ink-2);
+}
+.cov-key button {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 0; background: none; font: inherit; color: inherit;
+  padding: 2px 0; cursor: pointer; border-bottom: 1px solid transparent;
+}
+.cov-key button:hover { border-bottom-color: var(--rule-strong); color: var(--ink); }
+.cov-key i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: none; }
+.cov-key b { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ---------- toolbar ---------- */
+
+.toolbar {
+  position: sticky; top: 0; z-index: 30;
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.tb-row {
+  display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  padding: 9px 0;
+}
+.search {
+  flex: 1 1 210px; min-width: 0;
+  display: flex; align-items: center; gap: 7px;
+  background: var(--surface); border: 1px solid var(--rule-strong);
+  border-radius: var(--r); padding: 0 9px; height: 36px;
+}
+.search svg { flex: none; color: var(--ink-3); }
+.search input {
+  flex: 1; min-width: 0; border: 0; background: none; color: var(--ink);
+  font: inherit; font-size: 14px; padding: 0; height: 100%;
+}
+.search input:focus { outline: none; }
+.search input::placeholder { color: var(--ink-3); }
+
+.seg { display: flex; border: 1px solid var(--rule-strong); border-radius: var(--r); overflow: hidden; background: var(--surface); }
+.seg button {
+  border: 0; background: none; color: var(--ink-2);
+  font: inherit; font-size: 13px; height: 36px; padding: 0 11px;
+  display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+  border-right: 1px solid var(--rule);
+}
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--ground); }
+.seg button:hover:not([aria-pressed="true"]) { background: var(--surface-2); }
+.seg .lbl { display: none; }
+@media (min-width: 620px) { .seg .lbl { display: inline; } }
+
+.btn {
+  border: 1px solid var(--rule-strong); background: var(--surface); color: var(--ink-2);
+  font: inherit; font-size: 13px; height: 36px; padding: 0 12px;
+  border-radius: var(--r); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
+}
+.btn:hover { background: var(--surface-2); color: var(--ink); }
+.btn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.btn-primary {
+  background: var(--accent); border-color: var(--accent);
+  color: var(--on-accent); font-weight: 500;
+}
+.btn-primary:hover { filter: brightness(1.06); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn .count {
+  font-family: var(--mono); font-size: 11px;
+  background: var(--surface-2); color: var(--ink-3);
+  border-radius: 99px; padding: 1px 6px;
+}
+
+.spacer { flex: 1 1 auto; }
+
+/* filter panel */
+.filters { border-top: 1px dashed var(--rule); padding: 11px 0 13px; display: grid; gap: 13px; }
+.fgroup { display: grid; gap: 6px; }
+.flabel {
+  font-family: var(--cond); font-size: 10.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip {
+  border: 1px solid var(--rule-strong); background: var(--surface); color: var(--ink-2);
+  font: inherit; font-size: 12.5px; padding: 4px 9px; border-radius: 99px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.chip:hover { background: var(--surface-2); }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--ground); }
+.chip .n { font-family: var(--mono); font-size: 10.5px; opacity: .7; }
+.selects { display: flex; flex-wrap: wrap; gap: 8px; }
+.selects label { display: grid; gap: 4px; }
+select {
+  font: inherit; font-size: 13px; height: 32px; padding: 0 8px;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--rule-strong); border-radius: var(--r);
+  max-width: 230px;
+}
+
+/* ---------- results ---------- */
+
+.resultbar {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline;
+  padding: 11px 0 9px; color: var(--ink-3); font-size: 12.5px;
+}
+.resultbar b { color: var(--ink); font-family: var(--mono); font-weight: 500; }
+
+main { padding-bottom: 60px; }
+
+/* --- table --- */
+.tablewrap {
+  overflow-x: auto;
+  border: 1px solid var(--rule); border-radius: var(--r);
+  background: var(--surface);
+}
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+thead th {
+  position: sticky; top: 54px; z-index: 10;
+  background: var(--surface-2); color: var(--ink-2);
+  font-family: var(--cond); font-weight: 600; font-size: 10.5px;
+  letter-spacing: .12em; text-transform: uppercase;
+  text-align: left; padding: 7px 10px; white-space: nowrap;
+  border-bottom: 1px solid var(--rule-strong);
+}
+tbody td { padding: 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+tbody tr:hover td { background: var(--surface-2); }
+tbody td:first-child { border-left: 3px solid transparent; padding-left: 9px; }
+tbody tr[data-doc="both"] td:first-child { border-left-color: var(--ok); }
+tbody tr[data-doc="spec"] td:first-child,
+tbody tr[data-doc="folder"] td:first-child { border-left-color: var(--warn); }
+.grouprow th {
+  /* Deliberately NOT sticky. A second sticky layer under the sticky thead
+     needs a hard-coded top offset, and at scroll-zero that offset floats the
+     band down over the first row of its own group. */
+  background: var(--ground); color: var(--ink);
+  font-family: var(--cond); font-weight: 600; font-size: 12px;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-align: left; padding: 12px 10px 7px;
+  border-bottom: 1px solid var(--rule-strong); border-top: 1px solid var(--rule-strong);
+}
+.grouprow .gcount { font-family: var(--mono); font-size: 11px; color: var(--ink-3); letter-spacing: 0; text-transform: none; margin-left: 8px; }
+.c-code { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; }
+.c-item { min-width: 220px; max-width: 340px; }
+.c-item strong { font-weight: 500; }
+.c-item .sub { color: var(--ink-3); font-size: 11.5px; margin-top: 1px; }
+.c-num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.c-notes { color: var(--ink-2); font-size: 12px; max-width: 260px; }
+.c-docs { white-space: nowrap; }
+
+/* --- documentation state ---------------------------------------------------
+   The page's whole job is telling you what has documentation and what doesn't.
+   So a real link is a filled control, and absence is a plain note: no box, no
+   border, no radius. Absence must never look as actionable as a link. */
+.doclinks { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.doclink {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 500; text-decoration: none;
+  border: 1px solid var(--accent); border-radius: var(--r);
+  padding: 4px 10px; min-height: 28px;
+  color: var(--accent); background: var(--accent-soft);
+  white-space: nowrap;
+}
+.doclink:hover, .doclink:focus-visible { background: var(--accent); color: var(--on-accent); }
+.doclink svg { flex: none; opacity: .75; }
+.doclink:hover svg { opacity: 1; }
+.docnone {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--ink-3); white-space: nowrap;
+}
+.docnone::before {
+  content: ""; width: 5px; height: 5px; border-radius: 99px;
+  border: 1px solid var(--rule-strong); flex: none;
+}
+.dash { color: var(--ink-3); }
+
+/* --- status pills --- */
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; font-weight: 500; padding: 3px 9px;
+  border-radius: 99px; white-space: nowrap; border: 1px solid transparent;
+}
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 99px; background: currentColor; flex: none; }
+.p-complete    { color: var(--ok);   background: var(--ok-soft); }
+.p-in_progress { color: var(--warn); background: var(--warn-soft); }
+.p-not_started { color: var(--ink-3); background: var(--surface-2); }
+.p-unknown     { color: var(--ink-3); background: transparent; border-color: var(--rule); }
+.p-approved    { color: var(--ok);   background: var(--ok-soft); }
+.p-submitted   { color: var(--warn); background: var(--warn-soft); }
+.p-rejected    { color: var(--gap);  background: var(--gap-soft); }
+.p-quoted, .p-ordered { color: var(--warn); background: var(--warn-soft); }
+.p-delivered, .p-installed { color: var(--ok); background: var(--ok-soft); }
+
+/* --- cards --- */
+.cards { display: grid; gap: 11px; grid-template-columns: 1fr; }
+@media (min-width: 700px)  { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1150px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--surface); border: 1px solid var(--rule);
+  border-left: 3px solid var(--rule);
+  border-radius: var(--r); padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+/* State in form, not only in words: the edge marks what is documented. */
+.card[data-doc="both"] { border-left-color: var(--ok); }
+.card[data-doc="spec"], .card[data-doc="folder"] { border-left-color: var(--warn); }
+
+.card-top { display: flex; gap: 10px; align-items: baseline; justify-content: space-between; }
+.card-disc {
+  font-family: var(--cond); font-weight: 600; font-size: 10px;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3);
+}
+.card-code { font-family: var(--mono); font-size: 11px; color: var(--ink-3); text-align: right; }
+.card-title {
+  font-weight: 600; font-size: 15.5px; line-height: 1.3; margin: 1px 0 0;
+  letter-spacing: -.003em; text-wrap: pretty;
+}
+.card-mfr { font-size: 13px; color: var(--ink); }
+.card-mfr .m { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+.card-line { font-size: 12.5px; color: var(--ink-2); }
+.card-line .mono { font-size: 11.5px; }
+.card-note {
+  font-size: 12px; color: var(--ink-3); line-height: 1.4;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.sep { color: var(--rule-strong); padding: 0 1px; }
+.card-foot {
+  display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+  margin-top: auto; padding-top: 8px;
+}
+.card .doclink { min-height: 36px; padding: 7px 12px; }
+
+/* --- accordion --- */
+.acc { display: grid; gap: 7px; }
+details.disc {
+  background: var(--surface); border: 1px solid var(--rule); border-radius: var(--r);
+}
+details.disc > summary {
+  cursor: pointer; list-style: none; padding: 11px 12px;
+  display: flex; align-items: center; gap: 11px;
+}
+details.disc > summary::-webkit-details-marker { display: none; }
+.acc-caret { flex: none; color: var(--ink-3); transition: transform .15s ease; }
+details.disc[open] .acc-caret { transform: rotate(90deg); }
+.acc-name { font-family: var(--cond); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+.acc-bar { flex: 1 1 60px; max-width: 190px; height: 5px; border-radius: 99px; background: var(--surface-2); overflow: hidden; display: flex; }
+.acc-bar i { display: block; height: 100%; background: var(--ok); }
+.acc-n { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+.acc-body { border-top: 1px solid var(--rule); }
+.acc-item {
+  padding: 10px 12px 10px 13px; border-bottom: 1px solid var(--rule);
+  display: grid; gap: 5px; border-left: 3px solid transparent;
+}
+.acc-item[data-doc="both"] { border-left-color: var(--ok); }
+.acc-item[data-doc="spec"], .acc-item[data-doc="folder"] { border-left-color: var(--warn); }
+.acc-item:last-child { border-bottom: 0; }
+.acc-item-top { display: flex; gap: 9px; align-items: baseline; justify-content: space-between; }
+.acc-item .t { font-size: 14px; font-weight: 500; }
+.acc-meta { font-size: 12px; color: var(--ink-2); }
+
+/* --- empty --- */
+.empty {
+  border: 1px dashed var(--rule-strong); border-radius: var(--r);
+  padding: 40px 20px; text-align: center; color: var(--ink-2);
+}
+.empty p { margin: 0 0 12px; }
+
+/* ---------- editor dialog ---------- */
+
+dialog#gp1-editor {
+  border: 1px solid var(--rule-strong); border-radius: var(--r);
+  background: var(--surface); color: var(--ink);
+  padding: 0; width: min(680px, calc(100vw - 20px)); max-height: 90vh;
+  box-shadow: var(--shadow);
+}
+dialog#gp1-editor::backdrop { background: rgba(20, 22, 19, .55); }
+.ed-head {
+  display: flex; align-items: baseline; gap: 12px; justify-content: space-between;
+  padding: 13px 15px; border-bottom: 1px solid var(--rule);
+  position: sticky; top: 0; background: var(--surface); z-index: 2;
+}
+.ed-title { font-family: var(--cond); font-weight: 600; font-size: 15px; letter-spacing: .06em; text-transform: uppercase; margin: 0; }
+.ed-sub { font-family: var(--mono); font-size: 11.5px; color: var(--ink-3); }
+.ed-body { padding: 14px 15px; overflow-y: auto; display: grid; gap: 11px; }
+.ed-grid { display: grid; gap: 11px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .ed-grid.two { grid-template-columns: 1fr 1fr; } }
+.field { display: grid; gap: 4px; }
+.field > span {
+  font-family: var(--cond); font-size: 10.5px; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.field input, .field textarea, .field select {
+  font: inherit; font-size: 13.5px; color: var(--ink);
+  background: var(--ground); border: 1px solid var(--rule-strong);
+  border-radius: var(--r); padding: 7px 9px; width: 100%;
+}
+.field textarea { resize: vertical; min-height: 62px; }
+.field input.mono-in { font-family: var(--mono); font-size: 12.5px; }
+.ed-foot {
+  display: flex; gap: 8px; align-items: center; justify-content: flex-end;
+  padding: 12px 15px; border-top: 1px solid var(--rule);
+  position: sticky; bottom: 0; background: var(--surface);
+}
+.ed-foot .note { margin-right: auto; font-size: 12px; color: var(--ink-3); }
+
+/* ---------- banner / toast ---------- */
+
+.banner {
+  border: 1px solid var(--rule-strong); border-left: 3px solid var(--warn);
+  background: var(--warn-soft); color: var(--ink);
+  border-radius: var(--r); padding: 10px 13px; margin: 11px 0;
+  font-size: 13px; display: flex; gap: 10px; align-items: flex-start;
+}
+.banner.read-only { border-left-color: var(--ink-3); background: var(--surface-2); }
+.banner b { font-weight: 600; }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: 20px; z-index: 90;
+  background: var(--ink); color: var(--ground);
+  border-radius: var(--r); padding: 9px 15px; font-size: 13px;
+  box-shadow: var(--shadow); max-width: calc(100vw - 28px);
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  border-top: 1px solid var(--rule); margin-top: 26px; padding: 15px 0 30px;
+  color: var(--ink-3); font-size: 12px;
+  display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline;
+}
+footer .mono { color: var(--ink-2); }
+
+@media print {
+  .toolbar, .ed-foot, dialog { display: none !important; }
+  body { background: #fff; }
+}
+</style>
+
+<div id="gp1-root"></div>
+
+<script type="application/json" id="gp1-data">__DATA_JSON__</script>
+
+<script id="gp1-app">
+/* ==========================================================================
+   GP1-MUR Material & Hardware Register
+
+   STRUCTURAL INVARIANT - read before editing.
+   This page is its own database. Saving rebuilds the COMPLETE document from
+   three id-addressed payloads and republishes it:
+       #gp1-style  (CSS)     read verbatim via .textContent
+       #gp1-data   (JSON)    regenerated from state
+       #gp1-app    (this)    read verbatim via .textContent
+   Consequences you must respect:
+     * Exactly ONE of each id. Adding a second <style> or <script> means it
+       is silently dropped on the owner's next save.
+     * Look elements up by id, never by tag. Version 1 is a fragment the
+       platform wraps; version 2+ is a full document FRAME writes. Only id
+       lookup survives that transition.
+     * FRAME must restate everything the platform wrapper supplied (charset,
+       viewport, colour-scheme, title, font link) - and the CSS must be
+       self-sufficient, never leaning on a wrapper default.
+     * Never write the literal script-close sequence in this file; use the
+       escaped form.
+     * No render or edit code may touch claude.use, publish, localStorage or
+       the JSON block directly - they go through STORE (section 2). That is
+       the seam that makes the Supabase/Vercel migration mechanical.
+   ========================================================================== */
+
+(function () {
+  "use strict";
+
+  /* ======================================================================
+     0 - FRAME. The only duplicated source in the file. It travels inside
+     this script's own text, so it carries itself forward on every save.
+     ====================================================================== */
+
+  var DOC_TITLE = "GP1-MUR Material Register";
+  var FONT_LINK = '<link rel="stylesheet" href="https://fonts.googleapis.com/' +
+    'css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans+Condensed:wght@500;600' +
+    '&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">';
+  var CLOSE = "<\/" + "script>";
+
+  function buildDocument(state) {
+    var css = document.getElementById("gp1-style").textContent;
+    var app = document.getElementById("gp1-app").textContent;
+    return '<!doctype html>\n<html lang="en">\n<head>\n' +
+      '<meta charset="utf-8">\n' +
+      '<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">\n' +
+      '<meta name="color-scheme" content="light dark">\n' +
+      "<title>" + DOC_TITLE + "<\/title>\n" +
+      FONT_LINK + "\n" +
+      '<style id="gp1-style">' + css + "<\/style>\n" +
+      "</head>\n<body>\n" +
+      '<div id="gp1-root"></div>\n' +
+      '<script type="application/json" id="gp1-data">' + jsonForHtml(state) + CLOSE + "\n" +
+      '<script id="gp1-app">' + app + CLOSE + "\n" +
+      "</body>\n</html>";
+  }
+
+  /* A Notes field containing the script-close sequence would terminate the
+     data block and break the page permanently, with no way to repair it from
+     the page. Escape unconditionally, not "if it looks risky". */
+  function jsonForHtml(value) {
+    return JSON.stringify(value).replace(/[<>&\u2028\u2029]/g, function (c) {
+      return "\\u" + ("000" + c.charCodeAt(0).toString(16)).slice(-4);
+    });
+  }
+
+  /* ======================================================================
+     1 - DATA
+     ====================================================================== */
+
+  var DISCIPLINE_ORDER = [];
+  var SPEC_STATUS = {
+    complete: "Have spec sheet",
+    in_progress: "Spec sheet in progress",
+    not_started: "Spec sheet not started",
+    unknown: "Spec sheet not tracked"
+  };
+  var APPROVED = {
+    not_started: "Not started", submitted: "Submitted",
+    approved: "Approved", rejected: "Rejected", unknown: "Unknown"
+  };
+  var PROCURED = {
+    not_started: "Not started", quoted: "Quoted", ordered: "Ordered",
+    delivered: "Delivered", installed: "Installed", unknown: "Unknown"
+  };
+
+  var state = null;
+  var derived = [];
+
+  function loadState() {
+    var raw = document.getElementById("gp1-data").textContent;
+    var parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.items)) throw new Error("no items in data block");
+    return parsed;
+  }
+
+  function stripAccents(s) {
+    return s.normalize ? s.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : s;
+  }
+
+  function deriveAll(items) {
+    DISCIPLINE_ORDER = [];
+    var seen = {};
+    derived = items.map(function (it) {
+      if (!seen[it.discipline_code]) {
+        seen[it.discipline_code] = 1;
+        DISCIPLINE_ORDER.push({ code: it.discipline_code, name: it.discipline });
+      }
+      var hasSpec = !!it.spec_url, hasFolder = !!it.folder_url;
+      return {
+        hasSpec: hasSpec,
+        hasFolder: hasFolder,
+        docState: hasSpec && hasFolder ? "both" : hasSpec ? "spec" : hasFolder ? "folder" : "none",
+        blob: stripAccents([
+          it.code_tag, it.item, it.sub_category, it.discipline, it.manufacturer,
+          it.model, it.location, it.drawing_ref, it.notes
+        ].join(" ")).toLowerCase()
+      };
+    });
+  }
+
+  function byId(id) {
+    for (var i = 0; i < state.items.length; i++) if (state.items[i].id === id) return i;
+    return -1;
+  }
+
+  /* ======================================================================
+     2 - STORE. The migration seam. Swap ArtifactStore for a SupabaseStore
+     and nothing in sections 3-6 changes.
+     ====================================================================== */
+
+  var Store = (function () {
+    var artifact = null;      // capability namespace, once resolved
+    var writeState = "unknown";
+    var dirty = {};           // id -> true
+    var saveTimer = null;
+    var listeners = [];
+
+    function markDirty(id) { dirty[id] = true; emit(); }
+    function emit() { listeners.forEach(function (f) { f(); }); }
+
+    return {
+      onChange: function (f) { listeners.push(f); },
+      dirtyCount: function () { return Object.keys(dirty).length; },
+      writeState: function () { return writeState; },
+      canOfferEditing: function () { return !!artifact && writeState !== "reader"; },
+
+      attach: function (ns) { artifact = ns; emit(); },
+      setReader: function () { writeState = "reader"; store("gp1.role", "reader"); emit(); },
+      setWriter: function () { writeState = "writer"; store("gp1.role", "writer"); emit(); },
+      restoreRole: function () {
+        if (recall("gp1.role") === "reader") writeState = "reader";
+        else if (recall("gp1.role") === "writer") writeState = "writer";
+      },
+
+      patch: function (id, fields) {
+        var i = byId(id);
+        if (i < 0) return;
+        Object.keys(fields).forEach(function (k) { state.items[i][k] = fields[k]; });
+        deriveAll(state.items);
+        markDirty(id);
+      },
+
+      scheduleFlush: function (ms) {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function () { Store.flush(); }, ms || 2500);
+      },
+
+      /* Rebuild the whole document and publish it. This view then reloads,
+         so treat it as the last act of an interaction. */
+      flush: function () {
+        clearTimeout(saveTimer);
+        if (!artifact || !Object.keys(dirty).length) return Promise.resolve("noop");
+
+        state.meta.rev = (state.meta.rev || 1) + 1;
+        state.meta.updated_at = new Date().toISOString();
+
+        var html;
+        try {
+          html = buildDocument(state);
+          validateDocument(html, state.items.length);
+        } catch (e) {
+          state.meta.rev = state.meta.rev - 1;
+          toast("Couldn't save: the page failed its own safety check. Nothing was changed.");
+          return Promise.reject(e);
+        }
+
+        stash("gp1.lastGood", html);
+        stashUi();
+
+        return artifact.publish(html).then(function () {
+          Store.setWriter();
+          dirty = {};
+          return "saved";
+        }, function (err) {
+          state.meta.rev = state.meta.rev - 1;
+          var code = (err && err.code) || "upstream_error";
+          if (code === "not_writer" || code === "not_granted" || code === "not_declared" ||
+              code === "capability_disabled" || code === "capability_removed" ||
+              code === "consent_required") {
+            Store.setReader();
+            return "read_only";
+          }
+          if (code === "conflict") return "conflict";
+          if (code === "rate_limited") { Store.scheduleFlush(15000); return "rate_limited"; }
+          if (code === "too_large") { toast("Couldn't save: the register has grown past the size limit."); return "error"; }
+          toast("Couldn't save just now. Your change is still on screen — try Save again.");
+          return "error";
+        });
+      }
+    };
+  })();
+
+  /* The only safety net: once a broken version is published the page cannot
+     repair itself. Refuse to publish anything that fails these. */
+  function validateDocument(html, expectedCount) {
+    if (html.indexOf("<!doctype html>") !== 0) throw new Error("missing doctype");
+    ["gp1-style", "gp1-data", "gp1-app"].forEach(function (id) {
+      if (html.indexOf('id="' + id + '"') < 0) throw new Error("missing " + id);
+    });
+    if (html.length > 8 * 1024 * 1024) throw new Error("document too large");
+    var doc = new DOMParser().parseFromString(html, "text/html");
+    var data = doc.getElementById("gp1-data");
+    if (!data || !doc.getElementById("gp1-style") || !doc.getElementById("gp1-app")) {
+      throw new Error("rebuilt document lost a payload");
+    }
+    var round = JSON.parse(data.textContent);
+    if (!round.items || round.items.length !== expectedCount) {
+      throw new Error("item count changed through the round trip");
+    }
+  }
+
+  /* ======================================================================
+     3 - VIEW STATE. Filters live in the URL hash so a filtered view is a
+     shareable link and survives the post-save reload for free.
+     ====================================================================== */
+
+  var ui = {
+    view: "table",
+    q: "",
+    disciplines: [],
+    doc: "all",
+    sub: "",
+    location: "",
+    manufacturer: "",
+    approved: "",
+    procured: "",
+    sort: "seq",
+    showFilters: false
+  };
+
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function recall(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function stash(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+  function unstash(k) { try { var v = sessionStorage.getItem(k); sessionStorage.removeItem(k); return v; } catch (e) { return null; } }
+
+  function defaultView() {
+    return window.matchMedia("(min-width: 900px)").matches ? "table" : "cards";
+  }
+
+  function readHash() {
+    var h = location.hash.replace(/^#/, "");
+    if (!h) return false;
+    var got = false;
+    h.split("&").forEach(function (pair) {
+      var i = pair.indexOf("=");
+      if (i < 0) return;
+      var k = pair.slice(0, i), v = decodeURIComponent(pair.slice(i + 1).replace(/\+/g, " "));
+      if (k === "v" && /^(table|cards|acc)$/.test(v)) { ui.view = v; got = true; }
+      else if (k === "q") { ui.q = v; got = true; }
+      else if (k === "d") { ui.disciplines = v ? v.split(",") : []; got = true; }
+      else if (k === "doc") { ui.doc = v; got = true; }
+      else if (k === "sub") { ui.sub = v; got = true; }
+      else if (k === "loc") { ui.location = v; got = true; }
+      else if (k === "mfr") { ui.manufacturer = v; got = true; }
+      else if (k === "ap") { ui.approved = v; got = true; }
+      else if (k === "pr") { ui.procured = v; got = true; }
+      else if (k === "sort") { ui.sort = v; got = true; }
+    });
+    return got;
+  }
+
+  var writingHash = false;
+  function writeHash() {
+    var p = [];
+    p.push("v=" + ui.view);
+    if (ui.q) p.push("q=" + encodeURIComponent(ui.q));
+    if (ui.disciplines.length) p.push("d=" + ui.disciplines.join(","));
+    if (ui.doc !== "all") p.push("doc=" + ui.doc);
+    if (ui.sub) p.push("sub=" + encodeURIComponent(ui.sub));
+    if (ui.location) p.push("loc=" + encodeURIComponent(ui.location));
+    if (ui.manufacturer) p.push("mfr=" + encodeURIComponent(ui.manufacturer));
+    if (ui.approved) p.push("ap=" + ui.approved);
+    if (ui.procured) p.push("pr=" + ui.procured);
+    if (ui.sort !== "seq") p.push("sort=" + ui.sort);
+    writingHash = true;
+    history.replaceState(null, "", "#" + p.join("&"));
+    setTimeout(function () { writingHash = false; }, 0);
+  }
+
+  function stashUi() {
+    stash("gp1.ui", JSON.stringify({ y: window.scrollY, filters: ui.showFilters }));
+  }
+
+  /* ======================================================================
+     4 - FILTER / SORT / FACET COUNTS (pure)
+     ====================================================================== */
+
+  function matches(it, d, opts) {
+    if (opts.doc) {
+      if (ui.doc === "missing" && d.docState !== "none") return false;
+      if (ui.doc === "spec" && !d.hasSpec) return false;
+      if (ui.doc === "folder" && !d.hasFolder) return false;
+      if (ui.doc === "both" && d.docState !== "both") return false;
+    }
+    if (opts.disc && ui.disciplines.length && ui.disciplines.indexOf(it.discipline_code) < 0) return false;
+    if (ui.sub && it.sub_category !== ui.sub) return false;
+    if (ui.location && it.location !== ui.location) return false;
+    if (ui.manufacturer && it.manufacturer !== ui.manufacturer) return false;
+    if (ui.approved && it.approved !== ui.approved) return false;
+    if (ui.procured && it.procured !== ui.procured) return false;
+    if (ui.q) {
+      var terms = stripAccents(ui.q).toLowerCase().split(/\s+/).filter(Boolean);
+      for (var i = 0; i < terms.length; i++) if (d.blob.indexOf(terms[i]) < 0) return false;
+    }
+    return true;
+  }
+
+  function currentRows() {
+    var rows = [];
+    for (var i = 0; i < state.items.length; i++) {
+      if (matches(state.items[i], derived[i], { doc: true, disc: true })) {
+        rows.push({ it: state.items[i], d: derived[i] });
+      }
+    }
+    var s = ui.sort;
+    if (s === "item") rows.sort(function (a, b) { return a.it.item.localeCompare(b.it.item); });
+    else if (s === "mfr") rows.sort(function (a, b) {
+      return (a.it.manufacturer || "\uffff").localeCompare(b.it.manufacturer || "\uffff") || a.it.seq - b.it.seq;
+    });
+    else if (s === "gaps") rows.sort(function (a, b) {
+      var r = rank(a.d.docState) - rank(b.d.docState);
+      return r || a.it.seq - b.it.seq;
+    });
+    else rows.sort(function (a, b) { return a.it.seq - b.it.seq; });
+    return rows;
+  }
+  function rank(s) { return s === "none" ? 0 : s === "spec" ? 1 : s === "folder" ? 1 : 2; }
+
+  /* Facet counts ignore their own dimension, so a chip always shows what
+     picking it would actually yield. */
+  function disciplineCounts() {
+    var out = {};
+    for (var i = 0; i < state.items.length; i++) {
+      var it = state.items[i];
+      if (matches(it, derived[i], { doc: true, disc: false })) {
+        out[it.discipline_code] = (out[it.discipline_code] || 0) + 1;
+      }
+    }
+    return out;
+  }
+  function docCounts() {
+    var out = { all: 0, missing: 0, spec: 0, folder: 0, both: 0 };
+    for (var i = 0; i < state.items.length; i++) {
+      var it = state.items[i], d = derived[i];
+      if (!matches(it, d, { doc: false, disc: true })) continue;
+      out.all++;
+      if (d.docState === "none") out.missing++;
+      if (d.hasSpec) out.spec++;
+      if (d.hasFolder) out.folder++;
+      if (d.docState === "both") out.both++;
+    }
+    return out;
+  }
+  function distinct(field) {
+    var seen = {}, out = [];
+    state.items.forEach(function (it) {
+      var v = it[field];
+      if (v && !seen[v]) { seen[v] = 1; out.push(v); }
+    });
+    return out.sort(function (a, b) { return a.localeCompare(b); });
+  }
+
+  /* ======================================================================
+     5 - RENDER (state -> HTML string)
+     ====================================================================== */
+
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function attr(s) { return esc(s); }
+
+  var ICON = {
+    search: '<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>',
+    ext: '<svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 2h5.5v5.5M10 2 5 7"/><path d="M8 8.5V10H2V4h1.5"/></svg>',
+    doc: '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 1.5h5L11 5v7.5H3z"/><path d="M8 1.5V5h3"/></svg>',
+    folder: '<svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1.5 3.5h4l1 1.5h6v6h-11z"/></svg>',
+    table: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="2.5" width="13" height="11"/><path d="M1.5 6h13M6 6v7.5"/></svg>',
+    cards: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="2.5" width="5.5" height="5"/><rect x="9" y="2.5" width="5.5" height="5"/><rect x="1.5" y="9" width="5.5" height="4.5"/><rect x="9" y="9" width="5.5" height="4.5"/></svg>',
+    list: '<svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 4h12M2 8h12M2 12h12"/></svg>',
+    caret: '<svg class="acc-caret" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 2.5 8 6l-4 3.5"/></svg>',
+    pencil: '<svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9.5 2 12 4.5l-7 7H2.5V9z"/></svg>'
+  };
+
+  function shell() {
+    return titleBlock() + toolbar() +
+      '<div class="wrap"><div id="gp1-banner"></div>' +
+      '<div class="resultbar" id="gp1-resultbar"></div>' +
+      '<main id="gp1-results"></main>' + footer() + "</div>" +
+      editorDialog();
+  }
+
+  function coverage() {
+    var both = 0, part = 0;
+    derived.forEach(function (d) {
+      if (d.docState === "both") both++;
+      else if (d.docState !== "none") part++;
+    });
+    var n = derived.length;
+    var documented = both + part;
+    /* The legend doubles as the fastest route to the work: tapping a band
+       filters the register to it. "Nothing yet" is the chase list. */
+    return '<div class="coverage">' +
+      '<div class="cov-head"><span>Documentation coverage</span>' +
+      '<span class="cov-fig"><b>' + documented + "</b> / " + n + "</span></div>" +
+      '<div class="cov-bar" role="img" aria-label="' + documented + " of " + n + ' items have documentation">' +
+      '<i class="b-both" style="width:' + (both / n * 100) + '%"></i>' +
+      '<i class="b-part" style="width:' + (part / n * 100) + '%"></i></div>' +
+      '<div class="cov-key">' +
+      covKey("both", "var(--ok)", "Spec + folder", both) +
+      covKey("spec", "var(--warn)", "One of the two", part) +
+      covKey("missing", "var(--surface-2)", "Nothing yet", n - documented) +
+      "</div></div>";
+  }
+
+  function covKey(filter, colour, label, count) {
+    var swatch = filter === "missing"
+      ? 'style="background:' + colour + ';border:1px solid var(--rule-strong)"'
+      : 'style="background:' + colour + '"';
+    return '<button type="button" data-doc="' + filter + '" title="Filter to these items">' +
+      "<i " + swatch + "></i>" + label + " <b>" + count + "</b></button>";
+  }
+
+  function titleBlock() {
+    var m = state.meta || {};
+    var updated = (m.updated_at || "").slice(0, 10);
+    return '<header class="titleblock"><div class="wrap"><div class="tb-grid"><div>' +
+      '<p class="tb-project">' + esc(m.project || "GP1") + " · Procurement</p>" +
+      '<h1 class="tb-name">' + esc(m.title || "Material & Hardware Register") + "</h1>" +
+      '<div class="tb-meta">' +
+      "<span><b>" + state.items.length + "</b> items</span>" +
+      "<span><b>" + DISCIPLINE_ORDER.length + "</b> disciplines</span>" +
+      "<span>rev <b>" + esc(String(m.rev || 1)) + "</b></span>" +
+      "<span>updated <b>" + esc(updated) + "</b></span>" +
+      "</div></div>" + coverage() + "</div></div></header>";
+  }
+
+  function toolbar() {
+    return '<div class="toolbar"><div class="wrap">' +
+      '<div class="tb-row">' +
+      '<label class="search">' + ICON.search +
+      '<input id="gp1-q" type="search" placeholder="Search items, tags, manufacturers…" value="' + attr(ui.q) + '" aria-label="Search the register">' +
+      "</label>" +
+      '<div class="seg" role="group" aria-label="View">' +
+      viewBtn("table", ICON.table, "Table") +
+      viewBtn("cards", ICON.cards, "Cards") +
+      viewBtn("acc", ICON.list, "By trade") +
+      "</div>" +
+      '<button class="btn" id="gp1-filters-toggle" aria-pressed="' + (ui.showFilters ? "true" : "false") + '">Filters' + activeFilterCount() + "</button>" +
+      '<span class="spacer"></span>' +
+      '<span id="gp1-actions"></span>' +
+      "</div>" +
+      '<div id="gp1-filterpanel">' + (ui.showFilters ? filterPanel() : "") + "</div>" +
+      "</div></div>";
+  }
+
+  function viewBtn(v, icon, label) {
+    return '<button type="button" data-view="' + v + '" aria-pressed="' + (ui.view === v ? "true" : "false") +
+      '" title="' + label + '">' + icon + '<span class="lbl">' + label + "</span></button>";
+  }
+
+  function activeFilterCount() {
+    var n = ui.disciplines.length + (ui.doc !== "all" ? 1 : 0) +
+      (ui.sub ? 1 : 0) + (ui.location ? 1 : 0) + (ui.manufacturer ? 1 : 0) +
+      (ui.approved ? 1 : 0) + (ui.procured ? 1 : 0);
+    return n ? ' <span class="count">' + n + "</span>" : "";
+  }
+
+  function filterPanel() {
+    var dc = disciplineCounts(), doc = docCounts();
+    var h = '<div class="filters">';
+
+    h += '<div class="fgroup"><div class="flabel">Documentation</div><div class="chips">' +
+      docChip("all", "All items", doc.all) +
+      docChip("missing", "Missing docs", doc.missing) +
+      docChip("spec", "Has spec", doc.spec) +
+      docChip("folder", "Has folder", doc.folder) +
+      docChip("both", "Has both", doc.both) +
+      "</div></div>";
+
+    h += '<div class="fgroup"><div class="flabel">Discipline</div><div class="chips">';
+    DISCIPLINE_ORDER.forEach(function (d) {
+      var on = ui.disciplines.indexOf(d.code) >= 0;
+      h += '<button type="button" class="chip" data-disc="' + d.code + '" aria-pressed="' + (on ? "true" : "false") + '">' +
+        esc(d.name) + '<span class="n">' + (dc[d.code] || 0) + "</span></button>";
+    });
+    h += "</div></div>";
+
+    h += '<div class="fgroup"><div class="flabel">Narrow by</div><div class="selects">' +
+      sel("sub", "Sub-category", distinct("sub_category"), ui.sub) +
+      sel("loc", "Location / zone", distinct("location"), ui.location) +
+      sel("mfr", "Manufacturer", distinct("manufacturer"), ui.manufacturer) +
+      selMap("ap", "Approved", APPROVED, ui.approved) +
+      selMap("pr", "Procured", PROCURED, ui.procured) +
+      selSort() +
+      "</div></div>";
+
+    h += '<div><button type="button" class="btn" id="gp1-clear">Clear all filters</button></div>';
+    return h + "</div>";
+  }
+
+  function docChip(v, label, n) {
+    return '<button type="button" class="chip" data-doc="' + v + '" aria-pressed="' +
+      (ui.doc === v ? "true" : "false") + '">' + label + '<span class="n">' + n + "</span></button>";
+  }
+  function sel(name, label, values, current) {
+    var h = '<label><span class="flabel">' + label + '</span><select data-sel="' + name + '"><option value="">Any</option>';
+    values.forEach(function (v) {
+      h += '<option value="' + attr(v) + '"' + (v === current ? " selected" : "") + ">" + esc(v) + "</option>";
+    });
+    return h + "</select></label>";
+  }
+  function selMap(name, label, map, current) {
+    var h = '<label><span class="flabel">' + label + '</span><select data-sel="' + name + '"><option value="">Any</option>';
+    Object.keys(map).forEach(function (k) {
+      h += '<option value="' + k + '"' + (k === current ? " selected" : "") + ">" + esc(map[k]) + "</option>";
+    });
+    return h + "</select></label>";
+  }
+  function selSort() {
+    var opts = [["seq", "Schedule order"], ["gaps", "Missing docs first"],
+                ["item", "Item A–Z"], ["mfr", "Manufacturer"]];
+    var h = '<label><span class="flabel">Sort</span><select data-sel="sort">';
+    opts.forEach(function (o) {
+      h += '<option value="' + o[0] + '"' + (ui.sort === o[0] ? " selected" : "") + ">" + o[1] + "</option>";
+    });
+    return h + "</select></label>";
+  }
+
+  /* Documentation is the point of this page, so a link is a real control and
+     absence is a plain note - never a box that mimics a button. When there is
+     nothing to open, say why rather than naming each missing thing twice. */
+  function docLinks(it, compact) {
+    var h = '<div class="doclinks">';
+    if (it.spec_url) {
+      h += '<a class="doclink" href="' + attr(it.spec_url) + '" target="_blank" rel="noopener noreferrer">' +
+        ICON.doc + "Spec" + ICON.ext + "</a>";
+    }
+    if (it.folder_url) {
+      h += '<a class="doclink" href="' + attr(it.folder_url) + '" target="_blank" rel="noopener noreferrer">' +
+        ICON.folder + "Folder" + ICON.ext + "</a>";
+    }
+    if (!it.spec_url && !it.folder_url) {
+      h += compact ? '<span class="dash">\u2014</span>'
+                   : '<span class="docnone">' + esc(noDocReason(it)) + "</span>";
+    }
+    return h + "</div>";
+  }
+
+  /* spec_status is not one of the columns, but it earns its keep here: it turns
+     a blank into a reason, which is what makes the chase list actionable. */
+  function noDocReason(it) {
+    if (it.spec_status === "complete") return "Spec sheet held, not linked";
+    if (it.spec_status === "in_progress") return "Spec sheet being chased";
+    return "No datasheet yet";
+  }
+
+  /* Approved and Procured read 'not_started' on all 199 items, so rendering
+     that pill everywhere is pure noise. Show a status only when it is real. */
+  function isDefaultStatus(v) { return !v || v === "not_started" || v === "unknown"; }
+
+  function pill(value, map) {
+    return '<span class="pill p-' + value + '">' + esc(map[value] || value) + "</span>";
+  }
+  function pillOrDash(value, map) {
+    return isDefaultStatus(value) ? '<span class="dash">\u2014</span>' : pill(value, map);
+  }
+
+  function renderResults() {
+    var rows = currentRows();
+    var bar = document.getElementById("gp1-resultbar");
+    var missing = rows.filter(function (r) { return r.d.docState === "none"; }).length;
+    bar.innerHTML = "<span><b>" + rows.length + "</b> of " + state.items.length + " items</span>" +
+      (missing ? "<span><b>" + missing + "</b> with no documentation</span>" : "") +
+      (ui.q ? '<span>matching “' + esc(ui.q) + "”</span>" : "");
+
+    var host = document.getElementById("gp1-results");
+    if (!rows.length) {
+      host.innerHTML = '<div class="empty"><p>No items match these filters.</p>' +
+        '<button type="button" class="btn" id="gp1-clear2">Clear all filters</button></div>';
+      var c2 = document.getElementById("gp1-clear2");
+      if (c2) c2.addEventListener("click", clearFilters);
+      return;
+    }
+    host.innerHTML = ui.view === "table" ? tableView(rows)
+      : ui.view === "cards" ? cardsView(rows) : accView(rows);
+  }
+
+  function tableView(rows) {
+    var h = '<div class="tablewrap"><table><thead><tr>' +
+      "<th>Code / tag</th><th>Item</th><th>Location</th><th>Manufacturer</th>" +
+      "<th>Model / SKU</th><th>Qty</th><th>Documentation</th>" +
+      "<th>Approved</th><th>Procured</th><th>Notes</th><th></th>" +
+      "</tr></thead><tbody>";
+    var lastDisc = null;
+    var grouped = ui.sort === "seq";
+    rows.forEach(function (r) {
+      var it = r.it;
+      if (grouped && it.discipline_code !== lastDisc) {
+        lastDisc = it.discipline_code;
+        var n = rows.filter(function (x) { return x.it.discipline_code === lastDisc; }).length;
+        h += '<tr class="grouprow"><th colspan="11">' + esc(it.discipline) +
+          '<span class="gcount">' + n + " items</span></th></tr>";
+      }
+      h += '<tr data-doc="' + r.d.docState + '">' +
+        '<td class="c-code">' + esc(it.code_tag || "") + "</td>" +
+        '<td class="c-item"><strong>' + esc(it.item) + "</strong>" +
+        (it.sub_category ? '<div class="sub">' + esc(it.sub_category) + "</div>" : "") + "</td>" +
+        "<td>" + (esc(it.location) || dash()) + "</td>" +
+        "<td>" + (esc(it.manufacturer) || dash()) + "</td>" +
+        '<td class="mono">' + (esc(it.model) || dash()) + "</td>" +
+        '<td class="c-num">' + qty(it) + "</td>" +
+        '<td class="c-docs">' + docLinks(it, true) + "</td>" +
+        "<td>" + pillOrDash(it.approved, APPROVED) + "</td>" +
+        "<td>" + pillOrDash(it.procured, PROCURED) + "</td>" +
+        '<td class="c-notes">' + esc(it.notes || "") + "</td>" +
+        "<td>" + editBtn(it) + "</td>" +
+        "</tr>";
+    });
+    return h + "</tbody></table></div>";
+  }
+
+  function dash() { return '<span class="dash">\u2014</span>'; }
+
+  function siteLocation(it) {
+    var loc = it.location || "";
+    if (!loc) return "";
+    if (it.item && it.item.toLowerCase().indexOf(loc.toLowerCase()) >= 0) return "";
+    return loc;
+  }
+
+  function qty(it) {
+    if (it.qty === null || it.qty === undefined) return esc(it.qty_raw || "\u2014");
+    return esc(String(it.qty)) + (it.unit ? " " + esc(it.unit) : "");
+  }
+
+  function editBtn(it) {
+    if (!Store.canOfferEditing()) return "";
+    return '<button type="button" class="btn" data-edit="' + attr(it.id) +
+      '" title="Edit this item" style="height:26px;padding:0 7px">' + ICON.pencil + "</button>";
+  }
+
+  function cardsView(rows) {
+    var h = '<div class="cards">';
+    rows.forEach(function (r) {
+      var it = r.it;
+      h += '<article class="card" data-doc="' + r.d.docState + '">' +
+        '<div class="card-top"><span class="card-disc">' + esc(it.discipline) + "</span>" +
+        '<span class="card-code">' + esc(it.code_tag || "") + "</span></div>" +
+        '<h3 class="card-title">' + esc(it.item) + "</h3>" +
+        maker(it) + factLine(it) +
+        (it.notes ? '<div class="card-note">' + esc(it.notes) + "</div>" : "") +
+        '<div class="card-foot">' + docLinks(it, false) +
+        (isDefaultStatus(it.approved) ? "" : pill(it.approved, APPROVED)) +
+        (isDefaultStatus(it.procured) ? "" : pill(it.procured, PROCURED)) +
+        editBtn(it) + "</div>" +
+        "</article>";
+    });
+    return h + "</div>";
+  }
+
+  /* Manufacturer and model are two different facts and were running together
+     as one string. Separate them, and set the model in mono - it is the value
+     someone retypes into a supplier enquiry. */
+  function maker(it) {
+    if (!it.manufacturer && !it.model) return "";
+    var h = '<div class="card-mfr">';
+    if (it.manufacturer) h += esc(it.manufacturer);
+    if (it.manufacturer && it.model) h += ' <span class="sep">\u00b7</span> ';
+    if (it.model) h += '<span class="m">' + esc(it.model) + "</span>";
+    return h + "</div>";
+  }
+
+  function factLine(it) {
+    var bits = [];
+    var q = qty(it);
+    if (q && q !== "\u2014") bits.push('<span class="num">' + q + "</span>");
+    if (siteLocation(it)) bits.push(esc(siteLocation(it)));
+    if (it.drawing_ref) bits.push('<span class="mono">' + esc(it.drawing_ref) + "</span>");
+    if (!bits.length) return "";
+    return '<div class="card-line">' + bits.join(' <span class="sep">\u00b7</span> ') + "</div>";
+  }
+
+  function accView(rows) {
+    var groups = {};
+    rows.forEach(function (r) {
+      (groups[r.it.discipline_code] = groups[r.it.discipline_code] || []).push(r);
+    });
+    var h = '<div class="acc">';
+    DISCIPLINE_ORDER.forEach(function (d) {
+      var g = groups[d.code];
+      if (!g) return;
+      var done = g.filter(function (r) { return r.d.docState !== "none"; }).length;
+      h += '<details class="disc"' + (g.length <= 12 ? " open" : "") + "><summary>" +
+        ICON.caret +
+        '<span class="acc-name">' + esc(d.name) + "</span>" +
+        '<span class="acc-bar" role="img" aria-label="' + done + " of " + g.length + ' documented">' +
+        '<i style="width:' + (done / g.length * 100) + '%"></i></span>' +
+        '<span class="acc-n">' + done + "/" + g.length + " documented</span>" +
+        "</summary><div class=\"acc-body\">";
+      g.forEach(function (r) {
+        var it = r.it;
+        var meta = [];
+        if (it.manufacturer) meta.push(esc(it.manufacturer));
+        if (it.model) meta.push('<span class="mono">' + esc(it.model) + "</span>");
+        if (siteLocation(it)) meta.push(esc(siteLocation(it)));
+        var aq = qty(it);
+        if (aq && aq !== "\u2014") meta.push('<span class="num">' + aq + "</span>");
+        h += '<div class="acc-item" data-doc="' + r.d.docState + '">' +
+          '<div class="acc-item-top"><span class="t">' + esc(it.item) + "</span>" +
+          '<span class="card-code">' + esc(it.code_tag || "") + "</span></div>" +
+          (meta.length ? '<div class="acc-meta">' + meta.join(' <span class="sep">\u00b7</span> ') + "</div>" : "") +
+          '<div class="card-foot">' + docLinks(it, false) + editBtn(it) + "</div>" +
+          "</div>";
+      });
+      h += "</div></details>";
+    });
+    return h + "</div>";
+  }
+
+  function footer() {
+    var m = state.meta || {};
+    return "<footer>" +
+      '<span class="mono">rev ' + esc(String(m.rev || 1)) + " · updated " + esc((m.updated_at || "").slice(0, 10)) + "</span>" +
+      "<span>Source: " + esc(m.source || "procurement tracker") + "</span>" +
+      '<span id="gp1-export"></span>' +
+      "</footer>";
+  }
+
+  /* ======================================================================
+     6 - EDITOR. One item at a time behind an explicit Save, so a read-only
+     viewer loses one dialog's typing rather than an afternoon's.
+     ====================================================================== */
+
+  function editorDialog() {
+    return '<dialog id="gp1-editor"><form method="dialog" id="gp1-editform">' +
+      '<div class="ed-head"><h2 class="ed-title" id="gp1-ed-title">Edit item</h2>' +
+      '<span class="ed-sub" id="gp1-ed-sub"></span></div>' +
+      '<div class="ed-body" id="gp1-ed-body"></div>' +
+      '<div class="ed-foot"><span class="note" id="gp1-ed-note"></span>' +
+      '<button type="button" class="btn" id="gp1-ed-cancel">Cancel</button>' +
+      '<button type="button" class="btn btn-primary" id="gp1-ed-save">Save item</button>' +
+      "</div></form></dialog>";
+  }
+
+  var editingId = null;
+
+  function openEditor(id) {
+    var i = byId(id);
+    if (i < 0) return;
+    var it = state.items[i];
+    editingId = id;
+
+    document.getElementById("gp1-ed-title").textContent = it.item.slice(0, 70) || "Edit item";
+    document.getElementById("gp1-ed-sub").textContent = it.discipline + " · " + (it.code_tag || "no code");
+
+    var f = "";
+    f += '<div class="ed-grid two">' +
+      textField("code_tag", "Code / tag", it.code_tag, true) +
+      textField("sub_category", "Sub-category", it.sub_category) + "</div>";
+    f += textField("item", "Item / description", it.item);
+    f += '<div class="ed-grid two">' +
+      textField("location", "Location / zone", it.location) +
+      textField("manufacturer", "Manufacturer / brand", it.manufacturer) + "</div>";
+    f += '<div class="ed-grid two">' +
+      textField("model", "Model / SKU", it.model, true) +
+      textField("drawing_ref", "Drawing reference", it.drawing_ref, true) + "</div>";
+    f += '<div class="ed-grid two">' +
+      textField("qty", "Qty", it.qty === null || it.qty === undefined ? (it.qty_raw || "") : it.qty) +
+      textField("unit", "Unit", it.unit) + "</div>";
+    f += textField("spec_url", "Spec — manufacturer datasheet URL", it.spec_url, true);
+    f += textField("folder_url", "Folder — Google Drive folder URL", it.folder_url, true);
+    f += '<div class="ed-grid two">' +
+      selectField("approved", "Approved", APPROVED, it.approved) +
+      selectField("procured", "Procured", PROCURED, it.procured) + "</div>";
+    f += selectField("spec_status", "Spec sheet status", SPEC_STATUS, it.spec_status);
+    f += '<label class="field"><span>Notes</span><textarea data-f="notes">' + esc(it.notes) + "</textarea></label>";
+
+    document.getElementById("gp1-ed-body").innerHTML = f;
+    document.getElementById("gp1-ed-note").textContent =
+      Store.writeState() === "writer" ? "" : "Only the project owner can save changes here.";
+    document.getElementById("gp1-editor").showModal();
+  }
+
+  function textField(key, label, value, mono) {
+    return '<label class="field"><span>' + label + "</span>" +
+      '<input type="text" data-f="' + key + '" value="' + attr(value == null ? "" : value) + '"' +
+      (mono ? ' class="mono-in"' : "") + "></label>";
+  }
+  function selectField(key, label, map, current) {
+    var h = '<label class="field"><span>' + label + '</span><select data-f="' + key + '">';
+    Object.keys(map).forEach(function (k) {
+      h += '<option value="' + k + '"' + (k === current ? " selected" : "") + ">" + esc(map[k]) + "</option>";
+    });
+    return h + "</select></label>";
+  }
+
+  function saveEditor() {
+    if (!editingId) return;
+    var fields = {};
+    var inputs = document.getElementById("gp1-ed-body").querySelectorAll("[data-f]");
+    Array.prototype.forEach.call(inputs, function (el) {
+      fields[el.getAttribute("data-f")] = el.value.trim();
+    });
+
+    var q = fields.qty;
+    if (q === "") { fields.qty = null; fields.qty_raw = null; }
+    else if (isFinite(Number(q))) { fields.qty = Number(q); fields.qty_raw = null; }
+    else { fields.qty_raw = q; fields.qty = null; }
+
+    ["spec_url", "folder_url"].forEach(function (k) {
+      var v = fields[k];
+      if (v && !/^https?:\/\//i.test(v)) fields[k] = "https://" + v.replace(/^\/+/, "");
+    });
+
+    Store.patch(editingId, fields);
+    document.getElementById("gp1-editor").close();
+    editingId = null;
+    render();
+    Store.flush().then(function (result) {
+      if (result === "saved") toast("Saved · rev " + state.meta.rev);
+      else if (result === "read_only") showReadOnlyBanner();
+    }, function () {});
+  }
+
+  /* ======================================================================
+     7 - PERMISSION UX. The viewer's level is unknowable client-side - the
+     only honest signal is a publish rejection, so probe by saving, never by
+     pretending a password means anything on a world-readable page.
+     ====================================================================== */
+
+  function showReadOnlyBanner() {
+    var b = document.getElementById("gp1-banner");
+    b.innerHTML = '<div class="banner read-only"><div><b>This is a read-only view.</b> ' +
+      "Your change wasn’t saved. The register is maintained by the project team — " +
+      "the item still shows your edit on screen until you reload.</div></div>";
+    render();
+  }
+
+  function renderActions() {
+    var host = document.getElementById("gp1-actions");
+    if (!host) return;
+    var n = Store.dirtyCount();
+    var h = "";
+    if (Store.canOfferEditing()) {
+      h += '<button type="button" class="btn' + (n ? " btn-primary" : "") + '" id="gp1-save"' +
+        (n ? "" : " disabled") + ">" + (n ? "Save " + n + " change" + (n > 1 ? "s" : "") : "Saved") + "</button>";
+    }
+    host.innerHTML = h;
+    var s = document.getElementById("gp1-save");
+    if (s) s.addEventListener("click", function () {
+      Store.flush().then(function (r) {
+        if (r === "saved") toast("Saved · rev " + state.meta.rev);
+        else if (r === "read_only") showReadOnlyBanner();
+      }, function () {});
+    });
+
+    var ex = document.getElementById("gp1-export");
+    if (ex && !ex.dataset.ready) {
+      ex.dataset.ready = "1";
+      ex.innerHTML = '<a href="#" id="gp1-dl-json">Download JSON</a> · <a href="#" id="gp1-dl-csv">Download CSV</a>';
+      ex.querySelector("#gp1-dl-json").addEventListener("click", function (e) { e.preventDefault(); download("json"); });
+      ex.querySelector("#gp1-dl-csv").addEventListener("click", function (e) { e.preventDefault(); download("csv"); });
+    }
+  }
+
+  var downloads = null;
+  function download(kind) {
+    if (!downloads) { toast("Downloads aren’t available in this view."); return; }
+    var name = "gp1-mur-register-rev" + (state.meta.rev || 1);
+    var data = kind === "json" ? JSON.stringify(state, null, 2) : toCsv(state.items);
+    downloads.save({ filename: name + "." + kind, data: data }).then(function () {
+      toast("Downloaded " + name + "." + kind);
+    }, function () {});
+  }
+
+  function toCsv(items) {
+    var cols = ["seq", "discipline", "sub_category", "code_tag", "item", "location",
+      "manufacturer", "model", "qty", "unit", "drawing_ref", "spec_url", "folder_url",
+      "spec_status", "approved", "procured", "notes"];
+    var lines = [cols.join(",")];
+    items.forEach(function (it) {
+      lines.push(cols.map(function (c) {
+        var v = it[c];
+        if (v === null || v === undefined) v = "";
+        v = String(v);
+        return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+      }).join(","));
+    });
+    return "\ufeff" + lines.join("\r\n");
+  }
+
+  var toastTimer = null;
+  function toast(msg) {
+    var el = document.getElementById("gp1-toast");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "gp1-toast";
+      el.className = "toast";
+      el.setAttribute("role", "status");
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.display = "";
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { el.style.display = "none"; }, 3800);
+  }
+
+  /* ======================================================================
+     8 - WIRING + BOOT
+     ====================================================================== */
+
+  function render() {
+    renderResults();
+    renderActions();
+  }
+
+  function renderToolbar() {
+    var panel = document.getElementById("gp1-filterpanel");
+    panel.innerHTML = ui.showFilters ? filterPanel() : "";
+    var t = document.getElementById("gp1-filters-toggle");
+    t.setAttribute("aria-pressed", ui.showFilters ? "true" : "false");
+    t.innerHTML = "Filters" + activeFilterCount();
+    var segs = document.querySelectorAll(".seg [data-view]");
+    Array.prototype.forEach.call(segs, function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-view") === ui.view ? "true" : "false");
+    });
+  }
+
+  function changed() {
+    writeHash();
+    renderToolbar();
+    render();
+  }
+
+  function clearFilters() {
+    ui.disciplines = []; ui.doc = "all"; ui.sub = ""; ui.location = "";
+    ui.manufacturer = ""; ui.approved = ""; ui.procured = "";
+    changed();
+  }
+
+  var qTimer = null;
+
+  function wire() {
+    document.addEventListener("click", function (e) {
+      if (!e.target || !e.target.closest) return;
+      var el;
+      if ((el = e.target.closest("[data-view]"))) {
+        ui.view = el.getAttribute("data-view");
+        store("gp1.view", ui.view);   // an explicit choice beats the breakpoint, permanently
+        changed();
+      } else if ((el = e.target.closest("[data-disc]"))) {
+        var c = el.getAttribute("data-disc");
+        var i = ui.disciplines.indexOf(c);
+        if (i >= 0) ui.disciplines.splice(i, 1); else ui.disciplines.push(c);
+        changed();
+      } else if ((el = e.target.closest("[data-doc]"))) {
+        ui.doc = el.getAttribute("data-doc");
+        if (el.closest(".cov-key")) {
+          ui.showFilters = true;
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        changed();
+      } else if ((el = e.target.closest("[data-edit]"))) {
+        openEditor(el.getAttribute("data-edit"));
+      } else if (e.target.closest("#gp1-filters-toggle")) {
+        ui.showFilters = !ui.showFilters;
+        renderToolbar();
+      } else if (e.target.closest("#gp1-clear")) {
+        clearFilters();
+      } else if (e.target.closest("#gp1-ed-cancel")) {
+        document.getElementById("gp1-editor").close();
+        editingId = null;
+      } else if (e.target.closest("#gp1-ed-save")) {
+        saveEditor();
+      }
+    });
+
+    document.addEventListener("change", function (e) {
+      if (!e.target || !e.target.closest) return;
+      var el = e.target.closest("[data-sel]");
+      if (!el) return;
+      var k = el.getAttribute("data-sel"), v = el.value;
+      if (k === "sub") ui.sub = v;
+      else if (k === "loc") ui.location = v;
+      else if (k === "mfr") ui.manufacturer = v;
+      else if (k === "ap") ui.approved = v;
+      else if (k === "pr") ui.procured = v;
+      else if (k === "sort") ui.sort = v;
+      changed();
+    });
+
+    document.addEventListener("input", function (e) {
+      if (e.target.id !== "gp1-q") return;
+      clearTimeout(qTimer);
+      qTimer = setTimeout(function () {
+        ui.q = e.target.value;
+        writeHash();
+        renderToolbar();
+        render();
+      }, 130);
+    });
+
+    window.addEventListener("hashchange", function () {
+      if (writingHash) return;
+      if (readHash()) { renderToolbar(); render(); }
+    });
+
+    Store.onChange(renderActions);
+  }
+
+  function boot() {
+    state = loadState();
+    deriveAll(state.items);
+    Store.restoreRole();
+
+    ui.view = defaultView();
+    var saved = recall("gp1.view");
+    if (saved === "table" || saved === "cards" || saved === "acc") ui.view = saved;
+    readHash();
+
+    document.getElementById("gp1-root").innerHTML = shell();
+    wire();
+    render();
+    writeHash();
+
+    var prev = unstash("gp1.ui");
+    if (prev) {
+      try {
+        var p = JSON.parse(prev);
+        if (p.filters) { ui.showFilters = true; renderToolbar(); }
+        if (p.y) window.scrollTo(0, p.y);
+      } catch (e) {}
+    }
+
+    /* Capabilities resolve later than this - never during the first
+       synchronous run - so the register is already complete and useful
+       before either of these lands, and stays useful if they never do. */
+    if (window.claude && window.claude.use) {
+      window.claude.use("artifact").then(function (ns) {
+        if (ns) { Store.attach(ns); render(); }
+      }, function () {});
+      window.claude.use("downloads").then(function (ns) {
+        downloads = ns;
+      }, function () {});
+    }
+  }
+
+  try {
+    boot();
+  } catch (err) {
+    var root = document.getElementById("gp1-root");
+    if (root) {
+      root.innerHTML = '<div class="wrap"><div class="banner"><div>' +
+        "<b>The register couldn’t start.</b> The data block in this page could not be read. " +
+        "The last working version is still in the artifact’s version history." +
+        "</div></div></div>";
+    }
+    if (window.console) console.error(err);
+  }
+})();
+</script>

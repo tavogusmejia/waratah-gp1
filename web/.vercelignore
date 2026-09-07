@@ -1,0 +1,5 @@
+# The layout regression harness. It is a copy of index.html plus a script that
+# measures sticky offsets, column shedding and horizontal overflow, and it is
+# how the "first row hidden behind the sticky head" bug was caught. Useful in
+# the repo, not wanted on the public site.
+__probe.html

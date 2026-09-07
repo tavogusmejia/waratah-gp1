@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>GP1-MUR Material Register</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="./assets/styles.css">
+<script>
+  (function () {
+    var m = /theme=(dark|light)/.exec(location.search);
+    if (m) { try { localStorage.setItem("gp1.theme", m[1]); } catch (e) {}
+             document.documentElement.setAttribute("data-theme", m[1]); }
+    var f = /filters=1/.test(location.search);
+    if (f) window.__openFilters = true;
+  })();
+</script>
+</head>
+<body>
+<div id="root"></div>
+<script src="./assets/config.js"></script>
+<script src="./assets/store.js"></script>
+<script src="./assets/app.js"></script>
+<script>
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    if (window.__openFilters) {
+      var t = document.getElementById("filters-toggle");
+      if (t) t.click();
+    }
+    setTimeout(report, 350);
+  }, 900);
+
+  function report() {
+    var de = document.documentElement, out = [];
+    function px(n) { return Math.round(n); }
+    out.push("viewport=" + window.innerWidth + "x" + window.innerHeight);
+    out.push("PAGE_H_OVERFLOW=" + (de.scrollWidth > de.clientWidth) +
+             " (scrollW=" + de.scrollWidth + " clientW=" + de.clientWidth + ")");
+    var tw = document.querySelector(".tablewrap");
+    if (tw) {
+      out.push("TABLE_H_SCROLL=" + (tw.scrollWidth > tw.clientWidth + 1) +
+               " (scrollW=" + tw.scrollWidth + " clientW=" + tw.clientWidth + ")");
+    }
+    var ths = [].map.call(document.querySelectorAll("thead th"), function (th) {
+      return th.textContent.trim() + ":" + px(th.getBoundingClientRect().width);
+    });
+    out.push("COLUMNS=" + ths.join(" | "));
+
+    var tb = document.getElementById("toolbar");
+    out.push("toolbar_h=" + (tb ? px(tb.getBoundingClientRect().height) : "?") +
+             " --toolbar-h=" + getComputedStyle(de).getPropertyValue("--toolbar-h").trim());
+
+    // Two distinct sticky failures, both of which have bitten this table:
+    //   (a) a stale hard-coded offset hides the head behind an open filter panel
+    //   (b) an overflow container makes the head offset itself INSIDE the
+    //       wrapper, leaving a gap above and covering the first row.
+    // Measuring the computed `top` catches (a) only, so measure geometry.
+    var th0 = document.querySelector("thead th");
+    if (th0 && tb && tw) {
+      window.scrollTo(0, 0);
+      var gap = th0.getBoundingClientRect().top - tw.getBoundingClientRect().top;
+      out.push("HEAD_FLUSH_AT_TOP=" + (Math.abs(gap) < 2) + " (gap=" + px(gap) + "px)");
+
+      // First data row of the first group must be fully clear of the head.
+      var r1 = document.querySelector("tbody tr.row");
+      if (r1) {
+        var covered = r1.getBoundingClientRect().top < th0.getBoundingClientRect().bottom - 1;
+        out.push("FIRST_ROW_COVERED=" + covered + " (" +
+                 (r1.textContent.replace(/\s+/g, " ").trim().slice(0, 28)) + ")");
+      }
+
+      window.scrollTo(0, 1400);
+      var stuck = th0.getBoundingClientRect().top;
+      out.push("STICKS_TO_TOOLBAR=" + (Math.abs(stuck - tb.getBoundingClientRect().height) < 3) +
+               " (head.top=" + px(stuck) + " toolbar_h=" + px(tb.getBoundingClientRect().height) + ")");
+      var gr = document.querySelector("tr.grouprow th");
+      if (gr) out.push("groupband.top=" + px(gr.getBoundingClientRect().top) +
+                       " thead_h=" + getComputedStyle(document.documentElement).getPropertyValue("--thead-h").trim());
+      window.scrollTo(0, 0);
+    }
+    out.push("rows_rendered=" + document.querySelectorAll("tbody tr.row").length);
+    out.push("first_tag=" + (document.querySelector("tbody tr.row td") || {}).textContent);
+    out.push("filters_open=" + !!document.querySelector(".filters"));
+
+    var cs = getComputedStyle(document.body);
+    out.push("THEME=" + (de.getAttribute("data-theme") || "auto") +
+             " bg=" + cs.backgroundColor + " fg=" + cs.color);
+
+    var sw = document.querySelector(".rail-item[data-disc] .rail-swatch");
+    if (sw) out.push("disc_swatch_bg=" + getComputedStyle(sw).backgroundColor);
+    var row = document.querySelector("tbody tr.row td");
+    if (row) out.push("row_edge=" + getComputedStyle(row).borderLeftColor);
+
+    var d = document.createElement("pre");
+    d.id = "probe";
+    d.textContent = out.join("\n");
+    document.body.appendChild(d);
+    document.title = "PROBE-DONE";
+  }
+});
+</script>
+</body>
+</html>
