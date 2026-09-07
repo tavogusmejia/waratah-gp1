@@ -72,16 +72,51 @@ The register works without it. Connect it when the team needs to edit the
 schedule in the page rather than in the workbook.
 
 ```
-supabase/schema.sql     table, indexes, coverage view, updated_at trigger
-supabase/policies.sql   RLS: anyone reads, listed editors write
-supabase/import.sql     first import from data/seed.json
+supabase/schema.sql      schema, table, indexes, coverage view, grants
+supabase/policies.sql    RLS: anyone reads, listed editors write
+supabase/make_import.py  generates import-seed.sql with the payload inlined
+supabase/import.sql      the import template (empty payload - do not run directly)
 ```
 
-Run them in that order, add the team's addresses to `register_editor`, then put
-the project URL and anon key in `web/assets/config.js`.
+The Supabase project is **`waratah`**, and it is expected to carry other
+Waratah projects in time. So everything here lives in a dedicated **`gp1`
+schema**, not `public` — otherwise the next project to land in this database
+brings its own `register_item` or `editor` table and collides.
 
-The item JSON uses snake_case keys that match the `register_item` columns 1:1,
-deliberately, so the import needs no mapping layer to get wrong.
+Setup, in order:
+
+```bash
+# 1. schema.sql      creates the gp1 schema, the table, and the grants
+# 2. policies.sql    row level security
+python supabase/make_import.py    # -> supabase/import-seed.sql
+# 3. import-seed.sql loads the 199 items
+```
+
+Then, and this is the step that is easy to miss:
+
+**Settings → API → Exposed schemas → add `gp1`.**
+
+PostgREST only serves schemas on that list. Without it every query returns
+`PGRST106`, the register falls back to the committed seed, and the page looks
+like it is working. `store.js` names the reason on the console rather than
+failing silently — check there first if the footer still says *"From the
+committed seed"* after wiring it up.
+
+Finally, add the team's addresses to `gp1.register_editor` and put the project
+URL and anon key in `web/assets/config.js`.
+
+The item JSON uses snake_case keys that match the `gp1.register_item` columns
+1:1, deliberately, so the import needs no mapping layer to get wrong.
+
+### Why a schema costs two extra things
+
+`public` gets them from Supabase's default privileges and a hand-made schema
+does not:
+
+- it must be exposed to the API, as above;
+- `usage` and table grants must be issued explicitly — they are, at the bottom
+  of `schema.sql`. Without them PostgREST reports the table as *missing*
+  rather than *forbidden*, which is a confusing way to spend an afternoon.
 
 ### About the anon key in `config.js`
 

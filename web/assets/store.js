@@ -79,6 +79,7 @@ window.Store = (function () {
 
     function mk() {
       sb = window.supabase.createClient(CFG.SUPABASE_URL, CFG.SUPABASE_ANON_KEY, {
+        db: { schema: CFG.SUPABASE_SCHEMA || "public" },
         auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true }
       });
       sb.auth.onAuthStateChange(function (_evt, session) {
@@ -94,15 +95,44 @@ window.Store = (function () {
 
   /* Rows come back as the same snake_case shape the seed uses, because the
      table columns were named to match it 1:1. No mapping layer to get wrong. */
+  /* Falling back to the seed is the right behaviour when the backend is
+     unreachable, but during setup a silent fallback is indistinguishable from
+     a working page, so every reason is named on the console. */
   function fetchRemote() {
     return loadClient().then(function (client) {
-      if (!client) return null;
+      if (!client) { warn("supabase-js did not load"); return null; }
       return client.from("register_item").select("*").order("seq", { ascending: true })
         .then(function (res) {
-          if (res.error || !res.data || !res.data.length) return null;
+          if (res.error) { warn(explain(res.error)); return null; }
+          if (!res.data || !res.data.length) {
+            warn("the register_item table is empty - has import-seed.sql been run?");
+            return null;
+          }
           return res.data;
         });
-    }).catch(function () { return null; });
+    }).catch(function (e) { warn(e && e.message); return null; });
+  }
+
+  function warn(why) {
+    if (window.console) {
+      console.warn("[GP1] Showing the committed seed instead of live data: " + why);
+    }
+  }
+
+  function explain(err) {
+    var code = String(err.code || "");
+    var schema = CFG.SUPABASE_SCHEMA || "public";
+    if (code === "PGRST106") {
+      return 'the "' + schema + '" schema is not exposed to the API. ' +
+        "Supabase dashboard -> Settings -> API -> Exposed schemas -> add it.";
+    }
+    if (code === "42P01") {
+      return "register_item does not exist in the \"" + schema + "\" schema - has schema.sql been run?";
+    }
+    if (code === "42501" || code === "PGRST301") {
+      return "the anon role may not read register_item - has policies.sql been run?";
+    }
+    return (err.message || "unknown error") + (code ? " (" + code + ")" : "");
   }
 
   /* ---------------------------------------------------------------------

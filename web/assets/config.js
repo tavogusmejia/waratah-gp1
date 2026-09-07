@@ -18,6 +18,13 @@ window.GP1_CONFIG = {
   SUPABASE_URL: "",
   SUPABASE_ANON_KEY: "",
 
+  /* This project's tables live in their own schema, not `public`, because the
+     Waratah database is meant to carry other projects later and they would
+     otherwise collide. The schema must also be listed under
+     Settings -> API -> Exposed schemas, or PostgREST reports PGRST106 and the
+     register quietly falls back to the committed seed. */
+  SUPABASE_SCHEMA: "gp1",
+
   /* Where the register reads from before - and instead of - the network.
      It must stay a complete copy of the schedule: the page is required to be
      useful with no backend at all. */

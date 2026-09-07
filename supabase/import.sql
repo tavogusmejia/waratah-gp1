@@ -3,18 +3,19 @@
 --
 -- Run AFTER schema.sql and policies.sql.
 --
--- The item JSON in web/data/seed.json uses snake_case keys that match the
--- register_item columns 1:1, deliberately, so this needs no mapping layer to
--- write, test, or get wrong.
+-- DO NOT RUN THIS FILE DIRECTLY - its payload is the empty array below.
+-- Generate the filled version first:
 --
--- HOW TO RUN
---   In the Supabase SQL editor, paste the `items` array from
---   web/data/seed.json in place of the [] below. It is ~160 KB, which the
---   editor handles. From psql instead:
+--     python supabase/make_import.py     ->  supabase/import-seed.sql
 --
---     \set payload `jq -c .items web/data/seed.json`
---     insert into register_item
---     select * from jsonb_populate_recordset(null::register_item, :'payload');
+-- and run that. The 154 KB payload is not committed, because it would
+-- duplicate web/data/seed.json and the two would drift apart.
+--
+-- The item JSON uses snake_case keys that match the gp1.register_item columns
+-- 1:1, deliberately, so this needs no mapping layer to write, test, or get
+-- wrong. From psql, instead of pasting:
+--
+--     psql "$DATABASE_URL" -f supabase/import-seed.sql
 --
 -- Re-running is safe: the conflict clause makes it an idempotent refresh of
 -- the source columns, and it deliberately does NOT touch spec_url, folder_url,
@@ -22,8 +23,8 @@
 -- page, and a re-import must never overwrite that work with a stale seed.
 -- ============================================================================
 
-insert into register_item
-select * from jsonb_populate_recordset(null::register_item, '[]'::jsonb)
+insert into gp1.register_item
+select * from jsonb_populate_recordset(null::gp1.register_item, '[]'::jsonb)
 on conflict (id) do update set
   seq             = excluded.seq,
   discipline_code = excluded.discipline_code,
@@ -48,6 +49,6 @@ on conflict (id) do update set
 select count(*) as items,
        count(*) filter (where spec_url <> '' or folder_url <> '') as documented,
        count(distinct discipline_code) as trades
-from register_item;
+from gp1.register_item;
 
-select * from register_coverage;
+select * from gp1.register_coverage;
