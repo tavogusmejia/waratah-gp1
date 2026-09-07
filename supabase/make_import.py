@@ -7,8 +7,8 @@ repo and guarantee the two drift apart, so the file is generated and gitignored.
 Regenerate it whenever the seed changes.
 
 Usage:
-    python supabase/make_import.py
-    python supabase/make_import.py --chunks 4     # split for the web SQL editor
+    python supabase/make_import.py                # one file, for psql
+    python supabase/make_import.py --paste 3      # base64 files for the web editor
 
 One 117 KB statement is fine for psql and can be slow or unresponsive in the
 browser editor, which is a textarea in a Monaco instance rather than a file
@@ -16,9 +16,9 @@ upload. --chunks writes N numbered files to paste one after another. The insert
 is an idempotent upsert on the primary key, so the chunks are order-independent
 and safe to re-run.
 
-Usage:
-    python supabase/make_import.py
-    # then paste supabase/import-seed.sql into the Supabase SQL editor
+--paste is the one to use with the Supabase web SQL editor: it base64-encodes
+the payload, because that editor splits scripts on semicolons even inside
+string literals and the data contains 23 of them.
 """
 
 from __future__ import annotations

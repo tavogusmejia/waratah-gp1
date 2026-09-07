@@ -1,7 +1,8 @@
 -- ============================================================================
 -- GP1-MUR Material Register - first import.
 --
--- Run AFTER schema.sql and policies.sql.
+-- Run AFTER the migrations (supabase db push). Data is not in the
+-- migrations - web/data/seed.json is the record of it.
 --
 -- DO NOT RUN THIS FILE DIRECTLY - its payload is the empty array below.
 -- Generate the filled version first:

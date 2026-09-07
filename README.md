@@ -66,57 +66,95 @@ third-party request at all.
 
 ---
 
-## Supabase (optional)
+## Supabase
 
-The register works without it. Connect it when the team needs to edit the
-schedule in the page rather than in the workbook.
-
-```
-supabase/schema.sql      schema, table, indexes, coverage view, grants
-supabase/policies.sql    RLS: anyone reads, listed editors write
-supabase/make_import.py  generates import-seed.sql with the payload inlined
-supabase/import.sql      the import template (empty payload - do not run directly)
-```
-
-The Supabase project is **`waratah`**, and it is expected to carry other
-Waratah projects in time. So everything here lives in a dedicated **`gp1`
+Project **`waratah`**, ref `iygkonfuyslvgezgofby`. It is expected to carry other
+Waratah projects in time, so everything here lives in a dedicated **`gp1`
 schema**, not `public` — otherwise the next project to land in this database
 brings its own `register_item` or `editor` table and collides.
 
-Setup, in order:
+The register still runs without it: with `config.js` emptied it renders from
+`web/data/seed.json` and never touches the network.
 
-```bash
-# 1. schema.sql      creates the gp1 schema, the table, and the grants
-# 2. policies.sql    row level security
-python supabase/make_import.py    # -> supabase/import-seed.sql
-# 3. import-seed.sql loads the 199 items
+```
+supabase/migrations/     the schema, under version control
+supabase/make_import.py  generates the data import
+supabase/import.sql      import template (empty payload - do not run directly)
+supabase/config.toml     CLI project config
 ```
 
-Then, and this is the step that is easy to miss:
+### Changing the schema
 
-**Settings → API → Exposed schemas → add `gp1`.**
+Migrations, never the SQL editor:
 
-PostgREST only serves schemas on that list. Without it every query returns
-`PGRST106`, the register falls back to the committed seed, and the page looks
-like it is working. `store.js` names the reason on the console rather than
-failing silently — check there first if the footer still says *"From the
-committed seed"* after wiring it up.
+```bash
+supabase migration new add_supplier_column
+# edit supabase/migrations/<timestamp>_add_supplier_column.sql
+supabase db push
+```
 
-Finally, add the team's addresses to `gp1.register_editor` and put the project
-URL and anon key in `web/assets/config.js`.
+`db push`, `migration list` and `migration repair` all work over the network.
+**Docker is only needed for `db pull`, `db diff` and local dev** (`supabase
+start`) — none of which this project requires.
 
-The item JSON uses snake_case keys that match the `gp1.register_item` columns
-1:1, deliberately, so the import needs no mapping layer to get wrong.
+The CLI is installed at `%LOCALAPPDATA%\supabase\supabase.exe` and is on PATH.
+`supabase link --project-ref iygkonfuyslvgezgofby` if a fresh clone needs it.
 
-### Why a schema costs two extra things
+### The baseline
 
-`public` gets them from Supabase's default privileges and a hand-made schema
-does not:
+`20260907120000_gp1_baseline.sql` is the schema as first applied by hand, and
+is recorded as already applied on the live database, so it never re-runs there.
+On a fresh database it builds everything from nothing. It was hand-written
+rather than produced by `supabase db pull`, because that needs Docker and
+because the exact SQL applied was known.
 
-- it must be exposed to the API, as above;
-- `usage` and table grants must be issued explicitly — they are, at the bottom
-  of `schema.sql`. Without them PostgREST reports the table as *missing*
-  rather than *forbidden*, which is a confusing way to spend an afternoon.
+### Loading the data
+
+Data is not in the migrations; `web/data/seed.json` is the record of it.
+
+```bash
+python supabase/make_import.py --paste 3   # -> supabase/paste/1..3.sql
+```
+
+**The payload is base64 on purpose.** The Supabase web SQL editor splits a
+script on semicolons *without respecting string literals*, and the data holds
+23 of them (`"Lever handle set; NE-Black Chrome"`). Raw JSON gets cut
+mid-payload and the remainder is parsed as SQL, which surfaces as nonsense like
+`relation "pocket" does not exist` — "pocket" being a word in item 28.
+
+Re-importing is safe: it updates only the columns that come from the workbook
+and leaves `spec_url`, `folder_url`, `approved`, `procured` and `notes` alone,
+because those are what the team edits in the page.
+
+### Two things a non-public schema needs
+
+`public` gets both from Supabase's default privileges; a hand-made schema does
+not.
+
+1. **Exposed to the API** — *Settings → API → Exposed schemas* must list `gp1`.
+   Without it every query returns `PGRST106`, the register falls back to the
+   seed, and the page looks like it is working. `store.js` names the reason on
+   the console rather than failing silently — check there first if the footer
+   says *"From the committed seed"* unexpectedly.
+
+2. **Explicit grants** — in the baseline migration. Without them PostgREST
+   reports the table as *missing* rather than *forbidden*, which is a
+   confusing way to spend an afternoon.
+
+### Who can edit
+
+`gp1.register_editor` is the entire write allowlist — membership in it is the
+only thing that permits an update.
+
+```sql
+insert into gp1.register_editor (email, note)
+values ('someone@example.com', 'Procurement')
+on conflict (email) do nothing;
+```
+
+Sign-in is a magic link. *Authentication → URL Configuration* must list the
+deployed URL as a redirect target, or the link bounces with "requested path is
+invalid".
 
 ### About the anon key in `config.js`
 
