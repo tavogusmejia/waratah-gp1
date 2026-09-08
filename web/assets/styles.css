@@ -815,6 +815,64 @@ dialog#sheet[open] { display: flex; flex-direction: column; }
 .field textarea { resize: vertical; min-height: 66px; }
 .field input.mono-in { font-family: var(--mono); font-size: 12.5px; }
 
+/* ---------- access note -----------------------------------------------------
+   How to grant someone editing rights, kept in the page rather than in a chat
+   log or a README nobody has open. Shown to everyone: a reader who cannot edit
+   is told why, and the SQL is useless without database access anyway. */
+
+dialog#access {
+  border: 1px solid var(--rule-strong); border-radius: var(--r-lg);
+  padding: 0; margin: auto;
+  width: min(600px, calc(100vw - 24px)); max-height: min(86dvh, 760px);
+  background: var(--surface); color: var(--ink);
+  box-shadow: var(--shadow-2);
+}
+dialog#access::backdrop { background: rgba(10, 12, 8, .45); }
+dialog#access[open] { display: flex; flex-direction: column; }
+
+.note-head {
+  padding: 16px 20px 13px; border-bottom: 1px solid var(--rule);
+  display: flex; align-items: baseline; gap: 14px; justify-content: space-between;
+  flex: none;
+}
+.note-title {
+  font-family: var(--display); font-weight: 400; font-size: 20px;
+  letter-spacing: -.01em; margin: 0; font-optical-sizing: auto;
+}
+.note-body { padding: 16px 20px 20px; overflow-y: auto; flex: 1 1 auto; }
+.note-body h3 {
+  font-weight: 600; font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); margin: 22px 0 8px;
+}
+.note-body h3:first-child { margin-top: 0; }
+.note-body p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.55; color: var(--ink-2); }
+.note-body p strong { color: var(--ink); font-weight: 600; }
+.note-body ol { margin: 0 0 10px; padding-left: 20px; font-size: 13.5px; line-height: 1.6; color: var(--ink-2); }
+.note-body li { margin-bottom: 4px; }
+.note-body li::marker { color: var(--ink-3); }
+
+.snippet { position: relative; margin: 0 0 12px; }
+.snippet pre {
+  margin: 0; padding: 12px 14px; overflow-x: auto;
+  background: var(--canvas); border: 1px solid var(--rule);
+  border-radius: var(--r);
+  font-family: var(--mono); font-size: 12px; line-height: 1.6; color: var(--ink);
+}
+.snippet button {
+  position: absolute; top: 7px; right: 7px;
+  border: 1px solid var(--rule-strong); background: var(--surface); color: var(--ink-2);
+  font: inherit; font-size: 11px; padding: 3px 8px; border-radius: var(--r);
+  cursor: pointer;
+}
+.snippet button:hover { background: var(--surface-2); color: var(--ink); }
+
+.note-warn {
+  border-left: 3px solid var(--warn); background: var(--warn-soft);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 10px 13px; margin: 0 0 12px; font-size: 13px; color: var(--ink);
+}
+.note-warn b { font-weight: 600; }
+
 /* ---------- banner / toast ---------- */
 
 .banner {

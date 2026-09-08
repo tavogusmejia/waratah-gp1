@@ -349,7 +349,72 @@
           footer() +
         "</div>" +
       "</div>" +
-      '<dialog id="sheet" aria-labelledby="sheet-title"></dialog>';
+      '<dialog id="sheet" aria-labelledby="sheet-title"></dialog>' +
+      accessNote();
+  }
+
+  /* Kept in the page on purpose. The one thing an owner has to remember about
+     this register is how to let someone else edit it, and that instruction is
+     no use in a chat log or a README nobody has open. Shown to everyone: a
+     reader who cannot edit is told why, and the SQL is inert without database
+     access anyway. */
+  function accessNote() {
+    var add =
+      "insert into gp1.register_editor (email, note)\n" +
+      "values ('someone@example.com', 'Procurement')\n" +
+      "on conflict (email) do nothing;";
+    var list = "select email, note, added_at\nfrom gp1.register_editor\norder by added_at;";
+    var remove = "delete from gp1.register_editor\nwhere email = 'someone@example.com';";
+
+    return '<dialog id="access" aria-labelledby="access-title">' +
+      '<div class="note-head">' +
+      '<h2 class="note-title" id="access-title">Who can edit this register</h2>' +
+      '<button type="button" class="sheet-close" data-close-access aria-label="Close">' +
+      ICON.close + "</button></div>" +
+      '<div class="note-body">' +
+
+      "<p>Anyone with the link can read the register. Only the addresses listed " +
+      "in <span class=\"mono\">gp1.register_editor</span> can change it — that table " +
+      "<strong>is</strong> the permission. Adding someone there is the whole job.</p>" +
+
+      "<h3>Adding an editor</h3>" +
+      "<ol>" +
+      "<li>Open the <strong>waratah</strong> project at " +
+      '<a href="https://supabase.com/dashboard/project/iygkonfuyslvgezgofby/sql/new" ' +
+      'target="_blank" rel="noopener noreferrer">supabase.com</a></li>' +
+      "<li><strong>SQL Editor</strong> → <strong>New query</strong></li>" +
+      "<li>Paste this, with their address, and Run</li>" +
+      "</ol>" +
+      snippet(add) +
+
+      '<div class="note-warn"><b>Use the exact address they sign in with.</b> ' +
+      "The rule compares it to the address inside their login token, so a typo " +
+      "means they simply cannot save — with nothing on screen to say why.</div>" +
+
+      "<h3>Seeing who has access</h3>" + snippet(list) +
+      "<h3>Removing someone</h3>" + snippet(remove) +
+
+      "<h3>How they sign in</h3>" +
+      "<p>They open this page, click <strong>Sign in to edit</strong>, and get a " +
+      "link by email. No password, and no account to create for them in advance. " +
+      "The link lasts an hour.</p>" +
+      "<p>Being on the list is what lets them <em>save</em>. Signing in without " +
+      "being on it works fine and simply leaves the register read-only for them.</p>" +
+
+      "<h3>If a link comes back broken</h3>" +
+      "<p>A magic link that lands on <span class=\"mono\">localhost</span>, or reports " +
+      "<span class=\"mono\">otp_expired</span> immediately, is nearly always the redirect " +
+      "list rather than the link. In Supabase under " +
+      "<strong>Authentication → URL Configuration</strong>, the Site URL should be " +
+      "this site and the redirect list should include it with a " +
+      "<span class=\"mono\">/**</span> on the end.</p>" +
+
+      "</div></dialog>";
+  }
+
+  function snippet(sql) {
+    return '<div class="snippet"><pre>' + esc(sql) + "</pre>" +
+      '<button type="button" data-copy="' + attr(sql) + '">Copy</button></div>';
   }
 
   function masthead() {
@@ -544,7 +609,9 @@
       "<span>Source: " + esc(m.source || "procurement tracker") + "</span>" +
       '<span id="src-note"></span>' +
       '<span class="spacer"></span>' +
-      '<span><button type="button" class="linky" data-dl="csv">Download CSV</button>' +
+      '<span><button type="button" class="linky" id="access-open">Who can edit</button>' +
+      ' <span class="sep">·</span> ' +
+      '<button type="button" class="linky" data-dl="csv">Download CSV</button>' +
       ' <span class="sep">·</span> ' +
       '<button type="button" class="linky" data-dl="json">Download JSON</button></span>' +
       "</footer>";
@@ -929,6 +996,33 @@
     }
   }
 
+  /* navigator.clipboard needs a secure context and can be refused outright, so
+     the textarea path is a real fallback here, not a legacy nicety. */
+  function copy(text, btn) {
+    function done(ok) {
+      var was = btn.textContent;
+      btn.textContent = ok ? "Copied" : "Press Ctrl+C";
+      setTimeout(function () { btn.textContent = was; }, 1600);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); },
+                                              function () { fallback(); });
+    } else { fallback(); }
+
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.remove();
+      done(ok);
+    }
+  }
+
   function toast(msg) {
     var el = document.getElementById("toast");
     if (!el) {
@@ -1069,6 +1163,15 @@
 
       } else if ((el = e.target.closest("[data-dl]"))) {
         download(el.getAttribute("data-dl"));
+
+      } else if (e.target.closest("#access-open")) {
+        document.getElementById("access").showModal();
+
+      } else if (e.target.closest("[data-close-access]")) {
+        document.getElementById("access").close();
+
+      } else if ((el = e.target.closest("[data-copy]"))) {
+        copy(el.getAttribute("data-copy"), el);
 
       } else if (e.target.closest("#filters-toggle")) {
         ui.showFilters = !ui.showFilters;
