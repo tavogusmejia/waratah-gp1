@@ -216,6 +216,84 @@ probe measures geometry instead.
 
 ---
 
+## Brand
+
+```
+Waratah Info/Logos/     the supplied artwork - PNG only, no vector
+Waratah Info/trace_logo.py   traces it to SVG
+web/assets/brand/       the traced marks, which is what the site uses
+```
+
+The brand is **two colours and a lot of white**:
+
+| | Hex | OKLCH | On white |
+|---|---|---|---|
+| Waratah red | `#DB3837` | `0.590 0.200 26.1` | 4.53:1 |
+| Waratah slate | `#65768E` | `0.561 0.043 257.0` | 4.63:1 |
+
+Sampled from the artwork, not eyeballed; both supplied files agree exactly.
+
+**The two brand colours can never touch.** They are within 0.03 of each other
+in perceived lightness, which puts red on slate at **1.02:1** - to a contrast
+algorithm they are the same colour. Side by side on white is the only
+arrangement that works, and it is the one the logo uses. Both also sit right at
+4.5:1 on white, so neither can carry small text on a dark ground.
+
+### The files
+
+`waratah-mark` is the flower alone; `waratah-logo` is the horizontal lockup;
+`waratah-logo-stacked` adds CONSTRUCTION. Each has a `-dark` twin.
+
+The plain files **theme themselves** and the `-dark` files are **fixed**. Use
+the plain ones anywhere CSS reaches; use `-dark` where it does not - email, a
+README served through a theme switch, anything that rasterises.
+
+Colour is applied by class: `.m` is the mark, `.w` is the wordmark. The file's
+own rules are written as bare `svg .m` / `svg .w`, which is the lowest
+specificity that works, **so any page rule beats them**:
+
+```css
+.brand svg .m { fill: var(--brand-red); }
+.brand svg .w { fill: var(--brand-ink); }
+```
+
+That matters because the register has a three-state theme. The file's internal
+`prefers-color-scheme` query only knows what the OS thinks; an explicit
+light/dark toggle has to be able to override it, and this is what lets it.
+
+### The dark palette
+
+`#EE5952` and `#B0BFD5` - the same hue angles, lifted in OKLCH lightness only
+(red 0.590 to 0.660, slate 0.561 to 0.800). That takes them from 4.04:1 and
+3.95:1 on the dark ground to **5.39:1 and 9.81:1**. Hue is untouched, so it is
+still the brand rather than a different red.
+
+### Two things the tracer has already got wrong once
+
+Both are in `trace_logo.py` as assertions now, because both produce a file that
+is perfectly valid and quietly incorrect:
+
+- **An angle bracket in a CSS comment.** An SVG is parsed as XML. A `<` inside
+  `<style>` makes the whole file fail to render, as a broken image, with
+  nothing on the console.
+- **A contour with exactly one detected corner fitting to nothing.** The span
+  from that corner to itself is the whole loop, not a single point. Getting it
+  wrong dropped the counter of `R` and filled the letter in solid.
+
+The traced mark is within **0.987 IoU** of the source artwork, with the
+remaining disagreement balanced between the two directions - about 0.4px of
+antialiasing threshold, not drift.
+
+### Its limits
+
+The mark has no outline: the petals are separated by negative space, so it
+needs a clear ground either side of it. It stops being legible below about
+**32px** - at 24px and under the gaps close and it reads as a blob. Anything
+smaller (a favicon, a table glyph) needs a simplified mark, which does not
+exist yet.
+
+---
+
 ## Design notes
 
 **Colour carries meaning, or it is not spent.** Documentation state is green for
