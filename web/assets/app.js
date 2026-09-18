@@ -1292,6 +1292,7 @@
     setTheme(recall("gp1.theme") || "auto");
     render();
     writeHash();
+    ready();
 
     /* The register is complete and useful before either of these lands, and
        stays useful if they never do. */
@@ -1319,6 +1320,14 @@
     }, function () {});
   }
 
+  /* The one thing the landing in index.html waits on. It is fired from both
+     paths below, success and failure, because the landing covers the whole
+     page: if this never fires on the error path the reader is left looking at
+     a brand animation instead of at the reason the register did not load. */
+  function ready() {
+    document.dispatchEvent(new Event("gp1:ready"));
+  }
+
   window.Store.load().then(boot, function (err) {
     document.getElementById("root").innerHTML =
       '<div class="layout"><div class="content"><div class="banner"><div>' +
@@ -1327,5 +1336,6 @@
       " — the schedule is still available as <a href=\"./data/seed.json\">seed.json</a>." +
       "</div></div></div></div>";
     if (window.console) console.error(err);
+    ready();
   });
 })();

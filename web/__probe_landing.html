@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Landing probe</title>
+<!--
+  Measures the landing in index.html: how fast it paints, what blocks that
+  paint, how long it covers the register, and whether it fits.
+
+  It loads index.html in an iframe rather than being a copy of it, so there is
+  nothing here to drift out of step - unlike __probe.html, which predates this
+  and does carry a copy.
+
+      chrome --headless=new --dump-dom --virtual-time-budget=20000 \
+             "http://127.0.0.1:8000/__probe_landing.html?w=400"
+
+  ?w=<px> sets the iframe width, which is the width the landing sees as its
+  viewport. Defaults to 1440; pass 400 for a phone.
+
+  The geometry section is the one that matters: a landing that overflows
+  sideways is the failure this exists to catch, and it is invisible on a
+  desktop window because the overflow happens off the edge of a wide screen.
+
+  Measure narrow widths HERE rather than with --window-size. On Windows
+  Chrome will not make a window narrower than about 500px, so
+  --window-size=400 lays the page out at ~500 and then crops the screenshot
+  to 400 - which counterfeits a clipped right edge that does not exist. The
+  iframe gives the landing a real 400px viewport.
+
+  Known limit: under --virtual-time-budget the "landing removed" figure is
+  often missed, because the timers it waits on are fast-forwarded past the
+  poll. "register signalled ready" is the reliable one.
+-->
+<style>
+  body{font:13px ui-monospace,monospace;margin:16px;background:#fff;color:#111}
+  #f{border:1px solid #ccc;height:740px;display:block}
+  pre{white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:6px}
+  .bad{color:#b00;font-weight:700}
+</style>
+</head>
+<body>
+<pre id="probe">measuring...</pre>
+<iframe id="f"></iframe>
+<script>
+(function () {
+  var W = parseInt((/[?&]w=(\d+)/.exec(location.search) || [, 1440])[1], 10);
+  var f = document.getElementById("f");
+  f.style.width = W + "px";
+  /* Pinned by default so the layout can be read. Pass &pin=0 to let the
+     landing run its real course and time how long it covers the register. */
+  var pin = !/[?&]pin=0/.test(location.search);
+  f.src = "./index.html" + (pin ? "?hold=1" : "");
+
+  var t0 = performance.now();
+  var readyAt = null, goneAt = null;
+  var out = [];
+
+  f.addEventListener("load", function () {
+    var d = f.contentDocument, w = f.contentWindow;
+
+    d.addEventListener("gp1:ready", function () {
+      if (readyAt === null) readyAt = performance.now() - t0;
+    });
+
+    /* Polled, not observed. The iframe's load event fires after app.js has
+       already dispatched gp1:ready, so a listener added here is too late to
+       hear it - and under --virtual-time-budget the whole sequence can be
+       over before this code runs at all. Polling reads the state instead of
+       waiting for the announcement, which is the only thing that survives
+       both races. */
+    var tick = setInterval(function () {
+      var doc = f.contentDocument;
+      if (!doc) return;
+      if (readyAt === null && doc.querySelector("#root .layout, #root .banner"))
+        readyAt = performance.now() - t0;
+      if (goneAt === null && !doc.getElementById("splash")) {
+        goneAt = performance.now() - t0;
+        clearInterval(tick);
+      }
+    }, 10);
+
+    setTimeout(function () { report(d, w); }, 9000);
+  });
+
+  function n(v) { return v === null || v === undefined ? "-" : Math.round(v) + "ms"; }
+
+  function report(d, w) {
+    var paints = w.performance.getEntriesByType("paint");
+    var fcp = null;
+    paints.forEach(function (p) {
+      if (p.name === "first-contentful-paint") fcp = p.startTime;
+    });
+
+    var res = w.performance.getEntriesByType("resource");
+    var blocking = res.filter(function (r) {
+      return r.renderBlockingStatus === "blocking";
+    });
+    var nav = w.performance.getEntriesByType("navigation")[0] || {};
+
+    out.push("LANDING  (viewport " + W + "px)");
+    out.push("");
+    out.push("  first contentful paint   " + n(fcp));
+    out.push("  dom content loaded       " + n(nav.domContentLoadedEventEnd));
+    out.push("  register signalled ready " + n(readyAt));
+    out.push("  landing removed          " + n(goneAt));
+    out.push("");
+    out.push("  html transferred         " +
+             (nav.transferSize ? Math.round(nav.transferSize / 102.4) / 10 + " KB" : "-"));
+    out.push("  render-blocking requests " +
+             (blocking.length ? blocking.length + "  <-- should be 0" : "0"));
+    blocking.forEach(function (r) { out.push("      " + r.name); });
+    out.push("  requests before FCP      " +
+             res.filter(function (r) { return fcp !== null && r.responseEnd <= fcp; }).length);
+    out.push("");
+
+    /* ---- geometry ---- */
+    var sp = d.getElementById("splash");
+    var de = d.documentElement;
+    out.push("GEOMETRY");
+    if (!sp) {
+      out.push("  landing already removed; re-measuring is not possible.");
+      out.push("  (geometry is captured below from the last frame it existed)");
+    }
+    var over = de.scrollWidth - de.clientWidth;
+    out.push("  document scrollWidth     " + de.scrollWidth +
+             "  clientWidth " + de.clientWidth);
+    out.push("  horizontal overflow      " +
+             (over > 1 ? over + "px  <-- OVERFLOWS" : "none"));
+    document.getElementById("probe").textContent = out.join("\n");
+  }
+
+  /* Geometry has to be read while the landing still exists, so take it early
+     and separately from the timings. */
+  f.addEventListener("load", function () {
+    (function () {
+      var d = f.contentDocument;
+      var sp = d.getElementById("splash");
+      if (!sp) { out.push("GEOMETRY: landing gone before it could be measured"); return; }
+      function box(sel) {
+        var e = sel === "#splash" ? sp : sp.querySelector(sel);
+        if (!e) return sel + " missing";
+        var r = e.getBoundingClientRect();
+        return sel + "  x " + Math.round(r.left) + " -> " + Math.round(r.right) +
+               "   w " + Math.round(r.width);
+      }
+      out.push("ELEMENTS (while the landing is up)");
+      ["#splash", ".brand", ".lockup", ".mark", ".word", ".sub", ".bar"]
+        .forEach(function (s) { out.push("  " + box(s)); });
+      var r = sp.getBoundingClientRect();
+      ["fits .word", "fits .sub"].forEach(function (_, i) {
+        var e = sp.querySelector(i ? ".sub" : ".word");
+        if (!e) return;
+        var b = e.getBoundingClientRect();
+        var bad = b.left < r.left - 0.5 || b.right > r.right + 0.5;
+        out.push("  " + (i ? ".sub" : ".word") + " within the viewport: " +
+                 (bad ? "NO  <-- clipped" : "yes"));
+      });
+      out.push("");
+    })();
+  });
+})();
+</script>
+</body>
+</html>

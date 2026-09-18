@@ -29,6 +29,50 @@ other 128 are the chase list, which is what the register exists to make visible.
 | `assets/config.js` | Supabase URL + anon key. Committed on purpose — see below. |
 | `data/seed.json` | A complete copy of the schedule. The register renders from this first, always. |
 | `__probe.html` | Layout regression harness (excluded from deploys). See *Testing*. |
+| `__probe_landing.html` | Measures the landing: paint timing, render-blocking requests, and whether it fits. Excluded from deploys. |
+
+### The landing
+
+`index.html` paints a Waratah landing before it paints anything else: the mark
+and wordmark on white, over three drifting wave layers in the two brand
+colours. It covers the page until the register is ready, then fades out.
+
+**It is the first paint of `index.html`, not a page of its own.** A separate
+landing page would mean two navigations to reach the register, which is the
+opposite of what it is for.
+
+Everything it needs is inline in the HTML — the CSS, the two traced marks, the
+twenty lines of script. It fetches nothing. That is the whole trick: the
+browser can paint the brand from the first response, with no second round trip
+to wait on.
+
+Which is also why the two stylesheets are loaded `media="print"` and flipped to
+`all` on load. A render-blocking `<link>` is a promise to show the reader
+nothing until it arrives, and one of them is a **third-party** round trip to
+Google Fonts. The landing covers the register while both land, so neither needs
+to block — and the flash of unstyled register they would otherwise cause
+happens behind it, where nobody sees it.
+
+```
+first contentful paint      ~50ms
+render-blocking requests    0          (was 2, one of them third-party)
+html transferred            27.6 KB    12.5 KB gzipped - one round trip
+register ready              ~692ms     including the 159 KB seed
+landing gone                ~1.4s      900ms of which is deliberate
+```
+
+`HOLD_MS` is the one intentionally slow thing in the file. A cached load is
+ready in well under a tenth of a second, and a brand that appears and vanishes
+inside 80ms reads as a glitch rather than as a landing.
+
+The landing is a **cover, not a gate**. It comes down when `app.js` fires
+`gp1:ready`, and comes down anyway on a 6s failsafe, on a keypress, or on a
+click. `gp1:ready` fires from both of `app.js`'s exits, success and failure —
+if it only fired on success, a reader whose register failed to load would be
+left watching a brand animation instead of reading the reason.
+
+`?hold` pins it open; it is the only way to inspect something that removes
+itself.
 
 ### Two rules the code is built around
 
@@ -204,6 +248,22 @@ sticky table head is flush at scroll-zero and pinned under the toolbar when
 scrolled.
 
 Query parameters: `?theme=light|dark`, `&filters=1` to open the filter panel.
+
+The landing has its own probe, which loads `index.html` in an iframe rather
+than copying it:
+
+```powershell
+chrome --headless=new --dump-dom --virtual-time-budget=20000 `
+       "http://127.0.0.1:8000/__probe_landing.html?w=400"
+```
+
+`?w=` sets the width, `&pin=0` lets the landing run its real course instead of
+being held open.
+
+**Measure narrow widths there, not with `--window-size`.** Chrome on Windows
+will not make a window narrower than about 500px, so `--window-size=400` lays
+the page out at ~500 and crops the screenshot to 400 — which counterfeits a
+clipped right edge that is not really there. That cost an hour once already.
 
 Two sticky failures this catches, both of which have happened:
 
