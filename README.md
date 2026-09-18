@@ -1,25 +1,25 @@
 # GP1-MUR — Waratah GP1
 
-Procurement records for the GP1-MUR villa. There are **two registers**, and
-they answer different questions:
-
-| | What it is | Where |
-|---|---|---|
-| **Material & Hardware Register** | The 45 curated datasheets for mockup room 1, each with the manufacturer's sheet attached. Read-only. | `/` |
-| **Procurement schedule** *(archive)* | The older, wider list: 199 line items across 13 trades, mostly without datasheets. Editable, Supabase-backed. | `/schedule` |
-
-The register is the current one and the schedule is linked from it. The
-schedule is kept rather than deleted because it is still the only record of
-the other twelve trades.
+Procurement records for the GP1-MUR villa. The published site is the
+**Material & Hardware Register**: the 45 curated datasheets for mockup room 1,
+each with the manufacturer's sheet attached. Read-only.
 
 ```
 Data Sheets/                  the 45 curated datasheet PDFs + the extractor
 Waratah Info/                 brand artwork + the logo tracer
-01 GP1 Procurement Tracker/   the Excel masters (source of truth for the schedule)
-02 Material Register/         the schedule's extractor + seed data + research log
-web/                          both registers — static site, deployed to Vercel
-supabase/                     schema, access policies, first import (schedule only)
+web/                          the register - static site, deployed to Vercel
+01 GP1 Procurement Tracker/   the Excel masters
+02 Material Register/         no longer wired to anything - see below
+supabase/                     no longer wired to anything - see below
 ```
+
+The older 199-item procurement schedule that used to live at `/schedule` was
+**deleted**. It covered 13 trades and carried 40 manufacturer datasheet links
+the register does not have — Lighting 16, HVAC 15, FF&E 6, Doors 3 — and all of
+it is recoverable from git history (`31d0679` is the last commit that has it).
+`02 Material Register/` and `supabase/` are what remain of it: the extractor,
+the seed, the research log, the schema and its access policies. Nothing on the
+site reads them any more, and nothing here deletes them yet.
 
 ---
 
@@ -29,18 +29,16 @@ supabase/                     schema, access policies, first import (schedule on
 
 | File | Role |
 |---|---|
-| `index.html` | The landing, then the **Material & Hardware Register**. |
-| `assets/register.css` | The register's design system. Brand-led: two colours and a lot of white. |
+| `index.html` | The landing, then the register. All markup below the landing is rendered by `register.js`. |
+| `assets/register.css` | The design system. Brand-led: two colours and a lot of white. |
 | `assets/register.js` | The register. Read-only, no backend. |
+| `assets/brand/*.svg` | The traced marks. See *Brand*. |
 | `data/datasheets.json` | The 45 items, generated from the PDFs. |
 | `datasheets/*.pdf` | The datasheets themselves, shipped with the site. |
-| `schedule.html` | The **procurement schedule**, archived. Uses everything below. |
-| `assets/styles.css` | The schedule's design system: 13 discipline hues. |
-| `assets/app.js` | The schedule: data shaping, filter/sort, three views, detail sheet. |
-| `assets/store.js` | The only file that knows about a backend. Schedule only. |
-| `assets/config.js` | Supabase URL + anon key. Committed on purpose — see below. |
-| `data/seed.json` | A complete copy of the schedule. It renders from this first, always. |
-| `__probe*.html` | Measurement harnesses, excluded from deploys. See *Testing*. |
+| `__probe_landing.html` | Measures the landing: paint timing, render-blocking requests, whether it fits. |
+| `__probe_register.html` | Drives the register at a given width and theme, for screenshots and layout checks. |
+
+Both probes are excluded from deploys. See *Testing*.
 
 ---
 
@@ -108,6 +106,19 @@ black.
 mid-phrase — *"Salt Chlorine Generator — Pentair IntelliChlor LT25 Power Bundle
 (P/N"* — which reads like a real title, and that is what makes it dangerous.
 
+### White is the canvas
+
+There is deliberately no `prefers-color-scheme` rule in `register.css`. The
+landing is always white — mark, wordmark and waves on paper — and a register
+that flipped to dark on a system preference handed a dark-mode reader a white
+landing that dissolved into a dark page. The brand is two colours on white;
+following the OS would have meant following something other than the brand.
+
+Dark is still there as an explicit choice, and it is the same hues lifted in
+OKLCH lightness only. The theme control has two states rather than three,
+because an "auto" that can only ever resolve to light is a control at a
+permanent zero.
+
 ### The PDFs ship with the site
 
 40.3 MB of them, in `web/datasheets/`, renamed to slugs. The source names carry
@@ -124,6 +135,18 @@ all, still works.
 > folder has all 45 of its links broken: they omit the `Pool/` and
 > `Electrical/` prefix, so not one of them resolves. That index is superseded
 > by this register and is not deployed.
+
+**If they ever need to come out of the deploy**, each item carries an optional
+`drive_url`, and the register opens that in preference to the file beside the
+page. Drop a two-column `Data Sheets/drive-links.csv` (item code, URL), re-run
+the extractor, and add `datasheets/` to `.vercelignore` — a data change, not a
+code change. Links have to be "anyone with the link can view", or the register
+shows 45 buttons that lead to a sign-in wall.
+
+Lossless recompression was measured and **rejected**: PyMuPDF's `garbage=4`
+`deflate` `clean` pass saves only 9% (40.3 MB to 36.9 MB), which is not worth
+rewriting 45 submittal documents for. Do not downsample them — people zoom into
+the dimension drawings and print them.
 
 ### The landing
 

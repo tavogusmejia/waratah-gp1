@@ -74,6 +74,33 @@ GROUPS = {
 }
 
 
+# Optional. Two columns, item code and URL, with or without a header:
+#
+#     A1,https://drive.google.com/file/d/..../view
+#
+# If it exists, each matching item gets a `drive_url` and the register opens
+# that instead of the file shipped beside the page. It is the escape hatch for
+# the 40 MB of PDFs in the deploy: fill this in, stop shipping web/datasheets/,
+# and nothing in the page's code has to change.
+LINKS = HERE / "drive-links.csv"
+
+
+def drive_links():
+    if not LINKS.exists():
+        return {}
+    import csv
+    out = {}
+    with LINKS.open(encoding="utf-8-sig", newline="") as fh:
+        for row in csv.reader(fh):
+            if len(row) < 2:
+                continue
+            code, url = row[0].strip(), row[1].strip()
+            if not url.lower().startswith("http"):
+                continue          # skips a header row without needing to know
+            out[code.lower()] = url
+    return out
+
+
 def slug(s: str) -> str:
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
@@ -226,6 +253,7 @@ def main():
         if not any(k in str(p) for k in SKIP)
     )
     items, problems = [], []
+    links = drive_links()
 
     for p in pdfs:
         rel = p.relative_to(HERE)
@@ -265,6 +293,7 @@ def main():
             "pages": pages,
             "bytes": p.stat().st_size,
             "source": str(rel).replace("\\", "/"),
+            "drive_url": links.get(code.lower(), ""),
         })
 
     items.sort(key=lambda r: (list(GROUPS).index(r["group"])
@@ -282,6 +311,10 @@ def main():
         if by_status.get(k):
             print("  %-14s %d" % (k, by_status[k]))
     print("  %-14s %d" % ("no summary", sum(1 for r in items if not r["curated"])))
+    n_links = sum(1 for r in items if r["drive_url"])
+    if n_links or LINKS.exists():
+        print("  %-14s %d of %d  (%s)"
+              % ("drive links", n_links, len(items), LINKS.name))
     thin = [r for r in items if r["curated"] and len(r["specs"]) < 2]
     if thin:
         print("  thin (under 2 fields):")

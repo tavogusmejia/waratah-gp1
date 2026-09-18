@@ -44,28 +44,17 @@
   --maxw: 1320px;
 }
 
-/* Dark: the brand inks lifted in OKLCH lightness only, hue untouched —
-   red 0.590 -> 0.660, slate 0.561 -> 0.800. On this ground that is 4.04:1 and
-   3.95:1 becoming 5.39:1 and 9.81:1. Still the brand, not a different red. */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --red: #EE5952;
-    --slate: #B0BFD5;
-    --bg: #11151C;
-    --bg-sunk: #0C1015;
-    --bg-raise: #171D26;
-    --ink: #E8ECF2;
-    --ink-2: #A7B3C5;
-    --ink-3: #6E7C91;
-    --line: #242C38;
-    --line-2: #1C232D;
-    --focus: #EE5952;
-    --red-wash: rgba(238, 89, 82, .12);
-    --red-line: rgba(238, 89, 82, .38);
-    --slate-wash: rgba(176, 191, 213, .10);
-    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
-  }
-}
+/* WHITE IS THE CANVAS, UNCONDITIONALLY.
+   There is deliberately no `prefers-color-scheme` block here. The landing is
+   always white — mark, wordmark and waves on paper — and a register that flips
+   to dark on a system preference hands a dark-mode reader a white landing that
+   dissolves into a dark page. The brand is two colours on white; following the
+   OS would mean following something other than the brand.
+
+   Dark stays available as an explicit choice, below. Same hue angles, lifted in
+   OKLCH lightness only — red 0.590 -> 0.660, slate 0.561 -> 0.800 — which takes
+   them from 4.04:1 and 3.95:1 on this ground to 5.39:1 and 9.81:1. Still the
+   brand, not a different red. */
 :root[data-theme="dark"] {
   --red: #EE5952;
   --slate: #B0BFD5;

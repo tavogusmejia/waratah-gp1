@@ -47,7 +47,6 @@
     close:  '<path d="M6 6l12 12M18 6L6 18"/>',
     out:    '<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
     sun:    '<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>',
-    auto:   '<rect x="3" y="5" width="18" height="12" rx="1.6"/><path d="M8 21h8"/>',
     moon:   '<path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z"/>'
   };
 
@@ -56,8 +55,13 @@
   function recall(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
 
+  /* Light is not a theme here so much as the absence of the dark one: the
+     stylesheet's canvas is white with no attribute set, which is what keeps the
+     page matching the landing for a reader who has never touched this control.
+     An "auto" option is gone with the media query it depended on. */
   function setTheme(t) {
-    if (t === "auto") document.documentElement.removeAttribute("data-theme");
+    if (t !== "dark") t = "light";
+    if (t === "light") document.documentElement.removeAttribute("data-theme");
     else document.documentElement.setAttribute("data-theme", t);
     store("gp1.theme", t);
     var q = document.querySelectorAll(".themeq button");
@@ -176,6 +180,17 @@
 
   /* --------------------------------------------------------------- sheet */
 
+  /* Where a datasheet actually opens. `drive_url` wins when it is there, and
+     the file shipped beside the page is the fallback.
+
+     The point of the two is that moving 40 MB of PDFs off this deploy and onto
+     Drive should be a data change, not a code change: fill the field in
+     datasheets.json and stop shipping web/datasheets/. Nothing here has to
+     know which of the two happened. */
+  function href(it) {
+    return it.drive_url ? it.drive_url : "./" + it.pdf;
+  }
+
   function openSheet(id) {
     var it = null;
     for (var i = 0; i < state.items.length; i++) {
@@ -218,7 +233,7 @@
         "</div>" +
       "</div>" +
       '<div class="sheet-f">' +
-        '<a class="open" href="./' + esc(it.pdf) + '" target="_blank" rel="noopener">' +
+        '<a class="open" href="' + esc(href(it)) + '" target="_blank" rel="noopener">' +
           icon(I.out) + "Open the datasheet <em>" + it.pages +
           (it.pages === 1 ? " page" : " pages") + " &middot; " +
           Math.round(it.bytes / 1024) + " KB</em></a>" +
@@ -309,7 +324,7 @@
     renderRail();
     render();
     wire();
-    setTheme(recall("gp1.theme") || "auto");
+    setTheme(recall("gp1.theme") || "light");
     ready();
   }
 
@@ -325,7 +340,7 @@
 
   document.getElementById("i-search").innerHTML = I.search;
   var tq = document.querySelectorAll(".themeq button");
-  tq[0].innerHTML = icon(I.sun); tq[1].innerHTML = icon(I.auto); tq[2].innerHTML = icon(I.moon);
+  tq[0].innerHTML = icon(I.sun); tq[1].innerHTML = icon(I.moon);
 
   fetch(DATA, { cache: "no-cache" })
     .then(function (r) {

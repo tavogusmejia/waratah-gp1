@@ -224,10 +224,11 @@
     </a>
     <h1>Material &amp; Hardware Register<span>GP1-MUR &middot; Mockup Room 1</span></h1>
     <span class="top-sp"></span>
-    <a class="ghost" href="./schedule">Procurement schedule <span aria-hidden="true">&rarr;</span></a>
+    <!-- Two states, not three. "Match the system" is gone because the canvas
+         is white unconditionally now, the way the landing is: an auto setting
+         that can only ever resolve to light is a control at a permanent zero. -->
     <div class="themeq" role="group" aria-label="Theme">
-      <button data-t="light" aria-label="Light" aria-pressed="false"></button>
-      <button data-t="auto" aria-label="Match the system" aria-pressed="true"></button>
+      <button data-t="light" aria-label="Light" aria-pressed="true"></button>
       <button data-t="dark" aria-label="Dark" aria-pressed="false"></button>
     </div>
   </div>
@@ -258,7 +259,6 @@
 <footer class="wrap foot">
   <span>GP1-MUR &middot; 45 curated datasheets</span>
   <span class="sp"></span>
-  <a href="./schedule">Procurement schedule (archive)</a>
   <a href="./data/datasheets.json">datasheets.json</a>
 </footer>
 
