@@ -1,0 +1,41 @@
+SUBMITTAL INDEX - JANU Resort - GP1 - Mockup Room 1 - Electrical Distribution
+
+Source: Utopia Electrical Ltd - Submittal No. 086 Rev. B - dated 9/15/2026
+Spec Section: GP1R-E4 & GP1R-E5      Submitted To: Waratah Ltd
+Scope: Load centers, meter socket, surge protection device, and molded-case /
+plug-in circuit breakers for Mockup Room 1 (manufacturer: ABB).
+
+DATASHEETS (named by transmittal item number):
+
+Item 01 | Load Center, ReliaHome, PCC4022R          | SUBSTITUTION - confirm | https://empower.abb.com/ecatalog/ec/EN_NA/p/PCC4022
+Item 02 | Load Center, ReliaHome, PCC1612           | SUBSTITUTION - confirm | https://empower.abb.com/ecatalog/ec/EN_NA/p/PCC1612
+Item 03 | Meter Socket, PAMS3022TRNUS               | SUBSTITUTION - confirm | https://search.abb.com/library/Download.aspx?DocumentID=1TQC1832E0136
+Item 04 | Surge Protection Device, RGWMSP120S08T14  | DEVIATION - confirm    | https://search.abb.com/library/Download.aspx?DocumentID=9AKK108472A3743
+Item 05 | Arc Fault Breaker, THQL1120PAF2 (Qty 33)  | As specified           | https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL1120PAF2
+Item 06 | MCCB, THQL2180 (80A 2P)                    | As specified           | https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2180
+Item 07 | MCCB, THQL2140 (40A 2P, Qty 2)             | As specified           | https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2140
+Item 09 | Ground Fault Breaker, THQL2160GFT2 (60A)   | As specified           | https://library.e.abb.com/public/0e73582f50f246ffa7ab0135bd1004b5/GFCI%20Ground%20Fault%20Circuit%20Interrupters_datasheet.pdf
+Item 10 | MCCB, THQL2120 (20A 2P)                    | As specified           | https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2120
+Item 11 | MCCB, THQL2130 (30A 2P, Qty 2)             | As specified           | https://empower.abb.com/ecatalog/ec/EN_NA/p/THQL2130
+
+MODIFICATIONS / ACCESSORIES (noted on the affected datasheets):
+- Item 01: 175A ReliaHome main breaker kit, THQMV175F
+- Item 02: 80A 2-pole main breaker, THHQL2180 (22 kAIC) + ReliaHome breaker base kit,
+           TQMH000F; equipment ground kit TGK12 / TNLK20 factory installed
+- Item 03: ReliaHome 32-hole equipment ground bar, TGK32
+
+NOTES:
+- Items 01, 02, 03 are substitutions and Item 04 is a deviation (NEMA 4 vs specified
+  NEMA 3R; MCOV to confirm). All require engineer confirmation before release for
+  fabrication or installation.
+- There is no Item 08 in the transmittal.
+- Rev. B (received 9/18/2026) changed Item 02 only: load center PCM3015 (Indoor 1, 150A
+  main, 30/60) replaced by PCC1612 (NEMA 1, 125A Cu bus, 16/32) sized to the 1'-4" x 1'-9"
+  panel opening on JN-GP1R-A11-07A Section 01, with the 80A 2-pole main supplied as base
+  kit TQMH000F plus breaker THHQL2180. Items 01 and 03 to 11 are unchanged from Rev. A.
+- Item 02's main breaker is THHQL2180 (22 kAIC), not the THQL2180 (10 kAIC) listed as Item
+  06 - similar catalog numbers, different breaker families. Verify both on the order.
+- Link types: Items 03, 04, 09 point to ABB PDF datasheets; the other seven point to
+  ABB e-catalog product pages (not downloadable PDFs). The datasheets in this folder
+  were compiled from ABB published product data for the submittal record; they are not
+  the original ABB PDF files.

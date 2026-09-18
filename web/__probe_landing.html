@@ -71,7 +71,7 @@
     var tick = setInterval(function () {
       var doc = f.contentDocument;
       if (!doc) return;
-      if (readyAt === null && doc.querySelector("#root .layout, #root .banner"))
+      if (readyAt === null && doc.querySelector("#list .card, #list .none"))
         readyAt = performance.now() - t0;
       if (goneAt === null && !doc.getElementById("splash")) {
         goneAt = performance.now() - t0;

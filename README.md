@@ -1,35 +1,129 @@
 # GP1-MUR — Waratah GP1
 
-Procurement records for the GP1-MUR villa: the master workbooks, and the
-**Material & Hardware Register** that is generated from them and published on
-the web.
+Procurement records for the GP1-MUR villa. There are **two registers**, and
+they answer different questions:
+
+| | What it is | Where |
+|---|---|---|
+| **Material & Hardware Register** | The 45 curated datasheets for mockup room 1, each with the manufacturer's sheet attached. Read-only. | `/` |
+| **Procurement schedule** *(archive)* | The older, wider list: 199 line items across 13 trades, mostly without datasheets. Editable, Supabase-backed. | `/schedule` |
+
+The register is the current one and the schedule is linked from it. The
+schedule is kept rather than deleted because it is still the only record of
+the other twelve trades.
 
 ```
+Data Sheets/                  the 45 curated datasheet PDFs + the extractor
+Waratah Info/                 brand artwork + the logo tracer
 01 GP1 Procurement Tracker/   the Excel masters (source of truth for the schedule)
-02 Material Register/         extractor + seed data + research log
-web/                          the register itself — static site, deployed to Vercel
-supabase/                     schema, access policies, first import
+02 Material Register/         the schedule's extractor + seed data + research log
+web/                          both registers — static site, deployed to Vercel
+supabase/                     schema, access policies, first import (schedule only)
 ```
-
-199 line items across 13 trades. 71 carry a manufacturer datasheet (36%); the
-other 128 are the chase list, which is what the register exists to make visible.
 
 ---
 
-## The register
+## The site
 
 `web/` is a plain static site — no build step, no bundler, no framework.
 
 | File | Role |
 |---|---|
-| `index.html` | Shell and mount point only. All markup is rendered by `app.js`, so there is exactly one description of it. |
-| `assets/styles.css` | The design system: tokens, three-state theming, type scale, 13 discipline hues. |
-| `assets/app.js` | Data shaping, filter/sort, the three views, the detail sheet. |
-| `assets/store.js` | The only file that knows about a backend. |
+| `index.html` | The landing, then the **Material & Hardware Register**. |
+| `assets/register.css` | The register's design system. Brand-led: two colours and a lot of white. |
+| `assets/register.js` | The register. Read-only, no backend. |
+| `data/datasheets.json` | The 45 items, generated from the PDFs. |
+| `datasheets/*.pdf` | The datasheets themselves, shipped with the site. |
+| `schedule.html` | The **procurement schedule**, archived. Uses everything below. |
+| `assets/styles.css` | The schedule's design system: 13 discipline hues. |
+| `assets/app.js` | The schedule: data shaping, filter/sort, three views, detail sheet. |
+| `assets/store.js` | The only file that knows about a backend. Schedule only. |
 | `assets/config.js` | Supabase URL + anon key. Committed on purpose — see below. |
-| `data/seed.json` | A complete copy of the schedule. The register renders from this first, always. |
-| `__probe.html` | Layout regression harness (excluded from deploys). See *Testing*. |
-| `__probe_landing.html` | Measures the landing: paint timing, render-blocking requests, and whether it fits. Excluded from deploys. |
+| `data/seed.json` | A complete copy of the schedule. It renders from this first, always. |
+| `__probe*.html` | Measurement harnesses, excluded from deploys. See *Testing*. |
+
+---
+
+## The Material & Hardware Register
+
+45 curated datasheets across 8 submittal groups. It is **read-only**: there is
+no sign-in, no backend and nothing to save. The whole register is
+`data/datasheets.json`, generated from the PDFs — change a datasheet, re-run
+the extractor, and the page is correct again. There is no second place to
+update.
+
+```bash
+python "Data Sheets/extract_datasheets.py" --check   # parse and report
+python "Data Sheets/extract_datasheets.py"           # write json + copy pdfs
+```
+
+### What the page is built around
+
+One question: **what still needs an engineer to sign it off?** Nine of the 45
+are substitutions, deviations or not yet reviewed, and each one is a decision
+somebody has to make before it is built. They are counted at the top, they are
+the only things on the page allowed to be red, and one filter isolates them.
+
+Everything else is deliberately quiet. A register where every row is coloured
+tells you nothing.
+
+| Status | Count | |
+|---|---|---|
+| As specified | 10 | |
+| Substitution | 5 | needs confirmation |
+| Deviation | 1 | needs confirmation |
+| To review | 3 | needs confirmation |
+| No status stated | 26 | |
+
+The statuses are read out of the sheets, not assigned here. **The banner alone
+will not do it** — seven sheets carry the same generic heading, *"Substitution
+/ Deviation — engineer confirmation required"*, and which of the two it
+actually is, or whether it is simply not reviewed yet, is only stated in the
+note underneath. So the banner decides that confirmation is needed and the
+note decides what kind.
+
+### Why the extractor reads fonts, not lines
+
+Each curated PDF opens with a summary page: manufacturer, item code, title,
+then label/value pairs. Reading those as alternating lines is wrong the moment
+a value wraps — and it wraps in about a third of them.
+
+They were all made from one template with an exact palette, so the extractor
+keys on that instead:
+
+```
+orange   manufacturer        navy 8.5 bold   field label
+navy 12  item code           black           field value
+navy 14  title               navy 9.5 bold   Notes / status banner
+```
+
+That also does two things a size-based read cannot. It tells a curated summary
+apart from a manufacturer's own sheet that merely opens with a big bold
+heading — one of the 45 is exactly that, and it is carried with no fields
+rather than fabricated ones. And it stops manufacturers' body prose being
+swallowed as a field value, because that prose is grey and real values are
+black.
+
+**A title is a run of spans, not one span.** Taking the first one truncates
+mid-phrase — *"Salt Chlorine Generator — Pentair IntelliChlor LT25 Power Bundle
+(P/N"* — which reads like a real title, and that is what makes it dangerous.
+
+### The PDFs ship with the site
+
+40.3 MB of them, in `web/datasheets/`, renamed to slugs. The source names carry
+spaces, ampersands and parentheses; every one has to be percent-encoded in a
+URL, and a slug cannot be got wrong by a browser, a server, or a person pasting
+a link into a message.
+
+The reference transmittals and submittal indexes were **deleted** — 10.2 MB of
+paperwork that said nothing the register shows. The extractor still skips any
+`(reference)` folder, so dropping a fresh submittal in here, transmittal and
+all, still works.
+
+> The `00 Datasheet Downloads (clickable).html` index that came with the
+> folder has all 45 of its links broken: they omit the `Pool/` and
+> `Electrical/` prefix, so not one of them resolves. That index is superseded
+> by this register and is not deployed.
 
 ### The landing
 
@@ -42,9 +136,12 @@ landing page would mean two navigations to reach the register, which is the
 opposite of what it is for.
 
 Everything it needs is inline in the HTML — the CSS, the two traced marks, the
-twenty lines of script. It fetches nothing. That is the whole trick: the
-browser can paint the brand from the first response, with no second round trip
-to wait on.
+twenty lines of script. It fetches nothing. The marks go in **once**, as two
+paths in a hidden `<defs>` that both the landing and the page header reach with
+`<use>`; inlining them twice would be ~16 KB more HTML and would push the page
+out of the single round trip that is the whole point — and that single round
+trip is the trick: the browser can paint the brand from the first response,
+with nothing else to wait on.
 
 Which is also why the two stylesheets are loaded `media="print"` and flipped to
 `all` on load. A render-blocking `<link>` is a promise to show the reader
@@ -54,10 +151,10 @@ to block — and the flash of unstyled register they would otherwise cause
 happens behind it, where nobody sees it.
 
 ```
-first contentful paint      ~50ms
+first contentful paint      ~55ms
 render-blocking requests    0          (was 2, one of them third-party)
-html transferred            27.6 KB    12.5 KB gzipped - one round trip
-register ready              ~692ms     including the 159 KB seed
+html transferred            29.2 KB    13.1 KB gzipped - one round trip
+register ready              ~316ms     including the 53 KB dataset
 landing gone                ~1.4s      900ms of which is deliberate
 ```
 
@@ -65,9 +162,9 @@ landing gone                ~1.4s      900ms of which is deliberate
 ready in well under a tenth of a second, and a brand that appears and vanishes
 inside 80ms reads as a glitch rather than as a landing.
 
-The landing is a **cover, not a gate**. It comes down when `app.js` fires
+The landing is a **cover, not a gate**. It comes down when `register.js` fires
 `gp1:ready`, and comes down anyway on a 6s failsafe, on a keypress, or on a
-click. `gp1:ready` fires from both of `app.js`'s exits, success and failure —
+click. `gp1:ready` fires from both of the register's exits, success and failure —
 if it only fired on success, a reader whose register failed to load would be
 left watching a brand animation instead of reading the reason.
 

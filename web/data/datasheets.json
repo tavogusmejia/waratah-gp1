@@ -1,0 +1,1960 @@
+{
+ "generated": "2026-09-18T21:24:13Z",
+ "project": "GP1-MUR",
+ "title": "Material & Hardware Register",
+ "groups": [
+  {
+   "key": "A",
+   "name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "count": 6
+  },
+  {
+   "key": "B",
+   "name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "count": 6
+  },
+  {
+   "key": "D",
+   "name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "count": 2
+  },
+  {
+   "key": "E",
+   "name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "count": 10
+  },
+  {
+   "key": "F",
+   "name": "Balancing Tank Accessories",
+   "discipline": "Pool",
+   "submittal": null,
+   "count": 2
+  },
+  {
+   "key": "G",
+   "name": "Piping and Valves",
+   "discipline": "Pool",
+   "submittal": null,
+   "count": 3
+  },
+  {
+   "key": "H",
+   "name": "Electrical - Pool Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "count": 1
+  },
+  {
+   "key": "J",
+   "name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "count": 15
+  }
+ ],
+ "items": [
+  {
+   "id": "a-a1-cartridge-filter-150-sq-ft-pentair-cl",
+   "code": "A1",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Pentair",
+   "title": "Cartridge Filter, 150 sq ft - Pentair Clean & Clear Plus CC150",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "Pentair Clean & Clear Plus CC150 (P/N 160317)"
+    },
+    {
+     "label": "Filter area",
+     "value": "150 sq ft"
+    },
+    {
+     "label": "Design flow",
+     "value": "150 GPM"
+    },
+    {
+     "label": "Filter diameter",
+     "value": "15.5 in"
+    },
+    {
+     "label": "Plumbing",
+     "value": "2 in"
+    },
+    {
+     "label": "Qty",
+     "value": "1 per pool"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "OK - submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/a1-cartridge-filter-clean-clear-cc150.pdf",
+   "pages": 3,
+   "bytes": 777856,
+   "source": "Pool/A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf"
+  },
+  {
+   "id": "a-a2-main-filter-pump-pentair-intelliflo3-v",
+   "code": "A2",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Pentair",
+   "title": "Main Filter Pump - Pentair IntelliFlo3 VSF",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Pentair IntelliFlo3 VSF (variable speed & flow)"
+    },
+    {
+     "label": "Duty",
+     "value": "45 GPM @ 70 ft"
+    },
+    {
+     "label": "Motor",
+     "value": "3 HP; 208-230 V, 1-phase"
+    },
+    {
+     "label": "Qty",
+     "value": "1 per pool"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "OK - submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/a2-main-filter-pump-intelliflo3-vsf.pdf",
+   "pages": 6,
+   "bytes": 6205005,
+   "source": "Pool/A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf"
+  },
+  {
+   "id": "a-a3-infinity-edge-pump-pentair-intelliflo3",
+   "code": "A3",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Pentair",
+   "title": "Infinity-Edge Pump - Pentair IntelliFlo3 VSF",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Pentair IntelliFlo3 VSF (variable speed & flow)"
+    },
+    {
+     "label": "Duty",
+     "value": "90 GPM @ 50 ft"
+    },
+    {
+     "label": "Motor",
+     "value": "3 HP; 208-230 V, 1-phase"
+    },
+    {
+     "label": "Qty",
+     "value": "1 per pool"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "OK - submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/a3-infinity-edge-pump-intelliflo3-vsf.pdf",
+   "pages": 6,
+   "bytes": 6205020,
+   "source": "Pool/A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf"
+  },
+  {
+   "id": "a-a4-pool-controller-pentair-intellicenter",
+   "code": "A4",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Pentair",
+   "title": "Pool Controller - Pentair IntelliCenter Lite i5P (P/N 523911)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Pentair IntelliCenter Lite i5P (P/N 523911)"
+    },
+    {
+     "label": "Type",
+     "value": "Pool/spa automation control"
+    },
+    {
+     "label": "Aux circuits",
+     "value": "5 (i5P)"
+    },
+    {
+     "label": "Controls",
+     "value": "Pumps, heater, lights, salt chlorinator"
+    },
+    {
+     "label": "Qty",
+     "value": "1 per pool (1 per 2 shared)"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "OK - submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/a4-pool-controller-intellicenter-lite-i5p.pdf",
+   "pages": 3,
+   "bytes": 965385,
+   "source": "Pool/A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf"
+  },
+  {
+   "id": "a-a5-salt-chlorine-generator-pentair-intell",
+   "code": "A5",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Pentair",
+   "title": "Salt Chlorine Generator - Pentair IntelliChlor LT25 Power Bundle (P/N 523750)",
+   "specs": [
+    {
+     "label": "Submitted (substitute)",
+     "value": "Pentair IntelliChlor LT25 Power Bundle (P/N 523750)"
+    },
+    {
+     "label": "As specified",
+     "value": "AutoPilot DIG-220 (DISCONTINUED)"
+    },
+    {
+     "label": "Pool size rating",
+     "value": "Up to 25,000 gal (GP1 = 8,700 gal)"
+    },
+    {
+     "label": "Integration",
+     "value": "Native with IntelliCenter (A4)"
+    },
+    {
+     "label": "Qty",
+     "value": "1 set per pool"
+    }
+   ],
+   "notes": "R1: AutoPilot DIG-220 is discontinued (OEM parts winding down). IntelliChlor LT25 Power Bundle is the OEM-supported equivalent, sized to 25,000 gal, integrates natively with the IntelliCenter controller (A4) - single-brand Pentair stack.",
+   "status": "substitution",
+   "status_text": "SUB",
+   "curated": true,
+   "pdf": "datasheets/a5-salt-chlorine-generator-intellichlor-lt25.pdf",
+   "pages": 3,
+   "bytes": 872426,
+   "source": "Pool/A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf"
+  },
+  {
+   "id": "a-a6-pool-heat-pump-gulfstream-he-150-he15",
+   "code": "A6",
+   "group": "A",
+   "group_name": "Pump Room Equipment",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-003",
+   "manufacturer": "Gulfstream (Pentair-owned)",
+   "title": "Pool Heat Pump - Gulfstream HE-150 (HE150-R-A)",
+   "specs": [
+    {
+     "label": "Submitted (substitute)",
+     "value": "Gulfstream HE150-R-A"
+    },
+    {
+     "label": "As specified",
+     "value": "Aquacal SuperQuiet SQ225, 143k BTU COP 6.5 (DISCONTINUED)"
+    },
+    {
+     "label": "Capacity / COP",
+     "value": "142,000 BTU, COP 6.2"
+    },
+    {
+     "label": "Electrical",
+     "value": "208-230 V, 1-phase; scroll, R410A"
+    },
+    {
+     "label": "Plumbing / flow",
+     "value": "2 in union; 30-70 GPM"
+    },
+    {
+     "label": "Alternate",
+     "value": "Pentair UltraTemp 140"
+    },
+    {
+     "label": "Qty",
+     "value": "1 per pool"
+    }
+   ],
+   "notes": "R2: Aquacal SQ225 is discontinued. Gulfstream HE-150 (Pentair-owned) proposed - comparable performance (142,000 vs 143,000 BTU; COP 6.2 vs 6.5), keeping the pump room in one Pentair warranty/parts channel. Alternate: Pentair UltraTemp 140.",
+   "status": "substitution",
+   "status_text": "SUB",
+   "curated": true,
+   "pdf": "datasheets/a6-pool-heat-pump-gulfstream-he-150.pdf",
+   "pages": 2,
+   "bytes": 182325,
+   "source": "Pool/A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf"
+  },
+  {
+   "id": "b-b1-pool-main-drain-aquastar-1216103-121",
+   "code": "B1",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "AquaStar",
+   "title": "Pool Main Drain - AquaStar 1216103 & 1216103B (16 in Anti-Entrapment)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "AquaStar 1216103 & 1216103B (VGB Series)"
+    },
+    {
+     "label": "Type",
+     "value": "16 in square anti-entrapment suction outlet cover"
+    },
+    {
+     "label": "Compliance",
+     "value": "VGBA (ANSI/APSP 16-2011, NSF/ANSI 50)"
+    },
+    {
+     "label": "Sump",
+     "value": "Single, 3 in depth"
+    },
+    {
+     "label": "Flow rating",
+     "value": "Floor 460 GPM @1.46 fps; Wall 445 @1.4; Floor/wall 472 @1.5"
+    },
+    {
+     "label": "Opening",
+     "value": "101 sq in"
+    },
+    {
+     "label": "Retrofit",
+     "value": "Fits existing 12 in frames up to 15 in"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b1-aquastar-main-drain-1216103.pdf",
+   "pages": 3,
+   "bytes": 7452691,
+   "source": "Pool/B - In-Pool Fittings/B1 - AquaStar Main Drain (1216103).pdf"
+  },
+  {
+   "id": "b-b2-pool-shallow-floor-return-color-match",
+   "code": "B2",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "Color Match Pool Fittings",
+   "title": "Pool Shallow Floor Return - Color Match Pebble Top PTFR-03 (Light Gray)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Color Match Pool Fittings, Pebble Top Floor Return PTFR-03 (Light Gray)"
+    },
+    {
+     "label": "Type",
+     "value": "Adjustable floor return, finish-fillable lid"
+    },
+    {
+     "label": "Flow",
+     "value": "360 deg adjustable; built-in water stop"
+    },
+    {
+     "label": "Pipe",
+     "value": "Fits 1.5 in and 2 in"
+    },
+    {
+     "label": "Material",
+     "value": "Engineered polymer, UV-resistant ABS; made in USA"
+    }
+   ],
+   "notes": "Color-change plate; lid fills with pool finish",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b2-color-match-floor-return-ptfr-03.pdf",
+   "pages": 2,
+   "bytes": 1162199,
+   "source": "Pool/B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf"
+  },
+  {
+   "id": "b-b3-pool-wall-infinity-edge-return-inlets",
+   "code": "B3",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "Hayward",
+   "title": "Pool Wall & Infinity-Edge Return Inlets, 2 in - Hayward SP1419D (Gray: SP1419DGR)",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "SP1419D (Gray: SP1419DGR)"
+    },
+    {
+     "label": "Type",
+     "value": "Directional-flow inlet fitting (Hydrostream), 3/4 in opening"
+    },
+    {
+     "label": "Connection",
+     "value": "1-1/2 in MIP"
+    },
+    {
+     "label": "Application",
+     "value": "Pool wall and infinity-edge return inlets, 2 in"
+    },
+    {
+     "label": "Material / Colour",
+     "value": "ABS; add suffix GR for Gray"
+    },
+    {
+     "label": "Family",
+     "value": "Hayward SP1419 series"
+    }
+   ],
+   "notes": "Per JANU-SUB-004 item B3.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b3-hayward-sp1419d.pdf",
+   "pages": 3,
+   "bytes": 126133,
+   "source": "Pool/B - In-Pool Fittings/B3 - Hayward SP1419D.pdf"
+  },
+  {
+   "id": "b-b4-vacuum-fitting-hayward-sp1022-gray-s",
+   "code": "B4",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "Hayward",
+   "title": "Vacuum Fitting - Hayward SP1022 (Gray: SP1022GR)",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "SP1022 (Gray: SP1022GR)"
+    },
+    {
+     "label": "Type",
+     "value": "1-1/2 in threaded inlet receptacle / vacuum fitting (concrete pools)"
+    },
+    {
+     "label": "Connection",
+     "value": "1-1/2 in FIP"
+    },
+    {
+     "label": "Application",
+     "value": "Vacuum fitting"
+    },
+    {
+     "label": "Material / Colour",
+     "value": "ABS; add suffix GR for Gray"
+    },
+    {
+     "label": "Family",
+     "value": "Hayward SP1022 series"
+    }
+   ],
+   "notes": "Per JANU-SUB-004 item B4.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b4-hayward-sp1022.pdf",
+   "pages": 3,
+   "bytes": 130996,
+   "source": "Pool/B - In-Pool Fittings/B4 - Hayward SP1022.pdf"
+  },
+  {
+   "id": "b-b5-infinity-edge-trough-drain-pool-pipe",
+   "code": "B5",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "Spears",
+   "title": "Infinity-Edge Trough Drain + Pool Pipe & Fittings - Spears Schedule 40 PVC",
+   "specs": [
+    {
+     "label": "Product",
+     "value": "Spears Schedule 40 PVC pipe & fittings"
+    },
+    {
+     "label": "Fittings standard",
+     "value": "ASTM D2466"
+    },
+    {
+     "label": "Pipe standard",
+     "value": "ASTM D1785; PVC Type I 12454 (ASTM D1784)"
+    },
+    {
+     "label": "Potable",
+     "value": "NSF-61 / NSF-14; to 140 F"
+    },
+    {
+     "label": "Joints",
+     "value": "Solvent-weld socket / NPT threaded"
+    },
+    {
+     "label": "Application",
+     "value": "Infinity-edge trough drain; pool pipe & piping fittings"
+    }
+   ],
+   "notes": "Per JANU-SUB-004 item B5 (pool pipe and piping fittings).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b5-spears-sch-40-pvc.pdf",
+   "pages": 84,
+   "bytes": 1433593,
+   "source": "Pool/B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf"
+  },
+  {
+   "id": "b-b6-automatic-water-filler-pentair-t40-f",
+   "code": "B6",
+   "group": "B",
+   "group_name": "In-Pool Fittings",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-004",
+   "manufacturer": "Pentair",
+   "title": "Automatic Water Filler - Pentair T40-F",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Pentair T40-F Automatic Water Filler"
+    },
+    {
+     "label": "Type",
+     "value": "Float-actuated auto water leveler (no electronics)"
+    },
+    {
+     "label": "Body",
+     "value": "7 in diameter; ABS polymer, corrosion/chemical resistant"
+    },
+    {
+     "label": "Valve",
+     "value": "Side- or bottom-mounted plastic fill valve"
+    },
+    {
+     "label": "Application",
+     "value": "Inground and vanishing-edge pools"
+    },
+    {
+     "label": "Colours",
+     "value": "White, black, gray, dark gray, tan"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b6-pentair-t40-f-automatic-water-filler.pdf",
+   "pages": 2,
+   "bytes": 194286,
+   "source": "Pool/B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf"
+  },
+  {
+   "id": "d-a-pool-light-l09-l-l-bright-1-6-316l",
+   "code": "A",
+   "group": "D",
+   "group_name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "manufacturer": "L&L; Luce&Light;",
+   "title": "Pool Light L09 - L&L; Bright 1.6 316L",
+   "specs": [
+    {
+     "label": "A1 Luminaire",
+     "value": "L&L; CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
+    },
+    {
+     "label": "A2 Outer casing",
+     "value": "L&L; WC5003"
+    },
+    {
+     "label": "A3 LED driver",
+     "value": "L&L; AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
+    }
+   ],
+   "notes": "Per JANU-SUB-009 group A (Pool Light L09).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/a-pool-light-l09-cw16005di.pdf",
+   "pages": 5,
+   "bytes": 2363591,
+   "source": "Pool/D - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf"
+  },
+  {
+   "id": "d-b-pool-light-l09-1-l-l-bright-3-0-316l",
+   "code": "B",
+   "group": "D",
+   "group_name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "manufacturer": "L&L; Luce&Light;",
+   "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
+   "specs": [
+    {
+     "label": "B1 Luminaire",
+     "value": "L&L; CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
+    },
+    {
+     "label": "B2 Outer casing",
+     "value": "L&L; WC5004"
+    },
+    {
+     "label": "B3 LED driver",
+     "value": "L&L; AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
+    },
+    {
+     "label": "B4 Extractors",
+     "value": "L&L; WN7001 (pair)"
+    }
+   ],
+   "notes": "Per JANU-SUB-009 group B (Pool Light L09.1).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b-pool-light-l09-1-cw300005wi.pdf",
+   "pages": 6,
+   "bytes": 2669975,
+   "source": "Pool/D - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf"
+  },
+  {
+   "id": "e-01-load-center-reliahome-pcc4022r",
+   "code": "01",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Load Center, ReliaHome PCC4022R",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "PCC4022R"
+    },
+    {
+     "label": "Enclosure",
+     "value": "Outdoor Type 3R"
+    },
+    {
+     "label": "Rating",
+     "value": "225 A convertible, 1-ph 3-W, 120/240"
+    },
+    {
+     "label": "Spaces / circuits",
+     "value": "40 / 80"
+    },
+    {
+     "label": "Interrupt",
+     "value": "22 kAIC, fully rated"
+    },
+    {
+     "label": "Main wire",
+     "value": "#1-300 Cu/Al"
+    },
+    {
+     "label": "Ground kit",
+     "value": "TGK42, TNLK20"
+    },
+    {
+     "label": "Dimensions",
+     "value": "39.29 x 14.88 x 5.29 in"
+    },
+    {
+     "label": "Modification",
+     "value": "175A ReliaHome P-Series main breaker kit - THQMV175F"
+    }
+   ],
+   "notes": "Offered in place of a 42-space recessed NEMA 3R panel: ABB's nearest size is 40 spaces, and the NEMA 3R unit is surface-mount only. Requires engineer confirmation.",
+   "status": "substitution",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-01-load-center-pcc4022r.pdf",
+   "pages": 3,
+   "bytes": 153181,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 01 - Load Center PCC4022R.pdf"
+  },
+  {
+   "id": "e-02-load-center-reliahome-pcc1612",
+   "code": "02",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Load Center, ReliaHome PCC1612",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "PCC1612"
+    },
+    {
+     "label": "Enclosure",
+     "value": "NEMA 1 Indoor, Combination"
+    },
+    {
+     "label": "Bus / main",
+     "value": "125A copper bus, convertible main, 120/240, 1-ph 3-W, 22 kAIC"
+    },
+    {
+     "label": "Spaces / circuits",
+     "value": "16 / 32"
+    },
+    {
+     "label": "Cover",
+     "value": "Surface / flush"
+    },
+    {
+     "label": "Ground kit",
+     "value": "TGK12, TNLK20"
+    },
+    {
+     "label": "Dimensions",
+     "value": "20.38 x 15.36 x 3.79 in"
+    },
+    {
+     "label": "Modifications",
+     "value": "80A 2-pole main THHQL2180 + ReliaHome breaker base kit TQMH000F"
+    }
+   ],
+   "notes": "Sized to the 1'-4\" x 1'-9\" panel opening on drawing JN-GP1R-A11-07A, Section 01. 125A is the largest bus ABB offers in an enclosure fitting that opening (a 150A bus is 26 in high); capacity 32 circuits. The 80A 2-pole main is supplied as a base kit (TQMH000F) plus breaker (THHQL2180). Requires engineer confirmation.",
+   "status": "substitution",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-02-load-center-pcc1612.pdf",
+   "pages": 5,
+   "bytes": 373263,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 02 - Load Center PCC1612.pdf"
+  },
+  {
+   "id": "e-03-load-center-meter-socket-pams3022trnus",
+   "code": "03",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Load Center, Meter Socket PAMS3022TRNUS",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "PAMS3022TRNUS"
+    },
+    {
+     "label": "Enclosure",
+     "value": "Outdoor Type 3R, Surface"
+    },
+    {
+     "label": "Rating",
+     "value": "225 A main breaker, 1-ph 3-W, 120/240"
+    },
+    {
+     "label": "Spaces / circuits",
+     "value": "30 / 60"
+    },
+    {
+     "label": "Interrupt",
+     "value": "22 kAIC, fully rated"
+    },
+    {
+     "label": "Main wire",
+     "value": "1-300 Cu-Al"
+    },
+    {
+     "label": "Dimensions",
+     "value": "53.05 x 14.93 x 5.81 in"
+    },
+    {
+     "label": "Modification",
+     "value": "ReliaHome 32-hole equipment ground bar - TGK32"
+    }
+   ],
+   "notes": "Offered with aluminum bus and a 225A main in place of the specified copper bus / 175A main - ABB's meter combo is not offered in that combination. Requires engineer confirmation.",
+   "status": "substitution",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-03-meter-socket-pams3022trnus.pdf",
+   "pages": 3,
+   "bytes": 198824,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 03 - Meter Socket PAMS3022TRNUS.pdf"
+  },
+  {
+   "id": "e-04-surge-protection-device-wall-mount-rg",
+   "code": "04",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Surge Protection Device, Wall Mount, RG Series - RGWMSP120S08T14",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "RGWMSP120S08T14"
+    },
+    {
+     "label": "UL SPD Type",
+     "value": "Type 1"
+    },
+    {
+     "label": "Surge current",
+     "value": "80 kA/mode; 160 kA/phase"
+    },
+    {
+     "label": "Voltage",
+     "value": "120/240"
+    },
+    {
+     "label": "Fault withstand",
+     "value": "200 kAIC"
+    },
+    {
+     "label": "Enclosure",
+     "value": "NEMA 4 (without disconnect)"
+    },
+    {
+     "label": "Features",
+     "value": "Colour LCD, dry contacts, service-life LED, phase-loss, counters, audible alarm"
+    }
+   ],
+   "notes": "Deviation: NEMA 4 enclosure exceeds the specified NEMA 3R. MCOV to be confirmed against the specified 140-150V. Requires engineer confirmation.",
+   "status": "deviation",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.pdf",
+   "pages": 6,
+   "bytes": 495839,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 04 - Surge Protection Device RGWMSP120S08T14.pdf"
+  },
+  {
+   "id": "e-05-circuit-breaker-arc-fault-plug-in-thq",
+   "code": "05",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Circuit Breaker, Arc Fault Plug-In - THQL1120PAF2 (Qty 33)",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL1120PAF2"
+    },
+    {
+     "label": "Rating",
+     "value": "1P 20A, 10 kAIC, PON Arc Fault"
+    },
+    {
+     "label": "Qty",
+     "value": "33"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-05-arc-fault-breaker-thql1120paf2.pdf",
+   "pages": 2,
+   "bytes": 66746,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 05 - Arc Fault Breaker THQL1120PAF2.pdf"
+  },
+  {
+   "id": "e-06-mccb-120-240v-ql-thql2180",
+   "code": "06",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "MCCB, 120/240V QL - THQL2180",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL2180"
+    },
+    {
+     "label": "Rating",
+     "value": "2P 80A, 120/240V, 10 kAIC"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-06-mccb-thql2180.pdf",
+   "pages": 2,
+   "bytes": 71974,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 06 - MCCB THQL2180.pdf"
+  },
+  {
+   "id": "e-07-mccb-120-240v-ql-thql2140-qty-2",
+   "code": "07",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "MCCB, 120/240V QL - THQL2140 (Qty 2)",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL2140"
+    },
+    {
+     "label": "Rating",
+     "value": "2P 40A, 120/240V, 10 kAIC"
+    },
+    {
+     "label": "Qty",
+     "value": "2"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-07-mccb-thql2140.pdf",
+   "pages": 2,
+   "bytes": 73679,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 07 - MCCB THQL2140.pdf"
+  },
+  {
+   "id": "e-09-circuit-breaker-ground-fault-plug-in",
+   "code": "09",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "Circuit Breaker, Ground Fault Plug-In - THQL2160GFT2",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL2160GFT2"
+    },
+    {
+     "label": "Rating",
+     "value": "2P 60A, 120/240V, GFCI"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-09-ground-fault-breaker-thql2160gft2.pdf",
+   "pages": 3,
+   "bytes": 531295,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 09 - Ground Fault Breaker THQL2160GFT2.pdf"
+  },
+  {
+   "id": "e-10-mccb-120-240v-ql-thql2120",
+   "code": "10",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "MCCB, 120/240V QL - THQL2120",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL2120"
+    },
+    {
+     "label": "Rating",
+     "value": "2P 20A, 120/240V, 10 kAIC"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-10-mccb-thql2120.pdf",
+   "pages": 2,
+   "bytes": 73364,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 10 - MCCB THQL2120.pdf"
+  },
+  {
+   "id": "e-11-mccb-120-240v-ql-thql2130-qty-2",
+   "code": "11",
+   "group": "E",
+   "group_name": "Electrical",
+   "discipline": "Electrical",
+   "submittal": "JANU-SUB-011",
+   "manufacturer": "ABB",
+   "title": "MCCB, 120/240V QL - THQL2130 (Qty 2)",
+   "specs": [
+    {
+     "label": "Catalog No.",
+     "value": "THQL2130"
+    },
+    {
+     "label": "Rating",
+     "value": "2P 30A, 120/240V, 10 kAIC"
+    },
+    {
+     "label": "Qty",
+     "value": "2"
+    }
+   ],
+   "notes": "",
+   "status": "as_specified",
+   "status_text": "Submitted as specified",
+   "curated": true,
+   "pdf": "datasheets/janu-sub-011-11-mccb-thql2130.pdf",
+   "pages": 2,
+   "bytes": 182484,
+   "source": "Electrical/E - Electrical/JANU-SUB-011 11 - MCCB THQL2130.pdf"
+  },
+  {
+   "id": "f-f1-make-up-float-valve-3-4-in-npt-robert",
+   "code": "F1",
+   "group": "F",
+   "group_name": "Balancing Tank Accessories",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Robert Manufacturing",
+   "title": "Make-up Float Valve, 3/4 in NPT - Robert Mfg BOB R400 (brass)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Robert Manufacturing BOB R400 series float valve"
+    },
+    {
+     "label": "Connection",
+     "value": "3/4 in NPT"
+    },
+    {
+     "label": "Body",
+     "value": "Brass; float-actuated make-up water valve"
+    },
+    {
+     "label": "Type",
+     "value": "High-capacity/high-pressure float valve"
+    },
+    {
+     "label": "Application",
+     "value": "Balancing tank automatic make-up water"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/f1-robert-mfg-bob-r400-brass-float-valve.pdf",
+   "pages": 3,
+   "bytes": 1472262,
+   "source": "Pool/F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf"
+  },
+  {
+   "id": "f-f2-foot-valve-2-5-in-brass-with-strainer",
+   "code": "F2",
+   "group": "F",
+   "group_name": "Balancing Tank Accessories",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Bonomi (Valveman)",
+   "title": "Foot Valve, 2.5 in brass with strainer - Bonomi 100102 series",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Bonomi 100102 series foot valve (Valveman)"
+    },
+    {
+     "label": "Size",
+     "value": "2.5 in (family 3/8 in - 4 in)"
+    },
+    {
+     "label": "Pressure",
+     "value": "175 WOG (2.5-4 in); 400 WOG (3/8-2 in)"
+    },
+    {
+     "label": "Body / end",
+     "value": "Brass CW617N; disc PEI; seat NBR; SS spring"
+    },
+    {
+     "label": "Screen",
+     "value": "Stainless steel / nylon, 1000 micron"
+    },
+    {
+     "label": "Features",
+     "value": "Soft seat, bubble-tight; low cracking pressure 0.5 psi; +10 to 210 F"
+    },
+    {
+     "label": "Connection",
+     "value": "Female NPT (ANSI B1.20.1)"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/f2-valveman-brass-foot-valves.pdf",
+   "pages": 2,
+   "bytes": 108302,
+   "source": "Pool/F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf"
+  },
+  {
+   "id": "g-g1-pvc-ball-valves-aquaram-pvc-u-2-way-t",
+   "code": "G1",
+   "group": "G",
+   "group_name": "Piping and Valves",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Aquaram",
+   "title": "PVC Ball Valves - Aquaram PVC-U 2-way, type PE (solvent socket)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Aquaram PVC-U 2-way ball valve, type PE (cement socket)"
+    },
+    {
+     "label": "Standard",
+     "value": "UNE-EN ISO 1452"
+    },
+    {
+     "label": "Seats / seals",
+     "value": "HDPE seats; EPDM O-rings"
+    },
+    {
+     "label": "Pressure",
+     "value": "PN16 (o16-63 mm) at 20 C; PN10 (o75-125 mm)"
+    },
+    {
+     "label": "Max temp",
+     "value": "60 C"
+    },
+    {
+     "label": "Sizes",
+     "value": "DN10 to DN100 (o16 to 125 mm)"
+    }
+   ],
+   "notes": "Status TBR (to be reviewed) - confirm acceptance and sizes.",
+   "status": "to_review",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/g1-aquaram-valves.pdf",
+   "pages": 5,
+   "bytes": 585264,
+   "source": "Pool/G - Piping and Valves/G1 - Aquaram Valves.pdf"
+  },
+  {
+   "id": "g-g2-pvc-check-valves-jandy-positive-seal-c",
+   "code": "G2",
+   "group": "G",
+   "group_name": "Piping and Valves",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Jandy (Fluidra)",
+   "title": "PVC Check Valves - Jandy positive-seal check valve",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Jandy (Zodiac/Fluidra) PVC check valve"
+    },
+    {
+     "label": "Type",
+     "value": "Spring-loaded positive-seal check valve for pool plumbing"
+    },
+    {
+     "label": "Sizes",
+     "value": "1.5 / 2 / 2.5 in (slip x slip)"
+    },
+    {
+     "label": "Features",
+     "value": "Low head loss; serviceable clear lid; positive seal"
+    }
+   ],
+   "notes": "Status TBR (to be reviewed).",
+   "status": "to_review",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/g2-jandy-check-valves.pdf",
+   "pages": 3,
+   "bytes": 623296,
+   "source": "Pool/G - Piping and Valves/G2 - Jandy Check Valves.pdf"
+  },
+  {
+   "id": "g-g3-pvc-pipe-and-sch-40-fittings-all-sizes",
+   "code": "G3",
+   "group": "G",
+   "group_name": "Piping and Valves",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Spears",
+   "title": "PVC Pipe and Sch 40 Fittings (all sizes) - Spears Schedule 40 PVC",
+   "specs": [
+    {
+     "label": "Product",
+     "value": "Spears Schedule 40 PVC (white) fittings, unions and saddles"
+    },
+    {
+     "label": "Fittings standard",
+     "value": "ASTM D2466 (molded)"
+    },
+    {
+     "label": "Pipe standard",
+     "value": "ASTM D1785; material PVC Type I 12454 (ASTM D1784)"
+    },
+    {
+     "label": "Potable / lead-free",
+     "value": "NSF-61 Annex G; lead-free (<=0.25%)"
+    },
+    {
+     "label": "Sizes",
+     "value": "1/4 in to 12 in molded (fabricated to 36 in)"
+    },
+    {
+     "label": "Max temp",
+     "value": "140 F (60 C)"
+    },
+    {
+     "label": "Joints",
+     "value": "Solvent-weld socket / NPT threaded"
+    }
+   ],
+   "notes": "Covers PVC pipe and Schedule 40 fittings, all sizes.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.pdf",
+   "pages": 82,
+   "bytes": 1259923,
+   "source": "Pool/G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf"
+  },
+  {
+   "id": "h-h1-pool-equipotential-bonding-nec-680-b",
+   "code": "H1",
+   "group": "H",
+   "group_name": "Electrical - Pool Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "Burndy",
+   "title": "Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Burndy BWB680IG In-Ground Pool Water Bonding Kit"
+    },
+    {
+     "label": "Stud",
+     "value": "3/16 in"
+    },
+    {
+     "label": "Includes",
+     "value": "Stainless bonding plate, connector, rubber sealing washer, 2 flat + 2 lock washers"
+    },
+    {
+     "label": "Material",
+     "value": "Non-corrosive stainless steel"
+    },
+    {
+     "label": "Listing",
+     "value": "UL Listed (direct burial)"
+    },
+    {
+     "label": "Mounting",
+     "value": "Skimmer side wall, below basket"
+    },
+    {
+     "label": "System",
+     "value": "With #8 AWG solid bare copper + Burndy KA-Lug compression lugs (per tracker H1)"
+    }
+   ],
+   "notes": "Status TBR (to be reviewed). Pool water bonding per NEC 680.",
+   "status": "to_review",
+   "status_text": "Substitution / Deviation - engineer confirmation required",
+   "curated": true,
+   "pdf": "datasheets/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.pdf",
+   "pages": 2,
+   "bytes": 207707,
+   "source": "Pool/H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf"
+  },
+  {
+   "id": "j-j1-water-heater-119-gal-bradford-white-e",
+   "code": "J1",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Bradford White",
+   "title": "Water Heater, 119 gal - Bradford White ElectriFLEX LD (LE2120T3-3)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Bradford White LE2120T3-3 (ElectriFLEX LD upright)"
+    },
+    {
+     "label": "Capacity",
+     "value": "119 gal (450 L)"
+    },
+    {
+     "label": "Type",
+     "value": "Light-duty commercial upright electric"
+    },
+    {
+     "label": "Elements",
+     "value": "Two 6100 W (12.2 kW), simultaneous"
+    },
+    {
+     "label": "Electrical (as listed)",
+     "value": "240 V, 3-phase (field-convertible kits available)"
+    },
+    {
+     "label": "Water connections",
+     "value": "1 in NPT"
+    },
+    {
+     "label": "Tank",
+     "value": "Vitraglas + Microban lining; anode rod; ASME T&P; valve"
+    },
+    {
+     "label": "Pressure",
+     "value": "150 psi working / 300 psi test"
+    }
+   ],
+   "notes": "Confirm supply voltage / phase for TCI (sheet lists 240V 3-phase; field-conversion kits available).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j1-bradford-white-119-gal-water-heater.pdf",
+   "pages": 3,
+   "bytes": 716770,
+   "source": "Pool/J - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf"
+  },
+  {
+   "id": "j-j2-recirculation-pump-taco-2400-series-hi",
+   "code": "J2",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Taco",
+   "title": "Recirculation Pump - Taco 2400 Series High-Capacity Circulator",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Taco 2400 Series high-capacity circulator (select by duty)"
+    },
+    {
+     "label": "Max flow / head",
+     "value": "90 GPM / 46 ft"
+    },
+    {
+     "label": "Fluid temp",
+     "value": "40 to 225 F"
+    },
+    {
+     "label": "Max working pressure",
+     "value": "150 psi"
+    },
+    {
+     "label": "Body",
+     "value": "Cast iron or stainless steel"
+    },
+    {
+     "label": "Electrical",
+     "value": "115 V, 1-phase, 60 Hz; 1/6 to 1/2 HP by model"
+    },
+    {
+     "label": "Motor",
+     "value": "Open drip-proof, PSC, thermally protected (indoor use)"
+    }
+   ],
+   "notes": "Select the specific 2400 model to match the recirculation flow / head.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j2-taco-2400-series-recirculation-pump.pdf",
+   "pages": 3,
+   "bytes": 489502,
+   "source": "Pool/J - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf"
+  },
+  {
+   "id": "j-j3-timer-aquastat-taco-00-series-recirc",
+   "code": "J3",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Taco",
+   "title": "Timer / Aquastat - Taco 00 Series Recirculation Control",
+   "specs": [
+    {
+     "label": "Models",
+     "value": "265-1 (24 h analog timer), 265-DT (7-day digital), 563-2 (aquastat)"
+    },
+    {
+     "label": "Aquastat",
+     "value": "Snap-action; ON 95 F / OFF 115 F; clips to 3/4 in pipe"
+    },
+    {
+     "label": "Timer (analog)",
+     "value": "115 V, 16 A switch, 15-min intervals"
+    },
+    {
+     "label": "Timer (digital)",
+     "value": "120 V, 28 events, battery backup"
+    },
+    {
+     "label": "Application",
+     "value": "Controls Taco circulator on DHW recirculation for comfort/efficiency"
+    }
+   ],
+   "notes": "Timer / aquastat for the recirculation pump (item J2).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j3-taco-timer-and-aquastat.pdf",
+   "pages": 2,
+   "bytes": 200131,
+   "source": "Pool/J - Plumbing/J3 - Taco Timer and Aquastat.pdf"
+  },
+  {
+   "id": "j-j4-hose-bibbs-proflo-pf71dc-pf71fc-bra",
+   "code": "J4",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "ProFlo (Ferguson)",
+   "title": "Hose Bibbs - ProFlo PF71DC / PF71FC (brass)",
+   "specs": [
+    {
+     "label": "Models",
+     "value": "PF71DC (1/2 in IPS), PF71FC (3/4 in IPS)"
+    },
+    {
+     "label": "Body",
+     "value": "Brass"
+    },
+    {
+     "label": "Pressure",
+     "value": "125 psi"
+    },
+    {
+     "label": "Operating temp",
+     "value": "40 to 160 F"
+    },
+    {
+     "label": "Outlet",
+     "value": "3/4 in male hose thread"
+    }
+   ],
+   "notes": "Not for drinking-water connection (contains lead compounds per manufacturer warning).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j4-proflo-hose-bibb-pf71.pdf",
+   "pages": 2,
+   "bytes": 194159,
+   "source": "Pool/J - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf"
+  },
+  {
+   "id": "j-j5-angle-isolation-valve-u-s-solid-1-2",
+   "code": "J5",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "U.S. Solid",
+   "title": "Angle / Isolation Valve - U.S. Solid 1/2 in 316 SS Mini Ball Valve",
+   "specs": [
+    {
+     "label": "Product",
+     "value": "1/2 in Mini Ball Valve, 316 Stainless Steel, Female x Male Thread"
+    },
+    {
+     "label": "SKU",
+     "value": "JFXQV00025"
+    },
+    {
+     "label": "Type",
+     "value": "Manual 2-way mini ball valve, 90 deg lever handle"
+    },
+    {
+     "label": "Size",
+     "value": "1/2 in"
+    },
+    {
+     "label": "Connection",
+     "value": "Female x Male threaded (NPT / G)"
+    },
+    {
+     "label": "Body & components",
+     "value": "316 stainless steel"
+    },
+    {
+     "label": "Seal",
+     "value": "PTFE seal ring"
+    },
+    {
+     "label": "Pressure marking",
+     "value": "PN63 (marked on valve body)"
+    },
+    {
+     "label": "Packaging",
+     "value": "Pack of 2 (2PCS)"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j5-us-solid-316-ss-mini-ball-valve-angle-valve.pdf",
+   "pages": 2,
+   "bytes": 728444,
+   "source": "Pool/J - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf"
+  },
+  {
+   "id": "j-j6-angle-valves-brasscraft-ktcr19-compres",
+   "code": "J6",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "BrassCraft",
+   "title": "Angle Valves - BrassCraft KTCR19 Compression Angle Supply Stop (Chrome)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "BrassCraft KTCR19 series (BKTCR19XC)"
+    },
+    {
+     "label": "Connection",
+     "value": "1/2 in comp x 3/8 in OD comp"
+    },
+    {
+     "label": "Type",
+     "value": "Angle supply stop valve"
+    },
+    {
+     "label": "Finish",
+     "value": "Chrome"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j6-brasscraft-ktcr19-angle-stop-valve.pdf",
+   "pages": 3,
+   "bytes": 289956,
+   "source": "Pool/J - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf"
+  },
+  {
+   "id": "j-j7-supply-hoses-proflo-pfx146-braided-sta",
+   "code": "J7",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "ProFlo (Ferguson)",
+   "title": "Supply Hoses - ProFlo PFX146 Braided Stainless Flexible Connector",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "ProFlo PFX146324"
+    },
+    {
+     "label": "Connection",
+     "value": "3/8 in comp x 1/2 in FIP"
+    },
+    {
+     "label": "Length",
+     "value": "20 in"
+    },
+    {
+     "label": "Type",
+     "value": "Braided stainless steel flexible water connector"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j7-proflo-pfx146-braided-supply-hose.pdf",
+   "pages": 2,
+   "bytes": 270583,
+   "source": "Pool/J - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf"
+  },
+  {
+   "id": "j-j8-vanity-p-trap-proflo-100-series-1-1-2",
+   "code": "J8",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "ProFlo (Ferguson)",
+   "title": "Vanity P-Trap - ProFlo 100 Series 1-1/2 in Brass (Polished Chrome)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "ProFlo PFPTB107 (100 series)"
+    },
+    {
+     "label": "Size",
+     "value": "1-1/2 in"
+    },
+    {
+     "label": "Material",
+     "value": "Brass"
+    },
+    {
+     "label": "Finish",
+     "value": "Polished chrome"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j8-proflo-p-trap-pfptb107.pdf",
+   "pages": 2,
+   "bytes": 861065,
+   "source": "Pool/J - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf"
+  },
+  {
+   "id": "j-j9-pipe-insulation-micro-lok-hp-vs-poly-p",
+   "code": "J9",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Comparative Datasheet",
+   "title": "Pipe Insulation - Micro-Lok HP vs Poly Pipe Insulation",
+   "specs": [
+    {
+     "label": "Manufacturer",
+     "value": "Johns Manville Jones Stephens"
+    },
+    {
+     "label": "Product",
+     "value": "Micro-Lok HP Poly Pipe Insulation"
+    },
+    {
+     "label": "Material",
+     "value": "Fiberglass (biosoluble glass fiber, thermoset resin) Polyethylene closed-cell flexible foam"
+    },
+    {
+     "label": "Form",
+     "value": "Rigid pre-formed pipe sections Flexible tubular foam"
+    },
+    {
+     "label": "Service temperature",
+     "value": "0 to 850 F (-18 to 454 C) -200 to 200 F (-129 to 93 C)"
+    },
+    {
+     "label": "Thermal conductivity k, 75 F",
+     "value": ""
+    },
+    {
+     "label": "mean",
+     "value": "0.23 Btu-in/hr-ft2-F (0.034 W/m-K) 0.270 Btu-in/hr-ft2-F (0.039 W/m-K)"
+    },
+    {
+     "label": "Water vapor permeance",
+     "value": "0.02 perm max (ASJ jacket) < 0.05 perm"
+    },
+    {
+     "label": "Water absorption",
+     "value": "< 5% by weight (moisture sorption) < 0.20% by volume"
+    },
+    {
+     "label": "Fire - flame/smoke",
+     "value": "25/50 (ASTM E84); limited combustibility NFPA 90A/90B 25/50 up to 1-1/2 in (ASTM E84); UL94 HF-1"
+    },
+    {
+     "label": "Jacket / vapor barrier",
+     "value": "Factory ASJ vapor-retarder jacket, self-seal lap None needed (closed-cell); paint for outdoor use"
+    },
+    {
+     "label": "Wall thickness range",
+     "value": "1/2 to 5 in 3/8, 1/2, 3/4, 1 in"
+    },
+    {
+     "label": "Pipe size range",
+     "value": "1/2 to 24 in IPS 3/8 to 4-1/2 in ID"
+    },
+    {
+     "label": "Section length",
+     "value": "3 ft (0.92 m) 6 ft (1.83 m)"
+    },
+    {
+     "label": "Standards",
+     "value": "ASTM C547 Type I; C585; C1136 (jacket) ASTM C1427 Type I; E84; UL94 HF-1"
+    },
+    {
+     "label": "Certifications",
+     "value": "GREENGUARD Gold GREENGUARD Gold; contains no halogens"
+    },
+    {
+     "label": "Best suited for",
+     "value": "Hot / high-temperature piping; code-driven vapor-jacketed systems Cold / condensation control; flexible, fast install (to 200 F) Highlighted rows show the main differences. Micro-Lok HP is a rigid fiberglass insulation with a factory vapor-barrier (ASJ) jacket, rated to 850 F for hot and high-temperature lines. Poly Pipe Insulation is a flexible closed-cell polyethylene foam with very low water absorption and inherent moisture resistance (no separate vapor jacket), best for cold-line condensation control and fast installation, limited to 200 F."
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j9-comparison-micro-lok-hp-vs-poly-pipe-insulation.pdf",
+   "pages": 1,
+   "bytes": 4090,
+   "source": "Pool/J - Plumbing/J9 - Comparison - Micro-Lok HP vs Poly Pipe Insulation.pdf"
+  },
+  {
+   "id": "j-j9-pipe-insulation-jm-micro-lok-hp-fiberg",
+   "code": "J9",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Johns Manville",
+   "title": "Pipe Insulation - JM Micro-Lok HP Fiberglass",
+   "specs": [
+    {
+     "label": "Product",
+     "value": "Johns Manville Micro-Lok HP fiberglass pipe insulation"
+    },
+    {
+     "label": "Standard",
+     "value": "ASTM C547 Type I; jacket ASTM C1136 (ASJ)"
+    },
+    {
+     "label": "Service temp",
+     "value": "0 to 850 F (-18 to 454 C)"
+    },
+    {
+     "label": "Fire",
+     "value": "FHC 25/50 (ASTM E84); limited combustibility"
+    },
+    {
+     "label": "Vapor permeance",
+     "value": "0.02 perms max (ASJ jacket)"
+    },
+    {
+     "label": "Sizes",
+     "value": "1/2 in to 24 in IPS; thickness 1/2 in to 5 in"
+    }
+   ],
+   "notes": "Select thickness / size per pipe schedule; ASJ jacket concealed, weather jacket outdoors.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j9-jm-micro-lok-hp-pipe-insulation.pdf",
+   "pages": 4,
+   "bytes": 224176,
+   "source": "Pool/J - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf"
+  },
+  {
+   "id": "j-j9-j9-poly-pipe-insulation",
+   "code": "J9",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "title": "J9 - Poly Pipe Insulation",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/j9-poly-pipe-insulation.pdf",
+   "pages": 1,
+   "bytes": 161420,
+   "source": "Pool/J - Plumbing/J9 - Poly Pipe Insulation.pdf"
+  },
+  {
+   "id": "j-j11-cold-water-service-pvc-schedule-40-pre",
+   "code": "J11",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Charlotte Pipe",
+   "title": "Cold Water Service - PVC Schedule 40 Pressure Pipe & Fittings",
+   "specs": [
+    {
+     "label": "System",
+     "value": "Charlotte Pipe PVC Schedule 40 pressure pipe & fittings"
+    },
+    {
+     "label": "Material",
+     "value": "Rigid PVC 12454 (ASTM D1784)"
+    },
+    {
+     "label": "Standards",
+     "value": "Pipe ASTM D1785; fittings ASTM D2466"
+    },
+    {
+     "label": "Potable",
+     "value": "NSF-61 and NSF-14 (health effects)"
+    },
+    {
+     "label": "Max temp",
+     "value": "140 F"
+    },
+    {
+     "label": "Joints",
+     "value": "Solvent-weld (primer ASTM F656 + cement ASTM D2564)"
+    }
+   ],
+   "notes": "Cold water service (PVC Sch 40).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j11-charlotte-pvc-sch-40-cold-water-service.pdf",
+   "pages": 3,
+   "bytes": 268756,
+   "source": "Pool/J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf"
+  },
+  {
+   "id": "j-j12-cold-water-distribution-cpvc-flowguard",
+   "code": "J12",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Charlotte Pipe",
+   "title": "Cold Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
+   "specs": [
+    {
+     "label": "System",
+     "value": "Charlotte FlowGuard Gold CTS CPVC pipe & fittings, SDR 11"
+    },
+    {
+     "label": "Material",
+     "value": "Rigid CPVC (ASTM D1784: pipe 24448 / fittings 23447)"
+    },
+    {
+     "label": "Standard",
+     "value": "ASTM D2846"
+    },
+    {
+     "label": "Rating",
+     "value": "Up to 180 F at 100 psi"
+    },
+    {
+     "label": "Potable",
+     "value": "NSF-61 and NSF-14"
+    },
+    {
+     "label": "Sizes",
+     "value": "1/2 in to 2 in CTS"
+    },
+    {
+     "label": "Joints",
+     "value": "CPVC cement ASTM F493"
+    }
+   ],
+   "notes": "Cold water distribution (CPVC).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j12-charlotte-flowguard-cpvc-cold-water-distribution.pdf",
+   "pages": 2,
+   "bytes": 216368,
+   "source": "Pool/J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf"
+  },
+  {
+   "id": "j-j13-hot-water-distribution-cpvc-flowguard",
+   "code": "J13",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "Charlotte Pipe",
+   "title": "Hot Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
+   "specs": [
+    {
+     "label": "System",
+     "value": "Charlotte FlowGuard Gold CTS CPVC pipe & fittings, SDR 11"
+    },
+    {
+     "label": "Material",
+     "value": "Rigid CPVC (ASTM D1784: pipe 24448 / fittings 23447)"
+    },
+    {
+     "label": "Standard",
+     "value": "ASTM D2846"
+    },
+    {
+     "label": "Rating",
+     "value": "Up to 180 F at 100 psi"
+    },
+    {
+     "label": "Potable",
+     "value": "NSF-61 and NSF-14"
+    },
+    {
+     "label": "Sizes",
+     "value": "1/2 in to 2 in CTS"
+    },
+    {
+     "label": "Joints",
+     "value": "CPVC cement ASTM F493"
+    }
+   ],
+   "notes": "Hot water distribution (CPVC); same system as J12.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j13-charlotte-flowguard-cpvc-hot-water-distribution.pdf",
+   "pages": 2,
+   "bytes": 216387,
+   "source": "Pool/J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf"
+  },
+  {
+   "id": "j-j14-roof-drains-proflo-3-in-plastic-roof-d",
+   "code": "J14",
+   "group": "J",
+   "group_name": "Plumbing",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "ProFlo (Ferguson)",
+   "title": "Roof Drains - ProFlo 3 in Plastic Roof Drain (PF42870)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "ProFlo PF42870"
+    },
+    {
+     "label": "Size",
+     "value": "3 in"
+    },
+    {
+     "label": "Type",
+     "value": "Plastic roof drain"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/j14-proflo-plastic-roof-drain-pf42870.pdf",
+   "pages": 2,
+   "bytes": 221895,
+   "source": "Pool/J - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf"
+  }
+ ]
+}

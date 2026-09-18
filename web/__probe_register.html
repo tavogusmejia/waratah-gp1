@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><title>Register probe</title>
+<style>html,body{margin:0}iframe{border:0;display:block;width:100%;height:1100px}</style>
+<iframe id="f" src="./index.html?hold=0"></iframe>
+<script>
+var W=parseInt((/[?&]w=(\d+)/.exec(location.search)||[,1400])[1],10);
+var T=(/[?&]t=(\w+)/.exec(location.search)||[,"light"])[1];
+var OPEN=/[?&]open=1/.test(location.search);
+var f=document.getElementById("f");f.style.width=W+"px";
+f.addEventListener("load",function(){
+  var d=f.contentDocument;
+  var tick=setInterval(function(){
+    if(!d.querySelector(".card"))return;
+    clearInterval(tick);
+    d.documentElement.setAttribute("data-theme",T);
+    var sp=d.getElementById("splash"); if(sp)sp.remove();
+    d.documentElement.classList.remove("splash-on");
+    if(OPEN){ var c=d.querySelector(".card.act")||d.querySelector(".card"); c.click(); }
+  },30);
+});
+</script>

@@ -497,51 +497,76 @@ INDEX = OUT_DIR.parents[1] / "index.html"
 LANDING_TOL = 4.0
 
 
-def inline_svg(html, key, cls, loops, box_h):
-    """Replace the copy of `loops` that the landing paints from.
-
-    The landing must not fetch anything, so the artwork is inline in the HTML -
-    which makes it a second copy of something already traced. It is written
-    from here so the copy cannot drift from the file it came from, the same way
-    the seed and the SQL import are generated rather than kept in step by hand.
-    """
-    open_, shut = "<!-- brand:" + key, "<!-- /brand:" + key + " -->"
-    a, b = html.find(open_), html.find(shut)
-    if a < 0 or b < 0:
-        sys.exit("index.html has lost its brand:" + key + " markers")
-    a = html.index("-->", a) + 3
+def path_el(pid, loops, box_h):
+    """One <path> with an id, normalised to a box `box_h` units tall."""
     x0, y0, x1, y1 = bounds([loops])
     k = box_h / (y1 - y0)
 
     def tx(x, y):
         return ((x - x0) * k, (y - y0) * k)
 
-    el = ('<svg xmlns="http://www.w3.org/2000/svg" class="' + cls
-          + '" viewBox="0 0 ' + fmt((x1 - x0) * k) + " " + fmt(box_h)
-          + '" aria-hidden="true" focusable="false">'
-          + '<path d="' + path_d(loops, tx) + '"/></svg>')
-    # The whole file is HTML and will not parse as XML, but this fragment is
-    # SVG and must - it is the same trap that made the standalone files render
-    # as broken images.
-    import xml.etree.ElementTree as ET
-    try:
-        ET.fromstring(el)
-    except ET.ParseError as e:
-        sys.exit("inline brand:" + key + " is not well-formed: " + str(e))
-    print("  index.html   brand:%-5s %5.1f KB" % (key, len(el) / 1024))
-    return html[:a] + NL + "    " + el + NL + "    " + html[b:]
+    return ('<path id="' + pid + '" d="' + path_d(loops, tx) + '"/>',
+            fmt((x1 - x0) * k))
 
 
 def inline_landing(im, mark):
+    """Write the copy of the artwork that index.html paints from.
+
+    The landing must not fetch anything, so the artwork is inline in the HTML -
+    which makes it a second copy of something already traced. It is written
+    from here so the copy cannot drift from the file it came from, the same way
+    the seed and the SQL import are generated rather than kept in step by hand.
+
+    It goes in ONCE, as two <path>s in a hidden <defs>, and both the landing
+    and the page header reach it with <use>. Inlining it twice would be about
+    16 KB more HTML and would push the page out of the single round trip that
+    is the whole point of the landing. The defs live outside #splash on
+    purpose: the landing deletes itself, and it must not take the header's
+    logo with it.
+    """
     if not INDEX.exists():
         print("  (no index.html; skipping the landing)")
         return
     word = trace(im, SLATE, CROP_WORD, tol=LANDING_TOL)
     check("landing wordmark", [word])
+
+    p_mark, w_mark = path_el("wm", mark, 1000.0)
+    p_word, w_word = path_el("ww", word, 142.0)
+    el = ('<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" '
+          'style="position:absolute;width:0;height:0;overflow:hidden">'
+          "<defs>" + p_mark + p_word + "</defs></svg>")
+
+    # The file as a whole is HTML and will not parse as XML, but this fragment
+    # is SVG and must - it is the same trap that made the standalone marks
+    # render as broken images.
+    import xml.etree.ElementTree as ET
+    try:
+        ET.fromstring(el)
+    except ET.ParseError as e:
+        sys.exit("the inline brand defs are not well-formed: " + str(e))
+
     html = INDEX.read_text(encoding="utf-8")
-    html = inline_svg(html, "mark", "mark", mark, 1000.0)
-    html = inline_svg(html, "word", "word", word, 142.0)
+    a, b = html.find("<!-- brand:defs"), html.find("<!-- /brand:defs -->")
+    if a < 0 or b < 0:
+        sys.exit("index.html has lost its brand:defs markers")
+    a = html.index("-->", a) + 3
+    html = html[:a] + NL + el + NL + html[b:]
+
+    # The <use> wrappers carry their own viewBox, and a wrong one is the kind
+    # of mistake that looks like a design choice: the logo simply sits a few
+    # per cent small, or off centre, and nothing anywhere reports it. So the
+    # widths are asserted rather than trusted.
+    for pid, w, h in (("#wm", w_mark, "1000"), ("#ww", w_word, "142")):
+        want = 'viewBox="0 0 ' + w + " " + h + '"'
+        used = html.count('href="' + pid + '"')
+        if used and html.count(want) < used:
+            sys.exit("index.html: every svg using " + pid + " needs "
+                     + want + " (found " + str(html.count(want))
+                     + " of " + str(used) + ")")
+
     INDEX.write_text(html, encoding="utf-8")
+    print("  index.html   brand:defs %5.1f KB   mark 0 0 %s 1000, word 0 0 %s 142"
+          % (len(el) / 1024, w_mark, w_word))
 
 
 def check(name, groups):
