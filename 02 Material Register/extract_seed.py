@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GP1-MUR Material & Hardware Register - seed extractor.
+GP1-MUR Procurement Schedule - seed extractor.
 
 Reads the master procurement workbook and emits seed.json: one flat, typed
 item list that the web register renders from and that maps 1:1 onto the
@@ -277,7 +277,7 @@ def envelope(items):
         "schema": 1,
         "meta": {
             "project": "GP1-MUR",
-            "title": "Material & Hardware Register",
+            "title": "Procurement Schedule",
             "rev": 1,
             "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "source": WORKBOOK.name,
