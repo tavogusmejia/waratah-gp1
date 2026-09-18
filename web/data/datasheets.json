@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-18T22:17:39Z",
+ "generated": "2026-09-18T22:58:25Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -104,7 +104,8 @@
    "pages": 3,
    "bytes": 777856,
    "source": "Pool/A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a1-cartridge-filter-clean-clear-cc150.webp"
   },
   {
    "id": "a-a2-main-filter-pump-pentair-intelliflo3-v",
@@ -141,7 +142,8 @@
    "pages": 6,
    "bytes": 6205005,
    "source": "Pool/A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a2-main-filter-pump-intelliflo3-vsf.webp"
   },
   {
    "id": "a-a3-infinity-edge-pump-pentair-intelliflo3",
@@ -178,7 +180,8 @@
    "pages": 6,
    "bytes": 6205020,
    "source": "Pool/A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a3-infinity-edge-pump-intelliflo3-vsf.webp"
   },
   {
    "id": "a-a4-pool-controller-pentair-intellicenter",
@@ -219,7 +222,8 @@
    "pages": 3,
    "bytes": 965385,
    "source": "Pool/A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp"
   },
   {
    "id": "a-a5-salt-chlorine-generator-pentair-intell",
@@ -260,7 +264,8 @@
    "pages": 3,
    "bytes": 872426,
    "source": "Pool/A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a5-salt-chlorine-generator-intellichlor-lt25.webp"
   },
   {
    "id": "a-a6-pool-heat-pump-gulfstream-he-150-he15",
@@ -309,7 +314,8 @@
    "pages": 2,
    "bytes": 182325,
    "source": "Pool/A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
   {
    "id": "b-b1-pool-main-drain-aquastar-1216103-121",
@@ -358,7 +364,8 @@
    "pages": 3,
    "bytes": 7452691,
    "source": "Pool/B - In-Pool Fittings/B1 - AquaStar Main Drain (1216103).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/b1-aquastar-main-drain-1216103.webp"
   },
   {
    "id": "b-b2-pool-shallow-floor-return-color-match",
@@ -399,7 +406,8 @@
    "pages": 2,
    "bytes": 1162199,
    "source": "Pool/B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/b2-color-match-floor-return-ptfr-03.webp"
   },
   {
    "id": "b-b3-pool-wall-infinity-edge-return-inlets",
@@ -444,7 +452,8 @@
    "pages": 3,
    "bytes": 126133,
    "source": "Pool/B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "b-b4-vacuum-fitting-hayward-sp1022-gray-s",
@@ -489,7 +498,8 @@
    "pages": 3,
    "bytes": 130996,
    "source": "Pool/B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "b-b5-infinity-edge-trough-drain-pool-pipe",
@@ -534,7 +544,8 @@
    "pages": 84,
    "bytes": 1433593,
    "source": "Pool/B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/b5-spears-sch-40-pvc.webp"
   },
   {
    "id": "b-b6-automatic-water-filler-pentair-t40-f",
@@ -579,7 +590,8 @@
    "pages": 2,
    "bytes": 194286,
    "source": "Pool/B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "d-a-pool-light-l09-l-l-bright-1-6-316l",
@@ -612,7 +624,8 @@
    "pages": 5,
    "bytes": 2363591,
    "source": "Pool/D - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/a-pool-light-l09-cw16005di.webp"
   },
   {
    "id": "d-b-pool-light-l09-1-l-l-bright-3-0-316l",
@@ -649,7 +662,8 @@
    "pages": 6,
    "bytes": 2669975,
    "source": "Pool/D - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   },
   {
    "id": "e-01-load-center-reliahome-pcc4022r",
@@ -706,7 +720,8 @@
    "pages": 3,
    "bytes": 153181,
    "source": "Electrical/E - Electrical/JANU-SUB-011 01 - Load Center PCC4022R.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-01-load-center-pcc4022r.webp"
   },
   {
    "id": "e-02-load-center-reliahome-pcc1612",
@@ -759,7 +774,8 @@
    "pages": 5,
    "bytes": 373263,
    "source": "Electrical/E - Electrical/JANU-SUB-011 02 - Load Center PCC1612.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-02-load-center-pcc1612.webp"
   },
   {
    "id": "e-03-load-center-meter-socket-pams3022trnus",
@@ -812,7 +828,8 @@
    "pages": 3,
    "bytes": 198824,
    "source": "Electrical/E - Electrical/JANU-SUB-011 03 - Meter Socket PAMS3022TRNUS.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-03-meter-socket-pams3022trnus.webp"
   },
   {
    "id": "e-04-surge-protection-device-wall-mount-rg",
@@ -861,7 +878,8 @@
    "pages": 6,
    "bytes": 495839,
    "source": "Electrical/E - Electrical/JANU-SUB-011 04 - Surge Protection Device RGWMSP120S08T14.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.webp"
   },
   {
    "id": "e-05-circuit-breaker-arc-fault-plug-in-thq",
@@ -894,7 +912,8 @@
    "pages": 2,
    "bytes": 66746,
    "source": "Electrical/E - Electrical/JANU-SUB-011 05 - Arc Fault Breaker THQL1120PAF2.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-05-arc-fault-breaker-thql1120paf2.webp"
   },
   {
    "id": "e-06-mccb-120-240v-ql-thql2180",
@@ -923,7 +942,8 @@
    "pages": 2,
    "bytes": 71974,
    "source": "Electrical/E - Electrical/JANU-SUB-011 06 - MCCB THQL2180.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-06-mccb-thql2180.webp"
   },
   {
    "id": "e-07-mccb-120-240v-ql-thql2140-qty-2",
@@ -956,7 +976,8 @@
    "pages": 2,
    "bytes": 73679,
    "source": "Electrical/E - Electrical/JANU-SUB-011 07 - MCCB THQL2140.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-07-mccb-thql2140.webp"
   },
   {
    "id": "e-09-circuit-breaker-ground-fault-plug-in",
@@ -985,7 +1006,8 @@
    "pages": 3,
    "bytes": 531295,
    "source": "Electrical/E - Electrical/JANU-SUB-011 09 - Ground Fault Breaker THQL2160GFT2.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "e-10-mccb-120-240v-ql-thql2120",
@@ -1014,7 +1036,8 @@
    "pages": 2,
    "bytes": 73364,
    "source": "Electrical/E - Electrical/JANU-SUB-011 10 - MCCB THQL2120.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-10-mccb-thql2120.webp"
   },
   {
    "id": "e-11-mccb-120-240v-ql-thql2130-qty-2",
@@ -1047,7 +1070,8 @@
    "pages": 2,
    "bytes": 182484,
    "source": "Electrical/E - Electrical/JANU-SUB-011 11 - MCCB THQL2130.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/janu-sub-011-11-mccb-thql2130.webp"
   },
   {
    "id": "f-f1-make-up-float-valve-3-4-in-npt-robert",
@@ -1088,7 +1112,8 @@
    "pages": 3,
    "bytes": 1472262,
    "source": "Pool/F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/f1-robert-mfg-bob-r400-brass-float-valve.webp"
   },
   {
    "id": "f-f2-foot-valve-2-5-in-brass-with-strainer",
@@ -1137,7 +1162,8 @@
    "pages": 2,
    "bytes": 108302,
    "source": "Pool/F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/f2-valveman-brass-foot-valves.webp"
   },
   {
    "id": "g-g1-pvc-ball-valves-aquaram-pvc-u-2-way-t",
@@ -1182,7 +1208,8 @@
    "pages": 5,
    "bytes": 585264,
    "source": "Pool/G - Piping and Valves/G1 - Aquaram Valves.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/g1-aquaram-valves.webp"
   },
   {
    "id": "g-g2-pvc-check-valves-jandy-positive-seal-c",
@@ -1219,7 +1246,8 @@
    "pages": 3,
    "bytes": 623296,
    "source": "Pool/G - Piping and Valves/G2 - Jandy Check Valves.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "g-g3-pvc-pipe-and-sch-40-fittings-all-sizes",
@@ -1268,7 +1296,8 @@
    "pages": 82,
    "bytes": 1259923,
    "source": "Pool/G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.webp"
   },
   {
    "id": "h-h1-pool-equipotential-bonding-nec-680-b",
@@ -1317,7 +1346,8 @@
    "pages": 2,
    "bytes": 207707,
    "source": "Pool/H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
   },
   {
    "id": "j-j1-water-heater-119-gal-bradford-white-e",
@@ -1370,7 +1400,8 @@
    "pages": 3,
    "bytes": 716770,
    "source": "Pool/J - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j1-bradford-white-119-gal-water-heater.webp"
   },
   {
    "id": "j-j2-recirculation-pump-taco-2400-series-hi",
@@ -1419,7 +1450,8 @@
    "pages": 3,
    "bytes": 489502,
    "source": "Pool/J - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j2-taco-2400-series-recirculation-pump.webp"
   },
   {
    "id": "j-j3-timer-aquastat-taco-00-series-recirc",
@@ -1460,7 +1492,8 @@
    "pages": 2,
    "bytes": 200131,
    "source": "Pool/J - Plumbing/J3 - Taco Timer and Aquastat.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j3-taco-timer-and-aquastat.webp"
   },
   {
    "id": "j-j4-hose-bibbs-proflo-pf71dc-pf71fc-bra",
@@ -1501,7 +1534,8 @@
    "pages": 2,
    "bytes": 194159,
    "source": "Pool/J - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j4-proflo-hose-bibb-pf71.webp"
   },
   {
    "id": "j-j5-angle-isolation-valve-u-s-solid-1-2",
@@ -1558,7 +1592,8 @@
    "pages": 2,
    "bytes": 728444,
    "source": "Pool/J - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "j-j6-angle-valves-brasscraft-ktcr19-compres",
@@ -1595,7 +1630,8 @@
    "pages": 3,
    "bytes": 289956,
    "source": "Pool/J - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "j-j7-supply-hoses-proflo-pfx146-braided-sta",
@@ -1632,7 +1668,8 @@
    "pages": 2,
    "bytes": 270583,
    "source": "Pool/J - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j7-proflo-pfx146-braided-supply-hose.webp"
   },
   {
    "id": "j-j8-vanity-p-trap-proflo-100-series-1-1-2",
@@ -1669,7 +1706,8 @@
    "pages": 2,
    "bytes": 861065,
    "source": "Pool/J - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j8-proflo-p-trap-pfptb107.webp"
   },
   {
    "id": "j-j9-pipe-insulation-micro-lok-hp-vs-poly-p",
@@ -1758,7 +1796,8 @@
    "pages": 1,
    "bytes": 4090,
    "source": "Pool/J - Plumbing/J9 - Comparison - Micro-Lok HP vs Poly Pipe Insulation.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": ""
   },
   {
    "id": "j-j9-pipe-insulation-jm-micro-lok-hp-fiberg",
@@ -1803,7 +1842,8 @@
    "pages": 4,
    "bytes": 224176,
    "source": "Pool/J - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j9-jm-micro-lok-hp-pipe-insulation.webp"
   },
   {
    "id": "j-j9-j9-poly-pipe-insulation",
@@ -1823,7 +1863,8 @@
    "pages": 1,
    "bytes": 161420,
    "source": "Pool/J - Plumbing/J9 - Poly Pipe Insulation.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j9-poly-pipe-insulation.webp"
   },
   {
    "id": "j-j11-cold-water-service-pvc-schedule-40-pre",
@@ -1868,7 +1909,8 @@
    "pages": 3,
    "bytes": 268756,
    "source": "Pool/J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j11-charlotte-pvc-sch-40-cold-water-service.webp"
   },
   {
    "id": "j-j12-cold-water-distribution-cpvc-flowguard",
@@ -1917,7 +1959,8 @@
    "pages": 2,
    "bytes": 216368,
    "source": "Pool/J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j12-charlotte-flowguard-cpvc-cold-water-distribution.webp"
   },
   {
    "id": "j-j13-hot-water-distribution-cpvc-flowguard",
@@ -1966,7 +2009,8 @@
    "pages": 2,
    "bytes": 216387,
    "source": "Pool/J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j13-charlotte-flowguard-cpvc-hot-water-distribution.webp"
   },
   {
    "id": "j-j14-roof-drains-proflo-3-in-plastic-roof-d",
@@ -1999,7 +2043,8 @@
    "pages": 2,
    "bytes": 221895,
    "source": "Pool/J - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf",
-   "drive_url": ""
+   "drive_url": "",
+   "image": "img/j14-proflo-plastic-roof-drain-pf42870.webp"
   }
  ]
 }

@@ -3,12 +3,10 @@
 
    Built on the Waratah brand, which is two colours and a lot of white.
 
-   ONE RULE ABOVE ALL: red means someone has to do something.
-   Nine of the 45 datasheets are substitutions, deviations or not yet
-   reviewed, and every one of those needs an engineer to sign it off before it
-   is built. Those are the only things on this page allowed to be red. A
-   register where everything is coloured tells you nothing; this one is quiet
-   until it is not.
+   This is a repository, not a workflow. There are no alerts, no status badges
+   and nothing coloured to push a reader into acting. Red is spent on exactly
+   one thing - the button that opens a datasheet - plus focus rings. Everything
+   else is slate on white, which is what lets a page of 45 items stay readable.
 
    The two brand colours never touch. They are within 0.03 of each other in
    OKLCH lightness — red on slate is 1.02:1, which to a contrast algorithm is
@@ -147,24 +145,7 @@ a { color: inherit; }
 }
 .lede p { margin: 0; color: var(--ink-2); font-size: 14px; max-width: 62ch; }
 
-/* The action count. This is the page's reason to exist, so it is the one
-   thing above the fold that is allowed to be loud. */
-.alarm {
-  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  margin-top: 20px; padding: 14px 16px;
-  border: 1px solid var(--red-line); border-left: 3px solid var(--red);
-  border-radius: var(--r); background: var(--red-wash);
-}
-.alarm b { font-size: 24px; font-weight: 500; color: var(--red); line-height: 1; }
-.alarm span { font-size: 13.5px; color: var(--ink-2); }
-.alarm button {
-  margin-left: auto; font: inherit; font-size: 12.5px;
-  border: 1px solid var(--red-line); background: var(--bg-raise); color: var(--red);
-  padding: 7px 13px; border-radius: var(--r); cursor: pointer;
-}
-.alarm button:hover { background: var(--red); color: #fff; border-color: var(--red); }
-.alarm.clear { border-color: var(--line); border-left-color: var(--slate); background: var(--slate-wash); }
-.alarm.clear b { color: var(--slate); }
+
 
 /* ------------------------------------------------------------- controls */
 
@@ -191,8 +172,14 @@ a { color: inherit; }
 }
 .chip:hover { border-color: var(--slate); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
-.chip.act[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; }
 .chip i { font-style: normal; font-size: 11px; opacity: .65; font-variant-numeric: tabular-nums; }
+
+.pick {
+  font: inherit; font-size: 13px; color: var(--ink-2); cursor: pointer;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--bg-raise); padding: 9px 11px; max-width: 230px;
+}
+.pick:hover { border-color: var(--slate); }
 
 .count { margin-left: auto; font-size: 12.5px; color: var(--ink-3); }
 
@@ -248,7 +235,6 @@ a { color: inherit; }
   padding: 14px 15px 13px;
 }
 .card:hover { border-color: var(--slate); box-shadow: var(--shadow); }
-.card.act { border-left: 3px solid var(--red); padding-left: 13px; }
 
 .card-h { display: flex; align-items: baseline; gap: 9px; }
 .card-h code {
@@ -260,13 +246,6 @@ a { color: inherit; }
 .card-s { font-size: 12.5px; color: var(--ink-3); }
 .card-f { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 2px; }
 
-.tag {
-  font-size: 11px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
-  padding: 3px 7px; border-radius: 4px;
-  border: 1px solid var(--line); color: var(--ink-3);
-}
-.tag.act { border-color: var(--red-line); color: var(--red); background: var(--red-wash); }
-.tag.ok { border-color: var(--line); color: var(--ink-2); }
 
 .pages { margin-left: auto; font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
@@ -313,14 +292,31 @@ a { color: inherit; }
 
 .sheet-b { overflow-y: auto; padding: 18px 20px 24px; flex: 1; }
 
-.warn {
-  border: 1px solid var(--red-line); border-left: 3px solid var(--red);
-  background: var(--red-wash); border-radius: var(--r);
-  padding: 12px 14px; margin-bottom: 18px;
+
+/* The picture. Often the only reason somebody opened the sheet: they know the
+   item, they just want to see it. Contained rather than cropped, because these
+   are cutouts of wildly different proportions - a 1.2 m water heater and a
+   50 mm valve - and cropping to a fixed box would behead half of them.
+   The tinted ground keeps a white-background cutout from floating. */
+.shot {
+  margin: 0 0 18px;
+  background: var(--bg-sunk);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  padding: 14px;
+  display: grid;
+  place-items: center;
+  min-height: 150px;
 }
-.warn h4 { margin: 0 0 5px; font-size: 12px; font-weight: 600; letter-spacing: .05em;
-           text-transform: uppercase; color: var(--red); }
-.warn p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+.shot img {
+  display: block;
+  max-width: 100%;
+  max-height: 260px;
+  width: auto; height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;   /* melts a white cutout into the tinted ground */
+}
+:root[data-theme="dark"] .shot img { mix-blend-mode: normal; }
 
 .specs { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .specs th, .specs td { text-align: left; vertical-align: top; padding: 9px 0; border-bottom: 1px solid var(--line-2); }

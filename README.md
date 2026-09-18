@@ -34,6 +34,7 @@ site reads them any more, and nothing here deletes them yet.
 | `assets/register.js` | The register. Read-only, no backend. |
 | `assets/brand/*.svg` | The traced marks. See *Brand*. |
 | `data/datasheets.json` | The 45 items, generated from the PDFs. |
+| `img/*.webp` | One photograph per item, lifted out of the PDFs. |
 | `datasheets/*.pdf` | The datasheets themselves, shipped with the site. |
 | `__probe_landing.html` | Measures the landing: paint timing, render-blocking requests, whether it fits. |
 | `__probe_register.html` | Drives the register at a given width and theme, for screenshots and layout checks. |
@@ -55,30 +56,48 @@ python "Data Sheets/extract_datasheets.py" --check   # parse and report
 python "Data Sheets/extract_datasheets.py"           # write json + copy pdfs
 ```
 
-### What the page is built around
+### It is a repository, not a workflow
 
-One question: **what still needs an engineer to sign it off?** Nine of the 45
-are substitutions, deviations or not yet reviewed, and each one is a decision
-somebody has to make before it is built. They are counted at the top, they are
-the only things on the page allowed to be red, and one filter isolates them.
+There are no alerts, no status badges and no review state. The submittals are
+settled; if something about the project changes it gets changed at the source
+and re-extracted. What the page owes a reader is a fast way to find an item,
+see what it looks like, read its specification and open its datasheet — so
+that is all it does.
 
-Everything else is deliberately quiet. A register where every row is coloured
-tells you nothing.
+Red is spent on exactly one thing, the button that opens a datasheet, plus
+focus rings. Everything else is slate on white.
 
-| Status | Count | |
-|---|---|---|
-| As specified | 10 | |
-| Substitution | 5 | needs confirmation |
-| Deviation | 1 | needs confirmation |
-| To review | 3 | needs confirmation |
-| No status stated | 26 | |
+Finding things: a search box over every field (code, title, manufacturer,
+notes, and every specification label and value), a manufacturer filter built
+from the data itself, and the group rail. Items are always shown grouped,
+because the submittal letters are how the team refers to them out loud.
 
-The statuses are read out of the sheets, not assigned here. **The banner alone
-will not do it** — seven sheets carry the same generic heading, *"Substitution
-/ Deviation — engineer confirmation required"*, and which of the two it
-actually is, or whether it is simply not reviewed yet, is only stated in the
-note underneath. So the banner decides that confirmation is needed and the
-note decides what kind.
+### The picture
+
+Each item's panel opens with a photograph of the thing, because often that is
+the only reason someone opened it — they know the item, they just want to see
+it. 37 of the 45 have one, at 720px WebP, half a megabyte for the set.
+
+They are lifted out of the PDFs automatically, and the interesting part is
+telling a product shot from everything else a datasheet contains. Two
+measurements do most of it:
+
+- **A uniform border.** A product shot is a cutout on a seamless background, so
+  the edge of the image is nearly all one colour. This is what rejects the
+  lifestyle photography these PDFs are full of — someone swimming, a pool at
+  dusk — which has grass and water at its edges.
+- **A minimum colour count**, which rejects the hatched section drawings.
+
+It is not reliable enough to trust blindly and it was not worth making more
+elaborate: a third measurement to separate a chrome tap on white from a line
+drawing on white scored them identically. So when a pick is wrong, **drop a
+replacement at `Data Sheets/images/<CODE>.jpg`** and re-run the extractor —
+it wins over anything automatic. Eight items found nothing and simply show no
+picture rather than a wrong one; the extractor names them on every run.
+
+`mix-blend-mode: multiply` melts the white-background cutouts into the tinted
+frame so they do not sit in a visible white box. It is turned off in dark mode,
+where multiply would black them out.
 
 ### Why the extractor reads fonts, not lines
 

@@ -6,9 +6,11 @@
    "Data Sheets/extract_datasheets.py". Change a datasheet, re-run that, and
    this page is correct again — there is no second place to update.
 
-   The page is built around one question: what still needs an engineer to sign
-   it off? Nine of the 45 are substitutions, deviations or not yet reviewed,
-   and those are the only things here allowed to be red.
+   It is a repository, not a workflow. Nothing here nags: no alerts, no status
+   badges, no review state. The submittals are settled, and if something about
+   the project changes it gets changed at the source and re-extracted. What the
+   page owes a reader is a fast way to find an item, see what it looks like,
+   read its specification and open its datasheet.
    ========================================================================== */
 
 (function () {
@@ -16,21 +18,7 @@
 
   var DATA = "./data/datasheets.json";
 
-  /* The four states, in the order a reviewer cares about them. `act` marks
-     the ones that need a decision — it is what drives every red thing on the
-     page, so it is declared once, here. */
-  var STATUS = {
-    deviation:    { label: "Deviation",    act: true,
-                    blurb: "Differs from the specification. Needs engineer confirmation before release." },
-    substitution: { label: "Substitution", act: true,
-                    blurb: "Offered in place of the specified product. Needs engineer confirmation before release." },
-    to_review:    { label: "To review",    act: true,
-                    blurb: "Submitted but not yet reviewed. Confirm acceptance and sizes." },
-    as_specified: { label: "As specified", act: false, blurb: "" },
-    not_stated:   { label: "No status",    act: false, blurb: "" }
-  };
-
-  var state = { items: [], groups: [], q: "", group: "", act: false, open: null };
+  var state = { items: [], groups: [], q: "", group: "", maker: "", open: null };
   var els = {};
 
   function esc(s) {
@@ -72,12 +60,10 @@
 
   /* -------------------------------------------------------------- filter */
 
-  function acting(it) { return STATUS[it.status] && STATUS[it.status].act; }
-
   function haystack(it) {
     if (it._h) return it._h;
     var parts = [it.code, it.title, it.manufacturer, it.group_name,
-                 it.notes, it.submittal, STATUS[it.status].label];
+                 it.notes, it.submittal];
     for (var i = 0; i < it.specs.length; i++) {
       parts.push(it.specs[i].label, it.specs[i].value);
     }
@@ -89,7 +75,7 @@
     var q = state.q.trim().toLowerCase();
     return state.items.filter(function (it) {
       if (state.group && it.group !== state.group) return false;
-      if (state.act && !acting(it)) return false;
+      if (state.maker && it.manufacturer !== state.maker) return false;
       if (q && haystack(it).indexOf(q) < 0) return false;
       return true;
     });
@@ -98,8 +84,7 @@
   /* -------------------------------------------------------------- render */
 
   function card(it) {
-    var st = STATUS[it.status];
-    return '<button class="card' + (st.act ? " act" : "") + '" data-id="' + esc(it.id) + '">' +
+    return '<button class="card" data-id="' + esc(it.id) + '">' +
       '<span class="card-h"><code>' + esc(it.code) + "</code>" +
       (it.manufacturer ? "<b>" + esc(it.manufacturer) + "</b>" : "") + "</span>" +
       '<span class="card-t">' + esc(it.title) + "</span>" +
@@ -107,7 +92,6 @@
         ? '<span class="card-s">' + esc(it.specs[0].value.slice(0, 96)) + "</span>"
         : "") +
       '<span class="card-f">' +
-        '<span class="tag' + (st.act ? " act" : " ok") + '">' + esc(st.label) + "</span>" +
         '<span class="pages">' + it.pages + (it.pages === 1 ? " page" : " pages") + "</span>" +
       "</span></button>";
   }
@@ -149,6 +133,23 @@
     }
   }
 
+  function renderMakers() {
+    var seen = {};
+    for (var i = 0; i < state.items.length; i++) {
+      var m = state.items[i].manufacturer;
+      if (m) seen[m] = (seen[m] || 0) + 1;
+    }
+    var names = Object.keys(seen).sort(function (a, b) {
+      return a.localeCompare(b);
+    });
+    var html = '<option value="">All manufacturers</option>';
+    for (var n = 0; n < names.length; n++) {
+      html += '<option value="' + esc(names[n]) + '">' + esc(names[n]) +
+              " (" + seen[names[n]] + ")</option>";
+    }
+    els.maker.innerHTML = html;
+  }
+
   function renderRail() {
     var html = "<h3>Groups</h3>" +
       '<button data-g="" aria-pressed="true">All groups<b>' +
@@ -160,22 +161,6 @@
         esc(g.key) + "</kbd> " + esc(g.name) + "<b>" + g.count + "</b></button>";
     }
     els.rail.innerHTML = html;
-  }
-
-  function renderAlarm() {
-    var n = state.items.filter(acting).length;
-    var el = els.alarm;
-    if (!n) {
-      el.className = "alarm clear";
-      el.innerHTML = "<b>0</b><span>Nothing is waiting on an engineer.</span>";
-      return;
-    }
-    el.className = "alarm";
-    el.innerHTML = "<b>" + n + "</b><span>" +
-      (n === 1 ? "datasheet needs" : "datasheets need") +
-      " engineer confirmation before release &mdash; substitutions, deviations " +
-      "and items not yet reviewed.</span>" +
-      '<button data-act="1">Show me</button>';
   }
 
   /* --------------------------------------------------------------- sheet */
@@ -198,7 +183,6 @@
     }
     if (!it) return;
     state.open = it;
-    var st = STATUS[it.status];
 
     var rows = "";
     for (var s = 0; s < it.specs.length; s++) {
@@ -211,21 +195,22 @@
         '<button class="sheet-x" data-close="1" aria-label="Close">' + icon(I.close) + "</button>" +
         '<span class="card-h"><code>' + esc(it.code) + "</code>" +
           (it.manufacturer ? "<b>" + esc(it.manufacturer) + "</b>" : "") +
-          '<span class="tag' + (st.act ? " act" : " ok") + '">' + esc(st.label) + "</span>" +
         "</span>" +
         "<h2>" + esc(it.title) + "</h2>" +
       "</div>" +
       '<div class="sheet-b">' +
-        (st.act
-          ? '<div class="warn"><h4>' + esc(st.label) + "</h4><p>" +
-            esc(it.notes || st.blurb) + "</p></div>"
+        /* The picture first. Often it is the only thing somebody opened this
+           for - they know the item, they just want to see it. Lazy, because
+           the sheet is built before it is slid into view. */
+        (it.image
+          ? '<figure class="shot"><img src="./' + esc(it.image) + '" alt="' +
+            esc(it.title) + '" loading="lazy" decoding="async"></figure>'
           : "") +
         (rows ? '<table class="specs">' + rows + "</table>"
               : '<p class="sheet-note">This one is the manufacturer’s own sheet with no ' +
                 "curated summary in front of it, so there is nothing to tabulate. " +
                 "Open the datasheet.</p>") +
-        (it.notes && !st.act
-          ? '<p class="sheet-note">' + esc(it.notes) + "</p>" : "") +
+        (it.notes ? '<p class="sheet-note">' + esc(it.notes) + "</p>" : "") +
         '<div class="sheet-meta">' +
           (it.submittal ? "<span>Submittal " + esc(it.submittal) + "</span>" : "") +
           "<span>Group " + esc(it.group) + " &middot; " + esc(it.group_name) + "</span>" +
@@ -270,24 +255,16 @@
       var c = e.target.closest(".card");
       if (c) { openSheet(c.dataset.id); return; }
       if (e.target.closest("[data-close]") || e.target === els.scrim) { closeSheet(); return; }
-      if (e.target.closest("[data-act]")) {
-        state.act = true; state.group = "";
-        els.actChip.setAttribute("aria-pressed", "true");
-        render();
-        els.list.scrollIntoView({ behavior: "smooth", block: "start" });
-        return;
-      }
       if (e.target.closest("[data-clear]")) {
-        state.q = ""; state.group = ""; state.act = false;
+        state.q = ""; state.group = ""; state.maker = "";
         els.search.value = "";
-        els.actChip.setAttribute("aria-pressed", "false");
+        els.maker.value = "";
         render();
       }
     });
 
-    els.actChip.addEventListener("click", function () {
-      state.act = !state.act;
-      els.actChip.setAttribute("aria-pressed", String(state.act));
+    els.maker.addEventListener("change", function () {
+      state.maker = els.maker.value;
       render();
     });
 
@@ -314,13 +291,12 @@
 
     els.lede.innerHTML =
       "<h2>Material &amp; Hardware Register</h2>" +
-      "<p>Every curated datasheet for GP1-MUR mockup room 1 &mdash; " +
-      data.items.length + " items across " +
+      "<p>" + data.items.length + " items across " +
       data.groups.filter(function (g) { return g.count; }).length +
-      " groups, each with the manufacturer’s sheet attached. " +
-      "Read-only: it is generated from the submittal record.</p>";
+      " groups for GP1-MUR mockup room 1, each with the manufacturer’s " +
+      "datasheet attached. Search it, filter it, open what you need.</p>";
 
-    renderAlarm();
+    renderMakers();
     renderRail();
     render();
     wire();
@@ -329,12 +305,11 @@
   }
 
   els.lede = document.getElementById("lede");
-  els.alarm = document.getElementById("alarm");
   els.rail = document.getElementById("rail");
   els.list = document.getElementById("list");
   els.count = document.getElementById("count");
   els.search = document.getElementById("q");
-  els.actChip = document.getElementById("actchip");
+  els.maker = document.getElementById("maker");
   els.sheet = document.getElementById("sheet");
   els.scrim = document.getElementById("scrim");
 

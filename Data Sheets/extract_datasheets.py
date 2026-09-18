@@ -48,6 +48,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import fitz
+from PIL import Image
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
@@ -99,6 +100,93 @@ def drive_links():
                 continue          # skips a header row without needing to know
             out[code.lower()] = url
     return out
+
+
+# ------------------------------------------------------------- pictures
+
+OUT_IMGS = REPO / "web" / "img"
+OVERRIDE = HERE / "images"      # drop A1.jpg / J4.png here to override a pick
+IMG_W = 720                     # plenty for the panel it appears in
+
+# What a product photo looks like, versus everything else a datasheet contains.
+#
+# Two measurements do most of the work. A product shot is a cutout on a
+# seamless background, so the BORDER of the image is nearly all one colour -
+# which is what rejects the lifestyle photographs these PDFs are full of
+# (someone swimming, a pool at dusk): those have grass and water at the edges.
+# And line art is two colours, so a minimum on distinct colours rejects the
+# hatched section drawings.
+#
+# It is not reliable enough to trust blindly, and it is not worth making more
+# elaborate - a third measurement to separate a chrome tap on white from a line
+# drawing on white scored them identically. So the rule is: pick the best
+# candidate, and let a human override it by dropping a file in images/.
+MIN_PX = 170
+MIN_COLORS = 25
+MIN_UNIFORM = 0.42
+
+
+def _looks_like_product(raw):
+    """(uniformity, colour count, PIL image) or None."""
+    import io
+    try:
+        im = Image.open(io.BytesIO(raw)).convert("RGB")
+    except Exception:
+        return None
+    a = im.copy()
+    a.thumbnail((300, 300))
+    w, h = a.size
+    if w < 8 or h < 8:
+        return None
+    px = a.load()
+    m = max(3, int(min(w, h) * 0.04))
+    border = [px[x, y] for x in range(w)
+              for y in list(range(m)) + list(range(h - m, h))]
+    border += [px[x, y] for y in range(h)
+               for x in list(range(m)) + list(range(w - m, w))]
+    q = {}
+    for c in border:
+        k = (c[0] // 24, c[1] // 24, c[2] // 24)
+        q[k] = q.get(k, 0) + 1
+    uniform = max(q.values()) / len(border)
+    colors = len({(px[x, y][0] // 8, px[x, y][1] // 8, px[x, y][2] // 8)
+                  for x in range(0, w, 2) for y in range(0, h, 2)})
+    return uniform, colors, im
+
+
+def pick_image(doc, code):
+    """The picture for one item: an override if there is one, else the best
+    candidate found in the first few pages."""
+    if OVERRIDE.is_dir():
+        for ext in ("jpg", "jpeg", "png", "webp"):
+            f = OVERRIDE / (code + "." + ext)
+            if f.exists():
+                return Image.open(f).convert("RGB"), "override"
+
+    best = None
+    for pno in range(min(doc.page_count, 6)):
+        for im in doc[pno].get_images(full=True):
+            try:
+                info = doc.extract_image(im[0])
+            except Exception:
+                continue
+            w, h = info["width"], info["height"]
+            if w < MIN_PX or h < MIN_PX:
+                continue
+            if not (0.45 <= w / h <= 2.4):       # banners, rules, strips
+                continue
+            got = _looks_like_product(info["image"])
+            if not got:
+                continue
+            uniform, colors, img = got
+            if uniform < MIN_UNIFORM or colors < MIN_COLORS:
+                continue
+            # Earlier pages first: the hero shot is near the front, the
+            # exploded diagrams are near the back.
+            score = (w * h) ** 0.5 * (0.5 + uniform) / (1 + pno * 0.4)
+            if not best or score > best[0]:
+                best = (score, img)
+    return (best[1], "auto") if best else (None, None)
 
 
 def slug(s: str) -> str:
@@ -264,6 +352,8 @@ def main():
         doc = fitz.open(p)
         rec = parse_summary(doc[0])
         pages = doc.page_count
+        code_for_img = (rec or {}).get("code") or p.stem.split(" ")[0]
+        picture, how = pick_image(doc, code_for_img)
         doc.close()
 
         if rec is None:
@@ -294,6 +384,9 @@ def main():
             "bytes": p.stat().st_size,
             "source": str(rel).replace("\\", "/"),
             "drive_url": links.get(code.lower(), ""),
+            "image": "img/" + slug(p.stem) + ".webp" if picture else "",
+            "_pic": picture,
+            "_pic_how": how,
         })
 
     items.sort(key=lambda r: (list(GROUPS).index(r["group"])
@@ -330,6 +423,28 @@ def main():
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_PDFS.mkdir(parents=True, exist_ok=True)
+    OUT_IMGS.mkdir(parents=True, exist_ok=True)
+    for old in OUT_IMGS.glob("*.webp"):
+        old.unlink()
+
+    # WebP, not JPEG: most of these are product cutouts on flat white or flat
+    # black, and JPEG rings visibly around those hard edges at any size worth
+    # shipping.
+    img_bytes = n_auto = n_over = 0
+    for r in items:
+        pic = r.pop("_pic", None)
+        how = r.pop("_pic_how", None)
+        if pic is None:
+            r["image"] = ""
+            continue
+        if pic.width > IMG_W:
+            pic = pic.resize((IMG_W, round(pic.height * IMG_W / pic.width)),
+                             Image.LANCZOS)
+        dest = OUT_IMGS / Path(r["image"]).name
+        pic.save(dest, "WEBP", quality=82, method=5)
+        img_bytes += dest.stat().st_size
+        n_auto += how == "auto"
+        n_over += how == "override"
     for old in OUT_PDFS.glob("*.pdf"):
         old.unlink()
     # Copy from the path recorded ON each item, never by zipping the two
@@ -360,6 +475,12 @@ def main():
     }
     OUT_JSON.write_text(json.dumps(payload, indent=1, ensure_ascii=False),
                         encoding="utf-8")
+    print("  %-28s %2d auto + %d override, %.1f MB"
+          % (str(OUT_IMGS.relative_to(REPO)), n_auto, n_over, img_bytes/1048576))
+    missing = [r["code"] for r in items if not r["image"]]
+    if missing:
+        print("  no picture found for: " + ", ".join(missing))
+        print("  (drop a file at \"Data Sheets/images/<CODE>.jpg\" to supply one)")
     print()
     print("  %s  %.0f KB" % (OUT_JSON.relative_to(REPO),
                              OUT_JSON.stat().st_size / 1024))
