@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-18T22:58:25Z",
+ "generated": "2026-09-19T00:00:55Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -1910,7 +1910,7 @@
    "bytes": 268756,
    "source": "Pool/J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
    "drive_url": "",
-   "image": "img/j11-charlotte-pvc-sch-40-cold-water-service.webp"
+   "image": ""
   },
   {
    "id": "j-j12-cold-water-distribution-cpvc-flowguard",
@@ -1960,7 +1960,7 @@
    "bytes": 216368,
    "source": "Pool/J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
    "drive_url": "",
-   "image": "img/j12-charlotte-flowguard-cpvc-cold-water-distribution.webp"
+   "image": ""
   },
   {
    "id": "j-j13-hot-water-distribution-cpvc-flowguard",
@@ -2010,7 +2010,7 @@
    "bytes": 216387,
    "source": "Pool/J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
    "drive_url": "",
-   "image": "img/j13-charlotte-flowguard-cpvc-hot-water-distribution.webp"
+   "image": ""
   },
   {
    "id": "j-j14-roof-drains-proflo-3-in-plastic-roof-d",

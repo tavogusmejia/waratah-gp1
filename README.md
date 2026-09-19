@@ -76,11 +76,20 @@ because the submittal letters are how the team refers to them out loud.
 
 Each item's panel opens with a photograph of the thing, because often that is
 the only reason someone opened it — they know the item, they just want to see
-it. 37 of the 45 have one, at 720px WebP, half a megabyte for the set.
+it. 34 of the 45 have one, at 720px WebP, under half a megabyte for the set.
 
-They are lifted out of the PDFs automatically, and the interesting part is
-telling a product shot from everything else a datasheet contains. Two
-measurements do most of it:
+**The soft mask is the whole point of how they are loaded.** A PDF keeps a
+cutout's transparency in a separate image, and PyMuPDF's `extract_image` hands
+back only the base layer — convert that to RGB and every transparent pixel
+becomes *black*, so a product shot on a white studio sweep arrives as a product
+on a black rectangle. Every image in the pump room submittal has a mask, which
+is exactly why that group came out black while the cartridge filter, the one
+item with no mask, looked right. So each picture is rebuilt from pixmaps: base,
+out of CMYK if it is in it, recombined with its mask, then composited onto
+white.
+
+Telling a product shot from everything else a datasheet contains is the other
+half. Two measurements do most of it:
 
 - **A uniform border.** A product shot is a cutout on a seamless background, so
   the edge of the image is nearly all one colour. This is what rejects the
@@ -92,7 +101,7 @@ It is not reliable enough to trust blindly and it was not worth making more
 elaborate: a third measurement to separate a chrome tap on white from a line
 drawing on white scored them identically. So when a pick is wrong, **drop a
 replacement at `Data Sheets/images/<CODE>.jpg`** and re-run the extractor —
-it wins over anything automatic. Eight items found nothing and simply show no
+it wins over anything automatic. Eleven items found nothing and simply show no
 picture rather than a wrong one; the extractor names them on every run.
 
 `mix-blend-mode: multiply` melts the white-background cutouts into the tinted

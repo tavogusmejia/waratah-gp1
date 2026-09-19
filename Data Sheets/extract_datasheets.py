@@ -126,12 +126,54 @@ MIN_COLORS = 25
 MIN_UNIFORM = 0.42
 
 
-def _looks_like_product(raw):
-    """(uniformity, colour count, PIL image) or None."""
-    import io
+def load_image(doc, xref, smask):
+    """One embedded image, flattened onto white.
+
+    THE SOFT MASK IS THE WHOLE POINT. A PDF keeps a cutout's transparency in a
+    separate image - the smask - and `extract_image` hands back only the base
+    layer. Convert that to RGB and every transparent pixel becomes BLACK, so a
+    product photographed on a white studio sweep arrives as a product on a
+    black rectangle. Every image in the pump room submittal has a mask, which
+    is why that whole group came out black, and the cartridge filter - the one
+    item with no mask - looked correct.
+
+    So the image is rebuilt from pixmaps instead: base, converted out of CMYK
+    if it is in it, recombined with its mask, then composited onto white
+    because the page it lands on is white.
+    """
     try:
-        im = Image.open(io.BytesIO(raw)).convert("RGB")
+        pix = fitz.Pixmap(doc, xref)
     except Exception:
+        return None
+    try:
+        if pix.colorspace is None:
+            return None
+        if pix.colorspace.n == 4:                    # CMYK -> RGB
+            pix = fitz.Pixmap(fitz.csRGB, pix)
+        if smask:
+            try:
+                pix = fitz.Pixmap(pix, fitz.Pixmap(doc, smask))
+            except Exception:
+                pass                                  # no mask is still usable
+        mode = "RGBA" if pix.alpha else "RGB"
+        if pix.n - (1 if pix.alpha else 0) == 1:      # greyscale
+            mode = "LA" if pix.alpha else "L"
+        im = Image.frombytes(mode, (pix.width, pix.height), pix.samples)
+    except Exception:
+        return None
+    finally:
+        pix = None
+    if im.mode in ("RGBA", "LA"):
+        im = im.convert("RGBA")
+        flat = Image.new("RGB", im.size, (255, 255, 255))
+        flat.paste(im, mask=im.split()[3])
+        return flat
+    return im.convert("RGB")
+
+
+def _looks_like_product(im):
+    """(uniformity, colour count, PIL image) or None."""
+    if im is None:
         return None
     a = im.copy()
     a.thumbnail((300, 300))
@@ -166,8 +208,9 @@ def pick_image(doc, code):
     best = None
     for pno in range(min(doc.page_count, 6)):
         for im in doc[pno].get_images(full=True):
+            xref, smask = im[0], im[1]
             try:
-                info = doc.extract_image(im[0])
+                info = doc.extract_image(xref)
             except Exception:
                 continue
             w, h = info["width"], info["height"]
@@ -175,7 +218,7 @@ def pick_image(doc, code):
                 continue
             if not (0.45 <= w / h <= 2.4):       # banners, rules, strips
                 continue
-            got = _looks_like_product(info["image"])
+            got = _looks_like_product(load_image(doc, xref, smask))
             if not got:
                 continue
             uniform, colors, img = got

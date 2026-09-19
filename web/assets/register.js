@@ -172,6 +172,11 @@
      Drive should be a data change, not a code change: fill the field in
      datasheets.json and stop shipping web/datasheets/. Nothing here has to
      know which of the two happened. */
+  function size(b) {
+    return b >= 1048576 ? (b / 1048576).toFixed(1) + " MB"
+                        : Math.round(b / 1024) + " KB";
+  }
+
   function href(it) {
     return it.drive_url ? it.drive_url : "./" + it.pdf;
   }
@@ -221,7 +226,7 @@
         '<a class="open" href="' + esc(href(it)) + '" target="_blank" rel="noopener">' +
           icon(I.out) + "Open the datasheet <em>" + it.pages +
           (it.pages === 1 ? " page" : " pages") + " &middot; " +
-          Math.round(it.bytes / 1024) + " KB</em></a>" +
+          size(it.bytes) + "</em></a>" +
       "</div>";
 
     els.sheet.classList.add("on");
