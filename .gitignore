@@ -23,3 +23,4 @@ supabase/paste/
 # Scratch from the picture audit - the durable record is tools/PICTURE-AUDIT.md
 _audit*.json
 _audit*.png
+_map.json
