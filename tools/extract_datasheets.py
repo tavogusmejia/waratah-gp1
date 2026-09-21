@@ -228,14 +228,22 @@ def _looks_like_product(im):
     return uniform, colors, im
 
 
-def pick_image(doc, code):
+def pick_image(doc, code, stem):
     """The picture for one item: an override if there is one, else the best
-    candidate found in the first few pages."""
+    candidate found in the first few pages.
+
+    An override can be named by the file's slug or by the item code. The slug
+    is the one to publish, because it is unique - three plumbing items all
+    carry the code J9, so "J9.jpg" would silently apply to all three.
+    """
     if OVERRIDE.is_dir():
-        for ext in ("jpg", "jpeg", "png", "webp"):
-            f = OVERRIDE / (code + "." + ext)
-            if f.exists():
-                return Image.open(f).convert("RGB"), "override"
+        for name in (slug(stem), code):
+            if not name:
+                continue
+            for ext in ("jpg", "jpeg", "png", "webp"):
+                f = OVERRIDE / (name + "." + ext)
+                if f.exists():
+                    return Image.open(f).convert("RGB"), "override"
 
     best = None
     for pno in range(min(doc.page_count, 6)):
@@ -448,7 +456,7 @@ def main():
         rec = parse_summary(doc[0])
         pages = doc.page_count
         code_for_img = (rec or {}).get("code") or p.stem.split(" ")[0]
-        picture, how = pick_image(doc, code_for_img)
+        picture, how = pick_image(doc, code_for_img, p.stem)
         doc.close()
 
         if rec is None:
