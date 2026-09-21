@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T18:54:09Z",
+ "generated": "2026-09-21T19:01:20Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -502,7 +502,7 @@
    "drive_url": "",
    "maker_url": "https://hayward.com/hydrostream-3-4-opening-1-1-2-mip-gray-sp1419dgr.html",
    "extras": [],
-   "image": ""
+   "image": "img/b3-hayward-sp1419d.webp"
   },
   {
    "id": "b-b4-vacuum-fitting-hayward-sp1022-gray-s",
@@ -551,7 +551,7 @@
    "drive_url": "",
    "maker_url": "https://www.hayward.com/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html",
    "extras": [],
-   "image": ""
+   "image": "img/b4-hayward-sp1022.webp"
   },
   {
    "id": "b-b5-infinity-edge-trough-drain-pool-pipe",
@@ -649,7 +649,7 @@
    "drive_url": "",
    "maker_url": "https://www.pentair.com",
    "extras": [],
-   "image": ""
+   "image": "img/b6-pentair-t40-f-automatic-water-filler.webp"
   },
   {
    "id": "d-dh1-concealed-mortise-hinge-hafele-3d-adju",
@@ -2025,7 +2025,7 @@
    "drive_url": "",
    "maker_url": "https://www.lutron.com",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn1-ds-lutron-myroom-xc-processor-mp-1l-gcu.webp"
   },
   {
    "id": "l-ltrn2-ltrn2-ds-lutron-qs-power-supply-mqsp",
@@ -2073,7 +2073,7 @@
    "drive_url": "",
    "maker_url": "https://www.lutron.com",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.webp"
   },
   {
    "id": "l-ltrn4-ltrn4-ds-lutron-phase-adaptive-power",
