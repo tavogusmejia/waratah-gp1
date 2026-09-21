@@ -40,6 +40,7 @@ Python 3.12 + PyMuPDF.
 from __future__ import annotations
 
 import json
+import os
 import re
 import shutil
 import sys
@@ -55,24 +56,55 @@ REPO = HERE.parent
 OUT_JSON = REPO / "web" / "data" / "datasheets.json"
 OUT_PDFS = REPO / "web" / "datasheets"
 
+# THE DATASHEET REPOSITORY. The one canonical place the curated PDFs live, and
+# deliberately OUTSIDE this git repo: the submittal folder is where they are
+# filed and maintained, and a second copy in here is how the two silently drift
+# apart - which had already started (B2 and B3 differed between the two before
+# this was pointed at the real one).
+#
+# Forward slashes on purpose: pathlib handles them on Windows, and they keep a
+# literal path free of backslash escapes. Override with GP1_DATASHEETS.
+SOURCE = Path(os.environ.get(
+    "GP1_DATASHEETS",
+    "C:/Users/gus/Documents/Claude Projects/JANU"
+    "/04 Project Documents/03 Datasheets/GP1 Datasheets"))
+
 # Anything under a "(reference)" folder is a transmittal or an index - the
 # paperwork the datasheets came wrapped in, not a datasheet. Those folders were
 # deleted (10.2 MB that said nothing the register shows); the rule stays so
 # that dropping a fresh submittal in here, transmittal and all, still works.
 SKIP = ("reference", "Item Index & Links", "Mockup Room 1 - Electrical Distribution")
 
-# The eight groups, in the order the register should read them. The letters are
-# the submittal's own, which is why D exists and C and I do not.
+# The groups, in the order the register reads them. The letters are the
+# submittal's own, which is why there is no C or I - and why D now means Doors
+# while pool lighting moved to L. They were renumbered at the source; this
+# follows the source.
 GROUPS = {
     "A": ("Pump Room Equipment", "Pool", "JANU-SUB-003"),
     "B": ("In-Pool Fittings", "Pool", "JANU-SUB-004"),
-    "D": ("Pool Lighting", "Pool", "JANU-SUB-009"),
+    "D": ("Doors & Hardware", "Doors", None),
     "E": ("Electrical", "Electrical", "JANU-SUB-011"),
     "F": ("Balancing Tank Accessories", "Pool", None),
     "G": ("Piping and Valves", "Pool", None),
     "H": ("Electrical - Pool Bonding", "Pool", None),
     "J": ("Plumbing", "Plumbing", None),
+    "L": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }
+
+
+def group_of(rel):
+    """The submittal letter, taken from the first folder named like one.
+
+    Read from the folder name rather than a fixed depth: the source tree was
+    two levels deep when it lived inside this repo and is one level deep now,
+    and two folders can share a letter - "D - Doors" holds the tracker
+    workbook, "D - Doors Hardware" holds the datasheets.
+    """
+    for part in rel.parts[:-1]:
+        m = re.match(r"([A-Z])\s*-\s", part)
+        if m:
+            return m.group(1)
+    return "?"
 
 
 # Optional. Two columns, item code and URL, with or without a header:
@@ -232,6 +264,20 @@ def pick_image(doc, code):
     return (best[1], "auto") if best else (None, None)
 
 
+def code_key(code):
+    """Sort key for an item code, so 2.2 lands between 2 and 3.
+
+    Zero-padding the string cannot do this: "2.2" is already three characters,
+    so it padded to nothing and sorted after "007". Codes here are a letter
+    and/or dotted numbers - A1, J14, 09, 6.1 - so split them into their parts
+    and compare the numbers as numbers.
+    """
+    m = re.match(r"([A-Za-z]*)\s*([\d.]*)", code.strip())
+    alpha, nums = (m.group(1).upper(), m.group(2)) if m else (code, "")
+    parts = [int(n) for n in nums.split(".") if n.isdigit()]
+    return (alpha, parts, code)
+
+
 def slug(s: str) -> str:
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode()
     s = re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
@@ -265,6 +311,7 @@ def spans(page):
 ORANGE = 10245888   # manufacturer
 NAVY = 2046052      # item code, title, field labels, section headings
 BLACK = 0           # field values
+GREY = 5989490      # #5B6472 - the category line on the door sheets
 
 
 def parse_summary(page):
@@ -284,7 +331,7 @@ def parse_summary(page):
     if not any(s["color"] == NAVY and s["size"] >= 13.5 for s in head):
         return None
 
-    rec = {"manufacturer": "", "code": "", "title": "",
+    rec = {"manufacturer": "", "code": "", "title": "", "category": "",
            "specs": [], "notes": "", "banner": ""}
 
     def run(pred):
@@ -307,6 +354,9 @@ def parse_summary(page):
     rec["manufacturer"] = run(lambda s: s["color"] == ORANGE)
     rec["code"] = run(lambda s: s["color"] == NAVY and 11.5 <= s["size"] <= 13.0)
     rec["title"] = run(lambda s: s["color"] == NAVY and s["size"] >= 13.5)
+    # Door sheets carry a category above the title - HINGES, HANDLES. Nothing
+    # else uses this colour, and without reading it the word is thrown away.
+    rec["category"] = run(lambda s: s["color"] == GREY and s["bold"]).title()
 
     label = None
     for s in sp:
@@ -379,16 +429,18 @@ def classify(banner: str, notes: str) -> str:
 
 def main():
     check = "--check" in sys.argv
+    if not SOURCE.is_dir():
+        sys.exit("the datasheet repository is not there: " + str(SOURCE))
     pdfs = sorted(
-        p for p in (HERE).rglob("*.pdf")
+        p for p in SOURCE.rglob("*.pdf")
         if not any(k in str(p) for k in SKIP)
     )
     items, problems = [], []
     links = drive_links()
 
     for p in pdfs:
-        rel = p.relative_to(HERE)
-        group = rel.parts[1][0] if len(rel.parts) > 1 else "?"
+        rel = p.relative_to(SOURCE)
+        group = group_of(rel)
         name, discipline, submittal = GROUPS.get(
             group, ("Uncategorised", "Other", None))
 
@@ -402,7 +454,7 @@ def main():
         if rec is None:
             problems.append(str(rel))
             rec = {"manufacturer": "", "code": "", "title": p.stem,
-                   "specs": [], "notes": "", "banner": ""}
+                   "category": "", "specs": [], "notes": "", "banner": ""}
             curated = False
         else:
             curated = True
@@ -416,6 +468,7 @@ def main():
             "discipline": discipline,
             "submittal": submittal,
             "manufacturer": rec["manufacturer"],
+            "category": rec["category"],
             "title": rec["title"],
             "specs": rec["specs"],
             "notes": rec["notes"],
@@ -434,7 +487,7 @@ def main():
 
     items.sort(key=lambda r: (list(GROUPS).index(r["group"])
                               if r["group"] in GROUPS else 99,
-                              r["code"].zfill(3)))
+                              code_key(r["code"])))
 
     by_status = {}
     for r in items:
@@ -497,7 +550,7 @@ def main():
     # datasheet, under a slug that looked perfectly correct.
     total = 0
     for r in items:
-        src = HERE / r["source"]
+        src = SOURCE / r["source"]
         dest = OUT_PDFS / Path(r["pdf"]).name
         shutil.copy2(src, dest)
         got = dest.stat().st_size
@@ -523,7 +576,7 @@ def main():
     missing = [r["code"] for r in items if not r["image"]]
     if missing:
         print("  no picture found for: " + ", ".join(missing))
-        print("  (drop a file at \"Data Sheets/images/<CODE>.jpg\" to supply one)")
+        print("  (drop a file at \"tools/images/<CODE>.jpg\" to supply one)")
     print()
     print("  %s  %.0f KB" % (OUT_JSON.relative_to(REPO),
                              OUT_JSON.stat().st_size / 1024))

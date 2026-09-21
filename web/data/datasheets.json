@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T13:00:42Z",
+ "generated": "2026-09-21T13:51:51Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -19,10 +19,10 @@
   },
   {
    "key": "D",
-   "name": "Pool Lighting",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-009",
-   "count": 2
+   "name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "count": 11
   },
   {
    "key": "E",
@@ -58,6 +58,13 @@
    "discipline": "Plumbing",
    "submittal": null,
    "count": 15
+  },
+  {
+   "key": "L",
+   "name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "count": 2
   }
  ],
  "items": [
@@ -69,6 +76,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Cartridge Filter, 150 sq ft - Pentair Clean & Clear Plus CC150",
    "specs": [
     {
@@ -103,7 +111,7 @@
    "pdf": "datasheets/a1-cartridge-filter-clean-clear-cc150.pdf",
    "pages": 3,
    "bytes": 777856,
-   "source": "Pool/A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
+   "source": "A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
    "drive_url": "",
    "image": "img/a1-cartridge-filter-clean-clear-cc150.webp"
   },
@@ -115,6 +123,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Main Filter Pump - Pentair IntelliFlo3 VSF",
    "specs": [
     {
@@ -141,7 +150,7 @@
    "pdf": "datasheets/a2-main-filter-pump-intelliflo3-vsf.pdf",
    "pages": 6,
    "bytes": 6205005,
-   "source": "Pool/A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
+   "source": "A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
    "image": "img/a2-main-filter-pump-intelliflo3-vsf.webp"
   },
@@ -153,6 +162,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Infinity-Edge Pump - Pentair IntelliFlo3 VSF",
    "specs": [
     {
@@ -179,7 +189,7 @@
    "pdf": "datasheets/a3-infinity-edge-pump-intelliflo3-vsf.pdf",
    "pages": 6,
    "bytes": 6205020,
-   "source": "Pool/A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
+   "source": "A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
    "image": "img/a3-infinity-edge-pump-intelliflo3-vsf.webp"
   },
@@ -191,6 +201,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Pool Controller - Pentair IntelliCenter Lite i5P (P/N 523911)",
    "specs": [
     {
@@ -221,7 +232,7 @@
    "pdf": "datasheets/a4-pool-controller-intellicenter-lite-i5p.pdf",
    "pages": 3,
    "bytes": 965385,
-   "source": "Pool/A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
+   "source": "A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
    "drive_url": "",
    "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp"
   },
@@ -233,6 +244,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Salt Chlorine Generator - Pentair IntelliChlor LT25 Power Bundle (P/N 523750)",
    "specs": [
     {
@@ -263,7 +275,7 @@
    "pdf": "datasheets/a5-salt-chlorine-generator-intellichlor-lt25.pdf",
    "pages": 3,
    "bytes": 872426,
-   "source": "Pool/A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
+   "source": "A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
    "drive_url": "",
    "image": "img/a5-salt-chlorine-generator-intellichlor-lt25.webp"
   },
@@ -275,6 +287,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-003",
    "manufacturer": "Gulfstream (Pentair-owned)",
+   "category": "",
    "title": "Pool Heat Pump - Gulfstream HE-150 (HE150-R-A)",
    "specs": [
     {
@@ -313,7 +326,7 @@
    "pdf": "datasheets/a6-pool-heat-pump-gulfstream-he-150.pdf",
    "pages": 2,
    "bytes": 182325,
-   "source": "Pool/A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
+   "source": "A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
    "drive_url": "",
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
@@ -325,6 +338,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "AquaStar",
+   "category": "",
    "title": "Pool Main Drain - AquaStar WAV9WR103 (9 in Wave Anti-Entrapment)",
    "specs": [
     {
@@ -371,7 +385,7 @@
    "pdf": "datasheets/b1-aquastar-main-drain-wav9wr103.pdf",
    "pages": 3,
    "bytes": 2866341,
-   "source": "Pool/B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
+   "source": "B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
    "drive_url": "",
    "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
@@ -383,6 +397,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "Color Match Pool Fittings",
+   "category": "",
    "title": "Pool Shallow Floor Return - Color Match Pebble Top PTFR-03 (Light Gray)",
    "specs": [
     {
@@ -412,8 +427,8 @@
    "curated": true,
    "pdf": "datasheets/b2-color-match-floor-return-ptfr-03.pdf",
    "pages": 2,
-   "bytes": 1162199,
-   "source": "Pool/B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
+   "bytes": 1161922,
+   "source": "B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
    "drive_url": "",
    "image": "img/b2-color-match-floor-return-ptfr-03.webp"
   },
@@ -425,6 +440,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "Hayward",
+   "category": "",
    "title": "Pool Wall & Infinity-Edge Return Inlets, 2 in - Hayward SP1419D (Gray: SP1419DGR)",
    "specs": [
     {
@@ -458,8 +474,8 @@
    "curated": true,
    "pdf": "datasheets/b3-hayward-sp1419d.pdf",
    "pages": 3,
-   "bytes": 126133,
-   "source": "Pool/B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
+   "bytes": 136146,
+   "source": "B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -471,6 +487,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "Hayward",
+   "category": "",
    "title": "Vacuum Fitting - Hayward SP1022 (Gray: SP1022GR)",
    "specs": [
     {
@@ -505,7 +522,7 @@
    "pdf": "datasheets/b4-hayward-sp1022.pdf",
    "pages": 3,
    "bytes": 130996,
-   "source": "Pool/B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
+   "source": "B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -517,6 +534,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "Spears",
+   "category": "",
    "title": "Infinity-Edge Trough Drain + Pool Pipe & Fittings - Spears Schedule 40 PVC",
    "specs": [
     {
@@ -551,7 +569,7 @@
    "pdf": "datasheets/b5-spears-sch-40-pvc.pdf",
    "pages": 84,
    "bytes": 1433593,
-   "source": "Pool/B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
+   "source": "B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
    "drive_url": "",
    "image": "img/b5-spears-sch-40-pvc.webp"
   },
@@ -563,6 +581,7 @@
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "Pentair",
+   "category": "",
    "title": "Automatic Water Filler - Pentair T40-F",
    "specs": [
     {
@@ -597,81 +616,529 @@
    "pdf": "datasheets/b6-pentair-t40-f-automatic-water-filler.pdf",
    "pages": 2,
    "bytes": 194286,
-   "source": "Pool/B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
+   "source": "B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
    "drive_url": "",
    "image": ""
   },
   {
-   "id": "d-a-pool-light-l09-l-l-bright-1-6-316l",
-   "code": "A",
+   "id": "d-1-concealed-mortise-hinge-hafele-startec",
+   "code": "1",
    "group": "D",
-   "group_name": "Pool Lighting",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-009",
-   "manufacturer": "L&L; Luce&Light;",
-   "title": "Pool Light L09 - L&L; Bright 1.6 316L",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Hinges",
+   "title": "Concealed Mortise Hinge - Häfele Startec 3D-Adjustable",
    "specs": [
     {
-     "label": "A1 Luminaire",
-     "value": "L&L; CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
+     "label": "Model",
+     "value": "Häfele Startec concealed mortise hinge, 3D-adjustable (P-00862553 family; 927.91.xxx)"
     },
     {
-     "label": "A2 Outer casing",
-     "value": "L&L; WC5003"
+     "label": "Type",
+     "value": "Concealed hinge for flush wooden interior doors, mortise mounted"
     },
     {
-     "label": "A3 LED driver",
-     "value": "L&L; AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
+     "label": "Adjustment",
+     "value": "3D: side ±3.5 mm, height -3/+3 mm, closing pressure ±1 mm"
+    },
+    {
+     "label": "Opening angle",
+     "value": "180°"
+    },
+    {
+     "label": "Door thickness",
+     "value": "≥ 40 mm; sizes for door leaves up to ~80/100 kg per pair"
+    },
+    {
+     "label": "Material",
+     "value": "Zinc alloy"
+    },
+    {
+     "label": "Finish",
+     "value": "Brushed copper (specified)"
+    },
+    {
+     "label": "Qty",
+     "value": "18"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 04"
     }
    ],
-   "notes": "Per JANU-SUB-009 group A (Pool Light L09).",
+   "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/a-pool-light-l09-cw16005di.pdf",
-   "pages": 5,
-   "bytes": 2363591,
-   "source": "Pool/D - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
+   "pdf": "datasheets/01-hafele-startec-concealed-hinge.pdf",
+   "pages": 1,
+   "bytes": 2688,
+   "source": "D - Doors/DH - Doors Hardware/01 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "",
-   "image": "img/a-pool-light-l09-cw16005di.webp"
+   "image": ""
   },
   {
-   "id": "d-b-pool-light-l09-1-l-l-bright-3-0-316l",
-   "code": "B",
+   "id": "d-2-lever-handle-set-salto-standard-line",
+   "code": "2",
    "group": "D",
-   "group_name": "Pool Lighting",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-009",
-   "manufacturer": "L&L; Luce&Light;",
-   "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Salto",
+   "category": "Handles",
+   "title": "Lever Handle Set - Salto Standard Line, London",
    "specs": [
     {
-     "label": "B1 Luminaire",
-     "value": "L&L; CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
+     "label": "Model",
+     "value": "Salto Standard Line lever handle, London model"
     },
     {
-     "label": "B2 Outer casing",
-     "value": "L&L; WC5004"
+     "label": "Finish",
+     "value": "NE - Black Chrome (specified)"
     },
     {
-     "label": "B3 LED driver",
-     "value": "L&L; AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
+     "label": "Type",
+     "value": "Lever handle set for Salto electronic lock (AElement Fusion)"
     },
     {
-     "label": "B4 Extractors",
-     "value": "L&L; WN7001 (pair)"
+     "label": "Standard",
+     "value": "Suits ANSI / DIN profile doors"
+    },
+    {
+     "label": "Qty",
+     "value": "3 sets"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 04"
     }
    ],
-   "notes": "Per JANU-SUB-009 group B (Pool Light L09.1).",
+   "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/b-pool-light-l09-1-cw300005wi.pdf",
-   "pages": 6,
-   "bytes": 2669975,
-   "source": "Pool/D - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
+   "pdf": "datasheets/02-salto-london-lever-handle.pdf",
+   "pages": 1,
+   "bytes": 2299,
+   "source": "D - Doors/DH - Doors Hardware/02 - Salto London Lever Handle.pdf",
    "drive_url": "",
-   "image": "img/b-pool-light-l09-1-cw300005wi.webp"
+   "image": ""
+  },
+  {
+   "id": "d-2-2-teak-wood-pull-handle-cbmmart-custom",
+   "code": "2.2",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "CBMmart",
+   "category": "Handles",
+   "title": "Teak Wood Pull Handle - CBMmart (Custom)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "CBMmart custom teak wood handle"
+    },
+    {
+     "label": "Material",
+     "value": "Exterior-grade teak wood planks / regular teak wood planks"
+    },
+    {
+     "label": "Type",
+     "value": "Timber pull handle, custom fabricated"
+    },
+    {
+     "label": "Location",
+     "value": "Walk-in Closet (W.I.C.)"
+    },
+    {
+     "label": "Qty",
+     "value": "3"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 06"
+    }
+   ],
+   "notes": "Custom item - supplier shop drawing / datasheet to follow",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/02-2-cbmmart-teak-wood-handle.pdf",
+   "pages": 1,
+   "bytes": 2360,
+   "source": "D - Doors/DH - Doors Hardware/02.2 - CBMmart Teak Wood Handle.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-3-electronic-lockset-salto-aelement-fusi",
+   "code": "3",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Salto",
+   "category": "Locks",
+   "title": "Electronic Lockset - Salto AElement Fusion (ANSI)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Salto AElement Fusion - ANSI"
+    },
+    {
+     "label": "Type",
+     "value": "RFID / NFC / BLE electronic mortise lock (hospitality grade)"
+    },
+    {
+     "label": "Credentials",
+     "value": "RFID, NFC, Bluetooth (BLE); mobile via SALTO JustIN Mobile"
+    },
+    {
+     "label": "Platform",
+     "value": "SALTO Space (on-prem) / SALTO KS / Homelok (cloud)"
+    },
+    {
+     "label": "Fit",
+     "value": "ANSI profile door; electronics & battery encased in door"
+    },
+    {
+     "label": "Indicator",
+     "value": "Dual-colour LED ring (green / red) authorisation light"
+    },
+    {
+     "label": "Qty",
+     "value": "1"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/03-salto-aelement-fusion-lockset.pdf",
+   "pages": 1,
+   "bytes": 2507,
+   "source": "D - Doors/DH - Doors Hardware/03 - Salto AElement Fusion Lockset.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-4-privacy-thumb-turn-sargent-8200-series",
+   "code": "4",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Sargent",
+   "category": "Locks",
+   "title": "Privacy Thumb-Turn - Sargent 8200 Series (8266)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Sargent 8200 Series mortise lock, privacy function (8266)"
+    },
+    {
+     "label": "Standard",
+     "value": "ANSI/BHMA A156.13 Series 1000 Grade 1"
+    },
+    {
+     "label": "Function",
+     "value": "Inside thumbturn locks outside lever; outside emergency release; inside lever always free"
+    },
+    {
+     "label": "Fire rating",
+     "value": "UL / cUL listed, 3-hour"
+    },
+    {
+     "label": "Durability",
+     "value": "16 million cycles (tested)"
+    },
+    {
+     "label": "Qty",
+     "value": "1"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-04"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/04-sargent-8200-privacy-thumb-turn.pdf",
+   "pages": 1,
+   "bytes": 2383,
+   "source": "D - Doors/DH - Doors Hardware/04 - Sargent 8200 Privacy Thumb Turn.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-5-door-viewer-hafele-startec-200-up-to",
+   "code": "5",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Peep Hole",
+   "title": "Door Viewer - Häfele Startec 200°, up to 82 mm",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Startec door viewer (P-00873696), up to 82 mm door thickness"
+    },
+    {
+     "label": "Field of view",
+     "value": "200°"
+    },
+    {
+     "label": "Door thickness",
+     "value": "Up to 82 mm"
+    },
+    {
+     "label": "Material / finish",
+     "value": "Brass, brushed brass (specified)"
+    },
+    {
+     "label": "Qty",
+     "value": "1"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/05-hafele-startec-door-viewer.pdf",
+   "pages": 1,
+   "bytes": 2271,
+   "source": "D - Doors/DH - Doors Hardware/05 - Hafele Startec Door Viewer.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-6-sliding-door-fitting-hafele-hawa-junio",
+   "code": "6",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Sliding Door Running Gear",
+   "title": "Sliding Door Fitting - Häfele Hawa Junior 80/B-Pocket",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Hawa Junior 80/B-Pocket set (P-00877233; 940.80.014)"
+    },
+    {
+     "label": "Max door weight",
+     "value": "80 kg (176 lb)"
+    },
+    {
+     "label": "Max door size",
+     "value": "H 4000 mm × W 1500 mm; thickness 35–80 mm"
+    },
+    {
+     "label": "Adjustment",
+     "value": "Height ±3 mm; door-to-track joint 6–8 mm"
+    },
+    {
+     "label": "Type",
+     "value": "Top-hung pocket sliding fitting, 1 door"
+    },
+    {
+     "label": "Qty",
+     "value": "1"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-03"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/06-hafele-hawa-junior-80b-pocket.pdf",
+   "pages": 1,
+   "bytes": 2392,
+   "source": "D - Doors/DH - Doors Hardware/06 - Hafele Hawa Junior 80B Pocket.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-6-1-sliding-door-hardware-hafele-slido-d-l",
+   "code": "6.1",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Sliding Door Running Gear",
+   "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Slido D-Line11 160P set (P-01499186; 941.62.018)"
+    },
+    {
+     "label": "Max door weight",
+     "value": "160 kg (353 lb)"
+    },
+    {
+     "label": "Type",
+     "value": "1-/2-leaf wooden sliding doors; ceiling & wall mount"
+    },
+    {
+     "label": "Adjustment",
+     "value": "Door height adjustable ±5 mm"
+    },
+    {
+     "label": "Features",
+     "value": "Soft & self-close both sides; 2 running gears, floor guide, track buffers"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 04"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/06-1-hafele-slido-d-line11-160p.pdf",
+   "pages": 1,
+   "bytes": 2413,
+   "source": "D - Doors/DH - Doors Hardware/06.1 - Hafele Slido D-Line11 160P.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-7-automatic-drop-down-seal-assa-abloy-pl",
+   "code": "7",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Assa Abloy",
+   "category": "Seals",
+   "title": "Automatic Drop-Down Seal - Assa Abloy Planet X3 RD",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Planet X3 RD (smoke-shielding), can be shortened"
+    },
+    {
+     "label": "Performance",
+     "value": "52 dB sound reduction; smoke-shielding (RD); driving-rain 7A/9A (ift certified)"
+    },
+    {
+     "label": "Profile",
+     "value": "Aluminium 22 × 30 mm; seal height 5–12 mm; side lift 2–6 mm"
+    },
+    {
+     "label": "Actuation",
+     "value": "Release one side (hinge side); silicone lip"
+    },
+    {
+     "label": "Doors",
+     "value": "Wood / metal / PVC; no drainage channel required"
+    },
+    {
+     "label": "Qty",
+     "value": "1"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 04"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/07-assa-abloy-planet-x3-rd-drop-seal.pdf",
+   "pages": 1,
+   "bytes": 2466,
+   "source": "D - Doors/DH - Doors Hardware/07 - Assa Abloy Planet X3 RD Drop Seal.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-7-1-door-jamb-weatherstrip-reflect-silicon",
+   "code": "7.1",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Reflect",
+   "category": "Seals",
+   "title": "Door-Jamb Weatherstrip - Reflect Silicone Bulb Seal",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Reflect Window & Door - door-jamb weatherstripping (silicone bulb seal)"
+    },
+    {
+     "label": "Material",
+     "value": "Silicone rubber; UV / weather / ozone / flame resistant"
+    },
+    {
+     "label": "Type",
+     "value": "Kerf-in / self-adhesive bulb seal for door jamb"
+    },
+    {
+     "label": "Qty",
+     "value": "3"
+    },
+    {
+     "label": "Drawing ref",
+     "value": "A11-02 / 03 / 04"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/07-1-reflect-door-jamb-weatherstrip.pdf",
+   "pages": 1,
+   "bytes": 2294,
+   "source": "D - Doors/DH - Doors Hardware/07.1 - Reflect Door Jamb Weatherstrip.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-dh-01-dh-01-ds-hafele-startec-concealed-hi",
+   "code": "DH-01",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-01 - DS - Hafele Startec Concealed Hinge",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-01-ds-hafele-startec-concealed-hinge.pdf",
+   "pages": 1,
+   "bytes": 241524,
+   "source": "D - Doors/DH - Doors Hardware/DH-01 - DS - Hafele Startec Concealed Hinge.pdf",
+   "drive_url": "",
+   "image": "img/dh-01-ds-hafele-startec-concealed-hinge.webp"
   },
   {
    "id": "e-01-load-center-reliahome-pcc4022r",
@@ -681,6 +1148,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Load Center, ReliaHome PCC4022R",
    "specs": [
     {
@@ -727,7 +1195,7 @@
    "pdf": "datasheets/janu-sub-011-01-load-center-pcc4022r.pdf",
    "pages": 3,
    "bytes": 153181,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 01 - Load Center PCC4022R.pdf",
+   "source": "E - Electrical/JANU-SUB-011 01 - Load Center PCC4022R.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-01-load-center-pcc4022r.webp"
   },
@@ -739,6 +1207,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Load Center, ReliaHome PCC1612",
    "specs": [
     {
@@ -781,7 +1250,7 @@
    "pdf": "datasheets/janu-sub-011-02-load-center-pcc1612.pdf",
    "pages": 5,
    "bytes": 373263,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 02 - Load Center PCC1612.pdf",
+   "source": "E - Electrical/JANU-SUB-011 02 - Load Center PCC1612.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-02-load-center-pcc1612.webp"
   },
@@ -793,6 +1262,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Load Center, Meter Socket PAMS3022TRNUS",
    "specs": [
     {
@@ -835,7 +1305,7 @@
    "pdf": "datasheets/janu-sub-011-03-meter-socket-pams3022trnus.pdf",
    "pages": 3,
    "bytes": 198824,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 03 - Meter Socket PAMS3022TRNUS.pdf",
+   "source": "E - Electrical/JANU-SUB-011 03 - Meter Socket PAMS3022TRNUS.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-03-meter-socket-pams3022trnus.webp"
   },
@@ -847,6 +1317,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Surge Protection Device, Wall Mount, RG Series - RGWMSP120S08T14",
    "specs": [
     {
@@ -885,7 +1356,7 @@
    "pdf": "datasheets/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.pdf",
    "pages": 6,
    "bytes": 495839,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 04 - Surge Protection Device RGWMSP120S08T14.pdf",
+   "source": "E - Electrical/JANU-SUB-011 04 - Surge Protection Device RGWMSP120S08T14.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.webp"
   },
@@ -897,6 +1368,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Circuit Breaker, Arc Fault Plug-In - THQL1120PAF2 (Qty 33)",
    "specs": [
     {
@@ -919,7 +1391,7 @@
    "pdf": "datasheets/janu-sub-011-05-arc-fault-breaker-thql1120paf2.pdf",
    "pages": 2,
    "bytes": 66746,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 05 - Arc Fault Breaker THQL1120PAF2.pdf",
+   "source": "E - Electrical/JANU-SUB-011 05 - Arc Fault Breaker THQL1120PAF2.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-05-arc-fault-breaker-thql1120paf2.webp"
   },
@@ -931,6 +1403,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "MCCB, 120/240V QL - THQL2180",
    "specs": [
     {
@@ -949,7 +1422,7 @@
    "pdf": "datasheets/janu-sub-011-06-mccb-thql2180.pdf",
    "pages": 2,
    "bytes": 71974,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 06 - MCCB THQL2180.pdf",
+   "source": "E - Electrical/JANU-SUB-011 06 - MCCB THQL2180.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-06-mccb-thql2180.webp"
   },
@@ -961,6 +1434,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "MCCB, 120/240V QL - THQL2140 (Qty 2)",
    "specs": [
     {
@@ -983,7 +1457,7 @@
    "pdf": "datasheets/janu-sub-011-07-mccb-thql2140.pdf",
    "pages": 2,
    "bytes": 73679,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 07 - MCCB THQL2140.pdf",
+   "source": "E - Electrical/JANU-SUB-011 07 - MCCB THQL2140.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-07-mccb-thql2140.webp"
   },
@@ -995,6 +1469,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "Circuit Breaker, Ground Fault Plug-In - THQL2160GFT2",
    "specs": [
     {
@@ -1013,7 +1488,7 @@
    "pdf": "datasheets/janu-sub-011-09-ground-fault-breaker-thql2160gft2.pdf",
    "pages": 3,
    "bytes": 531295,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 09 - Ground Fault Breaker THQL2160GFT2.pdf",
+   "source": "E - Electrical/JANU-SUB-011 09 - Ground Fault Breaker THQL2160GFT2.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1025,6 +1500,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "MCCB, 120/240V QL - THQL2120",
    "specs": [
     {
@@ -1043,7 +1519,7 @@
    "pdf": "datasheets/janu-sub-011-10-mccb-thql2120.pdf",
    "pages": 2,
    "bytes": 73364,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 10 - MCCB THQL2120.pdf",
+   "source": "E - Electrical/JANU-SUB-011 10 - MCCB THQL2120.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-10-mccb-thql2120.webp"
   },
@@ -1055,6 +1531,7 @@
    "discipline": "Electrical",
    "submittal": "JANU-SUB-011",
    "manufacturer": "ABB",
+   "category": "",
    "title": "MCCB, 120/240V QL - THQL2130 (Qty 2)",
    "specs": [
     {
@@ -1077,7 +1554,7 @@
    "pdf": "datasheets/janu-sub-011-11-mccb-thql2130.pdf",
    "pages": 2,
    "bytes": 182484,
-   "source": "Electrical/E - Electrical/JANU-SUB-011 11 - MCCB THQL2130.pdf",
+   "source": "E - Electrical/JANU-SUB-011 11 - MCCB THQL2130.pdf",
    "drive_url": "",
    "image": "img/janu-sub-011-11-mccb-thql2130.webp"
   },
@@ -1089,6 +1566,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Robert Manufacturing",
+   "category": "",
    "title": "Make-up Float Valve, 3/4 in NPT - Robert Mfg BOB R400 (brass)",
    "specs": [
     {
@@ -1119,7 +1597,7 @@
    "pdf": "datasheets/f1-robert-mfg-bob-r400-brass-float-valve.pdf",
    "pages": 3,
    "bytes": 1472262,
-   "source": "Pool/F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
+   "source": "F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
    "drive_url": "",
    "image": "img/f1-robert-mfg-bob-r400-brass-float-valve.webp"
   },
@@ -1131,6 +1609,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Bonomi (Valveman)",
+   "category": "",
    "title": "Foot Valve, 2.5 in brass with strainer - Bonomi 100102 series",
    "specs": [
     {
@@ -1169,7 +1648,7 @@
    "pdf": "datasheets/f2-valveman-brass-foot-valves.pdf",
    "pages": 2,
    "bytes": 108302,
-   "source": "Pool/F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
+   "source": "F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
    "drive_url": "",
    "image": "img/f2-valveman-brass-foot-valves.webp"
   },
@@ -1181,6 +1660,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Aquaram",
+   "category": "",
    "title": "PVC Ball Valves - Aquaram PVC-U 2-way, type PE (solvent socket)",
    "specs": [
     {
@@ -1215,7 +1695,7 @@
    "pdf": "datasheets/g1-aquaram-valves.pdf",
    "pages": 5,
    "bytes": 585264,
-   "source": "Pool/G - Piping and Valves/G1 - Aquaram Valves.pdf",
+   "source": "G - Piping and Valves/G1 - Aquaram Valves.pdf",
    "drive_url": "",
    "image": "img/g1-aquaram-valves.webp"
   },
@@ -1227,6 +1707,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Jandy (Fluidra)",
+   "category": "",
    "title": "PVC Check Valves - Jandy positive-seal check valve",
    "specs": [
     {
@@ -1253,7 +1734,7 @@
    "pdf": "datasheets/g2-jandy-check-valves.pdf",
    "pages": 3,
    "bytes": 623296,
-   "source": "Pool/G - Piping and Valves/G2 - Jandy Check Valves.pdf",
+   "source": "G - Piping and Valves/G2 - Jandy Check Valves.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1265,6 +1746,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Spears",
+   "category": "",
    "title": "PVC Pipe and Sch 40 Fittings (all sizes) - Spears Schedule 40 PVC",
    "specs": [
     {
@@ -1303,7 +1785,7 @@
    "pdf": "datasheets/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.pdf",
    "pages": 82,
    "bytes": 1259923,
-   "source": "Pool/G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
+   "source": "G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
    "drive_url": "",
    "image": "img/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.webp"
   },
@@ -1315,6 +1797,7 @@
    "discipline": "Pool",
    "submittal": null,
    "manufacturer": "Burndy",
+   "category": "",
    "title": "Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit",
    "specs": [
     {
@@ -1353,7 +1836,7 @@
    "pdf": "datasheets/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.pdf",
    "pages": 2,
    "bytes": 207707,
-   "source": "Pool/H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
+   "source": "H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
    "drive_url": "",
    "image": "img/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
   },
@@ -1365,6 +1848,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Bradford White",
+   "category": "",
    "title": "Water Heater, 119 gal - Bradford White ElectriFLEX LD (LE2120T3-3)",
    "specs": [
     {
@@ -1407,7 +1891,7 @@
    "pdf": "datasheets/j1-bradford-white-119-gal-water-heater.pdf",
    "pages": 3,
    "bytes": 716770,
-   "source": "Pool/J - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf",
+   "source": "J - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf",
    "drive_url": "",
    "image": "img/j1-bradford-white-119-gal-water-heater.webp"
   },
@@ -1419,6 +1903,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Taco",
+   "category": "",
    "title": "Recirculation Pump - Taco 2400 Series High-Capacity Circulator",
    "specs": [
     {
@@ -1457,7 +1942,7 @@
    "pdf": "datasheets/j2-taco-2400-series-recirculation-pump.pdf",
    "pages": 3,
    "bytes": 489502,
-   "source": "Pool/J - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf",
+   "source": "J - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf",
    "drive_url": "",
    "image": "img/j2-taco-2400-series-recirculation-pump.webp"
   },
@@ -1469,6 +1954,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Taco",
+   "category": "",
    "title": "Timer / Aquastat - Taco 00 Series Recirculation Control",
    "specs": [
     {
@@ -1499,7 +1985,7 @@
    "pdf": "datasheets/j3-taco-timer-and-aquastat.pdf",
    "pages": 2,
    "bytes": 200131,
-   "source": "Pool/J - Plumbing/J3 - Taco Timer and Aquastat.pdf",
+   "source": "J - Plumbing/J3 - Taco Timer and Aquastat.pdf",
    "drive_url": "",
    "image": "img/j3-taco-timer-and-aquastat.webp"
   },
@@ -1511,6 +1997,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "ProFlo (Ferguson)",
+   "category": "",
    "title": "Hose Bibbs - ProFlo PF71DC / PF71FC (brass)",
    "specs": [
     {
@@ -1541,7 +2028,7 @@
    "pdf": "datasheets/j4-proflo-hose-bibb-pf71.pdf",
    "pages": 2,
    "bytes": 194159,
-   "source": "Pool/J - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf",
+   "source": "J - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf",
    "drive_url": "",
    "image": "img/j4-proflo-hose-bibb-pf71.webp"
   },
@@ -1553,6 +2040,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "U.S. Solid",
+   "category": "",
    "title": "Angle / Isolation Valve - U.S. Solid 1/2 in 316 SS Mini Ball Valve",
    "specs": [
     {
@@ -1599,7 +2087,7 @@
    "pdf": "datasheets/j5-us-solid-316-ss-mini-ball-valve-angle-valve.pdf",
    "pages": 2,
    "bytes": 728444,
-   "source": "Pool/J - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
+   "source": "J - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1611,6 +2099,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "BrassCraft",
+   "category": "",
    "title": "Angle Valves - BrassCraft KTCR19 Compression Angle Supply Stop (Chrome)",
    "specs": [
     {
@@ -1637,7 +2126,7 @@
    "pdf": "datasheets/j6-brasscraft-ktcr19-angle-stop-valve.pdf",
    "pages": 3,
    "bytes": 289956,
-   "source": "Pool/J - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
+   "source": "J - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1649,6 +2138,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "ProFlo (Ferguson)",
+   "category": "",
    "title": "Supply Hoses - ProFlo PFX146 Braided Stainless Flexible Connector",
    "specs": [
     {
@@ -1675,7 +2165,7 @@
    "pdf": "datasheets/j7-proflo-pfx146-braided-supply-hose.pdf",
    "pages": 2,
    "bytes": 270583,
-   "source": "Pool/J - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf",
+   "source": "J - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf",
    "drive_url": "",
    "image": "img/j7-proflo-pfx146-braided-supply-hose.webp"
   },
@@ -1687,6 +2177,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "ProFlo (Ferguson)",
+   "category": "",
    "title": "Vanity P-Trap - ProFlo 100 Series 1-1/2 in Brass (Polished Chrome)",
    "specs": [
     {
@@ -1713,7 +2204,7 @@
    "pdf": "datasheets/j8-proflo-p-trap-pfptb107.pdf",
    "pages": 2,
    "bytes": 861065,
-   "source": "Pool/J - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf",
+   "source": "J - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf",
    "drive_url": "",
    "image": "img/j8-proflo-p-trap-pfptb107.webp"
   },
@@ -1725,6 +2216,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Comparative Datasheet",
+   "category": "",
    "title": "Pipe Insulation - Micro-Lok HP vs Poly Pipe Insulation",
    "specs": [
     {
@@ -1803,7 +2295,7 @@
    "pdf": "datasheets/j9-comparison-micro-lok-hp-vs-poly-pipe-insulation.pdf",
    "pages": 1,
    "bytes": 4090,
-   "source": "Pool/J - Plumbing/J9 - Comparison - Micro-Lok HP vs Poly Pipe Insulation.pdf",
+   "source": "J - Plumbing/J9 - Comparison - Micro-Lok HP vs Poly Pipe Insulation.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1815,6 +2307,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Johns Manville",
+   "category": "",
    "title": "Pipe Insulation - JM Micro-Lok HP Fiberglass",
    "specs": [
     {
@@ -1849,7 +2342,7 @@
    "pdf": "datasheets/j9-jm-micro-lok-hp-pipe-insulation.pdf",
    "pages": 4,
    "bytes": 224176,
-   "source": "Pool/J - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf",
+   "source": "J - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf",
    "drive_url": "",
    "image": "img/j9-jm-micro-lok-hp-pipe-insulation.webp"
   },
@@ -1861,6 +2354,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "",
+   "category": "",
    "title": "J9 - Poly Pipe Insulation",
    "specs": [],
    "notes": "",
@@ -1870,7 +2364,7 @@
    "pdf": "datasheets/j9-poly-pipe-insulation.pdf",
    "pages": 1,
    "bytes": 161420,
-   "source": "Pool/J - Plumbing/J9 - Poly Pipe Insulation.pdf",
+   "source": "J - Plumbing/J9 - Poly Pipe Insulation.pdf",
    "drive_url": "",
    "image": "img/j9-poly-pipe-insulation.webp"
   },
@@ -1882,6 +2376,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Charlotte Pipe",
+   "category": "",
    "title": "Cold Water Service - PVC Schedule 40 Pressure Pipe & Fittings",
    "specs": [
     {
@@ -1916,7 +2411,7 @@
    "pdf": "datasheets/j11-charlotte-pvc-sch-40-cold-water-service.pdf",
    "pages": 3,
    "bytes": 268756,
-   "source": "Pool/J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
+   "source": "J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1928,6 +2423,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Charlotte Pipe",
+   "category": "",
    "title": "Cold Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
    "specs": [
     {
@@ -1966,7 +2462,7 @@
    "pdf": "datasheets/j12-charlotte-flowguard-cpvc-cold-water-distribution.pdf",
    "pages": 2,
    "bytes": 216368,
-   "source": "Pool/J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
+   "source": "J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1978,6 +2474,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "Charlotte Pipe",
+   "category": "",
    "title": "Hot Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
    "specs": [
     {
@@ -2016,7 +2513,7 @@
    "pdf": "datasheets/j13-charlotte-flowguard-cpvc-hot-water-distribution.pdf",
    "pages": 2,
    "bytes": 216387,
-   "source": "Pool/J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
+   "source": "J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
    "drive_url": "",
    "image": ""
   },
@@ -2028,6 +2525,7 @@
    "discipline": "Plumbing",
    "submittal": null,
    "manufacturer": "ProFlo (Ferguson)",
+   "category": "",
    "title": "Roof Drains - ProFlo 3 in Plastic Roof Drain (PF42870)",
    "specs": [
     {
@@ -2050,9 +2548,83 @@
    "pdf": "datasheets/j14-proflo-plastic-roof-drain-pf42870.pdf",
    "pages": 2,
    "bytes": 221895,
-   "source": "Pool/J - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf",
+   "source": "J - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf",
    "drive_url": "",
    "image": "img/j14-proflo-plastic-roof-drain-pf42870.webp"
+  },
+  {
+   "id": "l-a-pool-light-l09-l-l-bright-1-6-316l",
+   "code": "A",
+   "group": "L",
+   "group_name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "manufacturer": "L&L; Luce&Light;",
+   "category": "",
+   "title": "Pool Light L09 - L&L; Bright 1.6 316L",
+   "specs": [
+    {
+     "label": "A1 Luminaire",
+     "value": "L&L; CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
+    },
+    {
+     "label": "A2 Outer casing",
+     "value": "L&L; WC5003"
+    },
+    {
+     "label": "A3 LED driver",
+     "value": "L&L; AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
+    }
+   ],
+   "notes": "Per JANU-SUB-009 group A (Pool Light L09).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/a-pool-light-l09-cw16005di.pdf",
+   "pages": 5,
+   "bytes": 2363591,
+   "source": "L - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
+   "drive_url": "",
+   "image": "img/a-pool-light-l09-cw16005di.webp"
+  },
+  {
+   "id": "l-b-pool-light-l09-1-l-l-bright-3-0-316l",
+   "code": "B",
+   "group": "L",
+   "group_name": "Pool Lighting",
+   "discipline": "Pool",
+   "submittal": "JANU-SUB-009",
+   "manufacturer": "L&L; Luce&Light;",
+   "category": "",
+   "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
+   "specs": [
+    {
+     "label": "B1 Luminaire",
+     "value": "L&L; CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
+    },
+    {
+     "label": "B2 Outer casing",
+     "value": "L&L; WC5004"
+    },
+    {
+     "label": "B3 LED driver",
+     "value": "L&L; AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
+    },
+    {
+     "label": "B4 Extractors",
+     "value": "L&L; WN7001 (pair)"
+    }
+   ],
+   "notes": "Per JANU-SUB-009 group B (Pool Light L09.1).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/b-pool-light-l09-1-cw300005wi.pdf",
+   "pages": 6,
+   "bytes": 2669975,
+   "source": "L - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
+   "drive_url": "",
+   "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   }
  ]
 }

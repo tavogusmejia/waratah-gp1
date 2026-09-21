@@ -5,13 +5,27 @@ Procurement records for the GP1-MUR villa. The published site is the
 each with the manufacturer's sheet attached. Read-only.
 
 ```
-Data Sheets/                  the 45 curated datasheet PDFs + the extractor
+tools/                        the extractor
 Waratah Info/                 brand artwork + the logo tracer
 web/                          the register - static site, deployed to Vercel
 01 GP1 Procurement Tracker/   the Excel masters
 02 Material Register/         no longer wired to anything - see below
 supabase/                     no longer wired to anything - see below
 ```
+
+**The datasheets themselves are not in this repo.** They live in the submittal
+folder, which is where they are filed and maintained:
+
+```
+C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets
+```
+
+That path is in `tools/extract_datasheets.py` as `SOURCE`, overridable with the
+`GP1_DATASHEETS` environment variable. A copy used to be committed here as
+`Data Sheets/`; it was deleted because the two had already begun to drift — B2
+and B3 differed between them before the extractor was pointed at the real one.
+`web/datasheets/` still holds the published copies, so the *site* remains
+self-contained; only re-running the extractor needs the submittal folder.
 
 The older 199-item procurement schedule that used to live at `/schedule` was
 **deleted**. It covered 13 trades and carried 40 manufacturer datasheet links
@@ -45,15 +59,17 @@ Both probes are excluded from deploys. See *Testing*.
 
 ## The Material & Hardware Register
 
-45 curated datasheets across 8 submittal groups. It is **read-only**: there is
+The curated datasheets across nine submittal groups. The group letters are
+the submittal's own — there is no C or I, **D is Doors & Hardware**, and pool
+lighting is **L**; they were renumbered at the source and this follows it. It is **read-only**: there is
 no sign-in, no backend and nothing to save. The whole register is
 `data/datasheets.json`, generated from the PDFs — change a datasheet, re-run
 the extractor, and the page is correct again. There is no second place to
 update.
 
 ```bash
-python "Data Sheets/extract_datasheets.py" --check   # parse and report
-python "Data Sheets/extract_datasheets.py"           # write json + copy pdfs
+python tools/extract_datasheets.py --check   # parse and report, write nothing
+python tools/extract_datasheets.py           # write json, pdfs and pictures
 ```
 
 ### It is a repository, not a workflow
@@ -107,7 +123,7 @@ half. Two measurements do most of it:
 It is not reliable enough to trust blindly and it was not worth making more
 elaborate: a third measurement to separate a chrome tap on white from a line
 drawing on white scored them identically. So when a pick is wrong, **drop a
-replacement at `Data Sheets/images/<CODE>.jpg`** and re-run the extractor —
+replacement at `tools/images/<CODE>.jpg`** and re-run the extractor —
 it wins over anything automatic. Eleven items found nothing and simply show no
 picture rather than a wrong one; the extractor names them on every run.
 
@@ -175,7 +191,7 @@ all, still works.
 
 **If they ever need to come out of the deploy**, each item carries an optional
 `drive_url`, and the register opens that in preference to the file beside the
-page. Drop a two-column `Data Sheets/drive-links.csv` (item code, URL), re-run
+page. Drop a two-column `tools/drive-links.csv` (item code, URL), re-run
 the extractor, and add `datasheets/` to `.vercelignore` — a data change, not a
 code change. Links have to be "anyone with the link can view", or the register
 shows 45 buttons that lead to a sign-in wall.

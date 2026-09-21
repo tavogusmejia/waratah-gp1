@@ -3,8 +3,9 @@
 
    Read-only. There is no backend, no sign-in and nothing to save: the whole
    register is data/datasheets.json, generated from the curated PDFs by
-   "Data Sheets/extract_datasheets.py". Change a datasheet, re-run that, and
-   this page is correct again — there is no second place to update.
+   "tools/extract_datasheets.py", which reads the submittal folder. Change a
+   datasheet there, re-run that, and this page is correct again — there is no
+   second place to update.
 
    It is a repository, not a workflow. Nothing here nags: no alerts, no status
    badges, no review state. The submittals are settled, and if something about
@@ -78,7 +79,7 @@
   function haystack(it) {
     if (it._h) return it._h;
     var parts = [it.code, it.title, it.manufacturer, it.group_name,
-                 it.notes, it.submittal];
+                 it.category, it.notes, it.submittal];
     for (var i = 0; i < it.specs.length; i++) {
       parts.push(it.specs[i].label, it.specs[i].value);
     }
@@ -262,6 +263,7 @@
                 "Open the datasheet.</p>") +
         (it.notes ? '<p class="sheet-note">' + esc(it.notes) + "</p>" : "") +
         '<div class="sheet-meta">' +
+          (it.category ? "<span>" + esc(it.category) + "</span>" : "") +
           (it.submittal ? "<span>Submittal " + esc(it.submittal) + "</span>" : "") +
           "<span>Group " + esc(it.group) + " &middot; " + esc(it.group_name) + "</span>" +
           "<span>" + esc(it.discipline) + "</span>" +
