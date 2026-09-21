@@ -72,6 +72,13 @@ notes, and every specification label and value), a manufacturer filter built
 from the data itself, and the group rail. Items are always shown grouped,
 because the submittal letters are how the team refers to them out loud.
 
+**Two views, remembered between visits.** *Cards* carry a thumbnail — for
+recognising something by sight. *List* drops the pictures and fits roughly
+twice as many rows on screen — for when you know what you are after. The
+eleven items with no photograph show their item code on the tile instead of a
+placeholder icon: it keeps every card the same shape and says "no
+photograph" rather than miming one.
+
 ### The picture
 
 Each item's panel opens with a photograph of the thing, because often that is
@@ -104,9 +111,11 @@ replacement at `Data Sheets/images/<CODE>.jpg`** and re-run the extractor —
 it wins over anything automatic. Eleven items found nothing and simply show no
 picture rather than a wrong one; the extractor names them on every run.
 
-`mix-blend-mode: multiply` melts the white-background cutouts into the tinted
-frame so they do not sit in a visible white box. It is turned off in dark mode,
-where multiply would black them out.
+**Photographs keep a light ground in both themes** (`--photo-bg`). Every
+picture here is a cutout on white, so a dark tile only letterboxes a white
+rectangle inside it — and because the ground stays light, `mix-blend-mode:
+multiply` melts the cutout into the tile and never has to be switched off for
+dark mode.
 
 ### Why the extractor reads fonts, not lines
 

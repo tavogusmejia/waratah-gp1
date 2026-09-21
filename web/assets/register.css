@@ -33,6 +33,14 @@
   --red-line: rgba(219, 56, 55, .30);
   --slate-wash: rgba(101, 118, 142, .08);
 
+  /* Photographs keep a light ground in both themes. Every picture here is a
+     cutout on white, so a dark tile just letterboxes a white rectangle inside
+     it - and because the ground stays light, `mix-blend-mode: multiply` keeps
+     working and never has to be switched off. */
+  --photo-bg: #F4F6F8;
+  --photo-line: #E6EAF0;
+  --photo-ink: #55637A;   /* 5.6:1 on the photo ground - AA at 13px */
+
   --shadow: 0 1px 2px rgba(28, 37, 48, .05), 0 8px 24px -12px rgba(28, 37, 48, .18);
 
   --sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -68,6 +76,9 @@
   --red-wash: rgba(238, 89, 82, .12);
   --red-line: rgba(238, 89, 82, .38);
   --slate-wash: rgba(176, 191, 213, .10);
+  --photo-bg: #EDF0F4;
+  --photo-line: #2A3340;
+  --photo-ink: #55637A;   /* 5.6:1 on the photo ground - AA at 13px */
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
 }
 
@@ -174,6 +185,14 @@ a { color: inherit; }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .chip i { font-style: normal; font-size: 11px; opacity: .65; font-variant-numeric: tabular-nums; }
 
+.viewq { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r); padding: 2px; }
+.viewq button {
+  border: 0; background: none; color: var(--ink-3); cursor: pointer;
+  width: 32px; height: 30px; border-radius: 6px; display: grid; place-items: center;
+}
+.viewq button[aria-pressed="true"] { background: var(--slate-wash); color: var(--ink); }
+.viewq svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+
 .pick {
   font: inherit; font-size: 13px; color: var(--ink-2); cursor: pointer;
   border: 1px solid var(--line); border-radius: var(--r);
@@ -224,17 +243,34 @@ a { color: inherit; }
 .group > h3::after { content: ""; flex: 1; height: 1px; background: var(--line-2); }
 .group > h3 em { font-style: normal; font-family: var(--mono); color: var(--ink-3); }
 
-.cards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
+.cards { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(288px, 1fr)); }
 @media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
 
 .card {
   position: relative; text-align: left; font: inherit; cursor: pointer;
-  display: grid; gap: 7px;
+  display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 14px;
+  align-items: start;
   border: 1px solid var(--line); border-radius: var(--r);
   background: var(--bg-raise); color: var(--ink);
   padding: 14px 15px 13px;
 }
 .card:hover { border-color: var(--slate); box-shadow: var(--shadow); }
+.card-body { display: grid; gap: 7px; min-width: 0; }
+
+/* The preview. Contained, never cropped: these cutouts run from a 1.2 m water
+   heater to a 50 mm valve, and a fixed crop would behead half of them. */
+.thumb {
+  width: 76px; height: 76px; border-radius: 6px;
+  background: var(--photo-bg); border: 1px solid var(--photo-line);
+  display: grid; place-items: center; overflow: hidden;
+}
+.thumb img {
+  max-width: 100%; max-height: 100%; width: auto; height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;   /* melts a white cutout into the tinted square */
+}
+/* No photograph: say so with the item's own code rather than mime one. */
+.thumb.none { font: 500 13px/1 var(--mono); color: var(--photo-ink); }
 
 .card-h { display: flex; align-items: baseline; gap: 9px; }
 .card-h code {
@@ -248,6 +284,35 @@ a { color: inherit; }
 
 
 .pages { margin-left: auto; font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+/* ------------------------------------------------------------ list view */
+
+.rows { border-top: 1px solid var(--line-2); }
+.row {
+  display: grid; grid-template-columns: 58px minmax(0, 1fr) 190px 72px;
+  gap: 14px; align-items: baseline; width: 100%;
+  font: inherit; text-align: left; cursor: pointer;
+  border: 0; border-bottom: 1px solid var(--line-2);
+  background: none; color: var(--ink);
+  padding: 11px 8px;
+}
+.row:hover { background: var(--slate-wash); }
+.row code {
+  font: 500 11px/1 var(--mono); color: var(--ink-2);
+  background: var(--slate-wash); padding: 4px 6px; border-radius: 4px;
+  justify-self: start;
+}
+.row-t { font-size: 14px; font-weight: 500; line-height: 1.35; }
+.row-m { font-size: 12.5px; color: var(--ink-3); }
+.row .pages { text-align: right; }
+
+/* Below the three-column width the manufacturer moves under the title rather
+   than being squeezed into a column too narrow to read. */
+@media (max-width: 720px) {
+  .row { grid-template-columns: 52px minmax(0, 1fr); gap: 4px 12px; }
+  .row-m { grid-column: 2; font-size: 12px; }
+  .row .pages { grid-column: 2; text-align: left; }
+}
 
 .none { padding: 48px 4px; color: var(--ink-3); font-size: 14px; }
 
@@ -300,8 +365,8 @@ a { color: inherit; }
    The tinted ground keeps a white-background cutout from floating. */
 .shot {
   margin: 0 0 18px;
-  background: var(--bg-sunk);
-  border: 1px solid var(--line-2);
+  background: var(--photo-bg);
+  border: 1px solid var(--photo-line);
   border-radius: var(--r);
   padding: 14px;
   display: grid;
@@ -316,7 +381,6 @@ a { color: inherit; }
   object-fit: contain;
   mix-blend-mode: multiply;   /* melts a white cutout into the tinted ground */
 }
-:root[data-theme="dark"] .shot img { mix-blend-mode: normal; }
 
 .specs { width: 100%; border-collapse: collapse; font-size: 13.5px; }
 .specs th, .specs td { text-align: left; vertical-align: top; padding: 9px 0; border-bottom: 1px solid var(--line-2); }

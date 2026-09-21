@@ -18,7 +18,8 @@
 
   var DATA = "./data/datasheets.json";
 
-  var state = { items: [], groups: [], q: "", group: "", maker: "", open: null };
+  var state = { items: [], groups: [], q: "", group: "", maker: "",
+               view: "cards", open: null };
   var els = {};
 
   function esc(s) {
@@ -35,7 +36,12 @@
     close:  '<path d="M6 6l12 12M18 6L6 18"/>',
     out:    '<path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
     sun:    '<circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>',
-    moon:   '<path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z"/>'
+    moon:   '<path d="M20 13.5A8 8 0 1 1 10.5 4a6.5 6.5 0 0 0 9.5 9.5Z"/>',
+    grid:   '<rect x="3.5" y="3.5" width="7" height="7" rx="1.4"/>' +
+            '<rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/>' +
+            '<rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/>' +
+            '<rect x="13.5" y="13.5" width="7" height="7" rx="1.4"/>',
+    rows:   '<path d="M3.5 6h17M3.5 12h17M3.5 18h17"/>'
   };
 
   /* ------------------------------------------------------------ theming */
@@ -55,6 +61,15 @@
     var q = document.querySelectorAll(".themeq button");
     for (var i = 0; i < q.length; i++) {
       q[i].setAttribute("aria-pressed", String(q[i].dataset.t === t));
+    }
+  }
+
+  function setView(v) {
+    state.view = v === "rows" ? "rows" : "cards";
+    store("gp1.view", state.view);
+    var q = document.querySelectorAll(".viewq button");
+    for (var i = 0; i < q.length; i++) {
+      q[i].setAttribute("aria-pressed", String(q[i].dataset.v === state.view));
     }
   }
 
@@ -83,17 +98,44 @@
 
   /* -------------------------------------------------------------- render */
 
+  /* The thumbnail. Eleven of the 45 have no picture, and they get the item
+     code on a tinted square rather than a placeholder icon: it keeps every
+     card the same shape, and it says "no photograph" instead of miming one. */
+  function thumb(it) {
+    if (!it.image) {
+      return '<span class="thumb none">' + esc(it.code) + "</span>";
+    }
+    return '<span class="thumb"><img src="./' + esc(it.image) + '" alt="" ' +
+           'loading="lazy" decoding="async"></span>';
+  }
+
   function card(it) {
     return '<button class="card" data-id="' + esc(it.id) + '">' +
-      '<span class="card-h"><code>' + esc(it.code) + "</code>" +
-      (it.manufacturer ? "<b>" + esc(it.manufacturer) + "</b>" : "") + "</span>" +
-      '<span class="card-t">' + esc(it.title) + "</span>" +
-      (it.specs.length
-        ? '<span class="card-s">' + esc(it.specs[0].value.slice(0, 96)) + "</span>"
-        : "") +
-      '<span class="card-f">' +
-        '<span class="pages">' + it.pages + (it.pages === 1 ? " page" : " pages") + "</span>" +
+      thumb(it) +
+      '<span class="card-body">' +
+        '<span class="card-h"><code>' + esc(it.code) + "</code>" +
+        (it.manufacturer ? "<b>" + esc(it.manufacturer) + "</b>" : "") + "</span>" +
+        '<span class="card-t">' + esc(it.title) + "</span>" +
+        (it.specs.length
+          ? '<span class="card-s">' + esc(it.specs[0].value.slice(0, 96)) + "</span>"
+          : "") +
+        '<span class="card-f">' +
+          '<span class="pages">' + it.pages +
+          (it.pages === 1 ? " page" : " pages") + "</span>" +
+        "</span>" +
       "</span></button>";
+  }
+
+  /* List view carries no pictures on purpose. It is the view for when you know
+     what you are looking for and want the most items on screen at once. */
+  function row(it) {
+    return '<button class="row" data-id="' + esc(it.id) + '">' +
+      "<code>" + esc(it.code) + "</code>" +
+      '<span class="row-t">' + esc(it.title) + "</span>" +
+      '<span class="row-m">' + esc(it.manufacturer || "") + "</span>" +
+      '<span class="pages">' + it.pages +
+      (it.pages === 1 ? " page" : " pages") + "</span>" +
+      "</button>";
   }
 
   function render() {
@@ -117,11 +159,14 @@
       var mine = rows.filter(function (r) { return r.group === grp.key; });
       if (!mine.length) continue;
       seen[grp.key] = mine.length;
+      var list = state.view === "rows";
       html += '<section class="group" id="g-' + grp.key + '"><h3>' +
         "<em>" + esc(grp.key) + "</em> " + esc(grp.name) +
         (grp.submittal ? " &middot; " + esc(grp.submittal) : "") +
-        "</h3><div class=\"cards\">";
-      for (var i = 0; i < mine.length; i++) html += card(mine[i]);
+        "</h3><div class=\"" + (list ? "rows" : "cards") + "\">";
+      for (var i = 0; i < mine.length; i++) {
+        html += list ? row(mine[i]) : card(mine[i]);
+      }
       html += "</div></section>";
     }
     els.list.innerHTML = html;
@@ -257,7 +302,7 @@
     });
 
     document.addEventListener("click", function (e) {
-      var c = e.target.closest(".card");
+      var c = e.target.closest(".card, .row");
       if (c) { openSheet(c.dataset.id); return; }
       if (e.target.closest("[data-close]") || e.target === els.scrim) { closeSheet(); return; }
       if (e.target.closest("[data-clear]")) {
@@ -276,6 +321,13 @@
     document.querySelector(".themeq").addEventListener("click", function (e) {
       var b = e.target.closest("button[data-t]");
       if (b) setTheme(b.dataset.t);
+    });
+
+    document.querySelector(".viewq").addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-v]");
+      if (!b || b.dataset.v === state.view) return;
+      setView(b.dataset.v);
+      render();
     });
 
     addEventListener("keydown", function (e) {
@@ -303,6 +355,7 @@
 
     renderMakers();
     renderRail();
+    setView(recall("gp1.view") || "cards");
     render();
     wire();
     setTheme(recall("gp1.theme") || "light");
@@ -321,6 +374,8 @@
   document.getElementById("i-search").innerHTML = I.search;
   var tq = document.querySelectorAll(".themeq button");
   tq[0].innerHTML = icon(I.sun); tq[1].innerHTML = icon(I.moon);
+  var vq = document.querySelectorAll(".viewq button");
+  vq[0].innerHTML = icon(I.grid); vq[1].innerHTML = icon(I.rows);
 
   fetch(DATA, { cache: "no-cache" })
     .then(function (r) {
