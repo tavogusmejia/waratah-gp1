@@ -5,6 +5,18 @@ Audited by eye against the 35 pictures the register currently ships, plus the
 
 ## How to replace one
 
+**The quick way.** The same list is published as a page you can drag pictures
+onto: <https://claude.ai/artifact/9dF3DeNeQtkse2s8B4fepG>. Drop a photograph on
+an item and it is stored against that item under the right name — no renaming,
+no remembering which file was which. An `×` removes one dropped by mistake.
+When the batch is ready, *Hand the batch over* and ask Claude to collect it;
+the files land in `tools/images/` and the register is rebuilt.
+
+The pictures live with the artifact, so they survive a reload and you can stage
+them over several sittings.
+
+**By hand.**
+
 1. Download a clean product photograph — ideally a cutout on a plain white
    ground, since the register composites them onto a light tile.
 2. Rename it to the **file** name in the table below. The extension may be
