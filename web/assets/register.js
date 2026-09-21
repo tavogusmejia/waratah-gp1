@@ -270,6 +270,16 @@
         "</div>" +
       "</div>" +
       '<div class="sheet-f">' +
+        /* Whatever else the source ships for this item - an installation
+           guide, the vendor's own datasheet. Worth having in front of
+           someone standing at the door with a screwdriver. */
+        (it.extras && it.extras.length
+          ? '<div class="extras">' + it.extras.map(function (x) {
+              return '<a class="extra" href="./' + esc(x.pdf) + '" ' +
+                'target="_blank" rel="noopener">' + icon(I.out) +
+                esc(x.kind) + "<em>" + size(x.bytes) + "</em></a>";
+            }).join("") + "</div>"
+          : "") +
         '<a class="open" href="' + esc(href(it)) + '" target="_blank" rel="noopener">' +
           icon(I.out) + "Open the datasheet <em>" + it.pages +
           (it.pages === 1 ? " page" : " pages") + " &middot; " +

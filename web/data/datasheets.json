@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T17:47:44Z",
+ "generated": "2026-09-21T18:04:42Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -64,7 +64,7 @@
    "name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
-   "count": 28
+   "count": 29
   },
   {
    "key": "PL",
@@ -120,6 +120,7 @@
    "bytes": 777856,
    "source": "A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a1-cartridge-filter-clean-clear-cc150.webp"
   },
   {
@@ -159,6 +160,7 @@
    "bytes": 6205005,
    "source": "A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a2-main-filter-pump-intelliflo3-vsf.webp"
   },
   {
@@ -198,6 +200,7 @@
    "bytes": 6205020,
    "source": "A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a3-infinity-edge-pump-intelliflo3-vsf.webp"
   },
   {
@@ -241,6 +244,7 @@
    "bytes": 965385,
    "source": "A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp"
   },
   {
@@ -284,6 +288,7 @@
    "bytes": 872426,
    "source": "A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a5-salt-chlorine-generator-intellichlor-lt25.webp"
   },
   {
@@ -335,6 +340,7 @@
    "bytes": 182325,
    "source": "A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
   {
@@ -394,6 +400,7 @@
    "bytes": 2866341,
    "source": "B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
   {
@@ -437,6 +444,7 @@
    "bytes": 1161922,
    "source": "B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/b2-color-match-floor-return-ptfr-03.webp"
   },
   {
@@ -484,6 +492,7 @@
    "bytes": 136146,
    "source": "B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
@@ -531,6 +540,7 @@
    "bytes": 130996,
    "source": "B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
@@ -578,6 +588,7 @@
    "bytes": 1433593,
    "source": "B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/b5-spears-sch-40-pvc.webp"
   },
   {
@@ -625,6 +636,7 @@
    "bytes": 194286,
    "source": "B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
@@ -672,6 +684,14 @@
    "bytes": 3148,
    "source": "D - Doors/DH - Doors Hardware/DH1 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh1-ds-hafele-startec-concealed-hinge-b.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH1 - DS - Hafele Startec Concealed Hinge B.pdf",
+     "bytes": 739874
+    }
+   ],
    "image": "img/dh1-hafele-startec-concealed-hinge.webp"
   },
   {
@@ -715,6 +735,20 @@
    "bytes": 2392,
    "source": "D - Doors/DH - Doors Hardware/DH2 - Salto London Lever Handle.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/dh2-ig-salto-london-lever-handle.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH2 - IG - Salto London Lever Handle.pdf",
+     "bytes": 585528
+    },
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh2-ds-salto-london-lever-handle.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH2 - DS - Salto London Lever Handle.pdf",
+     "bytes": 144342
+    }
+   ],
    "image": "img/dh2-salto-london-lever-handle.webp"
   },
   {
@@ -762,6 +796,20 @@
    "bytes": 2559,
    "source": "D - Doors/DH - Doors Hardware/DH3 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/dh3-ig-salto-aelement-fusion-lockset-ring-reader.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH3 - IG - Salto AElement Fusion Lockset & Ring Reader.pdf",
+     "bytes": 122498
+    },
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh3-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH3 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
+     "bytes": 144342
+    }
+   ],
    "image": "img/dh3-salto-aelement-fusion-lockset-ring-reader.webp"
   },
   {
@@ -805,6 +853,20 @@
    "bytes": 2365,
    "source": "D - Doors/DH - Doors Hardware/DH4 - Salto LA1T17 Privacy Thumbturn.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/dh4-ig-salto-la1t17-privacy-thumbturn.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH4 - IG - Salto LA1T17 Privacy Thumbturn.pdf",
+     "bytes": 149787
+    },
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh4-ds-salto-la1t17-privacy-thumbturn.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH4 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
+     "bytes": 144342
+    }
+   ],
    "image": "img/dh4-salto-la1t17-privacy-thumbturn.webp"
   },
   {
@@ -848,6 +910,14 @@
    "bytes": 2307,
    "source": "D - Doors/DH - Doors Hardware/DH5 - Hafele Startec Door Viewer.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh5-ds-hafele-startec-door-viewer-b.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH5 - DS - Hafele Startec Door Viewer B.pdf",
+     "bytes": 700332
+    }
+   ],
    "image": "img/dh5-hafele-startec-door-viewer.webp"
   },
   {
@@ -891,6 +961,14 @@
    "bytes": 2430,
    "source": "D - Doors/DH - Doors Hardware/DH6 - Hafele Hawa Junior 80B Pocket.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh6-ds-hafele-hawa-junior-80b-pocket.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH6 - DS - Hafele Hawa Junior 80B Pocket.pdf",
+     "bytes": 1128458
+    }
+   ],
    "image": "img/dh6-hafele-hawa-junior-80b-pocket.webp"
   },
   {
@@ -934,6 +1012,14 @@
    "bytes": 2447,
    "source": "D - Doors/DH - Doors Hardware/DH7 - Hafele Slido D-Line11 160P.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh7-ds-hafele-slido-d-line11-160p.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH7 - DS - Hafele Slido D-Line11 160P.pdf",
+     "bytes": 520012
+    }
+   ],
    "image": "img/dh7-hafele-slido-d-line11-160p.webp"
   },
   {
@@ -977,6 +1063,14 @@
    "bytes": 2409,
    "source": "D - Doors/DH - Doors Hardware/DH8 - Assa Abloy Planet X3 RD Drop Seal.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh8-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH8 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
+     "bytes": 1424744
+    }
+   ],
    "image": "img/dh8-assa-abloy-planet-x3-rd-drop-seal.webp"
   },
   {
@@ -1016,6 +1110,14 @@
    "bytes": 2380,
    "source": "D - Doors/DH - Doors Hardware/DH9 - Reflect Door Jamb Weatherstrip.pdf",
    "drive_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh9-ds-reflect-door-jamb-weatherstrip.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH9 - DS - Reflect Door Jamb Weatherstrip.pdf",
+     "bytes": 1764299
+    }
+   ],
    "image": "img/dh9-reflect-door-jamb-weatherstrip.webp"
   },
   {
@@ -1038,6 +1140,7 @@
    "bytes": 222524,
    "source": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Door Hinge Top Pivot.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/dh10-ds-hafele-door-hinge-top-pivot.webp"
   },
   {
@@ -1097,6 +1200,7 @@
    "bytes": 153181,
    "source": "E - Electrical/E1 - Load Center PCC4022R.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e1-load-center-pcc4022r.webp"
   },
   {
@@ -1152,6 +1256,7 @@
    "bytes": 373263,
    "source": "E - Electrical/E2 - Load Center PCC1612.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e2-load-center-pcc1612.webp"
   },
   {
@@ -1207,6 +1312,7 @@
    "bytes": 198824,
    "source": "E - Electrical/E3 - Meter Socket PAMS3022TRNUS.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e3-meter-socket-pams3022trnus.webp"
   },
   {
@@ -1258,6 +1364,7 @@
    "bytes": 495839,
    "source": "E - Electrical/E4 - Surge Protection Device RGWMSP120S08T14.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e4-surge-protection-device-rgwmsp120s08t14.webp"
   },
   {
@@ -1293,6 +1400,7 @@
    "bytes": 66746,
    "source": "E - Electrical/E5 - Arc Fault Breaker THQL1120PAF2.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e5-arc-fault-breaker-thql1120paf2.webp"
   },
   {
@@ -1324,6 +1432,7 @@
    "bytes": 71974,
    "source": "E - Electrical/E6 - MCCB THQL2180.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e6-mccb-thql2180.webp"
   },
   {
@@ -1359,6 +1468,7 @@
    "bytes": 73679,
    "source": "E - Electrical/E7 - MCCB THQL2140.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e7-mccb-thql2140.webp"
   },
   {
@@ -1390,6 +1500,7 @@
    "bytes": 531295,
    "source": "E - Electrical/E8 - Ground Fault Breaker THQL2160GFT2.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e8-ground-fault-breaker-thql2160gft2.webp"
   },
   {
@@ -1421,6 +1532,7 @@
    "bytes": 73364,
    "source": "E - Electrical/E9 - MCCB THQL2120.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e9-mccb-thql2120.webp"
   },
   {
@@ -1456,6 +1568,7 @@
    "bytes": 182484,
    "source": "E - Electrical/E10 - MCCB THQL2130.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/e10-mccb-thql2130.webp"
   },
   {
@@ -1499,6 +1612,7 @@
    "bytes": 1472262,
    "source": "F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/f1-robert-mfg-bob-r400-brass-float-valve.webp"
   },
   {
@@ -1550,6 +1664,7 @@
    "bytes": 108302,
    "source": "F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/f2-valveman-brass-foot-valves.webp"
   },
   {
@@ -1597,6 +1712,7 @@
    "bytes": 585264,
    "source": "G - Piping and Valves/G1 - Aquaram Valves.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/g1-aquaram-valves.webp"
   },
   {
@@ -1636,6 +1752,7 @@
    "bytes": 623296,
    "source": "G - Piping and Valves/G2 - Jandy Check Valves.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/g2-jandy-check-valves.webp"
   },
   {
@@ -1687,6 +1804,7 @@
    "bytes": 1259923,
    "source": "G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.webp"
   },
   {
@@ -1738,6 +1856,7 @@
    "bytes": 207707,
    "source": "H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
   },
   {
@@ -1793,6 +1912,7 @@
    "bytes": 716770,
    "source": "J - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j1-bradford-white-119-gal-water-heater.webp"
   },
   {
@@ -1844,6 +1964,7 @@
    "bytes": 489502,
    "source": "J - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j2-taco-2400-series-recirculation-pump.webp"
   },
   {
@@ -1887,6 +2008,7 @@
    "bytes": 200131,
    "source": "J - Plumbing/J3 - Taco Timer and Aquastat.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j3-taco-timer-and-aquastat.webp"
   },
   {
@@ -1930,6 +2052,7 @@
    "bytes": 194159,
    "source": "J - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j4-proflo-hose-bibb-pf71.webp"
   },
   {
@@ -1989,6 +2112,7 @@
    "bytes": 728444,
    "source": "J - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j5-us-solid-316-ss-mini-ball-valve-angle-valve.webp"
   },
   {
@@ -2028,6 +2152,7 @@
    "bytes": 289956,
    "source": "J - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j6-brasscraft-ktcr19-angle-stop-valve.webp"
   },
   {
@@ -2067,6 +2192,7 @@
    "bytes": 270583,
    "source": "J - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j7-proflo-pfx146-braided-supply-hose.webp"
   },
   {
@@ -2106,6 +2232,7 @@
    "bytes": 861065,
    "source": "J - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j8-proflo-p-trap-pfptb107.webp"
   },
   {
@@ -2153,6 +2280,7 @@
    "bytes": 224176,
    "source": "J - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j9-jm-micro-lok-hp-pipe-insulation.webp"
   },
   {
@@ -2175,6 +2303,7 @@
    "bytes": 161420,
    "source": "J - Plumbing/J9 - Poly Pipe Insulation.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j9-poly-pipe-insulation.webp"
   },
   {
@@ -2222,6 +2351,7 @@
    "bytes": 268756,
    "source": "J - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j11-charlotte-pvc-sch-40-cold-water-service.webp"
   },
   {
@@ -2273,6 +2403,7 @@
    "bytes": 216368,
    "source": "J - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j12-charlotte-flowguard-cpvc-cold-water-distribution.webp"
   },
   {
@@ -2324,6 +2455,7 @@
    "bytes": 216387,
    "source": "J - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j13-charlotte-flowguard-cpvc-hot-water-distribution.webp"
   },
   {
@@ -2359,622 +2491,674 @@
    "bytes": 221895,
    "source": "J - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/j14-proflo-plastic-roof-drain-pf42870.webp"
   },
   {
-   "id": "l-l1-l1-ds-lutron-myroom-xc-processor-mp",
-   "code": "L1",
+   "id": "l-ltrn1-ltrn1-ds-lutron-myroom-xc-processor",
+   "code": "LTRN1",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L1 - DS - Lutron myRoom XC Processor MP-1L-GCU",
+   "title": "LTRN1 - DS - Lutron myRoom XC Processor MP-1L-GCU",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l1-ds-lutron-myroom-xc-processor-mp-1l-gcu.pdf",
+   "pdf": "datasheets/ltrn1-ds-lutron-myroom-xc-processor-mp-1l-gcu.pdf",
    "pages": 13,
    "bytes": 1593231,
-   "source": "L - Lighting/L1 - DS - Lutron myRoom XC Processor MP-1L-GCU.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN1 - DS - Lutron myRoom XC Processor MP-1L-GCU.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l2-l2-ds-lutron-qs-power-supply-mqsps-d",
-   "code": "L2",
+   "id": "l-ltrn2-ltrn2-ds-lutron-qs-power-supply-mqsp",
+   "code": "LTRN2",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L2 - DS - Lutron QS Power Supply MQSPS-DH-1-30",
+   "title": "LTRN2 - DS - Lutron QS Power Supply MQSPS-DH-1-30",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l2-ds-lutron-qs-power-supply-mqsps-dh-1-30.pdf",
+   "pdf": "datasheets/ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30.pdf",
    "pages": 4,
    "bytes": 812429,
-   "source": "L - Lighting/L2 - DS - Lutron QS Power Supply MQSPS-DH-1-30.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN2 - DS - Lutron QS Power Supply MQSPS-DH-1-30.pdf",
    "drive_url": "",
-   "image": "img/l2-ds-lutron-qs-power-supply-mqsps-dh-1-30.webp"
+   "extras": [],
+   "image": "img/ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30.webp"
   },
   {
-   "id": "l-l3-l3-ds-lutron-feed-through-din-panel",
-   "code": "L3",
+   "id": "l-ltrn3-ltrn3-ds-lutron-feed-through-din-pan",
+   "code": "LTRN3",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120",
+   "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l3-ds-lutron-feed-through-din-panel-pd4-36f-120.pdf",
+   "pdf": "datasheets/ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.pdf",
    "pages": 10,
    "bytes": 2176237,
-   "source": "L - Lighting/L3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l4-l4-ds-lutron-phase-adaptive-power-mo",
-   "code": "L4",
+   "id": "l-ltrn4-ltrn4-ds-lutron-phase-adaptive-power",
+   "code": "LTRN4",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D",
+   "title": "LTRN4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.pdf",
+   "pdf": "datasheets/ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.pdf",
    "pages": 8,
    "bytes": 2177769,
-   "source": "L - Lighting/L4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D.pdf",
    "drive_url": "",
-   "image": "img/l4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.webp"
+   "extras": [],
+   "image": "img/ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.webp"
   },
   {
-   "id": "l-l5-l5-ds-lutron-switching-power-module",
-   "code": "L5",
+   "id": "l-ltrn5-ltrn5-ds-lutron-switching-power-modu",
+   "code": "LTRN5",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L5 - DS - Lutron Switching Power Module MQSE-2S1-D",
+   "title": "LTRN5 - DS - Lutron Switching Power Module MQSE-2S1-D",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l5-ds-lutron-switching-power-module-mqse-2s1-d.pdf",
+   "pdf": "datasheets/ltrn5-ds-lutron-switching-power-module-mqse-2s1-d.pdf",
    "pages": 9,
    "bytes": 2625766,
-   "source": "L - Lighting/L5 - DS - Lutron Switching Power Module MQSE-2S1-D.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN5 - DS - Lutron Switching Power Module MQSE-2S1-D.pdf",
    "drive_url": "",
-   "image": "img/l5-ds-lutron-switching-power-module-mqse-2s1-d.webp"
+   "extras": [],
+   "image": "img/ltrn5-ds-lutron-switching-power-module-mqse-2s1-d.webp"
   },
   {
-   "id": "l-l6-l6-ds-lutron-energi-savr-node-dali-q",
-   "code": "L6",
+   "id": "l-ltrn6-ltrn6-ds-lutron-energi-savr-node-dal",
+   "code": "LTRN6",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D",
+   "title": "LTRN6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.pdf",
+   "pdf": "datasheets/ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.pdf",
    "pages": 13,
    "bytes": 2941124,
-   "source": "L - Lighting/L6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D.pdf",
    "drive_url": "",
-   "image": "img/l6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.webp"
+   "extras": [],
+   "image": "img/ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.webp"
   },
   {
-   "id": "l-l7-l7-ds-lutron-alisse-1-column-keypad",
-   "code": "L7",
+   "id": "l-ltrn7-ltrn7-ds-lutron-alisse-1-column-keyp",
+   "code": "LTRN7",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E",
+   "title": "LTRN7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l7-ds-lutron-alisse-1-column-keypad-hw-nw-kp-s1-e.pdf",
+   "pdf": "datasheets/ltrn7-ds-lutron-alisse-1-column-keypad-hw-nw-kp-s1-e.pdf",
    "pages": 16,
    "bytes": 7935058,
-   "source": "L - Lighting/L7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l8-l8-ds-lutron-alisse-2-column-keypad",
-   "code": "L8",
+   "id": "l-ltrn8-ltrn8-ds-lutron-alisse-2-column-keyp",
+   "code": "LTRN8",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E",
+   "title": "LTRN8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l8-ds-lutron-alisse-2-column-keypad-hw-nw-kp-s2-e.pdf",
+   "pdf": "datasheets/ltrn8-ds-lutron-alisse-2-column-keypad-hw-nw-kp-s2-e.pdf",
    "pages": 16,
    "bytes": 7935058,
-   "source": "L - Lighting/L8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l9-l9-ds-lutron-alisse-keypad-base-hw-q",
-   "code": "L9",
+   "id": "l-ltrn9-ltrn9-ds-lutron-alisse-keypad-base-h",
+   "code": "LTRN9",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1",
+   "title": "LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l9-ds-lutron-alisse-keypad-base-hw-qs-b-s1.pdf",
+   "pdf": "datasheets/ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1.pdf",
    "pages": 7,
    "bytes": 13068838,
-   "source": "L - Lighting/L9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l10-l10-ds-lutron-wallbox-ebb-1-sq",
-   "code": "L10",
+   "id": "l-ltrn10-ltrn10-ds-lutron-wallbox-ebb-1-sq",
+   "code": "LTRN10",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L10 - DS - Lutron Wallbox EBB-1-SQ",
+   "title": "LTRN10 - DS - Lutron Wallbox EBB-1-SQ",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l10-ds-lutron-wallbox-ebb-1-sq.pdf",
+   "pdf": "datasheets/ltrn10-ds-lutron-wallbox-ebb-1-sq.pdf",
    "pages": 1,
    "bytes": 121052,
-   "source": "L - Lighting/L10 - DS - Lutron Wallbox EBB-1-SQ.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN10 - DS - Lutron Wallbox EBB-1-SQ.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l11-l11-ds-lutron-radio-powr-savr-occupa",
-   "code": "L11",
+   "id": "l-ltrn11-ltrn11-ds-lutron-radio-powr-savr-occ",
+   "code": "LTRN11",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH",
+   "title": "LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l11-ds-lutron-radio-powr-savr-occupancy-sensor-lrf2-ocr2b-p-wh.pdf",
+   "pdf": "datasheets/ltrn11-ds-lutron-radio-powr-savr-occupancy-sensor-lrf2-ocr2b-p-wh.pdf",
    "pages": 6,
    "bytes": 1008141,
-   "source": "L - Lighting/L11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l12-l12-ds-lutron-qs-sensor-module-qsm2",
-   "code": "L12",
+   "id": "l-ltrn12-ltrn12-ds-lutron-qs-sensor-module-qs",
+   "code": "LTRN12",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L12 - DS - Lutron QS Sensor Module QSM2-XW-C",
+   "title": "LTRN12 - DS - Lutron QS Sensor Module QSM2-XW-C",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l12-ds-lutron-qs-sensor-module-qsm2-xw-c.pdf",
+   "pdf": "datasheets/ltrn12-ds-lutron-qs-sensor-module-qsm2-xw-c.pdf",
    "pages": 6,
    "bytes": 1564578,
-   "source": "L - Lighting/L12 - DS - Lutron QS Sensor Module QSM2-XW-C.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN12 - DS - Lutron QS Sensor Module QSM2-XW-C.pdf",
    "drive_url": "",
-   "image": "img/l12-ds-lutron-qs-sensor-module-qsm2-xw-c.webp"
+   "extras": [],
+   "image": "img/ltrn12-ds-lutron-qs-sensor-module-qsm2-xw-c.webp"
   },
   {
-   "id": "l-l13-l13-ds-lutron-maestro-occupancy-swit",
-   "code": "L13",
+   "id": "l-ltrn13-ltrn13-ds-lutron-maestro-occupancy-s",
+   "code": "LTRN13",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH",
+   "title": "LTRN13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l13-ds-lutron-maestro-occupancy-switch-ms-ops2-wh.pdf",
+   "pdf": "datasheets/ltrn13-ds-lutron-maestro-occupancy-switch-ms-ops2-wh.pdf",
    "pages": 10,
    "bytes": 865517,
-   "source": "L - Lighting/L13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l14-l14-ds-lutron-claro-wallplate-cw-1-w",
-   "code": "L14",
+   "id": "l-ltrn14-ltrn14-ds-lutron-claro-wallplate-cw",
+   "code": "LTRN14",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L14 - DS - Lutron Claro Wallplate CW-1-WH",
+   "title": "LTRN14 - DS - Lutron Claro Wallplate CW-1-WH",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l14-ds-lutron-claro-wallplate-cw-1-wh.pdf",
+   "pdf": "datasheets/ltrn14-ds-lutron-claro-wallplate-cw-1-wh.pdf",
    "pages": 3,
    "bytes": 2254244,
-   "source": "L - Lighting/L14 - DS - Lutron Claro Wallplate CW-1-WH.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN14 - DS - Lutron Claro Wallplate CW-1-WH.pdf",
    "drive_url": "",
-   "image": "img/l14-ds-lutron-claro-wallplate-cw-1-wh.webp"
+   "extras": [],
+   "image": "img/ltrn14-ds-lutron-claro-wallplate-cw-1-wh.webp"
   },
   {
-   "id": "l-l15-l15-ds-lutron-palladiom-thermostat-m",
-   "code": "L15",
+   "id": "l-ltrn15-ltrn15-ds-lutron-palladiom-thermosta",
+   "code": "LTRN15",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A",
+   "title": "LTRN15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a.pdf",
+   "pdf": "datasheets/ltrn15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a.pdf",
    "pages": 13,
    "bytes": 1597895,
-   "source": "L - Lighting/L15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A.pdf",
    "drive_url": "",
-   "image": ""
+   "extras": [],
+   "image": "img/ltrn15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a.webp"
   },
   {
-   "id": "l-l16-l16-ds-lutron-fan-coil-controller-sm",
-   "code": "L16",
+   "id": "l-ltrn16-ltrn16-ds-lutron-fan-coil-controller",
+   "code": "LTRN16",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L16 - DS - Lutron Fan-Coil Controller SMC55-MYRM",
+   "title": "LTRN16 - DS - Lutron Fan-Coil Controller SMC55-MYRM",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l16-ds-lutron-fan-coil-controller-smc55-myrm.pdf",
+   "pdf": "datasheets/ltrn16-ds-lutron-fan-coil-controller-smc55-myrm.pdf",
    "pages": 15,
    "bytes": 962017,
-   "source": "L - Lighting/L16 - DS - Lutron Fan-Coil Controller SMC55-MYRM.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN16 - DS - Lutron Fan-Coil Controller SMC55-MYRM.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l17-l17-ds-lutron-contact-closure-interf",
-   "code": "L17",
+   "id": "l-ltrn17-ltrn17-ds-lutron-contact-closure-int",
+   "code": "LTRN17",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L17 - DS - Lutron Contact-Closure Interface QSE-IO",
+   "title": "LTRN17 - DS - Lutron Contact-Closure Interface QSE-IO",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l17-ds-lutron-contact-closure-interface-qse-io.pdf",
+   "pdf": "datasheets/ltrn17-ds-lutron-contact-closure-interface-qse-io.pdf",
    "pages": 10,
    "bytes": 3191168,
-   "source": "L - Lighting/L17 - DS - Lutron Contact-Closure Interface QSE-IO.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN17 - DS - Lutron Contact-Closure Interface QSE-IO.pdf",
    "drive_url": "",
-   "image": "img/l17-ds-lutron-contact-closure-interface-qse-io.webp"
+   "extras": [],
+   "image": "img/ltrn17-ds-lutron-contact-closure-interface-qse-io.webp"
   },
   {
-   "id": "l-l18-l18-ds-lutron-comercial-system-warra",
-   "code": "L18",
+   "id": "l-ltrn18-ltrn18-ds-lutron-comercial-system-wa",
+   "code": "LTRN18",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD",
+   "title": "LTRN18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd.pdf",
+   "pdf": "datasheets/ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd.pdf",
    "pages": 5,
    "bytes": 82555,
-   "source": "L - Lighting/L18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l19-l19-ds-lutron-palladiom-usb-receptac",
-   "code": "L19",
+   "id": "l-ltrn19-ltrn19-ds-lutron-palladiom-usb-recep",
+   "code": "LTRN19",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL",
+   "title": "LTRN19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl.pdf",
+   "pdf": "datasheets/ltrn19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl.pdf",
    "pages": 12,
    "bytes": 2652695,
-   "source": "L - Lighting/L19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l20-l20-ds-lutron-architectural-receptac",
-   "code": "L20",
+   "id": "l-ltrn20-ltrn20-ds-lutron-architectural-recep",
+   "code": "LTRN20",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL",
+   "title": "LTRN20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l20-ds-lutron-architectural-receptacle-ltr-15-tr-bl.pdf",
+   "pdf": "datasheets/ltrn20-ds-lutron-architectural-receptacle-ltr-15-tr-bl.pdf",
    "pages": 12,
    "bytes": 2652695,
-   "source": "L - Lighting/L20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l21-l21-ds-lutron-palladiom-faceplate-lw",
-   "code": "L21",
+   "id": "l-ltrn21-ltrn21-ds-lutron-palladiom-faceplate",
+   "code": "LTRN21",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB",
+   "title": "LTRN21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l21-ds-lutron-palladiom-faceplate-lwt-u-p-sb.pdf",
+   "pdf": "datasheets/ltrn21-ds-lutron-palladiom-faceplate-lwt-u-p-sb.pdf",
    "pages": 7,
    "bytes": 1703073,
-   "source": "L - Lighting/L21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l22-l22-ds-lutron-nova-t-gfci-receptacle",
-   "code": "L22",
+   "id": "l-ltrn22-ltrn22-ds-lutron-nova-t-gfci-recepta",
+   "code": "LTRN22",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL",
+   "title": "LTRN22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l22-ds-lutron-nova-t-gfci-receptacle-ntr-15-gfst-bl.pdf",
+   "pdf": "datasheets/ltrn22-ds-lutron-nova-t-gfci-receptacle-ntr-15-gfst-bl.pdf",
    "pages": 5,
    "bytes": 820290,
-   "source": "L - Lighting/L22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l23-l23-ds-lutron-nova-t-architectural-p",
-   "code": "L23",
+   "id": "l-ltrn23-ltrn23-ds-lutron-nova-t-architectura",
+   "code": "LTRN23",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB",
+   "title": "LTRN23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.pdf",
+   "pdf": "datasheets/ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.pdf",
    "pages": 44,
    "bytes": 1745344,
-   "source": "L - Lighting/L23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB.pdf",
    "drive_url": "",
-   "image": "img/l23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.webp"
+   "extras": [],
+   "image": "img/ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.webp"
   },
   {
-   "id": "l-l24-l24-ds-lutron-grafik-eye-control-cab",
-   "code": "L24",
+   "id": "l-ltrn24-ltrn24-ds-lutron-grafik-eye-control",
+   "code": "LTRN24",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500",
+   "title": "LTRN24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l24-ds-lutron-grafik-eye-control-cable-grx-cbl-46l-500.pdf",
+   "pdf": "datasheets/ltrn24-ds-lutron-grafik-eye-control-cable-grx-cbl-46l-500.pdf",
    "pages": 4,
    "bytes": 296683,
-   "source": "L - Lighting/L24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l25-l25-ds-lutron-sivoia-qs-roller-100-s",
-   "code": "L25",
+   "id": "l-ltrn25-ltrn25-ds-lutron-sivoia-qs-roller-10",
+   "code": "LTRN25",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L25 - DS - Lutron Sivoia QS Roller 100 Shade",
+   "title": "LTRN25 - DS - Lutron Sivoia QS Roller 100 Shade",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l25-ds-lutron-sivoia-qs-roller-100-shade.pdf",
+   "pdf": "datasheets/ltrn25-ds-lutron-sivoia-qs-roller-100-shade.pdf",
    "pages": 24,
    "bytes": 1984550,
-   "source": "L - Lighting/L25 - DS - Lutron Sivoia QS Roller 100 Shade.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN25 - DS - Lutron Sivoia QS Roller 100 Shade.pdf",
    "drive_url": "",
-   "image": "img/l25-ds-lutron-sivoia-qs-roller-100-shade.webp"
+   "extras": [],
+   "image": "img/ltrn25-ds-lutron-sivoia-qs-roller-100-shade.webp"
   },
   {
-   "id": "l-l25-1-l25-1-ds-lutron-sivoia-qs-dual-shade",
-   "code": "L25.1",
+   "id": "l-ltrn25-1-ltrn25-1-ds-lutron-sivoia-qs-dual-sh",
+   "code": "LTRN25.1",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK",
+   "title": "LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l25-1-ds-lutron-sivoia-qs-dual-shade-bracketry-kits-win-brk.pdf",
+   "pdf": "datasheets/ltrn25-1-ds-lutron-sivoia-qs-dual-shade-bracketry-kits-win-brk.pdf",
    "pages": 3,
    "bytes": 2673976,
-   "source": "L - Lighting/L25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK.pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK.pdf",
    "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
-   "id": "l-l26-l26-ds-lutron-d145-drapery-track-sys",
-   "code": "L26",
+   "id": "l-ltrn25-2-ltrn25-2-ds-lutron-qs-link-plug-in-p",
+   "code": "LTRN25.2",
    "group": "L",
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "L26 - DS - Lutron D145 Drapery Track System",
+   "title": "LTRN25.2 - DS - Lutron QS Link Plug-In Power Supply (Shading)",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/l26-ds-lutron-d145-drapery-track-system.pdf",
-   "pages": 2,
-   "bytes": 145396,
-   "source": "L - Lighting/L26 - DS - Lutron D145 Drapery Track System.pdf",
-   "drive_url": "",
-   "image": ""
-  },
-  {
-   "id": "l-l27-l27-ds-lutron-qs-link-plug-in-power",
-   "code": "L27",
-   "group": "L",
-   "group_name": "Lighting",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L27 - DS - Lutron QS Link Plug-In Power Supply (Shading)",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l27-ds-lutron-qs-link-plug-in-power-supply-shading.pdf",
+   "pdf": "datasheets/ltrn25-2-ds-lutron-qs-link-plug-in-power-supply-shading.pdf",
    "pages": 5,
    "bytes": 445416,
-   "source": "L - Lighting/L27 - DS - Lutron QS Link Plug-In Power Supply (Shading).pdf",
+   "source": "L - Lighting/Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Plug-In Power Supply (Shading).pdf",
    "drive_url": "",
+   "extras": [],
+   "image": ""
+  },
+  {
+   "id": "l-ltrn26-ltrn26-ds-lutron-d145-drapery-track",
+   "code": "LTRN26",
+   "group": "L",
+   "group_name": "Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "LTRN26 - DS - Lutron D145 Drapery Track System",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/ltrn26-ds-lutron-d145-drapery-track-system.pdf",
+   "pages": 2,
+   "bytes": 145396,
+   "source": "L - Lighting/Lutron Lighting/LTRN26 - DS - Lutron D145 Drapery Track System.pdf",
+   "drive_url": "",
+   "extras": [],
+   "image": ""
+  },
+  {
+   "id": "l-ltrn26-1-ltrn26-1-ds-lutron-qs-link-plug-in-p",
+   "code": "LTRN26.1",
+   "group": "L",
+   "group_name": "Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "LTRN26.1 - DS - Lutron QS Link Plug-In Power Supply (Shading)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/ltrn26-1-ds-lutron-qs-link-plug-in-power-supply-shading.pdf",
+   "pages": 5,
+   "bytes": 445416,
+   "source": "L - Lighting/Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Plug-In Power Supply (Shading).pdf",
+   "drive_url": "",
+   "extras": [],
    "image": ""
   },
   {
@@ -3010,6 +3194,7 @@
    "bytes": 2363591,
    "source": "PL - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/a-pool-light-l09-cw16005di.webp"
   },
   {
@@ -3049,6 +3234,7 @@
    "bytes": 2669975,
    "source": "PL - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
    "drive_url": "",
+   "extras": [],
    "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   }
  ]

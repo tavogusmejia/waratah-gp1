@@ -109,7 +109,7 @@ def group_of(rel):
     # Longest first is wrong here - the OUTERMOST folder wins, which is how
     # "D - Doors/DH - Doors Hardware" stays in D rather than inventing DH.
     for part in rel.parts[:-1]:
-        m = re.match(r"([A-Z]{1,3})\s*-\s", part)
+        m = re.match(r"([A-Z]{1,6})\s*-\s", part)
         if m:
             return m.group(1)
     return "?"
@@ -187,7 +187,17 @@ def load_image(doc, xref, smask):
         return None
     try:
         if pix.colorspace is None:
-            return None
+            # A STENCIL MASK: one bit of alpha and no colour of its own, meant
+            # to be painted in whatever fill the page sets. Rejecting it
+            # outright loses real artwork - the Hayward fittings are drawn
+            # entirely this way. Composite it as ink on white and let the
+            # colour test judge it like anything else.
+            if not pix.alpha:
+                return None
+            a = Image.frombytes("L", (pix.width, pix.height), pix.samples)
+            flat = Image.new("RGB", a.size, (255, 255, 255))
+            flat.paste(Image.new("RGB", a.size, (20, 20, 20)), mask=a)
+            return flat
         if pix.colorspace.n == 4:                    # CMYK -> RGB
             pix = fitz.Pixmap(fitz.csRGB, pix)
         if smask:
@@ -316,33 +326,40 @@ def code_prefix(stem):
     return stem.split(" - ")[0].strip()
 
 
-def drop_supplements(pdfs, root):
-    """Keep one file per item where the source ships several.
+KIND = {" - IG - ": "Installation guide",
+        " - DS - ": "Manufacturer datasheet"}
 
-    The doors folder settled on a convention: "DH-04 - Salto ..." is the
-    curated sheet, "DH-04 - DS - ..." the vendor's own datasheet and
-    "DH-04 - IG - ..." its installation guide. All three describe one item, so
-    only the curated one belongs in the register.
 
-    A supplement is dropped ONLY when an unmarked file shares its code. That
-    matters: DH-10 has nothing but a DS, and would vanish under a blunter
-    rule - and J9 carries two genuinely different insulations under one code,
-    which a dedupe-by-code would silently halve.
+def split_supplements(pdfs, root):
+    """One file per item, with the rest kept as attachments.
+
+    The source ships several files per item: "DH4 - Salto LA1T17 ..." is the
+    curated sheet, "DH4 - DS - ..." the vendor's own datasheet, "DH4 - IG - ..."
+    its installation guide. Only the curated one should be the item - but the
+    other two are worth having, so they ride along on the item rather than
+    being thrown away. An installation guide is exactly what someone standing
+    at the door wants.
+
+    A file is only demoted to an attachment when an unmarked file shares its
+    code. That matters: DH10 has nothing but a DS and would vanish under a
+    blunter rule, every Lutron sheet is a DS with no curated sibling, and J9
+    carries two genuinely different insulations under one code, which a
+    dedupe-by-code would silently halve.
     """
-    plain = set()
+    plain = {}
     for f in pdfs:
-        if " - DS - " in f.name or " - IG - " in f.name:
+        if any(m in f.name for m in KIND):
             continue
-        plain.add((group_of(f.relative_to(root)), code_prefix(f.stem)))
-    keep, dropped = [], []
+        plain[(group_of(f.relative_to(root)), code_prefix(f.stem))] = f
+    keep, extras = [], {}
     for f in pdfs:
-        marked = " - DS - " in f.name or " - IG - " in f.name
+        mark = next((m for m in KIND if m in f.name), None)
         key = (group_of(f.relative_to(root)), code_prefix(f.stem))
-        if marked and key in plain:
-            dropped.append(f.name)
+        if mark and key in plain:
+            extras.setdefault(plain[key], []).append((KIND[mark], f))
         else:
             keep.append(f)
-    return keep, dropped
+    return keep, extras
 
 
 def slug(s: str) -> str:
@@ -500,9 +517,9 @@ def main():
         sys.exit("the datasheet repository is not there: " + str(SOURCE))
     pdfs = sorted(
         p for p in SOURCE.rglob("*.pdf")
-        if not any(k in str(p) for k in SKIP)
+        if not any(k.lower() in str(p).lower() for k in SKIP)
     )
-    pdfs, supplements = drop_supplements(pdfs, SOURCE)
+    pdfs, extras = split_supplements(pdfs, SOURCE)
 
     # A datasheet announces its item code in its filename - "L7 - DS - ...",
     # "DH4 - Salto ...", "A - Pool Light ...". One that does not is a vendor
@@ -513,7 +530,7 @@ def main():
     for f in pdfs:
         pre = code_prefix(f.stem)
         (filed if (" - " in f.stem and
-                   re.fullmatch(r"[A-Z]{1,3}[0-9.]*", pre)) else unfiled).append(f)
+                   re.fullmatch(r"[A-Z]{1,6}[0-9.]*", pre)) else unfiled).append(f)
     pdfs = filed
     items, problems = [], []
     links = drive_links()
@@ -547,7 +564,7 @@ def main():
         # it actually looks like a code (letters then digits), which leaves
         # the pool lights, filed as plain "A" and "B", alone.
         prefix = code_prefix(p.stem)
-        code = (prefix if re.fullmatch(r"[A-Z]{1,3}[0-9][0-9.]*", prefix)
+        code = (prefix if re.fullmatch(r"[A-Z]{1,6}[0-9][0-9.]*", prefix)
                 else (rec["code"] or prefix))
         items.append({
             "id": slug(group + "-" + code + "-" + rec["title"][:40]),
@@ -569,6 +586,13 @@ def main():
             "bytes": p.stat().st_size,
             "source": str(rel).replace("\\", "/"),
             "drive_url": links.get(code.lower(), ""),
+            "extras": [
+                {"kind": kind,
+                 "pdf": "datasheets/" + slug(f.stem) + ".pdf",
+                 "source": str(f.relative_to(SOURCE)).replace("\\", "/"),
+                 "bytes": f.stat().st_size}
+                for kind, f in sorted(extras.get(p, []), key=lambda t: t[0])
+            ],
             "image": "img/" + slug(p.stem) + ".webp" if picture else "",
             "_pic": picture,
             "_pic_how": how,
@@ -584,9 +608,10 @@ def main():
 
     print("%d datasheets across %d groups" % (
         len(items), len({r["group"] for r in items})))
-    if supplements:
-        print("  %-14s %d (vendor datasheets and installation guides "
-              "superseded by a curated sheet)" % ("supplements", len(supplements)))
+    n_extra = sum(len(v) for v in extras.values())
+    if n_extra:
+        print("  %-14s %d attached to %d items (installation guides and "
+              "vendor datasheets)" % ("extras", n_extra, len(extras)))
     if unfiled:
         print("  NOT FILED UNDER AN ITEM CODE, so left out (%d):" % len(unfiled))
         for f in unfiled:
@@ -648,14 +673,16 @@ def main():
     # datasheet, under a slug that looked perfectly correct.
     total = 0
     for r in items:
-        src = SOURCE / r["source"]
-        dest = OUT_PDFS / Path(r["pdf"]).name
-        shutil.copy2(src, dest)
-        got = dest.stat().st_size
-        if got != r["bytes"]:
-            sys.exit("copied the wrong file for %s: %s is %d bytes, expected %d"
-                     % (r["code"], dest.name, got, r["bytes"]))
-        total += got
+        for spec in [r] + r["extras"]:
+            src = SOURCE / spec["source"]
+            dest = OUT_PDFS / Path(spec["pdf"]).name
+            shutil.copy2(src, dest)
+            got = dest.stat().st_size
+            if got != spec["bytes"]:
+                sys.exit("copied the wrong file for %s: %s is %d bytes, "
+                         "expected %d" % (r["code"], dest.name, got,
+                                          spec["bytes"]))
+            total += got
 
     payload = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
