@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-19T00:00:55Z",
+ "generated": "2026-09-21T13:00:42Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -318,54 +318,62 @@
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
   {
-   "id": "b-b1-pool-main-drain-aquastar-1216103-121",
+   "id": "b-b1-pool-main-drain-aquastar-wav9wr103-9",
    "code": "B1",
    "group": "B",
    "group_name": "In-Pool Fittings",
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
    "manufacturer": "AquaStar",
-   "title": "Pool Main Drain - AquaStar 1216103 & 1216103B (16 in Anti-Entrapment)",
+   "title": "Pool Main Drain - AquaStar WAV9WR103 (9 in Wave Anti-Entrapment)",
    "specs": [
     {
      "label": "Model",
-     "value": "AquaStar 1216103 & 1216103B (VGB Series)"
+     "value": "AquaStar WAV9WR103 (Wave Series, Light Gray)"
     },
     {
      "label": "Type",
-     "value": "16 in square anti-entrapment suction outlet cover"
+     "value": "9 in square anti-entrapment suction outlet cover (Wave)"
     },
     {
      "label": "Compliance",
-     "value": "VGBA (ANSI/APSP 16-2011, NSF/ANSI 50)"
+     "value": "Certified ANSI/APSP/ICC-16 2017; NSF/ANSI/CAN 50"
     },
     {
-     "label": "Sump",
-     "value": "Single, 3 in depth"
-    },
-    {
-     "label": "Flow rating",
-     "value": "Floor 460 GPM @1.46 fps; Wall 445 @1.4; Floor/wall 472 @1.5"
-    },
-    {
-     "label": "Opening",
-     "value": "101 sq in"
+     "label": "Open area",
+     "value": "48.4 sq in"
     },
     {
      "label": "Retrofit",
-     "value": "Fits existing 12 in frames up to 15 in"
+     "value": "Fits existing 9 in square, 3/4 in deep frames (8-1/4 in c-c screw holes)"
+    },
+    {
+     "label": "Fixings",
+     "value": "#10 x 1.75 in flat-head Phillips, 316 stainless (qty 4)"
+    },
+    {
+     "label": "Material",
+     "value": "UV-resistant engineered polymer; VGBA 2017 compliance button"
+    },
+    {
+     "label": "Colours",
+     "value": "White (101), Black (102), Light Gray (103 - specified), Dark Gray (105)"
+    },
+    {
+     "label": "Flow rating",
+     "value": "SOFA-specific (per manufacturer flowcode); replace cover every 5 years"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/b1-aquastar-main-drain-1216103.pdf",
+   "pdf": "datasheets/b1-aquastar-main-drain-wav9wr103.pdf",
    "pages": 3,
-   "bytes": 7452691,
-   "source": "Pool/B - In-Pool Fittings/B1 - AquaStar Main Drain (1216103).pdf",
+   "bytes": 2866341,
+   "source": "Pool/B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
    "drive_url": "",
-   "image": "img/b1-aquastar-main-drain-1216103.webp"
+   "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
   {
    "id": "b-b2-pool-shallow-floor-return-color-match",
