@@ -144,17 +144,32 @@
                "   w " + Math.round(r.width);
       }
       out.push("ELEMENTS (while the landing is up)");
-      ["#splash", ".brand", ".lockup", ".mark", ".word", ".sub", ".bar"]
+      ["#splash", ".sp-brand", ".sp-lockup", ".sp-mark", ".sp-word",
+       ".sp-sub", ".sp-bar"]
         .forEach(function (s) { out.push("  " + box(s)); });
       var r = sp.getBoundingClientRect();
       ["fits .word", "fits .sub"].forEach(function (_, i) {
-        var e = sp.querySelector(i ? ".sub" : ".word");
+        var e = sp.querySelector(i ? ".sp-sub" : ".sp-word");
         if (!e) return;
         var b = e.getBoundingClientRect();
         var bad = b.left < r.left - 0.5 || b.right > r.right + 0.5;
-        out.push("  " + (i ? ".sub" : ".word") + " within the viewport: " +
+        out.push("  " + (i ? ".sp-sub" : ".sp-word") + " within the viewport: " +
                  (bad ? "NO  <-- clipped" : "yes"));
       });
+      /* The progress line is 2px of background with a red sweep inside it.
+         It is also the canary for register.css leaking into the landing:
+         `.bar` in that stylesheet gave it 36px of padding and turned it into
+         a grey block. Measured, not eyeballed, because the landing paints
+         correctly for the first ~50ms and only breaks once the stylesheet
+         arrives - which is exactly how it shipped unnoticed. */
+      var bar = sp.querySelector(".sp-bar");
+      if (bar) {
+        var bh = Math.round(bar.getBoundingClientRect().height);
+        var sweep = bar.firstElementChild;
+        var sh = sweep ? Math.round(sweep.getBoundingClientRect().height) : 0;
+        out.push("  progress line: " + bh + "px tall, sweep " + sh + "px" +
+                 (bh > 6 || sh < 1 ? "  <-- LEAKED STYLES" : "  ok"));
+      }
       out.push("");
     })();
   });

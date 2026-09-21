@@ -222,6 +222,20 @@ left watching a brand animation instead of reading the reason.
 `?hold` pins it open; it is the only way to inspect something that removes
 itself.
 
+**Every class in the landing is prefixed `sp-`.** The landing paints before
+`register.css` arrives and then keeps rendering underneath it, so the two
+stylesheets share a document and a plain class name in one reaches into the
+other. `.bar` did exactly that: the register styles its search toolbar
+`.bar { display:flex; padding:18px 0 }`, and because `#splash .bar` declared a
+height but no padding, 36px of it leaked in — with `box-sizing:border-box` the
+2px progress line became a grey block and the red sweep inside it, sized
+`height:100%` of a now-zero content box, disappeared.
+
+It shipped unnoticed because the landing is *correct* for the first ~50ms and
+only breaks once the stylesheet lands, so a screenshot taken at first paint —
+which is how the landing had been verified — looks perfect. `__probe_landing`
+now measures the progress line's height and flags anything over 6px.
+
 ### Two rules the code is built around
 
 **Seed first.** The register renders from `data/seed.json` before the network is

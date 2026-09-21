@@ -30,6 +30,16 @@
      happens behind it where nobody sees it.
 
      Palette is the brand exactly: #DB3837 red, #65768E slate, on white.
+
+     EVERY CLASS IN HERE IS PREFIXED sp-. That is not decoration. The landing
+     paints before register.css arrives and then keeps rendering underneath it,
+     so the two stylesheets share a document and a plain class name in one can
+     reach into the other. `.bar` did exactly that: the register styles its
+     search toolbar `.bar { display:flex; padding:18px 0 }`, and because
+     `#splash .bar` set a height but no padding, 36px of it leaked in - with
+     box-sizing:border-box the 2px progress line became a grey block, and the
+     red sweep inside it, sized `height:100%` of a now-zero content box,
+     vanished. Renaming anything in here back to a bare name reopens that.
      ================================================================== -->
 <style>
   #splash{
@@ -43,35 +53,35 @@
   }
   /* The register is what the page is for. Once it is ready the landing
      stops existing rather than sitting invisible over the top of it. */
-  #splash.done{ opacity:0; visibility:hidden; pointer-events:none; }
+  #splash.sp-done{ opacity:0; visibility:hidden; pointer-events:none; }
   html.splash-on, html.splash-on body{ overflow:hidden; }
 
   /* ---- the sea -------------------------------------------------- */
-  #splash .sea{
+  #splash .sp-sea{
     position:absolute; left:0; right:0; bottom:0;
     width:200%; height:46vh; min-height:260px;
     /* 2400 user units across 200% of the viewport, so 1200 units is
        exactly one viewport: a layer can slide by 1200 and land back on
        itself. That is what makes the loop seamless instead of jumping. */
   }
-  #splash .sea use{ fill:currentColor; }
-  #splash .l1{ color:var(--slate); opacity:.10; animation:drift 26s linear infinite; }
-  #splash .l2{ color:var(--red);   opacity:.09; animation:drift 19s linear infinite reverse; }
-  #splash .l3{ color:var(--slate); opacity:.17; animation:drift 13s linear infinite; }
-  #splash .bob{ animation:bob 9s ease-in-out infinite alternate; }
-  #splash .bob2{ animation:bob 7s ease-in-out infinite alternate-reverse; }
+  #splash .sp-sea use{ fill:currentColor; }
+  #splash .sp-l1{ color:var(--slate); opacity:.10; animation:drift 26s linear infinite; }
+  #splash .sp-l2{ color:var(--red);   opacity:.09; animation:drift 19s linear infinite reverse; }
+  #splash .sp-l3{ color:var(--slate); opacity:.17; animation:drift 13s linear infinite; }
+  #splash .sp-bob{ animation:bob 9s ease-in-out infinite alternate; }
+  #splash .sp-bob2{ animation:bob 7s ease-in-out infinite alternate-reverse; }
   @keyframes drift{ from{transform:translateX(0)} to{transform:translateX(-1200px)} }
   @keyframes bob{ from{transform:translateY(0)} to{transform:translateY(-14px)} }
 
   /* Keeps the mark sitting on white rather than on the crest of a wave. */
-  #splash .veil{
+  #splash .sp-veil{
     position:absolute; inset:0;
     background:radial-gradient(52% 44% at 50% 42%,
       #fff 0%, #fff 46%, rgba(255,255,255,.72) 68%, rgba(255,255,255,0) 100%);
   }
 
   /* ---- the brand ------------------------------------------------ */
-  #splash .brand{
+  #splash .sp-brand{
     position:relative; text-align:center; padding:0 24px;
     animation:rise .7s cubic-bezier(.2,.7,.3,1) both;
   }
@@ -82,22 +92,22 @@
      above it. Sizing the WORDMARK and deriving the mark from it - rather than
      the other way round - is what keeps the lockup on screen at 380px wide,
      where the mark-first version would have run the wordmark off both edges. */
-  #splash .lockup{ width:min(370px,76vw); margin:0 auto; }
-  #splash .mark{ display:block; width:34.6%; height:auto; margin:0 auto;
+  #splash .sp-lockup{ width:min(370px,76vw); margin:0 auto; }
+  #splash .sp-mark{ display:block; width:34.6%; height:auto; margin:0 auto;
                  fill:var(--red); }
-  #splash .word{ display:block; width:100%; height:auto; margin:6.2% 0 0;
+  #splash .sp-word{ display:block; width:100%; height:auto; margin:6.2% 0 0;
                  fill:var(--slate); }
-  #splash .sub{
+  #splash .sp-sub{
     margin:26px 0 0;
     font-size:clamp(10px,2.4vw,12px); font-weight:400;
     letter-spacing:.24em; text-indent:.24em; text-transform:uppercase;
     color:var(--slate); opacity:.72;
   }
-  #splash .bar{
+  #splash .sp-bar{
     margin:30px auto 0; width:min(190px,42vw); height:2px;
     background:rgba(101,118,142,.18); overflow:hidden; border-radius:2px;
   }
-  #splash .bar i{
+  #splash .sp-bar i{
     display:block; width:40%; height:100%; border-radius:2px;
     background:var(--red); animation:sweep 1.25s ease-in-out infinite;
   }
@@ -107,10 +117,10 @@
 
   /* Motion is decoration here - the landing has to work without it. */
   @media (prefers-reduced-motion:reduce){
-    #splash .l1,#splash .l2,#splash .l3,
-    #splash .bob,#splash .bob2,
-    #splash .brand,#splash .bar i{ animation:none; }
-    #splash .bar i{ width:100%; }
+    #splash .sp-l1,#splash .sp-l2,#splash .sp-l3,
+    #splash .sp-bob,#splash .sp-bob2,
+    #splash .sp-brand,#splash .sp-bar i{ animation:none; }
+    #splash .sp-bar i{ width:100%; }
   }
 </style>
 
@@ -151,25 +161,25 @@
 <!-- /brand:defs -->
 
 <div id="splash" aria-hidden="true">
-  <svg class="sea" viewBox="0 0 2400 340" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <svg class="sp-sea" viewBox="0 0 2400 340" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <defs>
       <!-- One period is 1200 wide and leaves at the same tangent it arrives
            at, so two of them tile without a seam or a kink. -->
       <path id="wv" d="M0 170C200 100 400 240 600 170C800 100 1000 240 1200 170L1200 340L0 340Z"/>
     </defs>
-    <g transform="translate(0 96)"><g class="l1"><use href="#wv"/><use href="#wv" x="1200"/></g></g>
-    <g class="bob"><g transform="translate(0 52)"><g class="l2"><use href="#wv"/><use href="#wv" x="1200"/></g></g></g>
-    <g class="bob2"><g transform="translate(0 4)"><g class="l3"><use href="#wv"/><use href="#wv" x="1200"/></g></g></g>
+    <g transform="translate(0 96)"><g class="sp-l1"><use href="#wv"/><use href="#wv" x="1200"/></g></g>
+    <g class="sp-bob"><g transform="translate(0 52)"><g class="sp-l2"><use href="#wv"/><use href="#wv" x="1200"/></g></g></g>
+    <g class="sp-bob2"><g transform="translate(0 4)"><g class="sp-l3"><use href="#wv"/><use href="#wv" x="1200"/></g></g></g>
   </svg>
-  <div class="veil"></div>
+  <div class="sp-veil"></div>
 
-  <div class="brand">
-   <div class="lockup">
-    <svg class="mark" viewBox="0 0 1252.85 1000" aria-hidden="true" focusable="false"><use href="#wm"/></svg>
-    <svg class="word" viewBox="0 0 960.88 142" aria-hidden="true" focusable="false"><use href="#ww"/></svg>
+  <div class="sp-brand">
+   <div class="sp-lockup">
+    <svg class="sp-mark" viewBox="0 0 1252.85 1000" aria-hidden="true" focusable="false"><use href="#wm"/></svg>
+    <svg class="sp-word" viewBox="0 0 960.88 142" aria-hidden="true" focusable="false"><use href="#ww"/></svg>
    </div>
-    <p class="sub">GP1-MUR Material &amp; Hardware Register</p>
-    <div class="bar"><i></i></div>
+    <p class="sp-sub">GP1-MUR Material &amp; Hardware Register</p>
+    <div class="sp-bar"><i></i></div>
   </div>
 </div>
 
@@ -197,7 +207,7 @@
     gone = true;
     var wait = Math.max(0, HOLD_MS - (Date.now() - began));
     setTimeout(function () {
-      splash.classList.add("done");
+      splash.classList.add("sp-done");
       document.documentElement.className =
         document.documentElement.className.replace(/\bsplash-on\b/, "");
       setTimeout(function () {
