@@ -1,6 +1,6 @@
 # Picture audit — GP1-MUR Material & Hardware Register
 
-83 items, 61 with a picture. Nothing is plainly wrong any more.
+83 items, 66 with a picture. Nothing is plainly wrong.
 
 ## Where a picture can come from
 
@@ -12,31 +12,25 @@
 
 **The quick way.** <https://claude.ai/artifact/9dF3DeNeQtkse2s8B4fepG> — drag a
 photograph onto an item, `×` removes one dropped by mistake, *This one is fine*
-clears a call you disagree with. Hand the batch over and ask Claude to collect it.
+clears a call you disagree with. The same page carries the manufacturer-page
+links. Hand the batch over and ask Claude to collect it.
 
 **By hand.** Name the file as below, put it in `tools/images/`, re-run
 `python tools/extract_datasheets.py`.
 
-> A slug-named override only matches while the datasheet keeps its filename;
-> the extractor lists any that match nothing. That folder gets reorganised.
-
-## Worth a second look (1)
+## Worth a second look (2)
 
 | Item | What it is | File to drop in `tools/images/` | Why |
 |---|---|---|---|
 | `H-H1` | Burndy — Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit | `h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.jpg` | Grey CAD render rather than a photograph - worth confirming it is the BWB680IG. |
+| `L-LTRN3` | LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120 | `ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.jpg` | Dimension drawings rather than a product shot - your pick, flagged only so it is not a surprise. |
 
-## No picture (22)
+## No picture (17)
 
-Mostly Lutron sheets: spec submittals of dimension drawings and text, with no product photograph in them to lift. The manufacturer's brochures do carry photography — that is where LTRN15's came from — so these need a source outside the submittal folder.
+All Lutron. Their sheets are spec submittals of dimension drawings and text with no product photograph in them to lift, so these need a source outside the submittal folder — Lutron's own brochures carry photography, which is where LTRN15's came from.
 
 | Item | What it is | File to drop in `tools/images/` | Why |
 |---|---|---|---|
-| `B-B3` | Hayward — Pool Wall & Infinity-Edge Return Inlets, 2 in - Hayward SP1419D (Gray: SP1419DGR) | `b3-hayward-sp1419d.jpg` | No picture - the datasheet embeds none that passed the filter. |
-| `B-B4` | Hayward — Vacuum Fitting - Hayward SP1022 (Gray: SP1022GR) | `b4-hayward-sp1022.jpg` | No picture - the datasheet embeds none that passed the filter. |
-| `B-B6` | Pentair — Automatic Water Filler - Pentair T40-F | `b6-pentair-t40-f-automatic-water-filler.jpg` | No picture - the datasheet embeds none that passed the filter. |
-| `L-LTRN1` | LTRN1 - DS - Lutron myRoom XC Processor MP-1L-GCU | `ltrn1-ds-lutron-myroom-xc-processor-mp-1l-gcu.jpg` | No picture - the datasheet embeds none that passed the filter. |
-| `L-LTRN3` | LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120 | `ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.jpg` | No picture - the datasheet embeds none that passed the filter. |
 | `L-LTRN7` | LTRN7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E | `ltrn7-ds-lutron-alisse-1-column-keypad-hw-nw-kp-s1-e.jpg` | No picture - the datasheet embeds none that passed the filter. |
 | `L-LTRN8` | LTRN8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E | `ltrn8-ds-lutron-alisse-2-column-keypad-hw-nw-kp-s2-e.jpg` | No picture - the datasheet embeds none that passed the filter. |
 | `L-LTRN9` | LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1 | `ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1.jpg` | No picture - the datasheet embeds none that passed the filter. |
