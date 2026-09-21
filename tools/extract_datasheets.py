@@ -228,6 +228,9 @@ def _looks_like_product(im):
     return uniform, colors, im
 
 
+USED_OVERRIDES = set()
+
+
 def pick_image(doc, code, stem):
     """The picture for one item: an override if there is one, else the best
     candidate found in the first few pages.
@@ -243,6 +246,7 @@ def pick_image(doc, code, stem):
             for ext in ("jpg", "jpeg", "png", "webp"):
                 f = OVERRIDE / (name + "." + ext)
                 if f.exists():
+                    USED_OVERRIDES.add(f.name)
                     return Image.open(f).convert("RGB"), "override"
 
     best = None
@@ -581,6 +585,21 @@ def main():
                         encoding="utf-8")
     print("  %-28s %2d auto + %d override, %.1f MB"
           % (str(OUT_IMGS.relative_to(REPO)), n_auto, n_over, img_bytes/1048576))
+    # An override that matches nothing is the quiet failure here: the file
+    # sits in the folder looking done while the register still shows the
+    # picture it was meant to replace. Renaming a datasheet at the source is
+    # all it takes - the slug moves and the override is orphaned.
+    if OVERRIDE.is_dir():
+        orphans = sorted(
+            f.name for f in OVERRIDE.iterdir()
+            if f.is_file() and f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp")
+            and f.name not in USED_OVERRIDES)
+        if orphans:
+            print("  OVERRIDES THAT MATCHED NOTHING (%d):" % len(orphans))
+            for o in orphans:
+                print("      " + o)
+            print("      Rename each to a current datasheet slug or item code.")
+
     missing = [r["code"] for r in items if not r["image"]]
     if missing:
         print("  no picture found for: " + ", ".join(missing))

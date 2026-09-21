@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T13:51:51Z",
+ "generated": "2026-09-21T15:58:40Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -22,7 +22,7 @@
    "name": "Doors & Hardware",
    "discipline": "Doors",
    "submittal": null,
-   "count": 11
+   "count": 22
   },
   {
    "key": "E",
@@ -64,7 +64,7 @@
    "name": "Pool Lighting",
    "discipline": "Pool",
    "submittal": "JANU-SUB-009",
-   "count": 2
+   "count": 0
   }
  ],
  "items": [
@@ -621,7 +621,7 @@
    "image": ""
   },
   {
-   "id": "d-1-concealed-mortise-hinge-hafele-startec",
+   "id": "d-1-concealed-mortise-hinge-hafele-3d-adju",
    "code": "1",
    "group": "D",
    "group_name": "Doors & Hardware",
@@ -629,15 +629,15 @@
    "submittal": null,
    "manufacturer": "Häfele",
    "category": "Hinges",
-   "title": "Concealed Mortise Hinge - Häfele Startec 3D-Adjustable",
+   "title": "Concealed Mortise Hinge - Häfele 3D-Adjustable (927.91.833)",
    "specs": [
     {
      "label": "Model",
-     "value": "Häfele Startec concealed mortise hinge, 3D-adjustable (P-00862553 family; 927.91.xxx)"
+     "value": "Häfele concealed mortise hinge, 3D-adjustable — 927.91.833"
     },
     {
      "label": "Type",
-     "value": "Concealed hinge for flush wooden interior doors, mortise mounted"
+     "value": "Concealed hinge for flush wooden interior doors up to 80/100 kg"
     },
     {
      "label": "Adjustment",
@@ -648,34 +648,22 @@
      "value": "180°"
     },
     {
-     "label": "Door thickness",
-     "value": "≥ 40 mm; sizes for door leaves up to ~80/100 kg per pair"
-    },
-    {
      "label": "Material",
      "value": "Zinc alloy"
     },
     {
      "label": "Finish",
-     "value": "Brushed copper (specified)"
-    },
-    {
-     "label": "Qty",
-     "value": "18"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 04"
+     "value": "Black Matte FIX-10 · Zone: Entrance, Hallway & W.C. · Qty 12"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/01-hafele-startec-concealed-hinge.pdf",
+   "pdf": "datasheets/dh-01-hafele-startec-concealed-hinge.pdf",
    "pages": 1,
-   "bytes": 2688,
-   "source": "D - Doors/DH - Doors Hardware/01 - Hafele Startec Concealed Hinge.pdf",
+   "bytes": 3148,
+   "source": "D - Doors/DH - Doors Hardware/DH-01 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -695,86 +683,35 @@
      "value": "Salto Standard Line lever handle, London model"
     },
     {
-     "label": "Finish",
-     "value": "NE - Black Chrome (specified)"
-    },
-    {
      "label": "Type",
      "value": "Lever handle set for Salto electronic lock (AElement Fusion)"
     },
     {
+     "label": "Material",
+     "value": "Stainless steel"
+    },
+    {
+     "label": "Finish",
+     "value": "NE - Black Chrome (BHMA687)"
+    },
+    {
      "label": "Standard",
-     "value": "Suits ANSI / DIN profile doors"
-    },
-    {
-     "label": "Qty",
-     "value": "3 sets"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 04"
+     "value": "Suits ANSI / DIN profile doors FIX-16 · Zone: Entrance, Hallway & W.C. · Qty 3"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/02-salto-london-lever-handle.pdf",
+   "pdf": "datasheets/dh-02-salto-london-lever-handle.pdf",
    "pages": 1,
-   "bytes": 2299,
-   "source": "D - Doors/DH - Doors Hardware/02 - Salto London Lever Handle.pdf",
+   "bytes": 2392,
+   "source": "D - Doors/DH - Doors Hardware/DH-02 - Salto London Lever Handle.pdf",
    "drive_url": "",
    "image": ""
   },
   {
-   "id": "d-2-2-teak-wood-pull-handle-cbmmart-custom",
-   "code": "2.2",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "CBMmart",
-   "category": "Handles",
-   "title": "Teak Wood Pull Handle - CBMmart (Custom)",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "CBMmart custom teak wood handle"
-    },
-    {
-     "label": "Material",
-     "value": "Exterior-grade teak wood planks / regular teak wood planks"
-    },
-    {
-     "label": "Type",
-     "value": "Timber pull handle, custom fabricated"
-    },
-    {
-     "label": "Location",
-     "value": "Walk-in Closet (W.I.C.)"
-    },
-    {
-     "label": "Qty",
-     "value": "3"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 06"
-    }
-   ],
-   "notes": "Custom item - supplier shop drawing / datasheet to follow",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/02-2-cbmmart-teak-wood-handle.pdf",
-   "pages": 1,
-   "bytes": 2360,
-   "source": "D - Doors/DH - Doors Hardware/02.2 - CBMmart Teak Wood Handle.pdf",
-   "drive_url": "",
-   "image": ""
-  },
-  {
-   "id": "d-3-electronic-lockset-salto-aelement-fusi",
+   "id": "d-3-electronic-lockset-salto-lement-fusio",
    "code": "3",
    "group": "D",
    "group_name": "Doors & Hardware",
@@ -782,11 +719,11 @@
    "submittal": null,
    "manufacturer": "Salto",
    "category": "Locks",
-   "title": "Electronic Lockset - Salto AElement Fusion (ANSI)",
+   "title": "Electronic Lockset - Salto Ælement Fusion (ANSI)",
    "specs": [
     {
      "label": "Model",
-     "value": "Salto AElement Fusion - ANSI"
+     "value": "Salto Ælement Fusion — ANSI (light-ring reader)"
     },
     {
      "label": "Type",
@@ -801,86 +738,70 @@
      "value": "SALTO Space (on-prem) / SALTO KS / Homelok (cloud)"
     },
     {
-     "label": "Fit",
-     "value": "ANSI profile door; electronics & battery encased in door"
+     "label": "Material / finish",
+     "value": "Stainless steel; NE - Black Chrome (BHMA687)"
     },
     {
      "label": "Indicator",
-     "value": "Dual-colour LED ring (green / red) authorisation light"
-    },
-    {
-     "label": "Qty",
-     "value": "1"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02"
+     "value": "Dual-colour LED light-ring (green / red) FIX-15 · Zone: Entrance · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/03-salto-aelement-fusion-lockset.pdf",
+   "pdf": "datasheets/dh-03-salto-aelement-fusion-lockset-ring-reader.pdf",
    "pages": 1,
-   "bytes": 2507,
-   "source": "D - Doors/DH - Doors Hardware/03 - Salto AElement Fusion Lockset.pdf",
+   "bytes": 2559,
+   "source": "D - Doors/DH - Doors Hardware/DH-03 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "drive_url": "",
    "image": ""
   },
   {
-   "id": "d-4-privacy-thumb-turn-sargent-8200-series",
+   "id": "d-4-mechanical-privacy-thumbturn-salto-la1",
    "code": "4",
    "group": "D",
    "group_name": "Doors & Hardware",
    "discipline": "Doors",
    "submittal": null,
-   "manufacturer": "Sargent",
+   "manufacturer": "Salto",
    "category": "Locks",
-   "title": "Privacy Thumb-Turn - Sargent 8200 Series (8266)",
+   "title": "Mechanical Privacy Thumbturn - Salto LA1T17 Mortise Lock",
    "specs": [
     {
      "label": "Model",
-     "value": "Sargent 8200 Series mortise lock, privacy function (8266)"
+     "value": "Salto LA1T17 Mortise Lock — mechanical privacy thumbturn"
     },
     {
-     "label": "Standard",
-     "value": "ANSI/BHMA A156.13 Series 1000 Grade 1"
+     "label": "Type",
+     "value": "Mechanical privacy thumbturn mortise lock (Salto trim)"
     },
     {
      "label": "Function",
-     "value": "Inside thumbturn locks outside lever; outside emergency release; inside lever always free"
+     "value": "Inside thumbturn privacy for W.C. door"
     },
     {
-     "label": "Fire rating",
-     "value": "UL / cUL listed, 3-hour"
+     "label": "Material",
+     "value": "Stainless steel"
     },
     {
-     "label": "Durability",
-     "value": "16 million cycles (tested)"
-    },
-    {
-     "label": "Qty",
-     "value": "1"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-04"
+     "label": "Finish",
+     "value": "NE - Black Chrome (BHMA687) FIX-17 · Zone: W.C. · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/04-sargent-8200-privacy-thumb-turn.pdf",
+   "pdf": "datasheets/dh-04-salto-la1t17-privacy-thumbturn.pdf",
    "pages": 1,
-   "bytes": 2383,
-   "source": "D - Doors/DH - Doors Hardware/04 - Sargent 8200 Privacy Thumb Turn.pdf",
+   "bytes": 2365,
+   "source": "D - Doors/DH - Doors Hardware/DH-04 - Salto LA1T17 Privacy Thumbturn.pdf",
    "drive_url": "",
    "image": ""
   },
   {
-   "id": "d-5-door-viewer-hafele-startec-200-up-to",
+   "id": "d-5-door-viewer-hafele-startec-200-959-0",
    "code": "5",
    "group": "D",
    "group_name": "Doors & Hardware",
@@ -888,11 +809,11 @@
    "submittal": null,
    "manufacturer": "Häfele",
    "category": "Peep Hole",
-   "title": "Door Viewer - Häfele Startec 200°, up to 82 mm",
+   "title": "Door Viewer - Häfele Startec 200° (959.01.042)",
    "specs": [
     {
      "label": "Model",
-     "value": "Häfele Startec door viewer (P-00873696), up to 82 mm door thickness"
+     "value": "Häfele Startec door viewer — 959.01.042"
     },
     {
      "label": "Field of view",
@@ -903,26 +824,22 @@
      "value": "Up to 82 mm"
     },
     {
-     "label": "Material / finish",
-     "value": "Brass, brushed brass (specified)"
+     "label": "Material",
+     "value": "Brass"
     },
     {
-     "label": "Qty",
-     "value": "1"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02"
+     "label": "Finish",
+     "value": "Burnished Brass FIX-12 · Zone: Entrance · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/05-hafele-startec-door-viewer.pdf",
+   "pdf": "datasheets/dh-05-hafele-startec-door-viewer.pdf",
    "pages": 1,
-   "bytes": 2271,
-   "source": "D - Doors/DH - Doors Hardware/05 - Hafele Startec Door Viewer.pdf",
+   "bytes": 2307,
+   "source": "D - Doors/DH - Doors Hardware/DH-05 - Hafele Startec Door Viewer.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -935,45 +852,37 @@
    "submittal": null,
    "manufacturer": "Häfele",
    "category": "Sliding Door Running Gear",
-   "title": "Sliding Door Fitting - Häfele Hawa Junior 80/B-Pocket",
+   "title": "Sliding Door Fitting - Häfele Hawa Junior 80/100B (941.04.012)",
    "specs": [
     {
      "label": "Model",
-     "value": "Häfele Hawa Junior 80/B-Pocket set (P-00877233; 940.80.014)"
-    },
-    {
-     "label": "Max door weight",
-     "value": "80 kg (176 lb)"
-    },
-    {
-     "label": "Max door size",
-     "value": "H 4000 mm × W 1500 mm; thickness 35–80 mm"
-    },
-    {
-     "label": "Adjustment",
-     "value": "Height ±3 mm; door-to-track joint 6–8 mm"
+     "value": "Häfele Hawa Junior 80/100B — 941.04.012"
     },
     {
      "label": "Type",
-     "value": "Top-hung pocket sliding fitting, 1 door"
+     "value": "Pocket sliding door system, top-hung"
     },
     {
-     "label": "Qty",
-     "value": "1"
+     "label": "Max door weight",
+     "value": "100 kg"
     },
     {
-     "label": "Drawing ref",
-     "value": "A11-03"
+     "label": "Material",
+     "value": "Stainless steel, zinc alloy & high-performance plastics"
+    },
+    {
+     "label": "Finish",
+     "value": "Natural finish FIX-13 · Zone: Walk-in Closet · Qty 2"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/06-hafele-hawa-junior-80b-pocket.pdf",
+   "pdf": "datasheets/dh-06-hafele-hawa-junior-80b-pocket.pdf",
    "pages": 1,
-   "bytes": 2392,
-   "source": "D - Doors/DH - Doors Hardware/06 - Hafele Hawa Junior 80B Pocket.pdf",
+   "bytes": 2430,
+   "source": "D - Doors/DH - Doors Hardware/DH-06 - Hafele Hawa Junior 80B Pocket.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -986,41 +895,37 @@
    "submittal": null,
    "manufacturer": "Häfele",
    "category": "Sliding Door Running Gear",
-   "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P",
+   "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P (941.62.018)",
    "specs": [
     {
      "label": "Model",
-     "value": "Häfele Slido D-Line11 160P set (P-01499186; 941.62.018)"
-    },
-    {
-     "label": "Max door weight",
-     "value": "160 kg (353 lb)"
+     "value": "Häfele Slido D-Line11 160P — 941.62.018"
     },
     {
      "label": "Type",
-     "value": "1-/2-leaf wooden sliding doors; ceiling & wall mount"
+     "value": "Sliding door hardware, 1-/2-leaf; ceiling & wall mount"
     },
     {
-     "label": "Adjustment",
-     "value": "Door height adjustable ±5 mm"
+     "label": "Max door weight",
+     "value": "160 kg"
     },
     {
-     "label": "Features",
-     "value": "Soft & self-close both sides; 2 running gears, floor guide, track buffers"
+     "label": "Material",
+     "value": "Stainless steel, zinc alloy & high-performance plastics"
     },
     {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 04"
+     "label": "Finish",
+     "value": "Natural finish FIX-14 · Zone: Outdoor Living shutters · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/06-1-hafele-slido-d-line11-160p.pdf",
+   "pdf": "datasheets/dh-07-hafele-slido-d-line11-160p.pdf",
    "pages": 1,
-   "bytes": 2413,
-   "source": "D - Doors/DH - Doors Hardware/06.1 - Hafele Slido D-Line11 160P.pdf",
+   "bytes": 2447,
+   "source": "D - Doors/DH - Doors Hardware/DH-07 - Hafele Slido D-Line11 160P.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1037,41 +942,33 @@
    "specs": [
     {
      "label": "Model",
-     "value": "Planet X3 RD (smoke-shielding), can be shortened"
+     "value": "Assa Abloy Planet X3 RD (smoke-shielding), can be shortened"
     },
     {
      "label": "Performance",
-     "value": "52 dB sound reduction; smoke-shielding (RD); driving-rain 7A/9A (ift certified)"
+     "value": "52 dB sound reduction; smoke-shielding (RD)"
     },
     {
      "label": "Profile",
      "value": "Aluminium 22 × 30 mm; seal height 5–12 mm; side lift 2–6 mm"
     },
     {
-     "label": "Actuation",
-     "value": "Release one side (hinge side); silicone lip"
+     "label": "Material",
+     "value": "Aluminium & silicone"
     },
     {
-     "label": "Doors",
-     "value": "Wood / metal / PVC; no drainage channel required"
-    },
-    {
-     "label": "Qty",
-     "value": "1"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 04"
+     "label": "Finish",
+     "value": "Natural finish FIX-09 · Zone: Entrance · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/07-assa-abloy-planet-x3-rd-drop-seal.pdf",
+   "pdf": "datasheets/dh-08-assa-abloy-planet-x3-rd-drop-seal.pdf",
    "pages": 1,
-   "bytes": 2466,
-   "source": "D - Doors/DH - Doors Hardware/07 - Assa Abloy Planet X3 RD Drop Seal.pdf",
+   "bytes": 2409,
+   "source": "D - Doors/DH - Doors Hardware/DH-08 - Assa Abloy Planet X3 RD Drop Seal.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1088,7 +985,7 @@
    "specs": [
     {
      "label": "Model",
-     "value": "Reflect Window & Door - door-jamb weatherstripping (silicone bulb seal)"
+     "value": "Reflect Window & Door — door-jamb weatherstripping (silicone bulb seal)"
     },
     {
      "label": "Material",
@@ -1100,23 +997,41 @@
     },
     {
      "label": "Qty",
-     "value": "3"
-    },
-    {
-     "label": "Drawing ref",
-     "value": "A11-02 / 03 / 04"
+     "value": "3 Not in current FF&E; — procurement-tracker item (ref A11-02/03/04)"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/07-1-reflect-door-jamb-weatherstrip.pdf",
+   "pdf": "datasheets/dh-09-reflect-door-jamb-weatherstrip.pdf",
    "pages": 1,
-   "bytes": 2294,
-   "source": "D - Doors/DH - Doors Hardware/07.1 - Reflect Door Jamb Weatherstrip.pdf",
+   "bytes": 2380,
+   "source": "D - Doors/DH - Doors Hardware/DH-09 - Reflect Door Jamb Weatherstrip.pdf",
    "drive_url": "",
    "image": ""
+  },
+  {
+   "id": "d-amesburytruth-foamtite-profileselectionguide-amesburytruth-foamtite-profileselectiong",
+   "code": "AmesburyTruth-FoamTite-ProfileSelectionGuide",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "AmesburyTruth-FoamTite-ProfileSelectionGuide",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/amesburytruth-foamtite-profileselectionguide.pdf",
+   "pages": 6,
+   "bytes": 1764299,
+   "source": "D - Doors/DH - Doors Hardware/AmesburyTruth-FoamTite-ProfileSelectionGuide.pdf",
+   "drive_url": "",
+   "image": "img/amesburytruth-foamtite-profileselectionguide.webp"
   },
   {
    "id": "d-dh-01-dh-01-ds-hafele-startec-concealed-hi",
@@ -1127,18 +1042,260 @@
    "submittal": null,
    "manufacturer": "",
    "category": "",
-   "title": "DH-01 - DS - Hafele Startec Concealed Hinge",
+   "title": "DH-01 - DS - Hafele Startec Concealed Hinge B",
    "specs": [],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": false,
-   "pdf": "datasheets/dh-01-ds-hafele-startec-concealed-hinge.pdf",
-   "pages": 1,
-   "bytes": 241524,
-   "source": "D - Doors/DH - Doors Hardware/DH-01 - DS - Hafele Startec Concealed Hinge.pdf",
+   "pdf": "datasheets/dh-01-ds-hafele-startec-concealed-hinge-b.pdf",
+   "pages": 2,
+   "bytes": 739874,
+   "source": "D - Doors/DH - Doors Hardware/DH-01 - DS - Hafele Startec Concealed Hinge B.pdf",
    "drive_url": "",
-   "image": "img/dh-01-ds-hafele-startec-concealed-hinge.webp"
+   "image": "img/dh-01-ds-hafele-startec-concealed-hinge-b.webp"
+  },
+  {
+   "id": "d-dh-02-dh-02-ds-salto-london-lever-handle",
+   "code": "DH-02",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-02 - DS - Salto London Lever Handle",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-02-ds-salto-london-lever-handle.pdf",
+   "pages": 4,
+   "bytes": 144342,
+   "source": "D - Doors/DH - Doors Hardware/DH-02 - DS - Salto London Lever Handle.pdf",
+   "drive_url": "",
+   "image": "img/dh-02-ds-salto-london-lever-handle.webp"
+  },
+  {
+   "id": "d-dh-02-dh-02-ig-salto-london-lever-handle",
+   "code": "DH-02",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-02 - IG - Salto London Lever Handle",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-02-ig-salto-london-lever-handle.pdf",
+   "pages": 4,
+   "bytes": 585528,
+   "source": "D - Doors/DH - Doors Hardware/DH-02 - IG - Salto London Lever Handle.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-dh-03-dh-03-ds-salto-aelement-fusion-locks",
+   "code": "DH-03",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-03 - DS - Salto AElement Fusion Lockset & Ring Reader",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-03-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
+   "pages": 4,
+   "bytes": 144342,
+   "source": "D - Doors/DH - Doors Hardware/DH-03 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
+   "drive_url": "",
+   "image": "img/dh-03-ds-salto-aelement-fusion-lockset-ring-reader.webp"
+  },
+  {
+   "id": "d-dh-03-dh-03-ig-salto-aelement-fusion-locks",
+   "code": "DH-03",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-03 - IG - Salto AElement Fusion Lockset & Ring Reader",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-03-ig-salto-aelement-fusion-lockset-ring-reader.pdf",
+   "pages": 2,
+   "bytes": 122498,
+   "source": "D - Doors/DH - Doors Hardware/DH-03 - IG - Salto AElement Fusion Lockset & Ring Reader.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-dh-04-dh-04-ds-salto-la1t17-privacy-thumbt",
+   "code": "DH-04",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-04 - DS - Salto LA1T17 Privacy Thumbturn",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-04-ds-salto-la1t17-privacy-thumbturn.pdf",
+   "pages": 4,
+   "bytes": 144342,
+   "source": "D - Doors/DH - Doors Hardware/DH-04 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
+   "drive_url": "",
+   "image": "img/dh-04-ds-salto-la1t17-privacy-thumbturn.webp"
+  },
+  {
+   "id": "d-dh-04-dh-04-ig-salto-la1t17-privacy-thumbt",
+   "code": "DH-04",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-04 - IG - Salto LA1T17 Privacy Thumbturn",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-04-ig-salto-la1t17-privacy-thumbturn.pdf",
+   "pages": 2,
+   "bytes": 149787,
+   "source": "D - Doors/DH - Doors Hardware/DH-04 - IG - Salto LA1T17 Privacy Thumbturn.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-dh-05-dh-05-ds-hafele-startec-door-viewer",
+   "code": "DH-05",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-05 - DS - Hafele Startec Door Viewer B",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-05-ds-hafele-startec-door-viewer-b.pdf",
+   "pages": 1,
+   "bytes": 700332,
+   "source": "D - Doors/DH - Doors Hardware/DH-05 - DS - Hafele Startec Door Viewer B.pdf",
+   "drive_url": "",
+   "image": "img/dh-05-ds-hafele-startec-door-viewer-b.webp"
+  },
+  {
+   "id": "d-dh-06-dh-06-ds-hafele-hawa-junior-80b-pock",
+   "code": "DH-06",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-06 - DS - Hafele Hawa Junior 80B Pocket",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-06-ds-hafele-hawa-junior-80b-pocket.pdf",
+   "pages": 6,
+   "bytes": 1128458,
+   "source": "D - Doors/DH - Doors Hardware/DH-06 - DS - Hafele Hawa Junior 80B Pocket.pdf",
+   "drive_url": "",
+   "image": "img/dh-06-ds-hafele-hawa-junior-80b-pocket.webp"
+  },
+  {
+   "id": "d-dh-07-dh-07-ds-hafele-slido-d-line11-160p",
+   "code": "DH-07",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-07 - DS - Hafele Slido D-Line11 160P",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-07-ds-hafele-slido-d-line11-160p.pdf",
+   "pages": 1,
+   "bytes": 520012,
+   "source": "D - Doors/DH - Doors Hardware/DH-07 - DS - Hafele Slido D-Line11 160P.pdf",
+   "drive_url": "",
+   "image": ""
+  },
+  {
+   "id": "d-dh-08-dh-08-ds-assa-abloy-planet-x3-rd-dro",
+   "code": "DH-08",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-08 - DS - Assa Abloy Planet X3 RD Drop Seal",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-08-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
+   "pages": 3,
+   "bytes": 1424744,
+   "source": "D - Doors/DH - Doors Hardware/DH-08 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
+   "drive_url": "",
+   "image": "img/dh-08-ds-assa-abloy-planet-x3-rd-drop-seal.webp"
+  },
+  {
+   "id": "d-dh-10-dh-10-ds-hafele-door-hinge-top-pivot",
+   "code": "DH-10",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH-10 - DS - Hafele Door Hinge Top Pivot",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh-10-ds-hafele-door-hinge-top-pivot.pdf",
+   "pages": 1,
+   "bytes": 222524,
+   "source": "D - Doors/DH - Doors Hardware/DH-10 - DS - Hafele Door Hinge Top Pivot.pdf",
+   "drive_url": "",
+   "image": "img/dh-10-ds-hafele-door-hinge-top-pivot.webp"
   },
   {
    "id": "e-01-load-center-reliahome-pcc4022r",
@@ -1192,12 +1349,12 @@
    "status": "substitution",
    "status_text": "Substitution / Deviation - engineer confirmation required",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-01-load-center-pcc4022r.pdf",
+   "pdf": "datasheets/e1-load-center-pcc4022r.pdf",
    "pages": 3,
    "bytes": 153181,
-   "source": "E - Electrical/JANU-SUB-011 01 - Load Center PCC4022R.pdf",
+   "source": "E - Electrical/E1 - Load Center PCC4022R.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-01-load-center-pcc4022r.webp"
+   "image": "img/e1-load-center-pcc4022r.webp"
   },
   {
    "id": "e-02-load-center-reliahome-pcc1612",
@@ -1247,12 +1404,12 @@
    "status": "substitution",
    "status_text": "Substitution / Deviation - engineer confirmation required",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-02-load-center-pcc1612.pdf",
+   "pdf": "datasheets/e2-load-center-pcc1612.pdf",
    "pages": 5,
    "bytes": 373263,
-   "source": "E - Electrical/JANU-SUB-011 02 - Load Center PCC1612.pdf",
+   "source": "E - Electrical/E2 - Load Center PCC1612.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-02-load-center-pcc1612.webp"
+   "image": "img/e2-load-center-pcc1612.webp"
   },
   {
    "id": "e-03-load-center-meter-socket-pams3022trnus",
@@ -1302,12 +1459,12 @@
    "status": "substitution",
    "status_text": "Substitution / Deviation - engineer confirmation required",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-03-meter-socket-pams3022trnus.pdf",
+   "pdf": "datasheets/e3-meter-socket-pams3022trnus.pdf",
    "pages": 3,
    "bytes": 198824,
-   "source": "E - Electrical/JANU-SUB-011 03 - Meter Socket PAMS3022TRNUS.pdf",
+   "source": "E - Electrical/E3 - Meter Socket PAMS3022TRNUS.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-03-meter-socket-pams3022trnus.webp"
+   "image": "img/e3-meter-socket-pams3022trnus.webp"
   },
   {
    "id": "e-04-surge-protection-device-wall-mount-rg",
@@ -1353,12 +1510,12 @@
    "status": "deviation",
    "status_text": "Substitution / Deviation - engineer confirmation required",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.pdf",
+   "pdf": "datasheets/e4-surge-protection-device-rgwmsp120s08t14.pdf",
    "pages": 6,
    "bytes": 495839,
-   "source": "E - Electrical/JANU-SUB-011 04 - Surge Protection Device RGWMSP120S08T14.pdf",
+   "source": "E - Electrical/E4 - Surge Protection Device RGWMSP120S08T14.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-04-surge-protection-device-rgwmsp120s08t14.webp"
+   "image": "img/e4-surge-protection-device-rgwmsp120s08t14.webp"
   },
   {
    "id": "e-05-circuit-breaker-arc-fault-plug-in-thq",
@@ -1388,12 +1545,12 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-05-arc-fault-breaker-thql1120paf2.pdf",
+   "pdf": "datasheets/e5-arc-fault-breaker-thql1120paf2.pdf",
    "pages": 2,
    "bytes": 66746,
-   "source": "E - Electrical/JANU-SUB-011 05 - Arc Fault Breaker THQL1120PAF2.pdf",
+   "source": "E - Electrical/E5 - Arc Fault Breaker THQL1120PAF2.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-05-arc-fault-breaker-thql1120paf2.webp"
+   "image": "img/e5-arc-fault-breaker-thql1120paf2.webp"
   },
   {
    "id": "e-06-mccb-120-240v-ql-thql2180",
@@ -1419,12 +1576,12 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-06-mccb-thql2180.pdf",
+   "pdf": "datasheets/e6-mccb-thql2180.pdf",
    "pages": 2,
    "bytes": 71974,
-   "source": "E - Electrical/JANU-SUB-011 06 - MCCB THQL2180.pdf",
+   "source": "E - Electrical/E6 - MCCB THQL2180.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-06-mccb-thql2180.webp"
+   "image": "img/e6-mccb-thql2180.webp"
   },
   {
    "id": "e-07-mccb-120-240v-ql-thql2140-qty-2",
@@ -1454,12 +1611,12 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-07-mccb-thql2140.pdf",
+   "pdf": "datasheets/e7-mccb-thql2140.pdf",
    "pages": 2,
    "bytes": 73679,
-   "source": "E - Electrical/JANU-SUB-011 07 - MCCB THQL2140.pdf",
+   "source": "E - Electrical/E7 - MCCB THQL2140.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-07-mccb-thql2140.webp"
+   "image": "img/e7-mccb-thql2140.webp"
   },
   {
    "id": "e-09-circuit-breaker-ground-fault-plug-in",
@@ -1485,10 +1642,10 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-09-ground-fault-breaker-thql2160gft2.pdf",
+   "pdf": "datasheets/e8-ground-fault-breaker-thql2160gft2.pdf",
    "pages": 3,
    "bytes": 531295,
-   "source": "E - Electrical/JANU-SUB-011 09 - Ground Fault Breaker THQL2160GFT2.pdf",
+   "source": "E - Electrical/E8 - Ground Fault Breaker THQL2160GFT2.pdf",
    "drive_url": "",
    "image": ""
   },
@@ -1516,12 +1673,12 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-10-mccb-thql2120.pdf",
+   "pdf": "datasheets/e9-mccb-thql2120.pdf",
    "pages": 2,
    "bytes": 73364,
-   "source": "E - Electrical/JANU-SUB-011 10 - MCCB THQL2120.pdf",
+   "source": "E - Electrical/E9 - MCCB THQL2120.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-10-mccb-thql2120.webp"
+   "image": "img/e9-mccb-thql2120.webp"
   },
   {
    "id": "e-11-mccb-120-240v-ql-thql2130-qty-2",
@@ -1551,12 +1708,12 @@
    "status": "as_specified",
    "status_text": "Submitted as specified",
    "curated": true,
-   "pdf": "datasheets/janu-sub-011-11-mccb-thql2130.pdf",
+   "pdf": "datasheets/e10-mccb-thql2130.pdf",
    "pages": 2,
    "bytes": 182484,
-   "source": "E - Electrical/JANU-SUB-011 11 - MCCB THQL2130.pdf",
+   "source": "E - Electrical/E10 - MCCB THQL2130.pdf",
    "drive_url": "",
-   "image": "img/janu-sub-011-11-mccb-thql2130.webp"
+   "image": "img/e10-mccb-thql2130.webp"
   },
   {
    "id": "f-f1-make-up-float-valve-3-4-in-npt-robert",
@@ -2553,12 +2710,12 @@
    "image": "img/j14-proflo-plastic-roof-drain-pf42870.webp"
   },
   {
-   "id": "l-a-pool-light-l09-l-l-bright-1-6-316l",
+   "id": "a-pool-light-l09-l-l-bright-1-6-316l",
    "code": "A",
-   "group": "L",
-   "group_name": "Pool Lighting",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-009",
+   "group": "?",
+   "group_name": "Uncategorised",
+   "discipline": "Other",
+   "submittal": null,
    "manufacturer": "L&L; Luce&Light;",
    "category": "",
    "title": "Pool Light L09 - L&L; Bright 1.6 316L",
@@ -2583,17 +2740,17 @@
    "pdf": "datasheets/a-pool-light-l09-cw16005di.pdf",
    "pages": 5,
    "bytes": 2363591,
-   "source": "L - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
+   "source": "PL - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
    "drive_url": "",
    "image": "img/a-pool-light-l09-cw16005di.webp"
   },
   {
-   "id": "l-b-pool-light-l09-1-l-l-bright-3-0-316l",
+   "id": "b-pool-light-l09-1-l-l-bright-3-0-316l",
    "code": "B",
-   "group": "L",
-   "group_name": "Pool Lighting",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-009",
+   "group": "?",
+   "group_name": "Uncategorised",
+   "discipline": "Other",
+   "submittal": null,
    "manufacturer": "L&L; Luce&Light;",
    "category": "",
    "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
@@ -2622,7 +2779,7 @@
    "pdf": "datasheets/b-pool-light-l09-1-cw300005wi.pdf",
    "pages": 6,
    "bytes": 2669975,
-   "source": "L - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
+   "source": "PL - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
    "drive_url": "",
    "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   }
