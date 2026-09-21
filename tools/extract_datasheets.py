@@ -93,7 +93,8 @@ GROUPS = {
     "G": ("Piping and Valves", "Pool", None),
     "H": ("Electrical - Pool Bonding", "Pool", None),
     "J": ("Plumbing", "Plumbing", None),
-    "L": ("Pool Lighting", "Pool", "JANU-SUB-009"),
+    "L": ("Lighting", "Lighting", None),
+    "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }
 
 
@@ -105,8 +106,10 @@ def group_of(rel):
     and two folders can share a letter - "D - Doors" holds the tracker
     workbook, "D - Doors Hardware" holds the datasheets.
     """
+    # Longest first is wrong here - the OUTERMOST folder wins, which is how
+    # "D - Doors/DH - Doors Hardware" stays in D rather than inventing DH.
     for part in rel.parts[:-1]:
-        m = re.match(r"([A-Z])\s*-\s", part)
+        m = re.match(r"([A-Z]{1,3})\s*-\s", part)
         if m:
             return m.group(1)
     return "?"
@@ -236,13 +239,18 @@ def _looks_like_product(im):
 USED_OVERRIDES = set()
 
 
-def pick_image(doc, code, stem):
-    """The picture for one item: an override if there is one, else the best
-    candidate found in the first few pages.
+def pick_image(doc, code, stem, pdf):
+    """The picture for one item, in order of who said so most deliberately:
+    an override in tools/images/, a picture filed beside the datasheet, then
+    the best candidate the PDF itself yields.
 
-    An override can be named by the file's slug or by the item code. The slug
-    is the one to publish, because it is unique - three plumbing items all
-    carry the code J9, so "J9.jpg" would silently apply to all three.
+    A picture BESIDE THE DATASHEET is the natural place to put one - the doors
+    folder does exactly that, DH4.jpg next to DH4 - Salto LA1T17 .... Named by
+    the item code or by the datasheet's own filename prefix.
+
+    An override in tools/images/ can be named by the file's slug or the item
+    code. The slug is the one to publish because it is unique: three plumbing
+    items all carry the code J9, so "J9.jpg" would apply to all three.
     """
     if OVERRIDE.is_dir():
         for name in (slug(stem), code):
@@ -253,6 +261,14 @@ def pick_image(doc, code, stem):
                 if f.exists():
                     USED_OVERRIDES.add(f.name)
                     return Image.open(f).convert("RGB"), "override"
+
+    for name in (code, code_prefix(stem)):
+        if not name:
+            continue
+        for ext in ("jpg", "jpeg", "png", "webp", "JPG", "PNG"):
+            f = pdf.parent / (name + "." + ext)
+            if f.exists():
+                return Image.open(f).convert("RGB"), "beside"
 
     best = None
     for pno in range(min(doc.page_count, 6)):
@@ -293,6 +309,40 @@ def code_key(code):
     alpha, nums = (m.group(1).upper(), m.group(2)) if m else (code, "")
     parts = [int(n) for n in nums.split(".") if n.isdigit()]
     return (alpha, parts, code)
+
+
+def code_prefix(stem):
+    """The item code a filename announces, before the first " - "."""
+    return stem.split(" - ")[0].strip()
+
+
+def drop_supplements(pdfs, root):
+    """Keep one file per item where the source ships several.
+
+    The doors folder settled on a convention: "DH-04 - Salto ..." is the
+    curated sheet, "DH-04 - DS - ..." the vendor's own datasheet and
+    "DH-04 - IG - ..." its installation guide. All three describe one item, so
+    only the curated one belongs in the register.
+
+    A supplement is dropped ONLY when an unmarked file shares its code. That
+    matters: DH-10 has nothing but a DS, and would vanish under a blunter
+    rule - and J9 carries two genuinely different insulations under one code,
+    which a dedupe-by-code would silently halve.
+    """
+    plain = set()
+    for f in pdfs:
+        if " - DS - " in f.name or " - IG - " in f.name:
+            continue
+        plain.add((group_of(f.relative_to(root)), code_prefix(f.stem)))
+    keep, dropped = [], []
+    for f in pdfs:
+        marked = " - DS - " in f.name or " - IG - " in f.name
+        key = (group_of(f.relative_to(root)), code_prefix(f.stem))
+        if marked and key in plain:
+            dropped.append(f.name)
+        else:
+            keep.append(f)
+    return keep, dropped
 
 
 def slug(s: str) -> str:
@@ -452,6 +502,19 @@ def main():
         p for p in SOURCE.rglob("*.pdf")
         if not any(k in str(p) for k in SKIP)
     )
+    pdfs, supplements = drop_supplements(pdfs, SOURCE)
+
+    # A datasheet announces its item code in its filename - "L7 - DS - ...",
+    # "DH4 - Salto ...", "A - Pool Light ...". One that does not is a vendor
+    # download nobody has filed yet, and it would otherwise enter the register
+    # carrying a part number as its item code ("085329_qs_link_power_supply").
+    # Held out and named, rather than shown as an item or dropped in silence.
+    filed, unfiled = [], []
+    for f in pdfs:
+        pre = code_prefix(f.stem)
+        (filed if (" - " in f.stem and
+                   re.fullmatch(r"[A-Z]{1,3}[0-9.]*", pre)) else unfiled).append(f)
+    pdfs = filed
     items, problems = [], []
     links = drive_links()
 
@@ -465,7 +528,7 @@ def main():
         rec = parse_summary(doc[0])
         pages = doc.page_count
         code_for_img = (rec or {}).get("code") or p.stem.split(" ")[0]
-        picture, how = pick_image(doc, code_for_img, p.stem)
+        picture, how = pick_image(doc, code_for_img, p.stem, p)
         doc.close()
 
         if rec is None:
@@ -476,7 +539,16 @@ def main():
         else:
             curated = True
 
-        code = rec["code"] or p.stem.split(" ")[0]
+        # The FILENAME carries the item code, not the summary page. The two
+        # drift: the door sheets say "4" inside while the file is called
+        # "DH4 - ...", and the electrical ones say "03" while the file is
+        # "E3 - ...". The filename is what the folder is organised by and
+        # what anyone reads off a folder listing, so it wins - but only when
+        # it actually looks like a code (letters then digits), which leaves
+        # the pool lights, filed as plain "A" and "B", alone.
+        prefix = code_prefix(p.stem)
+        code = (prefix if re.fullmatch(r"[A-Z]{1,3}[0-9][0-9.]*", prefix)
+                else (rec["code"] or prefix))
         items.append({
             "id": slug(group + "-" + code + "-" + rec["title"][:40]),
             "code": code,
@@ -512,6 +584,14 @@ def main():
 
     print("%d datasheets across %d groups" % (
         len(items), len({r["group"] for r in items})))
+    if supplements:
+        print("  %-14s %d (vendor datasheets and installation guides "
+              "superseded by a curated sheet)" % ("supplements", len(supplements)))
+    if unfiled:
+        print("  NOT FILED UNDER AN ITEM CODE, so left out (%d):" % len(unfiled))
+        for f in unfiled:
+            print("      " + str(f.relative_to(SOURCE)))
+        print("      Rename each as \"<CODE> - <name>.pdf\" to bring it in.")
     for k in ("as_specified", "substitution", "deviation", "to_review",
               "not_stated"):
         if by_status.get(k):
@@ -543,7 +623,7 @@ def main():
     # WebP, not JPEG: most of these are product cutouts on flat white or flat
     # black, and JPEG rings visibly around those hard edges at any size worth
     # shipping.
-    img_bytes = n_auto = n_over = 0
+    img_bytes = n_auto = n_over = n_beside = 0
     for r in items:
         pic = r.pop("_pic", None)
         how = r.pop("_pic_how", None)
@@ -558,6 +638,7 @@ def main():
         img_bytes += dest.stat().st_size
         n_auto += how == "auto"
         n_over += how == "override"
+        n_beside += how == "beside"
     for old in OUT_PDFS.glob("*.pdf"):
         old.unlink()
     # Copy from the path recorded ON each item, never by zipping the two
@@ -588,8 +669,9 @@ def main():
     }
     OUT_JSON.write_text(json.dumps(payload, indent=1, ensure_ascii=False),
                         encoding="utf-8")
-    print("  %-28s %2d auto + %d override, %.1f MB"
-          % (str(OUT_IMGS.relative_to(REPO)), n_auto, n_over, img_bytes/1048576))
+    print("  %-28s %2d auto + %d beside + %d override, %.1f MB"
+          % (str(OUT_IMGS.relative_to(REPO)), n_auto, n_beside, n_over,
+             img_bytes / 1048576))
     # An override that matches nothing is the quiet failure here: the file
     # sits in the folder looking done while the register still shows the
     # picture it was meant to replace. Renaming a datasheet at the source is
