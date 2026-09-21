@@ -132,6 +132,13 @@ MAKER_LINKS = HERE / "maker-links.csv"
 
 
 def drive_links(path=None):
+    """A two-column CSV as {key: url}, keys lowercased.
+
+    The key may be an item code OR a datasheet slug. The slug is the one to
+    publish: codes are not unique (83 items, 82 distinct codes) and the
+    installation guides and vendor datasheets carried in `extras` have no code
+    at all. Same precedence as the picture overrides, for the same reason.
+    """
     path = path or LINKS
     if not path.exists():
         return {}
@@ -141,11 +148,19 @@ def drive_links(path=None):
         for row in csv.reader(fh):
             if len(row) < 2:
                 continue
-            code, url = row[0].strip(), row[1].strip()
+            key, url = row[0].strip(), row[1].strip()
             if not url.lower().startswith("http"):
                 continue          # skips a header row without needing to know
-            out[code.lower()] = url
+            out[key.lower()] = url
     return out
+
+
+def link_for(table, stem, code=""):
+    """The link for one file: by its slug first, then by item code."""
+    for k in (slug(stem), (code or "").lower()):
+        if k and k in table:
+            return table[k]
+    return ""
 
 
 # ------------------------------------------------------------- pictures
@@ -592,13 +607,14 @@ def main():
             "pages": pages,
             "bytes": p.stat().st_size,
             "source": str(rel).replace("\\", "/"),
-            "drive_url": links.get(code.lower(), ""),
-            "maker_url": makers.get(code.lower(), ""),
+            "drive_url": link_for(links, p.stem, code),
+            "maker_url": link_for(makers, p.stem, code),
             "extras": [
                 {"kind": kind,
                  "pdf": "datasheets/" + slug(f.stem) + ".pdf",
                  "source": str(f.relative_to(SOURCE)).replace("\\", "/"),
-                 "bytes": f.stat().st_size}
+                 "bytes": f.stat().st_size,
+                 "drive_url": link_for(links, f.stem)}
                 for kind, f in sorted(extras.get(p, []), key=lambda t: t[0])
             ],
             "image": "img/" + slug(p.stem) + ".webp" if picture else "",

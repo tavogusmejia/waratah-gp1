@@ -233,7 +233,7 @@
   }
 
   function href(it) {
-    return it.drive_url ? it.drive_url : "./" + it.pdf;
+    return it.drive_url ? it.drive_url : (it.pdf ? "./" + it.pdf : "");
   }
 
   function openSheet(id) {
@@ -294,15 +294,28 @@
           : "") +
         (it.extras && it.extras.length
           ? it.extras.map(function (x) {
-              return '<a class="extra" href="./' + esc(x.pdf) + '" ' +
+              var u = href(x);
+              if (!u) {
+                return '<span class="extra off">' + icon(I.out) +
+                  esc(x.kind) + "<em>not linked</em></span>";
+              }
+              return '<a class="extra" href="' + esc(u) + '" ' +
                 'target="_blank" rel="noopener">' + icon(I.out) +
                 esc(x.kind) + "<em>" + size(x.bytes) + "</em></a>";
             }).join("")
           : "") +
-        '<a class="open" href="' + esc(href(it)) + '" target="_blank" rel="noopener">' +
-          icon(I.out) + "Open the datasheet <em>" + it.pages +
-          (it.pages === 1 ? " page" : " pages") + " &middot; " +
-          size(it.bytes) + "</em></a>" +
+        "</div>" +
+        /* A gap has to read as a gap. With neither a link nor a local copy
+           there is nothing to open, so say so rather than hand over a button
+           that 404s - the extent still says what you are missing. */
+        (href(it)
+          ? '<a class="open" href="' + esc(href(it)) + '" target="_blank" ' +
+            'rel="noopener">' + icon(I.out) + "Open the datasheet <em>" +
+            it.pages + (it.pages === 1 ? " page" : " pages") + " &middot; " +
+            size(it.bytes) + "</em></a>"
+          : '<span class="open off">Not linked yet <em>' + it.pages +
+            (it.pages === 1 ? " page" : " pages") + " &middot; " +
+            size(it.bytes) + "</em></span>") +
       "</div>";
 
     els.sheet.classList.add("on");

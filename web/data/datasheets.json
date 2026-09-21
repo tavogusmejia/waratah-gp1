@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T19:01:20Z",
+ "generated": "2026-09-21T20:03:14Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -702,7 +702,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh1-ds-hafele-startec-concealed-hinge-b.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH1 - DS - Hafele Startec Concealed Hinge B.pdf",
-     "bytes": 739874
+     "bytes": 739874,
+     "drive_url": ""
     }
    ],
    "image": "img/dh1-hafele-startec-concealed-hinge.webp"
@@ -754,13 +755,15 @@
      "kind": "Installation guide",
      "pdf": "datasheets/dh2-ig-salto-london-lever-handle.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH2 - IG - Salto London Lever Handle.pdf",
-     "bytes": 585528
+     "bytes": 585528,
+     "drive_url": ""
     },
     {
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh2-ds-salto-london-lever-handle.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH2 - DS - Salto London Lever Handle.pdf",
-     "bytes": 144342
+     "bytes": 144342,
+     "drive_url": ""
     }
    ],
    "image": "img/dh2-salto-london-lever-handle.webp"
@@ -816,13 +819,15 @@
      "kind": "Installation guide",
      "pdf": "datasheets/dh3-ig-salto-aelement-fusion-lockset-ring-reader.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH3 - IG - Salto AElement Fusion Lockset & Ring Reader.pdf",
-     "bytes": 122498
+     "bytes": 122498,
+     "drive_url": ""
     },
     {
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh3-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH3 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
-     "bytes": 144342
+     "bytes": 144342,
+     "drive_url": ""
     }
    ],
    "image": "img/dh3-salto-aelement-fusion-lockset-ring-reader.webp"
@@ -874,13 +879,15 @@
      "kind": "Installation guide",
      "pdf": "datasheets/dh4-ig-salto-la1t17-privacy-thumbturn.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH4 - IG - Salto LA1T17 Privacy Thumbturn.pdf",
-     "bytes": 149787
+     "bytes": 149787,
+     "drive_url": ""
     },
     {
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh4-ds-salto-la1t17-privacy-thumbturn.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH4 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
-     "bytes": 144342
+     "bytes": 144342,
+     "drive_url": ""
     }
    ],
    "image": "img/dh4-salto-la1t17-privacy-thumbturn.webp"
@@ -932,7 +939,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh5-ds-hafele-startec-door-viewer-b.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH5 - DS - Hafele Startec Door Viewer B.pdf",
-     "bytes": 700332
+     "bytes": 700332,
+     "drive_url": ""
     }
    ],
    "image": "img/dh5-hafele-startec-door-viewer.webp"
@@ -984,7 +992,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh6-ds-hafele-hawa-junior-80b-pocket.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH6 - DS - Hafele Hawa Junior 80B Pocket.pdf",
-     "bytes": 1128458
+     "bytes": 1128458,
+     "drive_url": ""
     }
    ],
    "image": "img/dh6-hafele-hawa-junior-80b-pocket.webp"
@@ -1036,7 +1045,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh7-ds-hafele-slido-d-line11-160p.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH7 - DS - Hafele Slido D-Line11 160P.pdf",
-     "bytes": 520012
+     "bytes": 520012,
+     "drive_url": ""
     }
    ],
    "image": "img/dh7-hafele-slido-d-line11-160p.webp"
@@ -1088,7 +1098,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh8-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH8 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
-     "bytes": 1424744
+     "bytes": 1424744,
+     "drive_url": ""
     }
    ],
    "image": "img/dh8-assa-abloy-planet-x3-rd-drop-seal.webp"
@@ -1136,7 +1147,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh9-ds-reflect-door-jamb-weatherstrip.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH9 - DS - Reflect Door Jamb Weatherstrip.pdf",
-     "bytes": 1764299
+     "bytes": 1764299,
+     "drive_url": ""
     }
    ],
    "image": "img/dh9-reflect-door-jamb-weatherstrip.webp"
@@ -1188,7 +1200,8 @@
      "kind": "Manufacturer datasheet",
      "pdf": "datasheets/dh10-ds-hafele-door-hinge-top-pivot.pdf",
      "source": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Door Hinge Top Pivot.pdf",
-     "bytes": 222524
+     "bytes": 222524,
+     "drive_url": ""
     }
    ],
    "image": "img/dh10-hafele-door-hinge-top-pivot.webp"
