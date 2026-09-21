@@ -242,6 +242,7 @@
     }
 
     els.sheet.innerHTML =
+      '<div class="grab" aria-hidden="true"><i></i></div>' +
       '<div class="sheet-h">' +
         '<button class="sheet-x" data-close="1" aria-label="Close">' + icon(I.close) + "</button>" +
         '<span class="card-h"><code>' + esc(it.code) + "</code>" +
@@ -294,9 +295,82 @@
 
   function closeSheet() {
     state.open = null;
-    els.sheet.classList.remove("on");
-    els.scrim.classList.remove("on");
+    els.sheet.classList.remove("on", "dragging");
+    els.scrim.classList.remove("on", "dragging");
+    els.sheet.style.transform = "";
+    els.scrim.style.opacity = "";
     document.documentElement.style.overflow = "";
+  }
+
+  /* ---- pull the sheet down to dismiss it (phone layout only) ----------
+
+     On a phone the sheet rises from the bottom, so pulling it back down is
+     the gesture people arrive expecting - and it beats stretching for a
+     close button in the opposite corner one-handed.
+
+     Two rules keep it from fighting the page. It only engages on the phone
+     layout, where the sheet is a bottom sheet rather than a side panel. And
+     a drag that starts inside the scrolling body only counts when that body
+     is already at the top, so pulling down to scroll up through the specs
+     never drags the sheet away instead. */
+  function pullToDismiss() {
+    var phone = window.matchMedia("(max-width: 560px)");
+    var startY = 0, dy = 0, live = false;
+    var lastY = 0, lastT = 0, vy = 0;
+    var H = function () { return els.sheet.offsetHeight || 1; };
+
+    function begin(ev) {
+      if (!phone.matches || !state.open || ev.touches.length !== 1) return;
+      var body = ev.target.closest(".sheet-b");
+      if (body && body.scrollTop > 0) return;
+      startY = lastY = ev.touches[0].clientY;
+      lastT = Date.now();
+      dy = 0;
+      vy = 0;
+      live = true;
+      els.sheet.classList.add("dragging");
+      els.scrim.classList.add("dragging");
+    }
+
+    function move(ev) {
+      if (!live) return;
+      dy = ev.touches[0].clientY - startY;
+      if (dy < 0) {
+        /* Pulling up does nothing, but the finger is still down - let the
+           body scroll rather than rubber-banding a sheet that cannot rise. */
+        dy = 0;
+        return;
+      }
+      if (ev.cancelable) ev.preventDefault();
+      /* Speed over the LAST move, not the whole gesture. A drag that dawdles
+         and then flicks is a flick, and a long slow haul is not - averaging
+         from touchstart gets both backwards. */
+      var now = Date.now(), y = ev.touches[0].clientY;
+      if (now > lastT) vy = (y - lastY) / (now - lastT);
+      lastY = y;
+      lastT = now;
+      els.sheet.style.transform = "translateY(" + dy + "px)";
+      els.scrim.style.opacity = String(Math.max(0, 1 - dy / H()));
+    }
+
+    function end() {
+      if (!live) return;
+      live = false;
+      els.sheet.classList.remove("dragging");
+      els.scrim.classList.remove("dragging");
+      els.sheet.style.transform = "";
+      els.scrim.style.opacity = "";
+      /* Far enough, or thrown hard enough. A flick should close even when it
+         barely moved - that is what makes it feel like a sheet rather than a
+         drawer with a minimum. */
+      if (dy > H() * 0.28 || (dy > 40 && vy > 0.45)) closeSheet();
+      dy = 0;
+    }
+
+    els.sheet.addEventListener("touchstart", begin, { passive: true });
+    els.sheet.addEventListener("touchmove", move, { passive: false });
+    els.sheet.addEventListener("touchend", end);
+    els.sheet.addEventListener("touchcancel", end);
   }
 
   /* ---------------------------------------------------------------- wire */
@@ -341,6 +415,8 @@
       setView(b.dataset.v);
       render();
     });
+
+    pullToDismiss();
 
     addEventListener("keydown", function (e) {
       if (e.key === "Escape" && state.open) closeSheet();

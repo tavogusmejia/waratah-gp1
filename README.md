@@ -88,6 +88,17 @@ notes, and every specification label and value), a manufacturer filter built
 from the data itself, and the group rail. Items are always shown grouped,
 because the submittal letters are how the team refers to them out loud.
 
+**Pull the sheet down to dismiss it.** On a phone the item panel rises from
+the bottom, so dragging it back down is the gesture people arrive expecting —
+and it saves stretching for a close button in the opposite corner one-handed.
+A grab handle marks it. Two rules keep it from fighting the page: it only
+engages on the phone layout, where the panel is a bottom sheet rather than a
+side one; and a drag starting inside the scrolling body only counts when that
+body is already at the top, so pulling down to scroll never throws the panel
+away instead. Speed is measured over the last move rather than the whole
+gesture — a drag that dawdles then flicks is a flick, and a long slow haul is
+not; averaging from the start gets both backwards.
+
 **Two views, remembered between visits.** *Cards* carry a thumbnail — for
 recognising something by sight. *List* drops the pictures and fits roughly
 twice as many rows on screen — for when you know what you are after. The
