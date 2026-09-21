@@ -430,7 +430,12 @@ a { color: inherit; }
 .sheet-meta { margin: 18px 0 0; font-size: 12px; color: var(--ink-3); display: grid; gap: 4px; }
 
 .sheet-f { padding: 14px 20px; border-top: 1px solid var(--line); background: var(--bg); }
-.extras { display: grid; gap: 6px; margin-bottom: 10px; }
+.extras { display: grid; gap: 6px; }
+.extras:not(:empty) { margin-bottom: 10px; }
+/* The manufacturer's page is the one link here that leaves the
+   register, so it carries the brand rather than the neutral border. */
+.extra.maker { border-color: var(--red-line); color: var(--red); }
+.extra.maker:hover { background: var(--red-wash); color: var(--red); }
 .extra {
   display: flex; align-items: center; gap: 9px;
   font-size: 12.5px; text-decoration: none; color: var(--ink-2);

@@ -125,13 +125,19 @@ def group_of(rel):
 # and nothing in the page's code has to change.
 LINKS = HERE / "drive-links.csv"
 
+# Optional, same two-column shape: item code, manufacturer page URL. This is
+# the PRODUCT PAGE, not the datasheet - somewhere to go for current pricing,
+# finishes, or whatever the submittal PDF has stopped being current about.
+MAKER_LINKS = HERE / "maker-links.csv"
 
-def drive_links():
-    if not LINKS.exists():
+
+def drive_links(path=None):
+    path = path or LINKS
+    if not path.exists():
         return {}
     import csv
     out = {}
-    with LINKS.open(encoding="utf-8-sig", newline="") as fh:
+    with path.open(encoding="utf-8-sig", newline="") as fh:
         for row in csv.reader(fh):
             if len(row) < 2:
                 continue
@@ -534,6 +540,7 @@ def main():
     pdfs = filed
     items, problems = [], []
     links = drive_links()
+    makers = drive_links(MAKER_LINKS)
 
     for p in pdfs:
         rel = p.relative_to(SOURCE)
@@ -586,6 +593,7 @@ def main():
             "bytes": p.stat().st_size,
             "source": str(rel).replace("\\", "/"),
             "drive_url": links.get(code.lower(), ""),
+            "maker_url": makers.get(code.lower(), ""),
             "extras": [
                 {"kind": kind,
                  "pdf": "datasheets/" + slug(f.stem) + ".pdf",
@@ -626,6 +634,10 @@ def main():
     if n_links or LINKS.exists():
         print("  %-14s %d of %d  (%s)"
               % ("drive links", n_links, len(items), LINKS.name))
+    n_maker = sum(1 for r in items if r["maker_url"])
+    if n_maker or MAKER_LINKS.exists():
+        print("  %-14s %d of %d  (%s)"
+              % ("maker links", n_maker, len(items), MAKER_LINKS.name))
     thin = [r for r in items if r["curated"] and len(r["specs"]) < 2]
     if thin:
         print("  thin (under 2 fields):")

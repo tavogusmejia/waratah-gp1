@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T18:48:21Z",
+ "generated": "2026-09-21T18:54:09Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -120,6 +120,7 @@
    "bytes": 777856,
    "source": "A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a1-cartridge-filter-clean-clear-cc150.webp"
   },
@@ -160,6 +161,7 @@
    "bytes": 6205005,
    "source": "A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a2-main-filter-pump-intelliflo3-vsf.webp"
   },
@@ -200,6 +202,7 @@
    "bytes": 6205020,
    "source": "A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a3-infinity-edge-pump-intelliflo3-vsf.webp"
   },
@@ -244,6 +247,7 @@
    "bytes": 965385,
    "source": "A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp"
   },
@@ -288,6 +292,7 @@
    "bytes": 872426,
    "source": "A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a5-salt-chlorine-generator-intellichlor-lt25.webp"
   },
@@ -340,6 +345,7 @@
    "bytes": 182325,
    "source": "A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
@@ -400,6 +406,7 @@
    "bytes": 2866341,
    "source": "B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
    "drive_url": "",
+   "maker_url": "https://aquastarpoolproducts.com",
    "extras": [],
    "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
@@ -444,6 +451,7 @@
    "bytes": 1161922,
    "source": "B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/b2-color-match-floor-return-ptfr-03.webp"
   },
@@ -492,6 +500,7 @@
    "bytes": 136146,
    "source": "B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
    "drive_url": "",
+   "maker_url": "https://hayward.com/hydrostream-3-4-opening-1-1-2-mip-gray-sp1419dgr.html",
    "extras": [],
    "image": ""
   },
@@ -540,6 +549,7 @@
    "bytes": 130996,
    "source": "B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hayward.com/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html",
    "extras": [],
    "image": ""
   },
@@ -588,6 +598,7 @@
    "bytes": 1433593,
    "source": "B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
    "drive_url": "",
+   "maker_url": "https://www.spearsmfg.com",
    "extras": [],
    "image": "img/b5-spears-sch-40-pvc.webp"
   },
@@ -636,6 +647,7 @@
    "bytes": 194286,
    "source": "B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
    "drive_url": "",
+   "maker_url": "https://www.pentair.com",
    "extras": [],
    "image": ""
   },
@@ -684,6 +696,7 @@
    "bytes": 744848,
    "source": "D - Doors/DH - Doors Hardware/DH1 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hafele.com/us/en",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -735,6 +748,7 @@
    "bytes": 2392,
    "source": "D - Doors/DH - Doors Hardware/DH2 - Salto London Lever Handle.pdf",
    "drive_url": "",
+   "maker_url": "https://www.saltosystems.com",
    "extras": [
     {
      "kind": "Installation guide",
@@ -796,6 +810,7 @@
    "bytes": 2559,
    "source": "D - Doors/DH - Doors Hardware/DH3 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "drive_url": "",
+   "maker_url": "https://www.saltosystems.com",
    "extras": [
     {
      "kind": "Installation guide",
@@ -853,6 +868,7 @@
    "bytes": 2365,
    "source": "D - Doors/DH - Doors Hardware/DH4 - Salto LA1T17 Privacy Thumbturn.pdf",
    "drive_url": "",
+   "maker_url": "https://www.saltosystems.com",
    "extras": [
     {
      "kind": "Installation guide",
@@ -910,6 +926,7 @@
    "bytes": 703705,
    "source": "D - Doors/DH - Doors Hardware/DH5 - Hafele Startec Door Viewer.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hafele.com/us/en",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -961,6 +978,7 @@
    "bytes": 2430,
    "source": "D - Doors/DH - Doors Hardware/DH6 - Hafele Hawa Junior 80B Pocket.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hafele.com/us/en",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1012,6 +1030,7 @@
    "bytes": 522263,
    "source": "D - Doors/DH - Doors Hardware/DH7 - Hafele Slido D-Line11 160P.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hafele.com/us/en",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1063,6 +1082,7 @@
    "bytes": 1422325,
    "source": "D - Doors/DH - Doors Hardware/DH8 - Assa Abloy Planet X3 RD Drop Seal.pdf",
    "drive_url": "",
+   "maker_url": "https://www.assaabloy.com",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1110,6 +1130,7 @@
    "bytes": 2380,
    "source": "D - Doors/DH - Doors Hardware/DH9 - Reflect Door Jamb Weatherstrip.pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1161,6 +1182,7 @@
    "bytes": 226106,
    "source": "D - Doors/DH - Doors Hardware/DH10 - Hafele Door Hinge Top Pivot.pdf",
    "drive_url": "",
+   "maker_url": "https://www.hafele.com/us/en",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1228,6 +1250,7 @@
    "bytes": 153181,
    "source": "E - Electrical/E1 - Load Center PCC4022R.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e1-load-center-pcc4022r.webp"
   },
@@ -1284,6 +1307,7 @@
    "bytes": 373263,
    "source": "E - Electrical/E2 - Load Center PCC1612.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e2-load-center-pcc1612.webp"
   },
@@ -1340,6 +1364,7 @@
    "bytes": 198824,
    "source": "E - Electrical/E3 - Meter Socket PAMS3022TRNUS.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e3-meter-socket-pams3022trnus.webp"
   },
@@ -1392,6 +1417,7 @@
    "bytes": 495839,
    "source": "E - Electrical/E4 - Surge Protection Device RGWMSP120S08T14.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e4-surge-protection-device-rgwmsp120s08t14.webp"
   },
@@ -1428,6 +1454,7 @@
    "bytes": 66746,
    "source": "E - Electrical/E5 - Arc Fault Breaker THQL1120PAF2.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e5-arc-fault-breaker-thql1120paf2.webp"
   },
@@ -1460,6 +1487,7 @@
    "bytes": 71974,
    "source": "E - Electrical/E6 - MCCB THQL2180.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e6-mccb-thql2180.webp"
   },
@@ -1496,6 +1524,7 @@
    "bytes": 73679,
    "source": "E - Electrical/E7 - MCCB THQL2140.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e7-mccb-thql2140.webp"
   },
@@ -1528,6 +1557,7 @@
    "bytes": 531295,
    "source": "E - Electrical/E8 - Ground Fault Breaker THQL2160GFT2.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e8-ground-fault-breaker-thql2160gft2.webp"
   },
@@ -1560,6 +1590,7 @@
    "bytes": 73364,
    "source": "E - Electrical/E9 - MCCB THQL2120.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e9-mccb-thql2120.webp"
   },
@@ -1596,6 +1627,7 @@
    "bytes": 182484,
    "source": "E - Electrical/E10 - MCCB THQL2130.pdf",
    "drive_url": "",
+   "maker_url": "https://new.abb.com/low-voltage",
    "extras": [],
    "image": "img/e10-mccb-thql2130.webp"
   },
@@ -1640,6 +1672,7 @@
    "bytes": 1472262,
    "source": "F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/f1-robert-mfg-bob-r400-brass-float-valve.webp"
   },
@@ -1692,6 +1725,7 @@
    "bytes": 108302,
    "source": "F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/f2-valveman-brass-foot-valves.webp"
   },
@@ -1740,6 +1774,7 @@
    "bytes": 585264,
    "source": "G - Piping and Valves/G1 - Aquaram Valves.pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/g1-aquaram-valves.webp"
   },
@@ -1780,6 +1815,7 @@
    "bytes": 623296,
    "source": "G - Piping and Valves/G2 - Jandy Check Valves.pdf",
    "drive_url": "",
+   "maker_url": "https://www.jandy.com",
    "extras": [],
    "image": "img/g2-jandy-check-valves.webp"
   },
@@ -1832,6 +1868,7 @@
    "bytes": 1259923,
    "source": "G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
    "drive_url": "",
+   "maker_url": "https://www.spearsmfg.com",
    "extras": [],
    "image": "img/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.webp"
   },
@@ -1884,6 +1921,7 @@
    "bytes": 207707,
    "source": "H - Electrical (Pool Bonding)/H1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/h1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
   },
@@ -1920,6 +1958,7 @@
    "bytes": 2363591,
    "source": "L - Lighting/PL - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
    "drive_url": "",
+   "maker_url": "https://www.lucelight.it",
    "extras": [],
    "image": "img/a-pool-light-l09-cw16005di.webp"
   },
@@ -1960,6 +1999,7 @@
    "bytes": 2669975,
    "source": "L - Lighting/PL - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
    "drive_url": "",
+   "maker_url": "https://www.lucelight.it",
    "extras": [],
    "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   },
@@ -1983,6 +2023,7 @@
    "bytes": 1593231,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN1 - DS - Lutron myRoom XC Processor MP-1L-GCU.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2006,6 +2047,7 @@
    "bytes": 812429,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN2 - DS - Lutron QS Power Supply MQSPS-DH-1-30.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30.webp"
   },
@@ -2029,6 +2071,7 @@
    "bytes": 2176237,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2052,6 +2095,7 @@
    "bytes": 2177769,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.webp"
   },
@@ -2075,6 +2119,7 @@
    "bytes": 2625766,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN5 - DS - Lutron Switching Power Module MQSE-2S1-D.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn5-ds-lutron-switching-power-module-mqse-2s1-d.webp"
   },
@@ -2098,6 +2143,7 @@
    "bytes": 2941124,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.webp"
   },
@@ -2121,6 +2167,7 @@
    "bytes": 7935058,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2144,6 +2191,7 @@
    "bytes": 7935058,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2167,6 +2215,7 @@
    "bytes": 13068838,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2190,6 +2239,7 @@
    "bytes": 121052,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN10 - DS - Lutron Wallbox EBB-1-SQ.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2213,6 +2263,7 @@
    "bytes": 1008141,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2236,6 +2287,7 @@
    "bytes": 1564578,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN12 - DS - Lutron QS Sensor Module QSM2-XW-C.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn12-ds-lutron-qs-sensor-module-qsm2-xw-c.webp"
   },
@@ -2259,6 +2311,7 @@
    "bytes": 865517,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2282,6 +2335,7 @@
    "bytes": 2254244,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN14 - DS - Lutron Claro Wallplate CW-1-WH.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn14-ds-lutron-claro-wallplate-cw-1-wh.webp"
   },
@@ -2305,6 +2359,7 @@
    "bytes": 1597895,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A.pdf",
    "drive_url": "",
+   "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/palladiom-thermostat/mwp-t-ohw",
    "extras": [],
    "image": "img/ltrn15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a.webp"
   },
@@ -2328,6 +2383,7 @@
    "bytes": 962017,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN16 - DS - Lutron Fan-Coil Controller SMC55-MYRM.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2351,6 +2407,7 @@
    "bytes": 3191168,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN17 - DS - Lutron Contact-Closure Interface QSE-IO.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn17-ds-lutron-contact-closure-interface-qse-io.webp"
   },
@@ -2374,6 +2431,7 @@
    "bytes": 82555,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2397,6 +2455,7 @@
    "bytes": 2652695,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2420,6 +2479,7 @@
    "bytes": 2652695,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2443,6 +2503,7 @@
    "bytes": 1703073,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2466,6 +2527,7 @@
    "bytes": 820290,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2489,6 +2551,7 @@
    "bytes": 1745344,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.webp"
   },
@@ -2512,6 +2575,7 @@
    "bytes": 296683,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2535,6 +2599,7 @@
    "bytes": 1984550,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25 - DS - Lutron Sivoia QS Roller 100 Shade.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn25-ds-lutron-sivoia-qs-roller-100-shade.webp"
   },
@@ -2558,6 +2623,7 @@
    "bytes": 2673976,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2581,6 +2647,7 @@
    "bytes": 445416,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Plug-In Power Supply (Shading).pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2604,6 +2671,7 @@
    "bytes": 145396,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26 - DS - Lutron D145 Drapery Track System.pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2627,6 +2695,7 @@
    "bytes": 445416,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Plug-In Power Supply (Shading).pdf",
    "drive_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": ""
   },
@@ -2683,6 +2752,7 @@
    "bytes": 716770,
    "source": "P - Plumbing/J1 - Bradford White 119 gal Water Heater.pdf",
    "drive_url": "",
+   "maker_url": "https://www.bradfordwhite.com",
    "extras": [],
    "image": "img/j1-bradford-white-119-gal-water-heater.webp"
   },
@@ -2735,6 +2805,7 @@
    "bytes": 489502,
    "source": "P - Plumbing/J2 - Taco 2400 Series Recirculation Pump.pdf",
    "drive_url": "",
+   "maker_url": "https://www.tacocomfort.com",
    "extras": [],
    "image": "img/j2-taco-2400-series-recirculation-pump.webp"
   },
@@ -2779,6 +2850,7 @@
    "bytes": 200131,
    "source": "P - Plumbing/J3 - Taco Timer and Aquastat.pdf",
    "drive_url": "",
+   "maker_url": "https://www.tacocomfort.com",
    "extras": [],
    "image": "img/j3-taco-timer-and-aquastat.webp"
   },
@@ -2823,6 +2895,7 @@
    "bytes": 194159,
    "source": "P - Plumbing/J4 - ProFlo Hose Bibb PF71.pdf",
    "drive_url": "",
+   "maker_url": "https://www.ferguson.com",
    "extras": [],
    "image": "img/j4-proflo-hose-bibb-pf71.webp"
   },
@@ -2883,6 +2956,7 @@
    "bytes": 728444,
    "source": "P - Plumbing/J5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
    "drive_url": "",
+   "maker_url": "",
    "extras": [],
    "image": "img/j5-us-solid-316-ss-mini-ball-valve-angle-valve.webp"
   },
@@ -2923,6 +2997,7 @@
    "bytes": 289956,
    "source": "P - Plumbing/J6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
    "drive_url": "",
+   "maker_url": "https://www.brasscraft.com",
    "extras": [],
    "image": "img/j6-brasscraft-ktcr19-angle-stop-valve.webp"
   },
@@ -2963,6 +3038,7 @@
    "bytes": 270583,
    "source": "P - Plumbing/J7 - ProFlo PFX146 Braided Supply Hose.pdf",
    "drive_url": "",
+   "maker_url": "https://www.ferguson.com",
    "extras": [],
    "image": "img/j7-proflo-pfx146-braided-supply-hose.webp"
   },
@@ -3003,6 +3079,7 @@
    "bytes": 861065,
    "source": "P - Plumbing/J8 - ProFlo P-Trap PFPTB107.pdf",
    "drive_url": "",
+   "maker_url": "https://www.ferguson.com",
    "extras": [],
    "image": "img/j8-proflo-p-trap-pfptb107.webp"
   },
@@ -3051,6 +3128,7 @@
    "bytes": 224176,
    "source": "P - Plumbing/J9 - JM Micro-Lok HP Pipe Insulation.pdf",
    "drive_url": "",
+   "maker_url": "https://www.jm.com",
    "extras": [],
    "image": "img/j9-jm-micro-lok-hp-pipe-insulation.webp"
   },
@@ -3074,6 +3152,7 @@
    "bytes": 161420,
    "source": "P - Plumbing/J9 - Poly Pipe Insulation.pdf",
    "drive_url": "",
+   "maker_url": "https://www.jm.com",
    "extras": [],
    "image": "img/j9-poly-pipe-insulation.webp"
   },
@@ -3122,6 +3201,7 @@
    "bytes": 268756,
    "source": "P - Plumbing/J11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
    "drive_url": "",
+   "maker_url": "https://www.charlottepipe.com",
    "extras": [],
    "image": "img/j11-charlotte-pvc-sch-40-cold-water-service.webp"
   },
@@ -3174,6 +3254,7 @@
    "bytes": 216368,
    "source": "P - Plumbing/J12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
    "drive_url": "",
+   "maker_url": "https://www.charlottepipe.com",
    "extras": [],
    "image": "img/j12-charlotte-flowguard-cpvc-cold-water-distribution.webp"
   },
@@ -3226,6 +3307,7 @@
    "bytes": 216387,
    "source": "P - Plumbing/J13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
    "drive_url": "",
+   "maker_url": "https://www.charlottepipe.com",
    "extras": [],
    "image": "img/j13-charlotte-flowguard-cpvc-hot-water-distribution.webp"
   },
@@ -3262,6 +3344,7 @@
    "bytes": 221895,
    "source": "P - Plumbing/J14 - ProFlo Plastic Roof Drain PF42870.pdf",
    "drive_url": "",
+   "maker_url": "https://www.ferguson.com",
    "extras": [],
    "image": "img/j14-proflo-plastic-roof-drain-pf42870.webp"
   }

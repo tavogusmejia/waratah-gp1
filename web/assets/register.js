@@ -280,15 +280,24 @@
         "</div>" +
       "</div>" +
       '<div class="sheet-f">' +
-        /* Whatever else the source ships for this item - an installation
-           guide, the vendor's own datasheet. Worth having in front of
-           someone standing at the door with a screwdriver. */
+        /* Everything else this item comes with, above the datasheet button:
+           the manufacturer's own page (the submittal PDF is a snapshot, the
+           page is what stays current), then whatever the source ships
+           alongside - an installation guide, the vendor datasheet. Worth
+           having in front of somebody standing at the door with a
+           screwdriver. */
+        '<div class="extras">' +
+        (it.maker_url
+          ? '<a class="extra maker" href="' + esc(it.maker_url) + '" ' +
+            'target="_blank" rel="noopener noreferrer">' + icon(I.out) +
+            esc(it.manufacturer || "Manufacturer") + " page</a>"
+          : "") +
         (it.extras && it.extras.length
-          ? '<div class="extras">' + it.extras.map(function (x) {
+          ? it.extras.map(function (x) {
               return '<a class="extra" href="./' + esc(x.pdf) + '" ' +
                 'target="_blank" rel="noopener">' + icon(I.out) +
                 esc(x.kind) + "<em>" + size(x.bytes) + "</em></a>";
-            }).join("") + "</div>"
+            }).join("")
           : "") +
         '<a class="open" href="' + esc(href(it)) + '" target="_blank" rel="noopener">' +
           icon(I.out) + "Open the datasheet <em>" + it.pages +
