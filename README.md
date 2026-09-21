@@ -88,6 +88,15 @@ notes, and every specification label and value), a manufacturer filter built
 from the data itself, and the group rail. Items are always shown grouped,
 because the submittal letters are how the team refers to them out loud.
 
+**The group rail is a wide-screen thing.** On a phone it used to be a
+horizontal scroll strip that showed two groups out of ten, with its scrollbar
+hidden and nothing to suggest the rest existed — the register's main axis,
+effectively unreachable. A group picker in the toolbar replaces it there, and
+the toolbar itself sticks to the top of the viewport so search and filters do
+not mean a trip back up the page. Its background bleeds past the wrapper's
+padding, because a sticky bar inside a padded wrapper otherwise lets content
+slide up its sides.
+
 **Pull the sheet down to dismiss it.** On a phone the item panel rises from
 the bottom, so dragging it back down is the gesture people arrive expecting —
 and it saves stretching for a close button in the opposite corner one-handed.

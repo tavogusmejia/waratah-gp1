@@ -199,6 +199,28 @@ a { color: inherit; }
   background: var(--bg-raise); padding: 9px 11px; max-width: 230px;
 }
 .pick:hover { border-color: var(--slate); }
+.groupsel { display: none; }
+
+/* ---- the toolbar on a phone ----------------------------------------- */
+@media (max-width: 860px) {
+  .groupsel { display: block; }
+  /* Stays put while a long list scrolls past: on a phone the filters are
+     otherwise a trip back to the top of the page every time. The negative
+     margin lets its background reach the screen edges, which a sticky bar
+     inside a padded wrapper does not do on its own - content slides up the
+     sides of it instead. */
+  .bar {
+    position: sticky; top: 0; z-index: 6;
+    background: var(--bg); border-bottom: 1px solid var(--line-2);
+    margin-left: calc(-1 * clamp(16px, 3vw, 32px));
+    margin-right: calc(-1 * clamp(16px, 3vw, 32px));
+    padding: 12px clamp(16px, 3vw, 32px);
+    gap: 8px;
+  }
+  .search { flex: 1 1 100%; max-width: none; }
+  .pick { flex: 1 1 0; max-width: none; min-width: 0; }
+  .count { width: 100%; margin-left: 0; text-align: right; }
+}
 
 .count { margin-left: auto; font-size: 12.5px; color: var(--ink-3); }
 
@@ -208,15 +230,18 @@ a { color: inherit; }
 @media (max-width: 860px) { .cols { grid-template-columns: 1fr; gap: 16px; } }
 
 .rail { position: sticky; top: 16px; align-self: start; }
+/* The rail is a wide-screen thing. On a phone it became a horizontal scroll
+   strip showing two groups out of ten, with the scrollbar hidden and nothing
+   to suggest the rest existed - so the register's main axis was unreachable.
+   The group picker in the toolbar replaces it there. */
 @media (max-width: 860px) {
-  .rail { position: static; display: flex; gap: 6px; overflow-x: auto; padding-bottom: 6px; }
-  .rail::-webkit-scrollbar { height: 0; }
+  .rail { display: none; }
 }
 .rail h3 {
   margin: 0 0 10px; font-size: 10.5px; font-weight: 600; letter-spacing: .14em;
   text-transform: uppercase; color: var(--ink-3);
 }
-@media (max-width: 860px) { .rail h3 { display: none; } }
+
 .rail button {
   display: flex; width: 100%; align-items: baseline; gap: 9px;
   font: inherit; font-size: 13.5px; text-align: left; cursor: pointer;
@@ -230,7 +255,7 @@ a { color: inherit; }
   border: 1px solid var(--line); border-radius: 3px; padding: 3px 4px;
 }
 .rail button b { margin-left: auto; font-weight: 400; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
-@media (max-width: 860px) { .rail button { width: auto; border: 1px solid var(--line); } .rail button b { margin-left: 4px; } }
+
 
 /* ----------------------------------------------------------------- items */
 

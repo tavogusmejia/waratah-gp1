@@ -177,6 +177,7 @@
       var k = btns[b].dataset.g;
       btns[b].setAttribute("aria-pressed", String(state.group === k));
     }
+    if (els.groupsel.value !== state.group) els.groupsel.value = state.group;
   }
 
   function renderMakers() {
@@ -200,13 +201,21 @@
     var html = "<h3>Groups</h3>" +
       '<button data-g="" aria-pressed="true">All groups<b>' +
       state.items.length + "</b></button>";
+    /* The same choice, twice: a rail with room to breathe on a wide screen,
+       and a picker on a phone. The rail used to be a horizontal scroll strip
+       there, which showed two groups out of ten and gave no hint the rest
+       existed - the main way round the register, effectively hidden. */
+    var opts = '<option value="">All groups (' + state.items.length + ")</option>";
     for (var i = 0; i < state.groups.length; i++) {
       var g = state.groups[i];
       if (!g.count) continue;
       html += '<button data-g="' + esc(g.key) + '" aria-pressed="false"><kbd>' +
         esc(g.key) + "</kbd> " + esc(g.name) + "<b>" + g.count + "</b></button>";
+      opts += '<option value="' + esc(g.key) + '">' + esc(g.name) +
+              " (" + g.count + ")</option>";
     }
     els.rail.innerHTML = html;
+    els.groupsel.innerHTML = opts;
   }
 
   /* --------------------------------------------------------------- sheet */
@@ -395,6 +404,7 @@
         state.q = ""; state.group = ""; state.maker = "";
         els.search.value = "";
         els.maker.value = "";
+        els.groupsel.value = "";
         render();
       }
     });
@@ -402,6 +412,12 @@
     els.maker.addEventListener("change", function () {
       state.maker = els.maker.value;
       render();
+    });
+
+    els.groupsel.addEventListener("change", function () {
+      state.group = els.groupsel.value;
+      render();
+      els.list.scrollIntoView({ block: "start" });
     });
 
     document.querySelector(".themeq").addEventListener("click", function (e) {
@@ -456,6 +472,7 @@
   els.count = document.getElementById("count");
   els.search = document.getElementById("q");
   els.maker = document.getElementById("maker");
+  els.groupsel = document.getElementById("groupsel");
   els.sheet = document.getElementById("sheet");
   els.scrim = document.getElementById("scrim");
 
