@@ -73,7 +73,12 @@ SOURCE = Path(os.environ.get(
 # paperwork the datasheets came wrapped in, not a datasheet. Those folders were
 # deleted (10.2 MB that said nothing the register shows); the rule stays so
 # that dropping a fresh submittal in here, transmittal and all, still works.
-SKIP = ("reference", "Item Index & Links", "Mockup Room 1 - Electrical Distribution")
+# "- Comparison -" marks a document that weighs two products against each
+# other rather than specifying one. Useful paperwork, but it is not any single
+# item's datasheet, so it stays in the submittal folder and out of the
+# register - J9 had it sitting beside the two sheets it compares.
+SKIP = ("reference", "Item Index & Links",
+        "Mockup Room 1 - Electrical Distribution", "- Comparison -")
 
 # The groups, in the order the register reads them. The letters are the
 # submittal's own, which is why there is no C or I - and why D now means Doors
