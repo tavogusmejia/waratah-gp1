@@ -103,24 +103,32 @@ def linkrow(r):
         'title="Search Google for ' + e(term(r)) + '">'
         + e(r["title"]) +
         '<span class="act">Search Google</span></a>'
+        '<div class="lfield">'
         '<input class="lurl" type="url" inputmode="url" spellcheck="false" '
         'placeholder="https://… the product page" '
         'value="' + e(r["url"]) + '" '
         'aria-label="Manufacturer page for ' + e(r["key"]) + '">'
+        '<button class="lok" type="button">This one is right</button>'
+        '</div>'
         '</li>')
 
+
+_d = json.loads((REPO / "web/data/datasheets.json").read_text(encoding="utf-8"))
+TOTAL_ITEMS = len(_d["items"])
+TOTAL_PICS = sum(1 for i in _d["items"] if i["image"])
 
 LINKS = (
     '<section class="block links" id="links">'
     '<header class="blockhead">'
-    '<h2>Manufacturer pages<span class="tally" id="ltally">0</span></h2>'
-    '<p>One link per item, to the product page rather than the datasheet - '
-    'where it lives now, for current finishes, options and pricing. '
-    'Prefilled where it could be: three are real product pages, the rest are '
-    'the manufacturer&rsquo;s site, which is a starting point rather than an '
-    'answer. Paste over them &mdash; each one saves itself a second after '
-    'you stop typing, and the row turns green only once the database has '
-    'read it back. Nothing waits on a button.</p>'
+    '<h2>Links to confirm<span class="tally" id="ltally">0</span></h2>'
+    '<p>The ones still open. ' + str(TOTAL_ITEMS - len(links)) + ' are '
+    'already confirmed and have left this list. Each row wants the product '
+    'page &mdash; where the item lives now, for current finishes, options '
+    'and pricing &mdash; rather than the datasheet. What is in the box is a '
+    'guess, usually just the manufacturer&rsquo;s site: paste over it, or '
+    'press <em>This one is right</em> if the guess already points where it '
+    'should. Either way it saves itself, and the row turns green once the '
+    'database has read it back.</p>'
     '<p class="lstate" id="lstate">Connecting&hellip;</p>'
     '<div class="lbtns">'
     '<button class="all" type="button" id="lsave">Save every link</button>'
@@ -136,9 +144,6 @@ LINKS = (
 n = {k: sum(1 for r in rows if r["verdict"] == k)
      for k in ("wrong", "weak", "missing", "note")}
 _reg = json.load(open(HERE.parents[0] / "reg.json", encoding="utf-8")) if False else None
-_d = json.loads((REPO / "web/data/datasheets.json").read_text(encoding="utf-8"))
-TOTAL_ITEMS = len(_d["items"])
-TOTAL_PICS = sum(1 for i in _d["items"] if i["image"])
 
 CSS = """
 :root{
@@ -302,6 +307,13 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .lrow.kept .lurl { border-color: var(--green); }
 .lrow.lost { box-shadow: inset 3px 0 0 var(--red); }
 .lrow.lost .lurl { border-color: var(--red); }
+.lfield { display: flex; gap: 8px; align-items: center; }
+.lfield .lurl { flex: 1 1 auto; min-width: 0; }
+.lok { flex: 0 0 auto; font: inherit; font-size: 11.5px; white-space: nowrap;
+  color: var(--ink2); background: var(--raise); border: 1px solid var(--line);
+  border-radius: 7px; padding: 8px 10px; cursor: pointer; }
+.lok:hover { border-color: var(--green); color: var(--green); }
+.lrow.kept .lok { border-color: var(--green); color: var(--green); }
 .lstate { margin: 10px 0 0; font: 500 12.5px/1.5 var(--mono); color: var(--green); }
 .lstate.warn { color: var(--amber); }
 .lbtns { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
@@ -310,7 +322,7 @@ button.chip.done { color: var(--green); border-color: var(--green); }
           align-items: center; gap: 8px 20px; }
   .lident { grid-column: 1; }
   .ltitle { grid-column: 1; grid-row: 2; }
-  .lurl { grid-column: 2; grid-row: 1 / span 2; }
+  .lfield { grid-column: 2; grid-row: 1 / span 2; }
 }
 
 /* ---- drop target ---------------------------------------------------- */

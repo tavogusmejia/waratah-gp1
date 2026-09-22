@@ -399,6 +399,21 @@ document.addEventListener("click", function (ev) {
     saveLink(row);
   }, true);
 
+  /* A prefilled guess that happens to be right still has to be confirmed,
+     or it can never leave the list. This saves the row as it stands. */
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".lok");
+    if (!b) return;
+    var row = b.closest(".lrow");
+    clearTimeout(timers[row.getAttribute("data-slug")]);
+    timers[row.getAttribute("data-slug")] = 0;
+    b.textContent = "Saving…";
+    saveLink(row).then(function (ok) {
+      b.textContent = ok ? "Confirmed" : "Would not save";
+      if (!ok) setTimeout(function () { b.textContent = "This one is right"; }, 2600);
+    });
+  });
+
   document.addEventListener("visibilitychange", function () {
     if (document.visibilityState === "hidden") flush();
   });

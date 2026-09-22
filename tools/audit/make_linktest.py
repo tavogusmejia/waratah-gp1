@@ -93,7 +93,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("83 link rows", all.length === 83, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 39, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
@@ -173,6 +173,18 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   await wait(500);
   ok("hiding the tab writes what was still queued", !!window.__store["maker/" + s4]);
 
+  /* 6b. confirming a prefill that is already right */
+  var r6 = all[6], s6 = r6.getAttribute("data-slug");
+  var had = r6.querySelector(".lurl").value.trim();
+  r6.querySelector(".lok").click();
+  await wait(700);
+  ok("This one is right saves the row untouched",
+     !!window.__store["maker/" + s6] &&
+     window.__store["maker/" + s6].url === had, had.slice(0, 40));
+  ok("and the row goes green", r6.classList.contains("kept"), r6.className);
+  ok("the button says so", r6.querySelector(".lok").textContent === "Confirmed",
+     r6.querySelector(".lok").textContent);
+
   /* 7. the clipboard escape hatch */
   document.getElementById("lcopy").click();
   await wait(400);
@@ -186,7 +198,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   /* 8. prefilled links survived */
   var filled = [].filter.call(rows(), function (r) {
     return r.querySelector(".lurl").value.trim(); });
-  ok("the prefilled links survived the rebuild", filled.length >= 70,
+  ok("every open row carries a guess to work from", filled.length >= 35,
      filled.length + " filled");
 
   /* 9. the sweep button */

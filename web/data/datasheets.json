@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22T16:13:48Z",
+ "generated": "2026-09-22T20:29:30Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -448,7 +448,7 @@
    "bytes": 136146,
    "source": "B - In-Pool Fittings/B3 - Hayward SP1419D.pdf",
    "drive_url": "https://drive.google.com/file/d/1Z1WBxFpGQCoQjzgc9uLDPMTwYJavczsK/view",
-   "maker_url": "https://hayward.com/hydrostream-3-4-opening-1-1-2-mip-gray-sp1419dgr.html",
+   "maker_url": "https://www.inyopools.com/Products/02200022061653.htm",
    "extras": [],
    "image": "img/b3-hayward-sp1419d.webp"
   },
@@ -497,7 +497,7 @@
    "bytes": 130996,
    "source": "B - In-Pool Fittings/B4 - Hayward SP1022.pdf",
    "drive_url": "https://drive.google.com/file/d/1JLCcrTQR-Xfv3mrvqmseVQcGEPEvIZqK/view",
-   "maker_url": "https://www.hayward.com/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html",
+   "maker_url": "https://www.hayward.comhttps://www.hayward.com/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html",
    "extras": [],
    "image": "img/b4-hayward-sp1022.webp"
   },
@@ -546,7 +546,7 @@
    "bytes": 1433593,
    "source": "B - In-Pool Fittings/B5 - Spears Sch 40 PVC.pdf",
    "drive_url": "https://drive.google.com/file/d/1VkqsHjSt-N3ETvHtn6PBP3-UxTZWtiVE/view",
-   "maker_url": "https://www.spearsmfg.com",
+   "maker_url": "https://www.spearsmfg.com/",
    "extras": [],
    "image": "img/b5-spears-sch-40-pvc.webp"
   },
@@ -595,7 +595,7 @@
    "bytes": 744848,
    "source": "D - Doors/DH - Doors Hardware/DH1 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "https://drive.google.com/file/d/16pdugb77I2uUgIRzeVkwHLqBT2vOTU-Y/view",
-   "maker_url": "https://www.hafele.com/us/en",
+   "maker_url": "https://www.hafele.com/th/en/product/door-hinge-concealed-for-flush-interior-doors-up-to-80-100-kg/92791833/?MasterSKU=P-00862553",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -648,7 +648,7 @@
    "bytes": 2392,
    "source": "D - Doors/DH - Doors Hardware/DH2 - Salto London Lever Handle.pdf",
    "drive_url": "https://drive.google.com/file/d/1rGHCV5nXzzU2W3ttGbrZmnh9zzbmL4Tq/view",
-   "maker_url": "https://www.saltosystems.com",
+   "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
    "extras": [
     {
      "kind": "Installation guide",
@@ -712,7 +712,7 @@
    "bytes": 2559,
    "source": "D - Doors/DH - Doors Hardware/DH3 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "drive_url": "https://drive.google.com/file/d/1azMX3mecepvYCU_YbZM-20V0CC04EZ92/view",
-   "maker_url": "https://www.saltosystems.com",
+   "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
    "extras": [
     {
      "kind": "Installation guide",
@@ -772,7 +772,7 @@
    "bytes": 2365,
    "source": "D - Doors/DH - Doors Hardware/DH4 - Salto LA1T17 Privacy Thumbturn.pdf",
    "drive_url": "https://drive.google.com/file/d/1KDcgwCYRJHgUzi7WDajvlxSYobNDezh-/view",
-   "maker_url": "https://www.saltosystems.com",
+   "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
    "extras": [
     {
      "kind": "Installation guide",
@@ -832,7 +832,7 @@
    "bytes": 703705,
    "source": "D - Doors/DH - Doors Hardware/DH5 - Hafele Startec Door Viewer.pdf",
    "drive_url": "https://drive.google.com/file/d/1taDy6HWe9mURv-3csyIISyWkoXZVWFlX/view",
-   "maker_url": "https://www.hafele.com/us/en",
+   "maker_url": "https://www.hafele.si/en/product/door-viewer-up-to-door-thickness-82-mm-startec/95901042/?MasterSKU=P-00873696",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -885,7 +885,7 @@
    "bytes": 2430,
    "source": "D - Doors/DH - Doors Hardware/DH6 - Hafele Hawa Junior 80B Pocket.pdf",
    "drive_url": "https://drive.google.com/file/d/1KEKlK2lmnlnGTy4JS8llB6FRgY27ny80/view",
-   "maker_url": "https://www.hafele.com/us/en",
+   "maker_url": "https://www.hafele.co.uk/en/product/fitting-set-for-sliding-interior-pocket-doors-hawa-junior-100-b-pocket/P-01580146/",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -938,7 +938,7 @@
    "bytes": 522263,
    "source": "D - Doors/DH - Doors Hardware/DH7 - Hafele Slido D-Line11 160P.pdf",
    "drive_url": "https://drive.google.com/file/d/1Ps_XhTmREpUwHuTEPXPmwgDFFcTNScDf/view",
-   "maker_url": "https://www.hafele.com/us/en",
+   "maker_url": "https://www.hafele.com/us/en/product/sliding-door-hardware-haefele-slido-d-line11-160p-set/94162018/?MasterSKU=P-01499186",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -991,7 +991,7 @@
    "bytes": 1422325,
    "source": "D - Doors/DH - Doors Hardware/DH8 - Assa Abloy Planet X3 RD Drop Seal.pdf",
    "drive_url": "https://drive.google.com/file/d/1kYs6CUQ2gA1ym2tQc5U80G2Wwg_rApuK/view",
-   "maker_url": "https://www.assaabloy.com",
+   "maker_url": "https://www.assaabloy.https://dach.assaabloy.com/ch/en/product-catalogue/planet-t611079-p371898-planet-x3?checked=e83d5b8f81a6afba04548af4772e898ad632de92b684c70037bf9eede1b820a3com",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1040,7 +1040,7 @@
    "bytes": 2380,
    "source": "D - Doors/DH - Doors Hardware/DH9 - Reflect Door Jamb Weatherstrip.pdf",
    "drive_url": "https://drive.google.com/file/d/1IL2DdOMg-kSJi_HNeepMD5ILxxvNqBjJ/view",
-   "maker_url": "",
+   "maker_url": "https://www.reflectwindow.com/collections/window-bulb-weatherstripping",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1093,7 +1093,7 @@
    "bytes": 226106,
    "source": "D - Doors/DH - Doors Hardware/DH10 - Hafele Door Hinge Top Pivot.pdf",
    "drive_url": "https://drive.google.com/file/d/11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A/view",
-   "maker_url": "https://www.hafele.com/us/en",
+   "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/#SearchParameter=&@QueryTerm=door+pivot&Category=fn0KAOsFhMoAAAFlTOecc.x0&@P.FF.followSearch=9886&PageNumber=1&OriginalPageSize=48&PageSize=48&Position=10&OrigPos=11&ProductListSize=37&PDP=true",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
