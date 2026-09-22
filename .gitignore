@@ -31,3 +31,6 @@ tools/audit/_linktest.html
 tools/audit/_dom.html
 tools/audit/_copy.png
 tools/audit/_shot.html
+
+# The datasheets live in Google Drive - tools/drive-links.csv
+web/datasheets/

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the picture-audit page from _audit.json."""
 import json, html, re
+from urllib.parse import quote_plus
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -104,10 +105,11 @@ def linkrow(r):
         + ('<span class="maker">' + e(r["manufacturer"]) + '</span>'
            if r["manufacturer"] else '') +
         '<span class="ltag">' + tag + '</span></div>'
-        '<button class="ltitle cp" type="button" data-copy="' + e(term(r)) + '" '
-        'title="Copy the product name to search for it">'
+        '<a class="ltitle" target="_blank" rel="noopener noreferrer" '
+        'href="https://www.google.com/search?q=' + e(quote_plus(term(r))) + '" '
+        'title="Search Google for ' + e(term(r)) + '">'
         + e(r["title"]) +
-        '<span class="act">Copy the name</span></button>'
+        '<span class="act">Search Google</span></a>'
         '<input class="lurl" type="url" inputmode="url" spellcheck="false" '
         'placeholder="https://… the product page" '
         'value="' + e(r["url"]) + '" '
@@ -278,18 +280,20 @@ h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);font-weight:300;
   border: 1px solid var(--line); border-radius: 4px; padding: 3px 6px; }
 .lrow.exact .ltag { color: var(--slate); border-color: var(--slate); }
 .lrow.none  .ltag { color: var(--amber); border-color: var(--amber); }
-/* The title and the code are buttons: the whole point of this section is
-   hunting a product page, and that starts with the name in your clipboard. */
+/* The title opens a Google search for the product in a new tab: this
+   section exists to hunt product pages, and that search is the first step.
+   The code chip still copies. */
 .ltitle { display: block; width: 100%; margin: 0; padding: 0; text-align: left;
   font: 500 14px/1.35 var(--sans); color: var(--ink);
-  background: none; border: 0; cursor: copy; }
+  background: none; border: 0; text-decoration: none; cursor: pointer; }
+.ltitle:hover { color: var(--red); }
 .ltitle .act { display: block; margin-top: 3px; font-size: 11px;
   font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
   color: var(--ink3); opacity: .5; transition: opacity .12s; }
 /* Faint rather than hidden: there is no hover on a phone, and an affordance
    nobody can find is not an affordance. */
-.ltitle:hover .act, .ltitle:focus-visible .act, .ltitle.done .act { opacity: 1; }
-.ltitle.done, .ltitle.done .act { color: var(--green); }
+.ltitle:hover .act, .ltitle:focus-visible .act { opacity: 1; }
+.ltitle:hover .act { color: var(--red); }
 button.chip { cursor: copy; font: inherit; }
 button.chip.done { color: var(--green); border-color: var(--green); }
 .ltitle:focus-visible, button.chip:focus-visible {

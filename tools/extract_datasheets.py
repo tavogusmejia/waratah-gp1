@@ -92,8 +92,8 @@ GROUPS = {
     "E": ("Electrical", "Electrical", "JANU-SUB-011"),
     "F": ("Balancing Tank Accessories", "Pool", None),
     "G": ("Piping and Valves", "Pool", None),
-    "H": ("Electrical - Pool Bonding", "Pool", None),
-    "J": ("Plumbing", "Plumbing", None),
+    "C": ("Cables and Bonding", "Pool", None),
+    "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }
@@ -706,34 +706,42 @@ def main():
         n_auto += how == "auto"
         n_over += how == "override"
         n_beside += how == "beside"
+    # The PDFs live in Google Drive now, and every item and attachment
+    # carries a `drive_url`. Shipping them too put 113 MB in the deploy and
+    # the whole of it in a personal GitHub repo. A file is only copied when
+    # something has no Drive link - a gap should degrade to a working page,
+    # not to a dead button.
+    unlinked = [(r, spec) for r in items for spec in [r] + r["extras"]
+                if not spec.get("drive_url")]
     for old in OUT_PDFS.glob("*.pdf"):
         old.unlink()
-    # Copy from the path recorded ON each item, never by zipping the two
-    # lists: `items` is sorted into reading order after it is built and `pdfs`
-    # is not, so zipping them pairs the wrong file with the wrong record. It
-    # did exactly that once - 38 of the 45 shipped as somebody else's
-    # datasheet, under a slug that looked perfectly correct.
     total = 0
-    for r in items:
-        for spec in [r] + r["extras"]:
-            src = SOURCE / spec["source"]
-            dest = OUT_PDFS / Path(spec["pdf"]).name
-            shutil.copy2(src, dest)
-            got = dest.stat().st_size
-            if got != spec["bytes"]:
-                sys.exit("copied the wrong file for %s: %s is %d bytes, "
-                         "expected %d" % (r["code"], dest.name, got,
-                                          spec["bytes"]))
-            total += got
+    for r, spec in unlinked:
+        # Copy from the path recorded ON each item, never by zipping the two
+        # lists: `items` is sorted into reading order after it is built and
+        # `pdfs` is not, so zipping them pairs the wrong file with the wrong
+        # record. It did exactly that once - 38 of the 45 shipped as somebody
+        # else's datasheet, under a slug that looked perfectly correct.
+        src = SOURCE / spec["source"]
+        dest = OUT_PDFS / Path(spec["pdf"]).name
+        shutil.copy2(src, dest)
+        got = dest.stat().st_size
+        if got != spec["bytes"]:
+            sys.exit("copied the wrong file for %s: %s is %d bytes, "
+                     "expected %d" % (r["code"], dest.name, got, spec["bytes"]))
+        total += got
 
     payload = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "project": "GP1-MUR",
         "title": "Material & Hardware Register",
+        # Only groups that have something in them. A folder letter that
+        # GROUPS has not caught up with is a bug, not an empty group, so it
+        # is named below rather than shipped as a phantom filter.
         "groups": [{"key": k, "name": v[0], "discipline": v[1],
-                    "submittal": v[2],
-                    "count": sum(1 for r in items if r["group"] == k)}
-                   for k, v in GROUPS.items()],
+                    "submittal": v[2], "count": n}
+                   for k, v in GROUPS.items()
+                   for n in [sum(1 for r in items if r["group"] == k)] if n],
         "items": items,
     }
     OUT_JSON.write_text(json.dumps(payload, indent=1, ensure_ascii=False),
@@ -757,14 +765,23 @@ def main():
             print("      Rename each to a current datasheet slug or item code.")
 
     missing = [r["code"] for r in items if not r["image"]]
+    stray = sorted({r["group"] for r in items} - set(GROUPS))
+    if stray:
+        sys.exit("items are in groups GROUPS does not name: %s. "
+                 "  The register renders no tile for them. Add them to "
+                 "GROUPS in this file." % ", ".join(stray))
     if missing:
         print("  no picture found for: " + ", ".join(missing))
         print("  (drop a file at \"tools/images/<CODE>.jpg\" to supply one)")
     print()
     print("  %s  %.0f KB" % (OUT_JSON.relative_to(REPO),
                              OUT_JSON.stat().st_size / 1024))
-    print("  %s  %d files, %.1f MB" % (OUT_PDFS.relative_to(REPO),
-                                       len(items), total / 1048576))
+    if total:
+        print("  %s  %d files, %.1f MB  (no Drive link yet)"
+              % (OUT_PDFS.relative_to(REPO), len(unlinked), total / 1048576))
+    else:
+        print("  %s  empty - every datasheet opens from Drive"
+              % OUT_PDFS.relative_to(REPO))
 
 
 if __name__ == "__main__":
