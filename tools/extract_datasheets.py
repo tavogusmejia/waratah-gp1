@@ -45,6 +45,7 @@ import re
 import shutil
 import sys
 import unicodedata
+from html.entities import html5
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -389,6 +390,19 @@ def slug(s: str) -> str:
     return re.sub(r"-{2,}", "-", s)
 
 
+# Some source sheets carry `L&L;` where they mean `L&L`: an entity fixer
+# somewhere upstream closed `&L` as though it were an HTML entity, and the
+# stray semicolon is now baked into the PDF. Undo exactly that, and nothing
+# else - a real entity like `&amp;` is left alone.
+_ENTITY = re.compile(r"&([A-Za-z][A-Za-z0-9]*);")
+
+
+def unmangle(text):
+    def fix(m):
+        return m.group(0) if m.group(1) + ";" in html5 else "&" + m.group(1)
+    return _ENTITY.sub(fix, text)
+
+
 def spans(page):
     """Every text span on the page, in reading order, with what it is set in."""
     out = []
@@ -397,7 +411,7 @@ def spans(page):
             continue
         for line in block["lines"]:
             for sp in line["spans"]:
-                text = sp["text"].strip()
+                text = unmangle(sp["text"].strip())
                 if text:
                     out.append({
                         "text": text,

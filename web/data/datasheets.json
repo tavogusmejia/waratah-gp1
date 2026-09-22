@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-21T21:08:32Z",
+ "generated": "2026-09-22T12:42:20Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -1129,7 +1129,7 @@
     },
     {
      "label": "Qty",
-     "value": "3 Not in current FF&E; — procurement-tracker item (ref A11-02/03/04)"
+     "value": "3 Not in current FF&E — procurement-tracker item (ref A11-02/03/04)"
     }
    ],
    "notes": "",
@@ -1892,21 +1892,21 @@
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "L&L; Luce&Light;",
+   "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "Pool Light L09 - L&L; Bright 1.6 316L",
+   "title": "Pool Light L09 - L&L Bright 1.6 316L",
    "specs": [
     {
      "label": "A1 Luminaire",
-     "value": "L&L; CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
+     "value": "L&L CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
     },
     {
      "label": "A2 Outer casing",
-     "value": "L&L; WC5003"
+     "value": "L&L WC5003"
     },
     {
      "label": "A3 LED driver",
-     "value": "L&L; AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
+     "value": "L&L AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
     }
    ],
    "notes": "Per JANU-SUB-009 group A (Pool Light L09).",
@@ -1929,25 +1929,25 @@
    "group_name": "Lighting",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "L&L; Luce&Light;",
+   "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
+   "title": "Pool Light L09.1 - L&L Bright 3.0 316L",
    "specs": [
     {
      "label": "B1 Luminaire",
-     "value": "L&L; CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
+     "value": "L&L CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
     },
     {
      "label": "B2 Outer casing",
-     "value": "L&L; WC5004"
+     "value": "L&L WC5004"
     },
     {
      "label": "B3 LED driver",
-     "value": "L&L; AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
+     "value": "L&L AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
     },
     {
      "label": "B4 Extractors",
-     "value": "L&L; WN7001 (pair)"
+     "value": "L&L WN7001 (pair)"
     }
    ],
    "notes": "Per JANU-SUB-009 group B (Pool Light L09.1).",
@@ -2749,7 +2749,7 @@
     },
     {
      "label": "Tank",
-     "value": "Vitraglas + Microban lining; anode rod; ASME T&P; valve"
+     "value": "Vitraglas + Microban lining; anode rod; ASME T&P valve"
     },
     {
      "label": "Pressure",

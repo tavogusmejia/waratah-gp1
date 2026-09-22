@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build the picture-audit page from _audit.json."""
-import json, html
+import json, html, re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -8,6 +8,7 @@ REPO = HERE.parent.parent
 rows = json.load(open(HERE / "audit.json", encoding="utf-8"))
 links = json.load(open(HERE / "links.json", encoding="utf-8"))
 e = html.escape
+NL, TAB = chr(10), chr(9)
 
 SECTIONS = [
     ("wrong", "Wrong", "The picture is not the product. Fix these first."),
@@ -70,6 +71,25 @@ for key, title, blurb in SECTIONS:
         '</ul></section>')
 
 
+def term(r):
+    """What you would actually paste into a search box: the maker and the
+    model, with the discipline half of the title ("Cartridge Filter, 150 sq
+    ft - ") and any leading code dropped."""
+    t = re.sub(r"^[A-Z]{1,6}[0-9.]*\s*-\s*(?:DS|IG)\s*-\s*", "", r["title"])
+    t = re.sub(r"^[A-Z]{1,6}[0-9.]*\s*-\s*", "", t)
+    if " - " in t:
+        tail = t.split(" - ", 1)[1]
+        mk = (r["manufacturer"] or "").split(" (")[0].split()
+        if mk and mk[0].lower() in tail.lower():
+            t = tail
+        elif re.search(r"[A-Za-z]{2,}[-/ ]?[0-9]{2,}", tail):
+            t = tail
+    m = (r["manufacturer"] or "").split(" (")[0].strip()
+    if m and m.split()[0].lower() not in t.lower():
+        t = m + " " + t
+    return " ".join(t.split())
+
+
 def linkrow(r):
     state = {"exact": "exact", "site": "site", "none": "none"}[r["kind"]]
     tag = {"exact": "Product page",
@@ -78,11 +98,16 @@ def linkrow(r):
     return (
         '<li class="lrow ' + state + '" data-slug="' + e(r["slug"]) + '" '
         'data-code="' + e(r["key"]) + '">'
-        '<div class="lident"><span class="chip">' + e(r["key"]) + '</span>'
+        '<div class="lident">'
+        '<button class="chip cp" type="button" data-copy="' + e(r["code"]) + '" '
+        'title="Copy the code">' + e(r["key"]) + '</button>'
         + ('<span class="maker">' + e(r["manufacturer"]) + '</span>'
            if r["manufacturer"] else '') +
         '<span class="ltag">' + tag + '</span></div>'
-        '<p class="ltitle">' + e(r["title"]) + '</p>'
+        '<button class="ltitle cp" type="button" data-copy="' + e(term(r)) + '" '
+        'title="Copy the product name to search for it">'
+        + e(r["title"]) +
+        '<span class="act">Copy the name</span></button>'
         '<input class="lurl" type="url" inputmode="url" spellcheck="false" '
         'placeholder="https://… the product page" '
         'value="' + e(r["url"]) + '" '
@@ -105,6 +130,9 @@ LINKS = (
     '<div class="lbtns">'
     '<button class="all" type="button" id="lsave">Save every link</button>'
     '<button class="all" type="button" id="lcopy">Copy every link</button>'
+    '<button class="all cp" type="button" data-copy="'
+    + e(NL.join(r["key"] + TAB + term(r) for r in links)) +
+    '">Copy every item name</button>'
     '</div>'
     '</header>'
     '<ul class="items lrows">' + "".join(linkrow(r) for r in links) + '</ul>'
@@ -250,7 +278,22 @@ h1{margin:0 0 10px;font-size:clamp(28px,4vw,40px);font-weight:300;
   border: 1px solid var(--line); border-radius: 4px; padding: 3px 6px; }
 .lrow.exact .ltag { color: var(--slate); border-color: var(--slate); }
 .lrow.none  .ltag { color: var(--amber); border-color: var(--amber); }
-.ltitle { margin: 0; font-size: 14px; font-weight: 500; line-height: 1.35; }
+/* The title and the code are buttons: the whole point of this section is
+   hunting a product page, and that starts with the name in your clipboard. */
+.ltitle { display: block; width: 100%; margin: 0; padding: 0; text-align: left;
+  font: 500 14px/1.35 var(--sans); color: var(--ink);
+  background: none; border: 0; cursor: copy; }
+.ltitle .act { display: block; margin-top: 3px; font-size: 11px;
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink3); opacity: .5; transition: opacity .12s; }
+/* Faint rather than hidden: there is no hover on a phone, and an affordance
+   nobody can find is not an affordance. */
+.ltitle:hover .act, .ltitle:focus-visible .act, .ltitle.done .act { opacity: 1; }
+.ltitle.done, .ltitle.done .act { color: var(--green); }
+button.chip { cursor: copy; font: inherit; }
+button.chip.done { color: var(--green); border-color: var(--green); }
+.ltitle:focus-visible, button.chip:focus-visible {
+  outline: 2px solid var(--red); outline-offset: 2px; }
 .lurl { width: 100%; font: 400 12.5px/1.4 var(--mono); color: var(--ink);
   background: var(--sunk); border: 1px solid var(--line);
   border-radius: 7px; padding: 9px 11px; }

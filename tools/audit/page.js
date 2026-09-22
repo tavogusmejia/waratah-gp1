@@ -317,11 +317,16 @@ document.addEventListener("click", function (ev) {
     row.classList.remove("kept", "lost");
   }
 
-  /* Does the store hold exactly what this row says? */
+  /* Does the store hold exactly what this row says?
+
+     `DocumentSnapshot.data` is a METHOD, not a property - reading
+     `back.data.url` is always undefined, which turned every successful save
+     red. Read it the same way the collection loader below does. */
   async function matches(ref, v) {
     var back = await ref.get();
-    return v ? !!(back && back.exists && back.data && back.data.url === v)
-             : !(back && back.exists);
+    if (!back || !back.exists) return !v;
+    var body = typeof back.data === "function" ? back.data() : back.data;
+    return !!(v && body && body.url === v);
   }
 
   /* Writes one row and then reads it back. Returns true only if the store

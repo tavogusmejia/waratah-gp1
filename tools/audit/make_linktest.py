@@ -36,10 +36,12 @@ function ref(path) {
       /* A store that answers the first read before the write has landed. */
       if (window.__lagFor && path.indexOf(window.__lagFor) > -1) {
         window.__lagFor = null;
-        return Promise.resolve({exists: false, data: undefined});
+        return Promise.resolve({exists: false, data: function () {}});
       }
       var d = window.__store[path];
-      return Promise.resolve({exists: !!d, data: d});
+      /* data() is a method on the real DocumentSnapshot. Faking it as a
+         plain property is what let a broken read-back pass 24 tests. */
+      return Promise.resolve({exists: !!d, data: function () { return d; }});
     }
   };
 }
@@ -50,7 +52,8 @@ var FAKE_DB = {
       var docs = [];
       Object.keys(window.__store).forEach(function (p) {
         if (p.indexOf(name + "/") === 0)
-          docs.push({id: p.split("/").pop(), data: window.__store[p]});
+          docs.push({id: p.split("/").pop(),
+                     data: (function (v) { return function () { return v; }; })(window.__store[p])});
       });
       return Promise.resolve({docs: docs});
     }};}};
