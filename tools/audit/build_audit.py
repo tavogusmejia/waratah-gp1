@@ -73,18 +73,11 @@ for key, title, blurb in SECTIONS:
 
 
 def term(r):
-    """What you would actually paste into a search box: the maker and the
-    model, with the discipline half of the title ("Cartridge Filter, 150 sq
-    ft - ") and any leading code dropped."""
+    """The whole item name, as the card shows it - "Pool Controller - Pentair
+    IntelliCenter Lite i5P", not just the model half. The only thing dropped
+    is the filing prefix on the Lutron sheets ("LTRN7 - DS - "), which is a
+    document marker rather than anything a search should carry."""
     t = re.sub(r"^[A-Z]{1,6}[0-9.]*\s*-\s*(?:DS|IG)\s*-\s*", "", r["title"])
-    t = re.sub(r"^[A-Z]{1,6}[0-9.]*\s*-\s*", "", t)
-    if " - " in t:
-        tail = t.split(" - ", 1)[1]
-        mk = (r["manufacturer"] or "").split(" (")[0].split()
-        if mk and mk[0].lower() in tail.lower():
-            t = tail
-        elif re.search(r"[A-Za-z]{2,}[-/ ]?[0-9]{2,}", tail):
-            t = tail
     m = (r["manufacturer"] or "").split(" (")[0].strip()
     if m and m.split()[0].lower() not in t.lower():
         t = m + " " + t
