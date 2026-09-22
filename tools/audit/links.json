@@ -1,0 +1,832 @@
+[
+ {
+  "key": "A-A1",
+  "group": "A",
+  "code": "A1",
+  "title": "Cartridge Filter, 150 sq ft - Pentair Clean & Clear Plus CC150",
+  "manufacturer": "Pentair",
+  "slug": "a1-cartridge-filter-clean-clear-cc150",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "A-A2",
+  "group": "A",
+  "code": "A2",
+  "title": "Main Filter Pump - Pentair IntelliFlo3 VSF",
+  "manufacturer": "Pentair",
+  "slug": "a2-main-filter-pump-intelliflo3-vsf",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "A-A3",
+  "group": "A",
+  "code": "A3",
+  "title": "Infinity-Edge Pump - Pentair IntelliFlo3 VSF",
+  "manufacturer": "Pentair",
+  "slug": "a3-infinity-edge-pump-intelliflo3-vsf",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "A-A4",
+  "group": "A",
+  "code": "A4",
+  "title": "Pool Controller - Pentair IntelliCenter Lite i5P (P/N 523911)",
+  "manufacturer": "Pentair",
+  "slug": "a4-pool-controller-intellicenter-lite-i5p",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "A-A5",
+  "group": "A",
+  "code": "A5",
+  "title": "Salt Chlorine Generator - Pentair IntelliChlor LT25 Power Bundle (P/N 523750)",
+  "manufacturer": "Pentair",
+  "slug": "a5-salt-chlorine-generator-intellichlor-lt25",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "A-A6",
+  "group": "A",
+  "code": "A6",
+  "title": "Pool Heat Pump - Gulfstream HE-150 (HE150-R-A)",
+  "manufacturer": "Gulfstream (Pentair-owned)",
+  "slug": "a6-pool-heat-pump-gulfstream-he-150",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "B-B1",
+  "group": "B",
+  "code": "B1",
+  "title": "Pool Main Drain - AquaStar WAV9WR103 (9 in Wave Anti-Entrapment)",
+  "manufacturer": "AquaStar",
+  "slug": "b1-aquastar-main-drain-wav9wr103",
+  "url": "https://aquastarpoolproducts.com",
+  "kind": "site"
+ },
+ {
+  "key": "B-B2",
+  "group": "B",
+  "code": "B2",
+  "title": "Pool Shallow Floor Return - Color Match Pebble Top PTFR-03 (Light Gray)",
+  "manufacturer": "Color Match Pool Fittings",
+  "slug": "b2-color-match-floor-return-ptfr-03",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "B-B3",
+  "group": "B",
+  "code": "B3",
+  "title": "Pool Wall & Infinity-Edge Return Inlets, 2 in - Hayward SP1419D (Gray: SP1419DGR)",
+  "manufacturer": "Hayward",
+  "slug": "b3-hayward-sp1419d",
+  "url": "https://hayward.com/hydrostream-3-4-opening-1-1-2-mip-gray-sp1419dgr.html",
+  "kind": "exact"
+ },
+ {
+  "key": "B-B4",
+  "group": "B",
+  "code": "B4",
+  "title": "Vacuum Fitting - Hayward SP1022 (Gray: SP1022GR)",
+  "manufacturer": "Hayward",
+  "slug": "b4-hayward-sp1022",
+  "url": "https://www.hayward.com/threaded-return-fitting-for-concrete-1-1-2-fip-open-line-sp1022.html",
+  "kind": "exact"
+ },
+ {
+  "key": "B-B5",
+  "group": "B",
+  "code": "B5",
+  "title": "Infinity-Edge Trough Drain + Pool Pipe & Fittings - Spears Schedule 40 PVC",
+  "manufacturer": "Spears",
+  "slug": "b5-spears-sch-40-pvc",
+  "url": "https://www.spearsmfg.com",
+  "kind": "site"
+ },
+ {
+  "key": "B-B6",
+  "group": "B",
+  "code": "B6",
+  "title": "Automatic Water Filler - Pentair T40-F",
+  "manufacturer": "Pentair",
+  "slug": "b6-pentair-t40-f-automatic-water-filler",
+  "url": "https://www.pentair.com",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH1",
+  "group": "D",
+  "code": "DH1",
+  "title": "Concealed Mortise Hinge - Häfele 3D-Adjustable (927.91.833)",
+  "manufacturer": "Häfele",
+  "slug": "dh1-hafele-startec-concealed-hinge",
+  "url": "https://www.hafele.com/us/en",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH2",
+  "group": "D",
+  "code": "DH2",
+  "title": "Lever Handle Set - Salto Standard Line, London",
+  "manufacturer": "Salto",
+  "slug": "dh2-salto-london-lever-handle",
+  "url": "https://www.saltosystems.com",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH3",
+  "group": "D",
+  "code": "DH3",
+  "title": "Electronic Lockset - Salto Ælement Fusion (ANSI)",
+  "manufacturer": "Salto",
+  "slug": "dh3-salto-aelement-fusion-lockset-ring-reader",
+  "url": "https://www.saltosystems.com",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH4",
+  "group": "D",
+  "code": "DH4",
+  "title": "Mechanical Privacy Thumbturn - Salto LA1T17 Mortise Lock",
+  "manufacturer": "Salto",
+  "slug": "dh4-salto-la1t17-privacy-thumbturn",
+  "url": "https://www.saltosystems.com",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH5",
+  "group": "D",
+  "code": "DH5",
+  "title": "Door Viewer - Häfele Startec 200° (959.01.042)",
+  "manufacturer": "Häfele",
+  "slug": "dh5-hafele-startec-door-viewer",
+  "url": "https://www.hafele.com/us/en",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH6",
+  "group": "D",
+  "code": "DH6",
+  "title": "Sliding Door Fitting - Häfele Hawa Junior 80/100B (941.04.012)",
+  "manufacturer": "Häfele",
+  "slug": "dh6-hafele-hawa-junior-80b-pocket",
+  "url": "https://www.hafele.com/us/en",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH7",
+  "group": "D",
+  "code": "DH7",
+  "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P (941.62.018)",
+  "manufacturer": "Häfele",
+  "slug": "dh7-hafele-slido-d-line11-160p",
+  "url": "https://www.hafele.com/us/en",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH8",
+  "group": "D",
+  "code": "DH8",
+  "title": "Automatic Drop-Down Seal - Assa Abloy Planet X3 RD",
+  "manufacturer": "Assa Abloy",
+  "slug": "dh8-assa-abloy-planet-x3-rd-drop-seal",
+  "url": "https://www.assaabloy.com",
+  "kind": "site"
+ },
+ {
+  "key": "D-DH9",
+  "group": "D",
+  "code": "DH9",
+  "title": "Door-Jamb Weatherstrip - Reflect Silicone Bulb Seal",
+  "manufacturer": "Reflect",
+  "slug": "dh9-reflect-door-jamb-weatherstrip",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "D-DH10",
+  "group": "D",
+  "code": "DH10",
+  "title": "Center-Hung Top Pivot Hinge - Häfele HP023",
+  "manufacturer": "Häfele",
+  "slug": "dh10-hafele-door-hinge-top-pivot",
+  "url": "https://www.hafele.com/us/en",
+  "kind": "site"
+ },
+ {
+  "key": "E-E1",
+  "group": "E",
+  "code": "E1",
+  "title": "Load Center, ReliaHome PCC4022R",
+  "manufacturer": "ABB",
+  "slug": "e1-load-center-pcc4022r",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E2",
+  "group": "E",
+  "code": "E2",
+  "title": "Load Center, ReliaHome PCC1612",
+  "manufacturer": "ABB",
+  "slug": "e2-load-center-pcc1612",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E3",
+  "group": "E",
+  "code": "E3",
+  "title": "Load Center, Meter Socket PAMS3022TRNUS",
+  "manufacturer": "ABB",
+  "slug": "e3-meter-socket-pams3022trnus",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E4",
+  "group": "E",
+  "code": "E4",
+  "title": "Surge Protection Device, Wall Mount, RG Series - RGWMSP120S08T14",
+  "manufacturer": "ABB",
+  "slug": "e4-surge-protection-device-rgwmsp120s08t14",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E5",
+  "group": "E",
+  "code": "E5",
+  "title": "Circuit Breaker, Arc Fault Plug-In - THQL1120PAF2 (Qty 33)",
+  "manufacturer": "ABB",
+  "slug": "e5-arc-fault-breaker-thql1120paf2",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E6",
+  "group": "E",
+  "code": "E6",
+  "title": "MCCB, 120/240V QL - THQL2180",
+  "manufacturer": "ABB",
+  "slug": "e6-mccb-thql2180",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E7",
+  "group": "E",
+  "code": "E7",
+  "title": "MCCB, 120/240V QL - THQL2140 (Qty 2)",
+  "manufacturer": "ABB",
+  "slug": "e7-mccb-thql2140",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E8",
+  "group": "E",
+  "code": "E8",
+  "title": "Circuit Breaker, Ground Fault Plug-In - THQL2160GFT2",
+  "manufacturer": "ABB",
+  "slug": "e8-ground-fault-breaker-thql2160gft2",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E9",
+  "group": "E",
+  "code": "E9",
+  "title": "MCCB, 120/240V QL - THQL2120",
+  "manufacturer": "ABB",
+  "slug": "e9-mccb-thql2120",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "E-E10",
+  "group": "E",
+  "code": "E10",
+  "title": "MCCB, 120/240V QL - THQL2130 (Qty 2)",
+  "manufacturer": "ABB",
+  "slug": "e10-mccb-thql2130",
+  "url": "https://new.abb.com/low-voltage",
+  "kind": "site"
+ },
+ {
+  "key": "F-F1",
+  "group": "F",
+  "code": "F1",
+  "title": "Make-up Float Valve, 3/4 in NPT - Robert Mfg BOB R400 (brass)",
+  "manufacturer": "Robert Manufacturing",
+  "slug": "f1-robert-mfg-bob-r400-brass-float-valve",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "F-F2",
+  "group": "F",
+  "code": "F2",
+  "title": "Foot Valve, 2.5 in brass with strainer - Bonomi 100102 series",
+  "manufacturer": "Bonomi (Valveman)",
+  "slug": "f2-valveman-brass-foot-valves",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "G-G1",
+  "group": "G",
+  "code": "G1",
+  "title": "PVC Ball Valves - Aquaram PVC-U 2-way, type PE (solvent socket)",
+  "manufacturer": "Aquaram",
+  "slug": "g1-aquaram-valves",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "G-G2",
+  "group": "G",
+  "code": "G2",
+  "title": "PVC Check Valves - Jandy positive-seal check valve",
+  "manufacturer": "Jandy (Fluidra)",
+  "slug": "g2-jandy-check-valves",
+  "url": "https://www.jandy.com",
+  "kind": "site"
+ },
+ {
+  "key": "G-G3",
+  "group": "G",
+  "code": "G3",
+  "title": "PVC Pipe and Sch 40 Fittings (all sizes) - Spears Schedule 40 PVC",
+  "manufacturer": "Spears",
+  "slug": "g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog",
+  "url": "https://www.spearsmfg.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-A",
+  "group": "L",
+  "code": "A",
+  "title": "Pool Light L09 - L&L; Bright 1.6 316L",
+  "manufacturer": "L&L; Luce&Light;",
+  "slug": "a-pool-light-l09-cw16005di",
+  "url": "https://www.lucelight.it",
+  "kind": "site"
+ },
+ {
+  "key": "L-B",
+  "group": "L",
+  "code": "B",
+  "title": "Pool Light L09.1 - L&L; Bright 3.0 316L",
+  "manufacturer": "L&L; Luce&Light;",
+  "slug": "b-pool-light-l09-1-cw300005wi",
+  "url": "https://www.lucelight.it",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN1",
+  "group": "L",
+  "code": "LTRN1",
+  "title": "LTRN1 - DS - Lutron myRoom XC Processor MP-1L-GCU",
+  "manufacturer": "",
+  "slug": "ltrn1-ds-lutron-myroom-xc-processor-mp-1l-gcu",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN2",
+  "group": "L",
+  "code": "LTRN2",
+  "title": "LTRN2 - DS - Lutron QS Power Supply MQSPS-DH-1-30",
+  "manufacturer": "",
+  "slug": "ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN3",
+  "group": "L",
+  "code": "LTRN3",
+  "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120",
+  "manufacturer": "",
+  "slug": "ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN4",
+  "group": "L",
+  "code": "LTRN4",
+  "title": "LTRN4 - DS - Lutron Phase-Adaptive Power Module MQSE-4A1-D",
+  "manufacturer": "",
+  "slug": "ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN5",
+  "group": "L",
+  "code": "LTRN5",
+  "title": "LTRN5 - DS - Lutron Switching Power Module MQSE-2S1-D",
+  "manufacturer": "",
+  "slug": "ltrn5-ds-lutron-switching-power-module-mqse-2s1-d",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN6",
+  "group": "L",
+  "code": "LTRN6",
+  "title": "LTRN6 - DS - Lutron Energi Savr Node DALI QSN-1DALUNV-D",
+  "manufacturer": "",
+  "slug": "ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN7",
+  "group": "L",
+  "code": "LTRN7",
+  "title": "LTRN7 - DS - Lutron Alisse 1-Column Keypad HW-NW-KP-S1-E",
+  "manufacturer": "",
+  "slug": "ltrn7-ds-lutron-alisse-1-column-keypad-hw-nw-kp-s1-e",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN8",
+  "group": "L",
+  "code": "LTRN8",
+  "title": "LTRN8 - DS - Lutron Alisse 2-Column Keypad HW-NW-KP-S2-E",
+  "manufacturer": "",
+  "slug": "ltrn8-ds-lutron-alisse-2-column-keypad-hw-nw-kp-s2-e",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN9",
+  "group": "L",
+  "code": "LTRN9",
+  "title": "LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1",
+  "manufacturer": "",
+  "slug": "ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN10",
+  "group": "L",
+  "code": "LTRN10",
+  "title": "LTRN10 - DS - Lutron Wallbox EBB-1-SQ",
+  "manufacturer": "",
+  "slug": "ltrn10-ds-lutron-wallbox-ebb-1-sq",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN11",
+  "group": "L",
+  "code": "LTRN11",
+  "title": "LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor LRF2-OCR2B-P-WH",
+  "manufacturer": "",
+  "slug": "ltrn11-ds-lutron-radio-powr-savr-occupancy-sensor-lrf2-ocr2b-p-wh",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN12",
+  "group": "L",
+  "code": "LTRN12",
+  "title": "LTRN12 - DS - Lutron QS Sensor Module QSM2-XW-C",
+  "manufacturer": "",
+  "slug": "ltrn12-ds-lutron-qs-sensor-module-qsm2-xw-c",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN13",
+  "group": "L",
+  "code": "LTRN13",
+  "title": "LTRN13 - DS - Lutron Maestro Occupancy Switch MS-OPS2-WH",
+  "manufacturer": "",
+  "slug": "ltrn13-ds-lutron-maestro-occupancy-switch-ms-ops2-wh",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN14",
+  "group": "L",
+  "code": "LTRN14",
+  "title": "LTRN14 - DS - Lutron Claro Wallplate CW-1-WH",
+  "manufacturer": "",
+  "slug": "ltrn14-ds-lutron-claro-wallplate-cw-1-wh",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN15",
+  "group": "L",
+  "code": "LTRN15",
+  "title": "LTRN15 - DS - Lutron Palladiom Thermostat MWP-T-OHW-WH-A",
+  "manufacturer": "",
+  "slug": "ltrn15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a",
+  "url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/palladiom-thermostat/mwp-t-ohw",
+  "kind": "exact"
+ },
+ {
+  "key": "L-LTRN16",
+  "group": "L",
+  "code": "LTRN16",
+  "title": "LTRN16 - DS - Lutron Fan-Coil Controller SMC55-MYRM",
+  "manufacturer": "",
+  "slug": "ltrn16-ds-lutron-fan-coil-controller-smc55-myrm",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN17",
+  "group": "L",
+  "code": "LTRN17",
+  "title": "LTRN17 - DS - Lutron Contact-Closure Interface QSE-IO",
+  "manufacturer": "",
+  "slug": "ltrn17-ds-lutron-contact-closure-interface-qse-io",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN18",
+  "group": "L",
+  "code": "LTRN18",
+  "title": "LTRN18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD",
+  "manufacturer": "",
+  "slug": "ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN19",
+  "group": "L",
+  "code": "LTRN19",
+  "title": "LTRN19 - DS - Lutron Palladiom USB Receptacle LTR-15-CCTR-BL",
+  "manufacturer": "",
+  "slug": "ltrn19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN20",
+  "group": "L",
+  "code": "LTRN20",
+  "title": "LTRN20 - DS - Lutron Architectural Receptacle LTR-15-TR-BL",
+  "manufacturer": "",
+  "slug": "ltrn20-ds-lutron-architectural-receptacle-ltr-15-tr-bl",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN21",
+  "group": "L",
+  "code": "LTRN21",
+  "title": "LTRN21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB",
+  "manufacturer": "",
+  "slug": "ltrn21-ds-lutron-palladiom-faceplate-lwt-u-p-sb",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN22",
+  "group": "L",
+  "code": "LTRN22",
+  "title": "LTRN22 - DS - Lutron Nova T GFCI Receptacle NTR-15-GFST-BL",
+  "manufacturer": "",
+  "slug": "ltrn22-ds-lutron-nova-t-gfci-receptacle-ntr-15-gfst-bl",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN23",
+  "group": "L",
+  "code": "LTRN23",
+  "title": "LTRN23 - DS - Lutron Nova T Architectural Plate NT-R3-NFB-SB",
+  "manufacturer": "",
+  "slug": "ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN24",
+  "group": "L",
+  "code": "LTRN24",
+  "title": "LTRN24 - DS - Lutron Grafik Eye Control Cable GRX-CBL-46L-500",
+  "manufacturer": "",
+  "slug": "ltrn24-ds-lutron-grafik-eye-control-cable-grx-cbl-46l-500",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN25",
+  "group": "L",
+  "code": "LTRN25",
+  "title": "LTRN25 - DS - Lutron Sivoia QS Roller 100 Shade",
+  "manufacturer": "",
+  "slug": "ltrn25-ds-lutron-sivoia-qs-roller-100-shade",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN25.1",
+  "group": "L",
+  "code": "LTRN25.1",
+  "title": "LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits WIN-BRK",
+  "manufacturer": "",
+  "slug": "ltrn25-1-ds-lutron-sivoia-qs-dual-shade-bracketry-kits-win-brk",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN25.2",
+  "group": "L",
+  "code": "LTRN25.2",
+  "title": "LTRN25.2 - DS - Lutron QS Link Plug-In Power Supply (Shading)",
+  "manufacturer": "",
+  "slug": "ltrn25-2-ds-lutron-qs-link-plug-in-power-supply-shading",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN26",
+  "group": "L",
+  "code": "LTRN26",
+  "title": "LTRN26 - DS - Lutron D145 Drapery Track System",
+  "manufacturer": "",
+  "slug": "ltrn26-ds-lutron-d145-drapery-track-system",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "L-LTRN26.1",
+  "group": "L",
+  "code": "LTRN26.1",
+  "title": "LTRN26.1 - DS - Lutron QS Link Plug-In Power Supply (Shading)",
+  "manufacturer": "",
+  "slug": "ltrn26-1-ds-lutron-qs-link-plug-in-power-supply-shading",
+  "url": "https://www.lutron.com",
+  "kind": "site"
+ },
+ {
+  "key": "C-C1",
+  "group": "C",
+  "code": "C1",
+  "title": "Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit",
+  "manufacturer": "Burndy",
+  "slug": "c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "P-P1",
+  "group": "P",
+  "code": "P1",
+  "title": "Water Heater, 119 gal - Bradford White ElectriFLEX LD (LE2120T3-3)",
+  "manufacturer": "Bradford White",
+  "slug": "p1-bradford-white-119-gal-water-heater",
+  "url": "https://www.bradfordwhite.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P2",
+  "group": "P",
+  "code": "P2",
+  "title": "Recirculation Pump - Taco 2400 Series High-Capacity Circulator",
+  "manufacturer": "Taco",
+  "slug": "p2-taco-2400-series-recirculation-pump",
+  "url": "https://www.tacocomfort.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P3",
+  "group": "P",
+  "code": "P3",
+  "title": "Timer / Aquastat - Taco 00 Series Recirculation Control",
+  "manufacturer": "Taco",
+  "slug": "p3-taco-timer-and-aquastat",
+  "url": "https://www.tacocomfort.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P4",
+  "group": "P",
+  "code": "P4",
+  "title": "Hose Bibbs - ProFlo PF71DC / PF71FC (brass)",
+  "manufacturer": "ProFlo (Ferguson)",
+  "slug": "p4-proflo-hose-bibb-pf71",
+  "url": "https://www.ferguson.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P5",
+  "group": "P",
+  "code": "P5",
+  "title": "Angle / Isolation Valve - U.S. Solid 1/2 in 316 SS Mini Ball Valve",
+  "manufacturer": "U.S. Solid",
+  "slug": "p5-us-solid-316-ss-mini-ball-valve-angle-valve",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "P-P6",
+  "group": "P",
+  "code": "P6",
+  "title": "Angle Valves - BrassCraft KTCR19 Compression Angle Supply Stop (Chrome)",
+  "manufacturer": "BrassCraft",
+  "slug": "p6-brasscraft-ktcr19-angle-stop-valve",
+  "url": "https://www.brasscraft.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P7",
+  "group": "P",
+  "code": "P7",
+  "title": "Supply Hoses - ProFlo PFX146 Braided Stainless Flexible Connector",
+  "manufacturer": "ProFlo (Ferguson)",
+  "slug": "p7-proflo-pfx146-braided-supply-hose",
+  "url": "https://www.ferguson.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P8",
+  "group": "P",
+  "code": "P8",
+  "title": "Vanity P-Trap - ProFlo 100 Series 1-1/2 in Brass (Polished Chrome)",
+  "manufacturer": "ProFlo (Ferguson)",
+  "slug": "p8-proflo-p-trap-pfptb107",
+  "url": "https://www.ferguson.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P9",
+  "group": "P",
+  "code": "P9",
+  "title": "Pipe Insulation - JM Micro-Lok HP Fiberglass",
+  "manufacturer": "Johns Manville",
+  "slug": "p9-jm-micro-lok-hp-pipe-insulation",
+  "url": "https://www.jm.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P9",
+  "group": "P",
+  "code": "P9",
+  "title": "P9 - Poly Pipe Insulation",
+  "manufacturer": "",
+  "slug": "p9-poly-pipe-insulation",
+  "url": "https://www.jm.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P11",
+  "group": "P",
+  "code": "P11",
+  "title": "Cold Water Service - PVC Schedule 40 Pressure Pipe & Fittings",
+  "manufacturer": "Charlotte Pipe",
+  "slug": "p11-charlotte-pvc-sch-40-cold-water-service",
+  "url": "https://www.charlottepipe.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P12",
+  "group": "P",
+  "code": "P12",
+  "title": "Cold Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
+  "manufacturer": "Charlotte Pipe",
+  "slug": "p12-charlotte-flowguard-cpvc-cold-water-distribution",
+  "url": "https://www.charlottepipe.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P13",
+  "group": "P",
+  "code": "P13",
+  "title": "Hot Water Distribution - CPVC FlowGuard Gold CTS (SDR 11)",
+  "manufacturer": "Charlotte Pipe",
+  "slug": "p13-charlotte-flowguard-cpvc-hot-water-distribution",
+  "url": "https://www.charlottepipe.com",
+  "kind": "site"
+ },
+ {
+  "key": "P-P14",
+  "group": "P",
+  "code": "P14",
+  "title": "Roof Drains - ProFlo 3 in Plastic Roof Drain (PF42870)",
+  "manufacturer": "ProFlo (Ferguson)",
+  "slug": "p14-proflo-plastic-roof-drain-pf42870",
+  "url": "https://www.ferguson.com",
+  "kind": "site"
+ }
+]

@@ -1,0 +1,74 @@
+[
+ {
+  "key": "C-C1",
+  "group": "C",
+  "code": "C1",
+  "title": "Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit",
+  "manufacturer": "Burndy",
+  "verdict": "weak",
+  "why": "Grey CAD render rather than a photograph - worth confirming it is the BWB680IG.",
+  "slug": "c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit",
+  "file": "img/c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp",
+  "current": "img/c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
+ },
+ {
+  "verdict": "weak",
+  "key": "L-LTRN18",
+  "code": "LTRN18",
+  "group": "L",
+  "slug": "ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd",
+  "manufacturer": "Lutron",
+  "title": "LTRN18 - DS - Lutron Comercial System Warranty LSC-L2-P8LTD",
+  "file": "img/ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd.webp",
+  "current": "img/ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd.webp",
+  "why": "A page of the warranty text rather than a product shot. Reasonable for a warranty document, flagged so you can swap it if you would rather show the panel it covers."
+ },
+ {
+  "key": "L-LTRN3",
+  "group": "L",
+  "code": "LTRN3",
+  "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel PD4-36F-120",
+  "manufacturer": "",
+  "verdict": "weak",
+  "why": "Dimension drawings rather than a product shot - your pick, flagged only so it is not a surprise.",
+  "slug": "ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120",
+  "file": "ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.jpg",
+  "current": "data:image/webp;base64,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"
+ },
+ {
+  "key": "L-LTRN21",
+  "group": "L",
+  "code": "LTRN21",
+  "title": "LTRN21 - DS - Lutron Palladiom Faceplate LWT-U-P-SB",
+  "manufacturer": "",
+  "verdict": "missing",
+  "why": "No picture - the datasheet embeds none that passed the filter.",
+  "slug": "ltrn21-ds-lutron-palladiom-faceplate-lwt-u-p-sb",
+  "file": "ltrn21-ds-lutron-palladiom-faceplate-lwt-u-p-sb.jpg",
+  "current": ""
+ },
+ {
+  "key": "L-LTRN9",
+  "group": "L",
+  "code": "LTRN9",
+  "title": "LTRN9 - DS - Lutron Alisse Keypad Base HW-QS-B-S1",
+  "manufacturer": "",
+  "verdict": "missing",
+  "why": "No picture - the datasheet embeds none that passed the filter.",
+  "slug": "ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1",
+  "file": "ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1.jpg",
+  "current": ""
+ },
+ {
+  "key": "A-A3",
+  "group": "A",
+  "code": "A3",
+  "title": "Infinity-Edge Pump - Pentair IntelliFlo3 VSF",
+  "manufacturer": "Pentair",
+  "verdict": "note",
+  "why": "Identical file to A-A2. Same IntelliFlo3 VSF model, so defensible.",
+  "slug": "a3-infinity-edge-pump-intelliflo3-vsf",
+  "file": "a3-infinity-edge-pump-intelliflo3-vsf.jpg",
+  "current": "data:image/webp;base64,UklGRlQEAABXRUJQVlA4IEgEAACQFwCdASqWAFoAPpVEnUolo6KhqJQLGLASiWcA1iSH0ponv2NrizBoFzoxXf4TPhkk1Z517Y3ddhTBqOWhaDXevi9vyhSrq99UEGxrC3L5xa7aP6MmUc2+2+JmdbJkOgMrYHYiO5EOcwIC+lqW439GNyvYrV0SFAXGGPhucKbmYI7QvrwP4Qjp72pa1hd2L3gqGsA7PRg3j5iJ5JZbD5bNvBbvEV4jjsLeVhpblvtSLxRGF/nN2+x3FyacAJl5dLSas869AAD++raAASbEFN35qfRvxAz44LXjz169t+hL6uFXCNpXyMeaciMbG8b1QideesKbTqA++mCfJxUp0ZEfm2SlhnlikDhsYU6fGGUIaOtEqInQOs6fgedyxJ7vOkHFIdjth41dr5V4vvLnQwomuTIMBHw8zSHDCZ9U1hz+9OpJHYSIFVqaZUV5x+3dG+tEHGil2JlQ10gF8mfoN5XAFjhdcSgghgk+/2MeTLtvYzKQsZd68mVl9sPaAifvttUcvUxQOlhHmYHhxAvZpqhf6lTNO/sJMQEUDtmdi/t/egoJmA2Ib5+KUXOD0uVZg4xeA2t/M3btVcYJd+NYnSyRJ6TUlJQVkRtD+UalPLPKCBrLeP09y0oCoie8TqHdIubXh2pfWiehVvk4cRMKQ6VXdaHLazLyRVlMkorvu36HL2t+zJgoxGQh1Zn6IiQLzlb1Gp2HF/VCsvde8CyrtV+hHemxsnOpHqbl39wiZLBx4Vkmo5TWtKNSLpbQ9h4zFkfTzzouG02gOD/2l17bKR01sKkDoGSaR9dCLI5K3lJRs5rJt6UVRGgRw/RU53vgacT9ieSQBWxhYYoOT9pzmy3Klq9+nW9OTLozG2iIrCvxPjnBDGE5fs+FdejBGNg6YsaU83uhuPw7o/vn+aSZ8GlWMoXznMDbtG5Q8u5BiU6iKaxZPW+wQBaMRL5Ea7io5ChEfW8UMOGpKFjC6QMkVcIXTDRrZRBN+jqu6PHkC2ZdA6Y5GAqvNjXNfPiouJCTpOeNsaR6xeS+jOnHeBPjwl06vc5bJ5o6WZPhKNElRAq3Q+2Oes2c6ZzaulfcI6GVMgVxSOGE0B+0tboNDc2KJFQiJTDiiPt8VNvIdZHo5O/ECkmJtGJXu8wUCiB9RUd4bh5fSmdOysZc5X0PBO0qoe7jJtWBvEvH72C0FyQp3v2d71VEOdLq5ObkmYlV/ABp2EAArSw6M1Tlvt1HuV/TyhGvA4ix8g3qjJqoKootXy3jRzwzAHWOdaMdkxvRZBR/WAfSAwtjMNKxkAplVVItNx1gQ5hlAAC5kVZqzg93+8HPNShtPvoOhZCwMf/EUUnAQhIf/QKxjMZjKbUFok5tNP/Ln86KOCbx/NdYkGAIwf7FApHVvuz8jo7dSOjUpxzq3HVoP8c9eoFU9L/dXpxiUZ8FXYWQ1ZljT4e1EfA3DV1E0JZagAAAAAAA"
+ }
+]
