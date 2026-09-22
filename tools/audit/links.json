@@ -70,16 +70,6 @@
   "kind": "site"
  },
  {
-  "key": "B-B2",
-  "group": "B",
-  "code": "B2",
-  "title": "Pool Shallow Floor Return - Color Match Pebble Top PTFR-03 (Light Gray)",
-  "manufacturer": "Color Match Pool Fittings",
-  "slug": "b2-color-match-floor-return-ptfr-03",
-  "url": "",
-  "kind": "none"
- },
- {
   "key": "B-B3",
   "group": "B",
   "code": "B3",
@@ -107,16 +97,6 @@
   "manufacturer": "Spears",
   "slug": "b5-spears-sch-40-pvc",
   "url": "https://www.spearsmfg.com",
-  "kind": "site"
- },
- {
-  "key": "B-B6",
-  "group": "B",
-  "code": "B6",
-  "title": "Automatic Water Filler - Pentair T40-F",
-  "manufacturer": "Pentair",
-  "slug": "b6-pentair-t40-f-automatic-water-filler",
-  "url": "https://www.pentair.com",
   "kind": "site"
  },
  {

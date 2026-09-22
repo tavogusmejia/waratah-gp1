@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22T15:46:05Z",
+ "generated": "2026-09-22T16:13:48Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -15,7 +15,7 @@
    "name": "In-Pool Fittings",
    "discipline": "Pool",
    "submittal": "JANU-SUB-004",
-   "count": 6
+   "count": 4
   },
   {
    "key": "D",
@@ -404,51 +404,6 @@
    "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
   {
-   "id": "b-b2-pool-shallow-floor-return-color-match",
-   "code": "B2",
-   "group": "B",
-   "group_name": "In-Pool Fittings",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-004",
-   "manufacturer": "Color Match Pool Fittings",
-   "category": "",
-   "title": "Pool Shallow Floor Return - Color Match Pebble Top PTFR-03 (Light Gray)",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Color Match Pool Fittings, Pebble Top Floor Return PTFR-03 (Light Gray)"
-    },
-    {
-     "label": "Type",
-     "value": "Adjustable floor return, finish-fillable lid"
-    },
-    {
-     "label": "Flow",
-     "value": "360 deg adjustable; built-in water stop"
-    },
-    {
-     "label": "Pipe",
-     "value": "Fits 1.5 in and 2 in"
-    },
-    {
-     "label": "Material",
-     "value": "Engineered polymer, UV-resistant ABS; made in USA"
-    }
-   ],
-   "notes": "Color-change plate; lid fills with pool finish",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/b2-color-match-floor-return-ptfr-03.pdf",
-   "pages": 2,
-   "bytes": 1161922,
-   "source": "B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
-   "drive_url": "https://drive.google.com/file/d/18AfYfQOqQX6AhGVzCV3OWMJlnEIz8fUF/view",
-   "maker_url": "https://www.poolfittings.com/pebble-top-floor-return",
-   "extras": [],
-   "image": "img/b2-color-match-floor-return-ptfr-03.webp"
-  },
-  {
    "id": "b-b3-pool-wall-infinity-edge-return-inlets",
    "code": "B3",
    "group": "B",
@@ -594,55 +549,6 @@
    "maker_url": "https://www.spearsmfg.com",
    "extras": [],
    "image": "img/b5-spears-sch-40-pvc.webp"
-  },
-  {
-   "id": "b-b6-automatic-water-filler-pentair-t40-f",
-   "code": "B6",
-   "group": "B",
-   "group_name": "In-Pool Fittings",
-   "discipline": "Pool",
-   "submittal": "JANU-SUB-004",
-   "manufacturer": "Pentair",
-   "category": "",
-   "title": "Automatic Water Filler - Pentair T40-F",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Pentair T40-F Automatic Water Filler"
-    },
-    {
-     "label": "Type",
-     "value": "Float-actuated auto water leveler (no electronics)"
-    },
-    {
-     "label": "Body",
-     "value": "7 in diameter; ABS polymer, corrosion/chemical resistant"
-    },
-    {
-     "label": "Valve",
-     "value": "Side- or bottom-mounted plastic fill valve"
-    },
-    {
-     "label": "Application",
-     "value": "Inground and vanishing-edge pools"
-    },
-    {
-     "label": "Colours",
-     "value": "White, black, gray, dark gray, tan"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/b6-pentair-t40-f-automatic-water-filler.pdf",
-   "pages": 2,
-   "bytes": 194286,
-   "source": "B - In-Pool Fittings/B6 - Pentair T40-F Automatic Water Filler.pdf",
-   "drive_url": "https://drive.google.com/file/d/1alPmF8kT1aduuxhfNJsLCQoknG537Fxk/view",
-   "maker_url": "https://www.pentair.com",
-   "extras": [],
-   "image": "img/b6-pentair-t40-f-automatic-water-filler.webp"
   },
   {
    "id": "d-dh1-concealed-mortise-hinge-hafele-3d-adju",
