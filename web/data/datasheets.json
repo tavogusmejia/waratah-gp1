@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22T13:18:58Z",
+ "generated": "2026-09-22T15:46:05Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -113,7 +113,7 @@
    "bytes": 777856,
    "source": "A - Pump Room Equipment/A1 - Cartridge Filter (Clean & Clear CC150).pdf",
    "drive_url": "https://drive.google.com/file/d/1a3xNT76VQT0z8jp5_bAOuw1WRxb8750i/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.pentair.com/en-us/pool-spa/products/filters/clean-and-clear-cartridge-filters.html",
    "extras": [],
    "image": "img/a1-cartridge-filter-clean-clear-cc150.webp"
   },
@@ -154,7 +154,7 @@
    "bytes": 6205005,
    "source": "A - Pump Room Equipment/A2 - Main Filter Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "https://drive.google.com/file/d/1AybcrmykbVs75oIftT6u6HmvHpYcFthQ/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.pentair.com/en-us/pool-spa/products/pumps/intelliflo3-vsf-pool-pump.html",
    "extras": [],
    "image": "img/a2-main-filter-pump-intelliflo3-vsf.webp"
   },
@@ -195,7 +195,7 @@
    "bytes": 6205020,
    "source": "A - Pump Room Equipment/A3 - Infinity Edge Pump (IntelliFlo3 VSF).pdf",
    "drive_url": "https://drive.google.com/file/d/1J_PeglnV2gP-Zszk4G21HpnFnCirsOpl/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.pentair.com/en-us/pool-spa/products/pumps/intelliflo3-vsf-pool-pump.html",
    "extras": [],
    "image": "img/a3-infinity-edge-pump-intelliflo3-vsf.webp"
   },
@@ -240,7 +240,7 @@
    "bytes": 965385,
    "source": "A - Pump Room Equipment/A4 - Pool Controller (IntelliCenter Lite i5P).pdf",
    "drive_url": "https://drive.google.com/file/d/1QUZFzPzMLhkAJ_pdcyWs_ROO3Numb_jJ/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.pentair.com/en-us/products/residential/pool-spa-equipment/pool-automation/intellicenter-lite-control-system.html",
    "extras": [],
    "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp"
   },
@@ -285,7 +285,7 @@
    "bytes": 872426,
    "source": "A - Pump Room Equipment/A5 - Salt Chlorine Generator (IntelliChlor LT25).pdf",
    "drive_url": "https://drive.google.com/file/d/1Vo5wRoa4N__kueozybHAP4O458k4eOB3/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.pentair.com/en-us/pool-spa/products/water-treatment/intellichlor-plus-lt-salt-chlorine-generators.html",
    "extras": [],
    "image": "img/a5-salt-chlorine-generator-intellichlor-lt25.webp"
   },
@@ -338,7 +338,7 @@
    "bytes": 182325,
    "source": "A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
    "drive_url": "https://drive.google.com/file/d/1eTjeDJ61biZa1SAyxUaUJoxGDrwT_LlC/view",
-   "maker_url": "https://www.pentair.com",
+   "maker_url": "https://www.poolheatpumps.com/pool-heat-pumps/gulfstream-he150ra-pool-heat-pump.html",
    "extras": [],
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
@@ -399,7 +399,7 @@
    "bytes": 2866341,
    "source": "B - In-Pool Fittings/B1 - AquaStar Main Drain (WAV9WR103).pdf",
    "drive_url": "https://drive.google.com/file/d/1uhlWGP-9XHaTWgdqoOKRxhi-7499Zc5E/view",
-   "maker_url": "https://aquastarpoolproducts.com",
+   "maker_url": "https://www.aquastarpoolproducts.com/draincoverspecifications/wav9wrxxxf",
    "extras": [],
    "image": "img/b1-aquastar-main-drain-wav9wr103.webp"
   },
@@ -444,7 +444,7 @@
    "bytes": 1161922,
    "source": "B - In-Pool Fittings/B2 - Color Match Floor Return (PTFR-03).pdf",
    "drive_url": "https://drive.google.com/file/d/18AfYfQOqQX6AhGVzCV3OWMJlnEIz8fUF/view",
-   "maker_url": "",
+   "maker_url": "https://www.poolfittings.com/pebble-top-floor-return",
    "extras": [],
    "image": "img/b2-color-match-floor-return-ptfr-03.webp"
   },
@@ -1678,7 +1678,7 @@
    "bytes": 1472262,
    "source": "F - Balancing Tank Accessories/F1 - Robert Mfg BOB R400 Brass Float Valve.pdf",
    "drive_url": "https://drive.google.com/file/d/1HzIHICrafDHSriBMUTzVXp-ck_5L31pu/view",
-   "maker_url": "",
+   "maker_url": "https://www.cdivalve.com/products/detail/r400-series-bob-float-valves",
    "extras": [],
    "image": "img/f1-robert-mfg-bob-r400-brass-float-valve.webp"
   },
@@ -1731,7 +1731,7 @@
    "bytes": 108302,
    "source": "F - Balancing Tank Accessories/F2 - Valveman Brass Foot Valves.pdf",
    "drive_url": "https://drive.google.com/file/d/12jE0V7smrJz_dH75OfKQfimF2DprKjew/view",
-   "maker_url": "",
+   "maker_url": "https://www.bonominorthamerica.com/en/product/rubinetterie-bresciane/euroblock/100102_18335",
    "extras": [],
    "image": "img/f2-valveman-brass-foot-valves.webp"
   },
@@ -1780,7 +1780,7 @@
    "bytes": 585264,
    "source": "G - Piping and Valves/G1 - Aquaram Valves.pdf",
    "drive_url": "https://drive.google.com/file/d/19EdEF07ap6w2KLYsbgJ18ckp3ZN0fWvw/view",
-   "maker_url": "",
+   "maker_url": "https://www.akvalvesltd.com/products/pvc-ball-valve-double-union-ch-aquaram",
    "extras": [],
    "image": "img/g1-aquaram-valves.webp"
   },
@@ -1821,7 +1821,7 @@
    "bytes": 623296,
    "source": "G - Piping and Valves/G2 - Jandy Check Valves.pdf",
    "drive_url": "https://drive.google.com/file/d/18Cr28frzOiecPbY48msQN7niiHv2wxc4/view",
-   "maker_url": "https://www.jandy.com",
+   "maker_url": "https://www.jandy.com/en/products/pool-valves/check-valves/check",
    "extras": [],
    "image": "img/g2-jandy-check-valves.webp"
   },
@@ -1874,7 +1874,7 @@
    "bytes": 1259923,
    "source": "G - Piping and Valves/G3 - Spears PVC Sch 40 Fittings, Unions and Saddles - Technical Catalog.pdf",
    "drive_url": "https://drive.google.com/file/d/1tEhAFtbO3gZd396oQsNq-JPsWAGaD0ss/view",
-   "maker_url": "https://www.spearsmfg.com",
+   "maker_url": "https://spearsmfg.com/",
    "extras": [],
    "image": "img/g3-spears-pvc-sch-40-fittings-unions-and-saddles-technical-catalog.webp"
   },
@@ -1927,7 +1927,7 @@
    "bytes": 207707,
    "source": "C - Cables and Bonding/C1 - Burndy BWB680IG In-Ground Pool Water Bonding Kit.pdf",
    "drive_url": "https://drive.google.com/file/d/1vhHENithlU_XAO5XnrZje9zgV2doc1Qg/view",
-   "maker_url": "",
+   "maker_url": "https://www.hubbell.com/burndy/en/products/bwb680ig-in-ground-pool-water-bonding-kit/p/484312",
    "extras": [],
    "image": "img/c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
   },
@@ -1984,7 +1984,7 @@
    "bytes": 716770,
    "source": "P - Plumbing/P1 - Bradford White 119 gal Water Heater.pdf",
    "drive_url": "https://drive.google.com/file/d/1ON_61je_K9eKz76XK2v7LoZNUsqfbrMo/view",
-   "maker_url": "",
+   "maker_url": "https://www.bradfordwhite.com/commercial-electric-water-heaters/",
    "extras": [],
    "image": "img/p1-bradford-white-119-gal-water-heater.webp"
   },
@@ -2037,7 +2037,7 @@
    "bytes": 489502,
    "source": "P - Plumbing/P2 - Taco 2400 Series Recirculation Pump.pdf",
    "drive_url": "https://drive.google.com/file/d/1eNXGDpT2Opyfaa9mlh9K55Q-bZIlpU20/view",
-   "maker_url": "",
+   "maker_url": "https://www.tacocomfort.com/product/2400-series-high-capacity-circulators/",
    "extras": [],
    "image": "img/p2-taco-2400-series-recirculation-pump.webp"
   },
@@ -2082,7 +2082,7 @@
    "bytes": 200131,
    "source": "P - Plumbing/P3 - Taco Timer and Aquastat.pdf",
    "drive_url": "https://drive.google.com/file/d/1KhMqwC7CBggWRp3_zpV2oHtCX3B1Sj9t/view",
-   "maker_url": "",
+   "maker_url": "https://www.tacocomfort.com/product/00-timer-aquastat/",
    "extras": [],
    "image": "img/p3-taco-timer-and-aquastat.webp"
   },
@@ -2127,7 +2127,7 @@
    "bytes": 194159,
    "source": "P - Plumbing/P4 - ProFlo Hose Bibb PF71.pdf",
    "drive_url": "https://drive.google.com/file/d/1KxWp2ZIootz4U8VOEgUupEqHMPU_Z9QT/view",
-   "maker_url": "",
+   "maker_url": "https://www.fergusonhome.com/proflo-pf71dc/s992408",
    "extras": [],
    "image": "img/p4-proflo-hose-bibb-pf71.webp"
   },
@@ -2188,7 +2188,7 @@
    "bytes": 728444,
    "source": "P - Plumbing/P5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
    "drive_url": "https://drive.google.com/file/d/137i7rMGyCuv0HmaFFp1M3KyXAii__4cj/view",
-   "maker_url": "",
+   "maker_url": "https://ussolid.com/products/1-2-mini-ball-valve-316-stainless-steel-female-male-thread-2pcs",
    "extras": [],
    "image": "img/p5-us-solid-316-ss-mini-ball-valve-angle-valve.webp"
   },
@@ -2229,7 +2229,7 @@
    "bytes": 289956,
    "source": "P - Plumbing/P6 - BrassCraft KTCR19 Angle Stop Valve.pdf",
    "drive_url": "https://drive.google.com/file/d/1FPzVb9OZB00dy8ixECSsBsTVG-nDJJUa/view",
-   "maker_url": "",
+   "maker_url": "https://www.brasscraft.com/product/12-in-nom-comp-x-38-in-o-d-comp-6/",
    "extras": [],
    "image": "img/p6-brasscraft-ktcr19-angle-stop-valve.webp"
   },
@@ -2270,7 +2270,7 @@
    "bytes": 270583,
    "source": "P - Plumbing/P7 - ProFlo PFX146 Braided Supply Hose.pdf",
    "drive_url": "https://drive.google.com/file/d/1oGpH3lugUim3NCxVnPo0uQgsjS6Q4OdK/view",
-   "maker_url": "",
+   "maker_url": "https://www.ferguson.com/product/proflo-pfx146-3%2F8-in.-compression-x-1%2F2-in.-fip-x-16-in.-stainless-steel-and-pvc-reinforced-sink-flexible-water-connector-pfx146023/3866359.html",
    "extras": [],
    "image": "img/p7-proflo-pfx146-braided-supply-hose.webp"
   },
@@ -2311,7 +2311,7 @@
    "bytes": 861065,
    "source": "P - Plumbing/P8 - ProFlo P-Trap PFPTB107.pdf",
    "drive_url": "https://drive.google.com/file/d/1X5EHnv7MYYKVjzXTlon4kKMaxZ4gPgRv/view",
-   "maker_url": "",
+   "maker_url": "https://www.ferguson.com/product/proflo-100-series-1-1%2F2-in.-brass-p-trap-in-polished-chrome-pfptb112/4055901.html",
    "extras": [],
    "image": "img/p8-proflo-p-trap-pfptb107.webp"
   },
@@ -2360,7 +2360,7 @@
    "bytes": 224176,
    "source": "P - Plumbing/P9 - JM Micro-Lok HP Pipe Insulation.pdf",
    "drive_url": "https://drive.google.com/file/d/1MxjTOZqnD_x17528Za3IRcQBDCOyQmbS/view",
-   "maker_url": "",
+   "maker_url": "https://www.jm.com/en/insulation-systems/mechanical-insulation/micro-lok-hp-pipe-insulation/",
    "extras": [],
    "image": "img/p9-jm-micro-lok-hp-pipe-insulation.webp"
   },
@@ -2384,7 +2384,7 @@
    "bytes": 161420,
    "source": "P - Plumbing/P9 - Poly Pipe Insulation.pdf",
    "drive_url": "https://drive.google.com/file/d/1lt2u7mm9gHIADCZWoOXkCETi2s52fGCX/view",
-   "maker_url": "",
+   "maker_url": "https://www.jonesstephens.com/poly-insulation",
    "extras": [],
    "image": "img/p9-poly-pipe-insulation.webp"
   },
@@ -2433,7 +2433,7 @@
    "bytes": 268756,
    "source": "P - Plumbing/P11 - Charlotte PVC Sch 40 (Cold Water Service).pdf",
    "drive_url": "https://drive.google.com/file/d/1u4064so4paSqPeibG0Fy4fWmZnHH905-/view",
-   "maker_url": "",
+   "maker_url": "https://www.charlottepipe.com/products/plastics/flowguard-gold-copper-tube-size-cts-cpvc-pipe-and-fittings-system",
    "extras": [],
    "image": "img/p11-charlotte-pvc-sch-40-cold-water-service.webp"
   },
@@ -2486,7 +2486,7 @@
    "bytes": 216368,
    "source": "P - Plumbing/P12 - Charlotte FlowGuard CPVC (Cold Water Distribution).pdf",
    "drive_url": "https://drive.google.com/file/d/13kcmzHUAt7XhVSHWg04HZBc5DgFk58N9/view",
-   "maker_url": "",
+   "maker_url": "https://www.charlottepipe.com/products/plastics/flowguard-gold-copper-tube-size-cts-cpvc-pipe-and-fittings-system",
    "extras": [],
    "image": "img/p12-charlotte-flowguard-cpvc-cold-water-distribution.webp"
   },
@@ -2539,7 +2539,7 @@
    "bytes": 216387,
    "source": "P - Plumbing/P13 - Charlotte FlowGuard CPVC (Hot Water Distribution).pdf",
    "drive_url": "https://drive.google.com/file/d/1wHvOIuQ4GNzunaCqk_9qfQuY6QX39pLQ/view",
-   "maker_url": "",
+   "maker_url": "https://www.charlottepipe.com/products/plastics/flowguard-gold-copper-tube-size-cts-cpvc-pipe-and-fittings-system",
    "extras": [],
    "image": "img/p13-charlotte-flowguard-cpvc-hot-water-distribution.webp"
   },
@@ -2576,7 +2576,7 @@
    "bytes": 221895,
    "source": "P - Plumbing/P14 - ProFlo Plastic Roof Drain PF42870.pdf",
    "drive_url": "https://drive.google.com/file/d/1f1nAQH6YSbzm6gY5U5jMQ6BR1a09BlGr/view",
-   "maker_url": "",
+   "maker_url": "https://www.ferguson.com/product/proflo-3-in.-plastic-roof-drain-pf42870/1333313.html",
    "extras": [],
    "image": "img/p14-proflo-plastic-roof-drain-pf42870.webp"
   },
@@ -2613,7 +2613,7 @@
    "bytes": 2363591,
    "source": "L - Lighting/PL - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
    "drive_url": "https://drive.google.com/file/d/1KwrW7afiNB3XLZq4ijfzaZdSFKDPCsPH/view",
-   "maker_url": "https://www.lucelight.it",
+   "maker_url": "https://www.lucelight.it/en/prodotto.php/3686",
    "extras": [],
    "image": "img/a-pool-light-l09-cw16005di.webp"
   },
@@ -2654,7 +2654,7 @@
    "bytes": 2669975,
    "source": "L - Lighting/PL - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
    "drive_url": "https://drive.google.com/file/d/15-BPVPLJ-slJY71cR3mkMouuti8PFSTN/view",
-   "maker_url": "https://www.lucelight.it",
+   "maker_url": "https://www.lucelight.it/en/prodotto.php/108089",
    "extras": [],
    "image": "img/b-pool-light-l09-1-cw300005wi.webp"
   },
