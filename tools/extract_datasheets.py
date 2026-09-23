@@ -93,6 +93,7 @@ GROUPS = {
     "F": ("Balancing Tank Accessories", "Pool", None),
     "G": ("Piping and Valves", "Pool", None),
     "C": ("Cables and Bonding", "Pool", None),
+    "H": ("Bathroom and Shower Fixtures", "Plumbing", None),
     "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
@@ -348,8 +349,14 @@ def code_prefix(stem):
     return stem.split(" - ")[0].strip()
 
 
-KIND = {" - IG - ": "Installation guide",
+KIND = {" - IG Note - ": "Installation note",
+        " - IG - ": "Installation guide",
         " - DS - ": "Manufacturer datasheet"}
+
+# When every file for a code is marked, this is the one that becomes the item
+# and the rest ride along as attachments. The vendor datasheet describes the
+# product; an installation guide describes fitting it.
+LEADS = (" - DS - ",)
 
 
 def split_supplements(pdfs, root):
@@ -362,23 +369,45 @@ def split_supplements(pdfs, root):
     being thrown away. An installation guide is exactly what someone standing
     at the door wants.
 
-    A file is only demoted to an attachment when an unmarked file shares its
-    code. That matters: DH10 has nothing but a DS and would vanish under a
-    blunter rule, every Lutron sheet is a DS with no curated sibling, and J9
-    carries two genuinely different insulations under one code, which a
-    dedupe-by-code would silently halve.
+    A file is only demoted to an attachment when some OTHER file shares its
+    code. That matters: every Lutron sheet is a DS with no sibling at all and
+    would vanish under a blunter rule, and P9 carries two genuinely different
+    insulations under one code, which a dedupe-by-code would silently halve.
+
+    Which file leads depends on what is there. Where the source carries a
+    curated sheet - an unmarked file - that is the item, as in Doors. Where it
+    carries only vendor files, as in the bathroom fixtures, the DS leads and
+    the installation guides ride along: without this every H code appeared
+    twice, once as its datasheet and once as its installation guide, and
+    "IG Note" became an item title.
     """
-    plain = {}
+    groups = {}
     for f in pdfs:
-        if any(m in f.name for m in KIND):
+        groups.setdefault(
+            (group_of(f.relative_to(root)), code_prefix(f.stem)), []).append(f)
+
+    def marker(f):
+        return next((m for m in KIND if m in f.name), None)
+
+    lead = {}
+    for key, fs in groups.items():
+        if len(fs) < 2:
             continue
-        plain[(group_of(f.relative_to(root)), code_prefix(f.stem))] = f
+        plain = [f for f in fs if not marker(f)]
+        if len(plain) == 1:
+            lead[key] = plain[0]
+        elif not plain:
+            heads = [f for f in fs for m in LEADS if m in f.name]
+            if len(heads) == 1:
+                lead[key] = heads[0]
+        # More than one unmarked file under a code means two real items
+        # sharing it - P9's two insulations. Leave them both alone.
+
     keep, extras = [], {}
     for f in pdfs:
-        mark = next((m for m in KIND if m in f.name), None)
         key = (group_of(f.relative_to(root)), code_prefix(f.stem))
-        if mark and key in plain:
-            extras.setdefault(plain[key], []).append((KIND[mark], f))
+        if key in lead and f is not lead[key] and marker(f):
+            extras.setdefault(lead[key], []).append((KIND[marker(f)], f))
         else:
             keep.append(f)
     return keep, extras

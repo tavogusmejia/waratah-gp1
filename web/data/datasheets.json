@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-22T20:29:30Z",
+ "generated": "2026-09-23T13:40:49Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -22,7 +22,7 @@
    "name": "Doors & Hardware",
    "discipline": "Doors",
    "submittal": null,
-   "count": 10
+   "count": 9
   },
   {
    "key": "E",
@@ -50,7 +50,14 @@
    "name": "Cables and Bonding",
    "discipline": "Pool",
    "submittal": null,
-   "count": 1
+   "count": 6
+  },
+  {
+   "key": "H",
+   "name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "count": 9
   },
   {
    "key": "P",
@@ -551,8 +558,61 @@
    "image": "img/b5-spears-sch-40-pvc.webp"
   },
   {
-   "id": "d-dh1-concealed-mortise-hinge-hafele-3d-adju",
-   "code": "DH1",
+   "id": "d-dh9-automatic-drop-down-seal-assa-abloy-pl",
+   "code": "DH9",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Assa Abloy",
+   "category": "Seals",
+   "title": "Automatic Drop-Down Seal - Assa Abloy Planet X3 RD",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Assa Abloy Planet X3 RD (smoke-shielding), can be shortened"
+    },
+    {
+     "label": "Performance",
+     "value": "52 dB sound reduction; smoke-shielding (RD)"
+    },
+    {
+     "label": "Profile",
+     "value": "Aluminium 22 × 30 mm; seal height 5–12 mm; side lift 2–6 mm"
+    },
+    {
+     "label": "Material",
+     "value": "Aluminium & silicone"
+    },
+    {
+     "label": "Finish",
+     "value": "Natural finish FIX-09 · Zone: Entrance · Qty 1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/dh9-assa-abloy-planet-x3-rd-drop-seal.pdf",
+   "pages": 4,
+   "bytes": 1422325,
+   "source": "D - Doors/DH - Doors Hardware/DH9 - Assa Abloy Planet X3 RD Drop Seal.pdf",
+   "drive_url": "https://drive.google.com/file/d/1kYs6CUQ2gA1ym2tQc5U80G2Wwg_rApuK/view",
+   "maker_url": "https://www.assaabloy.https://dach.assaabloy.com/ch/en/product-catalogue/planet-t611079-p371898-planet-x3?checked=e83d5b8f81a6afba04548af4772e898ad632de92b684c70037bf9eede1b820a3com",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh9-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH9 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
+     "bytes": 1424744,
+     "drive_url": "https://drive.google.com/file/d/1hjoN7mntJOo8MoCNOpVX4_zQg993ujhM/view"
+    }
+   ],
+   "image": "img/dh9-assa-abloy-planet-x3-rd-drop-seal.webp"
+  },
+  {
+   "id": "d-dh10-concealed-mortise-hinge-hafele-3d-adju",
+   "code": "DH10",
    "group": "D",
    "group_name": "Doors & Hardware",
    "discipline": "Doors",
@@ -590,86 +650,238 @@
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/dh1-hafele-startec-concealed-hinge.pdf",
+   "pdf": "datasheets/dh10-hafele-startec-concealed-hinge.pdf",
    "pages": 3,
    "bytes": 744848,
-   "source": "D - Doors/DH - Doors Hardware/DH1 - Hafele Startec Concealed Hinge.pdf",
+   "source": "D - Doors/DH - Doors Hardware/DH10 - Hafele Startec Concealed Hinge.pdf",
    "drive_url": "https://drive.google.com/file/d/16pdugb77I2uUgIRzeVkwHLqBT2vOTU-Y/view",
    "maker_url": "https://www.hafele.com/th/en/product/door-hinge-concealed-for-flush-interior-doors-up-to-80-100-kg/92791833/?MasterSKU=P-00862553",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh1-ds-hafele-startec-concealed-hinge-b.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH1 - DS - Hafele Startec Concealed Hinge B.pdf",
+     "pdf": "datasheets/dh10-ds-hafele-startec-concealed-hinge-b.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Startec Concealed Hinge B.pdf",
      "bytes": 739874,
      "drive_url": "https://drive.google.com/file/d/11hklGe9QHB0v33a7Ns-1tPSpb-gLG7t-/view"
     }
    ],
-   "image": "img/dh1-hafele-startec-concealed-hinge.webp"
+   "image": "img/dh10-hafele-startec-concealed-hinge.webp"
   },
   {
-   "id": "d-dh2-lever-handle-set-salto-standard-line",
-   "code": "DH2",
+   "id": "d-dh11-center-hung-top-pivot-hinge-hafele-hp0",
+   "code": "DH11",
    "group": "D",
    "group_name": "Doors & Hardware",
    "discipline": "Doors",
    "submittal": null,
-   "manufacturer": "Salto",
-   "category": "Handles",
-   "title": "Lever Handle Set - Salto Standard Line, London",
+   "manufacturer": "Häfele",
+   "category": "Hinges",
+   "title": "Center-Hung Top Pivot Hinge - Häfele HP023",
    "specs": [
     {
      "label": "Model",
-     "value": "Salto Standard Line lever handle, London model"
+     "value": "Häfele Door Hinge, Center Hung, Top Pivot — HP023 (P-01498889)"
     },
     {
      "label": "Type",
-     "value": "Lever handle set for Salto electronic lock (AElement Fusion)"
+     "value": "Center-hung pivot, top & bottom set (HP023 top pivot + floor-mounted bottom pivot)"
+    },
+    {
+     "label": "Application",
+     "value": "W.C. door"
     },
     {
      "label": "Material",
-     "value": "Stainless steel"
+     "value": "Stainless steel (630 / US32D)"
     },
     {
      "label": "Finish",
-     "value": "NE - Black Chrome (BHMA687)"
-    },
-    {
-     "label": "Standard",
-     "value": "Suits ANSI / DIN profile doors FIX-16 · Zone: Entrance, Hallway & W.C. · Qty 3"
+     "value": "Satin FIX-11 · Zone: W.C. · Qty 1"
     }
    ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/dh2-salto-london-lever-handle.pdf",
-   "pages": 1,
-   "bytes": 2392,
-   "source": "D - Doors/DH - Doors Hardware/DH2 - Salto London Lever Handle.pdf",
-   "drive_url": "https://drive.google.com/file/d/1rGHCV5nXzzU2W3ttGbrZmnh9zzbmL4Tq/view",
-   "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
+   "pdf": "datasheets/dh11-hafele-door-hinge-top-pivot.pdf",
+   "pages": 2,
+   "bytes": 226106,
+   "source": "D - Doors/DH - Doors Hardware/DH11 - Hafele Door Hinge Top Pivot.pdf",
+   "drive_url": "https://drive.google.com/file/d/11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A/view",
+   "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/#SearchParameter=&@QueryTerm=door+pivot&Category=fn0KAOsFhMoAAAFlTOecc.x0&@P.FF.followSearch=9886&PageNumber=1&OriginalPageSize=48&PageSize=48&Position=10&OrigPos=11&ProductListSize=37&PDP=true",
    "extras": [
     {
-     "kind": "Installation guide",
-     "pdf": "datasheets/dh2-ig-salto-london-lever-handle.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH2 - IG - Salto London Lever Handle.pdf",
-     "bytes": 585528,
-     "drive_url": "https://drive.google.com/file/d/1XtksWim-l62aMRMVa845W-biI1q939Yr/view"
-    },
-    {
      "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh2-ds-salto-london-lever-handle.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH2 - DS - Salto London Lever Handle.pdf",
-     "bytes": 144342,
-     "drive_url": "https://drive.google.com/file/d/1dwGf_CGeeZxEFXVasN72f885fKQOsdR1/view"
+     "pdf": "datasheets/dh11-ds-hafele-door-hinge-top-pivot.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH11 - DS - Hafele Door Hinge Top Pivot.pdf",
+     "bytes": 222524,
+     "drive_url": "https://drive.google.com/file/d/1OoDQxmy7RKHEMOnT5pPv3ShKqErwVBxm/view"
     }
    ],
-   "image": "img/dh2-salto-london-lever-handle.webp"
+   "image": "img/dh11-hafele-door-hinge-top-pivot.webp"
   },
   {
-   "id": "d-dh3-electronic-lockset-salto-lement-fusio",
-   "code": "DH3",
+   "id": "d-dh12-door-viewer-hafele-startec-200-959-0",
+   "code": "DH12",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Peep Hole",
+   "title": "Door Viewer - Häfele Startec 200° (959.01.042)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Startec door viewer — 959.01.042"
+    },
+    {
+     "label": "Field of view",
+     "value": "200°"
+    },
+    {
+     "label": "Door thickness",
+     "value": "Up to 82 mm"
+    },
+    {
+     "label": "Material",
+     "value": "Brass"
+    },
+    {
+     "label": "Finish",
+     "value": "Burnished Brass FIX-12 · Zone: Entrance · Qty 1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/dh12-hafele-startec-door-viewer.pdf",
+   "pages": 2,
+   "bytes": 703705,
+   "source": "D - Doors/DH - Doors Hardware/DH12 - Hafele Startec Door Viewer.pdf",
+   "drive_url": "https://drive.google.com/file/d/1taDy6HWe9mURv-3csyIISyWkoXZVWFlX/view",
+   "maker_url": "https://www.hafele.si/en/product/door-viewer-up-to-door-thickness-82-mm-startec/95901042/?MasterSKU=P-00873696",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh12-ds-hafele-startec-door-viewer-b.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH12 - DS - Hafele Startec Door Viewer B.pdf",
+     "bytes": 700332,
+     "drive_url": "https://drive.google.com/file/d/1EwF_c21NIzHt0lKvtuGHOrdTofHHATB4/view"
+    }
+   ],
+   "image": "img/dh12-hafele-startec-door-viewer.webp"
+  },
+  {
+   "id": "d-dh13-sliding-door-fitting-hafele-hawa-junio",
+   "code": "DH13",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Sliding Door Running Gear",
+   "title": "Sliding Door Fitting - Häfele Hawa Junior 80/100B (941.04.012)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Hawa Junior 80/100B — 941.04.012"
+    },
+    {
+     "label": "Type",
+     "value": "Pocket sliding door system, top-hung"
+    },
+    {
+     "label": "Max door weight",
+     "value": "100 kg"
+    },
+    {
+     "label": "Material",
+     "value": "Stainless steel, zinc alloy & high-performance plastics"
+    },
+    {
+     "label": "Finish",
+     "value": "Natural finish FIX-13 · Zone: Walk-in Closet · Qty 2"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/dh13-hafele-hawa-junior-80b-pocket.pdf",
+   "pages": 1,
+   "bytes": 2430,
+   "source": "D - Doors/DH - Doors Hardware/DH13 - Hafele Hawa Junior 80B Pocket.pdf",
+   "drive_url": "https://drive.google.com/file/d/1KEKlK2lmnlnGTy4JS8llB6FRgY27ny80/view",
+   "maker_url": "https://www.hafele.co.uk/en/product/fitting-set-for-sliding-interior-pocket-doors-hawa-junior-100-b-pocket/P-01580146/",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh13-ds-hafele-hawa-junior-80b-pocket.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH13 - DS - Hafele Hawa Junior 80B Pocket.pdf",
+     "bytes": 1128458,
+     "drive_url": "https://drive.google.com/file/d/1EGuq-dUS2PtezfKmjZ1JpCO2ytoQSRiO/view"
+    }
+   ],
+   "image": "img/dh13-hafele-hawa-junior-80b-pocket.webp"
+  },
+  {
+   "id": "d-dh14-sliding-door-hardware-hafele-slido-d-l",
+   "code": "DH14",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Häfele",
+   "category": "Sliding Door Running Gear",
+   "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P (941.62.018)",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Häfele Slido D-Line11 160P — 941.62.018"
+    },
+    {
+     "label": "Type",
+     "value": "Sliding door hardware, 1-/2-leaf; ceiling & wall mount"
+    },
+    {
+     "label": "Max door weight",
+     "value": "160 kg"
+    },
+    {
+     "label": "Material",
+     "value": "Stainless steel, zinc alloy & high-performance plastics"
+    },
+    {
+     "label": "Finish",
+     "value": "Natural finish FIX-14 · Zone: Outdoor Living shutters · Qty 1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/dh14-hafele-slido-d-line11-160p.pdf",
+   "pages": 2,
+   "bytes": 522263,
+   "source": "D - Doors/DH - Doors Hardware/DH14 - Hafele Slido D-Line11 160P.pdf",
+   "drive_url": "https://drive.google.com/file/d/1Ps_XhTmREpUwHuTEPXPmwgDFFcTNScDf/view",
+   "maker_url": "https://www.hafele.com/us/en/product/sliding-door-hardware-haefele-slido-d-line11-160p-set/94162018/?MasterSKU=P-01499186",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh14-ds-hafele-slido-d-line11-160p.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH14 - DS - Hafele Slido D-Line11 160P.pdf",
+     "bytes": 520012,
+     "drive_url": "https://drive.google.com/file/d/1QH9Y2U1CgFxAkzvQRrt6-J-MwN_F-lZ2/view"
+    }
+   ],
+   "image": "img/dh14-hafele-slido-d-line11-160p.webp"
+  },
+  {
+   "id": "d-dh15-electronic-lockset-salto-lement-fusio",
+   "code": "DH15",
    "group": "D",
    "group_name": "Doors & Hardware",
    "discipline": "Doors",
@@ -707,33 +919,93 @@
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/dh3-salto-aelement-fusion-lockset-ring-reader.pdf",
+   "pdf": "datasheets/dh15-salto-aelement-fusion-lockset-ring-reader.pdf",
    "pages": 1,
    "bytes": 2559,
-   "source": "D - Doors/DH - Doors Hardware/DH3 - Salto AElement Fusion Lockset & Ring Reader.pdf",
+   "source": "D - Doors/DH - Doors Hardware/DH15 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "drive_url": "https://drive.google.com/file/d/1azMX3mecepvYCU_YbZM-20V0CC04EZ92/view",
    "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
    "extras": [
     {
      "kind": "Installation guide",
-     "pdf": "datasheets/dh3-ig-salto-aelement-fusion-lockset-ring-reader.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH3 - IG - Salto AElement Fusion Lockset & Ring Reader.pdf",
+     "pdf": "datasheets/dh15-ig-salto-aelement-fusion-lockset-ring-reader.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH15 - IG - Salto AElement Fusion Lockset & Ring Reader.pdf",
      "bytes": 122498,
      "drive_url": "https://drive.google.com/file/d/1ApT4wrXt4y_Q9rboGJv9RiIAedfkkr5Z/view"
     },
     {
      "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh3-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH3 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
+     "pdf": "datasheets/dh15-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH15 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
      "bytes": 144342,
      "drive_url": "https://drive.google.com/file/d/1NnDFQ2Y2-TNLxNZStSdRXihGiVIcHJw5/view"
     }
    ],
-   "image": "img/dh3-salto-aelement-fusion-lockset-ring-reader.webp"
+   "image": "img/dh15-salto-aelement-fusion-lockset-ring-reader.webp"
   },
   {
-   "id": "d-dh4-mechanical-privacy-thumbturn-salto-la1",
-   "code": "DH4",
+   "id": "d-dh16-lever-handle-set-salto-standard-line",
+   "code": "DH16",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "Salto",
+   "category": "Handles",
+   "title": "Lever Handle Set - Salto Standard Line, London",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "Salto Standard Line lever handle, London model"
+    },
+    {
+     "label": "Type",
+     "value": "Lever handle set for Salto electronic lock (AElement Fusion)"
+    },
+    {
+     "label": "Material",
+     "value": "Stainless steel"
+    },
+    {
+     "label": "Finish",
+     "value": "NE - Black Chrome (BHMA687)"
+    },
+    {
+     "label": "Standard",
+     "value": "Suits ANSI / DIN profile doors FIX-16 · Zone: Entrance, Hallway & W.C. · Qty 3"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/dh16-salto-london-lever-handle.pdf",
+   "pages": 1,
+   "bytes": 2392,
+   "source": "D - Doors/DH - Doors Hardware/DH16 - Salto London Lever Handle.pdf",
+   "drive_url": "https://drive.google.com/file/d/1rGHCV5nXzzU2W3ttGbrZmnh9zzbmL4Tq/view",
+   "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/dh16-ig-salto-london-lever-handle.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH16 - IG - Salto London Lever Handle.pdf",
+     "bytes": 585528,
+     "drive_url": "https://drive.google.com/file/d/1XtksWim-l62aMRMVa845W-biI1q939Yr/view"
+    },
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/dh16-ds-salto-london-lever-handle.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH16 - DS - Salto London Lever Handle.pdf",
+     "bytes": 144342,
+     "drive_url": "https://drive.google.com/file/d/1dwGf_CGeeZxEFXVasN72f885fKQOsdR1/view"
+    }
+   ],
+   "image": "img/dh16-salto-london-lever-handle.webp"
+  },
+  {
+   "id": "d-dh17-mechanical-privacy-thumbturn-salto-la1",
+   "code": "DH17",
    "group": "D",
    "group_name": "Doors & Hardware",
    "discipline": "Doors",
@@ -767,343 +1039,29 @@
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/dh4-salto-la1t17-privacy-thumbturn.pdf",
+   "pdf": "datasheets/dh17-salto-la1t17-privacy-thumbturn.pdf",
    "pages": 1,
    "bytes": 2365,
-   "source": "D - Doors/DH - Doors Hardware/DH4 - Salto LA1T17 Privacy Thumbturn.pdf",
+   "source": "D - Doors/DH - Doors Hardware/DH17 - Salto LA1T17 Privacy Thumbturn.pdf",
    "drive_url": "https://drive.google.com/file/d/1KDcgwCYRJHgUzi7WDajvlxSYobNDezh-/view",
    "maker_url": "https://mylock.saltosystems.com/en/custom/aelement-fusion#2,285,14,41,131,78,82,91",
    "extras": [
     {
      "kind": "Installation guide",
-     "pdf": "datasheets/dh4-ig-salto-la1t17-privacy-thumbturn.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH4 - IG - Salto LA1T17 Privacy Thumbturn.pdf",
+     "pdf": "datasheets/dh17-ig-salto-la1t17-privacy-thumbturn.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH17 - IG - Salto LA1T17 Privacy Thumbturn.pdf",
      "bytes": 149787,
      "drive_url": "https://drive.google.com/file/d/1uvxZKaZ5mNzXyFhzlWWTTDRk4cahFIDU/view"
     },
     {
      "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh4-ds-salto-la1t17-privacy-thumbturn.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH4 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
+     "pdf": "datasheets/dh17-ds-salto-la1t17-privacy-thumbturn.pdf",
+     "source": "D - Doors/DH - Doors Hardware/DH17 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
      "bytes": 144342,
      "drive_url": "https://drive.google.com/file/d/13rd3bou7vflIUKvxe-6KAJbqmBp0-D-Q/view"
     }
    ],
-   "image": "img/dh4-salto-la1t17-privacy-thumbturn.webp"
-  },
-  {
-   "id": "d-dh5-door-viewer-hafele-startec-200-959-0",
-   "code": "DH5",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Häfele",
-   "category": "Peep Hole",
-   "title": "Door Viewer - Häfele Startec 200° (959.01.042)",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Häfele Startec door viewer — 959.01.042"
-    },
-    {
-     "label": "Field of view",
-     "value": "200°"
-    },
-    {
-     "label": "Door thickness",
-     "value": "Up to 82 mm"
-    },
-    {
-     "label": "Material",
-     "value": "Brass"
-    },
-    {
-     "label": "Finish",
-     "value": "Burnished Brass FIX-12 · Zone: Entrance · Qty 1"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh5-hafele-startec-door-viewer.pdf",
-   "pages": 2,
-   "bytes": 703705,
-   "source": "D - Doors/DH - Doors Hardware/DH5 - Hafele Startec Door Viewer.pdf",
-   "drive_url": "https://drive.google.com/file/d/1taDy6HWe9mURv-3csyIISyWkoXZVWFlX/view",
-   "maker_url": "https://www.hafele.si/en/product/door-viewer-up-to-door-thickness-82-mm-startec/95901042/?MasterSKU=P-00873696",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh5-ds-hafele-startec-door-viewer-b.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH5 - DS - Hafele Startec Door Viewer B.pdf",
-     "bytes": 700332,
-     "drive_url": "https://drive.google.com/file/d/1EwF_c21NIzHt0lKvtuGHOrdTofHHATB4/view"
-    }
-   ],
-   "image": "img/dh5-hafele-startec-door-viewer.webp"
-  },
-  {
-   "id": "d-dh6-sliding-door-fitting-hafele-hawa-junio",
-   "code": "DH6",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Häfele",
-   "category": "Sliding Door Running Gear",
-   "title": "Sliding Door Fitting - Häfele Hawa Junior 80/100B (941.04.012)",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Häfele Hawa Junior 80/100B — 941.04.012"
-    },
-    {
-     "label": "Type",
-     "value": "Pocket sliding door system, top-hung"
-    },
-    {
-     "label": "Max door weight",
-     "value": "100 kg"
-    },
-    {
-     "label": "Material",
-     "value": "Stainless steel, zinc alloy & high-performance plastics"
-    },
-    {
-     "label": "Finish",
-     "value": "Natural finish FIX-13 · Zone: Walk-in Closet · Qty 2"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh6-hafele-hawa-junior-80b-pocket.pdf",
-   "pages": 1,
-   "bytes": 2430,
-   "source": "D - Doors/DH - Doors Hardware/DH6 - Hafele Hawa Junior 80B Pocket.pdf",
-   "drive_url": "https://drive.google.com/file/d/1KEKlK2lmnlnGTy4JS8llB6FRgY27ny80/view",
-   "maker_url": "https://www.hafele.co.uk/en/product/fitting-set-for-sliding-interior-pocket-doors-hawa-junior-100-b-pocket/P-01580146/",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh6-ds-hafele-hawa-junior-80b-pocket.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH6 - DS - Hafele Hawa Junior 80B Pocket.pdf",
-     "bytes": 1128458,
-     "drive_url": "https://drive.google.com/file/d/1EGuq-dUS2PtezfKmjZ1JpCO2ytoQSRiO/view"
-    }
-   ],
-   "image": "img/dh6-hafele-hawa-junior-80b-pocket.webp"
-  },
-  {
-   "id": "d-dh7-sliding-door-hardware-hafele-slido-d-l",
-   "code": "DH7",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Häfele",
-   "category": "Sliding Door Running Gear",
-   "title": "Sliding Door Hardware - Häfele Slido D-Line11 160P (941.62.018)",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Häfele Slido D-Line11 160P — 941.62.018"
-    },
-    {
-     "label": "Type",
-     "value": "Sliding door hardware, 1-/2-leaf; ceiling & wall mount"
-    },
-    {
-     "label": "Max door weight",
-     "value": "160 kg"
-    },
-    {
-     "label": "Material",
-     "value": "Stainless steel, zinc alloy & high-performance plastics"
-    },
-    {
-     "label": "Finish",
-     "value": "Natural finish FIX-14 · Zone: Outdoor Living shutters · Qty 1"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh7-hafele-slido-d-line11-160p.pdf",
-   "pages": 2,
-   "bytes": 522263,
-   "source": "D - Doors/DH - Doors Hardware/DH7 - Hafele Slido D-Line11 160P.pdf",
-   "drive_url": "https://drive.google.com/file/d/1Ps_XhTmREpUwHuTEPXPmwgDFFcTNScDf/view",
-   "maker_url": "https://www.hafele.com/us/en/product/sliding-door-hardware-haefele-slido-d-line11-160p-set/94162018/?MasterSKU=P-01499186",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh7-ds-hafele-slido-d-line11-160p.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH7 - DS - Hafele Slido D-Line11 160P.pdf",
-     "bytes": 520012,
-     "drive_url": "https://drive.google.com/file/d/1QH9Y2U1CgFxAkzvQRrt6-J-MwN_F-lZ2/view"
-    }
-   ],
-   "image": "img/dh7-hafele-slido-d-line11-160p.webp"
-  },
-  {
-   "id": "d-dh8-automatic-drop-down-seal-assa-abloy-pl",
-   "code": "DH8",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Assa Abloy",
-   "category": "Seals",
-   "title": "Automatic Drop-Down Seal - Assa Abloy Planet X3 RD",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Assa Abloy Planet X3 RD (smoke-shielding), can be shortened"
-    },
-    {
-     "label": "Performance",
-     "value": "52 dB sound reduction; smoke-shielding (RD)"
-    },
-    {
-     "label": "Profile",
-     "value": "Aluminium 22 × 30 mm; seal height 5–12 mm; side lift 2–6 mm"
-    },
-    {
-     "label": "Material",
-     "value": "Aluminium & silicone"
-    },
-    {
-     "label": "Finish",
-     "value": "Natural finish FIX-09 · Zone: Entrance · Qty 1"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh8-assa-abloy-planet-x3-rd-drop-seal.pdf",
-   "pages": 4,
-   "bytes": 1422325,
-   "source": "D - Doors/DH - Doors Hardware/DH8 - Assa Abloy Planet X3 RD Drop Seal.pdf",
-   "drive_url": "https://drive.google.com/file/d/1kYs6CUQ2gA1ym2tQc5U80G2Wwg_rApuK/view",
-   "maker_url": "https://www.assaabloy.https://dach.assaabloy.com/ch/en/product-catalogue/planet-t611079-p371898-planet-x3?checked=e83d5b8f81a6afba04548af4772e898ad632de92b684c70037bf9eede1b820a3com",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh8-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH8 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
-     "bytes": 1424744,
-     "drive_url": "https://drive.google.com/file/d/1hjoN7mntJOo8MoCNOpVX4_zQg993ujhM/view"
-    }
-   ],
-   "image": "img/dh8-assa-abloy-planet-x3-rd-drop-seal.webp"
-  },
-  {
-   "id": "d-dh9-door-jamb-weatherstrip-reflect-silicon",
-   "code": "DH9",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Reflect",
-   "category": "Seals",
-   "title": "Door-Jamb Weatherstrip - Reflect Silicone Bulb Seal",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Reflect Window & Door — door-jamb weatherstripping (silicone bulb seal)"
-    },
-    {
-     "label": "Material",
-     "value": "Silicone rubber; UV / weather / ozone / flame resistant"
-    },
-    {
-     "label": "Type",
-     "value": "Kerf-in / self-adhesive bulb seal for door jamb"
-    },
-    {
-     "label": "Qty",
-     "value": "3 Not in current FF&E — procurement-tracker item (ref A11-02/03/04)"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh9-reflect-door-jamb-weatherstrip.pdf",
-   "pages": 1,
-   "bytes": 2380,
-   "source": "D - Doors/DH - Doors Hardware/DH9 - Reflect Door Jamb Weatherstrip.pdf",
-   "drive_url": "https://drive.google.com/file/d/1IL2DdOMg-kSJi_HNeepMD5ILxxvNqBjJ/view",
-   "maker_url": "https://www.reflectwindow.com/collections/window-bulb-weatherstripping",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh9-ds-reflect-door-jamb-weatherstrip.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH9 - DS - Reflect Door Jamb Weatherstrip.pdf",
-     "bytes": 1764299,
-     "drive_url": "https://drive.google.com/file/d/18BWIsC-gdnhx6GG38LQbxsmI70__nlQU/view"
-    }
-   ],
-   "image": "img/dh9-reflect-door-jamb-weatherstrip.webp"
-  },
-  {
-   "id": "d-dh10-center-hung-top-pivot-hinge-hafele-hp0",
-   "code": "DH10",
-   "group": "D",
-   "group_name": "Doors & Hardware",
-   "discipline": "Doors",
-   "submittal": null,
-   "manufacturer": "Häfele",
-   "category": "Hinges",
-   "title": "Center-Hung Top Pivot Hinge - Häfele HP023",
-   "specs": [
-    {
-     "label": "Model",
-     "value": "Häfele Door Hinge, Center Hung, Top Pivot — HP023 (P-01498889)"
-    },
-    {
-     "label": "Type",
-     "value": "Center-hung pivot, top & bottom set (HP023 top pivot + floor-mounted bottom pivot)"
-    },
-    {
-     "label": "Application",
-     "value": "W.C. door"
-    },
-    {
-     "label": "Material",
-     "value": "Stainless steel (630 / US32D)"
-    },
-    {
-     "label": "Finish",
-     "value": "Satin FIX-11 · Zone: W.C. · Qty 1"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/dh10-hafele-door-hinge-top-pivot.pdf",
-   "pages": 2,
-   "bytes": 226106,
-   "source": "D - Doors/DH - Doors Hardware/DH10 - Hafele Door Hinge Top Pivot.pdf",
-   "drive_url": "https://drive.google.com/file/d/11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A/view",
-   "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/#SearchParameter=&@QueryTerm=door+pivot&Category=fn0KAOsFhMoAAAFlTOecc.x0&@P.FF.followSearch=9886&PageNumber=1&OriginalPageSize=48&PageSize=48&Position=10&OrigPos=11&ProductListSize=37&PDP=true",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh10-ds-hafele-door-hinge-top-pivot.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Door Hinge Top Pivot.pdf",
-     "bytes": 222524,
-     "drive_url": "https://drive.google.com/file/d/1OoDQxmy7RKHEMOnT5pPv3ShKqErwVBxm/view"
-    }
-   ],
-   "image": "img/dh10-hafele-door-hinge-top-pivot.webp"
+   "image": "img/dh17-salto-la1t17-privacy-thumbturn.webp"
   },
   {
    "id": "e-e1-load-center-reliahome-pcc4022r",
@@ -1836,6 +1794,404 @@
    "maker_url": "https://www.hubbell.com/burndy/en/products/bwb680ig-in-ground-pool-water-bonding-kit/p/484312",
    "extras": [],
    "image": "img/c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp"
+  },
+  {
+   "id": "c-c2-c2-thhn-thwn-copper-building-wire-spe",
+   "code": "C2",
+   "group": "C",
+   "group_name": "Cables and Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "C2 - THHN-THWN Copper Building Wire (SPEC 10003, 229641)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/c2-thhn-thwn-copper-building-wire-spec-10003-229641.pdf",
+   "pages": 3,
+   "bytes": 353624,
+   "source": "C - Cables and Bonding/C2 - THHN-THWN Copper Building Wire (SPEC 10003, 229641).pdf",
+   "drive_url": "https://drive.google.com/file/d/1T3Pp21Pa4q3OYS7PgYoXG5gU77ctXFls/view",
+   "maker_url": "",
+   "extras": [],
+   "image": "img/c2-thhn-thwn-copper-building-wire-spec-10003-229641.webp"
+  },
+  {
+   "id": "c-c3-c3-thhn-thwn-2-simpull-copper-building",
+   "code": "C3",
+   "group": "C",
+   "group_name": "Cables and Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "C3 - THHN-THWN-2 SIMpull Copper Building Wire (SPEC 10000, 205070)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/c3-thhn-thwn-2-simpull-copper-building-wire-spec-10000-205070.pdf",
+   "pages": 3,
+   "bytes": 359211,
+   "source": "C - Cables and Bonding/C3 - THHN-THWN-2 SIMpull Copper Building Wire (SPEC 10000, 205070).pdf",
+   "drive_url": "https://drive.google.com/file/d/16zDfrLpidfD1JCIkfoKOOXKxmVRx3tQK/view",
+   "maker_url": "",
+   "extras": [],
+   "image": "img/c3-thhn-thwn-2-simpull-copper-building-wire-spec-10000-205070.webp"
+  },
+  {
+   "id": "c-c4-c4-cantex-pvc-conduit-sch-40-and-80",
+   "code": "C4",
+   "group": "C",
+   "group_name": "Cables and Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "C4 - CANTEX PVC Conduit SCH 40 and 80",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/c4-cantex-pvc-conduit-sch-40-and-80.pdf",
+   "pages": 2,
+   "bytes": 2703647,
+   "source": "C - Cables and Bonding/C4 - CANTEX PVC Conduit SCH 40 and 80.pdf",
+   "drive_url": "https://drive.google.com/file/d/1zwECPw_DNiw5yle39kKYtqNeOFHm9N5X/view",
+   "maker_url": "https://www.cantexinc.com",
+   "extras": [],
+   "image": "img/c4-cantex-pvc-conduit-sch-40-and-80.webp"
+  },
+  {
+   "id": "c-c5-c5-pvc-conduit-fittings-couplings-an",
+   "code": "C5",
+   "group": "C",
+   "group_name": "Cables and Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "C5 - PVC Conduit Fittings - Couplings and Terminal Adapters",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/c5-pvc-conduit-fittings-couplings-and-terminal-adapters.pdf",
+   "pages": 2,
+   "bytes": 466315,
+   "source": "C - Cables and Bonding/C5 - PVC Conduit Fittings - Couplings and Terminal Adapters.pdf",
+   "drive_url": "https://drive.google.com/file/d/1-GSNS6zGtN39L0xYSyoxw1kcqoeGKqlq/view",
+   "maker_url": "",
+   "extras": [],
+   "image": "img/c5-pvc-conduit-fittings-couplings-and-terminal-adapters.webp"
+  },
+  {
+   "id": "c-c6-c6-ground-rods-grounding-systems",
+   "code": "C6",
+   "group": "C",
+   "group_name": "Cables and Bonding",
+   "discipline": "Pool",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "C6 - Ground Rods (Grounding Systems)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/c6-ground-rods-grounding-systems.pdf",
+   "pages": 1,
+   "bytes": 197128,
+   "source": "C - Cables and Bonding/C6 - Ground Rods (Grounding Systems).pdf",
+   "drive_url": "https://drive.google.com/file/d/1B8RyxpMgm2gXK0vK-yLuNM6vVNZP71-l/view",
+   "maker_url": "",
+   "extras": [],
+   "image": "img/c6-ground-rods-grounding-systems.webp"
+  },
+  {
+   "id": "h-h1-h1-ds-dornbracht-deck-mounted-basin",
+   "code": "H1",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H1 - DS - Dornbracht Deck-Mounted Basin Spout (13716882-42)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h1-ds-dornbracht-deck-mounted-basin-spout-13716882-42.pdf",
+   "pages": 3,
+   "bytes": 8394923,
+   "source": "H - Bathroom and Shower Fixtures/H1 - DS - Dornbracht Deck-Mounted Basin Spout (13716882-42).pdf",
+   "drive_url": "https://drive.google.com/file/d/1NObya1OLGIU2x55UgKL5LbFJ_7dyQdR4/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [],
+   "image": "img/h1-ds-dornbracht-deck-mounted-basin-spout-13716882-42.webp"
+  },
+  {
+   "id": "h-h2-h2-ds-dornbracht-deck-valve-cold-20",
+   "code": "H2",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H2 - DS - Dornbracht Deck Valve Cold (20000740-46)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h2-ds-dornbracht-deck-valve-cold-20000740-46.pdf",
+   "pages": 4,
+   "bytes": 4410774,
+   "source": "H - Bathroom and Shower Fixtures/H2 - DS - Dornbracht Deck Valve Cold (20000740-46).pdf",
+   "drive_url": "https://drive.google.com/file/d/118Y1obxAgJZVCFrOVEqC4WsFcyApKw-F/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h2-ig-dornbracht-deck-valve-cold-20000740-46.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H2 - IG - Dornbracht Deck Valve Cold (20000740-46).pdf",
+     "bytes": 576844,
+     "drive_url": "https://drive.google.com/file/d/1LOa-CdIYOGG96YgVDRTJpdGblpID6lDQ/view"
+    }
+   ],
+   "image": "img/h2-ds-dornbracht-deck-valve-cold-20000740-46.webp"
+  },
+  {
+   "id": "h-h3-h3-ds-dornbracht-hand-shower-set-flo",
+   "code": "H3",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H3 - DS - Dornbracht Hand Shower Set FlowReduce (27812660-420010)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h3-ds-dornbracht-hand-shower-set-flowreduce-27812660-420010.pdf",
+   "pages": 3,
+   "bytes": 8543202,
+   "source": "H - Bathroom and Shower Fixtures/H3 - DS - Dornbracht Hand Shower Set FlowReduce (27812660-420010).pdf",
+   "drive_url": "https://drive.google.com/file/d/1O6Ai9O9SKrp_gMXySn5JdUSzR67KsW59/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h3-ig-dornbracht-hand-shower-set-flowreduce-27812660-420010.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H3 - IG - Dornbracht Hand Shower Set FlowReduce (27812660-420010).pdf",
+     "bytes": 3240397,
+     "drive_url": "https://drive.google.com/file/d/1ga_BuUBS7RZweP4wDqS93ZC_A9jRFoHn/view"
+    }
+   ],
+   "image": "img/h3-ds-dornbracht-hand-shower-set-flowreduce-27812660-420010.webp"
+  },
+  {
+   "id": "h-h5-h5-ds-dornbracht-xtool-concealed-the",
+   "code": "H5",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H5 - DS - Dornbracht xTOOL Concealed Thermostat (36503979-42)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h5-ds-dornbracht-xtool-concealed-thermostat-36503979-42.pdf",
+   "pages": 4,
+   "bytes": 8380022,
+   "source": "H - Bathroom and Shower Fixtures/H5 - DS - Dornbracht xTOOL Concealed Thermostat (36503979-42).pdf",
+   "drive_url": "https://drive.google.com/file/d/1xjQ9usrN8ZwpGVmvSsGmCyh0OR3zsCgR/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h5-ig-dornbracht-xtool-concealed-thermostat-36503979-42.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H5 - IG - Dornbracht xTOOL Concealed Thermostat (36503979-42).pdf",
+     "bytes": 5817624,
+     "drive_url": "https://drive.google.com/file/d/1U5DSps35AUBGCpaw1zfUNu34c8jXXL6i/view"
+    },
+    {
+     "kind": "Installation note",
+     "pdf": "datasheets/h5-ig-note-dornbracht-xtool-concealed-thermostat-36503979-42.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H5 - IG Note - Dornbracht xTOOL Concealed Thermostat (36503979-42).pdf",
+     "bytes": 890260,
+     "drive_url": "https://drive.google.com/file/d/1rtYURW1Pnyhl5FIBm4Mvpz_QOKVeuF0z/view"
+    }
+   ],
+   "image": "img/h5-ds-dornbracht-xtool-concealed-thermostat-36503979-42.webp"
+  },
+  {
+   "id": "h-h5-1-h5-1-ds-dornbracht-xtool-wall-valve",
+   "code": "H5.1",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H5.1 - DS - Dornbracht xTOOL Wall Valve Cold (36607740-42)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h5-1-ds-dornbracht-xtool-wall-valve-cold-36607740-42.pdf",
+   "pages": 4,
+   "bytes": 8348255,
+   "source": "H - Bathroom and Shower Fixtures/H5.1 - DS - Dornbracht xTOOL Wall Valve Cold (36607740-42).pdf",
+   "drive_url": "https://drive.google.com/file/d/149Al7tUHo6TWcsSnClt44_Ug_2wUqNGU/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h5-1-ig-dornbracht-xtool-wall-valve-cold-36607740-42.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H5.1 - IG - Dornbracht xTOOL Wall Valve Cold (36607740-42).pdf",
+     "bytes": 2300089,
+     "drive_url": "https://drive.google.com/file/d/1WZKV5n2qcI-d3vVDHueNV-_2EBYxr-qK/view"
+    }
+   ],
+   "image": "img/h5-1-ds-dornbracht-xtool-wall-valve-cold-36607740-42.webp"
+  },
+  {
+   "id": "h-h5-2-h5-2-ds-dornbracht-xtool-concealed-t",
+   "code": "H5.2",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H5.2 - DS - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h5-2-ds-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090.pdf",
+   "pages": 3,
+   "bytes": 1319597,
+   "source": "H - Bathroom and Shower Fixtures/H5.2 - DS - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090).pdf",
+   "drive_url": "https://drive.google.com/file/d/10jgqM8CJ_5Ss4U8-LJkjq-Lh1L6wkwdI/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h5-2-ig-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H5.2 - IG - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090).pdf",
+     "bytes": 4241837,
+     "drive_url": "https://drive.google.com/file/d/1SASmkcNsmQmgAq6Jq5w9e-nRQbyhzsgk/view"
+    },
+    {
+     "kind": "Installation note",
+     "pdf": "datasheets/h5-2-ig-note-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H5.2 - IG Note - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090).pdf",
+     "bytes": 2270096,
+     "drive_url": "https://drive.google.com/file/d/1k38bW5WJu7e5n3uRKWPcVs6dgpFsbOVq/view"
+    }
+   ],
+   "image": "img/h5-2-ds-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090.webp"
+  },
+  {
+   "id": "h-h6-h6-ds-dornbracht-wall-mounted-hook",
+   "code": "H6",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H6 - DS - Dornbracht Wall-Mounted Hook (83251220-42)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h6-ds-dornbracht-wall-mounted-hook-83251220-42.pdf",
+   "pages": 3,
+   "bytes": 8195469,
+   "source": "H - Bathroom and Shower Fixtures/H6 - DS - Dornbracht Wall-Mounted Hook (83251220-42).pdf",
+   "drive_url": "https://drive.google.com/file/d/1dkAb3OHRGjFBy2StYQfKhz88LrxJ80g6/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [],
+   "image": "img/h6-ds-dornbracht-wall-mounted-hook-83251220-42.webp"
+  },
+  {
+   "id": "h-h7-h7-ds-dornbracht-tissue-holder-8350",
+   "code": "H7",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H7 - DS - Dornbracht Tissue Holder (83500979-42)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h7-ds-dornbracht-tissue-holder-83500979-42.pdf",
+   "pages": 3,
+   "bytes": 8268951,
+   "source": "H - Bathroom and Shower Fixtures/H7 - DS - Dornbracht Tissue Holder (83500979-42).pdf",
+   "drive_url": "https://drive.google.com/file/d/14hP8FZ6htnzorqRghH50CUPWr3Qm1rC4/view",
+   "maker_url": "https://www.dornbracht.com/en-us",
+   "extras": [
+    {
+     "kind": "Installation guide",
+     "pdf": "datasheets/h7-ig-dornbracht-tissue-holder-83500979-42.pdf",
+     "source": "H - Bathroom and Shower Fixtures/H7 - IG - Dornbracht Tissue Holder (83500979-42).pdf",
+     "bytes": 2167480,
+     "drive_url": "https://drive.google.com/file/d/14r-JUM-cyy8C1zaUEf_0cVcWALlOg1IB/view"
+    }
+   ],
+   "image": "img/h7-ds-dornbracht-tissue-holder-83500979-42.webp"
+  },
+  {
+   "id": "h-h8-h8-ds-toto-neorest-wx1-wall-hung-toi",
+   "code": "H8",
+   "group": "H",
+   "group_name": "Bathroom and Shower Fixtures",
+   "discipline": "Plumbing",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "H8 - DS - TOTO Neorest WX1 Wall-Hung Toilet (CWT9538CEMFG)",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/h8-ds-toto-neorest-wx1-wall-hung-toilet-cwt9538cemfg.pdf",
+   "pages": 3,
+   "bytes": 1116454,
+   "source": "H - Bathroom and Shower Fixtures/H8 - DS - TOTO Neorest WX1 Wall-Hung Toilet (CWT9538CEMFG).pdf",
+   "drive_url": "https://drive.google.com/file/d/1NDn2sthx8aFAWL7pWvs3ldiVdFeQfN4d/view",
+   "maker_url": "https://www.totousa.com",
+   "extras": [],
+   "image": "img/h8-ds-toto-neorest-wx1-wall-hung-toilet-cwt9538cemfg.webp"
   },
   {
    "id": "p-p1-water-heater-119-gal-bradford-white-e",

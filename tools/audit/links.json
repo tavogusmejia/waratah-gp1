@@ -100,6 +100,146 @@
   "kind": "site"
  },
  {
+  "key": "C-C2",
+  "group": "C",
+  "code": "C2",
+  "title": "C2 - THHN-THWN Copper Building Wire (SPEC 10003, 229641)",
+  "manufacturer": "",
+  "slug": "c2-thhn-thwn-copper-building-wire-spec-10003-229641",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "C-C3",
+  "group": "C",
+  "code": "C3",
+  "title": "C3 - THHN-THWN-2 SIMpull Copper Building Wire (SPEC 10000, 205070)",
+  "manufacturer": "",
+  "slug": "c3-thhn-thwn-2-simpull-copper-building-wire-spec-10000-205070",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "C-C4",
+  "group": "C",
+  "code": "C4",
+  "title": "C4 - CANTEX PVC Conduit SCH 40 and 80",
+  "manufacturer": "",
+  "slug": "c4-cantex-pvc-conduit-sch-40-and-80",
+  "url": "https://www.cantexinc.com",
+  "kind": "site"
+ },
+ {
+  "key": "C-C5",
+  "group": "C",
+  "code": "C5",
+  "title": "C5 - PVC Conduit Fittings - Couplings and Terminal Adapters",
+  "manufacturer": "",
+  "slug": "c5-pvc-conduit-fittings-couplings-and-terminal-adapters",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "C-C6",
+  "group": "C",
+  "code": "C6",
+  "title": "C6 - Ground Rods (Grounding Systems)",
+  "manufacturer": "",
+  "slug": "c6-ground-rods-grounding-systems",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "H-H1",
+  "group": "H",
+  "code": "H1",
+  "title": "H1 - DS - Dornbracht Deck-Mounted Basin Spout (13716882-42)",
+  "manufacturer": "",
+  "slug": "h1-ds-dornbracht-deck-mounted-basin-spout-13716882-42",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H2",
+  "group": "H",
+  "code": "H2",
+  "title": "H2 - DS - Dornbracht Deck Valve Cold (20000740-46)",
+  "manufacturer": "",
+  "slug": "h2-ds-dornbracht-deck-valve-cold-20000740-46",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H3",
+  "group": "H",
+  "code": "H3",
+  "title": "H3 - DS - Dornbracht Hand Shower Set FlowReduce (27812660-420010)",
+  "manufacturer": "",
+  "slug": "h3-ds-dornbracht-hand-shower-set-flowreduce-27812660-420010",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H5",
+  "group": "H",
+  "code": "H5",
+  "title": "H5 - DS - Dornbracht xTOOL Concealed Thermostat (36503979-42)",
+  "manufacturer": "",
+  "slug": "h5-ds-dornbracht-xtool-concealed-thermostat-36503979-42",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H5.1",
+  "group": "H",
+  "code": "H5.1",
+  "title": "H5.1 - DS - Dornbracht xTOOL Wall Valve Cold (36607740-42)",
+  "manufacturer": "",
+  "slug": "h5-1-ds-dornbracht-xtool-wall-valve-cold-36607740-42",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H5.2",
+  "group": "H",
+  "code": "H5.2",
+  "title": "H5.2 - DS - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090)",
+  "manufacturer": "",
+  "slug": "h5-2-ds-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H6",
+  "group": "H",
+  "code": "H6",
+  "title": "H6 - DS - Dornbracht Wall-Mounted Hook (83251220-42)",
+  "manufacturer": "",
+  "slug": "h6-ds-dornbracht-wall-mounted-hook-83251220-42",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H7",
+  "group": "H",
+  "code": "H7",
+  "title": "H7 - DS - Dornbracht Tissue Holder (83500979-42)",
+  "manufacturer": "",
+  "slug": "h7-ds-dornbracht-tissue-holder-83500979-42",
+  "url": "https://www.dornbracht.com/en-us",
+  "kind": "site"
+ },
+ {
+  "key": "H-H8",
+  "group": "H",
+  "code": "H8",
+  "title": "H8 - DS - TOTO Neorest WX1 Wall-Hung Toilet (CWT9538CEMFG)",
+  "manufacturer": "",
+  "slug": "h8-ds-toto-neorest-wx1-wall-hung-toilet-cwt9538cemfg",
+  "url": "https://www.totousa.com",
+  "kind": "site"
+ },
+ {
   "key": "L-LTRN1",
   "group": "L",
   "code": "LTRN1",
@@ -247,7 +387,7 @@
   "manufacturer": "",
   "slug": "ltrn15-ds-lutron-palladiom-thermostat-mwp-t-ohw-wh-a",
   "url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/palladiom-thermostat/mwp-t-ohw",
-  "kind": "exact"
+  "kind": "site"
  },
  {
   "key": "L-LTRN16",

@@ -93,7 +93,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("only the unconfirmed rows are listed", all.length === 39, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 53, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
