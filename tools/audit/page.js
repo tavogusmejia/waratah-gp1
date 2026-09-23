@@ -280,7 +280,12 @@ document.addEventListener("click", function (ev) {
   var booted  = false;
 
   function lrows() { return document.querySelectorAll(".lrow"); }
-  function isUrl(v) { return /^https?:\/\/\S+$/i.test(v); }
+  /* Two URLs run together is a paste that landed mid-field instead of
+     replacing - it happened twice and corrupted both links, and each looked
+     like a perfectly good URL until you read it. */
+  function isUrl(v) {
+    return /^https?:\/\/\S+$/i.test(v) && v.split("://").length === 2;
+  }
   function val(row) { return row.querySelector(".lurl").value.trim(); }
 
   function report() {
@@ -379,6 +384,13 @@ document.addEventListener("click", function (ev) {
     for (var i = 0; i < d.length; i++) out.push(saveLink(d[i]));
     return Promise.all(out);
   }
+
+  /* Selecting on focus means a paste replaces rather than inserts. */
+  document.addEventListener("focusin", function (ev) {
+    if (ev.target.classList && ev.target.classList.contains("lurl")) {
+      ev.target.select();
+    }
+  });
 
   document.addEventListener("input", function (ev) {
     var i = ev.target.closest && ev.target.closest(".lurl");
@@ -487,6 +499,94 @@ document.addEventListener("click", function (ev) {
     });
   }
 
+  /* ---- the picture review -------------------------------------------
+
+     Ticking a box marks a picture for replacement. Unlike the links, nothing
+     is written until the button is pressed: a tick is a judgement being
+     formed, and you should be able to go down the grid changing your mind
+     before any of it counts. */
+  var psaveEl = document.getElementById("psave");
+  var pnoneEl = document.getElementById("pnone");
+  var pstateEl = document.getElementById("pstate");
+  var pkept = {};                  /* what the store held when we last looked */
+
+  function prows() { return document.querySelectorAll(".prow"); }
+  function ticked(row) { return row.querySelector(".pchk").checked; }
+
+  function preport() {
+    var all = prows(), on = 0, dirty = 0;
+    for (var i = 0; i < all.length; i++) {
+      var slug = all[i].getAttribute("data-slug");
+      var t = ticked(all[i]);
+      all[i].classList.toggle("marked", t);
+      if (t) on++;
+      if (t !== !!pkept[slug]) dirty++;
+    }
+    var t = document.getElementById("ptally");
+    if (t) t.textContent = on + " of " + all.length;
+    if (!pstateEl) return;
+    if (!db) {
+      pstateEl.textContent = "No database in this view — ticks cannot be saved";
+      pstateEl.className = "lstate warn";
+      return;
+    }
+    var saved = 0;
+    for (var k in pkept) if (pkept[k]) saved++;
+    pstateEl.textContent = dirty
+      ? saved + " saved · " + dirty + (dirty === 1 ? " change" : " changes") +
+        " not saved yet"
+      : saved + (saved === 1 ? " picture is" : " pictures are") + " marked for replacement";
+    pstateEl.className = "lstate" + (dirty ? " warn" : "");
+  }
+
+  document.addEventListener("change", function (ev) {
+    if (!ev.target.classList || !ev.target.classList.contains("pchk")) return;
+    preport();
+  });
+
+  if (pnoneEl) {
+    pnoneEl.addEventListener("click", function () {
+      var all = prows();
+      for (var i = 0; i < all.length; i++) all[i].querySelector(".pchk").checked = false;
+      preport();
+    });
+  }
+
+  if (psaveEl) {
+    psaveEl.addEventListener("click", async function () {
+      if (!db) {
+        psaveEl.textContent = "No database here";
+        setTimeout(function () { psaveEl.textContent = "Save the ticked ones"; }, 2400);
+        return;
+      }
+      psaveEl.textContent = "Saving…";
+      var all = prows(), wrote = 0, cleared = 0, failed = 0;
+      for (var i = 0; i < all.length; i++) {
+        var row = all[i], slug = row.getAttribute("data-slug"), t = ticked(row);
+        if (t === !!pkept[slug]) continue;        /* unchanged, leave it be */
+        var ref = db.doc("fixpic/" + slug);
+        try {
+          if (t) {
+            await ref.set({at: new Date().toISOString(),
+                           title: row.querySelector(".pname").textContent});
+            var back = await ref.get();
+            if (!(back && back.exists)) throw new Error("not read back");
+            pkept[slug] = true; wrote++;
+          } else {
+            await ref.delete();
+            delete pkept[slug]; cleared++;
+          }
+        } catch (err) { failed++; }
+      }
+      preport();
+      psaveEl.textContent =
+        (wrote ? "Saved " + wrote : "Nothing new") +
+        (cleared ? ", cleared " + cleared : "") +
+        (failed ? ", " + failed + " failed" : "");
+      setTimeout(function () { psaveEl.textContent = "Save the ticked ones"; }, 3000);
+    });
+  }
+
   /* ---- wake up ---- */
   (async function () {
     var use = window.claude && window.claude.use;
@@ -502,6 +602,7 @@ document.addEventListener("click", function (ev) {
       for (var i = 0; i < zs.length; i++) zs[i].style.display = "none";
       if (linksEl) linksEl.style.display = "none";
       report();
+      preport();
       return;
     }
     try {
@@ -530,6 +631,17 @@ document.addEventListener("click", function (ev) {
     } catch (e) {}
     booted = true;
     report();
+    /* Ticks come back from the store, or a reload would quietly lose them -
+       which is exactly how a session of links went missing. */
+    try {
+      var marks = await db.collection("fixpic").limit(300).get();
+      ((marks && marks.docs) || marks || []).forEach(function (doc) {
+        var id = String(doc.id || doc.path || "").split("/").pop();
+        var row = document.querySelector('.prow[data-slug="' + id + '"]');
+        if (row) { row.querySelector(".pchk").checked = true; pkept[id] = true; }
+      });
+    } catch (e) {}
+    preport();
     try {
       var snap = await db.collection("staged").limit(200).get();
       var docs = (snap && snap.docs) || snap || [];

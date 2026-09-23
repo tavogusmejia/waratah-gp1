@@ -93,7 +93,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("only the unconfirmed rows are listed", all.length === 53, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 11, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
@@ -198,7 +198,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   /* 8. prefilled links survived */
   var filled = [].filter.call(rows(), function (r) {
     return r.querySelector(".lurl").value.trim(); });
-  ok("every open row carries a guess to work from", filled.length >= 35,
+  ok("every open row carries a guess to work from", filled.length >= 8,
      filled.length + " filled");
 
   /* 9. the sweep button */
@@ -207,6 +207,53 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   ok("Save every link writes every filled row",
      Object.keys(window.__store).length >= filled.length,
      Object.keys(window.__store).length + " docs for " + filled.length + " rows");
+
+  /* ---- the picture review ---- */
+  var pr = document.querySelectorAll(".prow");
+  ok("every item has a picture card", pr.length === 94, pr.length + " cards");
+  ok("92 carry a thumbnail, 2 say so",
+     document.querySelectorAll(".pshot[src^='data:']").length === 92 &&
+     document.querySelectorAll(".pshot.none").length === 2);
+  ok("the names are the register's own",
+     pr[0].querySelector(".pname").textContent.indexOf("Cartridge Filter") === 0,
+     pr[0].querySelector(".pname").textContent.slice(0, 40));
+
+  var before = Object.keys(window.__store).length;
+  pr[2].querySelector(".pchk").click();
+  pr[7].querySelector(".pchk").click();
+  await wait(120);
+  ok("ticking marks the card", pr[2].classList.contains("marked"));
+  ok("nothing is written until the button is pressed",
+     Object.keys(window.__store).length === before);
+  ok("the state line says what is unsaved",
+     document.getElementById("pstate").textContent.indexOf("not saved") > -1,
+     document.getElementById("pstate").textContent);
+
+  document.getElementById("psave").click();
+  await wait(1200);
+  var s2 = pr[2].getAttribute("data-slug"), s7 = pr[7].getAttribute("data-slug");
+  ok("saving writes exactly the ticked ones",
+     !!window.__store["fixpic/" + s2] && !!window.__store["fixpic/" + s7] &&
+     Object.keys(window.__store).length === before + 2,
+     (Object.keys(window.__store).length - before) + " written");
+  ok("it records the name shown",
+     window.__store["fixpic/" + s2].title === pr[2].querySelector(".pname").textContent);
+  ok("and the state line goes clean",
+     document.getElementById("pstate").textContent.indexOf("not saved") === -1,
+     document.getElementById("pstate").textContent);
+
+  pr[2].querySelector(".pchk").click();
+  await wait(100);
+  document.getElementById("psave").click();
+  await wait(900);
+  ok("unticking then saving removes it", !window.__store["fixpic/" + s2]);
+  ok("and leaves the other alone", !!window.__store["fixpic/" + s7]);
+
+  document.getElementById("pnone").click();
+  await wait(100);
+  ok("Clear every tick unticks everything, without writing",
+     document.querySelectorAll(".prow.marked").length === 0 &&
+     !!window.__store["fixpic/" + s7]);
 
   out.push("");
   out.push(pass + " passed, " + fail + " failed");

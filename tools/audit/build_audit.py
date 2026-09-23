@@ -21,10 +21,16 @@ SECTIONS = [
 ]
 
 
+THUMBS = json.loads((HERE / "thumbs.json").read_text(encoding="utf-8"))
+
+
 def card(r):
-    if r["current"]:
+    # The page is served from claude.ai, so a relative "img/x.webp" resolves
+    # to nothing. Everything shown here has to travel inside the page.
+    shot = THUMBS.get(r["slug"])
+    if shot:
         thumb = '<img class="shot" src="%s" alt="Current picture for %s">' % (
-            r["current"], e(r["key"]))
+            shot, e(r["key"]))
     else:
         thumb = '<span class="shot none">%s</span>' % e(r["code"])
     maker = ('<span class="maker">%s</span>' % e(r["manufacturer"])
@@ -116,6 +122,50 @@ def linkrow(r):
 _d = json.loads((REPO / "web/data/datasheets.json").read_text(encoding="utf-8"))
 TOTAL_ITEMS = len(_d["items"])
 TOTAL_PICS = sum(1 for i in _d["items"] if i["image"])
+
+
+
+def prow(it):
+    """One item in the review grid: its picture, its name as the register
+    shows it, and a box to tick when the picture needs replacing."""
+    slug = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
+    shot = THUMBS.get(slug)
+    face = ('<img class="pshot" src="' + shot + '" alt="" loading="lazy">'
+            if shot else
+            '<span class="pshot none">No picture</span>')
+    return (
+        '<li class="prow" data-slug="' + e(slug) + '">'
+        '<label class="pcard">'
+        '<input class="pchk" type="checkbox" id="fix-' + e(slug) + '">'
+        + face +
+        '<span class="pmeta">'
+        '<span class="pcode">' + e(it["group"] + "-" + it["code"]) + '</span>'
+        '<span class="pname">' + e(it["title"]) + '</span>'
+        '</span>'
+        '<span class="ptick">Needs a better picture</span>'
+        '</label></li>')
+
+
+PICTURES = (
+    '<section class="block pics" id="pics">'
+    '<header class="blockhead">'
+    '<h2>Every picture<span class="tally" id="ptally">0</span></h2>'
+    '<p>All ' + str(TOTAL_ITEMS) + ' items, each with the picture the register '
+    'shows and the name it shows it under. Tick the ones whose picture is '
+    'wrong, is a drawing where it should be a photograph, or is simply not '
+    'good enough, then save. Nothing is written until you press the button, '
+    'and ticking one changes nothing in the register on its own &mdash; it '
+    'marks it for me to replace.</p>'
+    '<p class="lstate" id="pstate">Connecting&hellip;</p>'
+    '<div class="lbtns">'
+    '<button class="all" type="button" id="psave">Save the ticked ones</button>'
+    '<button class="all" type="button" id="pnone">Clear every tick</button>'
+    '</div>'
+    '</header>'
+    '<ul class="items pgrid">'
+    + "".join(prow(it) for it in _d["items"]) +
+    '</ul></section>')
+
 
 LINKS = (
     '<section class="block links" id="links">'
@@ -307,6 +357,37 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .lrow.kept .lurl { border-color: var(--green); }
 .lrow.lost { box-shadow: inset 3px 0 0 var(--red); }
 .lrow.lost .lurl { border-color: var(--red); }
+/* ---- the picture review grid ---- */
+.pgrid { display: grid; gap: 1px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+.prow { background: var(--raise); }
+.pcard { display: grid; gap: 10px; padding: 14px; cursor: pointer;
+  height: 100%; align-content: start; }
+.pcard:hover { background: var(--sunk); }
+.pchk { position: absolute; opacity: 0; pointer-events: none; }
+.pshot { display: block; width: 100%; aspect-ratio: 4 / 3;
+  object-fit: contain; background: var(--photo); border-radius: 8px;
+  border: 1px solid var(--photoline); padding: 8px; }
+.pshot.none { display: grid; place-items: center; font: 500 12px var(--mono);
+  color: var(--photoink); }
+.pmeta { display: grid; gap: 5px; }
+.pcode { font: 500 11px/1 var(--mono); color: var(--ink2); }
+.pname { font-size: 13px; line-height: 1.35; color: var(--ink); }
+.ptick { justify-self: start; font: 600 10.5px/1 var(--sans);
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink3);
+  border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; }
+/* Draw the box. Without one the label reads as a statement about the item
+   rather than something you can tick. */
+.ptick::before { content: ""; display: inline-block; width: 10px;
+  height: 10px; margin-right: 7px; vertical-align: -1px;
+  border: 1.5px solid currentColor; border-radius: 3px; }
+.prow.marked .ptick::before { background: var(--red);
+  box-shadow: inset 0 0 0 2px var(--raise); }
+.prow.marked { background: var(--sunk); box-shadow: inset 3px 0 0 var(--red); }
+.prow.marked .ptick { color: var(--red); border-color: var(--red); }
+.pchk:focus-visible ~ .pshot { outline: 2px solid var(--red);
+  outline-offset: 3px; }
+
 .lfield { display: flex; gap: 8px; align-items: center; }
 .lfield .lurl { flex: 1 1 auto; min-width: 0; }
 .lok { flex: 0 0 auto; font: inherit; font-size: 11.5px; white-space: nowrap;
@@ -421,7 +502,7 @@ doc = (
     "works.</li>"
     "<li>Put it in <code>tools/images/</code>.</li>"
     "<li>Run <code>python tools/extract_datasheets.py</code>.</li>"
-    "</ol></div>\n</header>\n" + "".join(body) + LINKS +
+    "</ol></div>\n</header>\n" + PICTURES + "".join(body) + LINKS +
     '<div class="bar" id="bar">'
     '<span class="n" id="barn">0</span>'
     '<span class="t" id="bart">pictures staged.</span>'
