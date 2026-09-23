@@ -97,7 +97,7 @@ GROUPS = {
     "H": ("Bathroom and Shower Fixtures", "Plumbing", None),
     "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
-    "L&L": ("Luminaires", "Lighting", None),
+    "LUM": ("Luminaires", "Lighting", None),
     "LTRN": ("Lutron Controls", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }

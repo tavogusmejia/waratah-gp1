@@ -153,355 +153,346 @@
   "_stem": "p14-proflo-plastic-roof-drain-pf42870"
  },
  {
-  "mk": "l-l-l-l1",
-  "key": "L&L-L&L1",
-  "group": "L&L",
-  "code": "L&L1",
-  "title": "L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm",
-  "image": "img/l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp",
-  "_stem": "l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm"
- },
- {
-  "mk": "l-l-l-l10",
-  "key": "L&L-L&L10",
-  "group": "L&L",
-  "code": "L&L10",
-  "title": "L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702",
-  "image": "img/l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp",
-  "_stem": "l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702"
- },
- {
-  "mk": "l-l-l-l10-1",
-  "key": "L&L-L&L10.1",
-  "group": "L&L",
-  "code": "L&L10.1",
-  "title": "L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2",
-  "image": "img/l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp",
-  "_stem": "l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2"
- },
- {
-  "mk": "l-l-l-l10-2",
-  "key": "L&L-L&L10.2",
-  "group": "L&L",
-  "code": "L&L10.2",
-  "title": "L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402",
-  "image": "img/l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp",
-  "_stem": "l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402"
- },
- {
-  "mk": "l-l-l-l11",
-  "key": "L&L-L&L11",
-  "group": "L&L",
-  "code": "L&L11",
-  "title": "L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL",
-  "image": "img/l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp",
-  "_stem": "l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl"
- },
- {
-  "mk": "l-l-l-l12",
-  "key": "L&L-L&L12",
-  "group": "L&L",
+  "mk": "lum-l-l12",
+  "key": "LUM-L&L12",
+  "group": "LUM",
   "code": "L&L12",
-  "title": "Pool Light L09 - L&L Bright 1.6 316L",
-  "image": "img/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.webp",
-  "_stem": "l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di"
+  "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
+  "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp",
+  "_stem": "l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di"
  },
  {
-  "mk": "l-l-l-l12-1",
-  "key": "L&L-L&L12.1",
-  "group": "L&L",
+  "mk": "lum-l-l12-1",
+  "key": "LUM-L&L12.1",
+  "group": "LUM",
   "code": "L&L12.1",
-  "title": "L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066",
-  "image": "img/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp",
-  "_stem": "l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066"
+  "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
+  "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp",
+  "_stem": "l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066"
  },
  {
-  "mk": "l-l-l-l12-2",
-  "key": "L&L-L&L12.2",
-  "group": "L&L",
+  "mk": "lum-l-l12-2",
+  "key": "LUM-L&L12.2",
+  "group": "LUM",
   "code": "L&L12.2",
-  "title": "L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066",
-  "image": "img/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp",
-  "_stem": "l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066"
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp",
+  "_stem": "l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066"
  },
  {
-  "mk": "l-l-l-l13",
-  "key": "L&L-L&L13",
-  "group": "L&L",
+  "mk": "lum-l-l13",
+  "key": "LUM-L&L13",
+  "group": "LUM",
   "code": "L&L13",
-  "title": "Pool Light L09.1 - L&L Bright 3.0 316L",
-  "image": "img/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.webp",
-  "_stem": "l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi"
+  "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
+  "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp",
+  "_stem": "l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi"
  },
  {
-  "mk": "l-l-l-l13-1",
-  "key": "L&L-L&L13.1",
-  "group": "L&L",
+  "mk": "lum-l-l13-1",
+  "key": "LUM-L&L13.1",
+  "group": "LUM",
   "code": "L&L13.1",
-  "title": "L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066",
-  "image": "img/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp",
-  "_stem": "l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066"
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp",
+  "_stem": "l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066"
  },
  {
-  "mk": "l-l-l-l14",
-  "key": "L&L-L&L14",
-  "group": "L&L",
+  "mk": "lum-l-l14",
+  "key": "LUM-L&L14",
+  "group": "LUM",
   "code": "L&L14",
-  "title": "L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4",
-  "image": "img/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp",
-  "_stem": "l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4"
+  "title": "Vegetation Projector - L&L Pivot Mini",
+  "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp",
+  "_stem": "l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4"
  },
  {
-  "mk": "l-l-l-l15",
-  "key": "L&L-L&L15",
-  "group": "L&L",
-  "code": "L&L15",
-  "title": "L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK",
-  "image": "img/l-l15-ds-path-light-dali-l11-10-e033-60-ck.webp",
-  "_stem": "l-l15-ds-path-light-dali-l11-10-e033-60-ck"
- },
- {
-  "mk": "l-l-l-l15-1",
-  "key": "L&L-L&L15.1",
-  "group": "L&L",
-  "code": "L&L15.1",
-  "title": "L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU",
-  "image": "img/l-l15-1-ds-path-light-dali-l11-71-e649-60-ou.webp",
-  "_stem": "l-l15-1-ds-path-light-dali-l11-71-e649-60-ou"
- },
- {
-  "mk": "l-l-l-l15-2",
-  "key": "L&L-L&L15.2",
-  "group": "L&L",
-  "code": "L&L15.2",
-  "title": "L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70",
-  "image": "img/l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp",
-  "_stem": "l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70"
- },
- {
-  "mk": "l-l-l-l16",
-  "key": "L&L-L&L16",
-  "group": "L&L",
-  "code": "L&L16",
-  "title": "L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN",
-  "image": "img/l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp",
-  "_stem": "l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn"
- },
- {
-  "mk": "l-l-l-l17",
-  "key": "L&L-L&L17",
-  "group": "L&L",
+  "mk": "lum-l-l17",
+  "key": "LUM-L&L17",
+  "group": "LUM",
   "code": "L&L17",
-  "title": "L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt",
-  "image": "img/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp",
-  "_stem": "l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt"
+  "title": "Sconce - L&L Ella OUT 1.0",
+  "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp",
+  "_stem": "l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt"
  },
  {
-  "mk": "l-l-l-l17-1",
-  "key": "L&L-L&L17.1",
-  "group": "L&L",
+  "mk": "lum-l-l17-1",
+  "key": "LUM-L&L17.1",
+  "group": "LUM",
   "code": "L&L17.1",
-  "title": "L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA",
-  "image": "img/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.webp",
-  "_stem": "l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa"
+  "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+  "image": "img/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.webp",
+  "_stem": "l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa"
  },
  {
-  "mk": "l-l-l-l18",
-  "key": "L&L-L&L18",
-  "group": "L&L",
-  "code": "L&L18",
-  "title": "L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02",
-  "image": "img/l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp",
-  "_stem": "l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02"
+  "mk": "lum-lum1",
+  "key": "LUM-LUM1",
+  "group": "LUM",
+  "code": "LUM1",
+  "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 mm",
+  "image": "img/lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp",
+  "_stem": "lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm"
  },
  {
-  "mk": "l-l-l-l19",
-  "key": "L&L-L&L19",
-  "group": "L&L",
-  "code": "L&L19",
-  "title": "L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb",
-  "image": "img/l-l19-ds-table-lamp-for-minibar-d02-kw3901alb.webp",
-  "_stem": "l-l19-ds-table-lamp-for-minibar-d02-kw3901alb"
+  "mk": "lum-lum2",
+  "key": "LUM-LUM2",
+  "group": "LUM",
+  "code": "LUM2",
+  "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 mm",
+  "image": "img/lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp",
+  "_stem": "lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm"
  },
  {
-  "mk": "l-l-l-l2",
-  "key": "L&L-L&L2",
-  "group": "L&L",
-  "code": "L&L2",
-  "title": "L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm",
-  "image": "img/l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp",
-  "_stem": "l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm"
+  "mk": "lum-lum3",
+  "key": "LUM-LUM3",
+  "group": "LUM",
+  "code": "LUM3",
+  "title": "Indirect LED Strip - Eco Flex 240, 2700 K",
+  "image": "img/lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp",
+  "_stem": "lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009"
  },
  {
-  "mk": "l-l-l-l20",
-  "key": "L&L-L&L20",
-  "group": "L&L",
-  "code": "L&L20",
-  "title": "L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111",
-  "image": "img/l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp",
-  "_stem": "l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111"
+  "mk": "lum-lum3-1",
+  "key": "LUM-LUM3.1",
+  "group": "LUM",
+  "code": "LUM3.1",
+  "title": "Indirect LED Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "image": "img/lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp",
+  "_stem": "lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2"
  },
  {
-  "mk": "l-l-l-l3",
-  "key": "L&L-L&L3",
-  "group": "L&L",
-  "code": "L&L3",
-  "title": "L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009",
-  "image": "img/l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp",
-  "_stem": "l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009"
+  "mk": "lum-lum3-2",
+  "key": "LUM-LUM3.2",
+  "group": "LUM",
+  "code": "LUM3.2",
+  "title": "Indirect LED Strip Driver, 100 W - EcoPac ELED-100-24DP2",
+  "image": "img/lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp",
+  "_stem": "lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2"
  },
  {
-  "mk": "l-l-l-l3-1",
-  "key": "L&L-L&L3.1",
-  "group": "L&L",
-  "code": "L&L3.1",
-  "title": "L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2",
-  "image": "img/l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp",
-  "_stem": "l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2"
+  "mk": "lum-lum3-3",
+  "key": "LUM-LUM3.3",
+  "group": "LUM",
+  "code": "LUM3.3",
+  "title": "Indirect LED Strip Profile - Pro 0209",
+  "image": "img/lum3-3-indirect-led-strip-profile-pro-0209-l03-021-0202.webp",
+  "_stem": "lum3-3-indirect-led-strip-profile-pro-0209-l03-021-0202"
  },
  {
-  "mk": "l-l-l-l3-2",
-  "key": "L&L-L&L3.2",
-  "group": "L&L",
-  "code": "L&L3.2",
-  "title": "L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2",
-  "image": "img/l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp",
-  "_stem": "l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2"
+  "mk": "lum-lum4",
+  "key": "LUM-LUM4",
+  "group": "LUM",
+  "code": "LUM4",
+  "title": "LED Strip in Furniture, 2.93 W/ft - Eco Flex 240, 2700 K",
+  "image": "img/lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp",
+  "_stem": "lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009"
  },
  {
-  "mk": "l-l-l-l3-3",
-  "key": "L&L-L&L3.3",
-  "group": "L&L",
-  "code": "L&L3.3",
-  "title": "L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202",
-  "image": "img/l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.webp",
-  "_stem": "l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202"
+  "mk": "lum-lum4-1",
+  "key": "LUM-LUM4.1",
+  "group": "LUM",
+  "code": "LUM4.1",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "image": "img/lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp",
+  "_stem": "lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2"
  },
  {
-  "mk": "l-l-l-l4",
-  "key": "L&L-L&L4",
-  "group": "L&L",
-  "code": "L&L4",
-  "title": "L&L4 - DS - Uplight Wall-Washer PHASE-DIM - L04 - Light-Up-Orbit",
-  "image": "img/l-l4-ds-uplight-wall-washer-phase-dim-l04-light-up-orbit.webp",
-  "_stem": "l-l4-ds-uplight-wall-washer-phase-dim-l04-light-up-orbit"
+  "mk": "lum-lum4-2",
+  "key": "LUM-LUM4.2",
+  "group": "LUM",
+  "code": "LUM4.2",
+  "title": "Furniture Strip Driver, 60 W - EcoPac ELED-60-24DP2",
+  "image": "img/lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp",
+  "_stem": "lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2"
  },
  {
-  "mk": "l-l-l-l5",
-  "key": "L&L-L&L5",
-  "group": "L&L",
-  "code": "L&L5",
-  "title": "L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009",
-  "image": "img/l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp",
-  "_stem": "l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009"
+  "mk": "lum-lum4-3",
+  "key": "LUM-LUM4.3",
+  "group": "LUM",
+  "code": "LUM4.3",
+  "title": "Furniture Strip Profile - Pro 0209",
+  "image": "img/lum4-3-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp",
+  "_stem": "lum4-3-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202"
  },
  {
-  "mk": "l-l-l-l5-1",
-  "key": "L&L-L&L5.1",
-  "group": "L&L",
-  "code": "L&L5.1",
-  "title": "L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2",
-  "image": "img/l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp",
-  "_stem": "l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2"
+  "mk": "lum-lum5",
+  "key": "LUM-LUM5",
+  "group": "LUM",
+  "code": "LUM5",
+  "title": "LED Strip in Furniture, 0.73 W/ft - Eco Flex 240, 2700 K",
+  "image": "img/lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp",
+  "_stem": "lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002"
  },
  {
-  "mk": "l-l-l-l5-2",
-  "key": "L&L-L&L5.2",
-  "group": "L&L",
-  "code": "L&L5.2",
-  "title": "L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2",
-  "image": "img/l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp",
-  "_stem": "l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2"
+  "mk": "lum-lum5-1",
+  "key": "LUM-LUM5.1",
+  "group": "LUM",
+  "code": "LUM5.1",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "image": "img/lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp",
+  "_stem": "lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2"
  },
  {
-  "mk": "l-l-l-l5-3",
-  "key": "L&L-L&L5.3",
-  "group": "L&L",
-  "code": "L&L5.3",
-  "title": "L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202",
-  "image": "img/l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp",
-  "_stem": "l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202"
+  "mk": "lum-lum5-2",
+  "key": "LUM-LUM5.2",
+  "group": "LUM",
+  "code": "LUM5.2",
+  "title": "Furniture Strip Profile - Pro 0209",
+  "image": "img/lum5-2-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp",
+  "_stem": "lum5-2-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202"
  },
  {
-  "mk": "l-l-l-l6",
-  "key": "L&L-L&L6",
-  "group": "L&L",
-  "code": "L&L6",
-  "title": "L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002",
-  "image": "img/l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp",
-  "_stem": "l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002"
+  "mk": "lum-lum6",
+  "key": "LUM-LUM6",
+  "group": "LUM",
+  "code": "LUM6",
+  "title": "LED Strip in Furniture, IP65 - Eco Flex 240, 2700 K",
+  "image": "img/lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp",
+  "_stem": "lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002"
  },
  {
-  "mk": "l-l-l-l6-1",
-  "key": "L&L-L&L6.1",
-  "group": "L&L",
-  "code": "L&L6.1",
-  "title": "L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2",
-  "image": "img/l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp",
-  "_stem": "l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2"
+  "mk": "lum-lum6-1",
+  "key": "LUM-LUM6.1",
+  "group": "LUM",
+  "code": "LUM6.1",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "image": "img/lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp",
+  "_stem": "lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2"
  },
  {
-  "mk": "l-l-l-l6-2",
-  "key": "L&L-L&L6.2",
-  "group": "L&L",
-  "code": "L&L6.2",
-  "title": "L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202",
-  "image": "img/l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp",
-  "_stem": "l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202"
+  "mk": "lum-lum6-2",
+  "key": "LUM-LUM6.2",
+  "group": "LUM",
+  "code": "LUM6.2",
+  "title": "Furniture Strip Profile - Pro 0409",
+  "image": "img/lum6-2-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp",
+  "_stem": "lum6-2-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402"
  },
  {
-  "mk": "l-l-l-l7",
-  "key": "L&L-L&L7",
-  "group": "L&L",
-  "code": "L&L7",
-  "title": "L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002",
-  "image": "img/l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp",
-  "_stem": "l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002"
+  "mk": "lum-lum7",
+  "key": "LUM-LUM7",
+  "group": "LUM",
+  "code": "LUM7",
+  "title": "Integrated Mini Downlight Driver, 350 mA - CC20-D-350-N",
+  "image": "img/lum7-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp",
+  "_stem": "lum7-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n"
  },
  {
-  "mk": "l-l-l-l7-1",
-  "key": "L&L-L&L7.1",
-  "group": "L&L",
-  "code": "L&L7.1",
-  "title": "L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2",
-  "image": "img/l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp",
-  "_stem": "l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2"
+  "mk": "lum-lum8",
+  "key": "LUM-LUM8",
+  "group": "LUM",
+  "code": "LUM8",
+  "title": "Courtesy Wall Light - Profilo 1.0 BORTOP02-2K7",
+  "image": "img/lum8-courtesy-wall-light-dali-l07-bortop02-2k7.webp",
+  "_stem": "lum8-courtesy-wall-light-dali-l07-bortop02-2k7"
  },
  {
-  "mk": "l-l-l-l7-2",
-  "key": "L&L-L&L7.2",
-  "group": "L&L",
-  "code": "L&L7.2",
-  "title": "L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402",
-  "image": "img/l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp",
-  "_stem": "l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402"
+  "mk": "lum-lum8-1",
+  "key": "LUM-LUM8.1",
+  "group": "LUM",
+  "code": "LUM8.1",
+  "title": "Courtesy Wall Light Driver - Mini Jolly DALI 20",
+  "image": "img/lum8-1-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp",
+  "_stem": "lum8-1-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20"
  },
  {
-  "mk": "l-l-l-l8",
-  "key": "L&L-L&L8",
-  "group": "L&L",
-  "code": "L&L8",
-  "title": "L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N",
-  "image": "img/l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp",
-  "_stem": "l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n"
+  "mk": "lum-lum9",
+  "key": "LUM-LUM9",
+  "group": "LUM",
+  "code": "LUM9",
+  "title": "Exterior Step LED Strip, IP67 - Eco Flex 240, 2700 K",
+  "image": "img/lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp",
+  "_stem": "lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702"
  },
  {
-  "mk": "l-l-l-l9",
-  "key": "L&L-L&L9",
-  "group": "L&L",
-  "code": "L&L9",
-  "title": "L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7",
-  "image": "img/l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7.webp",
-  "_stem": "l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7"
+  "mk": "lum-lum9-1",
+  "key": "LUM-LUM9.1",
+  "group": "LUM",
+  "code": "LUM9.1",
+  "title": "Exterior Step Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "image": "img/lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp",
+  "_stem": "lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2"
  },
  {
-  "mk": "l-l-l-l9-1",
-  "key": "L&L-L&L9.1",
-  "group": "L&L",
-  "code": "L&L9.1",
-  "title": "L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20",
-  "image": "img/l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp",
-  "_stem": "l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20"
+  "mk": "lum-lum9-2",
+  "key": "LUM-LUM9.2",
+  "group": "LUM",
+  "code": "LUM9.2",
+  "title": "Exterior Step Strip Profile - Pro 0409",
+  "image": "img/lum9-2-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp",
+  "_stem": "lum9-2-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402"
+ },
+ {
+  "mk": "lum-lum10",
+  "key": "LUM-LUM10",
+  "group": "LUM",
+  "code": "LUM10",
+  "title": "Exterior Courtesy Wall Light - Tiny Short 05-E146-Z5-CL",
+  "image": "img/lum10-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp",
+  "_stem": "lum10-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl"
+ },
+ {
+  "mk": "lum-lum11",
+  "key": "LUM-LUM11",
+  "group": "LUM",
+  "code": "LUM11",
+  "title": "Path Light - Sinia 600 mm Bollard 10-E033-60-CK",
+  "image": "img/lum11-path-light-dali-l11-10-e033-60-ck.webp",
+  "_stem": "lum11-path-light-dali-l11-10-e033-60-ck"
+ },
+ {
+  "mk": "lum-lum11-1",
+  "key": "LUM-LUM11.1",
+  "group": "LUM",
+  "code": "LUM11.1",
+  "title": "Path Light, Alternate - 71-E649-60-OU",
+  "image": "img/lum11-1-path-light-dali-l11-71-e649-60-ou.webp",
+  "_stem": "lum11-1-path-light-dali-l11-71-e649-60-ou"
+ },
+ {
+  "mk": "lum-lum11-2",
+  "key": "LUM-LUM11.2",
+  "group": "LUM",
+  "code": "LUM11.2",
+  "title": "Path Light Driver - Maxi Jolly SV DALI IPR1-70",
+  "image": "img/lum11-2-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp",
+  "_stem": "lum11-2-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70"
+ },
+ {
+  "mk": "lum-lum12",
+  "key": "LUM-LUM12",
+  "group": "LUM",
+  "code": "LUM12",
+  "title": "Surface-Mounted Service Downlight - WAC FM-05RN",
+  "image": "img/lum12-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp",
+  "_stem": "lum12-surface-mounted-service-downlight-on-off-l12-fm-05rn"
+ },
+ {
+  "mk": "lum-lum13",
+  "key": "LUM-LUM13",
+  "group": "LUM",
+  "code": "LUM13",
+  "title": "Indirect Wall Lamp - Foil 1A334-FOIL-US02",
+  "image": "img/lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp",
+  "_stem": "lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02"
+ },
+ {
+  "mk": "lum-lum14",
+  "key": "LUM-LUM14",
+  "group": "LUM",
+  "code": "LUM14",
+  "title": "Table Lamp for Minibar - Kelly Wearstler Una Small KW 3901ALB",
+  "image": "img/lum14-table-lamp-for-minibar-d02-kw3901alb.webp",
+  "_stem": "lum14-table-lamp-for-minibar-d02-kw3901alb"
+ },
+ {
+  "mk": "lum-lum15",
+  "key": "LUM-LUM15",
+  "group": "LUM",
+  "code": "LUM15",
+  "title": "Floor Lamp, Pool Terrace - Kando P111",
+  "image": "img/lum15-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp",
+  "_stem": "lum15-floor-lamp-pool-terrace-phase-dim-d03-kando-p111"
  },
  {
   "mk": "ltrn-ltrn2",

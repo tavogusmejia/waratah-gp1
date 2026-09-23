@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-23T20:43:11Z",
+ "generated": "2026-09-23T20:56:30Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -67,7 +67,7 @@
    "count": 14
   },
   {
-   "key": "L&L",
+   "key": "LUM",
    "name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
@@ -3003,1048 +3003,2440 @@
    "image": "img/p14-proflo-plastic-roof-drain-pf42870.webp"
   },
   {
-   "id": "l-l-l-l1-l-l1-ds-recessed-downlight-ceiling-1",
-   "code": "L&L1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
-   "pages": 6,
-   "bytes": 3583430,
-   "sha": "35d368ba13a63ef9",
-   "source": "L - Lighting/L&L - Luminaires/L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
-   "key": "l&l-l&l1",
-   "drive_url": "https://drive.google.com/file/d/1uk0hNdQct4WU2kd9WCBaIspPn8sIvrLw/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp"
-  },
-  {
-   "id": "l-l-l-l10-l-l10-ds-led-strip-exterior-step-eco",
-   "code": "L&L10",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.pdf",
-   "pages": 2,
-   "bytes": 1782505,
-   "sha": "7927d1629c7db026",
-   "source": "L - Lighting/L&L - Luminaires/L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
-   "key": "l&l-l&l10",
-   "drive_url": "https://drive.google.com/file/d/1JNUiHDGihEdH4cQLg8zb9U0bU2iXBBod/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp"
-  },
-  {
-   "id": "l-l-l-l10-1-l-l10-1-ds-led-strip-exterior-step-d",
-   "code": "L&L10.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1407143,
-   "sha": "f95ddc7418b65816",
-   "source": "L - Lighting/L&L - Luminaires/L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
-   "key": "l&l-l&l10.1",
-   "drive_url": "https://drive.google.com/file/d/1AgD-BXbkLanMfiLr8D9ibNOozOIvVh2T/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l10-2-l-l10-2-ds-led-strip-exterior-step-p",
-   "code": "L&L10.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.pdf",
-   "pages": 1,
-   "bytes": 1261426,
-   "sha": "9cf3bbb56b9748d1",
-   "source": "L - Lighting/L&L - Luminaires/L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
-   "key": "l&l-l&l10.2",
-   "drive_url": "https://drive.google.com/file/d/1h7vPxcTZ72cAKJXEclhl5eRqrpm7VOLd/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp"
-  },
-  {
-   "id": "l-l-l-l11-l-l11-ds-courtesy-wall-light-exterio",
-   "code": "L&L11",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.pdf",
-   "pages": 4,
-   "bytes": 4921684,
-   "sha": "ea39be97db4dd2f5",
-   "source": "L - Lighting/L&L - Luminaires/L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
-   "key": "l&l-l&l11",
-   "drive_url": "https://drive.google.com/file/d/1IX8AN5D6inm1nl1VYp5mOoL9dKhsTfzL/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp"
-  },
-  {
-   "id": "l-l-l-l12-pool-light-l09-l-l-bright-1-6-316l",
+   "id": "lum-l-l12-submersible-pool-fixture-steps-l-l-br",
    "code": "L&L12",
-   "group": "L&L",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
    "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "Pool Light L09 - L&L Bright 1.6 316L",
+   "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
    "specs": [
     {
-     "label": "A1 Luminaire",
-     "value": "L&L CW16005DI - recessed underwater, 2W 24Vdc, 3000K, diffuse optic, IP65/IP68, IK10"
+     "label": "Fixture tag",
+     "value": "L09"
     },
     {
-     "label": "A2 Outer casing",
-     "value": "L&L WC5003"
+     "label": "Lumen output",
+     "value": "195 lm"
     },
     {
-     "label": "A3 LED driver",
-     "value": "L&L AV0D024V03066 - 24Vdc 30W, DALI-2 dimmable, IP66"
+     "label": "Beam",
+     "value": "21°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "Power",
+     "value": "2 W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65 / IP68"
+    },
+    {
+     "label": "Impact",
+     "value": "IK10"
+    },
+    {
+     "label": "Body",
+     "value": "316L stainless steel"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed underwater, pool steps"
     }
    ],
-   "notes": "Per JANU-SUB-009 group A (Pool Light L09).",
+   "notes": "Runs with driver L&L12.1 or L&L12.2. Same fixture as PL-A.",
    "status": "not_stated",
    "status_text": "",
    "curated": true,
-   "pdf": "datasheets/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
-   "pages": 5,
-   "bytes": 2363591,
-   "sha": "e6a9aad7ccb4f62f",
-   "source": "L - Lighting/L&L - Luminaires/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
-   "key": "l&l-l&l12",
-   "drive_url": "https://drive.google.com/file/d/19d4H5mZmkxhMJC1w0f5EgC1dTy6LQvho/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
-  },
-  {
-   "id": "l-l-l-l12-1-l-l12-1-ds-submersible-pool-fixture",
-   "code": "L&L12.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
-   "pages": 8,
-   "bytes": 3844953,
-   "sha": "76e541023876c3e3",
-   "source": "L - Lighting/L&L - Luminaires/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
-   "key": "l&l-l&l12.1",
-   "drive_url": "https://drive.google.com/file/d/1euR8LiPxod_OkDo79I8jJvBXvzAWIA9N/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
-  },
-  {
-   "id": "l-l-l-l12-2-l-l12-2-ds-submersible-pool-fixture",
-   "code": "L&L12.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
-   "pages": 8,
-   "bytes": 1902461,
-   "sha": "eda71ebe2749583d",
-   "source": "L - Lighting/L&L - Luminaires/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
-   "key": "l&l-l&l12.2",
-   "drive_url": "https://drive.google.com/file/d/1X1BPssYZUh8udb6SwcT6mBgX1IMyWRCg/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
-  },
-  {
-   "id": "l-l-l-l13-pool-light-l09-1-l-l-bright-3-0-316l",
-   "code": "L&L13",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Pool Light L09.1 - L&L Bright 3.0 316L",
-   "specs": [
-    {
-     "label": "B1 Luminaire",
-     "value": "L&L CW300005WI - recessed underwater, 7W 24Vdc, 3000K, 13x52 optic, IP66/IP68, IK10"
-    },
-    {
-     "label": "B2 Outer casing",
-     "value": "L&L WC5004"
-    },
-    {
-     "label": "B3 LED driver",
-     "value": "L&L AV0D024V06066 - 24Vdc 60W, DALI-2 dimmable, IP66"
-    },
-    {
-     "label": "B4 Extractors",
-     "value": "L&L WN7001 (pair)"
-    }
-   ],
-   "notes": "Per JANU-SUB-009 group B (Pool Light L09.1).",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
+   "pdf": "datasheets/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
    "pages": 6,
-   "bytes": 2669975,
-   "sha": "56cb655dacc1fa75",
-   "source": "L - Lighting/L&L - Luminaires/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
-   "key": "l&l-l&l13",
-   "drive_url": "https://drive.google.com/file/d/1JZarn7--o8CRylUNSq5288HGpjG-mpDP/view",
+   "bytes": 2368754,
+   "sha": "395b659445889206",
+   "source": "L - Lighting/LUM - Luminaires/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+   "key": "lum-l&l12",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+     "bytes": 2363591,
+     "key": "lum-l&l12-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
   },
   {
-   "id": "l-l-l-l13-1-l-l13-1-ds-submersible-pool-fixture",
+   "id": "lum-l-l12-1-pool-fixture-driver-30-w-av0d024v0306",
+   "code": "L&L12.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L12 - pool step fixture, tag L09"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
+   "pages": 9,
+   "bytes": 3832784,
+   "sha": "b00dfcdb36d0e8df",
+   "source": "L - Lighting/LUM - Luminaires/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+   "key": "lum-l&l12.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+     "bytes": 3844953,
+     "key": "lum-l&l12.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
+  },
+  {
+   "id": "lum-l-l12-2-pool-fixture-driver-60-w-av0d024v0606",
+   "code": "L&L12.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 60 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L12 - pool step fixture, tag L09"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
+   "pages": 9,
+   "bytes": 1884250,
+   "sha": "b7a5e86b0232a621",
+   "source": "L - Lighting/LUM - Luminaires/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+   "key": "lum-l&l12.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+     "bytes": 1902461,
+     "key": "lum-l&l12.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
+  },
+  {
+   "id": "lum-l-l13-submersible-pool-fixture-l-l-bright-3",
+   "code": "L&L13",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09.1"
+    },
+    {
+     "label": "Lumen output",
+     "value": "683 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "34°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "Power",
+     "value": "7 W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66 / IP68"
+    },
+    {
+     "label": "Impact",
+     "value": "IK10"
+    },
+    {
+     "label": "Body",
+     "value": "316L stainless steel"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed underwater"
+    }
+   ],
+   "notes": "Runs with driver L&L13.1. Same fixture as PL-B.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
+   "pages": 7,
+   "bytes": 2669473,
+   "sha": "533c4ce8ed6b3595",
+   "source": "L - Lighting/LUM - Luminaires/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+   "key": "lum-l&l13",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+     "bytes": 2669975,
+     "key": "lum-l&l13-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
+  },
+  {
+   "id": "lum-l-l13-1-pool-fixture-driver-60-w-av0d024v0606",
    "code": "L&L13.1",
-   "group": "L&L",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066",
-   "specs": [],
+   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09.1"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 60 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L13 - pool fixture, tag L09.1"
+    }
+   ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
-   "pages": 8,
-   "bytes": 1902461,
-   "sha": "7cbea1294a32973b",
-   "source": "L - Lighting/L&L - Luminaires/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
-   "key": "l&l-l&l13.1",
-   "drive_url": "https://drive.google.com/file/d/1ojAFSrufKyzCOLULTIAHMu3FDsV8PpaS/view",
+   "curated": true,
+   "pdf": "datasheets/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
+   "pages": 9,
+   "bytes": 1884252,
+   "sha": "974f0fbe041ccd0b",
+   "source": "L - Lighting/LUM - Luminaires/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+   "key": "lum-l&l13.1",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+     "bytes": 1902461,
+     "key": "lum-l&l13.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
   },
   {
-   "id": "l-l-l-l14-l-l14-ds-vegetation-projector-dali",
+   "id": "lum-l-l14-vegetation-projector-l-l-pivot-mini",
    "code": "L&L14",
-   "group": "L&L",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4",
-   "specs": [],
+   "title": "Vegetation Projector - L&L Pivot Mini",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L10"
+    },
+    {
+     "label": "Lumen output",
+     "value": "150 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "15° / 25° / 35°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2.5 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Impact",
+     "value": "IK06"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Model",
+     "value": "cp0100100150lt-4"
+    },
+    {
+     "label": "Use",
+     "value": "Vegetation and landscape"
+    }
+   ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
-   "pages": 3,
-   "bytes": 955432,
-   "sha": "518d012862e54650",
-   "source": "L - Lighting/L&L - Luminaires/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
-   "key": "l&l-l&l14",
-   "drive_url": "https://drive.google.com/file/d/1Tvj8rf_nXTbKUaelkkfo4bqAxRU0Vq_m/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
-  },
-  {
-   "id": "l-l-l-l15-l-l15-ds-path-light-dali-l11-10",
-   "code": "L&L15",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l15-ds-path-light-dali-l11-10-e033-60-ck.pdf",
+   "curated": true,
+   "pdf": "datasheets/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
    "pages": 4,
-   "bytes": 1283802,
-   "sha": "8083ed0be07b3436",
-   "source": "L - Lighting/L&L - Luminaires/L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK.pdf",
-   "key": "l&l-l&l15",
-   "drive_url": "https://drive.google.com/file/d/1Mo4VIC-r3IvpoM8UL-G-Ovs7dmrwx8B2/view",
+   "bytes": 954118,
+   "sha": "afd41953c4d3f0dc",
+   "source": "L - Lighting/LUM - Luminaires/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+   "key": "lum-l&l14",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l15-ds-path-light-dali-l11-10-e033-60-ck.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+     "bytes": 955432,
+     "key": "lum-l&l14-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
   },
   {
-   "id": "l-l-l-l15-1-l-l15-1-ds-path-light-dali-l11-7",
-   "code": "L&L15.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l15-1-ds-path-light-dali-l11-71-e649-60-ou.pdf",
-   "pages": 2,
-   "bytes": 373867,
-   "sha": "ae52ab2a6a913de0",
-   "source": "L - Lighting/L&L - Luminaires/L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU.pdf",
-   "key": "l&l-l&l15.1",
-   "drive_url": "https://drive.google.com/file/d/1xdEZXajeRjjjpNUJ7NFj6z6Rqk8g-AJ-/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l15-1-ds-path-light-dali-l11-71-e649-60-ou.webp"
-  },
-  {
-   "id": "l-l-l-l15-2-l-l15-2-ds-path-light-driver-dali",
-   "code": "L&L15.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.pdf",
-   "pages": 2,
-   "bytes": 753629,
-   "sha": "1370cbaa0ab2d30e",
-   "source": "L - Lighting/L&L - Luminaires/L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
-   "key": "l&l-l&l15.2",
-   "drive_url": "https://drive.google.com/file/d/1DK3Uebj1-0m5T--MeJ1wQtcEDU7Uv1dW/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp"
-  },
-  {
-   "id": "l-l-l-l16-l-l16-ds-surface-mounted-service-dow",
-   "code": "L&L16",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.pdf",
-   "pages": 1,
-   "bytes": 3046319,
-   "sha": "4513cff6b23ffe94",
-   "source": "L - Lighting/L&L - Luminaires/L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
-   "key": "l&l-l&l16",
-   "drive_url": "https://drive.google.com/file/d/1uDYhdgETbPTeScsX95NCxKAqE7QgYJEH/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp"
-  },
-  {
-   "id": "l-l-l-l17-l-l17-ds-sconce-dali-d01-ella-ou",
+   "id": "lum-l-l17-sconce-l-l-ella-out-1-0",
    "code": "L&L17",
-   "group": "L&L",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "L&L Luce&Light",
    "category": "",
-   "title": "L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt",
-   "specs": [],
-   "notes": "",
+   "title": "Sconce - L&L Ella OUT 1.0",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D01"
+    },
+    {
+     "label": "Lumen output",
+     "value": "954 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "25°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K (2700 K available)"
+    },
+    {
+     "label": "Power",
+     "value": "7 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65"
+    },
+    {
+     "label": "Impact",
+     "value": "IK08"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Model",
+     "value": "ea1010fdtt"
+    },
+    {
+     "label": "Mounting",
+     "value": "Wall"
+    }
+   ],
+   "notes": "Runs with driver L&L17.1.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
-   "pages": 3,
-   "bytes": 1526719,
-   "sha": "0139ccd03fd8476c",
-   "source": "L - Lighting/L&L - Luminaires/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
-   "key": "l&l-l&l17",
-   "drive_url": "https://drive.google.com/file/d/1byHJrv8UIv8BlqxVGU0v8S40a2tTS2On/view",
+   "curated": true,
+   "pdf": "datasheets/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
+   "pages": 4,
+   "bytes": 1525378,
+   "sha": "a0d88b6b8f7b8b07",
+   "source": "L - Lighting/LUM - Luminaires/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+   "key": "lum-l&l17",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+     "bytes": 1526719,
+     "key": "lum-l&l17-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
   },
   {
-   "id": "l-l-l-l17-1-l-l17-1-ds-sconce-driver-5-protocol",
+   "id": "lum-l-l17-1-sconce-driver-5-protocol-wsddv225pa",
    "code": "L&L17.1",
-   "group": "L&L",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Wago",
    "category": "",
-   "title": "L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA",
-   "specs": [],
-   "notes": "",
+   "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D01"
+    },
+    {
+     "label": "Output",
+     "value": "36 W"
+    },
+    {
+     "label": "Control",
+     "value": "5-protocol dimming"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L17 - sconce, tag D01"
+    }
+   ],
+   "notes": "The driver is not an L&L part; it keeps the L&L17 number because it belongs to that fixture.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
-   "pages": 4,
-   "bytes": 822169,
-   "sha": "95d2a321bd6c51f8",
-   "source": "L - Lighting/L&L - Luminaires/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
-   "key": "l&l-l&l17.1",
-   "drive_url": "https://drive.google.com/file/d/1y0kMN4xlT1DcVyvcxNBwJAE5L24SceZr/view",
+   "curated": true,
+   "pdf": "datasheets/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
+   "pages": 5,
+   "bytes": 292270,
+   "sha": "e64d76ac1d3d0438",
+   "source": "L - Lighting/LUM - Luminaires/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+   "key": "lum-l&l17.1",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
+     "source": "L - Lighting/LUM - Luminaires/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+     "bytes": 822169,
+     "key": "lum-l&l17.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.webp"
   },
   {
-   "id": "l-l-l-l18-l-l18-ds-indirect-wall-lamp-foil-pha",
-   "code": "L&L18",
-   "group": "L&L",
+   "id": "lum-lum1-recessed-ceiling-downlight-14-iguzzin",
+   "code": "LUM1",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "iGuzzini",
    "category": "",
-   "title": "L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02",
-   "specs": [],
+   "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 mm",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L01"
+    },
+    {
+     "label": "Lumen output",
+     "value": "Up to 121 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "14° spot"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Efficacy",
+     "value": "Up to 60 lm/W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed in ceiling, fixed optic"
+    },
+    {
+     "label": "Body",
+     "value": "Die-cast aluminium optical assembly"
+    },
+    {
+     "label": "Lumen maintenance",
+     "value": "L80 at 69,000 h (LM-79 / LM-80)"
+    },
+    {
+     "label": "Supplied by",
+     "value": "Sistemalux (iGuzzini, Canada)"
+    }
+   ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.pdf",
-   "pages": 2,
-   "bytes": 471624,
-   "sha": "c95df828d1687837",
-   "source": "L - Lighting/L&L - Luminaires/L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
-   "key": "l&l-l&l18",
-   "drive_url": "https://drive.google.com/file/d/1s5jNfnH81N3kSeFyssfAfxtWPiNzxvqK/view",
+   "curated": true,
+   "pdf": "datasheets/lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
+   "pages": 7,
+   "bytes": 1221847,
+   "sha": "025f9575f17cc440",
+   "source": "L - Lighting/LUM - Luminaires/LUM1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+   "key": "lum-lum1",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+     "bytes": 3583430,
+     "key": "lum-lum1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp"
   },
   {
-   "id": "l-l-l-l19-l-l19-ds-table-lamp-for-minibar-d0",
-   "code": "L&L19",
-   "group": "L&L",
+   "id": "lum-lum2-recessed-ceiling-downlight-26-iguzzin",
+   "code": "LUM2",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "iGuzzini",
    "category": "",
-   "title": "L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb",
-   "specs": [],
+   "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 mm",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02"
+    },
+    {
+     "label": "Lumen output",
+     "value": "125 lm to 430 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "26° medium"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Efficacy",
+     "value": "Up to 75 lm/W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed in ceiling; adjustable, medium, flood and wall-washer optics"
+    },
+    {
+     "label": "Lumen maintenance",
+     "value": "L80 at 50,000 h (LM-79 / LM-80)"
+    },
+    {
+     "label": "Supplied by",
+     "value": "Sistemalux (iGuzzini, Canada)"
+    }
+   ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l19-ds-table-lamp-for-minibar-d02-kw3901alb.pdf",
-   "pages": 1,
-   "bytes": 107890,
-   "sha": "92f822d9136846a8",
-   "source": "L - Lighting/L&L - Luminaires/L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb.pdf",
-   "key": "l&l-l&l19",
-   "drive_url": "https://drive.google.com/file/d/1PiVUqKCICAUk36eOL3KXEwWRnGmg0GDD/view",
+   "curated": true,
+   "pdf": "datasheets/lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
+   "pages": 11,
+   "bytes": 1443368,
+   "sha": "39a76127fba5515a",
+   "source": "L - Lighting/LUM - Luminaires/LUM2 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+   "key": "lum-lum2",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l19-ds-table-lamp-for-minibar-d02-kw3901alb.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+     "bytes": 3949770,
+     "key": "lum-lum2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp"
   },
   {
-   "id": "l-l-l-l2-l-l2-ds-recessed-downlight-ceiling-2",
-   "code": "L&L2",
-   "group": "L&L",
+   "id": "lum-lum3-indirect-led-strip-eco-flex-240-2700",
+   "code": "LUM3",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "LedFlex Group",
    "category": "",
-   "title": "L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm",
-   "specs": [],
-   "notes": "",
+   "title": "Indirect LED Strip - Eco Flex 240, 2700 K",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L03"
+    },
+    {
+     "label": "Lumen output",
+     "value": "1012 lm/m"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "9.6 W/m (2.93 W/ft)"
+    },
+    {
+     "label": "Efficacy",
+     "value": "105 lm/W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Cut length",
+     "value": "33.33 mm"
+    },
+    {
+     "label": "Width",
+     "value": "10 mm"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "Runs with driver LUM3.1 or LUM3.2 and profile LUM3.3.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
-   "pages": 10,
-   "bytes": 3949770,
-   "sha": "e1432ccf3775c465",
-   "source": "L - Lighting/L&L - Luminaires/L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
-   "key": "l&l-l&l2",
-   "drive_url": "https://drive.google.com/file/d/1HokTEw1qBNiLEDyG4F3Bf6sZ-n8k0drx/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp"
-  },
-  {
-   "id": "l-l-l-l20-l-l20-ds-floor-lamp-pool-terrace-pha",
-   "code": "L&L20",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.pdf",
-   "pages": 1,
-   "bytes": 1066957,
-   "sha": "ae062dafda2557ff",
-   "source": "L - Lighting/L&L - Luminaires/L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
-   "key": "l&l-l&l20",
-   "drive_url": "https://drive.google.com/file/d/1bRpWgAvgFDlIscc3CRrwimT0g0nge3kR/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp"
-  },
-  {
-   "id": "l-l-l-l21-l-l21-ds-portable-lamp-p01-kando",
-   "code": "L&L21",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L21 - DS - Portable Lamp - P01 - Kando M40R",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l21-ds-portable-lamp-p01-kando-m40r.pdf",
-   "pages": 1,
-   "bytes": 760167,
-   "sha": "111620fc53a3f8f5",
-   "source": "L - Lighting/L&L - Luminaires/L&L21 - DS - Portable Lamp - P01 - Kando M40R.pdf",
-   "key": "l&l-l&l21",
-   "drive_url": "https://drive.google.com/file/d/1Jt1hFkdevSTsiRGaljrGZPwny4B-PJAc/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l21-ds-portable-lamp-p01-kando-m40r.webp"
-  },
-  {
-   "id": "l-l-l-l3-l-l3-ds-indirect-led-strip-eco-flex",
-   "code": "L&L3",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.pdf",
-   "pages": 2,
-   "bytes": 1798995,
-   "sha": "2ae86404785856a2",
-   "source": "L - Lighting/L&L - Luminaires/L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
-   "key": "l&l-l&l3",
-   "drive_url": "https://drive.google.com/file/d/1_9Wb5qYzfspeghPBR9Z87LjCEH6EPm9c/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp"
-  },
-  {
-   "id": "l-l-l-l3-1-l-l3-1-ds-indirect-led-strip-driver",
-   "code": "L&L3.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1407083,
-   "sha": "731fcbb734ef77e3",
-   "source": "L - Lighting/L&L - Luminaires/L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
-   "key": "l&l-l&l3.1",
-   "drive_url": "https://drive.google.com/file/d/1Qbg_JaZpcmOdS6lArHkOQXApZlEZRQ7k/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l3-2-l-l3-2-ds-indirect-led-strip-driver",
-   "code": "L&L3.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1619631,
-   "sha": "39db073f6e6d80cf",
-   "source": "L - Lighting/L&L - Luminaires/L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
-   "key": "l&l-l&l3.2",
-   "drive_url": "https://drive.google.com/file/d/1Yu4HmAK-htr089ifEjVPYP0Wd39SZfpT/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l3-3-l-l3-3-ds-indirect-led-strip-profile",
-   "code": "L&L3.3",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.pdf",
-   "pages": 1,
-   "bytes": 1191328,
-   "sha": "d6375d5997cffe13",
-   "source": "L - Lighting/L&L - Luminaires/L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
-   "key": "l&l-l&l3.3",
-   "drive_url": "https://drive.google.com/file/d/1aAldVeMEhIVdbblqnhHlXdVnIg6Y3E16/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.webp"
-  },
-  {
-   "id": "l-l-l-l5-l-l5-ds-led-strip-in-furniture-2-93w",
-   "code": "L&L5",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.pdf",
-   "pages": 2,
-   "bytes": 1797331,
-   "sha": "4960cae00d6b8c7b",
-   "source": "L - Lighting/L&L - Luminaires/L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
-   "key": "l&l-l&l5",
-   "drive_url": "https://drive.google.com/file/d/18xJfBAvXETY2vzZBCXcQS62yEVaVXeJu/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp"
-  },
-  {
-   "id": "l-l-l-l5-1-l-l5-1-ds-led-strip-in-furniture-dri",
-   "code": "L&L5.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1407089,
-   "sha": "fdd5859971a20bc1",
-   "source": "L - Lighting/L&L - Luminaires/L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
-   "key": "l&l-l&l5.1",
-   "drive_url": "https://drive.google.com/file/d/1IrKXnW583gO9Gbu-5bNJNkT5mvRJXUWK/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l5-2-l-l5-2-ds-led-strip-in-furniture-dri",
-   "code": "L&L5.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1481607,
-   "sha": "8eb59de7ef00b1ea",
-   "source": "L - Lighting/L&L - Luminaires/L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
-   "key": "l&l-l&l5.2",
-   "drive_url": "https://drive.google.com/file/d/1l-RUE3R4jqq4suQpxDgD2eu1jU66Oez4/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l5-3-l-l5-3-ds-led-strip-in-furniture-pro",
-   "code": "L&L5.3",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.pdf",
-   "pages": 1,
-   "bytes": 1192302,
-   "sha": "0f7c5fc4079e6ce8",
-   "source": "L - Lighting/L&L - Luminaires/L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
-   "key": "l&l-l&l5.3",
-   "drive_url": "https://drive.google.com/file/d/1YVGI44EfEnkeOySsroFxl0ASKp4OmO9G/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp"
-  },
-  {
-   "id": "l-l-l-l6-l-l6-ds-led-strip-in-furniture-0-73w",
-   "code": "L&L6",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.pdf",
-   "pages": 2,
-   "bytes": 1807735,
-   "sha": "c4fcc7536d3babc7",
-   "source": "L - Lighting/L&L - Luminaires/L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
-   "key": "l&l-l&l6",
-   "drive_url": "https://drive.google.com/file/d/1zbxKXavJh4lewgOKIP8-H5P3eQBANQKM/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp"
-  },
-  {
-   "id": "l-l-l-l6-1-l-l6-1-ds-led-strip-in-furniture-dri",
-   "code": "L&L6.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1407094,
-   "sha": "b0aea891de784b84",
-   "source": "L - Lighting/L&L - Luminaires/L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
-   "key": "l&l-l&l6.1",
-   "drive_url": "https://drive.google.com/file/d/11bBVJxsBY0XWeVC33WWCL2oPw7lvQxTi/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l6-2-l-l6-2-ds-led-strip-in-furniture-pro",
-   "code": "L&L6.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.pdf",
-   "pages": 1,
-   "bytes": 1190650,
-   "sha": "0c2e0273bb349b71",
-   "source": "L - Lighting/L&L - Luminaires/L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
-   "key": "l&l-l&l6.2",
-   "drive_url": "https://drive.google.com/file/d/1wDU82x8twqT2y7UDM6kTrh34CCfLV9uC/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp"
-  },
-  {
-   "id": "l-l-l-l7-l-l7-ds-led-strip-in-furniture-ip65",
-   "code": "L&L7",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.pdf",
-   "pages": 2,
-   "bytes": 2391567,
-   "sha": "8f8a28d1953c0546",
-   "source": "L - Lighting/L&L - Luminaires/L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
-   "key": "l&l-l&l7",
-   "drive_url": "https://drive.google.com/file/d/1XAY6NBPT5beDwfqDnH-wirfLO2Hn4Mqh/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp"
-  },
-  {
-   "id": "l-l-l-l7-1-l-l7-1-ds-led-strip-in-furniture-dri",
-   "code": "L&L7.1",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.pdf",
-   "pages": 4,
-   "bytes": 1407093,
-   "sha": "e5cc3f90b6797d8f",
-   "source": "L - Lighting/L&L - Luminaires/L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
-   "key": "l&l-l&l7.1",
-   "drive_url": "https://drive.google.com/file/d/16wTBF4UjOEEd4_ZTn6zarYzYj6hIRgIu/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp"
-  },
-  {
-   "id": "l-l-l-l7-2-l-l7-2-ds-led-strip-in-furniture-pro",
-   "code": "L&L7.2",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.pdf",
-   "pages": 1,
-   "bytes": 1841774,
-   "sha": "7e5d02869a92c422",
-   "source": "L - Lighting/L&L - Luminaires/L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
-   "key": "l&l-l&l7.2",
-   "drive_url": "https://drive.google.com/file/d/19he-0ZMsN7r2LNwSXAxTYUchn-eCYLNC/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp"
-  },
-  {
-   "id": "l-l-l-l8-l-l8-ds-integrated-mini-downlight-dr",
-   "code": "L&L8",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.pdf",
-   "pages": 1,
-   "bytes": 1720724,
-   "sha": "d8e56f7751ac40d4",
-   "source": "L - Lighting/L&L - Luminaires/L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
-   "key": "l&l-l&l8",
-   "drive_url": "https://drive.google.com/file/d/1zuHrR1aj3LY22Y1TXxK4eCoAaAnfNVFH/view",
-   "maker_url": "",
-   "extras": [],
-   "image": "img/l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp"
-  },
-  {
-   "id": "l-l-l-l9-l-l9-ds-courtesy-wall-light-dali-l",
-   "code": "L&L9",
-   "group": "L&L",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "",
-   "category": "",
-   "title": "L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7",
-   "specs": [],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7.pdf",
+   "curated": true,
+   "pdf": "datasheets/lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.pdf",
    "pages": 3,
-   "bytes": 242068,
-   "sha": "06e698de27eb9247",
-   "source": "L - Lighting/L&L - Luminaires/L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
-   "key": "l&l-l&l9",
-   "drive_url": "https://drive.google.com/file/d/1000Clp0zuzk87iNpPFFLmQl6P3ndx-iD/view",
+   "bytes": 1799133,
+   "sha": "44c13d95f6d8ffb8",
+   "source": "L - Lighting/LUM - Luminaires/LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+   "key": "lum-lum3",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+     "bytes": 1798995,
+     "key": "lum-lum3-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp"
   },
   {
-   "id": "l-l-l-l9-1-l-l9-1-ds-courtesy-wall-light-driver",
-   "code": "L&L9.1",
-   "group": "L&L",
+   "id": "lum-lum3-1-indirect-led-strip-driver-30-w-ecopac",
+   "code": "LUM3.1",
+   "group": "LUM",
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "EcoPac Power",
    "category": "",
-   "title": "L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20",
-   "specs": [],
+   "title": "Indirect LED Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L03"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM3 - Eco Flex 240 indirect strip"
+    }
+   ],
    "notes": "",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
-   "pdf": "datasheets/l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.pdf",
-   "pages": 2,
-   "bytes": 900627,
-   "sha": "c2661d3222c1900c",
-   "source": "L - Lighting/L&L - Luminaires/L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
-   "key": "l&l-l&l9.1",
-   "drive_url": "https://drive.google.com/file/d/1pkiy8MWVkXjYETQn65mTw7ze_2DvcNxe/view",
+   "curated": true,
+   "pdf": "datasheets/lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1374566,
+   "sha": "160e95f400ef4f4d",
+   "source": "L - Lighting/LUM - Luminaires/LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+   "key": "lum-lum3.1",
+   "drive_url": "",
    "maker_url": "",
-   "extras": [],
-   "image": "img/l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp"
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+     "bytes": 1407083,
+     "key": "lum-lum3.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp"
+  },
+  {
+   "id": "lum-lum3-2-indirect-led-strip-driver-100-w-ecopa",
+   "code": "LUM3.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Indirect LED Strip Driver, 100 W - EcoPac ELED-100-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L03"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 100 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM3 - Eco Flex 240 indirect strip"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1586933,
+   "sha": "4ec4b7f1c6cbd6a8",
+   "source": "L - Lighting/LUM - Luminaires/LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+   "key": "lum-lum3.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+     "bytes": 1619631,
+     "key": "lum-lum3.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp"
+  },
+  {
+   "id": "lum-lum3-3-indirect-led-strip-profile-pro-0209",
+   "code": "LUM3.3",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Indirect LED Strip Profile - Pro 0209",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L03"
+    },
+    {
+     "label": "Profile",
+     "value": "Pro 0209 (021-0202)"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM3 - Eco Flex 240 indirect strip"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum3-3-indirect-led-strip-profile-pro-0209-l03-021-0202.pdf",
+   "pages": 2,
+   "bytes": 1187662,
+   "sha": "9b20573828ae2efe",
+   "source": "L - Lighting/LUM - Luminaires/LUM3.3 - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+   "key": "lum-lum3.3",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+     "bytes": 1191328,
+     "key": "lum-lum3.3-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum3-3-indirect-led-strip-profile-pro-0209-l03-021-0202.webp"
+  },
+  {
+   "id": "lum-lum4-led-strip-in-furniture-2-93-w-ft-eco",
+   "code": "LUM4",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "LED Strip in Furniture, 2.93 W/ft - Eco Flex 240, 2700 K",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.1"
+    },
+    {
+     "label": "Lumen output",
+     "value": "1012 lm/m"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "9.6 W/m (2.93 W/ft)"
+    },
+    {
+     "label": "Efficacy",
+     "value": "105 lm/W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "Runs with driver LUM4.1 or LUM4.2 and profile LUM4.3.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.pdf",
+   "pages": 3,
+   "bytes": 1797050,
+   "sha": "ef0ecef3fce08e9a",
+   "source": "L - Lighting/LUM - Luminaires/LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+   "key": "lum-lum4",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum4-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM4 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+     "bytes": 1797331,
+     "key": "lum-lum4-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp"
+  },
+  {
+   "id": "lum-lum4-1-furniture-strip-driver-30-w-ecopac-el",
+   "code": "LUM4.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.1"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM4 - furniture strip, tag L05.1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1374571,
+   "sha": "6a9323eb266ea3a3",
+   "source": "L - Lighting/LUM - Luminaires/LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+   "key": "lum-lum4.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum4-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM4.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+     "bytes": 1407089,
+     "key": "lum-lum4.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp"
+  },
+  {
+   "id": "lum-lum4-2-furniture-strip-driver-60-w-ecopac-el",
+   "code": "LUM4.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Furniture Strip Driver, 60 W - EcoPac ELED-60-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.1"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 60 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM4 - furniture strip, tag L05.1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1448850,
+   "sha": "2f22ff2479309254",
+   "source": "L - Lighting/LUM - Luminaires/LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+   "key": "lum-lum4.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum4-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM4.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+     "bytes": 1481607,
+     "key": "lum-lum4.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp"
+  },
+  {
+   "id": "lum-lum4-3-furniture-strip-profile-pro-0209",
+   "code": "LUM4.3",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Furniture Strip Profile - Pro 0209",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.1"
+    },
+    {
+     "label": "Profile",
+     "value": "Pro 0209 (021-0202)"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM4 - furniture strip, tag L05.1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum4-3-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.pdf",
+   "pages": 2,
+   "bytes": 1188952,
+   "sha": "5bd03e7e8473a379",
+   "source": "L - Lighting/LUM - Luminaires/LUM4.3 - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+   "key": "lum-lum4.3",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum4-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM4.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+     "bytes": 1192302,
+     "key": "lum-lum4.3-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum4-3-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp"
+  },
+  {
+   "id": "lum-lum5-led-strip-in-furniture-0-73-w-ft-eco",
+   "code": "LUM5",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "LED Strip in Furniture, 0.73 W/ft - Eco Flex 240, 2700 K",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.2"
+    },
+    {
+     "label": "Lumen output",
+     "value": "254 lm/m"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2.4 W/m (0.73 W/ft)"
+    },
+    {
+     "label": "Efficacy",
+     "value": "106 lm/W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "Runs with driver LUM5.1 and profile LUM5.2.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.pdf",
+   "pages": 3,
+   "bytes": 1807451,
+   "sha": "909cc66cf2403b1e",
+   "source": "L - Lighting/LUM - Luminaires/LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+   "key": "lum-lum5",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum5-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM5 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+     "bytes": 1807735,
+     "key": "lum-lum5-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp"
+  },
+  {
+   "id": "lum-lum5-1-furniture-strip-driver-30-w-ecopac-el",
+   "code": "LUM5.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.2"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM5 - furniture strip, tag L05.2"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1374576,
+   "sha": "678848df146e79f4",
+   "source": "L - Lighting/LUM - Luminaires/LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+   "key": "lum-lum5.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+     "bytes": 1407094,
+     "key": "lum-lum5.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp"
+  },
+  {
+   "id": "lum-lum5-2-furniture-strip-profile-pro-0209",
+   "code": "LUM5.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Furniture Strip Profile - Pro 0209",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.2"
+    },
+    {
+     "label": "Profile",
+     "value": "Pro 0209 (021-0202)"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM5 - furniture strip, tag L05.2"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum5-2-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.pdf",
+   "pages": 2,
+   "bytes": 1187441,
+   "sha": "ff636bf20e993324",
+   "source": "L - Lighting/LUM - Luminaires/LUM5.2 - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+   "key": "lum-lum5.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum5-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM5.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+     "bytes": 1190650,
+     "key": "lum-lum5.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum5-2-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp"
+  },
+  {
+   "id": "lum-lum6-led-strip-in-furniture-ip65-eco-flex",
+   "code": "LUM6",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "LED Strip in Furniture, IP65 - Eco Flex 240, 2700 K",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.4"
+    },
+    {
+     "label": "Lumen output",
+     "value": "254 lm/m"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2.4 W/m (0.73 W/ft)"
+    },
+    {
+     "label": "Efficacy",
+     "value": "106 lm/W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "The schedule calls this the IP65 run, but the sheet supplied is the IP20 EF240272002 - the same tape as LUM5. Confirm the ingress rating before ordering.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.pdf",
+   "pages": 3,
+   "bytes": 1809409,
+   "sha": "8de361304a36d7e2",
+   "source": "L - Lighting/LUM - Luminaires/LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+   "key": "lum-lum6",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum6-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM6 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+     "bytes": 2391567,
+     "key": "lum-lum6-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp"
+  },
+  {
+   "id": "lum-lum6-1-furniture-strip-driver-30-w-ecopac-el",
+   "code": "LUM6.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.4"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM6 - furniture strip, tag L05.4"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1374575,
+   "sha": "627130a4e6be2675",
+   "source": "L - Lighting/LUM - Luminaires/LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+   "key": "lum-lum6.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+     "bytes": 1407093,
+     "key": "lum-lum6.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp"
+  },
+  {
+   "id": "lum-lum6-2-furniture-strip-profile-pro-0409",
+   "code": "LUM6.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Furniture Strip Profile - Pro 0409",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L05.4"
+    },
+    {
+     "label": "Profile",
+     "value": "Pro 0409 (021-0402)"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM6 - furniture strip, tag L05.4"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum6-2-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.pdf",
+   "pages": 2,
+   "bytes": 1258272,
+   "sha": "62ec63217f9311ab",
+   "source": "L - Lighting/LUM - Luminaires/LUM6.2 - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
+   "key": "lum-lum6.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum6-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM6.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
+     "bytes": 1841774,
+     "key": "lum-lum6.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum6-2-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp"
+  },
+  {
+   "id": "lum-lum7-integrated-mini-downlight-driver-350-ma",
+   "code": "LUM7",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "TCI",
+   "category": "",
+   "title": "Integrated Mini Downlight Driver, 350 mA - CC20-D-350-N",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L06.1"
+    },
+    {
+     "label": "Output",
+     "value": "350 mA constant current"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "Integrated mini downlight, tag L06.1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum7-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.pdf",
+   "pages": 2,
+   "bytes": 1127340,
+   "sha": "0652386a18a106cf",
+   "source": "L - Lighting/LUM - Luminaires/LUM7 - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
+   "key": "lum-lum7",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum7-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM7 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
+     "bytes": 1720724,
+     "key": "lum-lum7-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum7-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp"
+  },
+  {
+   "id": "lum-lum8-courtesy-wall-light-profilo-1-0-bortop",
+   "code": "LUM8",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Simes",
+   "category": "",
+   "title": "Courtesy Wall Light - Profilo 1.0 BORTOP02-2K7",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07"
+    },
+    {
+     "label": "Power",
+     "value": "1.5 W"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "Efficacy",
+     "value": "86 lm/W"
+    },
+    {
+     "label": "Beam",
+     "value": "0° to 45°"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Ambient",
+     "value": "Max 40 °C (Ta 25 °C)"
+    },
+    {
+     "label": "Body",
+     "value": "Aluminium profile, LED on board"
+    }
+   ],
+   "notes": "Runs with driver LUM8.1.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum8-courtesy-wall-light-dali-l07-bortop02-2k7.pdf",
+   "pages": 4,
+   "bytes": 242573,
+   "sha": "eeeec2d3b2543640",
+   "source": "L - Lighting/LUM - Luminaires/LUM8 - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
+   "key": "lum-lum8",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum8-ds-courtesy-wall-light-dali-l07-bortop02-2k7.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM8 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
+     "bytes": 242068,
+     "key": "lum-lum8-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum8-courtesy-wall-light-dali-l07-bortop02-2k7.webp"
+  },
+  {
+   "id": "lum-lum8-1-courtesy-wall-light-driver-mini-jolly",
+   "code": "LUM8.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "TCI",
+   "category": "",
+   "title": "Courtesy Wall Light Driver - Mini Jolly DALI 20",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07"
+    },
+    {
+     "label": "Output",
+     "value": "20 W, 250-400 mA"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM8 - courtesy wall light, tag L07"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum8-1-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.pdf",
+   "pages": 3,
+   "bytes": 394144,
+   "sha": "54cf2b16de34061c",
+   "source": "L - Lighting/LUM - Luminaires/LUM8.1 - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
+   "key": "lum-lum8.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum8-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM8.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
+     "bytes": 900627,
+     "key": "lum-lum8.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum8-1-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp"
+  },
+  {
+   "id": "lum-lum9-exterior-step-led-strip-ip67-eco-flex",
+   "code": "LUM9",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Exterior Step LED Strip, IP67 - Eco Flex 240, 2700 K",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07.2"
+    },
+    {
+     "label": "Lumen output",
+     "value": "249 lm/m"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2.4 W/m"
+    },
+    {
+     "label": "Efficacy",
+     "value": "104 lm/W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP67"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "Runs with driver LUM9.1 and profile LUM9.2.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.pdf",
+   "pages": 3,
+   "bytes": 1782011,
+   "sha": "7efa3602a2ca1fcf",
+   "source": "L - Lighting/LUM - Luminaires/LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
+   "key": "lum-lum9",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum9-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM9 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
+     "bytes": 1782505,
+     "key": "lum-lum9-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp"
+  },
+  {
+   "id": "lum-lum9-1-exterior-step-strip-driver-30-w-ecopa",
+   "code": "LUM9.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "EcoPac Power",
+   "category": "",
+   "title": "Exterior Step Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07.2"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM9 - exterior step strip, tag L07.2"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.pdf",
+   "pages": 5,
+   "bytes": 1374242,
+   "sha": "19bf6c2d1e5c5541",
+   "source": "L - Lighting/LUM - Luminaires/LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
+   "key": "lum-lum9.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum9-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM9.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
+     "bytes": 1407143,
+     "key": "lum-lum9.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp"
+  },
+  {
+   "id": "lum-lum9-2-exterior-step-strip-profile-pro-0409",
+   "code": "LUM9.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LedFlex Group",
+   "category": "",
+   "title": "Exterior Step Strip Profile - Pro 0409",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07.2"
+    },
+    {
+     "label": "Profile",
+     "value": "Pro 0409 (021-0402)"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM9 - exterior step strip, tag L07.2"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum9-2-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.pdf",
+   "pages": 2,
+   "bytes": 1258223,
+   "sha": "0ae49a77f95199ab",
+   "source": "L - Lighting/LUM - Luminaires/LUM9.2 - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
+   "key": "lum-lum9.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum9-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM9.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
+     "bytes": 1261426,
+     "key": "lum-lum9.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum9-2-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp"
+  },
+  {
+   "id": "lum-lum10-exterior-courtesy-wall-light-tiny-shor",
+   "code": "LUM10",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LEDS C4",
+   "category": "",
+   "title": "Exterior Courtesy Wall Light - Tiny Short 05-E146-Z5-CL",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L07.3"
+    },
+    {
+     "label": "Lumen output",
+     "value": "20 lm"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "CRI",
+     "value": "80"
+    },
+    {
+     "label": "Power",
+     "value": "2.9 W"
+    },
+    {
+     "label": "Efficacy",
+     "value": "7 lm/W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Impact",
+     "value": "IK10"
+    },
+    {
+     "label": "Control",
+     "value": "ON-OFF"
+    },
+    {
+     "label": "Finish",
+     "value": "Urban grey"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed in wall"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum10-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.pdf",
+   "pages": 5,
+   "bytes": 4339153,
+   "sha": "37ce2aaa457b8966",
+   "source": "L - Lighting/LUM - Luminaires/LUM10 - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
+   "key": "lum-lum10",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum10-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM10 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
+     "bytes": 4921684,
+     "key": "lum-lum10-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum10-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp"
+  },
+  {
+   "id": "lum-lum11-path-light-sinia-600-mm-bollard-10-e03",
+   "code": "LUM11",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LEDS C4",
+   "category": "",
+   "title": "Path Light - Sinia 600 mm Bollard 10-E033-60-CK",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L11"
+    },
+    {
+     "label": "Lumen output",
+     "value": "212 lm"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K warm white"
+    },
+    {
+     "label": "CRI",
+     "value": "92"
+    },
+    {
+     "label": "Power",
+     "value": "3.4 W"
+    },
+    {
+     "label": "Efficacy",
+     "value": "62 lm/W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65"
+    },
+    {
+     "label": "Impact",
+     "value": "IK05"
+    },
+    {
+     "label": "Height",
+     "value": "600 mm"
+    },
+    {
+     "label": "Finish",
+     "value": "Black"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    }
+   ],
+   "notes": "Runs with driver LUM11.2. LUM11.1 is the alternate head.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum11-path-light-dali-l11-10-e033-60-ck.pdf",
+   "pages": 5,
+   "bytes": 1283270,
+   "sha": "6e99730f427bde03",
+   "source": "L - Lighting/LUM - Luminaires/LUM11 - Path Light DALI - L11 - 10-E033-60-CK.pdf",
+   "key": "lum-lum11",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum11-ds-path-light-dali-l11-10-e033-60-ck.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM11 - DS - Path Light DALI - L11 - 10-E033-60-CK.pdf",
+     "bytes": 1283802,
+     "key": "lum-lum11-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum11-path-light-dali-l11-10-e033-60-ck.webp"
+  },
+  {
+   "id": "lum-lum11-1-path-light-alternate-71-e649-60-ou",
+   "code": "LUM11.1",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "LEDS C4",
+   "category": "",
+   "title": "Path Light, Alternate - 71-E649-60-OU",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L11"
+    },
+    {
+     "label": "Power",
+     "value": "4.3 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP67"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Serves",
+     "value": "Path light, tag L11"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum11-1-path-light-dali-l11-71-e649-60-ou.pdf",
+   "pages": 3,
+   "bytes": 370866,
+   "sha": "f7ab95c23f504162",
+   "source": "L - Lighting/LUM - Luminaires/LUM11.1 - Path Light DALI - L11 - 71-E649-60-OU.pdf",
+   "key": "lum-lum11.1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum11-1-ds-path-light-dali-l11-71-e649-60-ou.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM11.1 - DS - Path Light DALI - L11 - 71-E649-60-OU.pdf",
+     "bytes": 373867,
+     "key": "lum-lum11.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum11-1-path-light-dali-l11-71-e649-60-ou.webp"
+  },
+  {
+   "id": "lum-lum11-2-path-light-driver-maxi-jolly-sv-dali-i",
+   "code": "LUM11.2",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "TCI",
+   "category": "",
+   "title": "Path Light Driver - Maxi Jolly SV DALI IPR1-70",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L11"
+    },
+    {
+     "label": "Output",
+     "value": "70 W, 350-1400 mA"
+    },
+    {
+     "label": "Control",
+     "value": "DALI dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP68"
+    },
+    {
+     "label": "Serves",
+     "value": "LUM11 - path light, tag L11"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum11-2-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.pdf",
+   "pages": 3,
+   "bytes": 247866,
+   "sha": "87ca5c35f0b0274c",
+   "source": "L - Lighting/LUM - Luminaires/LUM11.2 - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
+   "key": "lum-lum11.2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum11-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM11.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
+     "bytes": 753629,
+     "key": "lum-lum11.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum11-2-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp"
+  },
+  {
+   "id": "lum-lum12-surface-mounted-service-downlight-wac",
+   "code": "LUM12",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "WAC Lighting",
+   "category": "",
+   "title": "Surface-Mounted Service Downlight - WAC FM-05RN",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L12"
+    },
+    {
+     "label": "Power",
+     "value": "12 W"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K / 3500 K selectable"
+    },
+    {
+     "label": "Diameter",
+     "value": "5 in round"
+    },
+    {
+     "label": "Control",
+     "value": "ON-OFF"
+    },
+    {
+     "label": "Mounting",
+     "value": "Surface, ceiling or wall"
+    },
+    {
+     "label": "Ambient",
+     "value": "-40 °F to 122 °F (-40 °C to 50 °C)"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum12-surface-mounted-service-downlight-on-off-l12-fm-05rn.pdf",
+   "pages": 2,
+   "bytes": 3019504,
+   "sha": "d47b098becce3e23",
+   "source": "L - Lighting/LUM - Luminaires/LUM12 - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
+   "key": "lum-lum12",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum12-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM12 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
+     "bytes": 3046319,
+     "key": "lum-lum12-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum12-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp"
+  },
+  {
+   "id": "lum-lum13-indirect-wall-lamp-foil-1a334-foil-us0",
+   "code": "LUM13",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Vibia",
+   "category": "",
+   "title": "Indirect Wall Lamp - Foil 1A334-FOIL-US02",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D01.3"
+    },
+    {
+     "label": "Control",
+     "value": "Phase dimming"
+    },
+    {
+     "label": "Mounting",
+     "value": "Wall and ceiling, architectural"
+    },
+    {
+     "label": "Design",
+     "value": "967 Design, 2011"
+    }
+   ],
+   "notes": "Lumen output, wattage and colour temperature are not stated on the sheet supplied. Confirm with the manufacturer before ordering.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.pdf",
+   "pages": 3,
+   "bytes": 414288,
+   "sha": "1c7f30517153e431",
+   "source": "L - Lighting/LUM - Luminaires/LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
+   "key": "lum-lum13",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum13-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM13 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
+     "bytes": 471624,
+     "key": "lum-lum13-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp"
+  },
+  {
+   "id": "lum-lum14-table-lamp-for-minibar-kelly-wearstler",
+   "code": "LUM14",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Visual Comfort",
+   "category": "",
+   "title": "Table Lamp for Minibar - Kelly Wearstler Una Small KW 3901ALB",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D02"
+    },
+    {
+     "label": "Lamping",
+     "value": "1200 lm, 10 W"
+    },
+    {
+     "label": "Height",
+     "value": "12.75 in"
+    },
+    {
+     "label": "Width",
+     "value": "12.5 in"
+    },
+    {
+     "label": "Designer",
+     "value": "Kelly Wearstler"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum14-table-lamp-for-minibar-d02-kw3901alb.pdf",
+   "pages": 2,
+   "bytes": 105457,
+   "sha": "dcbbb0e22653b52b",
+   "source": "L - Lighting/LUM - Luminaires/LUM14 - Table Lamp for Minibar - D02 - kw3901alb.pdf",
+   "key": "lum-lum14",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum14-ds-table-lamp-for-minibar-d02-kw3901alb.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM14 - DS - Table Lamp for Minibar - D02 - kw3901alb.pdf",
+     "bytes": 107890,
+     "key": "lum-lum14-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum14-table-lamp-for-minibar-d02-kw3901alb.webp"
+  },
+  {
+   "id": "lum-lum15-floor-lamp-pool-terrace-kando-p111",
+   "code": "LUM15",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Bover",
+   "category": "",
+   "title": "Floor Lamp, Pool Terrace - Kando P111",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D03"
+    },
+    {
+     "label": "Power",
+     "value": "39 W"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2200 K / 2400 K / 2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Control",
+     "value": "Phase dimming"
+    },
+    {
+     "label": "Use",
+     "value": "Outdoor, pool terrace"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum15-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.pdf",
+   "pages": 2,
+   "bytes": 569903,
+   "sha": "ac26f2d2aa5f92e9",
+   "source": "L - Lighting/LUM - Luminaires/LUM15 - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
+   "key": "lum-lum15",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum15-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM15 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
+     "bytes": 1066957,
+     "key": "lum-lum15-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum15-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp"
+  },
+  {
+   "id": "lum-lum16-portable-lamp-kando-m40r",
+   "code": "LUM16",
+   "group": "LUM",
+   "group_name": "Luminaires",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Bover",
+   "category": "",
+   "title": "Portable Lamp - Kando M40R",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "P01"
+    },
+    {
+     "label": "Power",
+     "value": "5 W"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2200 K / 2400 K / 2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power source",
+     "value": "Rechargeable, portable"
+    },
+    {
+     "label": "Use",
+     "value": "Outdoor"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/lum16-portable-lamp-p01-kando-m40r.pdf",
+   "pages": 2,
+   "bytes": 650763,
+   "sha": "8ed9c3beb5554394",
+   "source": "L - Lighting/LUM - Luminaires/LUM16 - Portable Lamp - P01 - Kando M40R.pdf",
+   "key": "lum-lum16",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/lum16-ds-portable-lamp-p01-kando-m40r.pdf",
+     "source": "L - Lighting/LUM - Luminaires/LUM16 - DS - Portable Lamp - P01 - Kando M40R.pdf",
+     "bytes": 760167,
+     "key": "lum-lum16-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/lum16-portable-lamp-p01-kando-m40r.webp"
   },
   {
    "id": "ltrn-ltrn1-ltrn1-ds-lutron-myroom-xc-processor",
