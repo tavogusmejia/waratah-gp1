@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-23T18:02:46Z",
+ "generated": "2026-09-23T19:54:02Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -4562,7 +4562,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL.pdf",
    "key": "ltrn-ltrn19",
    "drive_url": "https://drive.google.com/file/d/1PAD0CU-GS5PCZRAEpVipcE3-uTGNUvGs/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/new-architectural/usb/ltr-15-cctr/documents/installation-guide",
    "extras": [],
    "image": "img/ltrn19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl.webp"
   },
@@ -4588,7 +4588,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN20 - DS - Lutron Architectural Receptacle - LTR-15-TR-BL.pdf",
    "key": "ltrn-ltrn20",
    "drive_url": "https://drive.google.com/file/d/1B-4licAJEtBnj6gPSA9gzvqTkz-TH37s/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/new-architectural/tamper-resistant/ltr-15-tr",
    "extras": [],
    "image": "img/ltrn20-ds-lutron-architectural-receptacle-ltr-15-tr-bl.webp"
   },
@@ -4614,7 +4614,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB.pdf",
    "key": "ltrn-ltrn21",
    "drive_url": "https://drive.google.com/file/d/1Efk9ociNirUh7IPxe0C7ErcwD7uYL7Si/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://www.lutron.com/us/en/controls/wallplates-accessories/palladiom-wallplates",
    "extras": [],
    "image": ""
   },
@@ -4640,7 +4640,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN22 - DS - Lutron Nova T GFCI Receptacle - NTR-15-GFST-BL.pdf",
    "key": "ltrn-ltrn22",
    "drive_url": "https://drive.google.com/file/d/1020T4XkuJ90jmUb-yxGR9HBcG9zXCFDz/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/designer/gfci/documents/installation-guide",
    "extras": [],
    "image": "img/ltrn22-ds-lutron-nova-t-gfci-receptacle-ntr-15-gfst-bl.webp"
   },
@@ -4666,7 +4666,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB.pdf",
    "key": "ltrn-ltrn23",
    "drive_url": "https://drive.google.com/file/d/1j0inBoUbutdxk_LyfEHJfYz0ICANIaFn/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://assets.lutron.com/a/documents/Spec%20Guide%20Volume%201%20Custom%20Architectural%20Wallplates.pdf",
    "extras": [],
    "image": "img/ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.webp"
   },
@@ -4692,7 +4692,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN24 - DS - Lutron Grafik Eye Control Cable - GRX-CBL-46L-500.pdf",
    "key": "ltrn-ltrn24",
    "drive_url": "https://drive.google.com/file/d/1ieocq0yP3-E2Dz4nDDpFhKhYjiM75XDd/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://assets.lutron.com/a/documents/GRX_CBL_DMX_Cable_Accessories.pdf",
    "extras": [],
    "image": "img/ltrn24-ds-lutron-grafik-eye-control-cable-grx-cbl-46l-500.webp"
   },
@@ -4718,7 +4718,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100.pdf",
    "key": "ltrn-ltrn25",
    "drive_url": "https://drive.google.com/file/d/1OUtcTADlyfh83BpEiNWfSVKB7XmAx55Y/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://luxury.lutron.com/uk/en/blinds/sivoiaqs-roller-blinds",
    "extras": [],
    "image": "img/ltrn25-ds-lutron-sivoia-qs-roller-shade-roller-100.webp"
   },
@@ -4744,7 +4744,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits - WIN-BRK.pdf",
    "key": "ltrn-ltrn25.1",
    "drive_url": "https://drive.google.com/file/d/1yh5TTwpudRoQSliDLJBhYffe3kDYSp0r/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://luxury.lutron.com/uk/en/blinds/sivoiaqs-roller-blinds",
    "extras": [],
    "image": "img/ltrn25-1-ds-lutron-sivoia-qs-dual-shade-bracketry-kits-win-brk.webp"
   },
@@ -4770,7 +4770,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "key": "ltrn-ltrn25.2",
    "drive_url": "https://drive.google.com/file/d/1HbSU779DS2nFHqflPIo-3jPQWm7lZ7cp/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://www.lutron.com/us/en/window-treatments/drapery/sivoia-drapery?sku=sivoia-ripplefold-straight-d145-nopts-drapery",
    "extras": [],
    "image": "img/ltrn25-2-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.webp"
   },
@@ -4796,7 +4796,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26 - DS - Lutron Drapery Track System - D145.pdf",
    "key": "ltrn-ltrn26",
    "drive_url": "https://drive.google.com/file/d/1NLV80HyzMl2Y66GH7pSIqHKvbIp8OmFS/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://www.lutron.com/us/en/window-treatments/drapery/sivoia-drapery?sku=sivoia-ripplefold-straight-d145-nopts-drapery",
    "extras": [],
    "image": "img/ltrn26-ds-lutron-drapery-track-system-d145.webp"
   },
@@ -4822,7 +4822,7 @@
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "key": "ltrn-ltrn26.1",
    "drive_url": "https://drive.google.com/file/d/1IWW3aC-oynEVX-HSPyYslOcQWuYyu3gD/view",
-   "maker_url": "https://www.lutron.com",
+   "maker_url": "https://support.lutron.com/us/en/product/homeworks/component/power-supplies/qsps-p1-1-35v",
    "extras": [],
    "image": "img/ltrn26-1-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.webp"
   },

@@ -93,7 +93,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("only the unconfirmed rows are listed", all.length === 51, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 40, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
@@ -174,12 +174,12 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   ok("hiding the tab writes what was still queued", !!window.__store["maker/" + s4]);
 
   /* 6b. confirming a prefill that is already right */
-  /* a row that actually carries a guess - confirming an empty one deletes,
-     which is right but is not what this test is about */
-  var r6 = [].find.call(all, function (r) {
-    return r.querySelector(".lurl").value.trim() && !r.classList.contains("kept");
-  }) || all[6];
-  var s6 = r6.getAttribute("data-slug");
+  /* "This one is right" confirms whatever the field holds. Rows arrive
+     empty now that the list is only items with no link at all, so put a
+     value in first - confirming an empty field deletes, which is correct
+     but is not what this test is about. */
+  var r6 = all[6], s6 = r6.getAttribute("data-slug");
+  r6.querySelector(".lurl").value = "https://example.com/confirmed-as-is";
   var had = r6.querySelector(".lurl").value.trim();
   r6.querySelector(".lok").click();
   await wait(700);
@@ -201,9 +201,11 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      (csv.split("\n").length - 1) + " rows");
 
   /* 8. prefilled links survived */
+  /* Rows here are the items with NO link yet, so most are empty by design.
+     What matters is that the ones this run filled in are still filled. */
   var filled = [].filter.call(rows(), function (r) {
     return r.querySelector(".lurl").value.trim(); });
-  ok("every open row carries a guess to work from", filled.length >= 8,
+  ok("what was typed this run is still on screen", filled.length >= 4,
      filled.length + " filled");
 
   /* 9. the sweep button */
