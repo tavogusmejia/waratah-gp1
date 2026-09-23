@@ -659,16 +659,32 @@ document.addEventListener("click", function (ev) {
     report();
     /* Ticks come back from the store, or a reload would quietly lose them -
        which is exactly how a session of links went missing. */
-    for (var pair of [["fixpic", "bad", "marked"], ["picok", "ok", "okay"]]) {
-      try {
-        var marks = await db.collection(pair[0]).limit(400).get();
-        ((marks && marks.docs) || marks || []).forEach(function (doc) {
-          var id = String(doc.id || doc.path || "").split("/").pop();
-          var row = document.querySelector('.prow[data-slug="' + id + '"]');
-          if (row) { row.classList.add(pair[2]); pkept[pair[1]][id] = true; }
-        });
-      } catch (e) {}
+    /* Every card in this grid is here because it was marked as needing a
+       better picture, so the page arrives with that baked in - the list IS
+       the mark, and there is no second read to disagree with it.
+
+       The one thing worth reading back is picok: a card passed as fine
+       since the page was built should not come back red on a reload. */
+    var pr0 = document.querySelectorAll(".prow");
+    for (var i = 0; i < pr0.length; i++) {
+      pkept.bad[pr0[i].getAttribute("data-slug")] = true;
     }
+    try {
+      /* NOT "fine" - that is the module-level object for the older audit
+         cards, and `var` hoists this over it for the whole function, so the
+         boot threw at the first use of it and never reached the links. */
+      var passed = await db.collection("picok").limit(400).get();
+      ((passed && passed.docs) || passed || []).forEach(function (doc) {
+        var id = String(doc.id || doc.path || "").split("/").pop();
+        var row = document.querySelector('.prow[data-slug="' + id + '"]');
+        if (row) {
+          row.classList.remove("marked");
+          row.classList.add("okay");
+          pkept.ok[id] = true;
+          delete pkept.bad[id];
+        }
+      });
+    } catch (e) {}
     preport();
     try {
       var snap = await db.collection("staged").limit(200).get();

@@ -1,0 +1,605 @@
+[
+ {
+  "mk": "a-a4",
+  "key": "A-A4",
+  "group": "A",
+  "code": "A4",
+  "title": "Pool Controller - Pentair IntelliCenter Lite i5P (P/N 523911)",
+  "image": "img/a4-pool-controller-intellicenter-lite-i5p.webp",
+  "_stem": "a4-pool-controller-intellicenter-lite-i5p"
+ },
+ {
+  "mk": "b-b1",
+  "key": "B-B1",
+  "group": "B",
+  "code": "B1",
+  "title": "Pool Main Drain - AquaStar WAV9WR103 (9 in Wave Anti-Entrapment)",
+  "image": "img/b1-aquastar-main-drain-wav9wr103.webp",
+  "_stem": "b1-aquastar-main-drain-wav9wr103"
+ },
+ {
+  "mk": "c-c1",
+  "key": "C-C1",
+  "group": "C",
+  "code": "C1",
+  "title": "Pool Equipotential Bonding (NEC 680) - Burndy BWB680IG In-Ground Pool Water Bonding Kit",
+  "image": "img/c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit.webp",
+  "_stem": "c1-burndy-bwb680ig-in-ground-pool-water-bonding-kit"
+ },
+ {
+  "mk": "c-c2",
+  "key": "C-C2",
+  "group": "C",
+  "code": "C2",
+  "title": "C2 - THHN-THWN Copper Building Wire (SPEC 10003, 229641)",
+  "image": "img/c2-thhn-thwn-copper-building-wire-spec-10003-229641.webp",
+  "_stem": "c2-thhn-thwn-copper-building-wire-spec-10003-229641"
+ },
+ {
+  "mk": "c-c3",
+  "key": "C-C3",
+  "group": "C",
+  "code": "C3",
+  "title": "C3 - THHN-THWN-2 SIMpull Copper Building Wire (SPEC 10000, 205070)",
+  "image": "img/c3-thhn-thwn-2-simpull-copper-building-wire-spec-10000-205070.webp",
+  "_stem": "c3-thhn-thwn-2-simpull-copper-building-wire-spec-10000-205070"
+ },
+ {
+  "mk": "c-c5",
+  "key": "C-C5",
+  "group": "C",
+  "code": "C5",
+  "title": "C5 - PVC Conduit Fittings - Couplings and Terminal Adapters",
+  "image": "img/c5-pvc-conduit-fittings-couplings-and-terminal-adapters.webp",
+  "_stem": "c5-pvc-conduit-fittings-couplings-and-terminal-adapters"
+ },
+ {
+  "mk": "c-c6",
+  "key": "C-C6",
+  "group": "C",
+  "code": "C6",
+  "title": "C6 - Ground Rods (Grounding Systems)",
+  "image": "img/c6-ground-rods-grounding-systems.webp",
+  "_stem": "c6-ground-rods-grounding-systems"
+ },
+ {
+  "mk": "h-h1",
+  "key": "H-H1",
+  "group": "H",
+  "code": "H1",
+  "title": "H1 - DS - Dornbracht Deck-Mounted Basin Spout (13716882-42)",
+  "image": "img/h1-ds-dornbracht-deck-mounted-basin-spout-13716882-42.webp",
+  "_stem": "h1-ds-dornbracht-deck-mounted-basin-spout-13716882-42"
+ },
+ {
+  "mk": "h-h2",
+  "key": "H-H2",
+  "group": "H",
+  "code": "H2",
+  "title": "H2 - DS - Dornbracht Deck Valve Cold (20000740-46)",
+  "image": "img/h2-ds-dornbracht-deck-valve-cold-20000740-46.webp",
+  "_stem": "h2-ds-dornbracht-deck-valve-cold-20000740-46"
+ },
+ {
+  "mk": "h-h3",
+  "key": "H-H3",
+  "group": "H",
+  "code": "H3",
+  "title": "H3 - DS - Dornbracht Hand Shower Set FlowReduce (27812660-420010)",
+  "image": "img/h3-ds-dornbracht-hand-shower-set-flowreduce-27812660-420010.webp",
+  "_stem": "h3-ds-dornbracht-hand-shower-set-flowreduce-27812660-420010"
+ },
+ {
+  "mk": "h-h5",
+  "key": "H-H5",
+  "group": "H",
+  "code": "H5",
+  "title": "H5 - DS - Dornbracht xTOOL Concealed Thermostat (36503979-42)",
+  "image": "img/h5-ds-dornbracht-xtool-concealed-thermostat-36503979-42.webp",
+  "_stem": "h5-ds-dornbracht-xtool-concealed-thermostat-36503979-42"
+ },
+ {
+  "mk": "h-h5-1",
+  "key": "H-H5.1",
+  "group": "H",
+  "code": "H5.1",
+  "title": "H5.1 - DS - Dornbracht xTOOL Wall Valve Cold (36607740-42)",
+  "image": "img/h5-1-ds-dornbracht-xtool-wall-valve-cold-36607740-42.webp",
+  "_stem": "h5-1-ds-dornbracht-xtool-wall-valve-cold-36607740-42"
+ },
+ {
+  "mk": "h-h5-2",
+  "key": "H-H5.2",
+  "group": "H",
+  "code": "H5.2",
+  "title": "H5.2 - DS - Dornbracht xTOOL Concealed Thermostat Module Rough-In (3551197090)",
+  "image": "img/h5-2-ds-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090.webp",
+  "_stem": "h5-2-ds-dornbracht-xtool-concealed-thermostat-module-rough-in-3551197090"
+ },
+ {
+  "mk": "h-h6",
+  "key": "H-H6",
+  "group": "H",
+  "code": "H6",
+  "title": "H6 - DS - Dornbracht Wall-Mounted Hook (83251220-42)",
+  "image": "img/h6-ds-dornbracht-wall-mounted-hook-83251220-42.webp",
+  "_stem": "h6-ds-dornbracht-wall-mounted-hook-83251220-42"
+ },
+ {
+  "mk": "h-h7",
+  "key": "H-H7",
+  "group": "H",
+  "code": "H7",
+  "title": "H7 - DS - Dornbracht Tissue Holder (83500979-42)",
+  "image": "img/h7-ds-dornbracht-tissue-holder-83500979-42.webp",
+  "_stem": "h7-ds-dornbracht-tissue-holder-83500979-42"
+ },
+ {
+  "mk": "h-h8",
+  "key": "H-H8",
+  "group": "H",
+  "code": "H8",
+  "title": "H8 - DS - TOTO Neorest WX1 Wall-Hung Toilet (CWT9538CEMFG)",
+  "image": "img/h8-ds-toto-neorest-wx1-wall-hung-toilet-cwt9538cemfg.webp",
+  "_stem": "h8-ds-toto-neorest-wx1-wall-hung-toilet-cwt9538cemfg"
+ },
+ {
+  "mk": "p-p14",
+  "key": "P-P14",
+  "group": "P",
+  "code": "P14",
+  "title": "Roof Drains - ProFlo 3 in Plastic Roof Drain (PF42870)",
+  "image": "img/p14-proflo-plastic-roof-drain-pf42870.webp",
+  "_stem": "p14-proflo-plastic-roof-drain-pf42870"
+ },
+ {
+  "mk": "l-l-l-l1",
+  "key": "L&L-L&L1",
+  "group": "L&L",
+  "code": "L&L1",
+  "title": "L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm",
+  "image": "img/l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp",
+  "_stem": "l-l1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm"
+ },
+ {
+  "mk": "l-l-l-l10",
+  "key": "L&L-L&L10",
+  "group": "L&L",
+  "code": "L&L10",
+  "title": "L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702",
+  "image": "img/l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp",
+  "_stem": "l-l10-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702"
+ },
+ {
+  "mk": "l-l-l-l10-1",
+  "key": "L&L-L&L10.1",
+  "group": "L&L",
+  "code": "L&L10.1",
+  "title": "L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2",
+  "image": "img/l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp",
+  "_stem": "l-l10-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2"
+ },
+ {
+  "mk": "l-l-l-l10-2",
+  "key": "L&L-L&L10.2",
+  "group": "L&L",
+  "code": "L&L10.2",
+  "title": "L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402",
+  "image": "img/l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp",
+  "_stem": "l-l10-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402"
+ },
+ {
+  "mk": "l-l-l-l11",
+  "key": "L&L-L&L11",
+  "group": "L&L",
+  "code": "L&L11",
+  "title": "L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL",
+  "image": "img/l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp",
+  "_stem": "l-l11-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl"
+ },
+ {
+  "mk": "l-l-l-l12",
+  "key": "L&L-L&L12",
+  "group": "L&L",
+  "code": "L&L12",
+  "title": "Pool Light L09 - L&L Bright 1.6 316L",
+  "image": "img/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.webp",
+  "_stem": "l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di"
+ },
+ {
+  "mk": "l-l-l-l12-1",
+  "key": "L&L-L&L12.1",
+  "group": "L&L",
+  "code": "L&L12.1",
+  "title": "L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066",
+  "image": "img/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp",
+  "_stem": "l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066"
+ },
+ {
+  "mk": "l-l-l-l12-2",
+  "key": "L&L-L&L12.2",
+  "group": "L&L",
+  "code": "L&L12.2",
+  "title": "L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066",
+  "image": "img/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp",
+  "_stem": "l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066"
+ },
+ {
+  "mk": "l-l-l-l13",
+  "key": "L&L-L&L13",
+  "group": "L&L",
+  "code": "L&L13",
+  "title": "Pool Light L09.1 - L&L Bright 3.0 316L",
+  "image": "img/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.webp",
+  "_stem": "l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi"
+ },
+ {
+  "mk": "l-l-l-l13-1",
+  "key": "L&L-L&L13.1",
+  "group": "L&L",
+  "code": "L&L13.1",
+  "title": "L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066",
+  "image": "img/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp",
+  "_stem": "l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066"
+ },
+ {
+  "mk": "l-l-l-l14",
+  "key": "L&L-L&L14",
+  "group": "L&L",
+  "code": "L&L14",
+  "title": "L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4",
+  "image": "img/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp",
+  "_stem": "l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4"
+ },
+ {
+  "mk": "l-l-l-l15",
+  "key": "L&L-L&L15",
+  "group": "L&L",
+  "code": "L&L15",
+  "title": "L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK",
+  "image": "img/l-l15-ds-path-light-dali-l11-10-e033-60-ck.webp",
+  "_stem": "l-l15-ds-path-light-dali-l11-10-e033-60-ck"
+ },
+ {
+  "mk": "l-l-l-l15-1",
+  "key": "L&L-L&L15.1",
+  "group": "L&L",
+  "code": "L&L15.1",
+  "title": "L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU",
+  "image": "img/l-l15-1-ds-path-light-dali-l11-71-e649-60-ou.webp",
+  "_stem": "l-l15-1-ds-path-light-dali-l11-71-e649-60-ou"
+ },
+ {
+  "mk": "l-l-l-l15-2",
+  "key": "L&L-L&L15.2",
+  "group": "L&L",
+  "code": "L&L15.2",
+  "title": "L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70",
+  "image": "img/l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp",
+  "_stem": "l-l15-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70"
+ },
+ {
+  "mk": "l-l-l-l16",
+  "key": "L&L-L&L16",
+  "group": "L&L",
+  "code": "L&L16",
+  "title": "L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN",
+  "image": "img/l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp",
+  "_stem": "l-l16-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn"
+ },
+ {
+  "mk": "l-l-l-l17",
+  "key": "L&L-L&L17",
+  "group": "L&L",
+  "code": "L&L17",
+  "title": "L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt",
+  "image": "img/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp",
+  "_stem": "l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt"
+ },
+ {
+  "mk": "l-l-l-l17-1",
+  "key": "L&L-L&L17.1",
+  "group": "L&L",
+  "code": "L&L17.1",
+  "title": "L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA",
+  "image": "img/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.webp",
+  "_stem": "l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa"
+ },
+ {
+  "mk": "l-l-l-l18",
+  "key": "L&L-L&L18",
+  "group": "L&L",
+  "code": "L&L18",
+  "title": "L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02",
+  "image": "img/l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp",
+  "_stem": "l-l18-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02"
+ },
+ {
+  "mk": "l-l-l-l19",
+  "key": "L&L-L&L19",
+  "group": "L&L",
+  "code": "L&L19",
+  "title": "L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb",
+  "image": "img/l-l19-ds-table-lamp-for-minibar-d02-kw3901alb.webp",
+  "_stem": "l-l19-ds-table-lamp-for-minibar-d02-kw3901alb"
+ },
+ {
+  "mk": "l-l-l-l2",
+  "key": "L&L-L&L2",
+  "group": "L&L",
+  "code": "L&L2",
+  "title": "L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm",
+  "image": "img/l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp",
+  "_stem": "l-l2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm"
+ },
+ {
+  "mk": "l-l-l-l20",
+  "key": "L&L-L&L20",
+  "group": "L&L",
+  "code": "L&L20",
+  "title": "L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111",
+  "image": "img/l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp",
+  "_stem": "l-l20-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111"
+ },
+ {
+  "mk": "l-l-l-l3",
+  "key": "L&L-L&L3",
+  "group": "L&L",
+  "code": "L&L3",
+  "title": "L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009",
+  "image": "img/l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp",
+  "_stem": "l-l3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009"
+ },
+ {
+  "mk": "l-l-l-l3-1",
+  "key": "L&L-L&L3.1",
+  "group": "L&L",
+  "code": "L&L3.1",
+  "title": "L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2",
+  "image": "img/l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp",
+  "_stem": "l-l3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2"
+ },
+ {
+  "mk": "l-l-l-l3-2",
+  "key": "L&L-L&L3.2",
+  "group": "L&L",
+  "code": "L&L3.2",
+  "title": "L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2",
+  "image": "img/l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp",
+  "_stem": "l-l3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2"
+ },
+ {
+  "mk": "l-l-l-l3-3",
+  "key": "L&L-L&L3.3",
+  "group": "L&L",
+  "code": "L&L3.3",
+  "title": "L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202",
+  "image": "img/l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.webp",
+  "_stem": "l-l3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202"
+ },
+ {
+  "mk": "l-l-l-l4",
+  "key": "L&L-L&L4",
+  "group": "L&L",
+  "code": "L&L4",
+  "title": "L&L4 - DS - Uplight Wall-Washer PHASE-DIM - L04 - Light-Up-Orbit",
+  "image": "img/l-l4-ds-uplight-wall-washer-phase-dim-l04-light-up-orbit.webp",
+  "_stem": "l-l4-ds-uplight-wall-washer-phase-dim-l04-light-up-orbit"
+ },
+ {
+  "mk": "l-l-l-l5",
+  "key": "L&L-L&L5",
+  "group": "L&L",
+  "code": "L&L5",
+  "title": "L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009",
+  "image": "img/l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp",
+  "_stem": "l-l5-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009"
+ },
+ {
+  "mk": "l-l-l-l5-1",
+  "key": "L&L-L&L5.1",
+  "group": "L&L",
+  "code": "L&L5.1",
+  "title": "L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2",
+  "image": "img/l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp",
+  "_stem": "l-l5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2"
+ },
+ {
+  "mk": "l-l-l-l5-2",
+  "key": "L&L-L&L5.2",
+  "group": "L&L",
+  "code": "L&L5.2",
+  "title": "L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2",
+  "image": "img/l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp",
+  "_stem": "l-l5-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2"
+ },
+ {
+  "mk": "l-l-l-l5-3",
+  "key": "L&L-L&L5.3",
+  "group": "L&L",
+  "code": "L&L5.3",
+  "title": "L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202",
+  "image": "img/l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp",
+  "_stem": "l-l5-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202"
+ },
+ {
+  "mk": "l-l-l-l6",
+  "key": "L&L-L&L6",
+  "group": "L&L",
+  "code": "L&L6",
+  "title": "L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002",
+  "image": "img/l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp",
+  "_stem": "l-l6-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002"
+ },
+ {
+  "mk": "l-l-l-l6-1",
+  "key": "L&L-L&L6.1",
+  "group": "L&L",
+  "code": "L&L6.1",
+  "title": "L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2",
+  "image": "img/l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp",
+  "_stem": "l-l6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2"
+ },
+ {
+  "mk": "l-l-l-l6-2",
+  "key": "L&L-L&L6.2",
+  "group": "L&L",
+  "code": "L&L6.2",
+  "title": "L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202",
+  "image": "img/l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp",
+  "_stem": "l-l6-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202"
+ },
+ {
+  "mk": "l-l-l-l7",
+  "key": "L&L-L&L7",
+  "group": "L&L",
+  "code": "L&L7",
+  "title": "L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002",
+  "image": "img/l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp",
+  "_stem": "l-l7-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002"
+ },
+ {
+  "mk": "l-l-l-l7-1",
+  "key": "L&L-L&L7.1",
+  "group": "L&L",
+  "code": "L&L7.1",
+  "title": "L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2",
+  "image": "img/l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp",
+  "_stem": "l-l7-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2"
+ },
+ {
+  "mk": "l-l-l-l7-2",
+  "key": "L&L-L&L7.2",
+  "group": "L&L",
+  "code": "L&L7.2",
+  "title": "L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402",
+  "image": "img/l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp",
+  "_stem": "l-l7-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402"
+ },
+ {
+  "mk": "l-l-l-l8",
+  "key": "L&L-L&L8",
+  "group": "L&L",
+  "code": "L&L8",
+  "title": "L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N",
+  "image": "img/l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp",
+  "_stem": "l-l8-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n"
+ },
+ {
+  "mk": "l-l-l-l9",
+  "key": "L&L-L&L9",
+  "group": "L&L",
+  "code": "L&L9",
+  "title": "L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7",
+  "image": "img/l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7.webp",
+  "_stem": "l-l9-ds-courtesy-wall-light-dali-l07-bortop02-2k7"
+ },
+ {
+  "mk": "l-l-l-l9-1",
+  "key": "L&L-L&L9.1",
+  "group": "L&L",
+  "code": "L&L9.1",
+  "title": "L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20",
+  "image": "img/l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp",
+  "_stem": "l-l9-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20"
+ },
+ {
+  "mk": "ltrn-ltrn2",
+  "key": "LTRN-LTRN2",
+  "group": "LTRN",
+  "code": "LTRN2",
+  "title": "LTRN2 - DS - Lutron QS Power Supply - MQSPS-DH-1-30",
+  "image": "img/ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30.webp",
+  "_stem": "ltrn2-ds-lutron-qs-power-supply-mqsps-dh-1-30"
+ },
+ {
+  "mk": "ltrn-ltrn3",
+  "key": "LTRN-LTRN3",
+  "group": "LTRN",
+  "code": "LTRN3",
+  "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel - PD4-36F-120",
+  "image": "img/ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120.webp",
+  "_stem": "ltrn3-ds-lutron-feed-through-din-panel-pd4-36f-120"
+ },
+ {
+  "mk": "ltrn-ltrn4",
+  "key": "LTRN-LTRN4",
+  "group": "LTRN",
+  "code": "LTRN4",
+  "title": "LTRN4 - DS - Lutron Phase-Adaptive Power Module - MQSE-4A1-D",
+  "image": "img/ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d.webp",
+  "_stem": "ltrn4-ds-lutron-phase-adaptive-power-module-mqse-4a1-d"
+ },
+ {
+  "mk": "ltrn-ltrn5",
+  "key": "LTRN-LTRN5",
+  "group": "LTRN",
+  "code": "LTRN5",
+  "title": "LTRN5 - DS - Lutron Switching Power Module - MQSE-2S1-D",
+  "image": "img/ltrn5-ds-lutron-switching-power-module-mqse-2s1-d.webp",
+  "_stem": "ltrn5-ds-lutron-switching-power-module-mqse-2s1-d"
+ },
+ {
+  "mk": "ltrn-ltrn6",
+  "key": "LTRN-LTRN6",
+  "group": "LTRN",
+  "code": "LTRN6",
+  "title": "LTRN6 - DS - Lutron Energi Savr Node DALI - QSN-1DALUNV-D",
+  "image": "img/ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.webp",
+  "_stem": "ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d"
+ },
+ {
+  "mk": "ltrn-ltrn9",
+  "key": "LTRN-LTRN9",
+  "group": "LTRN",
+  "code": "LTRN9",
+  "title": "LTRN9 - DS - Lutron Alisse Keypad Base - HW-QS-B-S1",
+  "image": "",
+  "_stem": "ltrn9-ds-lutron-alisse-keypad-base-hw-qs-b-s1"
+ },
+ {
+  "mk": "ltrn-ltrn14",
+  "key": "LTRN-LTRN14",
+  "group": "LTRN",
+  "code": "LTRN14",
+  "title": "LTRN14 - DS - Lutron Claro Wallplate - CW-1-WH",
+  "image": "img/ltrn14-ds-lutron-claro-wallplate-cw-1-wh.webp",
+  "_stem": "ltrn14-ds-lutron-claro-wallplate-cw-1-wh"
+ },
+ {
+  "mk": "ltrn-ltrn15",
+  "key": "LTRN-LTRN15",
+  "group": "LTRN",
+  "code": "LTRN15",
+  "title": "LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A",
+  "image": "img/ltrn15-ds-lutron-palladiom-thermostat-fix-28-mwp-t-ohw-wh-a.webp",
+  "_stem": "ltrn15-ds-lutron-palladiom-thermostat-fix-28-mwp-t-ohw-wh-a"
+ },
+ {
+  "mk": "ltrn-ltrn21",
+  "key": "LTRN-LTRN21",
+  "group": "LTRN",
+  "code": "LTRN21",
+  "title": "LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB",
+  "image": "",
+  "_stem": "ltrn21-ds-lutron-palladiom-faceplate-lwt-u-p-sb"
+ },
+ {
+  "mk": "ltrn-ltrn23",
+  "key": "LTRN-LTRN23",
+  "group": "LTRN",
+  "code": "LTRN23",
+  "title": "LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB",
+  "image": "img/ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb.webp",
+  "_stem": "ltrn23-ds-lutron-nova-t-architectural-plate-nt-r3-nfb-sb"
+ },
+ {
+  "mk": "ltrn-ltrn25",
+  "key": "LTRN-LTRN25",
+  "group": "LTRN",
+  "code": "LTRN25",
+  "title": "LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100",
+  "image": "img/ltrn25-ds-lutron-sivoia-qs-roller-shade-roller-100.webp",
+  "_stem": "ltrn25-ds-lutron-sivoia-qs-roller-shade-roller-100"
+ }
+]

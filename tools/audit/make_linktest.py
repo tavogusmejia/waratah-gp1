@@ -71,6 +71,14 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
 <script>
 (async function () {
   var out = [], pass = 0, fail = 0;
+  /* Report whatever was reached even when something throws. A silent empty
+     block told me nothing the first time this broke. */
+  function show() {
+    document.getElementById("TESTOUT").textContent = out.join(String.fromCharCode(10));
+    document.title = "DONE " + pass + "/" + (pass + fail);
+  }
+  window.onerror = function (m, u, l) { out.push("THREW  " + m + " @" + l); show(); };
+  try {
   function ok(name, cond, extra) {
     (cond ? pass++ : fail++);
     out.push((cond ? "PASS  " : "FAIL  ") + name + (extra ? "   [" + extra + "]" : ""));
@@ -217,15 +225,20 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
 
   /* ---- the picture review ---- */
   var pr = document.querySelectorAll(".prow");
-  ok("every item has a picture card", pr.length === 134, pr.length + " cards");
-  ok("132 carry a thumbnail, 2 say so",
-     document.querySelectorAll(".pshot[src^='data:']").length === 132 &&
+  ok("only the pictures still to replace are listed", pr.length === 67,
+     pr.length + " cards");
+  ok("65 carry a thumbnail, 2 say so",
+     document.querySelectorAll(".pshot[src^='data:']").length === 65 &&
      document.querySelectorAll(".pshot.none").length === 2);
+  ok("each arrives already marked - the list is the mark",
+     document.querySelectorAll(".prow.marked").length === 67,
+     document.querySelectorAll(".prow.marked").length + " marked");
   ok("each card offers both marks",
      pr[0].querySelector(".pok") && pr[0].querySelector(".pbad"));
 
   var before = Object.keys(window.__store).length;
-  pr[2].querySelector(".pbad").click();
+  pr[2].querySelector(".pbad").click();     /* unmark */
+  pr[2].querySelector(".pbad").click();     /* and mark again */
   pr[7].querySelector(".pok").click();
   await wait(120);
   ok("Needs a better one marks the card", pr[2].classList.contains("marked"));
@@ -252,10 +265,21 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   pr[2].querySelector(".pbad").click();
   await wait(60);
 
+  /* Every card here arrives marked, so re-marking one is not a change and
+     correctly writes nothing. To see a write, take one all the way over to
+     Fine and back. */
+  var s2 = pr[2].getAttribute("data-slug"), s7 = pr[7].getAttribute("data-slug");
+  pr[2].querySelector(".pok").click();
+  await wait(60);
+  document.getElementById("psave").click();
+  await wait(1200);
+  ok("passing one as Fine writes it to picok", !!window.__store["picok/" + s2]);
+  pr[2].querySelector(".pbad").click();
+  await wait(60);
   document.getElementById("psave").click();
   await wait(1600);
-  var s2 = pr[2].getAttribute("data-slug"), s7 = pr[7].getAttribute("data-slug");
   ok("Save writes the replacements to fixpic", !!window.__store["fixpic/" + s2]);
+  ok("and putting it back clears the fine mark", !window.__store["picok/" + s2]);
   ok("and the fine ones to picok", !!window.__store["picok/" + s7]);
   ok("it records the name shown",
      window.__store["fixpic/" + s2].title === pr[2].querySelector(".pname").textContent);
@@ -298,8 +322,10 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
 
   out.push("");
   out.push(pass + " passed, " + fail + " failed");
-  document.getElementById("TESTOUT").textContent = out.join("\n");
-  document.title = "DONE " + pass + "/" + (pass + fail);
+  } catch (err) {
+    out.push("THREW  " + (err && err.message ? err.message : err));
+  }
+  show();
 })();
 </script>
 """

@@ -125,16 +125,23 @@ TOTAL_PICS = sum(1 for i in _d["items"] if i["image"])
 
 
 
+PICS = json.loads((HERE / "pics.json").read_text(encoding="utf-8"))
+
+
 def prow(it):
-    """One item in the review grid: its picture, its name as the register
-    shows it, and a box to tick when the picture needs replacing."""
-    slug = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
-    shot = THUMBS.get(slug)
+    """One item still needing a better picture: what the register shows now,
+    the name it shows it under, and the two marks.
+
+    Keyed on `mk` - the item code, or the filename slug for the one code that
+    covers two items. The grid used to key on the filename, which is how the
+    same mark ended up saved twice under two different names."""
+    slug = it["mk"]
+    shot = THUMBS.get(it["_stem"])
     face = ('<img class="pshot" src="' + shot + '" alt="" loading="lazy">'
             if shot else
             '<span class="pshot none">No picture</span>')
     return (
-        '<li class="prow" data-slug="' + e(slug) + '">'
+        '<li class="prow marked" data-slug="' + e(slug) + '">'
         '<div class="pcard">'
         + face +
         '<span class="pmeta">'
@@ -191,22 +198,22 @@ DUPES = ("" if not _dupes else
 PICTURES = (
     '<section class="block pics" id="pics">'
     '<header class="blockhead">'
-    '<h2>Every picture<span class="tally" id="ptally">0</span></h2>'
-    '<p>All ' + str(TOTAL_ITEMS) + ' items, each with the picture the register '
-    'shows and the name it shows it under. Mark each one <em>Fine</em> or '
-    '<em>Needs a better one</em>, then save &mdash; and hide the ones you '
-    'have passed, so what is left is what you have not looked at yet. '
-    'Nothing is written until you press Save, and marking a picture changes '
-    'nothing in the register on its own.</p>'
+    '<h2>Pictures to replace<span class="tally" id="ptally">0</span></h2>'
+    '<p>The ' + str(len(PICS)) + ' you marked as needing a better picture. '
+    'The other ' + str(TOTAL_ITEMS - len(PICS)) + ' you passed as fine and '
+    'they have left this list. If one of these turns out to be all right '
+    'after all, mark it <em>Fine</em> and save, and it goes too. Nothing is '
+    'written until you press Save, and marking a picture changes nothing in '
+    'the register on its own.</p>'
     '<p class="lstate" id="pstate">Connecting&hellip;</p>'
     '<div class="lbtns">'
     '<button class="all" type="button" id="psave">Save</button>'
-    '<button class="all" type="button" id="phide">Hide the ones marked fine</button>'
+    '<button class="all" type="button" id="phide">Hide the ones now marked fine</button>'
     '<button class="all" type="button" id="pnone">Clear every mark</button>'
     '</div>'
     '</header>'
     '<ul class="items pgrid">'
-    + "".join(prow(it) for it in _d["items"]) +
+    + "".join(prow(it) for it in PICS) +
     '</ul></section>')
 
 
