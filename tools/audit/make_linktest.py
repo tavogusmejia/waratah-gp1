@@ -93,7 +93,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("only the unconfirmed rows are listed", all.length === 11, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 51, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
@@ -174,7 +174,12 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   ok("hiding the tab writes what was still queued", !!window.__store["maker/" + s4]);
 
   /* 6b. confirming a prefill that is already right */
-  var r6 = all[6], s6 = r6.getAttribute("data-slug");
+  /* a row that actually carries a guess - confirming an empty one deletes,
+     which is right but is not what this test is about */
+  var r6 = [].find.call(all, function (r) {
+    return r.querySelector(".lurl").value.trim() && !r.classList.contains("kept");
+  }) || all[6];
+  var s6 = r6.getAttribute("data-slug");
   var had = r6.querySelector(".lurl").value.trim();
   r6.querySelector(".lok").click();
   await wait(700);
@@ -210,9 +215,9 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
 
   /* ---- the picture review ---- */
   var pr = document.querySelectorAll(".prow");
-  ok("every item has a picture card", pr.length === 94, pr.length + " cards");
+  ok("every item has a picture card", pr.length === 134, pr.length + " cards");
   ok("92 carry a thumbnail, 2 say so",
-     document.querySelectorAll(".pshot[src^='data:']").length === 92 &&
+     document.querySelectorAll(".pshot[src^='data:']").length === 132 &&
      document.querySelectorAll(".pshot.none").length === 2);
   ok("the names are the register's own",
      pr[0].querySelector(".pname").textContent.indexOf("Cartridge Filter") === 0,

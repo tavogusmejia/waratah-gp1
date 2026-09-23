@@ -146,6 +146,44 @@ def prow(it):
         '</label></li>')
 
 
+def dupegroups():
+    """Items whose source PDFs are byte for byte the same file.
+
+    Some are legitimate - one Salto datasheet covers three products - and
+    some want reconciling: the two pool lights are filed under both PL and
+    the luminaires folder, so each appears twice under different codes.
+    """
+    by = {}
+    for it in _d["items"]:
+        by.setdefault(it.get("sha", ""), []).append(it)
+    return [v for k, v in sorted(by.items()) if k and len(v) > 1]
+
+
+_dupes = dupegroups()
+
+DUPES = ("" if not _dupes else
+    '<section class="block dupes" id="dupes">'
+    '<header class="blockhead">'
+    '<h2>The same file, twice<span class="tally">' + str(len(_dupes)) +
+    '</span></h2>'
+    '<p>These items point at PDFs that are byte for byte identical. Some of '
+    'that is correct &mdash; one Salto datasheet covers three products, and '
+    'the same QS Link supply serves two shades. The pool lights are the ones '
+    'to look at: they are filed under both <code>PL</code> and the '
+    'luminaires folder, so each appears twice under a different code. '
+    'Nothing here changes anything; it is a list for you to reconcile.</p>'
+    '</header><ul class="items dgrid">'
+    + "".join(
+        '<li class="drow">'
+        + "".join('<span class="dpair"><span class="pcode">'
+                  + e(x["group"] + "-" + x["code"]) + '</span>'
+                  '<span class="pname">' + e(x["title"]) + '</span></span>'
+                  for x in g)
+        + '<code class="dsha">' + e(g[0].get("sha", "")) + '</code></li>'
+        for g in _dupes) +
+    '</ul></section>')
+
+
 PICTURES = (
     '<section class="block pics" id="pics">'
     '<header class="blockhead">'
@@ -357,6 +395,16 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .lrow.kept .lurl { border-color: var(--green); }
 .lrow.lost { box-shadow: inset 3px 0 0 var(--red); }
 .lrow.lost .lurl { border-color: var(--red); }
+/* ---- byte-identical items ---- */
+.dgrid { display: grid; gap: 1px; }
+.drow { display: grid; gap: 8px; background: var(--raise); padding: 14px 18px; }
+.dpair { display: grid; gap: 3px; }
+.dsha { justify-self: start; font: 400 11px/1 var(--mono); color: var(--ink3); }
+@media (min-width: 760px) {
+  .drow { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)) auto;
+          align-items: center; gap: 8px 22px; }
+}
+
 /* ---- the picture review grid ---- */
 .pgrid { display: grid; gap: 1px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
@@ -502,7 +550,7 @@ doc = (
     "works.</li>"
     "<li>Put it in <code>tools/images/</code>.</li>"
     "<li>Run <code>python tools/extract_datasheets.py</code>.</li>"
-    "</ol></div>\n</header>\n" + PICTURES + "".join(body) + LINKS +
+    "</ol></div>\n</header>\n" + PICTURES + DUPES + "".join(body) + LINKS +
     '<div class="bar" id="bar">'
     '<span class="n" id="barn">0</span>'
     '<span class="t" id="bart">pictures staged.</span>'

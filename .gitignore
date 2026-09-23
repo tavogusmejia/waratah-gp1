@@ -35,3 +35,7 @@ tools/audit/_shot.html
 # The datasheets live in Google Drive - tools/drive-links.csv
 web/datasheets/
 tools/audit/_pics.png
+_rekey.json
+_batch*.json
+_b[0-9]*.json
+_state.json

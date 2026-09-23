@@ -39,6 +39,7 @@ Python 3.12 + PyMuPDF.
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import re
@@ -96,6 +97,8 @@ GROUPS = {
     "H": ("Bathroom and Shower Fixtures", "Plumbing", None),
     "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
+    "L&L": ("Luminaires", "Lighting", None),
+    "LTRN": ("Lutron Controls", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }
 
@@ -108,13 +111,18 @@ def group_of(rel):
     and two folders can share a letter - "D - Doors" holds the tracker
     workbook, "D - Doors Hardware" holds the datasheets.
     """
-    # Longest first is wrong here - the OUTERMOST folder wins, which is how
-    # "D - Doors/DH - Doors Hardware" stays in D rather than inventing DH.
-    for part in rel.parts[:-1]:
-        m = re.match(r"([A-Z]{1,6})\s*-\s", part)
-        if m:
-            return m.group(1)
-    return "?"
+    # GROUPS decides what counts as a group, and the INNERMOST folder it
+    # names wins: "L - Lighting/LTRN - Lutron Lighting" is LTRN, because
+    # LTRN is in GROUPS, while "D - Doors/DH - Doors Hardware" stays D,
+    # because DH is not. Anything matching but unnamed falls back to the
+    # outermost, where the stray-group check will catch it.
+    # The & is for "L&L - Luminaires", which no plain [A-Z] run matches.
+    seen = [m.group(1) for part in rel.parts[:-1]
+            for m in [re.match(r"([A-Z][A-Z&0-9]{0,5})\s*-\s", part)] if m]
+    named = [g for g in seen if g in GROUPS]
+    if named:
+        return named[-1]
+    return seen[0] if seen else "?"
 
 
 # Optional. Two columns, item code and URL, with or without a header:
@@ -157,9 +165,33 @@ def drive_links(path=None):
     return out
 
 
-def link_for(table, stem, code=""):
-    """The link for one file: by its slug first, then by item code."""
-    for k in (slug(stem), (code or "").lower()):
+# The short form of each attachment kind, for the key that carries its link.
+# Without it a code names both the item and everything hanging off it.
+KINDKEY = {"Manufacturer datasheet": "ds",
+           "Installation guide": "ig",
+           "Installation note": "ig-note"}
+
+
+def key_for(group, code, kind=""):
+    """The stable key for one file: its group, its code, and for an
+    attachment, which kind it is - "L&L-L&L12", "D-DH15-ig".
+
+    The code is the key rather than the filename slug because the filename
+    moves. Four renames this week detached pictures, manufacturer links and
+    Drive URLs from their items, every time silently. The code is what the
+    folder is organised by and what you fix when the numbering changes.
+    """
+    k = group + "-" + code
+    if kind:
+        k += "-" + KINDKEY.get(kind, slug(kind))
+    return k.lower()
+
+
+def link_for(table, key, stem="", code=""):
+    """The link for one file: by its code key first, then by the filename
+    slug, then by bare code - the last two only so a table written before
+    the key change still resolves."""
+    for k in (key.lower(), slug(stem), (code or "").lower()):
         if k and k in table:
             return table[k]
     return ""
@@ -272,7 +304,7 @@ def _looks_like_product(im):
 USED_OVERRIDES = set()
 
 
-def pick_image(doc, code, stem, pdf):
+def pick_image(doc, key, code, stem, pdf):
     """The picture for one item, in order of who said so most deliberately:
     an override in tools/images/, a picture filed beside the datasheet, then
     the best candidate the PDF itself yields.
@@ -281,12 +313,13 @@ def pick_image(doc, code, stem, pdf):
     folder does exactly that, DH4.jpg next to DH4 - Salto LA1T17 .... Named by
     the item code or by the datasheet's own filename prefix.
 
-    An override in tools/images/ can be named by the file's slug or the item
-    code. The slug is the one to publish because it is unique: three plumbing
-    items all carry the code J9, so "J9.jpg" would apply to all three.
+    An override in tools/images/ is named by the item's KEY - slug(group-code)
+    - because that survives a rename, which the filename slug does not. The
+    slug and the bare code are still read so that overrides written before
+    the key change keep working; the build prints anything left over.
     """
     if OVERRIDE.is_dir():
-        for name in (slug(stem), code):
+        for name in (slug(key), slug(stem), code):
             if not name:
                 continue
             for ext in ("jpg", "jpeg", "png", "webp"):
@@ -594,7 +627,7 @@ def main():
     for f in pdfs:
         pre = code_prefix(f.stem)
         (filed if (" - " in f.stem and
-                   re.fullmatch(r"[A-Z]{1,6}[0-9.]*", pre)) else unfiled).append(f)
+                   re.fullmatch(r"[A-Z&]{1,6}[0-9.]*", pre)) else unfiled).append(f)
     pdfs = filed
     items, problems = [], []
     links = drive_links()
@@ -609,9 +642,6 @@ def main():
         doc = fitz.open(p)
         rec = parse_summary(doc[0])
         pages = doc.page_count
-        code_for_img = (rec or {}).get("code") or p.stem.split(" ")[0]
-        picture, how = pick_image(doc, code_for_img, p.stem, p)
-        doc.close()
 
         if rec is None:
             problems.append(str(rel))
@@ -629,8 +659,11 @@ def main():
         # it actually looks like a code (letters then digits), which leaves
         # the pool lights, filed as plain "A" and "B", alone.
         prefix = code_prefix(p.stem)
-        code = (prefix if re.fullmatch(r"[A-Z]{1,6}[0-9][0-9.]*", prefix)
+        code = (prefix if re.fullmatch(r"[A-Z&]{1,6}[0-9][0-9.]*", prefix)
                 else (rec["code"] or prefix))
+        key = key_for(group, code)
+        picture, how = pick_image(doc, key, code, p.stem, p)
+        doc.close()
         items.append({
             "id": slug(group + "-" + code + "-" + rec["title"][:40]),
             "code": code,
@@ -649,15 +682,23 @@ def main():
             "pdf": "datasheets/" + slug(p.stem) + ".pdf",
             "pages": pages,
             "bytes": p.stat().st_size,
+            # The same PDF is sometimes filed under two codes - the pool
+            # lights are in both PL and the luminaires folder, and one Salto
+            # datasheet covers three products. The hash is what lets the
+            # audit page group them so they can be reconciled.
+            "sha": hashlib.sha256(p.read_bytes()).hexdigest()[:16],
             "source": str(rel).replace("\\", "/"),
-            "drive_url": link_for(links, p.stem, code),
-            "maker_url": link_for(makers, p.stem, code),
+            "key": key,
+            "drive_url": link_for(links, key, p.stem, code),
+            "maker_url": link_for(makers, key, p.stem, code),
             "extras": [
                 {"kind": kind,
                  "pdf": "datasheets/" + slug(f.stem) + ".pdf",
                  "source": str(f.relative_to(SOURCE)).replace("\\", "/"),
                  "bytes": f.stat().st_size,
-                 "drive_url": link_for(links, f.stem)}
+                 "key": key_for(group, code, kind),
+                 "drive_url": link_for(links, key_for(group, code, kind),
+                                       f.stem)}
                 for kind, f in sorted(extras.get(p, []), key=lambda t: t[0])
             ],
             "image": "img/" + slug(p.stem) + ".webp" if picture else "",

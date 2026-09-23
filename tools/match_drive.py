@@ -1,92 +1,128 @@
-"""Match crawled Drive files to register items, and name everything that misses.
+"""Match crawled Drive files to register items by their CODE.
 
-A wrong link is worse than a missing one, so this reports rather than guesses:
-every Drive file with no home and every item with no link is printed.
+Drive mirrors the source tree, so a Drive file announces the same group and
+the same code as the local one - and the code survives the renames that kept
+detaching links from items. Matching on it means a file can be retitled on
+either side without breaking anything.
+
+This reports rather than guesses: every Drive file with no home and every
+item left without a link is printed. A wrong link is worse than a missing one.
 """
-import json, io, sys, re
+import json, io, sys
 from pathlib import Path
 
-REPO = Path(r"C:\Users\gus\Dropbox\06 Apps\Waratah-gp1")
+REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
-from extract_datasheets import slug, SKIP           # the same normalisation
+from extract_datasheets import (KINDKEY, SKIP, code_prefix, group_of,  # noqa
+                                key_for, slug)
 
-out = io.open(1, "w", encoding="utf-8", closefd=False)
-drive = json.load(open("_drive.json", encoding="utf-8"))["files"]
-data = json.load(open(REPO / "web/data/datasheets.json", encoding="utf-8"))
-items = data["items"] if isinstance(data, dict) else data
-
-
-def skipped(path):
-    low = path.lower()
-    return any(s.lower() in low for s in SKIP)
+OUT = io.open(1, "w", encoding="utf-8", closefd=False)
+MARKS = {" - IG Note - ": "Installation note",
+         " - IG - ": "Installation guide",
+         " - DS - ": "Manufacturer datasheet"}
 
 
-pdfs = [f for f in drive
-        if f["name"].lower().endswith(".pdf") and not skipped(f["path"])]
+def keyed(paths):
+    """Keys for a set of Drive paths, deciding which file leads each code the
+    same way split_supplements does locally: the unmarked file where there is
+    one, otherwise the DS, with the rest riding along as attachments.
 
-# what the register wants a link for: each item, plus each attachment
-wanted = {}
-for it in items:
-    stem = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
-    wanted[stem] = {"kind": "item", "code": it["code"],
-                    "src": Path(it["source"]).name}
-    for x in it.get("extras", []):
-        xs = x["pdf"].split("/")[-1].rsplit(".", 1)[0]
-        wanted[xs] = {"kind": "extra", "code": it["code"], "src": x.get("file", "")}
+    Without this, a code whose only file is a DS - every bathroom fixture,
+    every Lutron sheet - gets keyed as its own attachment and matches nothing.
+    """
+    bycode, out = {}, {}
+    for p in paths:
+        rel = Path(p)
+        bycode.setdefault((group_of(rel), code_prefix(rel.stem)), []).append(p)
+    for (group, code), ps in bycode.items():
+        plain = [x for x in ps if not any(m in Path(x).name for m in MARKS)]
+        lead = None
+        if len(plain) == 1:
+            lead = plain[0]
+        elif not plain:
+            ds = [x for x in ps if " - DS - " in Path(x).name]
+            if len(ds) == 1:
+                lead = ds[0]
+        for x in ps:
+            kind = next((MARKS[m] for m in MARKS if m in Path(x).name), "")
+            out[x] = key_for(group, code, "" if x == lead else kind)
+    return out
 
-# Drive files keyed by the slug of their own filename
-by_slug = {}
-for f in pdfs:
-    by_slug.setdefault(slug(f["name"].rsplit(".", 1)[0]), []).append(f)
 
-matched, missing, ambiguous = {}, [], []
-for stem, meta in wanted.items():
-    keys = [slug(stem)]
-    if meta["src"]:
-        keys.append(slug(Path(meta["src"]).stem))
-    hit = None
-    for k in keys:
-        if k in by_slug:
-            hit = by_slug[k]
-            break
-    if hit is None:
-        missing.append((stem, meta))
-    elif len(hit) > 1:
-        ambiguous.append((stem, meta, hit))
-    else:
-        matched[stem] = hit[0]
+def main():
+    here = Path.cwd()
+    drive = json.loads((here / "_drive.json").read_text(encoding="utf-8"))["files"]
+    data = json.loads((REPO / "web/data/datasheets.json").read_text(encoding="utf-8"))
 
-used = {f["id"] for f in matched.values()}
-orphans = [f for f in pdfs if f["id"] not in used]
+    # A key usually names one item, but P9 carries two different pipe
+    # insulations under one code, so the filename slug is kept as the
+    # tiebreak for the rare code that covers more than one thing.
+    wanted = {}
+    for it in data["items"]:
+        stem = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
+        wanted.setdefault(it["key"], []).append(
+            (it["group"] + "-" + it["code"], stem))
+        for x in it.get("extras", []):
+            xs = x["pdf"].split("/")[-1].rsplit(".", 1)[0]
+            wanted.setdefault(x["key"], []).append(
+                (it["group"] + "-" + it["code"] + " " + x["kind"], xs))
 
-out.write("Drive PDFs outside the reference folders : %d\n" % len(pdfs))
-out.write("Register needs a link for                : %d "
-          "(%d items + %d attachments)\n"
-          % (len(wanted),
-             sum(1 for m in wanted.values() if m["kind"] == "item"),
-             sum(1 for m in wanted.values() if m["kind"] == "extra")))
-out.write("MATCHED                                  : %d\n" % len(matched))
-out.write("NO DRIVE FILE                            : %d\n" % len(missing))
-out.write("AMBIGUOUS                                : %d\n" % len(ambiguous))
-out.write("Drive files with no item                 : %d\n\n" % len(orphans))
+    pdfs = [f for f in drive
+            if f["name"].lower().endswith(".pdf")
+            and not any(s.lower() in f["path"].lower() for s in SKIP)]
 
-if missing:
-    out.write("--- items with no Drive file ---\n")
-    for stem, meta in sorted(missing, key=lambda x: x[1]["code"]):
-        out.write("  %-8s %-7s %s\n" % (meta["code"], meta["kind"], stem))
-    out.write("\n")
-if ambiguous:
-    out.write("--- more than one Drive file matches ---\n")
-    for stem, meta, hit in ambiguous:
-        out.write("  %-8s %s\n" % (meta["code"], stem))
-        for f in hit:
-            out.write("        %s\n" % f["path"])
-    out.write("\n")
-if orphans:
-    out.write("--- Drive files nothing in the register wants ---\n")
-    for f in sorted(orphans, key=lambda x: x["path"]):
-        out.write("  %s\n" % f["path"])
+    keys = keyed([f["path"] for f in pdfs])
+    seen = {}
+    for f in pdfs:
+        seen.setdefault(keys[f["path"]], []).append(f)
 
-json.dump({s: {"id": f["id"], "path": f["path"]} for s, f in matched.items()},
-          open("_matched.json", "w", encoding="utf-8"), indent=1,
-          ensure_ascii=False)
+    matched, missing, ambiguous = {}, [], []
+    for key, claims in sorted(wanted.items()):
+        hits = seen.get(key, [])
+        for label, stem in claims:
+            mine = hits
+            if len(claims) > 1 or len(hits) > 1:
+                mine = [f for f in hits
+                        if slug(Path(f["path"]).stem) == stem] or hits
+            ident = key if len(claims) == 1 else key + "|" + stem
+            if not mine:
+                missing.append((ident, label))
+            elif len(mine) > 1:
+                ambiguous.append((ident, label, mine))
+            else:
+                matched[ident] = mine[0]
+
+    used = {f["id"] for f in matched.values()}
+    orphans = [f for f in pdfs if f["id"] not in used]
+
+    OUT.write("Drive PDFs in scope      : %d\n" % len(pdfs))
+    OUT.write("Register needs a link for: %d\n" % len(wanted))
+    OUT.write("MATCHED                  : %d\n" % len(matched))
+    OUT.write("NO DRIVE FILE            : %d\n" % len(missing))
+    OUT.write("AMBIGUOUS                : %d\n" % len(ambiguous))
+    OUT.write("Drive files with no item : %d\n\n" % len(orphans))
+
+    if missing:
+        OUT.write("--- items with no Drive file ---\n")
+        for key, label in missing:
+            OUT.write("  %-22s %s\n" % (key, label))
+        OUT.write("\n")
+    if ambiguous:
+        OUT.write("--- more than one Drive file claims this key ---\n")
+        for key, label, hits in ambiguous:
+            OUT.write("  %-22s %s\n" % (key, label))
+            for f in hits:
+                OUT.write("        %s\n" % f["path"])
+        OUT.write("\n")
+    if orphans:
+        OUT.write("--- Drive files nothing in the register wants ---\n")
+        for f in sorted(orphans, key=lambda x: x["path"]):
+            OUT.write("  %-22s %s\n" % (keys[f["path"]], f["path"]))
+
+    json.dump({k: {"id": v["id"], "path": v["path"]} for k, v in matched.items()},
+              open("_matched.json", "w", encoding="utf-8"), indent=1,
+              ensure_ascii=False)
+
+
+if __name__ == "__main__":
+    main()
