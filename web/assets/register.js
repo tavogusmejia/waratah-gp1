@@ -232,8 +232,14 @@
                         : Math.round(b / 1024) + " KB";
   }
 
+  /* Drive only. The PDFs stopped shipping when they moved to Drive, and
+     web/datasheets/ is ignored by both git and Vercel, so falling back to
+     "./" + it.pdf handed out a link that 404s. Seven items were doing
+     exactly that, live, after their source files were renamed and their
+     Drive links stopped matching. No link now means the disabled state,
+     which is at least true. */
   function href(it) {
-    return it.drive_url ? it.drive_url : (it.pdf ? "./" + it.pdf : "");
+    return it.drive_url || "";
   }
 
   function openSheet(id) {

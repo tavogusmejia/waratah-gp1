@@ -735,30 +735,16 @@ def main():
         n_auto += how == "auto"
         n_over += how == "override"
         n_beside += how == "beside"
-    # The PDFs live in Google Drive now, and every item and attachment
-    # carries a `drive_url`. Shipping them too put 113 MB in the deploy and
-    # the whole of it in a personal GitHub repo. A file is only copied when
-    # something has no Drive link - a gap should degrade to a working page,
-    # not to a dead button.
+    # The PDFs live in Google Drive now. Nothing is copied: web/datasheets/
+    # is ignored by git and by Vercel, so a copy here never reaches the
+    # deploy, and the register was handing out "./datasheets/x.pdf" links
+    # that 404. An item with no Drive link shows as not linked instead.
+    if OUT_PDFS.exists():
+        for old in OUT_PDFS.glob("*.pdf"):
+            old.unlink()
     unlinked = [(r, spec) for r in items for spec in [r] + r["extras"]
                 if not spec.get("drive_url")]
-    for old in OUT_PDFS.glob("*.pdf"):
-        old.unlink()
     total = 0
-    for r, spec in unlinked:
-        # Copy from the path recorded ON each item, never by zipping the two
-        # lists: `items` is sorted into reading order after it is built and
-        # `pdfs` is not, so zipping them pairs the wrong file with the wrong
-        # record. It did exactly that once - 38 of the 45 shipped as somebody
-        # else's datasheet, under a slug that looked perfectly correct.
-        src = SOURCE / spec["source"]
-        dest = OUT_PDFS / Path(spec["pdf"]).name
-        shutil.copy2(src, dest)
-        got = dest.stat().st_size
-        if got != spec["bytes"]:
-            sys.exit("copied the wrong file for %s: %s is %d bytes, "
-                     "expected %d" % (r["code"], dest.name, got, spec["bytes"]))
-        total += got
 
     payload = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -805,12 +791,13 @@ def main():
     print()
     print("  %s  %.0f KB" % (OUT_JSON.relative_to(REPO),
                              OUT_JSON.stat().st_size / 1024))
-    if total:
-        print("  %s  %d files, %.1f MB  (no Drive link yet)"
-              % (OUT_PDFS.relative_to(REPO), len(unlinked), total / 1048576))
+    if unlinked:
+        print("  %d WITHOUT A DRIVE LINK - these show as not linked:"
+              % len(unlinked))
+        for r, spec in unlinked:
+            print("      %-10s %s" % (r["code"], Path(spec["source"]).name))
     else:
-        print("  %s  empty - every datasheet opens from Drive"
-              % OUT_PDFS.relative_to(REPO))
+        print("  every datasheet and attachment opens from Drive")
 
 
 if __name__ == "__main__":

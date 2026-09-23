@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-23T16:03:04Z",
+ "generated": "2026-09-23T16:18:13Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -345,7 +345,7 @@
    "bytes": 182325,
    "source": "A - Pump Room Equipment/A6 - Pool Heat Pump (Gulfstream HE-150).pdf",
    "drive_url": "https://drive.google.com/file/d/1eTjeDJ61biZa1SAyxUaUJoxGDrwT_LlC/view",
-   "maker_url": "https://www.poolheatpumps.com/pool-heat-pumps/gulfstream-he150ra-pool-heat-pump.html",
+   "maker_url": "https://www.poolheatpumps.com/pool-heat-pumps/gulfstream-he150ra-pool-heat-pump.html?srsltid=AU7gw4U6ZPi8waD_DH1t3pIE6RPNxRFDHV9fVmIm6_9DuKsKK92dNvUf",
    "extras": [],
    "image": "img/a6-pool-heat-pump-gulfstream-he-150.webp"
   },
@@ -708,7 +708,7 @@
    "bytes": 226106,
    "source": "D - Doors/DH - Doors Hardware/DH11 - Hafele Door Hinge Top Pivot.pdf",
    "drive_url": "https://drive.google.com/file/d/11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A/view",
-   "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/#SearchParameter=&@QueryTerm=door+pivot&Category=fn0KAOsFhMoAAAFlTOecc.x0&@P.FF.followSearch=9886&PageNumber=1&OriginalPageSize=48&PageSize=48&Position=10&OrigPos=11&ProductListSize=37&PDP=true",
+   "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/",
    "extras": [
     {
      "kind": "Manufacturer datasheet",
@@ -1644,7 +1644,7 @@
    "bytes": 585264,
    "source": "G - Piping and Valves/G1 - Aquaram Valves.pdf",
    "drive_url": "https://drive.google.com/file/d/19EdEF07ap6w2KLYsbgJ18ckp3ZN0fWvw/view",
-   "maker_url": "https://www.akvalvesltd.com/products/pvc-ball-valve-double-union-ch-aquaram",
+   "maker_url": "https://www.akvalvesltd.com/products/pvc-ball-valve-double-union-ch-aquaram?srsltid=AU7gw4U2YNKOct-rUK3J9y8I-E_k5YURXhnzyILklGieHhzL8DUIl9PY",
    "extras": [],
    "image": "img/g1-aquaram-valves.webp"
   },
@@ -2389,7 +2389,7 @@
    "bytes": 194159,
    "source": "P - Plumbing/P4 - ProFlo Hose Bibb PF71.pdf",
    "drive_url": "https://drive.google.com/file/d/1KxWp2ZIootz4U8VOEgUupEqHMPU_Z9QT/view",
-   "maker_url": "https://www.fergusonhome.com/proflo-pf71dc/s992408",
+   "maker_url": "https://www.fergusonhome.com/proflo-pf71dc/s992408?srsltid=AU7gw4UFa0IrxLYTS3-szHn523O4-Z5-y7YKqygFt6Va_FV7Q655Mfr-",
    "extras": [],
    "image": "img/p4-proflo-hose-bibb-pf71.webp"
   },
@@ -2450,7 +2450,7 @@
    "bytes": 728444,
    "source": "P - Plumbing/P5 - US Solid 316 SS Mini Ball Valve (Angle Valve).pdf",
    "drive_url": "https://drive.google.com/file/d/137i7rMGyCuv0HmaFFp1M3KyXAii__4cj/view",
-   "maker_url": "https://ussolid.com/products/1-2-mini-ball-valve-316-stainless-steel-female-male-thread-2pcs",
+   "maker_url": "https://ussolid.com/products/1-2-mini-ball-valve-316-stainless-steel-female-male-thread-2pcs?srsltid=AU7gw4WUctDMPdGZjQ8tsreluaxlCTQazpajeXI182qGaBRZtBLE6lM1",
    "extras": [],
    "image": "img/p5-us-solid-316-ss-mini-ball-valve-angle-valve.webp"
   },
@@ -2532,7 +2532,7 @@
    "bytes": 270583,
    "source": "P - Plumbing/P7 - ProFlo PFX146 Braided Supply Hose.pdf",
    "drive_url": "https://drive.google.com/file/d/1oGpH3lugUim3NCxVnPo0uQgsjS6Q4OdK/view",
-   "maker_url": "https://www.ferguson.com/product/proflo-pfx146-3%2F8-in.-compression-x-1%2F2-in.-fip-x-16-in.-stainless-steel-and-pvc-reinforced-sink-flexible-water-connector-pfx146023/3866359.html",
+   "maker_url": "https://www.ferguson.com/product/proflo-pfx146-3%2F8-in.-compression-x-1%2F2-in.-fip-x-16-in.-stainless-steel-and-pvc-reinforced-sink-flexible-water-connector-pfx146023/3866359.html?srsltid=AU7gw4WE85N4QB5vxUDlzE1CibVWMnniH4avF1hLDSwEiytkFlljbZfU",
    "extras": [],
    "image": "img/p7-proflo-pfx146-braided-supply-hose.webp"
   },
@@ -2573,7 +2573,7 @@
    "bytes": 861065,
    "source": "P - Plumbing/P8 - ProFlo P-Trap PFPTB107.pdf",
    "drive_url": "https://drive.google.com/file/d/1X5EHnv7MYYKVjzXTlon4kKMaxZ4gPgRv/view",
-   "maker_url": "https://www.ferguson.com/product/proflo-100-series-1-1%2F2-in.-brass-p-trap-in-polished-chrome-pfptb112/4055901.html",
+   "maker_url": "https://www.ferguson.com/product/proflo-100-series-1-1%2F2-in.-brass-p-trap-in-polished-chrome-pfptb112/4055901.html?srsltid=AU7gw4VrN7xrTnndbwdOGfo8gylOyD2uWO5R86thnq5gC6p0TD0s_8t1",
    "extras": [],
    "image": "img/p8-proflo-p-trap-pfptb107.webp"
   },
@@ -2838,7 +2838,7 @@
    "bytes": 221895,
    "source": "P - Plumbing/P14 - ProFlo Plastic Roof Drain PF42870.pdf",
    "drive_url": "https://drive.google.com/file/d/1f1nAQH6YSbzm6gY5U5jMQ6BR1a09BlGr/view",
-   "maker_url": "https://www.ferguson.com/product/proflo-3-in.-plastic-roof-drain-pf42870/1333313.html",
+   "maker_url": "https://www.ferguson.com/product/proflo-3-in.-plastic-roof-drain-pf42870/1333313.html?srsltid=AU7gw4Uy-KLjctMOAsrGurZOsStjbjCV64N99XG_ORQQ_rmvObrt1Hv-",
    "extras": [],
    "image": "img/p14-proflo-plastic-roof-drain-pf42870.webp"
   },
@@ -3084,9 +3084,9 @@
    "bytes": 7935058,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://luxury.lutron.com/uk/en/controls/alisse-keypad",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn7-ds-lutron-alisse-1-column-keypad-fix-18-27-hw-nw-kp-s1-e.webp"
   },
   {
    "id": "l-ltrn8-ltrn8-ds-lutron-alisse-2-column-keyp",
@@ -3108,9 +3108,9 @@
    "bytes": 7935058,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN8 - DS - Lutron Alisse 2-Column Keypad - FIX-18-27 - HW-NW-KP-S2-E.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://luxury.lutron.com/uk/en/controls/alisse-keypad",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn8-ds-lutron-alisse-2-column-keypad-fix-18-27-hw-nw-kp-s2-e.webp"
   },
   {
    "id": "l-ltrn9-ltrn9-ds-lutron-alisse-keypad-base",
@@ -3276,9 +3276,9 @@
    "bytes": 1597895,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/palladiom-thermostat/mwp-t-ohw/documents",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn15-ds-lutron-palladiom-thermostat-fix-28-mwp-t-ohw-wh-a.webp"
   },
   {
    "id": "l-ltrn16-ltrn16-ds-lutron-fan-coil-controller",
@@ -3516,7 +3516,7 @@
    "bytes": 1984550,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
    "image": "img/ltrn25-ds-lutron-sivoia-qs-roller-shade-roller-100.webp"
   },
@@ -3564,9 +3564,9 @@
    "bytes": 445416,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn25-2-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.webp"
   },
   {
    "id": "l-ltrn26-ltrn26-ds-lutron-drapery-track-syste",
@@ -3588,9 +3588,9 @@
    "bytes": 145396,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26 - DS - Lutron Drapery Track System - D145.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn26-ds-lutron-drapery-track-system-d145.webp"
   },
   {
    "id": "l-ltrn26-1-ltrn26-1-ds-lutron-qs-link-shading-p",
@@ -3612,9 +3612,9 @@
    "bytes": 445416,
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "drive_url": "",
-   "maker_url": "",
+   "maker_url": "https://www.lutron.com",
    "extras": [],
-   "image": ""
+   "image": "img/ltrn26-1-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.webp"
   }
  ]
 }
