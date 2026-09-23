@@ -501,53 +501,74 @@ document.addEventListener("click", function (ev) {
 
   /* ---- the picture review -------------------------------------------
 
-     Ticking a box marks a picture for replacement. Unlike the links, nothing
-     is written until the button is pressed: a tick is a judgement being
-     formed, and you should be able to go down the grid changing your mind
-     before any of it counts. */
+     Two marks per picture, and they are opposites: Fine says you have looked
+     and it will do, Needs a better one marks it for replacement. Marking
+     either clears the other, because a picture cannot be both.
+
+     Nothing is written until Save. A mark is a judgement being formed and
+     you should be able to go down the grid changing your mind before any of
+     it counts. Hiding what you have passed is what makes 134 cards
+     finishable: what is left on screen is what you have not looked at. */
   var psaveEl = document.getElementById("psave");
   var pnoneEl = document.getElementById("pnone");
+  var phideEl = document.getElementById("phide");
   var pstateEl = document.getElementById("pstate");
-  var pkept = {};                  /* what the store held when we last looked */
+  var pgridEl = document.querySelector(".pgrid");
+  var pkept = {bad: {}, ok: {}};      /* what the store held when we looked */
 
   function prows() { return document.querySelectorAll(".prow"); }
-  function ticked(row) { return row.querySelector(".pchk").checked; }
 
   function preport() {
-    var all = prows(), on = 0, dirty = 0;
+    var all = prows(), bad = 0, ok = 0, dirty = 0;
     for (var i = 0; i < all.length; i++) {
       var slug = all[i].getAttribute("data-slug");
-      var t = ticked(all[i]);
-      all[i].classList.toggle("marked", t);
-      if (t) on++;
-      if (t !== !!pkept[slug]) dirty++;
+      var b = all[i].classList.contains("marked");
+      var o = all[i].classList.contains("okay");
+      if (b) bad++;
+      if (o) ok++;
+      if (b !== !!pkept.bad[slug] || o !== !!pkept.ok[slug]) dirty++;
     }
     var t = document.getElementById("ptally");
-    if (t) t.textContent = on + " of " + all.length;
+    if (t) t.textContent = (bad + ok) + " of " + all.length;
     if (!pstateEl) return;
     if (!db) {
-      pstateEl.textContent = "No database in this view — ticks cannot be saved";
+      pstateEl.textContent = "No database in this view — marks cannot be saved";
       pstateEl.className = "lstate warn";
       return;
     }
-    var saved = 0;
-    for (var k in pkept) if (pkept[k]) saved++;
-    pstateEl.textContent = dirty
-      ? saved + " saved · " + dirty + (dirty === 1 ? " change" : " changes") +
-        " not saved yet"
-      : saved + (saved === 1 ? " picture is" : " pictures are") + " marked for replacement";
+    var bits = [ok + " fine", bad + " to replace",
+                (all.length - ok - bad) + " not looked at"];
+    if (dirty) bits.push(dirty + (dirty === 1 ? " change" : " changes") +
+                         " not saved yet");
+    pstateEl.textContent = bits.join(" · ");
     pstateEl.className = "lstate" + (dirty ? " warn" : "");
   }
 
-  document.addEventListener("change", function (ev) {
-    if (!ev.target.classList || !ev.target.classList.contains("pchk")) return;
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest && ev.target.closest(".ptick");
+    if (!b) return;
+    var row = b.closest(".prow");
+    var want = b.classList.contains("pok") ? "okay" : "marked";
+    var had = row.classList.contains(want);
+    row.classList.remove("okay", "marked");
+    if (!had) row.classList.add(want);
     preport();
   });
+
+  if (phideEl) {
+    phideEl.addEventListener("click", function () {
+      if (!pgridEl) return;
+      var hiding = pgridEl.classList.toggle("hideok");
+      phideEl.textContent = hiding
+        ? "Show the ones marked fine"
+        : "Hide the ones marked fine";
+    });
+  }
 
   if (pnoneEl) {
     pnoneEl.addEventListener("click", function () {
       var all = prows();
-      for (var i = 0; i < all.length; i++) all[i].querySelector(".pchk").checked = false;
+      for (var i = 0; i < all.length; i++) all[i].classList.remove("okay", "marked");
       preport();
     });
   }
@@ -556,34 +577,39 @@ document.addEventListener("click", function (ev) {
     psaveEl.addEventListener("click", async function () {
       if (!db) {
         psaveEl.textContent = "No database here";
-        setTimeout(function () { psaveEl.textContent = "Save the ticked ones"; }, 2400);
+        setTimeout(function () { psaveEl.textContent = "Save"; }, 2400);
         return;
       }
       psaveEl.textContent = "Saving…";
       var all = prows(), wrote = 0, cleared = 0, failed = 0;
+      var of = {marked: ["fixpic", "bad"], okay: ["picok", "ok"]};
       for (var i = 0; i < all.length; i++) {
-        var row = all[i], slug = row.getAttribute("data-slug"), t = ticked(row);
-        if (t === !!pkept[slug]) continue;        /* unchanged, leave it be */
-        var ref = db.doc("fixpic/" + slug);
-        try {
-          if (t) {
-            await ref.set({at: new Date().toISOString(),
-                           title: row.querySelector(".pname").textContent});
-            var back = await ref.get();
-            if (!(back && back.exists)) throw new Error("not read back");
-            pkept[slug] = true; wrote++;
-          } else {
-            await ref.delete();
-            delete pkept[slug]; cleared++;
-          }
-        } catch (err) { failed++; }
+        var row = all[i], slug = row.getAttribute("data-slug");
+        for (var cls in of) {
+          var coll = of[cls][0], side = of[cls][1];
+          var on = row.classList.contains(cls);
+          if (on === !!pkept[side][slug]) continue;     /* unchanged */
+          var ref = db.doc(coll + "/" + slug);
+          try {
+            if (on) {
+              await ref.set({at: new Date().toISOString(),
+                             title: row.querySelector(".pname").textContent});
+              var back = await ref.get();
+              if (!(back && back.exists)) throw new Error("not read back");
+              pkept[side][slug] = true; wrote++;
+            } else {
+              await ref.delete();
+              delete pkept[side][slug]; cleared++;
+            }
+          } catch (err) { failed++; }
+        }
       }
       preport();
       psaveEl.textContent =
         (wrote ? "Saved " + wrote : "Nothing new") +
         (cleared ? ", cleared " + cleared : "") +
         (failed ? ", " + failed + " failed" : "");
-      setTimeout(function () { psaveEl.textContent = "Save the ticked ones"; }, 3000);
+      setTimeout(function () { psaveEl.textContent = "Save"; }, 3000);
     });
   }
 
@@ -633,14 +659,16 @@ document.addEventListener("click", function (ev) {
     report();
     /* Ticks come back from the store, or a reload would quietly lose them -
        which is exactly how a session of links went missing. */
-    try {
-      var marks = await db.collection("fixpic").limit(300).get();
-      ((marks && marks.docs) || marks || []).forEach(function (doc) {
-        var id = String(doc.id || doc.path || "").split("/").pop();
-        var row = document.querySelector('.prow[data-slug="' + id + '"]');
-        if (row) { row.querySelector(".pchk").checked = true; pkept[id] = true; }
-      });
-    } catch (e) {}
+    for (var pair of [["fixpic", "bad", "marked"], ["picok", "ok", "okay"]]) {
+      try {
+        var marks = await db.collection(pair[0]).limit(400).get();
+        ((marks && marks.docs) || marks || []).forEach(function (doc) {
+          var id = String(doc.id || doc.path || "").split("/").pop();
+          var row = document.querySelector('.prow[data-slug="' + id + '"]');
+          if (row) { row.classList.add(pair[2]); pkept[pair[1]][id] = true; }
+        });
+      } catch (e) {}
+    }
     preport();
     try {
       var snap = await db.collection("staged").limit(200).get();

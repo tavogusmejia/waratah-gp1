@@ -135,15 +135,19 @@ def prow(it):
             '<span class="pshot none">No picture</span>')
     return (
         '<li class="prow" data-slug="' + e(slug) + '">'
-        '<label class="pcard">'
-        '<input class="pchk" type="checkbox" id="fix-' + e(slug) + '">'
+        '<div class="pcard">'
         + face +
         '<span class="pmeta">'
         '<span class="pcode">' + e(it["group"] + "-" + it["code"]) + '</span>'
         '<span class="pname">' + e(it["title"]) + '</span>'
         '</span>'
-        '<span class="ptick">Needs a better picture</span>'
-        '</label></li>')
+        '<span class="pacts">'
+        '<button class="ptick pok" type="button" '
+        'title="This picture is fine">Fine</button>'
+        '<button class="ptick pbad" type="button" '
+        'title="This picture needs replacing">Needs a better one</button>'
+        '</span>'
+        '</div></li>')
 
 
 def dupegroups():
@@ -189,15 +193,16 @@ PICTURES = (
     '<header class="blockhead">'
     '<h2>Every picture<span class="tally" id="ptally">0</span></h2>'
     '<p>All ' + str(TOTAL_ITEMS) + ' items, each with the picture the register '
-    'shows and the name it shows it under. Tick the ones whose picture is '
-    'wrong, is a drawing where it should be a photograph, or is simply not '
-    'good enough, then save. Nothing is written until you press the button, '
-    'and ticking one changes nothing in the register on its own &mdash; it '
-    'marks it for me to replace.</p>'
+    'shows and the name it shows it under. Mark each one <em>Fine</em> or '
+    '<em>Needs a better one</em>, then save &mdash; and hide the ones you '
+    'have passed, so what is left is what you have not looked at yet. '
+    'Nothing is written until you press Save, and marking a picture changes '
+    'nothing in the register on its own.</p>'
     '<p class="lstate" id="pstate">Connecting&hellip;</p>'
     '<div class="lbtns">'
-    '<button class="all" type="button" id="psave">Save the ticked ones</button>'
-    '<button class="all" type="button" id="pnone">Clear every tick</button>'
+    '<button class="all" type="button" id="psave">Save</button>'
+    '<button class="all" type="button" id="phide">Hide the ones marked fine</button>'
+    '<button class="all" type="button" id="pnone">Clear every mark</button>'
     '</div>'
     '</header>'
     '<ul class="items pgrid">'
@@ -409,10 +414,9 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .pgrid { display: grid; gap: 1px;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
 .prow { background: var(--raise); }
-.pcard { display: grid; gap: 10px; padding: 14px; cursor: pointer;
+.pcard { display: grid; gap: 10px; padding: 14px;
   height: 100%; align-content: start; }
-.pcard:hover { background: var(--sunk); }
-.pchk { position: absolute; opacity: 0; pointer-events: none; }
+.pacts { display: flex; gap: 6px; flex-wrap: wrap; }
 .pshot { display: block; width: 100%; aspect-ratio: 4 / 3;
   object-fit: contain; background: var(--photo); border-radius: 8px;
   border: 1px solid var(--photoline); padding: 8px; }
@@ -421,20 +425,27 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .pmeta { display: grid; gap: 5px; }
 .pcode { font: 500 11px/1 var(--mono); color: var(--ink2); }
 .pname { font-size: 13px; line-height: 1.35; color: var(--ink); }
-.ptick { justify-self: start; font: 600 10.5px/1 var(--sans);
-  letter-spacing: .06em; text-transform: uppercase; color: var(--ink3);
-  border: 1px solid var(--line); border-radius: 5px; padding: 6px 8px; }
+.ptick { font: 600 10.5px/1 var(--sans); letter-spacing: .06em;
+  text-transform: uppercase; color: var(--ink3); background: none;
+  border: 1px solid var(--line); border-radius: 5px; padding: 7px 9px;
+  cursor: pointer; }
 /* Draw the box. Without one the label reads as a statement about the item
    rather than something you can tick. */
 .ptick::before { content: ""; display: inline-block; width: 10px;
   height: 10px; margin-right: 7px; vertical-align: -1px;
   border: 1.5px solid currentColor; border-radius: 3px; }
-.prow.marked .ptick::before { background: var(--red);
+.ptick:hover { color: var(--ink2); border-color: var(--slate); }
+.prow.marked .pbad { color: var(--red); border-color: var(--red); }
+.prow.marked .pbad::before { background: var(--red);
   box-shadow: inset 0 0 0 2px var(--raise); }
+.prow.okay .pok { color: var(--green); border-color: var(--green); }
+.prow.okay .pok::before { background: var(--green);
+  box-shadow: inset 0 0 0 2px var(--raise); }
+.prow.okay { box-shadow: inset 3px 0 0 var(--green); }
+/* Hiding what you have passed is what makes the grid finishable. */
+.pgrid.hideok .prow.okay { display: none; }
 .prow.marked { background: var(--sunk); box-shadow: inset 3px 0 0 var(--red); }
-.prow.marked .ptick { color: var(--red); border-color: var(--red); }
-.pchk:focus-visible ~ .pshot { outline: 2px solid var(--red);
-  outline-offset: 3px; }
+.ptick:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
 
 .lfield { display: flex; gap: 8px; align-items: center; }
 .lfield .lurl { flex: 1 1 auto; min-width: 0; }

@@ -218,49 +218,83 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   /* ---- the picture review ---- */
   var pr = document.querySelectorAll(".prow");
   ok("every item has a picture card", pr.length === 134, pr.length + " cards");
-  ok("92 carry a thumbnail, 2 say so",
+  ok("132 carry a thumbnail, 2 say so",
      document.querySelectorAll(".pshot[src^='data:']").length === 132 &&
      document.querySelectorAll(".pshot.none").length === 2);
-  ok("the names are the register's own",
-     pr[0].querySelector(".pname").textContent.indexOf("Cartridge Filter") === 0,
-     pr[0].querySelector(".pname").textContent.slice(0, 40));
+  ok("each card offers both marks",
+     pr[0].querySelector(".pok") && pr[0].querySelector(".pbad"));
 
   var before = Object.keys(window.__store).length;
-  pr[2].querySelector(".pchk").click();
-  pr[7].querySelector(".pchk").click();
+  pr[2].querySelector(".pbad").click();
+  pr[7].querySelector(".pok").click();
   await wait(120);
-  ok("ticking marks the card", pr[2].classList.contains("marked"));
-  ok("nothing is written until the button is pressed",
+  ok("Needs a better one marks the card", pr[2].classList.contains("marked"));
+  ok("Fine marks the card", pr[7].classList.contains("okay"));
+  ok("nothing is written until Save",
      Object.keys(window.__store).length === before);
-  ok("the state line says what is unsaved",
-     document.getElementById("pstate").textContent.indexOf("not saved") > -1,
+  ok("the state line counts both and what is left",
+     document.getElementById("pstate").textContent.indexOf("not looked at") > -1,
      document.getElementById("pstate").textContent);
 
+  /* the two are opposites */
+  pr[2].querySelector(".pok").click();
+  await wait(60);
+  ok("marking Fine clears Needs a better one",
+     pr[2].classList.contains("okay") && !pr[2].classList.contains("marked"));
+  pr[2].querySelector(".pbad").click();
+  await wait(60);
+  ok("and the other way round",
+     pr[2].classList.contains("marked") && !pr[2].classList.contains("okay"));
+  pr[2].querySelector(".pbad").click();
+  await wait(60);
+  ok("clicking the same mark again clears it",
+     !pr[2].classList.contains("marked") && !pr[2].classList.contains("okay"));
+  pr[2].querySelector(".pbad").click();
+  await wait(60);
+
   document.getElementById("psave").click();
-  await wait(1200);
+  await wait(1600);
   var s2 = pr[2].getAttribute("data-slug"), s7 = pr[7].getAttribute("data-slug");
-  ok("saving writes exactly the ticked ones",
-     !!window.__store["fixpic/" + s2] && !!window.__store["fixpic/" + s7] &&
-     Object.keys(window.__store).length === before + 2,
-     (Object.keys(window.__store).length - before) + " written");
+  ok("Save writes the replacements to fixpic", !!window.__store["fixpic/" + s2]);
+  ok("and the fine ones to picok", !!window.__store["picok/" + s7]);
   ok("it records the name shown",
      window.__store["fixpic/" + s2].title === pr[2].querySelector(".pname").textContent);
-  ok("and the state line goes clean",
+  ok("the state line goes clean",
      document.getElementById("pstate").textContent.indexOf("not saved") === -1,
      document.getElementById("pstate").textContent);
 
-  pr[2].querySelector(".pchk").click();
-  await wait(100);
+  /* hiding what has been passed */
+  var hide = document.getElementById("phide");
+  var shownBefore = [].filter.call(document.querySelectorAll(".prow"),
+    function (r) { return r.offsetParent !== null; }).length;
+  hide.click();
+  await wait(120);
+  var shownAfter = [].filter.call(document.querySelectorAll(".prow"),
+    function (r) { return r.offsetParent !== null; }).length;
+  ok("Hide takes the fine ones off screen", shownAfter === shownBefore - 1,
+     shownBefore + " -> " + shownAfter);
+  ok("the button offers to show them again",
+     hide.textContent.indexOf("Show") === 0, hide.textContent);
+  ok("hiding writes nothing", !!window.__store["picok/" + s7]);
+  hide.click();
+  await wait(120);
+  ok("Show brings them back",
+     [].filter.call(document.querySelectorAll(".prow"),
+       function (r) { return r.offsetParent !== null; }).length === shownBefore);
+
+  /* clearing a mark and saving removes the row */
+  pr[2].querySelector(".pbad").click();
+  await wait(80);
   document.getElementById("psave").click();
-  await wait(900);
-  ok("unticking then saving removes it", !window.__store["fixpic/" + s2]);
-  ok("and leaves the other alone", !!window.__store["fixpic/" + s7]);
+  await wait(1200);
+  ok("unmarking then saving removes it", !window.__store["fixpic/" + s2]);
+  ok("and leaves the other alone", !!window.__store["picok/" + s7]);
 
   document.getElementById("pnone").click();
   await wait(100);
-  ok("Clear every tick unticks everything, without writing",
-     document.querySelectorAll(".prow.marked").length === 0 &&
-     !!window.__store["fixpic/" + s7]);
+  ok("Clear every mark unmarks everything, without writing",
+     document.querySelectorAll(".prow.marked, .prow.okay").length === 0 &&
+     !!window.__store["picok/" + s7]);
 
   out.push("");
   out.push(pass + " passed, " + fail + " failed");
