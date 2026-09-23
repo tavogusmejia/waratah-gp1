@@ -39,3 +39,6 @@ _rekey.json
 _batch*.json
 _b[0-9]*.json
 _state.json
+_curated/
+_sample.json
+_probe.pdf

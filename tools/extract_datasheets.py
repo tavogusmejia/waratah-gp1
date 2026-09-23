@@ -493,6 +493,26 @@ ORANGE = 10245888   # manufacturer
 NAVY = 2046052      # item code, title, field labels, section headings
 BLACK = 0           # field values
 GREY = 5989490      # #5B6472 - the category line on the door sheets
+PALETTE = (ORANGE, NAVY, BLACK, GREY)
+
+
+def ink(colour):
+    """Which palette entry a span is set in, allowing for a PDF writer that
+    does not store the colour back exactly.
+
+    An exact match was fine while every sheet came out of one template, but
+    a sheet generated here round-trips 0x1F3A64 as 0x1F3C64 - two steps of
+    green - and the whole page then parses as nothing. The four inks are far
+    apart, so nearest-within-a-few-steps cannot confuse them.
+    """
+    r, g, b = (colour >> 16) & 255, (colour >> 8) & 255, colour & 255
+    best, how = None, 1 << 30
+    for p in PALETTE:
+        d = (abs(((p >> 16) & 255) - r) + abs(((p >> 8) & 255) - g)
+             + abs((p & 255) - b))
+        if d < how:
+            best, how = p, d
+    return best if how <= 12 else colour
 
 
 def parse_summary(page):
@@ -507,9 +527,9 @@ def parse_summary(page):
     if len(sp) < 4:
         return None
     head = sp[:6]
-    if not any(s["color"] == ORANGE and s["bold"] for s in head):
+    if not any(ink(s["color"]) == ORANGE and s["bold"] for s in head):
         return None
-    if not any(s["color"] == NAVY and s["size"] >= 13.5 for s in head):
+    if not any(ink(s["color"]) == NAVY and s["size"] >= 13.5 for s in head):
         return None
 
     rec = {"manufacturer": "", "code": "", "title": "", "category": "",
@@ -532,20 +552,20 @@ def parse_summary(page):
                 break
         return " ".join(out)
 
-    rec["manufacturer"] = run(lambda s: s["color"] == ORANGE)
-    rec["code"] = run(lambda s: s["color"] == NAVY and 11.5 <= s["size"] <= 13.0)
-    rec["title"] = run(lambda s: s["color"] == NAVY and s["size"] >= 13.5)
+    rec["manufacturer"] = run(lambda s: ink(s["color"]) == ORANGE)
+    rec["code"] = run(lambda s: ink(s["color"]) == NAVY and 11.5 <= s["size"] <= 13.0)
+    rec["title"] = run(lambda s: ink(s["color"]) == NAVY and s["size"] >= 13.5)
     # Door sheets carry a category above the title - HINGES, HANDLES. Nothing
     # else uses this colour, and without reading it the word is thrown away.
-    rec["category"] = run(lambda s: s["color"] == GREY and s["bold"]).title()
+    rec["category"] = run(lambda s: ink(s["color"]) == GREY and s["bold"]).title()
 
     label = None
     for s in sp:
-        if s["color"] == NAVY and s["size"] >= 13.5:
+        if ink(s["color"]) == NAVY and s["size"] >= 13.5:
             continue                                    # the title
-        if s["color"] == NAVY and 11.5 <= s["size"] <= 13.0:
+        if ink(s["color"]) == NAVY and 11.5 <= s["size"] <= 13.0:
             continue                                    # the code
-        if s["color"] == NAVY and s["bold"] and s["size"] >= 9.2:
+        if ink(s["color"]) == NAVY and s["bold"] and s["size"] >= 9.2:
             # A section heading. Only two kinds carry anything the register
             # wants; the rest ("Introduction", "Specifications") just mean the
             # next field is starting.
@@ -557,12 +577,12 @@ def parse_summary(page):
                 label = "__notes"
             else:
                 label = None
-        elif s["color"] == NAVY and s["bold"]:
+        elif ink(s["color"]) == NAVY and s["bold"]:
             label = s["text"]
             rec["specs"].append({"label": label, "value": ""})
-        elif s["color"] == BLACK and label == "__notes":
+        elif ink(s["color"]) == BLACK and label == "__notes":
             rec["notes"] = (rec["notes"] + " " + s["text"]).strip()
-        elif s["color"] == BLACK and rec["specs"] and label:
+        elif ink(s["color"]) == BLACK and rec["specs"] and label:
             cur = rec["specs"][-1]
             cur["value"] = (cur["value"] + " " + s["text"]).strip()
 
