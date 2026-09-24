@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-23T20:56:30Z",
+ "generated": "2026-09-24T15:30:53Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -71,7 +71,21 @@
    "name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "count": 39
+   "count": 29
+  },
+  {
+   "key": "L&L",
+   "name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "count": 8
+  },
+  {
+   "key": "iGL",
+   "name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "count": 8
   },
   {
    "key": "LTRN",
@@ -3003,710 +3017,6 @@
    "image": "img/p14-proflo-plastic-roof-drain-pf42870.webp"
   },
   {
-   "id": "lum-l-l12-submersible-pool-fixture-steps-l-l-br",
-   "code": "L&L12",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L09"
-    },
-    {
-     "label": "Lumen output",
-     "value": "195 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "21°"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K"
-    },
-    {
-     "label": "Power",
-     "value": "2 W"
-    },
-    {
-     "label": "Supply",
-     "value": "24 Vdc"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP65 / IP68"
-    },
-    {
-     "label": "Impact",
-     "value": "IK10"
-    },
-    {
-     "label": "Body",
-     "value": "316L stainless steel"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Mounting",
-     "value": "Recessed underwater, pool steps"
-    }
-   ],
-   "notes": "Runs with driver L&L12.1 or L&L12.2. Same fixture as PL-A.",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
-   "pages": 6,
-   "bytes": 2368754,
-   "sha": "395b659445889206",
-   "source": "L - Lighting/LUM - Luminaires/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
-   "key": "lum-l&l12",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
-     "bytes": 2363591,
-     "key": "lum-l&l12-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
-  },
-  {
-   "id": "lum-l-l12-1-pool-fixture-driver-30-w-av0d024v0306",
-   "code": "L&L12.1",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L09"
-    },
-    {
-     "label": "Output",
-     "value": "24 Vdc, 30 W"
-    },
-    {
-     "label": "Control",
-     "value": "DALI-2 dimmable"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP66"
-    },
-    {
-     "label": "Serves",
-     "value": "L&L12 - pool step fixture, tag L09"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
-   "pages": 9,
-   "bytes": 3832784,
-   "sha": "b00dfcdb36d0e8df",
-   "source": "L - Lighting/LUM - Luminaires/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
-   "key": "lum-l&l12.1",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
-     "bytes": 3844953,
-     "key": "lum-l&l12.1-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
-  },
-  {
-   "id": "lum-l-l12-2-pool-fixture-driver-60-w-av0d024v0606",
-   "code": "L&L12.2",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L09"
-    },
-    {
-     "label": "Output",
-     "value": "24 Vdc, 60 W"
-    },
-    {
-     "label": "Control",
-     "value": "DALI-2 dimmable"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP66"
-    },
-    {
-     "label": "Serves",
-     "value": "L&L12 - pool step fixture, tag L09"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
-   "pages": 9,
-   "bytes": 1884250,
-   "sha": "b7a5e86b0232a621",
-   "source": "L - Lighting/LUM - Luminaires/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
-   "key": "lum-l&l12.2",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
-     "bytes": 1902461,
-     "key": "lum-l&l12.2-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
-  },
-  {
-   "id": "lum-l-l13-submersible-pool-fixture-l-l-bright-3",
-   "code": "L&L13",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L09.1"
-    },
-    {
-     "label": "Lumen output",
-     "value": "683 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "34°"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K"
-    },
-    {
-     "label": "Power",
-     "value": "7 W"
-    },
-    {
-     "label": "Supply",
-     "value": "24 Vdc"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP66 / IP68"
-    },
-    {
-     "label": "Impact",
-     "value": "IK10"
-    },
-    {
-     "label": "Body",
-     "value": "316L stainless steel"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Mounting",
-     "value": "Recessed underwater"
-    }
-   ],
-   "notes": "Runs with driver L&L13.1. Same fixture as PL-B.",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
-   "pages": 7,
-   "bytes": 2669473,
-   "sha": "533c4ce8ed6b3595",
-   "source": "L - Lighting/LUM - Luminaires/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
-   "key": "lum-l&l13",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
-     "bytes": 2669975,
-     "key": "lum-l&l13-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
-  },
-  {
-   "id": "lum-l-l13-1-pool-fixture-driver-60-w-av0d024v0606",
-   "code": "L&L13.1",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L09.1"
-    },
-    {
-     "label": "Output",
-     "value": "24 Vdc, 60 W"
-    },
-    {
-     "label": "Control",
-     "value": "DALI-2 dimmable"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP66"
-    },
-    {
-     "label": "Serves",
-     "value": "L&L13 - pool fixture, tag L09.1"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
-   "pages": 9,
-   "bytes": 1884252,
-   "sha": "974f0fbe041ccd0b",
-   "source": "L - Lighting/LUM - Luminaires/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
-   "key": "lum-l&l13.1",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
-     "bytes": 1902461,
-     "key": "lum-l&l13.1-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
-  },
-  {
-   "id": "lum-l-l14-vegetation-projector-l-l-pivot-mini",
-   "code": "L&L14",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Vegetation Projector - L&L Pivot Mini",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L10"
-    },
-    {
-     "label": "Lumen output",
-     "value": "150 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "15° / 25° / 35°"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K"
-    },
-    {
-     "label": "CRI",
-     "value": "90"
-    },
-    {
-     "label": "Power",
-     "value": "2.5 W"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP66"
-    },
-    {
-     "label": "Impact",
-     "value": "IK06"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Model",
-     "value": "cp0100100150lt-4"
-    },
-    {
-     "label": "Use",
-     "value": "Vegetation and landscape"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
-   "pages": 4,
-   "bytes": 954118,
-   "sha": "afd41953c4d3f0dc",
-   "source": "L - Lighting/LUM - Luminaires/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
-   "key": "lum-l&l14",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
-     "bytes": 955432,
-     "key": "lum-l&l14-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
-  },
-  {
-   "id": "lum-l-l17-sconce-l-l-ella-out-1-0",
-   "code": "L&L17",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "L&L Luce&Light",
-   "category": "",
-   "title": "Sconce - L&L Ella OUT 1.0",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "D01"
-    },
-    {
-     "label": "Lumen output",
-     "value": "954 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "25°"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K (2700 K available)"
-    },
-    {
-     "label": "Power",
-     "value": "7 W"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP65"
-    },
-    {
-     "label": "Impact",
-     "value": "IK08"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Model",
-     "value": "ea1010fdtt"
-    },
-    {
-     "label": "Mounting",
-     "value": "Wall"
-    }
-   ],
-   "notes": "Runs with driver L&L17.1.",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
-   "pages": 4,
-   "bytes": 1525378,
-   "sha": "a0d88b6b8f7b8b07",
-   "source": "L - Lighting/LUM - Luminaires/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
-   "key": "lum-l&l17",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
-     "bytes": 1526719,
-     "key": "lum-l&l17-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
-  },
-  {
-   "id": "lum-l-l17-1-sconce-driver-5-protocol-wsddv225pa",
-   "code": "L&L17.1",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "Wago",
-   "category": "",
-   "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "D01"
-    },
-    {
-     "label": "Output",
-     "value": "36 W"
-    },
-    {
-     "label": "Control",
-     "value": "5-protocol dimming"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP20"
-    },
-    {
-     "label": "Serves",
-     "value": "L&L17 - sconce, tag D01"
-    }
-   ],
-   "notes": "The driver is not an L&L part; it keeps the L&L17 number because it belongs to that fixture.",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
-   "pages": 5,
-   "bytes": 292270,
-   "sha": "e64d76ac1d3d0438",
-   "source": "L - Lighting/LUM - Luminaires/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
-   "key": "lum-l&l17.1",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
-     "source": "L - Lighting/LUM - Luminaires/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
-     "bytes": 822169,
-     "key": "lum-l&l17.1-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.webp"
-  },
-  {
-   "id": "lum-lum1-recessed-ceiling-downlight-14-iguzzin",
-   "code": "LUM1",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "iGuzzini",
-   "category": "",
-   "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 mm",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L01"
-    },
-    {
-     "label": "Lumen output",
-     "value": "Up to 121 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "14° spot"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K"
-    },
-    {
-     "label": "CRI",
-     "value": "90"
-    },
-    {
-     "label": "Efficacy",
-     "value": "Up to 60 lm/W"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP20"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Mounting",
-     "value": "Recessed in ceiling, fixed optic"
-    },
-    {
-     "label": "Body",
-     "value": "Die-cast aluminium optical assembly"
-    },
-    {
-     "label": "Lumen maintenance",
-     "value": "L80 at 69,000 h (LM-79 / LM-80)"
-    },
-    {
-     "label": "Supplied by",
-     "value": "Sistemalux (iGuzzini, Canada)"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
-   "pages": 7,
-   "bytes": 1221847,
-   "sha": "025f9575f17cc440",
-   "source": "L - Lighting/LUM - Luminaires/LUM1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
-   "key": "lum-lum1",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
-     "bytes": 3583430,
-     "key": "lum-lum1-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/lum1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp"
-  },
-  {
-   "id": "lum-lum2-recessed-ceiling-downlight-26-iguzzin",
-   "code": "LUM2",
-   "group": "LUM",
-   "group_name": "Luminaires",
-   "discipline": "Lighting",
-   "submittal": null,
-   "manufacturer": "iGuzzini",
-   "category": "",
-   "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 mm",
-   "specs": [
-    {
-     "label": "Fixture tag",
-     "value": "L02"
-    },
-    {
-     "label": "Lumen output",
-     "value": "125 lm to 430 lm"
-    },
-    {
-     "label": "Beam",
-     "value": "26° medium"
-    },
-    {
-     "label": "Colour temperature",
-     "value": "3000 K"
-    },
-    {
-     "label": "CRI",
-     "value": "90"
-    },
-    {
-     "label": "Efficacy",
-     "value": "Up to 75 lm/W"
-    },
-    {
-     "label": "Ingress",
-     "value": "IP20"
-    },
-    {
-     "label": "Control",
-     "value": "DALI"
-    },
-    {
-     "label": "Mounting",
-     "value": "Recessed in ceiling; adjustable, medium, flood and wall-washer optics"
-    },
-    {
-     "label": "Lumen maintenance",
-     "value": "L80 at 50,000 h (LM-79 / LM-80)"
-    },
-    {
-     "label": "Supplied by",
-     "value": "Sistemalux (iGuzzini, Canada)"
-    }
-   ],
-   "notes": "",
-   "status": "not_stated",
-   "status_text": "",
-   "curated": true,
-   "pdf": "datasheets/lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
-   "pages": 11,
-   "bytes": 1443368,
-   "sha": "39a76127fba5515a",
-   "source": "L - Lighting/LUM - Luminaires/LUM2 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
-   "key": "lum-lum2",
-   "drive_url": "",
-   "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum2-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
-     "bytes": 3949770,
-     "key": "lum-lum2-ds",
-     "drive_url": ""
-    }
-   ],
-   "image": "img/lum2-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp"
-  },
-  {
    "id": "lum-lum3-indirect-led-strip-eco-flex-240-2700",
    "code": "LUM3",
    "group": "LUM",
@@ -5437,6 +4747,1101 @@
     }
    ],
    "image": "img/lum16-portable-lamp-p01-kando-m40r.webp"
+  },
+  {
+   "id": "l-l-l-l12-submersible-pool-fixture-steps-l-l-br",
+   "code": "L&L12",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09"
+    },
+    {
+     "label": "Lumen output",
+     "value": "195 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "21°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "Power",
+     "value": "2 W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65 / IP68"
+    },
+    {
+     "label": "Impact",
+     "value": "IK10"
+    },
+    {
+     "label": "Body",
+     "value": "316L stainless steel"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed underwater, pool steps"
+    }
+   ],
+   "notes": "Runs with driver L&L12.1 or L&L12.2. Same fixture as PL-A.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
+   "pages": 6,
+   "bytes": 2368754,
+   "sha": "395b659445889206",
+   "source": "L - Lighting/L&L - Luce & Light/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+   "key": "l&l-l&l12",
+   "drive_url": "https://drive.google.com/file/d/19d4H5mZmkxhMJC1w0f5EgC1dTy6LQvho/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+     "bytes": 2363591,
+     "key": "l&l-l&l12-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
+  },
+  {
+   "id": "l-l-l-l12-1-pool-fixture-driver-30-w-av0d024v0306",
+   "code": "L&L12.1",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 30 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L12 - pool step fixture, tag L09"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
+   "pages": 9,
+   "bytes": 3832784,
+   "sha": "b00dfcdb36d0e8df",
+   "source": "L - Lighting/L&L - Luce & Light/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+   "key": "l&l-l&l12.1",
+   "drive_url": "https://drive.google.com/file/d/1euR8LiPxod_OkDo79I8jJvBXvzAWIA9N/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+     "bytes": 3844953,
+     "key": "l&l-l&l12.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
+  },
+  {
+   "id": "l-l-l-l12-2-pool-fixture-driver-60-w-av0d024v0606",
+   "code": "L&L12.2",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 60 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L12 - pool step fixture, tag L09"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
+   "pages": 9,
+   "bytes": 1884250,
+   "sha": "b7a5e86b0232a621",
+   "source": "L - Lighting/L&L - Luce & Light/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+   "key": "l&l-l&l12.2",
+   "drive_url": "https://drive.google.com/file/d/1X1BPssYZUh8udb6SwcT6mBgX1IMyWRCg/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+     "bytes": 1902461,
+     "key": "l&l-l&l12.2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
+  },
+  {
+   "id": "l-l-l-l13-submersible-pool-fixture-l-l-bright-3",
+   "code": "L&L13",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09.1"
+    },
+    {
+     "label": "Lumen output",
+     "value": "683 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "34°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "Power",
+     "value": "7 W"
+    },
+    {
+     "label": "Supply",
+     "value": "24 Vdc"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66 / IP68"
+    },
+    {
+     "label": "Impact",
+     "value": "IK10"
+    },
+    {
+     "label": "Body",
+     "value": "316L stainless steel"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Mounting",
+     "value": "Recessed underwater"
+    }
+   ],
+   "notes": "Runs with driver L&L13.1. Same fixture as PL-B.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
+   "pages": 7,
+   "bytes": 2669473,
+   "sha": "533c4ce8ed6b3595",
+   "source": "L - Lighting/L&L - Luce & Light/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+   "key": "l&l-l&l13",
+   "drive_url": "https://drive.google.com/file/d/1JZarn7--o8CRylUNSq5288HGpjG-mpDP/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+     "bytes": 2669975,
+     "key": "l&l-l&l13-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
+  },
+  {
+   "id": "l-l-l-l13-1-pool-fixture-driver-60-w-av0d024v0606",
+   "code": "L&L13.1",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L09.1"
+    },
+    {
+     "label": "Output",
+     "value": "24 Vdc, 60 W"
+    },
+    {
+     "label": "Control",
+     "value": "DALI-2 dimmable"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L13 - pool fixture, tag L09.1"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
+   "pages": 9,
+   "bytes": 1884252,
+   "sha": "974f0fbe041ccd0b",
+   "source": "L - Lighting/L&L - Luce & Light/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+   "key": "l&l-l&l13.1",
+   "drive_url": "https://drive.google.com/file/d/1ojAFSrufKyzCOLULTIAHMu3FDsV8PpaS/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+     "bytes": 1902461,
+     "key": "l&l-l&l13.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
+  },
+  {
+   "id": "l-l-l-l14-vegetation-projector-l-l-pivot-mini",
+   "code": "L&L14",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Vegetation Projector - L&L Pivot Mini",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L10"
+    },
+    {
+     "label": "Lumen output",
+     "value": "150 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "15° / 25° / 35°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2.5 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP66"
+    },
+    {
+     "label": "Impact",
+     "value": "IK06"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Model",
+     "value": "cp0100100150lt-4"
+    },
+    {
+     "label": "Use",
+     "value": "Vegetation and landscape"
+    }
+   ],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
+   "pages": 4,
+   "bytes": 954118,
+   "sha": "afd41953c4d3f0dc",
+   "source": "L - Lighting/L&L - Luce & Light/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+   "key": "l&l-l&l14",
+   "drive_url": "https://drive.google.com/file/d/1Tvj8rf_nXTbKUaelkkfo4bqAxRU0Vq_m/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+     "bytes": 955432,
+     "key": "l&l-l&l14-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
+  },
+  {
+   "id": "l-l-l-l17-sconce-l-l-ella-out-1-0",
+   "code": "L&L17",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "L&L Luce&Light",
+   "category": "",
+   "title": "Sconce - L&L Ella OUT 1.0",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D01"
+    },
+    {
+     "label": "Lumen output",
+     "value": "954 lm"
+    },
+    {
+     "label": "Beam",
+     "value": "25°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "3000 K (2700 K available)"
+    },
+    {
+     "label": "Power",
+     "value": "7 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP65"
+    },
+    {
+     "label": "Impact",
+     "value": "IK08"
+    },
+    {
+     "label": "Control",
+     "value": "DALI"
+    },
+    {
+     "label": "Model",
+     "value": "ea1010fdtt"
+    },
+    {
+     "label": "Mounting",
+     "value": "Wall"
+    }
+   ],
+   "notes": "Runs with driver L&L17.1.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
+   "pages": 4,
+   "bytes": 1525378,
+   "sha": "a0d88b6b8f7b8b07",
+   "source": "L - Lighting/L&L - Luce & Light/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+   "key": "l&l-l&l17",
+   "drive_url": "https://drive.google.com/file/d/1byHJrv8UIv8BlqxVGU0v8S40a2tTS2On/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+     "bytes": 1526719,
+     "key": "l&l-l&l17-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
+  },
+  {
+   "id": "l-l-l-l17-1-sconce-driver-5-protocol-wsddv225pa",
+   "code": "L&L17.1",
+   "group": "L&L",
+   "group_name": "Luce & Light",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "Wago",
+   "category": "",
+   "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "D01"
+    },
+    {
+     "label": "Output",
+     "value": "36 W"
+    },
+    {
+     "label": "Control",
+     "value": "5-protocol dimming"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Serves",
+     "value": "L&L17 - sconce, tag D01"
+    }
+   ],
+   "notes": "The driver is not an L&L part; it keeps the L&L17 number because it belongs to that fixture.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
+   "pages": 5,
+   "bytes": 292270,
+   "sha": "e64d76ac1d3d0438",
+   "source": "L - Lighting/L&L - Luce & Light/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+   "key": "l&l-l&l17.1",
+   "drive_url": "https://drive.google.com/file/d/1y0kMN4xlT1DcVyvcxNBwJAE5L24SceZr/view",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
+     "source": "L - Lighting/L&L - Luce & Light/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+     "bytes": 822169,
+     "key": "l&l-l&l17.1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.webp"
+  },
+  {
+   "id": "igl-igl1-recessed-ceiling-downlight-14-iguzzin",
+   "code": "iGL1",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 Fixed Round",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L01"
+    },
+    {
+     "label": "Order code",
+     "value": "ILAS25RTNC-927-SCFSP-REM-31"
+    },
+    {
+     "label": "Quantity",
+     "value": "13 (all interior; circuits 1.10, 1.11, 2.1, 2.7, 2.8, 3.1, 3.2)"
+    },
+    {
+     "label": "Lumen output",
+     "value": "Up to 121 lm at 3000 K reference"
+    },
+    {
+     "label": "Beam",
+     "value": "Super Comfort fixed spot 14°, UGR < 16"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "2 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20; IP43 visible parts"
+    },
+    {
+     "label": "Finish",
+     "value": "31 white / white"
+    },
+    {
+     "label": "Cut-out",
+     "value": "Ø 1 in (25 mm); clearance 2½ in (64 mm)"
+    },
+    {
+     "label": "Control",
+     "value": "DALI, remote driver (iGL7)"
+    },
+    {
+     "label": "Listing",
+     "value": "cULus damp location, interior use only"
+    }
+   ],
+   "notes": "Model Note 5: LD2-02 schedules circuits 2.1, 3.1 and 3.2 as L01 (8 pcs), while the control schedules on LD4-01 and LD4-03 call the same circuits surface-mounted downlights. The quantity of 13 depends on which is right. Confirm with the lighting designer.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
+   "pages": 7,
+   "bytes": 1223353,
+   "sha": "9641429de64dcdfd",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+   "key": "igl-igl1",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+     "bytes": 3583430,
+     "key": "igl-igl1-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp"
+  },
+  {
+   "id": "igl-igl2-laser-25-plaster-frame-new-construction",
+   "code": "iGL2",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Laser 25 Plaster Frame, New Construction - iGuzzini BN-LAS25RT-NC",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L01"
+    },
+    {
+     "label": "Order code",
+     "value": "BN-LAS25RT-NC"
+    },
+    {
+     "label": "Quantity",
+     "value": "13"
+    },
+    {
+     "label": "Serves",
+     "value": "iGL1 - Laser 25 downlight, tag L01"
+    },
+    {
+     "label": "Overall",
+     "value": "7· in x 7· in (186 x 186 mm)"
+    },
+    {
+     "label": "Hanger bars",
+     "value": "14¼ in to 26 in (362 to 660 mm)"
+    },
+    {
+     "label": "Ceiling thickness",
+     "value": "· in to 1· in"
+    }
+   ],
+   "notes": "The spec book marks this TBC by brand.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl2-downlight-plaster-frame-nc-l01-bn-las25rt-nc.pdf",
+   "pages": 7,
+   "bytes": 1220290,
+   "sha": "7f880912f587927c",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL2 - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
+   "key": "igl-igl2",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl2-ds-downlight-plaster-frame-nc-l01-bn-las25rt-nc.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL2 - DS - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
+     "bytes": 3583430,
+     "key": "igl-igl2-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl2-downlight-plaster-frame-nc-l01-bn-las25rt-nc.webp"
+  },
+  {
+   "id": "igl-igl3-recessed-ceiling-downlight-26-iguzzin",
+   "code": "iGL3",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 Fixed Round, Base Output",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02"
+    },
+    {
+     "label": "Order code",
+     "value": "ILAS38RTNC-BO-927-FMD-REM-02"
+    },
+    {
+     "label": "Quantity",
+     "value": "12 (10 interior + 2 exterior; circuits 1.1, 1.3, 1.9, 2.1, 2.4, 3.4)"
+    },
+    {
+     "label": "Lumen output",
+     "value": "Approx. 265 lm at 3000 K reference"
+    },
+    {
+     "label": "Beam",
+     "value": "Fixed medium 26°, UGR < 16"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "CRI",
+     "value": "90"
+    },
+    {
+     "label": "Power",
+     "value": "4 W (4.2 W per cut sheet)"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20; IP43 under ceiling"
+    },
+    {
+     "label": "Finish",
+     "value": "02 black / black"
+    },
+    {
+     "label": "Cut-out",
+     "value": "Ø 1½ in (38 mm); clearance 3 9/16 in (91 mm)"
+    },
+    {
+     "label": "Control",
+     "value": "DALI, remote driver (iGL8)"
+    },
+    {
+     "label": "Listing",
+     "value": "cULus damp location, interior use only"
+    }
+   ],
+   "notes": "Two flags. Model Note 2: the spec book code ends -02 (black / black) but the received cut sheet has 01 (white / black) ticked - confirm the finish and have the cut sheet reissued. Model Note 3: this is an interior-only fixture and 2 pcs are listed in the Exterior chapter - confirm they sit under a covered soffit, or reselect.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl3-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
+   "pages": 11,
+   "bytes": 1445380,
+   "sha": "d9dbd89b9743da46",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL3 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+   "key": "igl-igl3",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl3-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL3 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+     "bytes": 3949770,
+     "key": "igl-igl3-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl3-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp"
+  },
+  {
+   "id": "igl-igl4-laser-38-plaster-frame-new-construction",
+   "code": "iGL4",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Laser 38 Plaster Frame, New Construction - iGuzzini BN-LAS38RT-NC",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02"
+    },
+    {
+     "label": "Order code",
+     "value": "BN-LAS38RT-NC"
+    },
+    {
+     "label": "Quantity",
+     "value": "12 (10 interior + 2 exterior)"
+    },
+    {
+     "label": "Serves",
+     "value": "iGL3 - Laser 38 downlight, tag L02"
+    }
+   ],
+   "notes": "The spec book marks this TBC by brand. See also iGL5: the Laser 38 takes EITHER this plaster frame OR a Chicago Plenum housing, not both.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl4-downlight-plaster-frame-nc-l02-bn-las38rt-nc.pdf",
+   "pages": 11,
+   "bytes": 1441257,
+   "sha": "4411087b786596fd",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL4 - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
+   "key": "igl-igl4",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl4-ds-downlight-plaster-frame-nc-l02-bn-las38rt-nc.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL4 - DS - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
+     "bytes": 3949770,
+     "key": "igl-igl4-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl4-downlight-plaster-frame-nc-l02-bn-las38rt-nc.webp"
+  },
+  {
+   "id": "igl-igl5-laser-38-chicago-plenum-housing-iguzzi",
+   "code": "iGL5",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Laser 38 Chicago Plenum Housing - iGuzzini BN-LAS38RT-CP",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02"
+    },
+    {
+     "label": "Order code",
+     "value": "BN-LAS38RT-CP (as written in the spec book)"
+    },
+    {
+     "label": "Quantity",
+     "value": "12 (10 interior + 2 exterior)"
+    },
+    {
+     "label": "Serves",
+     "value": "iGL3 - Laser 38 downlight, tag L02"
+    }
+   ],
+   "notes": "Model Note 1: this code is not on the cut sheet, and it duplicates the NC frame at iGL4. iGuzzini's own documentation says the Laser 38 is installed EITHER with the NC plaster frame OR with a housing for insulated ceiling / Chicago Plenum, code BI-LAS38RT-IC/CP. Confirm whether CP is required: if not, delete this line (12 pcs); if yes, order BI-LAS38RT-IC/CP instead.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl5-downlight-chicago-plenum-housing-l02-bn-las38rt-cp.pdf",
+   "pages": 11,
+   "bytes": 1441675,
+   "sha": "b4e7d2151fbc5b8f",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL5 - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
+   "key": "igl-igl5",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl5-ds-downlight-chicago-plenum-housing-l02-bn-las38rt-cp.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL5 - DS - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
+     "bytes": 3949770,
+     "key": "igl-igl5-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl5-downlight-chicago-plenum-housing-l02-bn-las38rt-cp.webp"
+  },
+  {
+   "id": "igl-igl6-recessed-ceiling-projector-24-iguzzin",
+   "code": "iGL6",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Recessed Ceiling Projector 24° - iGuzzini Palco Ø 19 mm",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02.1"
+    },
+    {
+     "label": "Order code",
+     "value": "IPLC-LV1-M-19-927-MD-REM-02 (as written in the spec book)"
+    },
+    {
+     "label": "Quantity",
+     "value": "4 (all interior; circuits 1.4, 1.12)"
+    },
+    {
+     "label": "Beam",
+     "value": "24°"
+    },
+    {
+     "label": "Colour temperature",
+     "value": "2700 K"
+    },
+    {
+     "label": "Power",
+     "value": "2 W"
+    },
+    {
+     "label": "Ingress",
+     "value": "IP20"
+    },
+    {
+     "label": "Finish",
+     "value": "Black"
+    },
+    {
+     "label": "Control",
+     "value": "DALI, remote driver"
+    },
+    {
+     "label": "Cut sheet",
+     "value": "None received"
+    }
+   ],
+   "notes": "Model Note 4, and the reason this sheet has no manufacturer pages behind it: no cut sheet was received, and the code does not match a recessed projector. IPLC-LV1 is the Palco Low Voltage spotlight for the 48V track system - 3.4 W, about 127 lm - with no remote driver. Ask iGuzzini for the correct recessed Palco 19 code and cut sheet, and confirm whether the Laser 25 driver at iGL7 is compatible. L02.1 IS on the drawings (LD1-02, LD2-02, LD4-01, LD4-02, LD5-01).",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl6-recessed-projector-ceiling-24deg-dali-l02-1-palco-19.pdf",
+   "pages": 1,
+   "bytes": 6777,
+   "sha": "ae4cf6b27d1d2bf6",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL6 - Recessed Projector Ceiling 24deg DALI - L02.1 - Palco 19.pdf",
+   "key": "igl-igl6",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [],
+   "image": ""
+  },
+  {
+   "id": "igl-igl7-remote-dali-driver-30-w-eldoled-ecodr",
+   "code": "iGL7",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Remote DALI Driver, 30 W - eldoLED ECOdrive 4450-0700-030-UNV-EDA",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L01"
+    },
+    {
+     "label": "Order code",
+     "value": "4450-0700-030-UNV-EDA"
+    },
+    {
+     "label": "Quantity",
+     "value": "10 (8 for L01 + 2 for L02.1)"
+    },
+    {
+     "label": "Output",
+     "value": "30 W, 120-277 V"
+    },
+    {
+     "label": "Drives",
+     "value": "1 to 12 Laser 25 units"
+    },
+    {
+     "label": "Dimming",
+     "value": "DALI, down to 1%"
+    },
+    {
+     "label": "Max remote distance",
+     "value": "118 ft (36 m) on 16 AWG"
+    },
+    {
+     "label": "Connection box",
+     "value": "8 in x 8 in x 4 in (203 x 203 x 102 mm)"
+    },
+    {
+     "label": "Serves",
+     "value": "iGL1 - Laser 25 downlight, tag L01"
+    }
+   ],
+   "notes": "The 2 pcs allocated to L02.1 are unconfirmed: this is a Laser 25 driver and the projector's own code is in question. See Model Note 4 and iGL6.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl7-remote-dali-driver-30w-l01-4450-0700-030-unv-eda.pdf",
+   "pages": 7,
+   "bytes": 1221450,
+   "sha": "ac3945449ca3cfcd",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL7 - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
+   "key": "igl-igl7",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl7-ds-remote-dali-driver-30w-l01-4450-0700-030-unv-eda.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL7 - DS - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
+     "bytes": 3583430,
+     "key": "igl-igl7-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl7-remote-dali-driver-30w-l01-4450-0700-030-unv-eda.webp"
+  },
+  {
+   "id": "igl-igl8-remote-dali-driver-19-w-eldoled-ecodr",
+   "code": "iGL8",
+   "group": "iGL",
+   "group_name": "iGuzzini Lighting",
+   "discipline": "Lighting",
+   "submittal": null,
+   "manufacturer": "iGuzzini",
+   "category": "",
+   "title": "Remote DALI Driver, 19 W - eldoLED ECOdrive 4450-0350-019-UNV-EDA",
+   "specs": [
+    {
+     "label": "Fixture tag",
+     "value": "L02"
+    },
+    {
+     "label": "Order code",
+     "value": "4450-0350-019-UNV-EDA"
+    },
+    {
+     "label": "Quantity",
+     "value": "6 (4 interior + 2 exterior, one per L02 circuit)"
+    },
+    {
+     "label": "Output",
+     "value": "19 W, 120-277 V, indoor rated"
+    },
+    {
+     "label": "Drives",
+     "value": "1 to 4 Laser 38 base-output fixed units"
+    },
+    {
+     "label": "Dimming",
+     "value": "DALI, down to 1%"
+    },
+    {
+     "label": "Max remote distance",
+     "value": "118 ft (36 m) on 16 AWG"
+    },
+    {
+     "label": "Connection box",
+     "value": "8 in x 8 in x 4 in (203 x 203 x 102 mm)"
+    },
+    {
+     "label": "Serves",
+     "value": "iGL3 - Laser 38 downlight, tag L02"
+    }
+   ],
+   "notes": "Indoor rated, and 2 pcs serve the exterior L02 circuits. See Model Note 3.",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": true,
+   "pdf": "datasheets/igl8-remote-dali-driver-19w-l02-4450-0350-019-unv-eda.pdf",
+   "pages": 11,
+   "bytes": 1443155,
+   "sha": "3b0b92fadae7b2a1",
+   "source": "L - Lighting/iGL - iGuzzini Lighting/iGL8 - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
+   "key": "igl-igl8",
+   "drive_url": "",
+   "maker_url": "",
+   "extras": [
+    {
+     "kind": "Manufacturer datasheet",
+     "pdf": "datasheets/igl8-ds-remote-dali-driver-19w-l02-4450-0350-019-unv-eda.pdf",
+     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL8 - DS - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
+     "bytes": 3949770,
+     "key": "igl-igl8-ds",
+     "drive_url": ""
+    }
+   ],
+   "image": "img/igl8-remote-dali-driver-19w-l02-4450-0350-019-unv-eda.webp"
   },
   {
    "id": "ltrn-ltrn1-ltrn1-ds-lutron-myroom-xc-processor",

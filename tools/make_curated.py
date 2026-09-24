@@ -93,10 +93,14 @@ def build(rec, out_dir, source_root):
     doc = fitz.open()
     doc.new_page(width=PAGE[0], height=PAGE[1])
     draw(doc[0], rec)
-    src = Path(source_root) / rec["source"]
-    if not src.exists():
-        raise SystemExit("manufacturer sheet missing: " + str(src))
-    doc.insert_pdf(fitz.open(src))
+    # An item with no cut sheet is still worth a page: the Palco projector is
+    # on the drawings, in the schedule and on order, and iGuzzini have not
+    # issued one. A summary that says so beats no entry at all.
+    if rec.get("source"):
+        src = Path(source_root) / rec["source"]
+        if not src.exists():
+            raise SystemExit("manufacturer sheet missing: " + str(src))
+        doc.insert_pdf(fitz.open(src))
     dest = Path(out_dir) / rec["filename"]
     dest.parent.mkdir(parents=True, exist_ok=True)
     doc.save(dest, garbage=3, deflate=True)

@@ -101,7 +101,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
      state().textContent.indexOf("Connect") !== 0, state().textContent);
 
   var all = rows();
-  ok("only the unconfirmed rows are listed", all.length === 39, all.length + " rows");
+  ok("only the unconfirmed rows are listed", all.length === 45, all.length + " rows");
   ok("every row carries a slug",
      [].every.call(all, function (r) { return /^[a-z0-9]/.test(r.getAttribute("data-slug")); }));
 
@@ -225,16 +225,17 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
 
   /* ---- the picture review ---- */
   var pr = document.querySelectorAll(".prow");
-  ok("only the pictures still to replace are listed", pr.length === 66,
+  ok("the list is everything still wanting a decision", pr.length === 72,
      pr.length + " cards");
   ok("each arrives already marked - the list is the mark",
-     document.querySelectorAll(".prow.marked").length === 66,
-     document.querySelectorAll(".prow.marked").length + " marked");
+     document.querySelectorAll(".prow.marked").length === pr.length,
+     document.querySelectorAll(".prow.marked").length + " of " + pr.length);
   ok("every card is a drop target",
-     document.querySelectorAll(".prow .drop").length === 66 &&
-     document.querySelectorAll(".prow .pick").length === 66);
+     document.querySelectorAll(".prow .drop").length === pr.length &&
+     document.querySelectorAll(".prow .pick").length === pr.length,
+     document.querySelectorAll(".prow .drop").length + " of " + pr.length);
   ok("every card names the file it will be saved as",
-     document.querySelectorAll(".prow .fname").length === 66,
+     document.querySelectorAll(".prow .fname").length === pr.length,
      (pr[0].querySelector(".fname code") || {}).textContent);
   ok("the drop zone is keyed to the item",
      pr[0].querySelector(".drop").getAttribute("data-slug") ===
@@ -293,7 +294,7 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   await wait(100);
   ok("Put them all back returns every card to the list, without writing",
      document.querySelectorAll(".prow.okay").length === 0 &&
-     document.querySelectorAll(".prow.marked").length === 66 &&
+     document.querySelectorAll(".prow.marked").length === pr.length &&
      !window.__store["picok/" + pr[3].getAttribute("data-slug")]);
 
   out.push("");

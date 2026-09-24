@@ -51,6 +51,18 @@ def main(src):
         for k in (it["_mk"], slug(it["key"]), stem):
             lookup.setdefault(k, it)
 
+    # A mark written before a folder moved carries the old group in its key -
+    # "lum-l-l12" for what is now "l-l-l-l12". The code did not move, so fall
+    # back to it, and only when it names exactly one item.
+    bycode = {}
+    for it in items:
+        bycode.setdefault(slug(it["code"]), []).append(it)
+    for code, hits in bycode.items():
+        if len(hits) == 1:
+            lookup.setdefault(code, hits[0])
+            for g in {i["group"] for i in items}:
+                lookup.setdefault(slug(g + "-" + hits[0]["code"]), hits[0])
+
     latest, orphan = {}, []
     for coll in ("picok", "fixpic"):
         for f in glob.glob(os.path.join(src, coll, "*.json")):
@@ -64,12 +76,18 @@ def main(src):
             if it["_mk"] not in latest or when > latest[it["_mk"]][0]:
                 latest[it["_mk"]] = (when, coll)
 
+    # The list is everything still wanting a decision: marked for replacement,
+    # or never looked at. A new item that appeared since the last pass - the
+    # eight iGuzzini sheets did - otherwise shows up in no list anywhere.
     rows = []
     for it in items:
-        if latest.get(it["_mk"], ("", ""))[1] == "fixpic":
-            rows.append({"mk": it["_mk"], "key": it["group"] + "-" + it["code"],
-                         "group": it["group"], "code": it["code"],
-                         "title": it["title"], "image": it.get("image", "")})
+        where = latest.get(it["_mk"], ("", ""))[1]
+        if where == "picok":
+            continue
+        rows.append({"mk": it["_mk"], "key": it["group"] + "-" + it["code"],
+                     "group": it["group"], "code": it["code"],
+                     "title": it["title"], "image": it.get("image", ""),
+                     "seen": where == "fixpic"})
     fine = sum(1 for v in latest.values() if v[1] == "picok")
     unseen = [it["_mk"] for it in items if it["_mk"] not in latest]
 

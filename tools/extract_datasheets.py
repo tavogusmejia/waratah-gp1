@@ -98,6 +98,8 @@ GROUPS = {
     "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
     "LUM": ("Luminaires", "Lighting", None),
+    "L&L": ("Luce & Light", "Lighting", None),
+    "iGL": ("iGuzzini Lighting", "Lighting", None),
     "LTRN": ("Lutron Controls", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
 }
@@ -118,7 +120,7 @@ def group_of(rel):
     # outermost, where the stray-group check will catch it.
     # The & is for "L&L - Luminaires", which no plain [A-Z] run matches.
     seen = [m.group(1) for part in rel.parts[:-1]
-            for m in [re.match(r"([A-Z][A-Z&0-9]{0,5})\s*-\s", part)] if m]
+            for m in [re.match(r"([A-Za-z][A-Za-z&0-9]{0,5})\s*-\s", part)] if m]
     named = [g for g in seen if g in GROUPS]
     if named:
         return named[-1]
@@ -643,11 +645,20 @@ def main():
     # download nobody has filed yet, and it would otherwise enter the register
     # carrying a part number as its item code ("085329_qs_link_power_supply").
     # Held out and named, rather than shown as an item or dropped in silence.
+    # A code is letters THEN digits ("iGL1", "L&L12", "DH15"), or bare
+    # capitals where the source uses them ("A", "B" for the pool lights).
+    # Letters ending in a lower-case letter are not a code: "DHx" is a
+    # placeholder nobody has numbered, and admitting it put the Reflect
+    # weatherstrip in the register under "7.1" - the code printed inside
+    # its own summary page.
+    def is_code(pre):
+        return bool(re.fullmatch(r"[A-Za-z&]{1,6}[0-9][0-9.]*", pre)
+                    or re.fullmatch(r"[A-Z]{1,6}", pre))
+
     filed, unfiled = [], []
     for f in pdfs:
-        pre = code_prefix(f.stem)
-        (filed if (" - " in f.stem and
-                   re.fullmatch(r"[A-Z&]{1,6}[0-9.]*", pre)) else unfiled).append(f)
+        (filed if (" - " in f.stem and is_code(code_prefix(f.stem)))
+         else unfiled).append(f)
     pdfs = filed
     items, problems = [], []
     links = drive_links()
@@ -679,7 +690,7 @@ def main():
         # it actually looks like a code (letters then digits), which leaves
         # the pool lights, filed as plain "A" and "B", alone.
         prefix = code_prefix(p.stem)
-        code = (prefix if re.fullmatch(r"[A-Z&]{1,6}[0-9][0-9.]*", prefix)
+        code = (prefix if re.fullmatch(r"[A-Za-z&]{1,6}[0-9][0-9.]*", prefix)
                 else (rec["code"] or prefix))
         key = key_for(group, code)
         picture, how = pick_image(doc, key, code, p.stem, p)

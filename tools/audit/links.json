@@ -1,105 +1,5 @@
 [
  {
-  "key": "LUM-L&L12",
-  "group": "LUM",
-  "code": "L&L12",
-  "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l12",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L12.1",
-  "group": "LUM",
-  "code": "L&L12.1",
-  "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l12.1",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L12.2",
-  "group": "LUM",
-  "code": "L&L12.2",
-  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l12.2",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L13",
-  "group": "LUM",
-  "code": "L&L13",
-  "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l13",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L13.1",
-  "group": "LUM",
-  "code": "L&L13.1",
-  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l13.1",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L14",
-  "group": "LUM",
-  "code": "L&L14",
-  "title": "Vegetation Projector - L&L Pivot Mini",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l14",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L17",
-  "group": "LUM",
-  "code": "L&L17",
-  "title": "Sconce - L&L Ella OUT 1.0",
-  "manufacturer": "L&L Luce&Light",
-  "slug": "lum-l&l17",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-L&L17.1",
-  "group": "LUM",
-  "code": "L&L17.1",
-  "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
-  "manufacturer": "Wago",
-  "slug": "lum-l&l17.1",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-LUM1",
-  "group": "LUM",
-  "code": "LUM1",
-  "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 mm",
-  "manufacturer": "iGuzzini",
-  "slug": "lum-lum1",
-  "url": "",
-  "kind": "none"
- },
- {
-  "key": "LUM-LUM2",
-  "group": "LUM",
-  "code": "LUM2",
-  "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 mm",
-  "manufacturer": "iGuzzini",
-  "slug": "lum-lum2",
-  "url": "",
-  "kind": "none"
- },
- {
   "key": "LUM-LUM3",
   "group": "LUM",
   "code": "LUM3",
@@ -386,6 +286,166 @@
   "title": "Portable Lamp - Kando M40R",
   "manufacturer": "Bover",
   "slug": "lum-lum16",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L12",
+  "group": "L&L",
+  "code": "L&L12",
+  "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l12",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L12.1",
+  "group": "L&L",
+  "code": "L&L12.1",
+  "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l12.1",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L12.2",
+  "group": "L&L",
+  "code": "L&L12.2",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l12.2",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L13",
+  "group": "L&L",
+  "code": "L&L13",
+  "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l13",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L13.1",
+  "group": "L&L",
+  "code": "L&L13.1",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l13.1",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L14",
+  "group": "L&L",
+  "code": "L&L14",
+  "title": "Vegetation Projector - L&L Pivot Mini",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l14",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L17",
+  "group": "L&L",
+  "code": "L&L17",
+  "title": "Sconce - L&L Ella OUT 1.0",
+  "manufacturer": "L&L Luce&Light",
+  "slug": "l&l-l&l17",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "L&L-L&L17.1",
+  "group": "L&L",
+  "code": "L&L17.1",
+  "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+  "manufacturer": "Wago",
+  "slug": "l&l-l&l17.1",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL1",
+  "group": "iGL",
+  "code": "iGL1",
+  "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 Fixed Round",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl1",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL2",
+  "group": "iGL",
+  "code": "iGL2",
+  "title": "Laser 25 Plaster Frame, New Construction - iGuzzini BN-LAS25RT-NC",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl2",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL3",
+  "group": "iGL",
+  "code": "iGL3",
+  "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 Fixed Round, Base Output",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl3",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL4",
+  "group": "iGL",
+  "code": "iGL4",
+  "title": "Laser 38 Plaster Frame, New Construction - iGuzzini BN-LAS38RT-NC",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl4",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL5",
+  "group": "iGL",
+  "code": "iGL5",
+  "title": "Laser 38 Chicago Plenum Housing - iGuzzini BN-LAS38RT-CP",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl5",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL6",
+  "group": "iGL",
+  "code": "iGL6",
+  "title": "Recessed Ceiling Projector 24° - iGuzzini Palco Ø 19 mm",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl6",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL7",
+  "group": "iGL",
+  "code": "iGL7",
+  "title": "Remote DALI Driver, 30 W - eldoLED ECOdrive 4450-0700-030-UNV-EDA",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl7",
+  "url": "",
+  "kind": "none"
+ },
+ {
+  "key": "iGL-iGL8",
+  "group": "iGL",
+  "code": "iGL8",
+  "title": "Remote DALI Driver, 19 W - eldoLED ECOdrive 4450-0350-019-UNV-EDA",
+  "manufacturer": "iGuzzini",
+  "slug": "igl-igl8",
   "url": "",
   "kind": "none"
  }
