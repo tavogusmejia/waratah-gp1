@@ -536,22 +536,25 @@ document.addEventListener("click", function (ev) {
       pstateEl.className = "lstate warn";
       return;
     }
-    var bits = [ok + " fine", bad + " to replace",
-                (all.length - ok - bad) + " not looked at"];
+    var bits = [bad + " still to replace", ok + " passed since"];
     if (dirty) bits.push(dirty + (dirty === 1 ? " change" : " changes") +
                          " not saved yet");
     pstateEl.textContent = bits.join(" · ");
     pstateEl.className = "lstate" + (dirty ? " warn" : "");
   }
 
+  /* Every card on this list is here because it needs a better picture, so
+     the only move is to take one off - and the only way back is to put it
+     on again. The button toggles between those two, never to a third state
+     where the card is on the list but marked as nothing. */
   document.addEventListener("click", function (ev) {
     var b = ev.target.closest && ev.target.closest(".ptick");
     if (!b) return;
     var row = b.closest(".prow");
-    var want = b.classList.contains("pok") ? "okay" : "marked";
-    var had = row.classList.contains(want);
-    row.classList.remove("okay", "marked");
-    if (!had) row.classList.add(want);
+    var fine = row.classList.contains("okay");
+    row.classList.toggle("okay", !fine);
+    row.classList.toggle("marked", fine);
+    b.textContent = fine ? "Fine after all" : "Back on the list";
     preport();
   });
 
@@ -568,7 +571,12 @@ document.addEventListener("click", function (ev) {
   if (pnoneEl) {
     pnoneEl.addEventListener("click", function () {
       var all = prows();
-      for (var i = 0; i < all.length; i++) all[i].classList.remove("okay", "marked");
+      for (var i = 0; i < all.length; i++) {
+        all[i].classList.remove("okay");
+        all[i].classList.add("marked");        /* back to how the list arrived */
+        var b = all[i].querySelector(".pok");
+        if (b) b.textContent = "Fine after all";
+      }
       preport();
     });
   }

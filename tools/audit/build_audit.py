@@ -150,10 +150,22 @@ def prow(it):
         '</span>'
         '<span class="pacts">'
         '<button class="ptick pok" type="button" '
-        'title="This picture is fine">Fine</button>'
-        '<button class="ptick pbad" type="button" '
-        'title="This picture needs replacing">Needs a better one</button>'
+        'title="This one turned out to be fine after all">Fine after all</button>'
         '</span>'
+        # The card IS the drop target now. Everything on this list is here
+        # because it needs a better picture, so the next thing anyone wants
+        # is somewhere to put one.
+        '<div class="target">'
+        '<button class="fname cp" type="button" data-copy="' + e(it["want"]) + '">'
+        '<code>' + e(it["want"]) + '</code><span class="act">Copy the name</span>'
+        '</button>'
+        '<div class="drop" data-slug="' + e(slug) + '">'
+        '<input class="pick" type="file" accept="image/png,image/jpeg,'
+        'image/gif,image/webp,image/svg+xml" id="pick-' + e(slug) + '">'
+        '<label class="pickface" for="pick-' + e(slug) + '">'
+        'Drop a picture here <span>or choose one</span></label>'
+        '</div>'
+        '</div>'
         '</div></li>')
 
 
@@ -199,17 +211,19 @@ PICTURES = (
     '<section class="block pics" id="pics">'
     '<header class="blockhead">'
     '<h2>Pictures to replace<span class="tally" id="ptally">0</span></h2>'
-    '<p>The ' + str(len(PICS)) + ' you marked as needing a better picture. '
-    'The other ' + str(TOTAL_ITEMS - len(PICS)) + ' you passed as fine and '
-    'they have left this list. If one of these turns out to be all right '
-    'after all, mark it <em>Fine</em> and save, and it goes too. Nothing is '
-    'written until you press Save, and marking a picture changes nothing in '
-    'the register on its own.</p>'
+    '<p>The ' + str(len(PICS)) + ' you marked as needing a better picture; '
+    'the other ' + str(TOTAL_ITEMS - len(PICS)) + ' you passed. Drop a '
+    'replacement straight onto a card and it is staged against that item '
+    '&mdash; hand the batch over and I collect it. The filename under each '
+    'card is what it gets saved as, if you would rather do it by hand.</p>'
+    '<p style="margin-top:8px">If one turns out to be all right after all, '
+    'mark it <em>Fine after all</em> and press Save, and it leaves the list. '
+    'A dropped picture saves itself; the marks wait for Save.</p>'
     '<p class="lstate" id="pstate">Connecting&hellip;</p>'
     '<div class="lbtns">'
     '<button class="all" type="button" id="psave">Save</button>'
     '<button class="all" type="button" id="phide">Hide the ones now marked fine</button>'
-    '<button class="all" type="button" id="pnone">Clear every mark</button>'
+    '<button class="all" type="button" id="pnone">Put them all back</button>'
     '</div>'
     '</header>'
     '<ul class="items pgrid">'
@@ -424,6 +438,14 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .pcard { display: grid; gap: 10px; padding: 14px;
   height: 100%; align-content: start; }
 .pacts { display: flex; gap: 6px; flex-wrap: wrap; }
+.prow .target { display: grid; gap: 8px; margin-top: 2px; }
+.prow .fname { font: 400 11px/1.3 var(--mono); color: var(--ink2);
+  background: var(--sunk); border: 1px solid var(--line); border-radius: 7px;
+  padding: 8px 9px; text-align: left; cursor: copy; word-break: break-all; }
+.prow .fname .act { display: block; margin-top: 4px; font: 600 9.5px var(--sans);
+  letter-spacing: .07em; text-transform: uppercase; color: var(--ink3); }
+.prow .fname.done, .prow .fname.done .act { color: var(--green); }
+.prow .drop { min-height: 62px; }
 .pshot { display: block; width: 100%; aspect-ratio: 4 / 3;
   object-fit: contain; background: var(--photo); border-radius: 8px;
   border: 1px solid var(--photoline); padding: 8px; }
@@ -568,7 +590,7 @@ doc = (
     "works.</li>"
     "<li>Put it in <code>tools/images/</code>.</li>"
     "<li>Run <code>python tools/extract_datasheets.py</code>.</li>"
-    "</ol></div>\n</header>\n" + PICTURES + DUPES + "".join(body) + LINKS +
+    "</ol></div>\n</header>\n" + PICTURES + DUPES + LINKS +
     '<div class="bar" id="bar">'
     '<span class="n" id="barn">0</span>'
     '<span class="t" id="bart">pictures staged.</span>'
