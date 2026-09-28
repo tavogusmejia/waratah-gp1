@@ -26,5 +26,5 @@
 
 window.GP1_CONFIG = {
   url: "https://iygkonfuyslvgezgofby.supabase.co",
-  anonKey: ""
+  anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml5Z2tvbmZ1eXNsdmdlemdvZmJ5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg3OTIxOTMsImV4cCI6MjEwNDM2ODE5M30.XgRJrncn3sVg7oAaLD4xAkr7ZicLayS9GYCroYQMAbs"
 };
