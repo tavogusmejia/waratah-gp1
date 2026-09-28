@@ -160,15 +160,17 @@
       "</div></details>";
   }
 
-  async function signIn(email, say) {
-    var r = await sb.auth.signInWithOtp({
-      email: email,
-      options: { emailRedirectTo: location.origin + location.pathname }
-    });
-    if (r.error) { say(fail(r.error), true); return; }
-    say("Check " + email + " — the link signs you in. It expires in an hour.");
-  }
+  /* ------------------------------------------------------------- sign in */
 
+  /* Three ways in, because they suit different people. A password is what
+     somebody who opens this daily wants; a mailed link is what somebody who
+     opens it twice a year wants, and is also the recovery path when the
+     password has gone. At 300 people the difference is email volume: magic
+     links mean a mail per sign-in, which needs real SMTP and patience.
+
+     Sign-up is open on purpose. It grants NOTHING on its own - rights come
+     from a roster row or a domain rule, and both of those depend on the
+     address being confirmed. */
   function signInPanel() {
     var wrap = document.createElement("div");
     wrap.className = "modal";
@@ -176,35 +178,119 @@
       '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Sign in">' +
         "<h3>Sign in</h3>" +
         "<p>Reading the register needs no account. Signing in is what it " +
-        "takes to add a note, attach an invoice or move an item's status.</p>" +
-        '<form><label for="wf-email">Your email</label>' +
-        '<input id="wf-email" type="email" autocomplete="email" required ' +
-        'placeholder="you@example.com">' +
-        '<div class="modal-f"><button type="button" data-x="1">Cancel</button>' +
-        '<button type="submit" class="go">Email me a link</button></div></form>' +
+        "takes to add a note, attach an invoice or move an item’s status.</p>" +
+        '<div class="wf-tabs" role="tablist">' +
+          '<button type="button" data-tab="password" aria-pressed="true">Password</button>' +
+          '<button type="button" data-tab="link" aria-pressed="false">Email me a link</button>' +
+          '<button type="button" data-tab="new" aria-pressed="false">Create account</button>' +
+        "</div>" +
+        '<form novalidate>' +
+          '<label for="wf-email">Your email</label>' +
+          '<input id="wf-email" type="email" autocomplete="email" placeholder="you@example.com">' +
+          '<div class="wf-pw">' +
+            '<label for="wf-pass">Password</label>' +
+            '<input id="wf-pass" type="password" autocomplete="current-password">' +
+          "</div>" +
+          '<div class="modal-f">' +
+            '<button type="button" data-x="1">Cancel</button>' +
+            '<button type="submit" class="go">Sign in</button>' +
+          "</div>" +
+        "</form>" +
+        '<p class="wf-forgot"><button type="button" class="linkish" data-forgot="1">' +
+          "Forgot your password?</button></p>" +
         '<p class="msg" role="status"></p>' +
       "</div>";
     document.body.appendChild(wrap);
+
+    var form = wrap.querySelector("form");
+    var email = wrap.querySelector("#wf-email");
+    var pass = wrap.querySelector("#wf-pass");
+    var pwBox = wrap.querySelector(".wf-pw");
+    var forgot = wrap.querySelector(".wf-forgot");
+    var go = wrap.querySelector(".go");
     var msg = wrap.querySelector(".msg");
-    var input = wrap.querySelector("#wf-email");
-    input.focus();
+    var mode = "password";
+    email.focus();
 
     function say(t, bad) {
-      msg.textContent = t;
-      msg.className = "msg" + (bad ? " bad" : " ok");
+      msg.textContent = t || "";
+      msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
     }
+
+    function setMode(m) {
+      mode = m;
+      var tabs = wrap.querySelectorAll("[data-tab]");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].setAttribute("aria-pressed", String(tabs[i].dataset.tab === m));
+      }
+      pwBox.hidden = m === "link";
+      forgot.hidden = m !== "password";
+      pass.setAttribute("autocomplete",
+        m === "new" ? "new-password" : "current-password");
+      go.textContent = m === "link" ? "Email me a link"
+                     : m === "new" ? "Create account" : "Sign in";
+      say("");
+    }
+    setMode("password");
+
     wrap.addEventListener("click", function (e) {
-      if (e.target === wrap || e.target.closest("[data-x]")) wrap.remove();
+      if (e.target === wrap || e.target.closest("[data-x]")) { wrap.remove(); return; }
+      var t = e.target.closest("[data-tab]");
+      if (t) { setMode(t.dataset.tab); return; }
+      if (e.target.closest("[data-forgot]")) {
+        var a = email.value.trim();
+        if (!a) { say("Put your email in first.", true); email.focus(); return; }
+        say("Sending…");
+        sb.auth.resetPasswordForEmail(a, {
+          redirectTo: location.origin + location.pathname
+        }).then(function (r) {
+          say(r.error ? fail(r.error)
+                      : "Check " + a + " for a link to set a new password.",
+              !!r.error);
+        });
+      }
     });
-    wrap.querySelector("form").addEventListener("submit", async function (e) {
+
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-      var b = wrap.querySelector(".go");
-      b.disabled = true;
-      say("Sending…");
-      await signIn(input.value.trim(), say);
-      b.disabled = false;
+      var a = email.value.trim().toLowerCase();
+      if (!a) { say("Your email, please.", true); return; }
+      if (mode !== "link" && pass.value.length < 8) {
+        say("Passwords here are at least 8 characters.", true); return;
+      }
+      go.disabled = true;
+      say("…");
+      var r;
+      if (mode === "link") {
+        r = await sb.auth.signInWithOtp({
+          email: a, options: { emailRedirectTo: location.origin + location.pathname }
+        });
+      } else if (mode === "new") {
+        r = await sb.auth.signUp({
+          email: a, password: pass.value,
+          options: { emailRedirectTo: location.origin + location.pathname }
+        });
+      } else {
+        r = await sb.auth.signInWithPassword({ email: a, password: pass.value });
+      }
+      go.disabled = false;
+
+      if (r.error) { say(fail(r.error), true); return; }
+      if (mode === "link") {
+        say("Check " + a + " — the link signs you in. It expires in an hour.");
+      } else if (mode === "new") {
+        /* Supabase returns a user with no session when confirmation is on,
+           which is the configuration domain rules depend on. */
+        say(r.data && r.data.session
+          ? "Account created."
+          : "Account created. Confirm it from the mail we just sent " + a +
+            ", then sign in.");
+      } else {
+        wrap.remove();   /* onAuthStateChange redraws everything else */
+      }
     });
   }
+
 
   /* ------------------------------------------------------------ the panel */
 
@@ -553,7 +639,21 @@
     };
   }
 
-  /* ------------------------------------------------------------- people */
+  /* -------------------------------------------------------------- people */
+
+  /* Built for a roster of hundreds, which changes what the screen has to be:
+     searchable, paged, and able to act on many rows at once. Naming 300
+     people one at a time through a single-row form is not a thing anybody
+     does twice.
+
+     Domain rules are the real answer to scale though - one line covering
+     everyone at a company - so they sit at the top rather than buried. */
+
+  var PER = 50;
+
+  /* PostgREST's `or` takes a comma-separated filter list, so a comma or a
+     paren in the search box would be read as syntax. Only these survive. */
+  function safeQ(s) { return String(s || "").replace(/[^A-Za-z0-9@.\- ]+/g, " ").trim(); }
 
   async function peoplePanel() {
     var wrap = document.createElement("div");
@@ -561,87 +661,218 @@
     wrap.innerHTML =
       '<div class="modal-in wide" role="dialog" aria-modal="true" aria-label="People">' +
         "<h3>People</h3>" +
-        "<p>Anyone can sign in; a role is what lets them change something. " +
-        "Nobody can change their own role, and the last super admin cannot " +
-        "be removed.</p>" +
-        '<ul class="wf-people"><li class="wf-wait">Loading…</li></ul>' +
-        '<form class="wf-add wf-people-add">' +
-          '<input type="email" name="email" placeholder="name@example.com" required aria-label="Email">' +
-          '<input type="text" name="name" placeholder="Name" aria-label="Name">' +
-          '<input type="text" name="note" placeholder="Role on the project" aria-label="Note">' +
-          '<select name="role" aria-label="Access">' +
+        '<p class="wf-counts">Loading…</p>' +
+
+        (can("super_admin")
+          ? '<details class="wf-fold"><summary>Domain rules</summary>' +
+            '<p class="wf-hint">Everyone with a confirmed address at these ' +
+            'domains gets at least this role, with no entry of their own. ' +
+            'One line here is usually worth a hundred rows below.</p>' +
+            '<ul class="wf-domains"><li class="wf-wait">Loading…</li></ul>' +
+            '<form class="wf-add wf-domain-add">' +
+              '<input type="text" name="domain" placeholder="waratahtci.com" required aria-label="Domain">' +
+              '<select name="role" aria-label="Role">' +
+                '<option value="viewer">Viewer</option>' +
+                '<option value="commenter" selected>Commenter</option>' +
+                '<option value="admin">Admin</option>' +
+              "</select>" +
+              '<input type="text" name="note" placeholder="Note" aria-label="Note">' +
+              "<button type=\"submit\">Add rule</button>" +
+            "</form></details>"
+          : "") +
+
+        '<div class="wf-toolbar">' +
+          '<input type="search" class="wf-q" placeholder="Search name, email, company…" aria-label="Search people">' +
+          '<select class="wf-filter" aria-label="Filter by role">' +
+            '<option value="">Every role</option>' +
+            '<option value="viewer">Viewer</option>' +
+            '<option value="commenter">Commenter</option>' +
+            '<option value="admin">Admin</option>' +
+            '<option value="super_admin">Super admin</option>' +
+            '<option value="blocked">Blocked</option>' +
+          "</select>" +
+        "</div>" +
+
+        '<div class="wf-bulk" hidden><span></span>' +
+          '<select aria-label="Set role for selected">' +
+            '<option value="">Set role…</option>' +
             '<option value="viewer">Viewer</option>' +
             '<option value="commenter">Commenter</option>' +
             (can("super_admin")
               ? '<option value="admin">Admin</option>' +
                 '<option value="super_admin">Super admin</option>'
               : "") +
-          "</select><button type=\"submit\">Add</button>" +
-        "</form>" +
+          "</select>" +
+          '<button type="button" data-bulk="block">Block</button>' +
+          '<button type="button" data-bulk="unblock">Unblock</button>' +
+          '<button type="button" data-bulk="remove" class="wf-danger">Remove</button>' +
+        "</div>" +
+
+        '<ul class="wf-people"><li class="wf-wait">Loading…</li></ul>' +
+        '<div class="wf-pager"><button type="button" data-page="-1">←</button>' +
+          "<span></span>" +
+          '<button type="button" data-page="1">→</button></div>' +
+
+        '<details class="wf-fold"><summary>Add people</summary>' +
+          '<p class="wf-hint">One address per line, or separated by commas. ' +
+          'Adding somebody here does not create an account for them — it ' +
+          'says what they get when they make one themselves.</p>' +
+          '<form class="wf-add wf-people-add">' +
+            '<textarea name="emails" rows="3" placeholder="someone@example.com" aria-label="Email addresses"></textarea>' +
+            '<input type="text" name="company" placeholder="Company" aria-label="Company">' +
+            '<select name="role" aria-label="Access">' +
+              '<option value="viewer">Viewer</option>' +
+              '<option value="commenter" selected>Commenter</option>' +
+              (can("super_admin")
+                ? '<option value="admin">Admin</option>' +
+                  '<option value="super_admin">Super admin</option>'
+                : "") +
+            "</select><button type=\"submit\">Add</button>" +
+          "</form></details>" +
+
         '<p class="msg" role="status"></p>' +
         '<div class="modal-f"><button type="button" data-x="1">Done</button></div>' +
       "</div>";
     document.body.appendChild(wrap);
 
     var list = wrap.querySelector(".wf-people");
+    var pager = wrap.querySelector(".wf-pager");
+    var bulk = wrap.querySelector(".wf-bulk");
     var msg = wrap.querySelector(".msg");
+    var qBox = wrap.querySelector(".wf-q");
+    var filterBox = wrap.querySelector(".wf-filter");
+    var page = 0, total = 0, sel = {};
+
     function say(t, bad) {
       msg.textContent = t || "";
       msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
     }
-
     wrap.addEventListener("click", function (e) {
       if (e.target === wrap || e.target.closest("[data-x]")) wrap.remove();
     });
 
-    async function fill() {
-      var r = await sb.from("register_user").select("*").order("email");
-      if (r.error) { list.innerHTML = '<li class="wf-bad">' + esc(fail(r.error)) + "</li>"; return; }
-      var html = "";
-      for (var i = 0; i < r.data.length; i++) {
-        var u = r.data[i];
-        /* An admin may manage the people below them; only a super admin may
-           touch another admin. The database enforces this - the disabled
-           control is just honesty about what will be refused. */
-        var mayEdit = can("super_admin") ||
-                      ROLES.indexOf(u.role) < ROLES.indexOf("admin");
-        var opts = "";
-        for (var j = 0; j < ROLES.length; j++) {
-          var allowed = can("super_admin") || ROLES.indexOf(ROLES[j]) < ROLES.indexOf("admin");
-          if (!allowed && ROLES[j] !== u.role) continue;
-          opts += '<option value="' + ROLES[j] + '"' +
-            (ROLES[j] === u.role ? " selected" : "") + ">" +
-            ROLE_WORDS[ROLES[j]] + "</option>";
-        }
-        html += "<li>" +
-          '<span class="wf-p-n">' + esc(u.name || who(u.email)) +
-          '<em>' + esc(u.email) + (u.note ? " · " + esc(u.note) : "") + "</em></span>" +
-          '<span class="wf-p-s">' + (u.last_seen_at
-            ? "last here " + esc(when(u.last_seen_at))
-            : "never signed in") + "</span>" +
-          '<select data-role="' + esc(u.email) + '"' + (mayEdit ? "" : " disabled") +
-          ">" + opts + "</select>" +
-          (mayEdit
-            ? '<button type="button" class="wf-del" data-rm="' + esc(u.email) +
-              '" aria-label="Remove">×</button>'
-            : "") +
-          "</li>";
-      }
-      list.innerHTML = html || '<li class="wf-none">Nobody yet.</li>';
+    /* ---- counts ---- */
+    async function counts() {
+      var r = await sb.rpc("people_counts");
+      var el = wrap.querySelector(".wf-counts");
+      if (r.error || !r.data) { el.textContent = ""; return; }
+      var c = r.data;
+      el.innerHTML =
+        "<b>" + c.total + "</b> on the roster — " +
+        c.super_admin + " super admin, " + c.admin + " admin, " +
+        c.commenter + " commenter, " + c.viewer + " viewer" +
+        (c.blocked ? ", <b>" + c.blocked + " blocked</b>" : "") +
+        (c.domains ? " · " + c.domains +
+          (c.domains === 1 ? " domain rule" : " domain rules") : "");
     }
 
+    /* ---- the list ---- */
+    async function fill() {
+      var q = safeQ(qBox.value);
+      var f = filterBox.value;
+      var sel_ = sb.from("register_user").select("*", { count: "exact" });
+      if (q) {
+        sel_ = sel_.or("email.ilike.*" + q + "*,name.ilike.*" + q +
+                       "*,company.ilike.*" + q + "*,note.ilike.*" + q + "*");
+      }
+      if (f === "blocked") sel_ = sel_.eq("blocked", true);
+      else if (f) sel_ = sel_.eq("role", f).eq("blocked", false);
+      var r = await sel_.order("email").range(page * PER, page * PER + PER - 1);
+
+      if (r.error) {
+        list.innerHTML = '<li class="wf-bad">' + esc(fail(r.error)) + "</li>";
+        return;
+      }
+      total = r.count == null ? r.data.length : r.count;
+      if (!r.data.length) {
+        list.innerHTML = '<li class="wf-none">' +
+          (q || f ? "Nobody matches that." : "Nobody yet.") + "</li>";
+      } else {
+        var html = "";
+        for (var i = 0; i < r.data.length; i++) {
+          var u = r.data[i];
+          var mayEdit = can("super_admin") ||
+                        ROLES.indexOf(u.role) < ROLES.indexOf("admin");
+          var opts = "";
+          for (var j = 0; j < ROLES.length; j++) {
+            var allowed = can("super_admin") ||
+                          ROLES.indexOf(ROLES[j]) < ROLES.indexOf("admin");
+            if (!allowed && ROLES[j] !== u.role) continue;
+            opts += '<option value="' + ROLES[j] + '"' +
+              (ROLES[j] === u.role ? " selected" : "") + ">" +
+              ROLE_WORDS[ROLES[j]] + "</option>";
+          }
+          html += '<li' + (u.blocked ? ' class="wf-blocked"' : "") + ">" +
+            (mayEdit
+              ? '<input type="checkbox" data-pick="' + esc(u.email) + '"' +
+                (sel[u.email] ? " checked" : "") + ' aria-label="Select ' + esc(u.email) + '">'
+              : '<span class="wf-pick-gap"></span>') +
+            '<span class="wf-p-n">' + esc(u.name || who(u.email)) +
+              "<em>" + esc(u.email) +
+              (u.company ? " · " + esc(u.company) : "") +
+              (u.note ? " · " + esc(u.note) : "") + "</em></span>" +
+            '<span class="wf-p-s">' + (u.blocked ? "blocked"
+              : u.last_seen_at ? "seen " + esc(when(u.last_seen_at))
+              : "never signed in") + "</span>" +
+            '<select data-role="' + esc(u.email) + '"' + (mayEdit ? "" : " disabled") +
+              ">" + opts + "</select>" +
+            (mayEdit
+              ? '<button type="button" class="wf-del" data-rm="' + esc(u.email) +
+                '" aria-label="Remove">×</button>'
+              : "") +
+            "</li>";
+        }
+        list.innerHTML = html;
+      }
+
+      var from = total ? page * PER + 1 : 0;
+      var to = Math.min(total, (page + 1) * PER);
+      pager.querySelector("span").textContent =
+        total <= PER ? (total === 1 ? "1 person" : total + " people")
+                     : from + "–" + to + " of " + total;
+      pager.querySelector('[data-page="-1"]').disabled = page === 0;
+      pager.querySelector('[data-page="1"]').disabled = to >= total;
+      pager.hidden = total <= PER;
+      showBulk();
+    }
+
+    function picked() { return Object.keys(sel).filter(function (k) { return sel[k]; }); }
+    function showBulk() {
+      var n = picked().length;
+      bulk.hidden = !n;
+      bulk.querySelector("span").textContent =
+        n + (n === 1 ? " selected" : " selected");
+    }
+
+    /* ---- events ---- */
+    var timer = null;
+    qBox.addEventListener("input", function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () { page = 0; fill(); }, 250);
+    });
+    filterBox.addEventListener("change", function () { page = 0; fill(); });
+    pager.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-page]");
+      if (!b || b.disabled) return;
+      page += Number(b.dataset.page);
+      if (page < 0) page = 0;
+      fill();
+    });
+
     list.addEventListener("change", async function (e) {
+      var p = e.target.closest("[data-pick]");
+      if (p) { sel[p.dataset.pick] = p.checked; showBulk(); return; }
       var s = e.target.closest("[data-role]");
       if (!s) return;
       say("Saving…");
-      var r = await sb.from("register_user")
-                      .update({ role: s.value }).eq("email", s.dataset.role)
-                      .select("email, role");
+      var r = await sb.from("register_user").update({ role: s.value })
+                      .eq("email", s.dataset.role).select("email, role");
       if (r.error) { say(fail(r.error), true); fill(); return; }
       if (!r.data || !r.data.length) {
         say("That change was refused. Nothing was saved.", true); fill(); return;
       }
-      say("Saved — " + who(s.dataset.role) + " is now " + ROLE_WORDS[r.data[0].role] + ".");
+      say(who(s.dataset.role) + " is now " + ROLE_WORDS[r.data[0].role] + ".");
+      counts();
     });
 
     list.addEventListener("click", async function (e) {
@@ -652,29 +883,122 @@
       b.disabled = true;
       var r = await sb.from("register_user").delete().eq("email", b.dataset.rm);
       if (r.error) { b.disabled = false; say(fail(r.error), true); return; }
-      say("");
-      fill();
+      delete sel[b.dataset.rm];
+      say(""); fill(); counts();
     });
 
-    wrap.querySelector("form").addEventListener("submit", async function (e) {
+    bulk.addEventListener("change", async function (e) {
+      if (e.target.tagName !== "SELECT" || !e.target.value) return;
+      await bulkDo({ role: e.target.value },
+                   "set to " + ROLE_WORDS[e.target.value]);
+      e.target.value = "";
+    });
+    bulk.addEventListener("click", async function (e) {
+      var b = e.target.closest("[data-bulk]");
+      if (!b) return;
+      if (b.dataset.bulk === "remove") {
+        if (!confirm("Remove " + picked().length + " people from the register?")) return;
+        var who_ = picked();
+        b.disabled = true;
+        var r = await sb.from("register_user").delete().in("email", who_);
+        b.disabled = false;
+        if (r.error) { say(fail(r.error), true); return; }
+        sel = {}; say(who_.length + " removed."); fill(); counts();
+        return;
+      }
+      await bulkDo({ blocked: b.dataset.bulk === "block" },
+                   b.dataset.bulk === "block" ? "blocked" : "unblocked");
+    });
+
+    async function bulkDo(patch, word) {
+      var who_ = picked();
+      if (!who_.length) return;
+      say("Saving…");
+      /* .select() so the reply says how many rows the policies ACTUALLY let
+         through - asking for 40 and being given 12 is a thing the person
+         needs told, not a silent partial success. */
+      var r = await sb.from("register_user").update(patch)
+                      .in("email", who_).select("email");
+      if (r.error) { say(fail(r.error), true); return; }
+      var n = r.data ? r.data.length : 0;
+      say(n === who_.length
+        ? n + " " + word + "."
+        : n + " of " + who_.length + " " + word +
+          " — the rest were refused, most likely admins you cannot manage.",
+        n !== who_.length);
+      sel = {}; fill(); counts();
+    }
+
+    wrap.querySelector(".wf-people-add").addEventListener("submit", async function (e) {
       e.preventDefault();
       var f = e.target.elements;
+      var raw = String(f.emails.value || "").split(/[\s,;]+/);
+      var seen = {}, rows = [];
+      for (var i = 0; i < raw.length; i++) {
+        var a = raw[i].trim().toLowerCase();
+        if (!a || seen[a] || a.indexOf("@") < 1) continue;
+        seen[a] = 1;
+        rows.push({ email: a, role: f.role.value,
+                    company: f.company.value.trim(), note: "" });
+      }
+      if (!rows.length) { say("No addresses in that.", true); return; }
       var b = e.target.querySelector("button");
       b.disabled = true;
-      say("Saving…");
-      var r = await sb.from("register_user").insert({
-        email: f.email.value.trim().toLowerCase(),
-        name: f.name.value.trim(),
-        note: f.note.value.trim(),
-        role: f.role.value
-      }).select("email");
+      say("Adding " + rows.length + "…");
+      /* Upsert rather than insert: pasting a list that overlaps the roster is
+         the normal case, not an error worth losing the whole paste over. */
+      var r = await sb.from("register_user")
+                      .upsert(rows, { onConflict: "email" }).select("email");
       b.disabled = false;
       if (r.error) { say(fail(r.error), true); return; }
       e.target.reset();
-      say("");
-      fill();
+      say((r.data ? r.data.length : 0) + " added or updated.");
+      fill(); counts();
     });
 
+    /* ---- domain rules ---- */
+    if (can("super_admin")) {
+      var dlist = wrap.querySelector(".wf-domains");
+      var dfill = async function () {
+        var r = await sb.from("register_domain").select("*").order("domain");
+        if (r.error) { dlist.innerHTML = '<li class="wf-bad">' + esc(fail(r.error)) + "</li>"; return; }
+        if (!r.data.length) { dlist.innerHTML = '<li class="wf-none">No domain rules.</li>'; return; }
+        var h = "";
+        for (var i = 0; i < r.data.length; i++) {
+          var d = r.data[i];
+          h += "<li><span class=\"wf-p-n\">@" + esc(d.domain) +
+            "<em>" + esc(d.note || "") + "</em></span>" +
+            '<span class="wf-p-s">' + esc(ROLE_WORDS[d.role]) + "</span>" +
+            '<button type="button" class="wf-del" data-drm="' + esc(d.domain) +
+            '" aria-label="Remove rule">×</button></li>';
+        }
+        dlist.innerHTML = h;
+      };
+      dlist.addEventListener("click", async function (e) {
+        var b = e.target.closest("[data-drm]");
+        if (!b) return;
+        if (!confirm("Remove the rule for @" + b.dataset.drm +
+                     "? Anyone relying on it loses their access.")) return;
+        var r = await sb.from("register_domain").delete().eq("domain", b.dataset.drm);
+        if (r.error) { say(fail(r.error), true); return; }
+        dfill(); counts();
+      });
+      wrap.querySelector(".wf-domain-add").addEventListener("submit", async function (e) {
+        e.preventDefault();
+        var f = e.target.elements;
+        say("Saving…");
+        var r = await sb.from("register_domain").insert({
+          domain: f.domain.value.trim(),
+          role: f.role.value,
+          note: f.note.value.trim()
+        }).select("domain");
+        if (r.error) { say(fail(r.error), true); return; }
+        e.target.reset(); say(""); dfill(); counts();
+      });
+      dfill();
+    }
+
+    counts();
     fill();
   }
 

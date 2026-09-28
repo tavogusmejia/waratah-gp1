@@ -702,3 +702,89 @@ a { color: inherit; }
   .wf-p-s { display: none; }   /* the row is four things wide already */
   .auth-menu { right: auto; left: 0; }
 }
+
+
+/* ----------------------------------------------- sign-in modes and roster */
+
+/* Three ways in. Tabs rather than three buttons because they are alternatives
+   to each other, not three things you might do. */
+.wf-tabs { display: flex; gap: 4px; margin: 0 0 16px; }
+.wf-tabs button {
+  flex: 1; font: inherit; font-size: 12.5px; cursor: pointer;
+  padding: 7px 8px; border-radius: 6px;
+  border: 1px solid var(--line); background: none; color: var(--ink-3);
+}
+.wf-tabs button[aria-pressed="true"] {
+  background: var(--slate-wash); border-color: var(--slate); color: var(--ink);
+  font-weight: 500;
+}
+.wf-pw { margin-top: 12px; }
+.wf-forgot { margin: 12px 0 0; font-size: 12.5px; }
+.wf-forgot[hidden] { display: none; }
+
+.wf-counts { margin: 0 0 14px; font-size: 12.5px; color: var(--ink-3); }
+.wf-counts b { color: var(--ink-2); font-weight: 500; }
+.wf-hint { margin: 0 0 10px; font-size: 12.5px; color: var(--ink-3); line-height: 1.5; }
+
+/* Collapsed by default: at 300 people the list is the screen, and adding
+   somebody or editing a domain rule is the occasional visit. */
+.wf-fold { margin: 14px 0; border-top: 1px solid var(--line-2); padding-top: 12px; }
+.wf-fold > summary {
+  cursor: pointer; font-size: 11px; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--ink-3); padding: 4px 0;
+}
+.wf-fold > summary:hover { color: var(--ink); }
+
+.wf-toolbar { display: flex; gap: 8px; margin: 12px 0 10px; }
+.wf-toolbar .wf-q { flex: 1; min-width: 0; }
+.wf-toolbar .wf-filter { flex: none; }
+
+/* Only present when something is picked, so it never sits there as a row of
+   disabled buttons implying the screen is broken. */
+.wf-bulk {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  margin: 0 0 10px; padding: 9px 11px; border-radius: 6px;
+  background: var(--slate-wash);
+}
+.wf-bulk[hidden] { display: none; }
+.wf-bulk > span { font-size: 12.5px; font-weight: 500; margin-right: auto; }
+.wf-bulk button, .wf-bulk select {
+  font: inherit; font-size: 12.5px; cursor: pointer; padding: 5px 9px;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg-raise); color: var(--ink-2);
+}
+.wf-bulk button:hover { border-color: var(--slate); color: var(--ink); }
+.wf-danger { color: var(--st-rej-ink); }
+.wf-danger:hover { border-color: var(--st-rej-ink); color: var(--st-rej-ink); }
+
+.wf-people input[type="checkbox"] { flex: none; margin: 0; }
+.wf-pick-gap { flex: none; width: 13px; }
+/* Still listed, still legible, plainly not in force. */
+.wf-people li.wf-blocked .wf-p-n { opacity: .55; text-decoration: line-through; }
+.wf-people li.wf-blocked .wf-p-s { color: var(--st-rej-ink); }
+
+.wf-pager { display: flex; gap: 10px; align-items: center; justify-content: center;
+            margin-top: 12px; font-size: 12.5px; color: var(--ink-3); }
+.wf-pager[hidden] { display: none; }
+.wf-pager button {
+  font: inherit; cursor: pointer; padding: 4px 11px;
+  border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg-raise); color: var(--ink-2);
+}
+.wf-pager button:disabled { opacity: .35; cursor: default; }
+
+.wf-domains { list-style: none; margin: 0 0 10px; padding: 0; }
+.wf-domains li {
+  display: flex; gap: 10px; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid var(--line-2);
+}
+.wf-domains li:last-child { border-bottom: 0; }
+.wf-domains .wf-p-n { font-family: var(--mono); font-size: 12.5px; }
+.wf-domain-add input[name="domain"] { flex: 1; min-width: 150px; font-family: var(--mono); }
+.wf-domain-add input[name="note"] { flex: 1; min-width: 110px; }
+.wf-people-add textarea { flex-basis: 100%; }
+
+@media (max-width: 560px) {
+  .wf-toolbar { flex-wrap: wrap; }
+  .wf-tabs { flex-wrap: wrap; }
+}
