@@ -25,6 +25,6 @@
    ========================================================================== */
 
 window.GP1_CONFIG = {
-  url: "",
+  url: "https://iygkonfuyslvgezgofby.supabase.co",
   anonKey: ""
 };
