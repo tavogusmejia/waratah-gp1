@@ -788,3 +788,19 @@ a { color: inherit; }
   .wf-toolbar { flex-wrap: wrap; }
   .wf-tabs { flex-wrap: wrap; }
 }
+
+/* The two ways out of a failed password, offered where the failure is. */
+.wf-out { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+.wf-out .linkish { font-size: 12.5px; color: var(--ink-2); }
+
+/* A person's row opens their details, so it has to look like it does - and
+   NOT like the buttons around it. Qualified with .modal because `.modal
+   button` is a type-and-class selector and outranks a bare class, which is
+   the collision this stylesheet's own header warns about: the name rendered
+   as a bordered box sitting inside the row. */
+.modal .wf-p-edit {
+  font: inherit; text-align: left; background: none; border: 0; padding: 0;
+  cursor: pointer; color: inherit; border-radius: 0;
+}
+.modal .wf-p-edit:hover { text-decoration: underline; text-underline-offset: 2px; }
+.modal .wf-p-edit:hover em { text-decoration: none; }

@@ -322,6 +322,16 @@
       if (e.target === wrap || e.target.closest("[data-x]")) { wrap.remove(); return; }
       var t = e.target.closest("[data-tab]");
       if (t) { setMode(t.dataset.tab); return; }
+      var tr = e.target.closest("[data-try]");
+      if (tr) {
+        if (tr.dataset.try === "link") {
+          setMode("link");
+          form.dispatchEvent(new Event("submit", { cancelable: true }));
+        } else {
+          wrap.querySelector("[data-forgot]").click();
+        }
+        return;
+      }
       if (e.target.closest("[data-forgot]")) {
         var a = email.value.trim();
         if (!a) { say("Put your email in first.", true); email.focus(); return; }
@@ -363,7 +373,29 @@
       }
       go.disabled = false;
 
-      if (r.error) { say(fail(r.error), true); return; }
+      if (r.error) {
+        /* Supabase answers "wrong password" and "this account has no password"
+           with the SAME invalid_credentials, on purpose - telling them apart
+           would tell a stranger which addresses have accounts. So the page
+           cannot know which it is, and the honest thing is to name both and
+           hand over the way out of either. Both of these accounts reached
+           this state by being created with a mailed link and never given a
+           password, which is exactly the case that looks like a dead end. */
+        if (r.error.code === "invalid_credentials" || r.error.status === 400) {
+          msg.className = "msg bad";
+          msg.innerHTML =
+            "That did not work. Either the password is wrong, or this " +
+            "account has never had one set — an account made with a " +
+            "mailed link has no password until somebody adds it." +
+            '<span class="wf-out">' +
+              '<button type="button" class="linkish" data-try="link">Email me a link instead</button>' +
+              '<button type="button" class="linkish" data-try="reset">Send me a password reset</button>' +
+            "</span>";
+          return;
+        }
+        say(fail(r.error), true);
+        return;
+      }
       if (mode === "link") {
         say("Check " + a + " — the link signs you in. It expires in an hour.");
       } else if (mode === "new") {
@@ -727,6 +759,102 @@
     };
   }
 
+  /* ---- inviting ----
+
+     Adding somebody to the roster creates no account and sends nothing - it
+     records what they will get when they make one. An invitation is the
+     separate act of telling them to.
+
+     Sent with signInWithOtp rather than the admin invite API on purpose:
+     that one needs a service_role key, which would have to live in the
+     deployment, and this does the same job with the public key. The mail is
+     a sign-in link; shouldCreateUser makes it work for somebody with no
+     account yet. */
+  async function invite(email) {
+    var r = await sb.auth.signInWithOtp({
+      email: email,
+      options: {
+        shouldCreateUser: true,
+        emailRedirectTo: location.origin + location.pathname
+      }
+    });
+    return r.error ? fail(r.error) : "";
+  }
+
+  /* ---- one person ---- */
+
+  function personPanel(u, done) {
+    var wrap = document.createElement("div");
+    wrap.className = "modal";
+    wrap.innerHTML =
+      '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Edit person">' +
+        "<h3>" + esc(u.name || who(u.email)) + "</h3>" +
+        "<form>" +
+          '<label for="pp-name">Name</label>' +
+          '<input id="pp-name" type="text" value="' + esc(u.name || "") + '">' +
+          '<label for="pp-email" style="margin-top:12px">Email</label>' +
+          '<input id="pp-email" type="email" value="' + esc(u.email) + '">' +
+          '<p class="wf-hint" style="margin:6px 0 0">This is the roster entry, ' +
+          'not their account. Changing it fixes a typo made before they signed ' +
+          'up — if they already have an account at the old address, their ' +
+          'rights move to the new one and the old one keeps none.</p>' +
+          '<label for="pp-co" style="margin-top:12px">Company</label>' +
+          '<input id="pp-co" type="text" value="' + esc(u.company || "") + '">' +
+          '<label for="pp-note" style="margin-top:12px">Note</label>' +
+          '<input id="pp-note" type="text" value="' + esc(u.note || "") + '">' +
+          '<div class="modal-f">' +
+            '<button type="button" data-inv="1">' +
+              (u.last_seen_at ? "Send a sign-in link" : "Send an invitation") + "</button>" +
+            '<button type="button" data-x="1">Cancel</button>' +
+            '<button type="submit" class="go">Save</button>' +
+          "</div>" +
+        "</form>" +
+        '<p class="msg" role="status"></p>' +
+      "</div>";
+    document.body.appendChild(wrap);
+
+    var msg = wrap.querySelector(".msg");
+    function say(t, bad) {
+      msg.textContent = t || "";
+      msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
+    }
+    wrap.addEventListener("click", async function (e) {
+      if (e.target === wrap || e.target.closest("[data-x]")) { wrap.remove(); return; }
+      var inv = e.target.closest("[data-inv]");
+      if (!inv) return;
+      inv.disabled = true;
+      say("Sending…");
+      var bad = await invite(wrap.querySelector("#pp-email").value.trim().toLowerCase());
+      inv.disabled = false;
+      say(bad || "Sent. The link in that mail signs them in and lets them set " +
+                 "a password.", !!bad);
+    });
+
+    wrap.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var email = wrap.querySelector("#pp-email").value.trim().toLowerCase();
+      if (!email || email.indexOf("@") < 1) { say("That is not an email.", true); return; }
+      var patch = {
+        name: wrap.querySelector("#pp-name").value.trim(),
+        company: wrap.querySelector("#pp-co").value.trim(),
+        note: wrap.querySelector("#pp-note").value.trim()
+      };
+      if (email !== u.email) patch.email = email;
+      var go = wrap.querySelector(".go");
+      go.disabled = true;
+      say("Saving…");
+      var r = await sb.from("register_user").update(patch)
+                      .eq("email", u.email).select("email");
+      go.disabled = false;
+      if (r.error) { say(fail(r.error), true); return; }
+      if (!r.data || !r.data.length) {
+        say("That change was refused. Nothing was saved.", true); return;
+      }
+      wrap.remove();
+      done();
+    });
+  }
+
   /* -------------------------------------------------------------- people */
 
   /* Built for a roster of hundreds, which changes what the screen has to be:
@@ -791,6 +919,7 @@
                 '<option value="super_admin">Super admin</option>'
               : "") +
           "</select>" +
+          '<button type="button" data-bulk="invite">Invite</button>' +
           '<button type="button" data-bulk="block">Block</button>' +
           '<button type="button" data-bulk="unblock">Unblock</button>' +
           '<button type="button" data-bulk="remove" class="wf-danger">Remove</button>' +
@@ -829,7 +958,7 @@
     var msg = wrap.querySelector(".msg");
     var qBox = wrap.querySelector(".wf-q");
     var filterBox = wrap.querySelector(".wf-filter");
-    var page = 0, total = 0, sel = {};
+    var page = 0, total = 0, sel = {}, shown = {};
 
     function say(t, bad) {
       msg.textContent = t || "";
@@ -872,6 +1001,8 @@
         return;
       }
       total = r.count == null ? r.data.length : r.count;
+      shown = {};
+      for (var z = 0; z < r.data.length; z++) shown[r.data[z].email] = r.data[z];
       if (!r.data.length) {
         list.innerHTML = '<li class="wf-none">' +
           (q || f ? "Nobody matches that." : "Nobody yet.") + "</li>";
@@ -895,10 +1026,16 @@
               ? '<input type="checkbox" data-pick="' + esc(u.email) + '"' +
                 (sel[u.email] ? " checked" : "") + ' aria-label="Select ' + esc(u.email) + '">'
               : '<span class="wf-pick-gap"></span>') +
-            '<span class="wf-p-n">' + esc(u.name || who(u.email)) +
-              "<em>" + esc(u.email) +
-              (u.company ? " · " + esc(u.company) : "") +
-              (u.note ? " · " + esc(u.note) : "") + "</em></span>" +
+            (mayEdit
+              ? '<button type="button" class="wf-p-n wf-p-edit" data-edit="' +
+                esc(u.email) + '">' + esc(u.name || who(u.email)) +
+                "<em>" + esc(u.email) +
+                (u.company ? " · " + esc(u.company) : "") +
+                (u.note ? " · " + esc(u.note) : "") + "</em></button>"
+              : '<span class="wf-p-n">' + esc(u.name || who(u.email)) +
+                "<em>" + esc(u.email) +
+                (u.company ? " · " + esc(u.company) : "") +
+                (u.note ? " · " + esc(u.note) : "") + "</em></span>") +
             '<span class="wf-p-s">' + (u.blocked ? "blocked"
               : u.last_seen_at ? "seen " + esc(when(u.last_seen_at))
               : "never signed in") + "</span>" +
@@ -964,6 +1101,12 @@
     });
 
     list.addEventListener("click", async function (e) {
+      var ed = e.target.closest("[data-edit]");
+      if (ed) {
+        var u = shown[ed.dataset.edit];
+        if (u) personPanel(u, function () { fill(); counts(); });
+        return;
+      }
       var b = e.target.closest("[data-rm]");
       if (!b) return;
       if (!confirm("Remove " + b.dataset.rm + "? They keep their account and " +
@@ -984,6 +1127,22 @@
     bulk.addEventListener("click", async function (e) {
       var b = e.target.closest("[data-bulk]");
       if (!b) return;
+      if (b.dataset.bulk === "invite") {
+        var list_ = picked();
+        b.disabled = true;
+        var sent = 0, err = "";
+        for (var i = 0; i < list_.length; i++) {
+          say("Sending " + (i + 1) + " of " + list_.length + "…");
+          var bad = await invite(list_[i]);
+          if (bad) { err = bad; break; }
+          sent++;
+        }
+        b.disabled = false;
+        /* Stopping at the first failure is deliberate: the usual cause is the
+           mail rate limit, and carrying on would burn the rest against it. */
+        say(err ? sent + " sent, then: " + err : sent + " invited.", !!err);
+        return;
+      }
       if (b.dataset.bulk === "remove") {
         if (!confirm("Remove " + picked().length + " people from the register?")) return;
         var who_ = picked();
