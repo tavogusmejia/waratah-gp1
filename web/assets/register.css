@@ -3,10 +3,12 @@
 
    Built on the Waratah brand, which is two colours and a lot of white.
 
-   This is a repository, not a workflow. There are no alerts, no status badges
-   and nothing coloured to push a reader into acting. Red is spent on exactly
-   one thing - the button that opens a datasheet - plus focus rings. Everything
-   else is slate on white, which is what lets a page of 45 items stay readable.
+   It was a repository, not a workflow: no alerts, no status badges, nothing
+   coloured to push a reader into acting. It is now also a submittal log, so
+   there IS one badge - but the restraint it replaced is the reason the badge
+   is a tint and a 6px dot rather than a block of colour. Red stays spent on
+   the button that opens a datasheet, plus focus rings; the status hues are
+   quiet enough to read a page of 139 items past them.
 
    The two brand colours never touch. They are within 0.03 of each other in
    OKLCH lightness — red on slate is 1.02:1, which to a contrast algorithm is
@@ -40,6 +42,21 @@
   --photo-bg: #F4F6F8;
   --photo-line: #E6EAF0;
   --photo-ink: #55637A;   /* 5.6:1 on the photo ground - AA at 13px */
+
+
+  /* Submittal status. A hue ramp read as one slide from fine to not fine:
+     green 145 -> olive 80 -> amber 38 -> red 5. Blue sits off the ramp
+     because "waiting" is not a position on it, and 'not_submitted' has no
+     colour at all - it is the absence of a pill, not a grey one, so a page
+     nobody has triaged yet looks untouched rather than uniformly bad.
+
+     Rejected is deliberately duller and darker than the brand red (#DB3837),
+     so the badge never reads as the "open the datasheet" button. */
+  --st-sub-bg:  #EDF3FB;  --st-sub-ink:  #2C5D96;  --st-sub-dot:  #3B7DD8;
+  --st-ok-bg:   #E9F5EE;  --st-ok-ink:   #1F6B44;  --st-ok-dot:   #2E9E63;
+  --st-note-bg: #F0F4E4;  --st-note-ink: #4E6417;  --st-note-dot: #7E9B23;
+  --st-rev-bg:  #FCF1E2;  --st-rev-ink:  #8A5510;  --st-rev-dot:  #D18F26;
+  --st-rej-bg:  #FBEDEC;  --st-rej-ink:  #9A2F2C;  --st-rej-dot:  #B8403A;
 
   --shadow: 0 1px 2px rgba(28, 37, 48, .05), 0 8px 24px -12px rgba(28, 37, 48, .18);
 
@@ -79,6 +96,14 @@
   --photo-bg: #EDF0F4;
   --photo-line: #2A3340;
   --photo-ink: #55637A;   /* 5.6:1 on the photo ground - AA at 13px */
+
+  /* Same hue angles, grounds sunk and text lifted - not an inversion. */
+  --st-sub-bg:  #182636;  --st-sub-ink:  #8FBCF0;  --st-sub-dot:  #4E93E8;
+  --st-ok-bg:   #14271D;  --st-ok-ink:   #74CE9C;  --st-ok-dot:   #3FAF72;
+  --st-note-bg: #1E2413;  --st-note-ink: #B4C96B;  --st-note-dot: #93B32E;
+  --st-rev-bg:  #2A1F10;  --st-rev-ink:  #E4B160;  --st-rev-dot:  #D9972E;
+  --st-rej-bg:  #2A1716;  --st-rej-ink:  #EE938D;  --st-rej-dot:  #C9524B;
+
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
 }
 
@@ -317,11 +342,30 @@ a { color: inherit; }
 
 .pages { margin-left: auto; font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
+/* ------------------------------------------------------- submittal status */
+
+/* Tint, text and a 6px dot. The dot is what survives a greyscale print and a
+   reader who cannot separate the two ends of the ramp - the hue is the fast
+   read, never the only one, which is why the word is always spelled out
+   beside it rather than encoded in the colour alone. */
+.st {
+  display: inline-flex; align-items: center; gap: 5px; flex: none;
+  font: 500 10px/1 var(--sans); letter-spacing: .05em; text-transform: uppercase;
+  padding: 4px 8px 4px 6px; border-radius: 999px; white-space: nowrap;
+  background: var(--st-bg); color: var(--st-ink);
+}
+.st i { width: 6px; height: 6px; border-radius: 50%; background: var(--st-dot); flex: none; }
+.st.st-submitted         { --st-bg: var(--st-sub-bg);  --st-ink: var(--st-sub-ink);  --st-dot: var(--st-sub-dot); }
+.st.st-approved          { --st-bg: var(--st-ok-bg);   --st-ink: var(--st-ok-ink);   --st-dot: var(--st-ok-dot); }
+.st.st-approved_as_noted { --st-bg: var(--st-note-bg); --st-ink: var(--st-note-ink); --st-dot: var(--st-note-dot); }
+.st.st-revise_resubmit   { --st-bg: var(--st-rev-bg);  --st-ink: var(--st-rev-ink);  --st-dot: var(--st-rev-dot); }
+.st.st-rejected          { --st-bg: var(--st-rej-bg);  --st-ink: var(--st-rej-ink);  --st-dot: var(--st-rej-dot); }
+
 /* ------------------------------------------------------------ list view */
 
 .rows { border-top: 1px solid var(--line-2); }
 .row {
-  display: grid; grid-template-columns: 58px minmax(0, 1fr) 190px 72px;
+  display: grid; grid-template-columns: 58px minmax(0, 1fr) 190px auto 72px;
   gap: 14px; align-items: baseline; width: 100%;
   font: inherit; text-align: left; cursor: pointer;
   border: 0; border-bottom: 1px solid var(--line-2);
@@ -343,6 +387,8 @@ a { color: inherit; }
 @media (max-width: 720px) {
   .row { grid-template-columns: 52px minmax(0, 1fr); gap: 4px 12px; }
   .row-m { grid-column: 2; font-size: 12px; }
+  .row .st { grid-column: 2; justify-self: start; }
+  .row .st-gap { display: none; }   /* two columns here: no cell to hold open */
   .row .pages { grid-column: 2; text-align: left; }
 }
 

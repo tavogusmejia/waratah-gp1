@@ -1,17 +1,22 @@
 /* ==========================================================================
    GP1-MUR Material & Hardware Register.
 
-   Read-only. There is no backend, no sign-in and nothing to save: the whole
-   register is data/datasheets.json, generated from the curated PDFs by
+   The CATALOGUE is read-only and has no backend: the whole of it is
+   data/datasheets.json, generated from the curated PDFs by
    "tools/extract_datasheets.py", which reads the submittal folder. Change a
    datasheet there, re-run that, and this page is correct again — there is no
    second place to update.
 
-   It is a repository, not a workflow. Nothing here nags: no alerts, no status
-   badges, no review state. The submittals are settled, and if something about
-   the project changes it gets changed at the source and re-extracted. What the
-   page owes a reader is a fast way to find an item, see what it looks like,
-   read its specification and open its datasheet.
+   The WORKFLOW laid over it — submittal status, notes, invoices — is not in
+   this file. It lives in workflow.js, talks to Supabase, and reaches this
+   file through the small window.GP1 seam at the bottom. That split is the
+   point: with workflow.js absent, unconfigured or unreachable, everything
+   here still renders exactly as it did when the register was read-only, which
+   is what an anonymous reader gets and what the test harness checks.
+
+   So: a fast way to find an item, see what it looks like, read its
+   specification and open its datasheet — and, if someone has set one, a badge
+   saying where it stands.
    ========================================================================== */
 
 (function () {
@@ -19,8 +24,15 @@
 
   var DATA = "./data/datasheets.json";
 
+  /* `approval` is item_key -> {status, status_note, ...}, handed over by
+     workflow.js. Empty until it arrives, and empty forever if it does not.
+
+     Named approval, not status: an item already carries `status` (the curated
+     sheet's spec position - "submitted as specified", "substitution",
+     "deviation") and `submittal` (the package number, JANU-SUB-003). Three
+     different things behind one word is how the wrong one gets rendered. */
   var state = { items: [], groups: [], q: "", group: "", maker: "",
-               view: "cards", open: null };
+               view: "cards", open: null, approval: {} };
   var els = {};
 
   function esc(s) {
@@ -110,6 +122,24 @@
            'loading="lazy" decoding="async"></span>';
   }
 
+  /* Nothing for an item nobody has ruled on yet - 'not_submitted' is the
+     absence of a badge rather than a grey one, so an untriaged register looks
+     untouched instead of uniformly flagged. */
+  var WORDS = {
+    submitted: "Submitted", approved: "Approved",
+    approved_as_noted: "Approved as noted", revise_resubmit: "Revise & resubmit",
+    rejected: "Rejected"
+  };
+
+  function pill(it) {
+    var st = state.approval[it.key];
+    var k = st && st.status;
+    if (!k || !WORDS[k]) return "";
+    return '<span class="st st-' + k + '" title="' + esc(WORDS[k]) +
+      (st.status_note ? " — " + esc(st.status_note) : "") +
+      '"><i></i>' + esc(WORDS[k]) + "</span>";
+  }
+
   function card(it) {
     return '<button class="card" data-id="' + esc(it.id) + '">' +
       thumb(it) +
@@ -121,6 +151,7 @@
           ? '<span class="card-s">' + esc(it.specs[0].value.slice(0, 96)) + "</span>"
           : "") +
         '<span class="card-f">' +
+          pill(it) +
           '<span class="pages">' + it.pages +
           (it.pages === 1 ? " page" : " pages") + "</span>" +
         "</span>" +
@@ -134,6 +165,7 @@
       "<code>" + esc(it.code) + "</code>" +
       '<span class="row-t">' + esc(it.title) + "</span>" +
       '<span class="row-m">' + esc(it.manufacturer || "") + "</span>" +
+      (pill(it) || '<span class="st-gap"></span>') +
       '<span class="pages">' + it.pages +
       (it.pages === 1 ? " page" : " pages") + "</span>" +
       "</button>";
@@ -327,6 +359,14 @@
             size(it.bytes) + "</em></span>") +
       "</div>";
 
+    /* workflow.js appends the status control, the notes and the invoices
+       here. Wrapped because a throw inside it must not leave the sheet
+       half-open with no focus and no way back out. */
+    if (GP1.onSheet) {
+      try { GP1.onSheet(it, els.sheet); }
+      catch (e) { if (window.console) console.error(e); }
+    }
+
     els.sheet.classList.add("on");
     els.scrim.classList.add("on");
     els.sheet.querySelector(".sheet-x").focus();
@@ -477,9 +517,52 @@
 
   function ready() { document.dispatchEvent(new Event("gp1:ready")); }
 
+  /* ---------------------------------------------------------------- seam
+
+     Everything workflow.js is allowed to touch, and nothing else. Kept
+     deliberately small: this file stays the read-only register, and the
+     whole of the workflow layer's reach into it is these five entries. */
+  var GP1 = window.GP1 = {
+    items:   function () { return state.items; },
+    open:    function () { return state.open; },
+    render:  function () { render(); },
+    onSheet: null,          /* workflow.js sets this: fn(item, sheetElement) */
+
+    /* item_key -> {status, status_note, ...}. Re-renders, so calling it with
+       {} is how the layer cleans up after a sign-out. */
+    setApproval: function (map) { state.approval = map || {}; render(); }
+  };
+
   function boot(data) {
     state.items = data.items;
     state.groups = data.groups;
+
+    /* A key that names two items cannot carry one item's approval. P9 is the
+       live case: JM Micro-Lok fibreglass and poly pipe insulation are
+       different products filed under one code. Mark both so the workflow
+       layer refuses to attach anything to either, rather than quietly giving
+       them a shared status, shared notes and shared invoices.
+
+       The fix is in the source folder, not here: give one of them its own
+       number and re-extract. */
+    var count = {};
+    for (var c = 0; c < state.items.length; c++) {
+      count[state.items[c].key] = (count[state.items[c].key] || 0) + 1;
+    }
+    GP1.ambiguous = [];
+    for (var a = 0; a < state.items.length; a++) {
+      if (count[state.items[a].key] > 1) {
+        state.items[a].shared_key = true;
+        if (GP1.ambiguous.indexOf(state.items[a].key) < 0) {
+          GP1.ambiguous.push(state.items[a].key);
+        }
+      }
+    }
+    if (GP1.ambiguous.length && window.console) {
+      console.warn("GP1: these codes name more than one item, so they can " +
+                   "carry no status, notes or invoices until renumbered: " +
+                   GP1.ambiguous.join(", "));
+    }
 
     els.lede.innerHTML =
       "<h2>Material &amp; Hardware Register</h2>" +

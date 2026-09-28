@@ -14,6 +14,16 @@ f.addEventListener("load",function(){
     d.documentElement.setAttribute("data-theme",T);
     var sp=d.getElementById("splash"); if(sp)sp.remove();
     d.documentElement.classList.remove("splash-on");
+    /* ?st=1 seeds one of every approval state onto the first items, so the
+       hue ramp can be looked at without a Supabase project behind it. */
+    if(/[?&]st=1/.test(location.search)){
+      var W=f.contentWindow, its=W.GP1.items(), m={};
+      var S=["submitted","approved","approved_as_noted","revise_resubmit","rejected"];
+      for(var i=0;i<S.length&&i<its.length;i++){
+        m[its[i].key]={status:S[i],status_note:S[i]==="approved_as_noted"?"Finish to be confirmed":""};
+      }
+      W.GP1.setApproval(m);
+    }
     if(OPEN){ var c=d.querySelector(".card.act")||d.querySelector(".card"); c.click(); }
   },30);
 });
