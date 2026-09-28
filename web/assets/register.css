@@ -242,19 +242,26 @@ a { color: inherit; }
   text-transform: uppercase; color: var(--ink-3);
 }
 
+/* The rail is a 208px column and some group names - "Balancing Tank
+   Accessories", "Bathroom and Shower Fixtures" - are simply longer than the
+   room left over once the code chip and the count have taken theirs. They
+   used to run out of the button on one nowrap line. The name is its own flex
+   item so it can wrap; the chip and the count never do. */
 .rail button {
   display: flex; width: 100%; align-items: baseline; gap: 9px;
   font: inherit; font-size: 13.5px; text-align: left; cursor: pointer;
   border: 0; background: none; color: var(--ink-2);
-  padding: 7px 10px; border-radius: 6px; white-space: nowrap;
+  padding: 7px 10px; border-radius: 6px;
 }
+.rail button span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
 .rail button:hover { background: var(--slate-wash); color: var(--ink); }
 .rail button[aria-pressed="true"] { background: var(--slate-wash); color: var(--ink); font-weight: 500; }
 .rail button kbd {
+  flex: none; white-space: nowrap;
   font: 500 10.5px/1 var(--mono); color: var(--ink-3);
   border: 1px solid var(--line); border-radius: 3px; padding: 3px 4px;
 }
-.rail button b { margin-left: auto; font-weight: 400; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.rail button b { flex: none; white-space: nowrap; margin-left: auto; font-weight: 400; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
 
 /* ----------------------------------------------------------------- items */

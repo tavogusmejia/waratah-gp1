@@ -199,7 +199,7 @@
 
   function renderRail() {
     var html = "<h3>Groups</h3>" +
-      '<button data-g="" aria-pressed="true">All groups<b>' +
+      '<button data-g="" aria-pressed="true"><span>All groups</span><b>' +
       state.items.length + "</b></button>";
     /* The same choice, twice: a rail with room to breathe on a wide screen,
        and a picker on a phone. The rail used to be a horizontal scroll strip
@@ -209,8 +209,11 @@
     for (var i = 0; i < state.groups.length; i++) {
       var g = state.groups[i];
       if (!g.count) continue;
+      /* The name is wrapped so it is a flex item of its own and can wrap
+         inside the rail; a bare text node cannot be given min-width. */
       html += '<button data-g="' + esc(g.key) + '" aria-pressed="false"><kbd>' +
-        esc(g.key) + "</kbd> " + esc(g.name) + "<b>" + g.count + "</b></button>";
+        esc(g.key) + "</kbd><span>" + esc(g.name) + "</span><b>" +
+        g.count + "</b></button>";
       opts += '<option value="' + esc(g.key) + '">' + esc(g.name) +
               " (" + g.count + ")</option>";
     }
