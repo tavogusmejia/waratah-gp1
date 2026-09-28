@@ -312,8 +312,32 @@ third-party request at all.
 2. Import it in Vercel.
 3. **Set Root Directory to `web`.** There is no build command and no output
    directory; it is served as static files.
+4. Set `SUPABASE_ANON_KEY` and `CRON_SECRET` in Environment Variables, then
+   redeploy so the cron job registers. See SUPABASE-SETUP.md.
 
-`web/vercel.json` only sets cache and security headers.
+`web/vercel.json` sets cache and security headers, and schedules the one
+serverless function in the project.
+
+### The one function: /api/keepalive
+
+A Supabase free-tier project pauses after seven days of inactivity, and it
+fails in the worst shape: the catalogue is a static file so the register keeps
+rendering, while every status, note and invoice silently fails. The page looks
+fine and saves nothing.
+
+So a daily cron calls `gp1.beat()`, which WRITES a heartbeat row - unambiguous
+activity, and it exercises the path that matters, where a read-only ping would
+keep reporting success on a database that had stopped accepting writes. The
+reply carries the row counts, so it answers "alive and still holding my data"
+rather than "something responded".
+
+Open `/api/keepalive` by hand and an unauthenticated visit calls
+`beat_status()` instead, which writes nothing. `hours_ago` is the number to
+look at: under 24 the cron is running, over 48 it has stopped.
+
+Nothing secret lives in the deployment. The only Supabase credential is the
+anon key, which is public by design; the write is rate-limited inside the
+database to one row an hour however often it is called.
 
 ---
 
