@@ -96,6 +96,9 @@
     if (e.code === "PGRST301" || e.code === "42501") {
       return "You do not have permission to do that.";
     }
+    if (e.code === "weak_password" || (e.message || "").indexOf("Password should") === 0) {
+      return "That password is too simple. " + PW_RULE;
+    }
     if (e.code === "PGRST106") {
       return "The gp1 schema is not exposed in the project's API settings.";
     }
@@ -161,6 +164,19 @@
       "</div></details>";
   }
 
+  /* The project requires a lower-case letter, an upper-case letter and a
+     digit, so promising "at least 8 characters" and then being refused by the
+     server is a small lie told at the worst moment. Checked here to say it
+     before the round trip; the server still decides. */
+  function weak(pw) {
+    if (pw.length < 8) return "At least 8 characters.";
+    if (!/[a-z]/.test(pw)) return "Needs a lower-case letter.";
+    if (!/[A-Z]/.test(pw)) return "Needs a capital letter.";
+    if (!/[0-9]/.test(pw)) return "Needs a digit.";
+    return "";
+  }
+  var PW_RULE = "8 characters or more, with a capital, a lower-case letter and a digit.";
+
   /* ---- setting a password ----
 
      Two ways here, and the quick one matters more than it looks.
@@ -188,6 +204,7 @@
         "<form novalidate>" +
           '<label for="wf-np">New password</label>' +
           '<input id="wf-np" type="password" autocomplete="new-password" minlength="8">' +
+          '<p class="wf-hint" style="margin:6px 0 0">' + PW_RULE + "</p>" +
           '<label for="wf-np2" style="margin-top:12px">Once more</label>' +
           '<input id="wf-np2" type="password" autocomplete="new-password" minlength="8">' +
           '<div class="modal-f">' +
@@ -212,7 +229,8 @@
     });
     wrap.querySelector("form").addEventListener("submit", async function (e) {
       e.preventDefault();
-      if (a.value.length < 8) { say("At least 8 characters.", true); return; }
+      var bad = weak(a.value);
+      if (bad) { say(bad, true); return; }
       if (a.value !== b.value) { say("Those two do not match.", true); return; }
       var go = wrap.querySelector(".go");
       go.disabled = true;
@@ -255,6 +273,7 @@
           '<div class="wf-pw">' +
             '<label for="wf-pass">Password</label>' +
             '<input id="wf-pass" type="password" autocomplete="current-password">' +
+            '<p class="wf-hint wf-rule" style="margin:6px 0 0" hidden>' + PW_RULE + "</p>" +
           "</div>" +
           '<div class="modal-f">' +
             '<button type="button" data-x="1">Cancel</button>' +
@@ -289,6 +308,7 @@
         tabs[i].setAttribute("aria-pressed", String(tabs[i].dataset.tab === m));
       }
       pwBox.hidden = m === "link";
+      wrap.querySelector(".wf-rule").hidden = m !== "new";
       forgot.hidden = m !== "password";
       pass.setAttribute("autocomplete",
         m === "new" ? "new-password" : "current-password");
@@ -320,8 +340,11 @@
       e.preventDefault();
       var a = email.value.trim().toLowerCase();
       if (!a) { say("Your email, please.", true); return; }
-      if (mode !== "link" && pass.value.length < 8) {
-        say("Passwords here are at least 8 characters.", true); return;
+      if (mode === "new") {
+        var bad2 = weak(pass.value);
+        if (bad2) { say(bad2, true); return; }
+      } else if (mode === "password" && !pass.value) {
+        say("Your password, please.", true); return;
       }
       go.disabled = true;
       say("…");
