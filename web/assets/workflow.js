@@ -156,8 +156,73 @@
             "role yet, so you can read the register and nothing more. Ask an " +
             "admin to add you.</p>") +
         (can("admin") ? '<button type="button" data-people="1">Manage people</button>' : "") +
+        '<button type="button" data-pw="1">Set a password</button>' +
         '<button type="button" data-out="1">Sign out</button>' +
       "</div></details>";
+  }
+
+  /* ---- setting a password ----
+
+     Two ways here, and the quick one matters more than it looks.
+
+     From the MENU, while already signed in: no email, no waiting, no link to
+     click. An account that has only ever used a mailed link can be given a
+     password in about ten seconds this way, which is the whole answer to
+     "how do I set up passwords for these two addresses".
+
+     From a RECOVERY LINK: Supabase puts the page into a recovery session and
+     fires PASSWORD_RECOVERY. Without something listening for that, the mail
+     from "Forgot your password?" lands the reader back on a register with no
+     way to finish - which is what this file did until now. The link signs you
+     in and then nothing happens, and nothing says why. */
+  function passwordPanel(recovery) {
+    var wrap = document.createElement("div");
+    wrap.className = "modal";
+    wrap.innerHTML =
+      '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Set a password">' +
+        "<h3>" + (recovery ? "Set a new password" : "Set a password") + "</h3>" +
+        "<p>" + (recovery
+          ? "You came in on a recovery link. Choose a password and it takes effect straight away."
+          : "You can keep using the mailed link. A password is simply quicker " +
+            "if you open this often.") + "</p>" +
+        "<form novalidate>" +
+          '<label for="wf-np">New password</label>' +
+          '<input id="wf-np" type="password" autocomplete="new-password" minlength="8">' +
+          '<label for="wf-np2" style="margin-top:12px">Once more</label>' +
+          '<input id="wf-np2" type="password" autocomplete="new-password" minlength="8">' +
+          '<div class="modal-f">' +
+            '<button type="button" data-x="1">' + (recovery ? "Later" : "Cancel") + "</button>" +
+            '<button type="submit" class="go">Save password</button>' +
+          "</div>" +
+        "</form>" +
+        '<p class="msg" role="status"></p>' +
+      "</div>";
+    document.body.appendChild(wrap);
+
+    var a = wrap.querySelector("#wf-np");
+    var b = wrap.querySelector("#wf-np2");
+    var msg = wrap.querySelector(".msg");
+    a.focus();
+    function say(t, bad) {
+      msg.textContent = t || "";
+      msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
+    }
+    wrap.addEventListener("click", function (e) {
+      if (e.target === wrap || e.target.closest("[data-x]")) wrap.remove();
+    });
+    wrap.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      if (a.value.length < 8) { say("At least 8 characters.", true); return; }
+      if (a.value !== b.value) { say("Those two do not match.", true); return; }
+      var go = wrap.querySelector(".go");
+      go.disabled = true;
+      say("Saving…");
+      var r = await sb.auth.updateUser({ password: a.value });
+      go.disabled = false;
+      if (r.error) { say(fail(r.error), true); return; }
+      say("Saved. You can sign in with this password from now on.");
+      setTimeout(function () { wrap.remove(); }, 1600);
+    });
   }
 
   /* ------------------------------------------------------------- sign in */
@@ -1038,7 +1103,16 @@
     authBox();
     loadApproval();
 
-    sb.auth.onAuthStateChange(async function (_evt, session) {
+    sb.auth.onAuthStateChange(async function (evt, session) {
+      /* Arriving on a "forgot your password" link. Checked first: the test
+         below is for a CHANGE of user, and a recovery is the same person, so
+         it would return before ever getting here. */
+      if (evt === "PASSWORD_RECOVERY") {
+        me = session ? session.user : me;
+        authBox();
+        passwordPanel(true);
+        return;
+      }
       var was = me && me.email;
       me = session ? session.user : null;
       if ((me && me.email) === was) return;
@@ -1061,6 +1135,12 @@
       var d = e.target.closest("details");
       if (d) d.open = false;
       peoplePanel();
+      return;
+    }
+    if (e.target.closest("[data-pw]")) {
+      var d2 = e.target.closest("details");
+      if (d2) d2.open = false;
+      passwordPanel(false);
     }
   });
 
