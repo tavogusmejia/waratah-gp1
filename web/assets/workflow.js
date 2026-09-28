@@ -612,8 +612,15 @@
     };
   }
 
-  /* ---- invoices ---- */
+  /* ---- invoices ----
 
+     A file, and nothing else to fill in. The first version asked for a label,
+     a supplier, an invoice number, an amount and a date before it would take
+     anything, which is a form standing between somebody and the one thing
+     they came to do. The columns are still there and still carry what the old
+     rows put in them - they are simply not asked for.
+
+     Several files at once, because invoices arrive in batches. */
   function invoiceBlock(it, mine) {
     var sec = section("Invoices", ' <em>admin only</em>');
     var list = document.createElement("ul");
@@ -621,64 +628,43 @@
     list.innerHTML = '<li class="wf-wait">Loading…</li>';
     sec.appendChild(list);
 
-    var form = document.createElement("form");
-    form.className = "wf-add wf-inv-add";
-    form.innerHTML =
-      '<input type="text" name="label" placeholder="Label — Deposit, Final" aria-label="Label">' +
-      '<input type="text" name="supplier" placeholder="Supplier" aria-label="Supplier">' +
-      '<input type="text" name="invoice_no" placeholder="Invoice no." aria-label="Invoice number">' +
-      '<input type="number" name="amount" step="0.01" placeholder="Amount" aria-label="Amount">' +
-      '<input type="date" name="dated" aria-label="Date">' +
-      '<input type="file" name="file" accept="application/pdf,image/*" aria-label="Invoice file">' +
-      '<input type="url" name="drive_url" placeholder="…or paste a Google Drive link" aria-label="Drive link">' +
-      '<button type="submit">Attach</button>';
-    sec.appendChild(form);
+    var box = document.createElement("div");
+    box.className = "wf-up";
+    box.innerHTML =
+      '<label class="wf-upbtn"><input type="file" multiple ' +
+      'accept="application/pdf,image/png,image/jpeg,image/webp" hidden>' +
+      "Upload an invoice</label>";
+    sec.appendChild(box);
     var say = msgLine(sec);
+    var input = box.querySelector("input");
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      var f = form.elements;
-      var file = f.file.files[0];
-      var drive = f.drive_url.value.trim();
-      if (!file && !drive) { say("Pick a file, or paste a Drive link.", true); return; }
-      if (file && drive) { say("One or the other — a file or a link, not both.", true); return; }
-
-      var b = form.querySelector("button");
-      b.disabled = true;
-      var row = {
-        item_key: it.key,
-        label: f.label.value.trim(),
-        supplier: f.supplier.value.trim(),
-        invoice_no: f.invoice_no.value.trim(),
-        amount: f.amount.value ? Number(f.amount.value) : null,
-        dated: f.dated.value || null,
-        drive_url: drive || null,
-        storage_path: null,
-        filename: file ? file.name : ""
-      };
-
-      if (file) {
-        say("Uploading…");
-        var path = it.key + "/" + safeName(file.name);
-        var up = await sb.storage.from("invoices").upload(path, file);
-        if (up.error) { b.disabled = false; say(fail(up.error), true); return; }
-        row.storage_path = up.data.path;
+    input.addEventListener("change", async function () {
+      var files = Array.prototype.slice.call(input.files || []);
+      if (!files.length) return;
+      box.classList.add("busy");
+      var done = 0;
+      for (var i = 0; i < files.length; i++) {
+        var f = files[i];
+        say("Uploading " + (i + 1) + " of " + files.length + "…");
+        var up = await sb.storage.from("invoices")
+                         .upload(it.key + "/" + safeName(f.name), f);
+        if (up.error) { say(fail(up.error), true); break; }
+        var r = await sb.from("item_invoice").insert({
+          item_key: it.key, storage_path: up.data.path, filename: f.name,
+          label: "", supplier: "", invoice_no: "", drive_url: null
+        }).select("id");
+        if (r.error) {
+          /* The file is in the bucket and the row is not. Say so - a silent
+             orphan in storage is worse than a visible one. */
+          say(fail(r.error) + " The file uploaded but the record did not save.",
+              true);
+          break;
+        }
+        done++;
       }
-
-      say("Saving…");
-      var r = await sb.from("item_invoice").insert(row).select("id");
-      b.disabled = false;
-      if (r.error) {
-        /* The file is already in the bucket and the row is not. Say so -
-           a silent orphan in storage is worse than a visible one. */
-        say(fail(r.error) + (row.storage_path
-          ? " The file uploaded but the record did not save; try again."
-          : ""), true);
-        return;
-      }
-      form.reset();
-      say("");
-      fillInvoices(it, list, mine);
+      box.classList.remove("busy");
+      input.value = "";
+      if (done) { say(""); fillInvoices(it, list, mine); }
     });
 
     fillInvoices(it, list, mine);
@@ -704,7 +690,7 @@
 
   async function fillInvoices(it, list, mine) {
     var r = await sb.from("item_invoice").select("*")
-                    .eq("item_key", it.key).order("dated", { ascending: false });
+                    .eq("item_key", it.key).order("at", { ascending: false });
     if (mine !== token) return;
     if (r.error) {
       list.innerHTML = '<li class="wf-bad">' + esc(fail(r.error)) + "</li>";
@@ -717,15 +703,17 @@
     var html = "";
     for (var i = 0; i < r.data.length; i++) {
       var v = r.data[i];
+      /* label and amount are no longer asked for, but rows written when they
+         were still carry them, and dropping them from the display would look
+         like data loss. */
       html += '<li><span class="wf-inv-t">' +
-        esc(v.label || v.filename || "Invoice") +
-        (v.invoice_no ? ' <code>' + esc(v.invoice_no) + "</code>" : "") + "</span>" +
-        '<span class="wf-inv-m">' +
-          (v.supplier ? esc(v.supplier) + " &middot; " : "") +
-          (v.dated ? esc(when(v.dated)) + " &middot; " : "") +
-          esc(who(v.by_email)) +
-        "</span>" +
-        '<span class="wf-inv-a">' + esc(money(v.amount, v.currency)) + "</span>" +
+        esc(v.filename || v.label || "Invoice") +
+        (v.label && v.filename ? ' <em>' + esc(v.label) + "</em>" : "") + "</span>" +
+        '<span class="wf-inv-m">' + esc(who(v.by_email)) +
+          " &middot; " + esc(when(v.dated || v.at)) + "</span>" +
+        (v.amount != null
+          ? '<span class="wf-inv-a">' + esc(money(v.amount, v.currency)) + "</span>"
+          : "") +
         (v.drive_url
           ? '<a href="' + esc(v.drive_url) + '" target="_blank" rel="noopener">Open</a>'
           : '<button type="button" data-open="' + esc(v.storage_path) + '">Open</button>') +
