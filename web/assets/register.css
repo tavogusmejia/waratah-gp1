@@ -528,3 +528,177 @@ a { color: inherit; }
 }
 .foot a { color: var(--ink-2); }
 .foot .sp { flex: 1 1 auto; }
+
+
+/* ==========================================================================
+   The workflow layer (workflow.js): sign-in, status, notes, invoices, people.
+
+   Styled to sit UNDER the datasheet, not beside it. Someone opening an item
+   is usually there to read the specification and open the PDF; the record
+   attached to it is the second thing on the page, at smaller type, with no
+   colour of its own beyond the status hues already defined above.
+
+   Every rule here is inert without workflow.js - none of these classes is
+   ever emitted by register.js.
+   ========================================================================== */
+
+/* ------------------------------------------------------------ header auth */
+
+.auth { display: flex; align-items: center; }
+.auth-in {
+  font: 500 12.5px/1 var(--sans); cursor: pointer;
+  color: var(--ink-2); background: none;
+  border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px;
+}
+.auth-in:hover { border-color: var(--slate); color: var(--ink); }
+
+.auth-me { position: relative; }
+.auth-me > summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 7px;
+  border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px;
+}
+.auth-me > summary::-webkit-details-marker { display: none; }
+.auth-me > summary:hover { border-color: var(--slate); }
+.auth-me summary span { font-size: 12.5px; font-weight: 500; color: var(--ink); }
+.auth-me summary em {
+  font-style: normal; font-size: 10px; letter-spacing: .05em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.auth-menu {
+  position: absolute; right: 0; top: calc(100% + 6px); z-index: 30;
+  min-width: 232px; padding: 8px;
+  background: var(--bg-raise); border: 1px solid var(--line);
+  border-radius: var(--r); box-shadow: var(--shadow);
+}
+.auth-menu p { margin: 4px 8px 8px; font-size: 12px; color: var(--ink-3); word-break: break-all; }
+.auth-menu p.auth-warn { color: var(--st-rev-ink); word-break: normal; line-height: 1.45; }
+.auth-menu button {
+  display: block; width: 100%; text-align: left; font: inherit; font-size: 13px;
+  cursor: pointer; border: 0; background: none; color: var(--ink-2);
+  padding: 8px; border-radius: 6px;
+}
+.auth-menu button:hover { background: var(--slate-wash); color: var(--ink); }
+
+/* ------------------------------------------------------------- the panel */
+
+.wf { margin-top: 26px; border-top: 1px solid var(--line); }
+.wf-sec { padding: 16px 0 4px; border-bottom: 1px solid var(--line-2); }
+.wf-sec:last-child { border-bottom: 0; }
+.wf-sec > h4 {
+  margin: 0 0 10px; font-size: 10.5px; font-weight: 600; letter-spacing: .13em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.wf-sec > h4 em {
+  font-style: normal; letter-spacing: .04em; text-transform: none;
+  font-weight: 400; opacity: .8;
+}
+.wf-quiet, .wf-block { font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+.wf-block { padding: 14px 0; }
+.wf-block b { color: var(--ink-2); font-weight: 500; }
+.wf-read { margin: 0 0 12px; font-size: 13px; color: var(--ink-2); }
+.wf-read em { font-style: normal; color: var(--ink-3); }
+.linkish {
+  font: inherit; color: var(--ink); background: none; border: 0; padding: 0;
+  cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+}
+
+/* Saying what happened, in the place it happened. Silence means nothing has
+   been attempted - never that something succeeded. */
+.msg { margin: 8px 0 4px; font-size: 12.5px; min-height: 1em; }
+.msg.ok  { color: var(--st-ok-ink); }
+.msg.bad { color: var(--st-rej-ink); }
+
+.wf-status { display: flex; gap: 8px; flex-wrap: wrap; }
+.wf-status select { flex: none; }
+.wf-status input { flex: 1; min-width: 180px; }
+
+.wf input, .wf select, .wf textarea, .modal input, .modal select, .modal textarea {
+  font: inherit; font-size: 13.5px; color: var(--ink);
+  background: var(--bg-raise); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px 10px; min-width: 0; max-width: 100%;
+}
+.wf textarea, .modal textarea { resize: vertical; }
+.wf button[type="submit"], .modal button {
+  font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;
+  color: var(--ink-2); background: var(--bg-raise);
+  border: 1px solid var(--line); border-radius: 6px; padding: 8px 14px;
+}
+.wf button[type="submit"]:hover, .modal button:hover {
+  border-color: var(--slate); color: var(--ink);
+}
+.wf button[disabled], .modal button[disabled] { opacity: .5; cursor: default; }
+
+.wf-add { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-start; margin-top: 10px; }
+.wf-add textarea { flex: 1; min-width: 200px; }
+.wf-inv-add input[type="text"], .wf-inv-add input[type="url"] { flex: 1; min-width: 140px; }
+.wf-inv-add input[type="url"] { flex-basis: 100%; }
+
+/* ---- notes and invoices ---- */
+
+.wf-notes, .wf-inv, .wf-people { list-style: none; margin: 0; padding: 0; }
+.wf-notes li, .wf-inv li, .wf-people li {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 9px 0; border-bottom: 1px solid var(--line-2);
+}
+.wf-notes li:last-child, .wf-inv li:last-child, .wf-people li:last-child { border-bottom: 0; }
+.wf-wait, .wf-none, .wf-bad { font-size: 13px; color: var(--ink-3); }
+.wf-bad { color: var(--st-rej-ink); }
+
+.wf-notes li p {
+  margin: 0; flex: 1; min-width: 0; font-size: 13.5px; line-height: 1.5;
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.wf-by { flex: none; font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+
+.wf-del {
+  flex: none; font: 400 16px/1 var(--sans); cursor: pointer;
+  color: var(--ink-3); background: none; border: 0; padding: 0 4px;
+}
+.wf-del:hover { color: var(--red); }
+
+.wf-inv li { flex-wrap: wrap; }
+.wf-inv-t { flex: 1; min-width: 140px; font-size: 13.5px; font-weight: 500; }
+.wf-inv-t code { font: 500 11px/1 var(--mono); color: var(--ink-3); }
+.wf-inv-m { flex: none; font-size: 11.5px; color: var(--ink-3); }
+.wf-inv-a { flex: none; font-size: 13px; font-variant-numeric: tabular-nums; }
+.wf-inv a, .wf-inv button[data-open] {
+  flex: none; font: inherit; font-size: 12.5px; cursor: pointer;
+  color: var(--ink-2); background: none; border: 0; padding: 0;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+
+/* ------------------------------------------------------------- the modal */
+
+.modal {
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center;
+  padding: 16px; background: rgba(28, 37, 48, .38);
+}
+.modal-in {
+  width: 100%; max-width: 440px; max-height: 88vh; overflow: auto;
+  background: var(--bg-raise); border: 1px solid var(--line);
+  border-radius: var(--r); box-shadow: var(--shadow); padding: 22px;
+}
+.modal-in.wide { max-width: 680px; }
+.modal-in h3 { margin: 0 0 8px; font-size: 17px; font-weight: 500; }
+.modal-in > p { margin: 0 0 16px; font-size: 13px; color: var(--ink-3); line-height: 1.5; }
+.modal-in label {
+  display: block; margin-bottom: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.modal-in form > input { width: 100%; }
+.modal-f { display: flex; gap: 8px; justify-content: flex-end; margin-top: 16px; }
+.modal-f .go { border-color: var(--red-line); color: var(--red); }
+
+.wf-people li { align-items: center; }
+.wf-p-n { flex: 1; min-width: 0; font-size: 13.5px; display: flex; flex-direction: column; }
+.wf-p-n em { font-style: normal; font-size: 11.5px; color: var(--ink-3); overflow-wrap: anywhere; }
+.wf-p-s { flex: none; font-size: 11.5px; color: var(--ink-3); white-space: nowrap; }
+.wf-people select { font-size: 12.5px; padding: 5px 7px; }
+.wf-people-add { margin-top: 14px; }
+.wf-people-add input { flex: 1; min-width: 120px; }
+
+@media (max-width: 560px) {
+  .wf-p-s { display: none; }   /* the row is four things wide already */
+  .auth-menu { right: auto; left: 0; }
+}

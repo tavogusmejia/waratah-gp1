@@ -1,0 +1,101 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Role matrix</title>
+<!--
+  Drives __probe_workflow.html once per role and checks that each one sees
+  exactly the controls its role allows - the permission matrix in the
+  migration header, asserted against the page rather than trusted.
+
+  The database is the thing that actually enforces this; these checks are
+  about the SECOND failure, which is a page that offers a control the
+  database will refuse. Somebody clicking Attach and being told "permission
+  denied" is a bug even though nothing unsafe happened.
+
+    python tools/probe_workflow.py      # regenerate first - it reads index.html
+    open __probe_roles.html
+-->
+<style>
+ body{font:14px/1.6 ui-monospace,Menlo,monospace;margin:24px;max-width:900px}
+ .pass{color:#1F6B44}.fail{color:#9A2F2C;font-weight:700}
+ iframe{position:absolute;left:-9999px;width:1200px;height:900px;border:0}
+ h2{font-size:14px;margin:18px 0 4px}
+</style>
+<h1 id="h">running…</h1>
+<div id="o"></div>
+<script>
+/* what each role must and must not be offered */
+var CASES = [
+  {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:false,
+                     addNote:false, invoices:false, prompt:true}},
+  {role:"none", want:{auth:"me", pills:true, status:"read", notes:false,
+                      addNote:false, invoices:false, prompt:false}},
+  {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
+                        addNote:false, invoices:false, prompt:false}},
+  {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
+                           addNote:true, invoices:false, prompt:false}},
+  {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
+                       addNote:true, invoices:true, prompt:false}},
+  {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
+                             addNote:true, invoices:true, prompt:false}}
+];
+
+var out = document.getElementById("o"), fails = 0, done = 0;
+
+function check(c, d, w) {
+  var r = [];
+  function t(n, ok) { r.push([n, ok]); if (!ok) fails++; }
+
+  var auth = d.getElementById("auth");
+  t("auth control", c.want.auth === "Sign in"
+      ? !!auth.querySelector(".auth-in")
+      : !!auth.querySelector(".auth-me"));
+  t("status pills on cards", (d.querySelectorAll(".card .st").length > 0) === c.want.pills);
+
+  var wf = d.querySelector(".wf");
+  t("panel present", !!wf);
+  if (wf) {
+    var sel = wf.querySelector(".wf-status select");
+    t("status is " + c.want.status,
+      c.want.status === "edit" ? !!sel : !sel && !!wf.querySelector(".wf-read"));
+    t("notes " + (c.want.notes ? "shown" : "hidden"),
+      !!wf.querySelector(".wf-notes") === c.want.notes);
+    t("add-note " + (c.want.addNote ? "offered" : "withheld"),
+      !!wf.querySelector(".wf-add textarea") === c.want.addNote);
+    t("invoices " + (c.want.invoices ? "shown" : "hidden"),
+      !!wf.querySelector(".wf-inv") === c.want.invoices);
+    t("sign-in prompt " + (c.want.prompt ? "shown" : "absent"),
+      !!wf.querySelector("[data-signin]") === c.want.prompt);
+  }
+  if (c.role === "none") {
+    t("told why they cannot do anything",
+      !!d.querySelector(".auth-warn") || !!d.querySelector(".auth-menu"));
+  }
+
+  var h = "<h2>" + c.role + "</h2>";
+  for (var i = 0; i < r.length; i++) {
+    h += '<div class="' + (r[i][1] ? "pass" : "fail") + '">' +
+         (r[i][1] ? "PASS " : "FAIL ") + r[i][0] + "</div>";
+  }
+  out.insertAdjacentHTML("beforeend", h);
+  if (++done === CASES.length) {
+    document.getElementById("h").textContent =
+      fails ? fails + " FAILED" : "all passed";
+    document.title = fails ? "R:FAIL " + fails : "R:PASS all";
+  }
+}
+
+CASES.forEach(function (c) {
+  var f = document.createElement("iframe");
+  f.src = "./__probe_workflow.html?role=" + c.role + "&open=1";
+  f.addEventListener("load", function () {
+    var d = f.contentDocument, n = 0;
+    var tick = setInterval(function () {
+      /* wait for the sheet AND its async panel fills */
+      if ((!d.querySelector(".wf") || !d.querySelector(".wf-sec")) && ++n < 120) return;
+      clearInterval(tick);
+      setTimeout(function () { check(c, d, f.contentWindow); }, 500);
+    }, 40);
+  });
+  document.body.appendChild(f);
+});
+</script>

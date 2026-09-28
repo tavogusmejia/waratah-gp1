@@ -528,9 +528,17 @@
     render:  function () { render(); },
     onSheet: null,          /* workflow.js sets this: fn(item, sheetElement) */
 
-    /* item_key -> {status, status_note, ...}. Re-renders, so calling it with
-       {} is how the layer cleans up after a sign-out. */
-    setApproval: function (map) { state.approval = map || {}; render(); }
+    /* Rebuild the open sheet in place. Signing in or out changes which
+       controls belong in it, and the sheet is built once on open. */
+    reopen: function () { if (state.open) openSheet(state.open.id); },
+
+    /* item_key -> {status, status_note, ...}. The guard matters: this can
+       arrive before the catalogue has finished loading, and rendering 0 of
+       139 items would flash "nothing matches that" over a working page. */
+    setApproval: function (map) {
+      state.approval = map || {};
+      if (state.items.length) render();
+    }
   };
 
   function boot(data) {

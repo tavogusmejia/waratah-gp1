@@ -48,3 +48,6 @@ _rename.json
 _lummarks.json
 _picstate.json
 _igl.json
+
+# Generated from index.html by tools/probe_workflow.py
+web/__probe_workflow.html

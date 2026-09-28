@@ -234,6 +234,7 @@
     </a>
     <h1>Material &amp; Hardware Register<span>GP1-MUR &middot; Mockup Room 1</span></h1>
     <span class="top-sp"></span>
+    <div id="auth" class="auth"></div>
     <!-- Two states, not three. "Match the system" is gone because the canvas
          is white unconditionally now, the way the landing is: an auto setting
          that can only ever resolve to light is a control at a permanent zero. -->
@@ -288,6 +289,8 @@
 </noscript>
 
 <!-- `defer` so the parser reaches the landing markup above without stopping. -->
+<script src="./assets/config.js"></script>
 <script defer src="./assets/register.js"></script>
+<script src="./assets/workflow.js" defer></script>
 </body>
 </html>
