@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-24T15:30:53Z",
+ "generated": "2026-09-28T17:18:40Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -649,16 +649,7 @@
    "key": "d-dh9",
    "drive_url": "https://drive.google.com/file/d/1kYs6CUQ2gA1ym2tQc5U80G2Wwg_rApuK/view",
    "maker_url": "https://dach.assaabloy.com/ch/en/product-catalogue/planet-t611079-p371898-planet-x3",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh9-ds-assa-abloy-planet-x3-rd-drop-seal.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH9 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
-     "bytes": 1424744,
-     "key": "d-dh9-ds",
-     "drive_url": "https://drive.google.com/file/d/1hjoN7mntJOo8MoCNOpVX4_zQg993ujhM/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh9-assa-abloy-planet-x3-rd-drop-seal.webp"
   },
   {
@@ -709,16 +700,7 @@
    "key": "d-dh10",
    "drive_url": "https://drive.google.com/file/d/16pdugb77I2uUgIRzeVkwHLqBT2vOTU-Y/view",
    "maker_url": "https://www.hafele.com/th/en/product/door-hinge-concealed-for-flush-interior-doors-up-to-80-100-kg/92791833/?MasterSKU=P-00862553",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh10-ds-hafele-startec-concealed-hinge-b.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Startec Concealed Hinge B.pdf",
-     "bytes": 739874,
-     "key": "d-dh10-ds",
-     "drive_url": "https://drive.google.com/file/d/11hklGe9QHB0v33a7Ns-1tPSpb-gLG7t-/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh10-hafele-startec-concealed-hinge.webp"
   },
   {
@@ -765,16 +747,7 @@
    "key": "d-dh11",
    "drive_url": "https://drive.google.com/file/d/11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A/view",
    "maker_url": "https://www.hafele.com/us/en/product/door-hinge-center-hung-top-pivot/P-01498889/",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh11-ds-hafele-door-hinge-top-pivot.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH11 - DS - Hafele Door Hinge Top Pivot.pdf",
-     "bytes": 222524,
-     "key": "d-dh11-ds",
-     "drive_url": "https://drive.google.com/file/d/1OoDQxmy7RKHEMOnT5pPv3ShKqErwVBxm/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh11-hafele-door-hinge-top-pivot.webp"
   },
   {
@@ -821,16 +794,7 @@
    "key": "d-dh12",
    "drive_url": "https://drive.google.com/file/d/1taDy6HWe9mURv-3csyIISyWkoXZVWFlX/view",
    "maker_url": "https://www.hafele.si/en/product/door-viewer-up-to-door-thickness-82-mm-startec/95901042/?MasterSKU=P-00873696",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh12-ds-hafele-startec-door-viewer-b.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH12 - DS - Hafele Startec Door Viewer B.pdf",
-     "bytes": 700332,
-     "key": "d-dh12-ds",
-     "drive_url": "https://drive.google.com/file/d/1EwF_c21NIzHt0lKvtuGHOrdTofHHATB4/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh12-hafele-startec-door-viewer.webp"
   },
   {
@@ -870,23 +834,14 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/dh13-hafele-hawa-junior-80b-pocket.pdf",
-   "pages": 1,
-   "bytes": 2430,
-   "sha": "2827c7d1ea56d1b9",
+   "pages": 7,
+   "bytes": 1127192,
+   "sha": "33a6e78f33d970f4",
    "source": "D - Doors/DH - Doors Hardware/DH13 - Hafele Hawa Junior 80B Pocket.pdf",
    "key": "d-dh13",
    "drive_url": "https://drive.google.com/file/d/1KEKlK2lmnlnGTy4JS8llB6FRgY27ny80/view",
    "maker_url": "https://www.hafele.co.uk/en/product/fitting-set-for-sliding-interior-pocket-doors-hawa-junior-100-b-pocket/P-01580146/",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh13-ds-hafele-hawa-junior-80b-pocket.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH13 - DS - Hafele Hawa Junior 80B Pocket.pdf",
-     "bytes": 1128458,
-     "key": "d-dh13-ds",
-     "drive_url": "https://drive.google.com/file/d/1EGuq-dUS2PtezfKmjZ1JpCO2ytoQSRiO/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh13-hafele-hawa-junior-80b-pocket.webp"
   },
   {
@@ -933,16 +888,7 @@
    "key": "d-dh14",
    "drive_url": "https://drive.google.com/file/d/1Ps_XhTmREpUwHuTEPXPmwgDFFcTNScDf/view",
    "maker_url": "https://www.hafele.com/us/en/product/sliding-door-hardware-haefele-slido-d-line11-160p-set/94162018/?MasterSKU=P-01499186",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh14-ds-hafele-slido-d-line11-160p.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH14 - DS - Hafele Slido D-Line11 160P.pdf",
-     "bytes": 520012,
-     "key": "d-dh14-ds",
-     "drive_url": "https://drive.google.com/file/d/1QH9Y2U1CgFxAkzvQRrt6-J-MwN_F-lZ2/view"
-    }
-   ],
+   "extras": [],
    "image": "img/dh14-hafele-slido-d-line11-160p.webp"
   },
   {
@@ -986,9 +932,9 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/dh15-salto-aelement-fusion-lockset-ring-reader.pdf",
-   "pages": 1,
-   "bytes": 2559,
-   "sha": "38f5406001a1992b",
+   "pages": 5,
+   "bytes": 142898,
+   "sha": "03e63b150f4f9ef0",
    "source": "D - Doors/DH - Doors Hardware/DH15 - Salto AElement Fusion Lockset & Ring Reader.pdf",
    "key": "d-dh15",
    "drive_url": "https://drive.google.com/file/d/1azMX3mecepvYCU_YbZM-20V0CC04EZ92/view",
@@ -1001,14 +947,6 @@
      "bytes": 122498,
      "key": "d-dh15-ig",
      "drive_url": "https://drive.google.com/file/d/1ApT4wrXt4y_Q9rboGJv9RiIAedfkkr5Z/view"
-    },
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh15-ds-salto-aelement-fusion-lockset-ring-reader.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH15 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
-     "bytes": 144342,
-     "key": "d-dh15-ds",
-     "drive_url": "https://drive.google.com/file/d/1NnDFQ2Y2-TNLxNZStSdRXihGiVIcHJw5/view"
     }
    ],
    "image": "img/dh15-salto-aelement-fusion-lockset-ring-reader.webp"
@@ -1050,9 +988,9 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/dh16-salto-london-lever-handle.pdf",
-   "pages": 1,
-   "bytes": 2392,
-   "sha": "32efc28717cb4ecc",
+   "pages": 5,
+   "bytes": 142731,
+   "sha": "e57b43b237215168",
    "source": "D - Doors/DH - Doors Hardware/DH16 - Salto London Lever Handle.pdf",
    "key": "d-dh16",
    "drive_url": "https://drive.google.com/file/d/1rGHCV5nXzzU2W3ttGbrZmnh9zzbmL4Tq/view",
@@ -1065,14 +1003,6 @@
      "bytes": 585528,
      "key": "d-dh16-ig",
      "drive_url": "https://drive.google.com/file/d/1XtksWim-l62aMRMVa845W-biI1q939Yr/view"
-    },
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh16-ds-salto-london-lever-handle.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH16 - DS - Salto London Lever Handle.pdf",
-     "bytes": 144342,
-     "key": "d-dh16-ds",
-     "drive_url": "https://drive.google.com/file/d/1dwGf_CGeeZxEFXVasN72f885fKQOsdR1/view"
     }
    ],
    "image": "img/dh16-salto-london-lever-handle.webp"
@@ -1114,9 +1044,9 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/dh17-salto-la1t17-privacy-thumbturn.pdf",
-   "pages": 1,
-   "bytes": 2365,
-   "sha": "e68ee7d77a2322db",
+   "pages": 5,
+   "bytes": 142704,
+   "sha": "208cb6317d4364c0",
    "source": "D - Doors/DH - Doors Hardware/DH17 - Salto LA1T17 Privacy Thumbturn.pdf",
    "key": "d-dh17",
    "drive_url": "https://drive.google.com/file/d/1KDcgwCYRJHgUzi7WDajvlxSYobNDezh-/view",
@@ -1129,14 +1059,6 @@
      "bytes": 149787,
      "key": "d-dh17-ig",
      "drive_url": "https://drive.google.com/file/d/1uvxZKaZ5mNzXyFhzlWWTTDRk4cahFIDU/view"
-    },
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/dh17-ds-salto-la1t17-privacy-thumbturn.pdf",
-     "source": "D - Doors/DH - Doors Hardware/DH17 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
-     "bytes": 144342,
-     "key": "d-dh17-ds",
-     "drive_url": "https://drive.google.com/file/d/13rd3bou7vflIUKvxe-6KAJbqmBp0-D-Q/view"
     }
    ],
    "image": "img/dh17-salto-la1t17-privacy-thumbturn.webp"
@@ -3084,16 +3006,7 @@
    "key": "lum-lum3",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum3-ds-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
-     "bytes": 1798995,
-     "key": "lum-lum3-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp"
   },
   {
@@ -3140,16 +3053,7 @@
    "key": "lum-lum3.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum3-1-ds-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
-     "bytes": 1407083,
-     "key": "lum-lum3.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp"
   },
   {
@@ -3192,16 +3096,7 @@
    "key": "lum-lum3.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum3-2-ds-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
-     "bytes": 1619631,
-     "key": "lum-lum3.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp"
   },
   {
@@ -3240,16 +3135,7 @@
    "key": "lum-lum3.3",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum3-3-ds-indirect-led-strip-profile-pro-0209-l03-021-0202.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
-     "bytes": 1191328,
-     "key": "lum-lum3.3-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum3-3-indirect-led-strip-profile-pro-0209-l03-021-0202.webp"
   },
   {
@@ -3312,16 +3198,7 @@
    "key": "lum-lum4",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum4-ds-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM4 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
-     "bytes": 1797331,
-     "key": "lum-lum4-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp"
   },
   {
@@ -3368,16 +3245,7 @@
    "key": "lum-lum4.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum4-1-ds-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM4.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
-     "bytes": 1407089,
-     "key": "lum-lum4.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp"
   },
   {
@@ -3424,16 +3292,7 @@
    "key": "lum-lum4.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum4-2-ds-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM4.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
-     "bytes": 1481607,
-     "key": "lum-lum4.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp"
   },
   {
@@ -3472,16 +3331,7 @@
    "key": "lum-lum4.3",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum4-3-ds-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM4.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
-     "bytes": 1192302,
-     "key": "lum-lum4.3-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum4-3-led-strip-in-furniture-profile-pro-0209-l05-1-021-0202.webp"
   },
   {
@@ -3544,16 +3394,7 @@
    "key": "lum-lum5",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum5-ds-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM5 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
-     "bytes": 1807735,
-     "key": "lum-lum5-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp"
   },
   {
@@ -3600,16 +3441,7 @@
    "key": "lum-lum5.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum5-1-ds-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
-     "bytes": 1407094,
-     "key": "lum-lum5.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp"
   },
   {
@@ -3648,16 +3480,7 @@
    "key": "lum-lum5.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum5-2-ds-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM5.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
-     "bytes": 1190650,
-     "key": "lum-lum5.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum5-2-led-strip-in-furniture-profile-pro-0209-l05-2-021-0202.webp"
   },
   {
@@ -3716,16 +3539,7 @@
    "key": "lum-lum6",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum6-ds-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM6 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
-     "bytes": 2391567,
-     "key": "lum-lum6-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp"
   },
   {
@@ -3772,16 +3586,7 @@
    "key": "lum-lum6.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum6-1-ds-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
-     "bytes": 1407093,
-     "key": "lum-lum6.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp"
   },
   {
@@ -3820,16 +3625,7 @@
    "key": "lum-lum6.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum6-2-ds-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM6.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
-     "bytes": 1841774,
-     "key": "lum-lum6.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum6-2-led-strip-in-furniture-profile-pro-0409-l05-4-021-0402.webp"
   },
   {
@@ -3876,16 +3672,7 @@
    "key": "lum-lum7",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum7-ds-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM7 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
-     "bytes": 1720724,
-     "key": "lum-lum7-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum7-integrated-mini-downlight-driver-350ma-dali-l06-1-cc20-d-350-n.webp"
   },
   {
@@ -3948,16 +3735,7 @@
    "key": "lum-lum8",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum8-ds-courtesy-wall-light-dali-l07-bortop02-2k7.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM8 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
-     "bytes": 242068,
-     "key": "lum-lum8-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum8-courtesy-wall-light-dali-l07-bortop02-2k7.webp"
   },
   {
@@ -4000,16 +3778,7 @@
    "key": "lum-lum8.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum8-1-ds-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM8.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
-     "bytes": 900627,
-     "key": "lum-lum8.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum8-1-courtesy-wall-light-driver-dali-l07-mini-jolly-dali-20.webp"
   },
   {
@@ -4072,16 +3841,7 @@
    "key": "lum-lum9",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum9-ds-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM9 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
-     "bytes": 1782505,
-     "key": "lum-lum9-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp"
   },
   {
@@ -4124,16 +3884,7 @@
    "key": "lum-lum9.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum9-1-ds-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM9.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
-     "bytes": 1407143,
-     "key": "lum-lum9.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp"
   },
   {
@@ -4172,16 +3923,7 @@
    "key": "lum-lum9.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum9-2-ds-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM9.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
-     "bytes": 1261426,
-     "key": "lum-lum9.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum9-2-led-strip-exterior-step-profile-pro-0409-l07-2-021-0402.webp"
   },
   {
@@ -4252,16 +3994,7 @@
    "key": "lum-lum10",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum10-ds-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM10 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
-     "bytes": 4921684,
-     "key": "lum-lum10-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum10-courtesy-wall-light-exterior-on-off-l07-3-05-e146-z5-cl.webp"
   },
   {
@@ -4332,16 +4065,7 @@
    "key": "lum-lum11",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum11-ds-path-light-dali-l11-10-e033-60-ck.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM11 - DS - Path Light DALI - L11 - 10-E033-60-CK.pdf",
-     "bytes": 1283802,
-     "key": "lum-lum11-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum11-path-light-dali-l11-10-e033-60-ck.webp"
   },
   {
@@ -4388,16 +4112,7 @@
    "key": "lum-lum11.1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum11-1-ds-path-light-dali-l11-71-e649-60-ou.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM11.1 - DS - Path Light DALI - L11 - 71-E649-60-OU.pdf",
-     "bytes": 373867,
-     "key": "lum-lum11.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum11-1-path-light-dali-l11-71-e649-60-ou.webp"
   },
   {
@@ -4444,16 +4159,7 @@
    "key": "lum-lum11.2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum11-2-ds-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM11.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
-     "bytes": 753629,
-     "key": "lum-lum11.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum11-2-path-light-driver-dali-l11-maxi-jolly-sv-dali-ipr1-70.webp"
   },
   {
@@ -4508,16 +4214,7 @@
    "key": "lum-lum12",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum12-ds-surface-mounted-service-downlight-on-off-l12-fm-05rn.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM12 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
-     "bytes": 3046319,
-     "key": "lum-lum12-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum12-surface-mounted-service-downlight-on-off-l12-fm-05rn.webp"
   },
   {
@@ -4560,16 +4257,7 @@
    "key": "lum-lum13",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum13-ds-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM13 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
-     "bytes": 471624,
-     "key": "lum-lum13-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.webp"
   },
   {
@@ -4616,16 +4304,7 @@
    "key": "lum-lum14",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum14-ds-table-lamp-for-minibar-d02-kw3901alb.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM14 - DS - Table Lamp for Minibar - D02 - kw3901alb.pdf",
-     "bytes": 107890,
-     "key": "lum-lum14-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum14-table-lamp-for-minibar-d02-kw3901alb.webp"
   },
   {
@@ -4676,16 +4355,7 @@
    "key": "lum-lum15",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum15-ds-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM15 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
-     "bytes": 1066957,
-     "key": "lum-lum15-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum15-floor-lamp-pool-terrace-phase-dim-d03-kando-p111.webp"
   },
   {
@@ -4736,16 +4406,7 @@
    "key": "lum-lum16",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/lum16-ds-portable-lamp-p01-kando-m40r.pdf",
-     "source": "L - Lighting/LUM - Luminaires/LUM16 - DS - Portable Lamp - P01 - Kando M40R.pdf",
-     "bytes": 760167,
-     "key": "lum-lum16-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/lum16-portable-lamp-p01-kando-m40r.webp"
   },
   {
@@ -4816,16 +4477,7 @@
    "key": "l&l-l&l12",
    "drive_url": "https://drive.google.com/file/d/19d4H5mZmkxhMJC1w0f5EgC1dTy6LQvho/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-ds-submersible-pool-fixture-steps-dali-l09-cw16005di.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
-     "bytes": 2363591,
-     "key": "l&l-l&l12-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
   },
   {
@@ -4872,16 +4524,7 @@
    "key": "l&l-l&l12.1",
    "drive_url": "https://drive.google.com/file/d/1euR8LiPxod_OkDo79I8jJvBXvzAWIA9N/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-1-ds-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
-     "bytes": 3844953,
-     "key": "l&l-l&l12.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
   },
   {
@@ -4928,16 +4571,7 @@
    "key": "l&l-l&l12.2",
    "drive_url": "https://drive.google.com/file/d/1X1BPssYZUh8udb6SwcT6mBgX1IMyWRCg/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l12-2-ds-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
-     "bytes": 1902461,
-     "key": "l&l-l&l12.2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
   },
   {
@@ -5008,16 +4642,7 @@
    "key": "l&l-l&l13",
    "drive_url": "https://drive.google.com/file/d/1JZarn7--o8CRylUNSq5288HGpjG-mpDP/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l13-ds-submersible-pool-fixture-dali-l09-1-cw300005wi.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
-     "bytes": 2669975,
-     "key": "l&l-l&l13-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
   },
   {
@@ -5064,16 +4689,7 @@
    "key": "l&l-l&l13.1",
    "drive_url": "https://drive.google.com/file/d/1ojAFSrufKyzCOLULTIAHMu3FDsV8PpaS/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l13-1-ds-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
-     "bytes": 1902461,
-     "key": "l&l-l&l13.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
   },
   {
@@ -5144,16 +4760,7 @@
    "key": "l&l-l&l14",
    "drive_url": "https://drive.google.com/file/d/1Tvj8rf_nXTbKUaelkkfo4bqAxRU0Vq_m/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l14-ds-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
-     "bytes": 955432,
-     "key": "l&l-l&l14-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
   },
   {
@@ -5220,16 +4827,7 @@
    "key": "l&l-l&l17",
    "drive_url": "https://drive.google.com/file/d/1byHJrv8UIv8BlqxVGU0v8S40a2tTS2On/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l17-ds-sconce-dali-d01-ella-out-1-0-ea1010fdtt.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
-     "bytes": 1526719,
-     "key": "l&l-l&l17-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
   },
   {
@@ -5276,16 +4874,7 @@
    "key": "l&l-l&l17.1",
    "drive_url": "https://drive.google.com/file/d/1y0kMN4xlT1DcVyvcxNBwJAE5L24SceZr/view",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/l-l17-1-ds-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
-     "source": "L - Lighting/L&L - Luce & Light/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
-     "bytes": 822169,
-     "key": "l&l-l&l17.1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.webp"
   },
   {
@@ -5364,16 +4953,7 @@
    "key": "igl-igl1",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl1-ds-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
-     "bytes": 3583430,
-     "key": "igl-igl1-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl1-recessed-downlight-ceiling-14deg-dali-l01-laser-25mm.webp"
   },
   {
@@ -5428,16 +5008,7 @@
    "key": "igl-igl2",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl2-ds-downlight-plaster-frame-nc-l01-bn-las25rt-nc.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL2 - DS - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
-     "bytes": 3583430,
-     "key": "igl-igl2-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl2-downlight-plaster-frame-nc-l01-bn-las25rt-nc.webp"
   },
   {
@@ -5516,16 +5087,7 @@
    "key": "igl-igl3",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl3-ds-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL3 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
-     "bytes": 3949770,
-     "key": "igl-igl3-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl3-recessed-downlight-ceiling-26deg-dali-l02-laser-38mm.webp"
   },
   {
@@ -5568,16 +5130,7 @@
    "key": "igl-igl4",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl4-ds-downlight-plaster-frame-nc-l02-bn-las38rt-nc.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL4 - DS - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
-     "bytes": 3949770,
-     "key": "igl-igl4-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl4-downlight-plaster-frame-nc-l02-bn-las38rt-nc.webp"
   },
   {
@@ -5620,16 +5173,7 @@
    "key": "igl-igl5",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl5-ds-downlight-chicago-plenum-housing-l02-bn-las38rt-cp.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL5 - DS - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
-     "bytes": 3949770,
-     "key": "igl-igl5-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl5-downlight-chicago-plenum-housing-l02-bn-las38rt-cp.webp"
   },
   {
@@ -5759,16 +5303,7 @@
    "key": "igl-igl7",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl7-ds-remote-dali-driver-30w-l01-4450-0700-030-unv-eda.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL7 - DS - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
-     "bytes": 3583430,
-     "key": "igl-igl7-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl7-remote-dali-driver-30w-l01-4450-0700-030-unv-eda.webp"
   },
   {
@@ -5831,16 +5366,7 @@
    "key": "igl-igl8",
    "drive_url": "",
    "maker_url": "",
-   "extras": [
-    {
-     "kind": "Manufacturer datasheet",
-     "pdf": "datasheets/igl8-ds-remote-dali-driver-19w-l02-4450-0350-019-unv-eda.pdf",
-     "source": "L - Lighting/iGL - iGuzzini Lighting/iGL8 - DS - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
-     "bytes": 3949770,
-     "key": "igl-igl8-ds",
-     "drive_url": ""
-    }
-   ],
+   "extras": [],
    "image": "img/igl8-remote-dali-driver-19w-l02-4450-0350-019-unv-eda.webp"
   },
   {
