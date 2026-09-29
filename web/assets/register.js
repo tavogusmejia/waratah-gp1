@@ -31,8 +31,11 @@
      sheet's spec position - "submitted as specified", "substitution",
      "deviation") and `submittal` (the package number, JANU-SUB-003). Three
      different things behind one word is how the wrong one gets rendered. */
-  var state = { items: [], groups: [], q: "", group: "", maker: "",
-               view: "cards", open: null, approval: {}, picked: {} };
+  var state = { items: [], groups: [], q: "", view: "cards", open: null,
+                approval: {},
+                /* One bag of chosen values per facet. Empty means "no
+                   opinion", which is not the same as "none of them". */
+                facets: { discipline: {}, group: {}, maker: {}, status: {} } };
   var els = {};
 
   function esc(s) {
@@ -88,7 +91,75 @@
 
   /* -------------------------------------------------------------- filter */
 
-  function haystack(it) {
+  /* ------------------------------------------------------------- facets
+
+     Four filters that behave identically, which is the whole point: the page
+     used to carry five controls in four idioms - a text box, a list in the
+     rail, two dropdowns, and a strip of chips - with the group filter
+     existing twice, once for wide screens and once for narrow. Nothing said
+     what was currently on, and dropping one meant finding the control that
+     set it.
+
+     Within a facet the values are OR: Pool and Doors shows both. Between
+     facets they are AND: Lighting and LedFlex shows LedFlex's lighting. */
+  var FACETS = [
+    { key: "discipline", label: "Discipline",
+      of: function (it) { return [it.discipline || "Other"]; } },
+    { key: "group", label: "Group",
+      of: function (it) { return [it.group]; },
+      name: function (v) {
+        for (var i = 0; i < state.groups.length; i++) {
+          if (state.groups[i].key === v) {
+            return '<kbd>' + esc(v) + "</kbd>" + esc(state.groups[i].name);
+          }
+        }
+        return esc(v);
+      } },
+    { key: "maker", label: "Maker", search: true,
+      /* 45 of the 147 name no maker, every Lutron sheet among them. Leaving
+         them out of the facet would make it unable to reach a third of the
+         register, and "which of these has nobody recorded a maker for" is
+         one of the more useful things to be able to ask of it. */
+      of: function (it) { return [it.manufacturer || NO_MAKER]; },
+      name: function (v) {
+        return v === NO_MAKER ? '<em class="dim">None recorded</em>' : esc(v);
+      } },
+    { key: "status", label: "Status", order: true,
+      of: function (it) { return [statusOf(it)]; },
+      name: function (v) {
+        return '<s class="st-' + esc(v) + '"></s>' +
+               esc(WORDS[v] || "Not submitted");
+      } }
+  ];
+
+  /* Distinct from the manufacturer literally named "Not stated" on the
+     manhole covers, which is a maker somebody wrote down. */
+  var NO_MAKER = "—";
+
+  function facetOf(key) {
+    for (var i = 0; i < FACETS.length; i++) {
+      if (FACETS[i].key === key) return FACETS[i];
+    }
+    return null;
+  }
+
+  /* The plain-text name of one value, for the Showing row and for sorting.
+     `name` returns markup, which a pill cannot use as a label. */
+  function valueLabel(f, v) {
+    if (f.key === "group") {
+      for (var i = 0; i < state.groups.length; i++) {
+        if (state.groups[i].key === v) return v + " · " + state.groups[i].name;
+      }
+      return v;
+    }
+    if (f.key === "status") return WORDS[v] || "Not submitted";
+    if (v === NO_MAKER) return "No manufacturer recorded";
+    return v;
+  }
+
+  function any(o) { for (var k in o) { if (o[k]) return true; } return false; }
+
+  function hay(it) {
     if (it._h) return it._h;
     var parts = [it.code, it.title, it.manufacturer, it.group_name,
                  it.category, it.notes, it.submittal];
@@ -99,17 +170,149 @@
     return it._h;
   }
 
-  function any(o) { for (var k in o) { if (o[k]) return true; } return false; }
+  /* Does this item survive the search and every facet EXCEPT `skip`?
+
+     Skipping one facet is what makes its own counts honest. A facet counted
+     against its own selection would show 1 beside the thing you just picked
+     and 0 beside everything else, which tells you nothing about what you
+     could pick instead. */
+  function passes(it, skip) {
+    var q = state.q.trim().toLowerCase();
+    if (q && hay(it).indexOf(q) < 0) return false;
+    for (var i = 0; i < FACETS.length; i++) {
+      var f = FACETS[i];
+      if (f.key === skip) continue;
+      var sel = state.facets[f.key];
+      if (!any(sel)) continue;
+      var vals = f.of(it), hit = false;
+      for (var v = 0; v < vals.length; v++) {
+        if (sel[vals[v]]) { hit = true; break; }
+      }
+      if (!hit) return false;
+    }
+    return true;
+  }
 
   function visible() {
-    var q = state.q.trim().toLowerCase();
-    return state.items.filter(function (it) {
-      if (state.group && it.group !== state.group) return false;
-      if (state.maker && it.manufacturer !== state.maker) return false;
-      if (any(state.picked) && !state.picked[statusOf(it)]) return false;
-      if (q && haystack(it).indexOf(q) < 0) return false;
-      return true;
-    });
+    return state.items.filter(function (it) { return passes(it, null); });
+  }
+
+  /* What this facet could offer, given everything else that is already on.
+
+     Counted this way a value that would produce nothing is simply not there,
+     so no combination of clicks can land on an empty page. This reverses the
+     status strip's rule of counting over every item regardless: that showed
+     "Approved 7" while Lighting was selected and only two lighting items were
+     approved, which is a number describing a result you cannot reach. */
+  function tally(f) {
+    var n = {};
+    for (var i = 0; i < state.items.length; i++) {
+      var it = state.items[i];
+      if (!passes(it, f.key)) continue;
+      var vals = f.of(it);
+      for (var v = 0; v < vals.length; v++) n[vals[v]] = (n[vals[v]] || 0) + 1;
+    }
+    var keys = Object.keys(n);
+    if (f.order) {
+      keys.sort(function (a, b) { return ORDER.indexOf(a) - ORDER.indexOf(b); });
+    } else if (f.key === "group") {
+      var seq = state.groups.map(function (g) { return g.key; });
+      keys.sort(function (a, b) { return seq.indexOf(a) - seq.indexOf(b); });
+    } else {
+      /* Biggest first, then alphabetical. Eighteen of the makers name a
+         single item; leading with them buries the ten that matter. */
+      keys.sort(function (a, b) {
+        return n[b] - n[a] || a.localeCompare(b);
+      });
+    }
+    return { keys: keys, n: n };
+  }
+
+  function renderFacets() {
+    if (!els.facets) return;
+    var html = "";
+    for (var i = 0; i < FACETS.length; i++) {
+      var f = FACETS[i];
+      var on = 0, sel = state.facets[f.key];
+      for (var k in sel) { if (sel[k]) on++; }
+      html += '<div class="facet" data-facet="' + f.key + '">' +
+        '<button class="fbtn" type="button" aria-expanded="false">' +
+        esc(f.label) + (on ? '<i>' + on + "</i>" : "") +
+        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>' +
+        "</button></div>";
+    }
+    els.facets.innerHTML = html;
+  }
+
+  /* The open popover is built on demand, so its counts are always current -
+     they depend on every other facet and change as those are used. */
+  function openFacet(box) {
+    closeFacets(box);
+    var f = facetOf(box.dataset.facet);
+    var got = tally(f), sel = state.facets[f.key];
+    var html = '<div class="pop">';
+    if (f.search) {
+      html += '<input class="fsearch" type="search" placeholder="Search makers" ' +
+              'aria-label="Search makers">';
+    }
+    html += '<div class="popl">';
+    for (var i = 0; i < got.keys.length; i++) {
+      var v = got.keys[i];
+      html += '<label class="fopt"><input type="checkbox" value="' + esc(v) + '"' +
+        (sel[v] ? " checked" : "") + "><span>" +
+        (f.name ? f.name(v) : esc(v)) + "</span><b>" + got.n[v] + "</b></label>";
+    }
+    html += "</div>";
+    /* A selection can always be undone from inside the thing that made it. */
+    html += '<button class="fclear" type="button">Clear ' + esc(f.label) + "</button>";
+    html += "</div>";
+    box.insertAdjacentHTML("beforeend", html);
+    box.classList.add("on");
+    box.querySelector(".fbtn").setAttribute("aria-expanded", "true");
+    var s = box.querySelector(".fsearch");
+    if (s) s.focus();
+  }
+
+  function closeFacets(except) {
+    var open = document.querySelectorAll(".facet.on");
+    for (var i = 0; i < open.length; i++) {
+      if (open[i] === except) continue;
+      var p = open[i].querySelector(".pop");
+      if (p) p.remove();
+      open[i].classList.remove("on");
+      open[i].querySelector(".fbtn").setAttribute("aria-expanded", "false");
+    }
+  }
+
+  /* Every active filter, named, each droppable on its own. */
+  function renderShowing() {
+    if (!els.showing) return;
+    var bits = [];
+    for (var i = 0; i < FACETS.length; i++) {
+      var f = FACETS[i], sel = state.facets[f.key];
+      for (var v in sel) {
+        if (!sel[v]) continue;
+        bits.push('<button class="pill" type="button" data-drop="' + f.key +
+          '" data-v="' + esc(v) + '">' + esc(valueLabel(f, v)) +
+          '<em aria-hidden="true">×</em></button>');
+      }
+    }
+    if (state.q.trim()) {
+      bits.push('<button class="pill" type="button" data-drop="q">' +
+        "“" + esc(state.q.trim()) + "”<em aria-hidden=\"true\">×</em></button>");
+    }
+    els.showing.hidden = !bits.length;
+    if (!bits.length) { els.showing.innerHTML = ""; return; }
+    els.showing.innerHTML = "<b>Showing</b>" + bits.join("") +
+      '<button class="clearall" type="button" data-clear="1">Clear all</button>';
+  }
+
+  function clearFilters() {
+    state.q = "";
+    if (els.search) els.search.value = "";
+    for (var i = 0; i < FACETS.length; i++) state.facets[FACETS[i].key] = {};
+    closeFacets(null);
+    render();
   }
 
   /* -------------------------------------------------------------- render */
@@ -191,7 +394,35 @@
   }
 
   function render() {
-    renderStatusBar();
+    renderFacets();
+    renderShowingAndList();
+  }
+
+  /* Everything except the facet buttons. Rebuilding those would throw away
+     the popover the reader is standing in, so a tick inside one redraws the
+     results and the Showing row and leaves the bar alone - except for the
+     count on the button that owns the popover, which is updated in place. */
+  function renderShowingAndList() {
+    for (var i = 0; i < FACETS.length; i++) {
+      var box = els.facets.querySelector('[data-facet="' + FACETS[i].key + '"]');
+      if (!box) continue;
+      var on = 0, sel = state.facets[FACETS[i].key];
+      for (var k in sel) { if (sel[k]) on++; }
+      var b = box.querySelector(".fbtn i");
+      if (on && b) b.textContent = on;
+      else if (on) {
+        /* Before the chevron, which is where a full render puts it. Adding it
+           at the front instead read as "1 Discipline" - the badge in place of
+           the label rather than beside it. */
+        box.querySelector(".fbtn svg")
+           .insertAdjacentHTML("beforebegin", "<i>" + on + "</i>");
+      } else if (b) b.remove();
+    }
+    renderShowing();
+    paintList();
+  }
+
+  function paintList() {
     var rows = visible();
     els.count.textContent = rows.length === state.items.length
       ? state.items.length + " datasheets"
@@ -223,100 +454,10 @@
       html += "</div></section>";
     }
     els.list.innerHTML = html;
-
-    var btns = els.rail.querySelectorAll("button[data-g]");
-    for (var b = 0; b < btns.length; b++) {
-      var k = btns[b].dataset.g;
-      btns[b].setAttribute("aria-pressed", String(state.group === k));
-    }
-    if (els.groupsel.value !== state.group) els.groupsel.value = state.group;
   }
 
   /* Counted over every item, not over what is currently on screen: a filter
      whose numbers move as you use it cannot be read. */
-  function renderStatusBar() {
-    if (!els.statusbar) return;
-    var n = {}, real = 0;
-    for (var i = 0; i < state.items.length; i++) {
-      var k = statusOf(state.items[i]);
-      n[k] = (n[k] || 0) + 1;
-      if (k !== "not_submitted") real++;
-    }
-    /* Nothing to filter by until something has been set. */
-    els.statusbar.hidden = !real;
-    if (!real) { state.picked = {}; return; }
-
-    /* The counts are over every item, so they do not move while filtering -
-       which means the chips themselves rarely need rebuilding. Redrawing the
-       innerHTML on every render would destroy and recreate them each time a
-       chip is pressed, and a keyboard user would lose their place on the one
-       they just activated. So the markup is rebuilt only when the SET of
-       chips changes, and a press only flips aria-pressed on nodes that stay
-       put. */
-    var sig = [], html = "<b>Status</b>";
-    for (var o = 0; o < ORDER.length; o++) {
-      var k2 = ORDER[o];
-      if (!n[k2]) continue;
-      sig.push(k2 + ":" + n[k2]);
-      html += '<button class="chip st-' + k2 + '" data-st="' + k2 + '" ' +
-        'aria-pressed="' + (state.picked[k2] ? "true" : "false") + '">' +
-        "<s></s>" + esc(WORDS[k2] || "Not submitted") +
-        "<i>" + n[k2] + "</i></button>";
-    }
-    sig = sig.join(",");
-    if (sig !== els.statusbar.dataset.sig) {
-      els.statusbar.dataset.sig = sig;
-      els.statusbar.innerHTML = html;
-      return;
-    }
-    var chips = els.statusbar.querySelectorAll("[data-st]");
-    for (var c = 0; c < chips.length; c++) {
-      chips[c].setAttribute("aria-pressed",
-        state.picked[chips[c].dataset.st] ? "true" : "false");
-    }
-  }
-
-  function renderMakers() {
-    var seen = {};
-    for (var i = 0; i < state.items.length; i++) {
-      var m = state.items[i].manufacturer;
-      if (m) seen[m] = (seen[m] || 0) + 1;
-    }
-    var names = Object.keys(seen).sort(function (a, b) {
-      return a.localeCompare(b);
-    });
-    var html = '<option value="">All manufacturers</option>';
-    for (var n = 0; n < names.length; n++) {
-      html += '<option value="' + esc(names[n]) + '">' + esc(names[n]) +
-              " (" + seen[names[n]] + ")</option>";
-    }
-    els.maker.innerHTML = html;
-  }
-
-  function renderRail() {
-    var html = "<h3>Groups</h3>" +
-      '<button data-g="" aria-pressed="true"><span>All groups</span><b>' +
-      state.items.length + "</b></button>";
-    /* The same choice, twice: a rail with room to breathe on a wide screen,
-       and a picker on a phone. The rail used to be a horizontal scroll strip
-       there, which showed two groups out of ten and gave no hint the rest
-       existed - the main way round the register, effectively hidden. */
-    var opts = '<option value="">All groups (' + state.items.length + ")</option>";
-    for (var i = 0; i < state.groups.length; i++) {
-      var g = state.groups[i];
-      if (!g.count) continue;
-      /* The name is wrapped so it is a flex item of its own and can wrap
-         inside the rail; a bare text node cannot be given min-width. */
-      html += '<button data-g="' + esc(g.key) + '" aria-pressed="false"><kbd>' +
-        esc(g.key) + "</kbd><span>" + esc(g.name) + "</span><b>" +
-        g.count + "</b></button>";
-      opts += '<option value="' + esc(g.key) + '">' + esc(g.name) +
-              " (" + g.count + ")</option>";
-    }
-    els.rail.innerHTML = html;
-    els.groupsel.innerHTML = opts;
-  }
-
   /* --------------------------------------------------------------- sheet */
 
   /* Where a datasheet actually opens. `drive_url` wins when it is there, and
@@ -524,46 +665,84 @@
       state.q = els.search.value; render();
     });
 
-    els.rail.addEventListener("click", function (e) {
-      var b = e.target.closest("button[data-g]");
-      if (!b) return;
-      state.group = b.dataset.g;
-      render();
-    });
-
-    /* Guarded like renderStatusBar: a cached copy of the page from before
-       this element existed must still boot, or a stale HTML file takes the
-       whole register down rather than just the filter. */
-    if (els.statusbar) els.statusbar.addEventListener("click", function (e) {
-      var b = e.target.closest("[data-st]");
-      if (!b) return;
-      var k = b.dataset.st;
-      state.picked[k] = !state.picked[k];
-      render();
-    });
-
-    document.addEventListener("click", function (e) {
-      var c = e.target.closest(".card, .row");
-      if (c) { openSheet(c.dataset.id); return; }
-      if (e.target.closest("[data-close]") || e.target === els.scrim) { closeSheet(); return; }
-      if (e.target.closest("[data-clear]")) {
-        state.q = ""; state.group = ""; state.maker = ""; state.picked = {};
-        els.search.value = "";
-        els.maker.value = "";
-        els.groupsel.value = "";
+    /* One delegated handler for all four facets: the popovers are built on
+       demand and thrown away, so binding to them individually would mean
+       rebinding on every open. */
+    els.facets.addEventListener("click", function (e) {
+      var btn = e.target.closest(".fbtn");
+      if (btn) {
+        var box = btn.closest(".facet");
+        if (box.classList.contains("on")) closeFacets(null);
+        else openFacet(box);
+        return;
+      }
+      var clear = e.target.closest(".fclear");
+      if (clear) {
+        state.facets[clear.closest(".facet").dataset.facet] = {};
+        closeFacets(null);
         render();
       }
     });
 
-    els.maker.addEventListener("change", function () {
-      state.maker = els.maker.value;
+    /* Thirty-six makers, eighteen of them naming one item: the list needs
+       narrowing, and it narrows in place rather than redrawing the popover,
+       so a tick already made does not move under the pointer. */
+    els.facets.addEventListener("input", function (e) {
+      var box = e.target.closest(".facet");
+      if (!box || !e.target.classList.contains("fsearch")) return;
+      var q = e.target.value.trim().toLowerCase();
+      var opts = box.querySelectorAll(".fopt");
+      for (var i = 0; i < opts.length; i++) {
+        var v = opts[i].querySelector("input").value.toLowerCase();
+        /* A ticked value stays visible whatever is typed - hiding one would
+           read as having lost it. */
+        opts[i].hidden = !!q && v.indexOf(q) < 0 &&
+                         !opts[i].querySelector("input").checked;
+      }
+    });
+
+    els.facets.addEventListener("change", function (e) {
+      var cb = e.target.closest('input[type="checkbox"]');
+      if (!cb) return;
+      var box = cb.closest(".facet");
+      state.facets[box.dataset.facet][cb.value] = cb.checked;
+      /* The popover stays open: picking two makers in a row is the normal
+         thing to do, and closing after each would make it four clicks. The
+         counts behind it go stale until it is reopened, which is the price
+         of not having the list reorder itself under the pointer. */
+      renderShowingAndList();
+    });
+
+    els.showing.addEventListener("click", function (e) {
+      if (e.target.closest("[data-clear]")) { clearFilters(); return; }
+      var pill = e.target.closest("[data-drop]");
+      if (!pill) return;
+      if (pill.dataset.drop === "q") {
+        state.q = "";
+        els.search.value = "";
+      } else {
+        delete state.facets[pill.dataset.drop][pill.dataset.v];
+      }
       render();
     });
 
-    els.groupsel.addEventListener("change", function () {
-      state.group = els.groupsel.value;
-      render();
-      els.list.scrollIntoView({ block: "start" });
+    /* Anywhere else closes an open facet. Right here and wrong for the
+       editing panels: a popover holds nothing anybody typed. */
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".facet")) closeFacets(null);
+    });
+
+    /* Opening a datasheet, and closing it. This sat among the filter wiring
+       the facet bar replaced and went out with it - every card was inert and
+       every test that opens one failed, which is how it was caught. */
+    document.addEventListener("click", function (e) {
+      var c = e.target.closest(".card, .row");
+      if (c) { openSheet(c.dataset.id); return; }
+      if (e.target.closest("[data-close]") || e.target === els.scrim) {
+        closeSheet();
+        return;
+      }
+      if (e.target.closest("[data-clear]")) clearFilters();
     });
 
     document.querySelector(".themeq").addEventListener("click", function (e) {
@@ -654,8 +833,6 @@
       " groups for GP1-MUR mockup room 1, each with the manufacturer’s " +
       "datasheet attached. Search it, filter it, open what you need.</p>";
 
-    renderMakers();
-    renderRail();
     setView(recall("gp1.view") || "cards");
     render();
     wire();
@@ -664,13 +841,12 @@
   }
 
   els.lede = document.getElementById("lede");
-  els.rail = document.getElementById("rail");
+
   els.list = document.getElementById("list");
   els.count = document.getElementById("count");
   els.search = document.getElementById("q");
-  els.maker = document.getElementById("maker");
-  els.groupsel = document.getElementById("groupsel");
-  els.statusbar = document.getElementById("statusbar");
+  els.facets = document.getElementById("facets");
+  els.showing = document.getElementById("showing");
   els.sheet = document.getElementById("sheet");
   els.scrim = document.getElementById("scrim");
 

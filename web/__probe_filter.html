@@ -1,39 +1,141 @@
-<!doctype html><meta charset="utf-8"><title>f</title>
-<iframe id="f" src="./__probe_workflow.html?role=admin" style="width:1200px;height:900px;border:0"></iframe>
+<!doctype html>
+<meta charset="utf-8">
+<title>Filter behaviour</title>
+<!--
+  Drives the facet bar against the real register.
+
+  The point of these is the combining rules, which are the easiest thing to
+  get quietly wrong: values inside one facet are OR, facets against each other
+  are AND, and a facet's own counts ignore its own selection so it can still
+  say what else you could pick.
+
+    python -m http.server   (from web/)   then open this file
+-->
+<style>
+ body{font:14px/1.6 ui-monospace,Menlo,monospace;margin:24px;max-width:900px}
+ .pass{color:#1F6B44}.fail{color:#9A2F2C;font-weight:700}
+ iframe{position:absolute;left:-9999px;width:1400px;height:900px;border:0}
+</style>
+<h1 id="h">running…</h1>
+<div id="o"></div>
 <script>
-var R=[],f=document.getElementById("f");
-function t(n,ok,d){R.push((ok?"PASS ":"FAIL ")+n+(ok?"":" :: "+d));}
-f.addEventListener("load",function(){
-  var d=f.contentDocument,n=0;
-  var tick=setInterval(function(){
-    if(!d.querySelector("#statusbar .chip")&&++n<200)return;
+var R = [], f = document.createElement("iframe");
+function t(n, ok, d) {
+  R.push([n, ok, d]);
+  document.getElementById("o").insertAdjacentHTML("beforeend",
+    '<div class="' + (ok ? "pass" : "fail") + '">' + (ok ? "PASS " : "FAIL ") +
+    n + (ok ? "" : "   [" + String(d).slice(0, 70) + "]") + "</div>");
+}
+f.src = "./__probe_register.html?st=1&w=1400";
+document.body.appendChild(f);
+
+f.addEventListener("load", function () {
+  var outer = f.contentDocument, n = 0;
+  var tick = setInterval(function () {
+    var inner = outer.getElementById("f");
+    var d = inner && inner.contentDocument;
+    if ((!d || !d.querySelector("#facets .facet")) && ++n < 250) return;
     clearInterval(tick);
-    var bar=d.getElementById("statusbar");
-    var cards=function(){return d.querySelectorAll(".card").length;};
-    var chip=function(k){return bar.querySelector('[data-st="'+k+'"]');};
-    t("strip visible once statuses exist", !bar.hidden);
-    t("one chip per status in use", bar.querySelectorAll(".chip").length===6);
-    t("all items before filtering", cards()===140, cards());
-    var a=chip("approved"); a.click();
-    setTimeout(function(){
-      t("Approved shows only approved", cards()===1, cards());
-      t("the chip reads as pressed", a.getAttribute("aria-pressed")==="true",
-        a.getAttribute("aria-pressed"));
-      t("the node survived the render", a===chip("approved"));
-      chip("rejected").click();
-      setTimeout(function(){
-        t("adding Rejected shows both", cards()===2, cards());
-        a.click();
-        setTimeout(function(){
-          t("unpressing Approved leaves rejected", cards()===1, cards());
-          chip("rejected").click();
-          setTimeout(function(){
-            t("clearing all restores everything", cards()===140, cards());
-            document.title="R:"+R.join(" | ");
-          },120);
-        },120);
-      },120);
-    },120);
-  },40);
+    setTimeout(function () { run(d, inner.contentWindow); }, 400);
+  }, 40);
 });
+
+function run(d, w) {
+  var cards = function () { return d.querySelectorAll(".card").length; };
+  var facet = function (k) { return d.querySelector('[data-facet="' + k + '"]'); };
+  var btn = function (k) { return facet(k).querySelector(".fbtn"); };
+  var opts = function (k) { return facet(k).querySelectorAll(".fopt"); };
+  var pick = function (k, v) {
+    var all = opts(k);
+    for (var i = 0; i < all.length; i++) {
+      if (all[i].querySelector("input").value === v) {
+        all[i].querySelector("input").click();
+        return true;
+      }
+    }
+    return false;
+  };
+  var pills = function () { return d.querySelectorAll("#showing .pill").length; };
+  var total = cards();
+
+  t("the register loaded", total === 147, total);
+  t("four facets", d.querySelectorAll("#facets .facet").length === 4);
+  t("Showing is absent until something is filtered",
+    d.getElementById("showing").hidden);
+
+  /* ---- opening and closing ---- */
+  btn("discipline").click();
+  t("a facet opens", !!facet("discipline").querySelector(".pop"));
+  t("it reports open to assistive tech",
+    btn("discipline").getAttribute("aria-expanded") === "true");
+  d.body.click();
+  t("clicking away closes it", !facet("discipline").querySelector(".pop"));
+
+  /* ---- one value ---- */
+  btn("discipline").click();
+  var disc = opts("discipline").length;
+  t("disciplines are listed", disc === 6, disc);
+  pick("discipline", "Lighting");
+  var lit = cards();
+  t("Lighting narrows the list", lit === 74, lit);
+  t("and names itself in Showing", pills() === 1, pills());
+
+  /* ---- OR inside a facet ---- */
+  pick("discipline", "Doors");
+  var both = cards();
+  t("adding Doors widens it (OR within a facet)", both === 84, both);
+  t("two pills now", pills() === 2, pills());
+  pick("discipline", "Doors");
+  t("unticking Doors puts it back", cards() === lit, cards());
+  d.body.click();
+
+  /* ---- counts ignore their own facet, and respect the others ---- */
+  btn("maker").click();
+  var makers = opts("maker").length;
+  var sum = 0, zero = 0;
+  opts("maker").forEach(function (o) {
+    var c = Number(o.querySelector("b").textContent);
+    sum += c; if (!c) zero++;
+  });
+  t("the Maker list is narrowed by Lighting", makers < 36 && makers > 0, makers);
+  t("no maker offers zero items", zero === 0, zero);
+  var mk = opts("maker")[0].querySelector("input").value;
+  var mkCount = Number(opts("maker")[0].querySelector("b").textContent);
+  opts("maker")[0].querySelector("input").click();
+
+  /* ---- AND between facets ---- */
+  var andCount = cards();
+  t("a maker AND a discipline narrows further", andCount === mkCount, andCount + " vs " + mkCount);
+  /* Two, not three: Doors was ticked and unticked again above. */
+  t("two pills - the discipline and the maker", pills() === 2, pills());
+  d.body.click();
+
+  /* ---- the counts a facet shows about itself ignore its own picks ---- */
+  btn("maker").click();
+  t("the Maker list still offers every maker it did",
+    opts("maker").length === makers, opts("maker").length + " vs " + makers);
+  d.body.click();
+
+  /* ---- dropping one, and dropping all ---- */
+  d.querySelectorAll("#showing .pill")[1].click();
+  t("dropping the maker pill restores the discipline result",
+    cards() === lit, cards());
+  d.querySelector("#showing .clearall").click();
+  t("Clear all restores everything", cards() === total, cards());
+  t("and takes the Showing row away", d.getElementById("showing").hidden);
+
+  /* ---- search joins in ---- */
+  var q = d.getElementById("q");
+  q.value = "pentair";
+  q.dispatchEvent(new w.Event("input", { bubbles: true }));
+  t("search filters", cards() < total && cards() > 0, cards());
+  t("and appears as a pill", pills() === 1, pills());
+  d.querySelector("#showing .pill").click();
+  t("dropping the search pill clears the box", q.value === "" && cards() === total);
+
+  var bad = R.filter(function (r) { return !r[1]; }).length;
+  document.getElementById("h").textContent =
+    bad ? bad + " FAILED of " + R.length : "all " + R.length + " passed";
+  document.title = bad ? "R:FAIL " + bad : "R:PASS " + R.length;
+}
 </script>

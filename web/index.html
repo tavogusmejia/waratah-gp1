@@ -254,8 +254,7 @@
       <input id="q" type="search" placeholder="Search items, makers, specs&hellip;  /"
              aria-label="Search the register" autocomplete="off">
     </label>
-    <select id="groupsel" class="pick groupsel" aria-label="Filter by group"></select>
-    <select id="maker" class="pick" aria-label="Filter by manufacturer"></select>
+    <div class="facets" id="facets"></div>
     <div class="viewq" role="group" aria-label="View">
       <button data-v="cards" aria-label="Cards with previews" aria-pressed="true"></button>
       <button data-v="rows" aria-label="List, no previews" aria-pressed="false"></button>
@@ -263,10 +262,11 @@
     <span class="count" id="count"></span>
   </div>
 
-  <div class="statusbar chips" id="statusbar" hidden></div>
+  <!-- Only present when something is filtered: it exists to answer "why am I
+       seeing 23 items", which has no answer when the answer is "all of them". -->
+  <div class="showing" id="showing" hidden></div>
 
   <div class="cols">
-    <nav class="rail" id="rail" aria-label="Groups"></nav>
     <div id="list"></div>
   </div>
 </main>
