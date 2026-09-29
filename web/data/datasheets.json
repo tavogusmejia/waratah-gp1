@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29T15:21:03Z",
+ "generated": "2026-09-29T15:36:56Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -22,7 +22,7 @@
    "name": "Doors & Hardware",
    "discipline": "Doors",
    "submittal": null,
-   "count": 9
+   "count": 10
   },
   {
    "key": "E",
@@ -1071,6 +1071,32 @@
     }
    ],
    "image": "img/dh17-salto-la1t17-privacy-thumbturn.webp"
+  },
+  {
+   "id": "d-dh18-dh18-salto-la1t17-mortise-lock",
+   "code": "DH18",
+   "group": "D",
+   "group_name": "Doors & Hardware",
+   "discipline": "Doors",
+   "submittal": null,
+   "manufacturer": "",
+   "category": "",
+   "title": "DH18 - Salto LA1T17 Mortise Lock",
+   "specs": [],
+   "notes": "",
+   "status": "not_stated",
+   "status_text": "",
+   "curated": false,
+   "pdf": "datasheets/dh18-salto-la1t17-mortise-lock.pdf",
+   "pages": 4,
+   "bytes": 322497,
+   "sha": "0718fbd5770b6d3d",
+   "source": "D - Doors/DH - Doors Hardware/DH18 - Salto LA1T17 Mortise Lock.pdf",
+   "key": "d-dh18",
+   "drive_url": "https://drive.google.com/file/d/11Ljn0IBcoLtQ-FZ8ch3MB-xNl4xaJd7U/view",
+   "maker_url": "",
+   "extras": [],
+   "image": ""
   },
   {
    "id": "e-e1-load-center-reliahome-pcc4022r",
