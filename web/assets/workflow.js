@@ -887,11 +887,13 @@
         (can("super_admin")
           ? '<details class="wf-fold"><summary>Domain rules</summary>' +
             '<p class="wf-hint">Everyone with a confirmed address at these ' +
-            'domains gets at least this role, with no entry of their own. ' +
-            'One line here is usually worth a hundred rows below.</p>' +
+            'domains gets at least this role, and the company name, with no ' +
+            'entry of their own. One line here is usually worth a hundred ' +
+            'rows below. A person who names their own company keeps it.</p>' +
             '<ul class="wf-domains"><li class="wf-wait">Loading…</li></ul>' +
             '<form class="wf-add wf-domain-add">' +
               '<input type="text" name="domain" placeholder="waratahtci.com" required aria-label="Domain">' +
+              '<input type="text" name="company" placeholder="Company" aria-label="Company">' +
               '<select name="role" aria-label="Role">' +
                 '<option value="viewer">Viewer</option>' +
                 '<option value="commenter" selected>Commenter</option>' +
@@ -1219,7 +1221,8 @@
         for (var i = 0; i < r.data.length; i++) {
           var d = r.data[i];
           h += "<li><span class=\"wf-p-n\">@" + esc(d.domain) +
-            "<em>" + esc(d.note || "") + "</em></span>" +
+            "<em>" + esc([d.company, d.note].filter(Boolean).join(" · ")) +
+            "</em></span>" +
             '<span class="wf-p-s">' + esc(ROLE_WORDS[d.role]) + "</span>" +
             '<button type="button" class="wf-del" data-drm="' + esc(d.domain) +
             '" aria-label="Remove rule">×</button></li>';
@@ -1242,6 +1245,7 @@
         var r = await sb.from("register_domain").insert({
           domain: f.domain.value.trim(),
           role: f.role.value,
+          company: f.company.value.trim(),
           note: f.note.value.trim()
         }).select("domain");
         if (r.error) { say(fail(r.error), true); return; }

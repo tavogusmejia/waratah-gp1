@@ -68,7 +68,7 @@ STUB = r"""
       {id:"n2", item_key:"a-a1", body:"Lead time quoted as 6 weeks from order.", at:"2026-09-19T16:02:00Z", edited_at:null, by_email:"lighting@example.com"}
     ],
     register_domain: [
-      {domain:"waratahtci.com", role:"commenter", note:"The company", added_by:EMAIL}
+      {domain:"waratahtci.com", role:"commenter", company:"Waratah TCI", note:"The company", added_by:EMAIL}
     ],
     item_invoice: [
       {id:"v1", item_key:"a-a1", label:"Deposit 50%", invoice_no:"PN-40912",
