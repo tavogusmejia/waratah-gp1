@@ -58,6 +58,12 @@
 
   function can(r) { return !!role && ROLES.indexOf(role) >= ROLES.indexOf(r); }
 
+  /* Every panel carries one. Cancel and Save are the considered ways out;
+     this is the one for changing your mind, and it has to be somewhere the
+     eye already goes - which is the corner, not the bottom row. */
+  var MODAL_X = '<button type="button" class="modal-x" data-x="1" ' +
+                'aria-label="Close">×</button>';
+
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -196,7 +202,7 @@
     wrap.className = "modal";
     wrap.innerHTML =
       '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Set a password">' +
-        "<h3>" + (recovery ? "Set a new password" : "Set a password") + "</h3>" +
+        MODAL_X + "<h3>" + (recovery ? "Set a new password" : "Set a password") + "</h3>" +
         "<p>" + (recovery
           ? "You came in on a recovery link. Choose a password and it takes effect straight away."
           : "You can keep using the mailed link. A password is simply quicker " +
@@ -225,7 +231,7 @@
       msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
     }
     wrap.addEventListener("click", function (e) {
-      if (e.target === wrap || e.target.closest("[data-x]")) wrap.remove();
+      if (e.target.closest("[data-x]")) wrap.remove();
     });
     wrap.querySelector("form").addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -259,7 +265,7 @@
     wrap.className = "modal";
     wrap.innerHTML =
       '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Sign in">' +
-        "<h3>Sign in</h3>" +
+        MODAL_X + "<h3>Sign in</h3>" +
         "<p>Reading the register needs no account. Signing in is what it " +
         "takes to add a note, attach an invoice or move an item’s status.</p>" +
         '<div class="wf-tabs" role="tablist">' +
@@ -319,7 +325,7 @@
     setMode("password");
 
     wrap.addEventListener("click", function (e) {
-      if (e.target === wrap || e.target.closest("[data-x]")) { wrap.remove(); return; }
+      if (e.target.closest("[data-x]")) { wrap.remove(); return; }
       var t = e.target.closest("[data-tab]");
       if (t) { setMode(t.dataset.tab); return; }
       var tr = e.target.closest("[data-try]");
@@ -787,7 +793,7 @@
     wrap.className = "modal";
     wrap.innerHTML =
       '<div class="modal-in" role="dialog" aria-modal="true" aria-label="Edit person">' +
-        "<h3>" + esc(u.name || who(u.email)) + "</h3>" +
+        MODAL_X + "<h3>" + esc(u.name || who(u.email)) + "</h3>" +
         "<form>" +
           '<label for="pp-name">Name</label>' +
           '<input id="pp-name" type="text" value="' + esc(u.name || "") + '">' +
@@ -818,7 +824,7 @@
       msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
     }
     wrap.addEventListener("click", async function (e) {
-      if (e.target === wrap || e.target.closest("[data-x]")) { wrap.remove(); return; }
+      if (e.target.closest("[data-x]")) { wrap.remove(); return; }
       var inv = e.target.closest("[data-inv]");
       if (!inv) return;
       inv.disabled = true;
@@ -875,7 +881,7 @@
     wrap.className = "modal";
     wrap.innerHTML =
       '<div class="modal-in wide" role="dialog" aria-modal="true" aria-label="People">' +
-        "<h3>People</h3>" +
+        MODAL_X + "<h3>People</h3>" +
         '<p class="wf-counts">Loading…</p>' +
 
         (can("super_admin")
@@ -964,7 +970,7 @@
       msg.className = "msg" + (t ? (bad ? " bad" : " ok") : "");
     }
     wrap.addEventListener("click", function (e) {
-      if (e.target === wrap || e.target.closest("[data-x]")) wrap.remove();
+      if (e.target.closest("[data-x]")) wrap.remove();
     });
 
     /* ---- counts ---- */
@@ -1303,6 +1309,17 @@
       window.GP1.reopen();
     });
   }
+
+  /* Deliberately kept, and deliberately not the same thing as clicking
+     outside: Escape is a key somebody means to press, and a keyboard user
+     needs a way out that is not a mouse. Closes the topmost panel only. */
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    var open = document.querySelectorAll(".modal");
+    if (!open.length) return;
+    e.stopPropagation();
+    open[open.length - 1].remove();
+  }, true);
 
   window.GP1.onSheet = decorate;
 

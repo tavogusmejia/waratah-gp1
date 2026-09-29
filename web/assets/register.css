@@ -835,3 +835,14 @@ a { color: inherit; }
 .wf-upbtn:hover { border-color: var(--slate); border-style: solid; color: var(--ink); }
 .wf-up.busy .wf-upbtn { opacity: .5; pointer-events: none; }
 .wf-inv-t em { font-style: normal; font-weight: 400; color: var(--ink-3); }
+
+/* The way out, in the corner where the eye already looks for one. */
+.modal-in { position: relative; }
+.modal .modal-x {
+  position: absolute; top: 10px; right: 10px;
+  width: 30px; height: 30px; padding: 0; line-height: 1;
+  font-size: 19px; cursor: pointer; border-radius: 6px;
+  border: 1px solid transparent; background: none; color: var(--ink-3);
+}
+.modal .modal-x:hover { background: var(--slate-wash); color: var(--ink); }
+.modal-in h3 { padding-right: 34px; }

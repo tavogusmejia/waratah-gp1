@@ -1,0 +1,44 @@
+<!doctype html><meta charset="utf-8"><title>m</title>
+<iframe id="f" src="./__probe_workflow.html?role=super_admin&people=1" style="width:1200px;height:900px;border:0"></iframe>
+<script>
+var R=[],f=document.getElementById("f");
+function t(n,ok,d){R.push((ok?"PASS ":"FAIL ")+n+(ok?"":" :: "+d));}
+f.addEventListener("load",function(){
+  var d=f.contentDocument,w=f.contentWindow,n=0;
+  var tick=setInterval(function(){
+    if(!d.querySelector(".modal .wf-people li")&&++n<250)return;
+    clearInterval(tick);
+    var modal=function(){return d.querySelectorAll(".modal").length;};
+    t("people panel is open", modal()===1, modal());
+    t("it has a close button in the corner", !!d.querySelector(".modal .modal-x"));
+    // click the backdrop
+    var back=d.querySelector(".modal");
+    back.dispatchEvent(new w.MouseEvent("click",{bubbles:true}));
+    setTimeout(function(){
+      t("clicking the backdrop does NOT close it", modal()===1, modal());
+      // open the person editor
+      var name=d.querySelector(".modal .wf-p-edit");
+      name.click();
+      setTimeout(function(){
+        t("person editor opens on top", modal()===2, modal());
+        var top=d.querySelectorAll(".modal")[1];
+        top.dispatchEvent(new w.MouseEvent("click",{bubbles:true}));
+        setTimeout(function(){
+          t("its backdrop does NOT close it either", modal()===2, modal());
+          t("it has its own close button",
+            !!top.querySelector(".modal-x"));
+          top.querySelector(".modal-x").click();
+          setTimeout(function(){
+            t("the X closes it", modal()===1, modal());
+            d.dispatchEvent(new w.KeyboardEvent("keydown",{key:"Escape",bubbles:true}));
+            setTimeout(function(){
+              t("Escape closes the remaining one", modal()===0, modal());
+              document.title="R:"+R.join(" | ");
+            },150);
+          },150);
+        },150);
+      },400);
+    },150);
+  },40);
+});
+</script>
