@@ -527,7 +527,13 @@ document.addEventListener("click", function (ev) {
         try { await assets.delete(previous.asset); } catch (e) {}
       }
     } catch (err) {
-      fail(slug, REASON[err && err.code] || "That upload did not go through.");
+      /* The code when the runtime gives one, the message when it does not,
+         and never just "it did not work" - which is a sentence you cannot act
+         on and cannot report. */
+      var why = (err && (REASON[err.code] || err.message || err.code)) || "";
+      fail(slug, why ? "Upload refused: " + why
+                     : "That upload did not go through, with no reason given.");
+      if (window.console) console.error("GP1 upload", slug, err);
     }
   }
 
@@ -978,17 +984,39 @@ document.addEventListener("click", function (ev) {
       try { assets = await window.claude.use("assets"); } catch (e) {}
       try { db = await window.claude.use("db"); } catch (e) {}
     }
-    if (!assets || !db) {
-      document.getElementById("offline").textContent =
-        "Open this page in the Claude viewer to drag pictures straight in. " +
-        "The filenames work either way.";
+    /* Degrade one capability at a time. This used to hide the drop zones AND
+       the whole links section the moment EITHER came back null - so a page
+       that could not take pictures also could not be used to check a single
+       manufacturer link, which needs nothing but the database. One being
+       unavailable is not the other being unavailable. */
+    var off = document.getElementById("offline");
+    if (!assets) {
       var zs = document.querySelectorAll(".drop, .fine");
       for (var i = 0; i < zs.length; i++) zs[i].style.display = "none";
-      if (linksEl) linksEl.style.display = "none";
+    }
+    if (!db && linksEl) linksEl.style.display = "none";
+
+    if (!assets && !db) {
+      off.textContent = "Open this page in the Claude viewer to drag pictures "
+        + "straight in and save links. The filenames work either way.";
+    } else if (!assets) {
+      /* Name it. A page that silently drops half of itself teaches whoever
+         is using it that the tool is broken, with nothing to act on. */
+      off.textContent = "Pictures cannot be uploaded from here: this page's "
+        + "asset store did not load, which happens when the artifact is "
+        + "shared by public link rather than inside the organisation. The "
+        + "links below still save. Copy the filenames and drop the pictures "
+        + "into tools/images/ instead.";
+    } else if (!db) {
+      off.textContent = "Links cannot be saved from here: the database did "
+        + "not load. Pictures can still be staged.";
+    }
+    if (!assets && !db) {
       report();
       preport();
       return;
     }
+    if (!db) { report(); preport(); return; }
     try {
       var ok = await db.collection("fine").limit(200).get();
       ((ok && ok.docs) || ok || []).forEach(function (doc) {
