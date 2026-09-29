@@ -757,7 +757,8 @@ document.addEventListener("click", function (ev) {
       try { await ref.delete(); } catch (e) {}
       return true;
     } catch (err) {
-      lastError = (err && (err.message || err.code)) || "refused";
+      lastError = (err && (err.code ? err.code + ": " : "") +
+                          (err.message || "")) || "refused";
       if (window.console) console.error("GP1 db write probe", err);
       return false;
     }
@@ -807,7 +808,12 @@ document.addEventListener("click", function (ev) {
     } catch (err) {
       row.classList.remove("kept");
       row.classList.add("lost");
-      var why = (err && (err.message || err.code)) || "no reason given";
+      /* The code first: the docs say to branch on it and never on message
+         text, and "malformed or exceeds a limit" covers a bad path, an
+         oversized body and a full collection alike - which are three quite
+         different problems with three different answers. */
+      var why = (err && (err.code ? err.code + ": " : "") +
+                        (err.message || "")) || "no reason given";
       row.setAttribute("title", "Would not save: " + why);
       lastError = why;
       if (window.console) console.error("GP1 link save", row.dataset.slug, err);
