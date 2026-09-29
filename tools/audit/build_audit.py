@@ -570,7 +570,9 @@ button.chip.done { color: var(--green); border-color: var(--green); }
   padding:10px 12px;color:var(--ink)}
 .say:hover{border-color:var(--slate)}
 .say code{flex:1;min-width:0;font:400 12px/1.4 var(--mono)}
-.offline{margin-top:10px;font-size:12px;color:var(--ink3)}
+.offline{margin-top:10px;font-size:12px;color:var(--ink3);line-height:1.5}
+/* A view that cannot save is not a footnote. */
+.offline.warn{color:var(--red);font-size:13px;font-weight:500;border:1px solid var(--red);border-radius:8px;padding:12px 14px;margin-top:14px}
 
 @media (max-width:760px){
   .item{grid-template-columns:70px minmax(0,1fr);gap:14px}

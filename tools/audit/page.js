@@ -367,10 +367,38 @@ document.addEventListener("click", function (ev) {
       bits.push(kept + (kept === 1 ? " link is saved" : " links are saved"));
       if (wait) bits.push(wait + " still saving");
       if (bad)  bits.push(bad + (bad === 1 ? " is not a URL" : " are not URLs"));
-      if (lost) bits.push(lost + " would not save — copy them out");
+      if (lost) {
+        bits.push(lost + " would not save" +
+                  (lastError ? " (" + lastError + ")" : "") +
+                  " — copy them out");
+      }
     }
     stateEl.textContent = bits.join(" · ");
     stateEl.className = "lstate" + ((!db || bad || lost) ? " warn" : "");
+  }
+
+  var lastError = "";
+
+  /* Can this view write at all?
+
+     Reading and writing are separate permissions: a database that answers
+     reads can still refuse every write, and until now the page found that out
+     one row at a time, after somebody had typed into them. One scratch
+     document at startup settles it. */
+  async function canWrite() {
+    if (!db) return false;
+    var ref = db.doc("_selftest/write");
+    try {
+      await ref.set({at: new Date().toISOString()});
+      var back = await ref.get();
+      if (!back || !back.exists) throw new Error("the write did not read back");
+      try { await ref.delete(); } catch (e) {}
+      return true;
+    } catch (err) {
+      lastError = (err && (err.message || err.code)) || "refused";
+      if (window.console) console.error("GP1 db write probe", err);
+      return false;
+    }
   }
 
   function markLink(row) {
@@ -417,6 +445,10 @@ document.addEventListener("click", function (ev) {
     } catch (err) {
       row.classList.remove("kept");
       row.classList.add("lost");
+      var why = (err && (err.message || err.code)) || "no reason given";
+      row.setAttribute("title", "Would not save: " + why);
+      lastError = why;
+      if (window.console) console.error("GP1 link save", row.dataset.slug, err);
       return false;
     } finally {
       report();
@@ -716,6 +748,27 @@ document.addEventListener("click", function (ev) {
       return;
     }
     if (!db) { report(); preport(); return; }
+
+    /* Reading works. Writing is a separate question, and the answer decides
+       whether this page is a place to do work or a place to lose it. */
+    var writable = await canWrite();
+    if (!writable) {
+      off.textContent = "This view can READ the database but not write to it"
+        + (lastError ? " (" + lastError + ")" : "") + ". Anything typed here "
+        + "will not be kept. Use “Copy every link” and paste the "
+        + "result into tools/maker-links.csv instead - that path does not "
+        + "depend on any of this. The usual cause is opening the artifact "
+        + "through its public link rather than as its owner.";
+      off.className = "offline warn";
+      /* Every field, not one at a time after the fact. */
+      var ins = document.querySelectorAll(".lurl");
+      for (var q = 0; q < ins.length; q++) {
+        ins[q].readOnly = true;
+        ins[q].title = "Read-only: this view cannot write to the database.";
+      }
+      var zz = document.querySelectorAll(".drop, .fine");
+      for (var z = 0; z < zz.length; z++) zz[z].style.display = "none";
+    }
     try {
       var ok = await db.collection("fine").limit(200).get();
       ((ok && ok.docs) || ok || []).forEach(function (doc) {
