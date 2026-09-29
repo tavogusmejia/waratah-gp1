@@ -367,6 +367,14 @@ document.addEventListener("click", function (ev) {
       bits.push(kept + (kept === 1 ? " link is saved" : " links are saved"));
       if (wait) bits.push(wait + " still saving");
       if (bad)  bits.push(bad + (bad === 1 ? " is not a URL" : " are not URLs"));
+      var held = document.querySelectorAll(".lrow.held").length;
+      if (held) {
+        bits.push(held + (held === 1 ? " is kept in this browser" :
+                          " are kept in this browser") +
+                  " but not in the database" +
+                  (lastError ? " (" + lastError + ")" : "") +
+                  " — Copy every link to get them out");
+      }
       if (lost) {
         bits.push(lost + " would not save" +
                   (lastError ? " (" + lastError + ")" : "") +
@@ -374,7 +382,9 @@ document.addEventListener("click", function (ev) {
       }
     }
     stateEl.textContent = bits.join(" · ");
-    stateEl.className = "lstate" + ((!db || bad || lost) ? " warn" : "");
+    stateEl.className = "lstate" +
+      ((!db || bad || lost || document.querySelectorAll(".lrow.held").length)
+       ? " warn" : "");
   }
 
   var lastError = "";
@@ -409,7 +419,7 @@ document.addEventListener("click", function (ev) {
     var v = val(row);
     row.classList.toggle("bad", !!v && !isUrl(v));
     row.classList.add("dirty");
-    row.classList.remove("kept", "lost");
+    row.classList.remove("kept", "lost", "held");
   }
 
   /* Does the store hold exactly what this row says?
@@ -443,12 +453,15 @@ document.addEventListener("click", function (ev) {
         ok = await matches(ref, v);
       }
       if (!ok) throw new Error("the database did not read back what was sent");
-      row.classList.remove("dirty", "bad", "lost");
+      row.classList.remove("dirty", "bad", "lost", "held");
       row.classList.toggle("kept", !!v);
       return true;
     } catch (err) {
       row.classList.remove("kept");
-      row.classList.add("lost");
+      /* Held here, not lost: the browser has it and Copy every link will
+         include it. The row says which of the two happened. */
+      row.classList.add(remembered(row.getAttribute("data-slug")) === v && v
+                        ? "held" : "lost");
       /* The code first: the docs say to branch on it and never on message
          text, and "malformed or exceeds a limit" covers a bad path, an
          oversized body and a full collection alike - which are three quite
@@ -481,7 +494,41 @@ document.addEventListener("click", function (ev) {
     }
   }
 
+  /* ---- the copy that cannot fail ----
+
+     The database has refused every write in this view with invalid_argument,
+     while the identical write from outside the page commits first time. I
+     have not found why, and this page should not have been built so that
+     finding out is a condition of anybody getting any work done.
+
+     So localStorage is now the primary store. It is synchronous, it needs no
+     capability, it cannot be refused, and it survives a reload and a closed
+     tab. The database is still written - it is what makes a link visible on
+     another machine - but a failure there no longer costs anybody a keystroke,
+     and "Copy every link" reads the fields themselves, so it is complete
+     either way.
+
+     What it does not do is reach another device. That is what the CSV is
+     for, and why the button next to it matters. */
+  var LS = "gp1.maker.";
+
+  function remember(slug, v) {
+    try {
+      if (v) localStorage.setItem(LS + slug, v);
+      else localStorage.removeItem(LS + slug);
+      return true;
+    } catch (e) { return false; }
+  }
+
+  function remembered(slug) {
+    try { return localStorage.getItem(LS + slug) || ""; }
+    catch (e) { return ""; }
+  }
+
   function queue(row) {
+    /* Immediately, before the debounce and before any network: by the time
+       the 900ms timer fires the browser already has it. */
+    remember(row.getAttribute("data-slug"), val(row));
     var slug = row.getAttribute("data-slug");
     clearTimeout(timers[slug]);
     timers[slug] = setTimeout(function () {
@@ -816,10 +863,25 @@ document.addEventListener("click", function (ev) {
         if (row && data && data.url) {
           row.querySelector(".lurl").value = data.url;
           row.classList.add("kept");
-          row.classList.remove("dirty", "bad", "lost");
+          row.classList.remove("dirty", "bad", "lost", "held");
         }
       });
     } catch (e) {}
+
+    /* Then whatever this browser is holding, for every row the database did
+       not fill. Last, so a link that IS in the database wins - that one is
+       the shared truth and reaches other machines; this is the local copy of
+       work the database refused. Either way nothing typed here is gone after
+       a reload, which is the whole point of keeping it twice. */
+    var all = lrows();
+    for (var i = 0; i < all.length; i++) {
+      var slug = all[i].getAttribute("data-slug");
+      var mine = remembered(slug);
+      if (!mine || all[i].classList.contains("kept")) continue;
+      all[i].querySelector(".lurl").value = mine;
+      all[i].classList.add("held");
+    }
+
     booted = true;
     report();
     /* Ticks come back from the store, or a reload would quietly lose them -

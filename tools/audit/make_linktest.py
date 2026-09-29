@@ -153,15 +153,23 @@ DRIVER = r"""<pre id="TESTOUT" style="white-space:pre-wrap"></pre>
   ok("clearing a link deletes it", !window.__store["maker/" + s0]);
   ok("and the row is no longer green", !r0.classList.contains("kept"));
 
-  /* 5. a store that refuses goes loudly red */
+  /* 5. a store that refuses keeps the work anyway.
+
+     This used to assert red and lost. It asserts amber and held now, because
+     the behaviour changed on purpose: the browser writes the value before the
+     debounce fires, so a refusal costs the reader nothing but a copy-out. Red
+     is reserved for the case where even that failed. */
   var r3 = all[3], s3 = r3.getAttribute("data-slug");
   window.__failFor = s3;
   type(r3, "https://example.com/will-not-save");
   await wait(1400);
-  ok("a refused write turns the row red", r3.classList.contains("lost"), r3.className);
+  ok("a refused write is HELD, not lost", r3.classList.contains("held"), r3.className);
   ok("it is NOT shown as saved", !r3.classList.contains("kept"));
-  ok("the status line says it would not save",
-     state().textContent.indexOf("would not save") > -1, state().textContent);
+  ok("the browser really has it",
+     localStorage.getItem("gp1.maker." + s3) === "https://example.com/will-not-save",
+     localStorage.getItem("gp1.maker." + s3));
+  ok("the status line says where it is",
+     state().textContent.indexOf("kept in this browser") > -1, state().textContent);
   window.__failFor = null;
 
   commit(r3);

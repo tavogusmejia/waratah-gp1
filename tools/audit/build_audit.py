@@ -449,6 +449,11 @@ button.chip.done { color: var(--green); border-color: var(--green); }
 .lrow.kept .lurl { border-color: var(--green); }
 .lrow.lost { box-shadow: inset 3px 0 0 var(--red); }
 .lrow.lost .lurl { border-color: var(--red); }
+/* Typed, and held by the browser, but the database refused it. Amber, not
+   red: nothing the reader did is wrong and nothing they typed is gone - it
+   just has not travelled anywhere yet, and Copy every link is how it does. */
+.lrow.held { box-shadow: inset 3px 0 0 var(--amber); }
+.lrow.held .lurl { border-color: var(--amber); }
 /* ---- byte-identical items ---- */
 .dgrid { display: grid; gap: 1px; }
 .drow { display: grid; gap: 8px; background: var(--raise); padding: 14px 18px; }
