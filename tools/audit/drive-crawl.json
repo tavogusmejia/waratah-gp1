@@ -331,10 +331,34 @@
    "path": "H - Bathroom and Shower Fixtures/H8 - DS - TOTO Neorest WX1 Wall-Hung Toilet (CWT9538CEMFG).pdf"
   },
   {
+   "id": "1LRl4JXSbV2TL5u7XwnAnYAWIm6_iGobj",
+   "name": "260123_382_JANU T&C_SPEC BOOK_GP1 - RECEIVED.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/260123_382_JANU T&C_SPEC BOOK_GP1 - RECEIVED.pdf"
+  },
+  {
    "id": "1TjccKoqzQSZ6EBAHw1nXIBTOhATpaiFj",
    "name": "GP1 Lighting - Datasheet vs Drawings Reconciliation.xlsx",
    "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
    "path": "L - Lighting/GP1 Lighting - Datasheet vs Drawings Reconciliation.xlsx"
+  },
+  {
+   "id": "1oHrmIJBh2ZgxYHgBHUQpqfEJwxwu4ET4",
+   "name": "iGL - iGuzzini Lighting Items JANU GP1 MUR.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/iGL - iGuzzini Lighting Items JANU GP1 MUR.pdf"
+  },
+  {
+   "id": "1YVrWCtjdRtR4RX5sYc99LprWvHBD--zr",
+   "name": "iGL - iGuzzini Lighting Items JANU GP1 MUR.xlsx",
+   "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+   "path": "L - Lighting/iGL - iGuzzini Lighting Items JANU GP1 MUR.xlsx"
+  },
+  {
+   "id": "1z4R0na20cXa0CfZISKr4mW-k3sN7B9Q8",
+   "name": "LUM - Luminaires Schedule JANU GP1 MUR.xlsx",
+   "mime": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+   "path": "L - Lighting/LUM - Luminaires Schedule JANU GP1 MUR.xlsx"
   },
   {
    "id": "1ON_61je_K9eKz76XK2v7LoZNUsqfbrMo",
@@ -398,9 +422,9 @@
   },
   {
    "id": "1lt2u7mm9gHIADCZWoOXkCETi2s52fGCX",
-   "name": "P9 - Poly Pipe Insulation.pdf",
+   "name": "P10 - Poly Pipe Insulation.pdf",
    "mime": "application/pdf",
-   "path": "P - Plumbing/P9 - Poly Pipe Insulation.pdf"
+   "path": "P - Plumbing/P10 - Poly Pipe Insulation.pdf"
   },
   {
    "id": "1u4064so4paSqPeibG0Fy4fWmZnHH905-",
@@ -457,22 +481,16 @@
    "path": "D - Doors/DH - Doors Hardware/DH9 - Assa Abloy Planet X3 RD Drop Seal.pdf"
   },
   {
-   "id": "1hjoN7mntJOo8MoCNOpVX4_zQg993ujhM",
-   "name": "DH9 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH9 - DS - Assa Abloy Planet X3 RD Drop Seal.pdf"
-  },
-  {
-   "id": "11hklGe9QHB0v33a7Ns-1tPSpb-gLG7t-",
-   "name": "DH10 - DS - Hafele Startec Concealed Hinge B.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH10 - DS - Hafele Startec Concealed Hinge B.pdf"
-  },
-  {
    "id": "16pdugb77I2uUgIRzeVkwHLqBT2vOTU-Y",
    "name": "DH10 - Hafele Startec Concealed Hinge.pdf",
    "mime": "application/pdf",
    "path": "D - Doors/DH - Doors Hardware/DH10 - Hafele Startec Concealed Hinge.pdf"
+  },
+  {
+   "id": "1X4wJIwlEYsyx0bqfuZa_iLWDQ_InYs7n",
+   "name": "DH10 - IG - Hafele Startec Concealed Hinge.pdf",
+   "mime": "application/pdf",
+   "path": "D - Doors/DH - Doors Hardware/DH10 - IG - Hafele Startec Concealed Hinge.pdf"
   },
   {
    "id": "1E264idfMqxPwQ9TJF5t7gzxAeLB1mUue",
@@ -481,34 +499,16 @@
    "path": "D - Doors/DH - Doors Hardware/DH10.jpg"
   },
   {
-   "id": "1OoDQxmy7RKHEMOnT5pPv3ShKqErwVBxm",
-   "name": "DH11 - DS - Hafele Door Hinge Top Pivot.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH11 - DS - Hafele Door Hinge Top Pivot.pdf"
-  },
-  {
    "id": "11MADdSj0iSvlZ7QjPuYP5xgIMdBZid6A",
    "name": "DH11 - Hafele Door Hinge Top Pivot.pdf",
    "mime": "application/pdf",
    "path": "D - Doors/DH - Doors Hardware/DH11 - Hafele Door Hinge Top Pivot.pdf"
   },
   {
-   "id": "1EwF_c21NIzHt0lKvtuGHOrdTofHHATB4",
-   "name": "DH12 - DS - Hafele Startec Door Viewer B.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH12 - DS - Hafele Startec Door Viewer B.pdf"
-  },
-  {
    "id": "1taDy6HWe9mURv-3csyIISyWkoXZVWFlX",
    "name": "DH12 - Hafele Startec Door Viewer.pdf",
    "mime": "application/pdf",
    "path": "D - Doors/DH - Doors Hardware/DH12 - Hafele Startec Door Viewer.pdf"
-  },
-  {
-   "id": "1EGuq-dUS2PtezfKmjZ1JpCO2ytoQSRiO",
-   "name": "DH13 - DS - Hafele Hawa Junior 80B Pocket.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH13 - DS - Hafele Hawa Junior 80B Pocket.pdf"
   },
   {
    "id": "1KEKlK2lmnlnGTy4JS8llB6FRgY27ny80",
@@ -523,12 +523,6 @@
    "path": "D - Doors/DH - Doors Hardware/DH13.png"
   },
   {
-   "id": "1QH9Y2U1CgFxAkzvQRrt6-J-MwN_F-lZ2",
-   "name": "DH14 - DS - Hafele Slido D-Line11 160P.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH14 - DS - Hafele Slido D-Line11 160P.pdf"
-  },
-  {
    "id": "1Ps_XhTmREpUwHuTEPXPmwgDFFcTNScDf",
    "name": "DH14 - Hafele Slido D-Line11 160P.pdf",
    "mime": "application/pdf",
@@ -539,12 +533,6 @@
    "name": "DH14.png",
    "mime": "image/png",
    "path": "D - Doors/DH - Doors Hardware/DH14.png"
-  },
-  {
-   "id": "1NnDFQ2Y2-TNLxNZStSdRXihGiVIcHJw5",
-   "name": "DH15 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH15 - DS - Salto AElement Fusion Lockset & Ring Reader.pdf"
   },
   {
    "id": "1ApT4wrXt4y_Q9rboGJv9RiIAedfkkr5Z",
@@ -565,12 +553,6 @@
    "path": "D - Doors/DH - Doors Hardware/DH15.jpg"
   },
   {
-   "id": "1dwGf_CGeeZxEFXVasN72f885fKQOsdR1",
-   "name": "DH16 - DS - Salto London Lever Handle.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH16 - DS - Salto London Lever Handle.pdf"
-  },
-  {
    "id": "1XtksWim-l62aMRMVa845W-biI1q939Yr",
    "name": "DH16 - IG - Salto London Lever Handle.pdf",
    "mime": "application/pdf",
@@ -587,12 +569,6 @@
    "name": "DH16.jpg",
    "mime": "image/jpeg",
    "path": "D - Doors/DH - Doors Hardware/DH16.jpg"
-  },
-  {
-   "id": "13rd3bou7vflIUKvxe-6KAJbqmBp0-D-Q",
-   "name": "DH17 - DS - Salto LA1T17 Privacy Thumbturn.pdf",
-   "mime": "application/pdf",
-   "path": "D - Doors/DH - Doors Hardware/DH17 - DS - Salto LA1T17 Privacy Thumbturn.pdf"
   },
   {
    "id": "1uvxZKaZ5mNzXyFhzlWWTTDRk4cahFIDU",
@@ -623,6 +599,12 @@
    "name": "DHx - Reflect Door Jamb Weatherstrip.pdf",
    "mime": "application/pdf",
    "path": "D - Doors/DH - Doors Hardware/DHx - Reflect Door Jamb Weatherstrip.pdf"
+  },
+  {
+   "id": "11Ljn0IBcoLtQ-FZ8ch3MB-xNl4xaJd7U",
+   "name": "IG - Salto LA1T17 Mortise Lock.pdf",
+   "mime": "application/pdf",
+   "path": "D - Doors/DH - Doors Hardware/IG - Salto LA1T17 Mortise Lock.pdf"
   },
   {
    "id": "1JL_3UJq57VTMqvoF6FctJVAe2M5QaXHA",
@@ -775,244 +757,100 @@
    "path": "L - Lighting/_Lighting (Reference)/Run Download.bat"
   },
   {
-   "id": "1uk0hNdQct4WU2kd9WCBaIspPn8sIvrLw",
-   "name": "L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+   "id": "1XwJRJ6DL5RmnL_TXnzA5S9x8SKngGS4T",
+   "name": "iGL1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L1 - DS - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf"
   },
   {
-   "id": "1HokTEw1qBNiLEDyG4F3Bf6sZ-n8k0drx",
-   "name": "L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+   "id": "1DwxWmT4kadF__Dq4rgaK1HO1om_LWhjn",
+   "name": "iGL2 - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L2 - DS - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL2 - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf"
   },
   {
-   "id": "1_9Wb5qYzfspeghPBR9Z87LjCEH6EPm9c",
-   "name": "L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+   "id": "12HUp6vHKW43NChEVvvjUz9O0jYWmOXA3",
+   "name": "iGL3 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L3 - DS - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL3 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf"
   },
   {
-   "id": "1Qbg_JaZpcmOdS6lArHkOQXApZlEZRQ7k",
-   "name": "L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+   "id": "1G3J-2oxY6wPMNaLZf94CXHghBdqFgIN3",
+   "name": "iGL4 - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L3.1 - DS - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL4 - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf"
   },
   {
-   "id": "1Yu4HmAK-htr089ifEjVPYP0Wd39SZfpT",
-   "name": "L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+   "id": "1OGdhLERLeTXL_tizqzjKsnV3sIVCJZdJ",
+   "name": "iGL5 - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L3.2 - DS - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL5 - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf"
   },
   {
-   "id": "1aAldVeMEhIVdbblqnhHlXdVnIg6Y3E16",
-   "name": "L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+   "id": "1oJ0VM5GaGr3-CTt6KlpQ9Q4VoE8U6M41",
+   "name": "iGL6 - Recessed Projector Ceiling 24deg DALI - L02.1 - Palco 19.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L3.3 - DS - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL6 - Recessed Projector Ceiling 24deg DALI - L02.1 - Palco 19.pdf"
   },
   {
-   "id": "14uO6K8g28irViRnXg9fFpK9WE2-tT6TU",
-   "name": "L&L4 - DS - Uplight Wall-Washer PHASE-DIM - L04 - Light-Up-Orbit.pdf",
+   "id": "1I4QLYOjlxLrJtOy3jtd5Ho70pLua8CGJ",
+   "name": "iGL7 - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L4 - DS - Uplight Wall-Washer PHASE-DIM - L04 - Light-Up-Orbit.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL7 - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf"
   },
   {
-   "id": "18xJfBAvXETY2vzZBCXcQS62yEVaVXeJu",
-   "name": "L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+   "id": "11t7a3C9ZdFQc9xMVkli8Xw6XjB5G3lhK",
+   "name": "iGL8 - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L5 - DS - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf"
+   "path": "L - Lighting/iGL - iGuzzini Lighting/iGL8 - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf"
   },
   {
-   "id": "1IrKXnW583gO9Gbu-5bNJNkT5mvRJXUWK",
-   "name": "L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+   "id": "1b4QrqG5UrcPVXZ4oH1IdznA0Nk1y7g81",
+   "name": "L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L5.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf"
   },
   {
-   "id": "1l-RUE3R4jqq4suQpxDgD2eu1jU66Oez4",
-   "name": "L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+   "id": "1W-cie3TxhyhDcl4Ymgk3613LFyFHQZNB",
+   "name": "L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L5.2 - DS - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf"
   },
   {
-   "id": "1YVGI44EfEnkeOySsroFxl0ASKp4OmO9G",
-   "name": "L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+   "id": "1BIZ39vrIlNU_h7bGcXZwdfiTd1NKVEUA",
+   "name": "L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L5.3 - DS - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf"
   },
   {
-   "id": "1zbxKXavJh4lewgOKIP8-H5P3eQBANQKM",
-   "name": "L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+   "id": "1rN195vXV20WccQoDf3Dalp8PuVVKOj11",
+   "name": "L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L6 - DS - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf"
   },
   {
-   "id": "11bBVJxsBY0XWeVC33WWCL2oPw7lvQxTi",
-   "name": "L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+   "id": "1K0WGtHxbs-CmAAktGp4sUGTNo8bVM4Hs",
+   "name": "L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L6.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf"
   },
   {
-   "id": "1wDU82x8twqT2y7UDM6kTrh34CCfLV9uC",
-   "name": "L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+   "id": "1N3TEe4EP4_5KXTkH0VvxvKB75oHE1vXg",
+   "name": "L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L6.2 - DS - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf"
   },
   {
-   "id": "1XAY6NBPT5beDwfqDnH-wirfLO2Hn4Mqh",
-   "name": "L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+   "id": "15-wy9dhA6uyiao3lPBSQWoim67ZQ_wvA",
+   "name": "L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L7 - DS - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf"
   },
   {
-   "id": "16wTBF4UjOEEd4_ZTn6zarYzYj6hIRgIu",
-   "name": "L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+   "id": "12B4Sr44JI8V8JmmnCepsbRCztcpuuxeL",
+   "name": "L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
    "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L7.1 - DS - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf"
-  },
-  {
-   "id": "19he-0ZMsN7r2LNwSXAxTYUchn-eCYLNC",
-   "name": "L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L7.2 - DS - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf"
-  },
-  {
-   "id": "1zuHrR1aj3LY22Y1TXxK4eCoAaAnfNVFH",
-   "name": "L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L8 - DS - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf"
-  },
-  {
-   "id": "1000Clp0zuzk87iNpPFFLmQl6P3ndx-iD",
-   "name": "L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L9 - DS - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf"
-  },
-  {
-   "id": "1pkiy8MWVkXjYETQn65mTw7ze_2DvcNxe",
-   "name": "L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L9.1 - DS - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf"
-  },
-  {
-   "id": "1JNUiHDGihEdH4cQLg8zb9U0bU2iXBBod",
-   "name": "L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L10 - DS - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf"
-  },
-  {
-   "id": "1AgD-BXbkLanMfiLr8D9ibNOozOIvVh2T",
-   "name": "L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L10.1 - DS - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf"
-  },
-  {
-   "id": "1h7vPxcTZ72cAKJXEclhl5eRqrpm7VOLd",
-   "name": "L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L10.2 - DS - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf"
-  },
-  {
-   "id": "1IX8AN5D6inm1nl1VYp5mOoL9dKhsTfzL",
-   "name": "L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L11 - DS - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf"
-  },
-  {
-   "id": "19d4H5mZmkxhMJC1w0f5EgC1dTy6LQvho",
-   "name": "L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L12 - DS - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf"
-  },
-  {
-   "id": "1euR8LiPxod_OkDo79I8jJvBXvzAWIA9N",
-   "name": "L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L12.1 - DS - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf"
-  },
-  {
-   "id": "1X1BPssYZUh8udb6SwcT6mBgX1IMyWRCg",
-   "name": "L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L12.2 - DS - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf"
-  },
-  {
-   "id": "1JZarn7--o8CRylUNSq5288HGpjG-mpDP",
-   "name": "L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L13 - DS - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf"
-  },
-  {
-   "id": "1ojAFSrufKyzCOLULTIAHMu3FDsV8PpaS",
-   "name": "L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L13.1 - DS - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf"
-  },
-  {
-   "id": "1Tvj8rf_nXTbKUaelkkfo4bqAxRU0Vq_m",
-   "name": "L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L14 - DS - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf"
-  },
-  {
-   "id": "1Mo4VIC-r3IvpoM8UL-G-Ovs7dmrwx8B2",
-   "name": "L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L15 - DS - Path Light DALI - L11 - 10-E033-60-CK.pdf"
-  },
-  {
-   "id": "1xdEZXajeRjjjpNUJ7NFj6z6Rqk8g-AJ-",
-   "name": "L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L15.1 - DS - Path Light DALI - L11 - 71-E649-60-OU.pdf"
-  },
-  {
-   "id": "1DK3Uebj1-0m5T--MeJ1wQtcEDU7Uv1dW",
-   "name": "L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L15.2 - DS - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf"
-  },
-  {
-   "id": "1uDYhdgETbPTeScsX95NCxKAqE7QgYJEH",
-   "name": "L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L16 - DS - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf"
-  },
-  {
-   "id": "1byHJrv8UIv8BlqxVGU0v8S40a2tTS2On",
-   "name": "L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L17 - DS - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf"
-  },
-  {
-   "id": "1y0kMN4xlT1DcVyvcxNBwJAE5L24SceZr",
-   "name": "L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L17.1 - DS - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf"
-  },
-  {
-   "id": "1s5jNfnH81N3kSeFyssfAfxtWPiNzxvqK",
-   "name": "L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L18 - DS - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf"
-  },
-  {
-   "id": "1PiVUqKCICAUk36eOL3KXEwWRnGmg0GDD",
-   "name": "L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L19 - DS - Table Lamp for Minibar - D02 - kw3901alb.pdf"
-  },
-  {
-   "id": "1bRpWgAvgFDlIscc3CRrwimT0g0nge3kR",
-   "name": "L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L20 - DS - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf"
-  },
-  {
-   "id": "1Jt1hFkdevSTsiRGaljrGZPwny4B-PJAc",
-   "name": "L&L21 - DS - Portable Lamp - P01 - Kando M40R.pdf",
-   "mime": "application/pdf",
-   "path": "L - Lighting/L&L - Luminaires/L&L21 - DS - Portable Lamp - P01 - Kando M40R.pdf"
+   "path": "L - Lighting/L&L - Luce & Light/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf"
   },
   {
    "id": "1NvmPEvP8Regl3mzqAU3l-CNJU8X0e5jw",
@@ -1187,6 +1025,180 @@
    "name": "LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "mime": "application/pdf",
    "path": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf"
+  },
+  {
+   "id": "196ArPE6va29hGP2HnIjEgFwc8hg2pB4c",
+   "name": "LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf"
+  },
+  {
+   "id": "1nQd6KsrIBCV9Dfn1Cq4r3IhkcEif1Ix7",
+   "name": "LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf"
+  },
+  {
+   "id": "12iHKvNM4IAFdpFVzy8-JugzN5Rzt2Ysw",
+   "name": "LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf"
+  },
+  {
+   "id": "1gGCktTmeyOdb72TfXKMd-gjhdlgzAg-z",
+   "name": "LUM3.3 - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM3.3 - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf"
+  },
+  {
+   "id": "1a7SK-bpqx0jqSkWCUynM5BuyUkJwyl0y",
+   "name": "LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf"
+  },
+  {
+   "id": "1xSoqYKvqJBJ98CQaIlSDluCeeErafMjX",
+   "name": "LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf"
+  },
+  {
+   "id": "1LAZRvDP7juwGRLfwrs--JTp_jCQ_uXFX",
+   "name": "LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf"
+  },
+  {
+   "id": "1sDJd_6IyhNIRspjX67aP55vCl6iAY9vb",
+   "name": "LUM4.3 - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM4.3 - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf"
+  },
+  {
+   "id": "1XAG09mkYRypOLnoZoQXR3K3V2GtGhTQI",
+   "name": "LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf"
+  },
+  {
+   "id": "1SYvYvyqLZ18FDgTcIFZSuSbHv2PCRid9",
+   "name": "LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf"
+  },
+  {
+   "id": "1cJvdQruFRlqyLVBa8IE35xU6JjxzsNcm",
+   "name": "LUM5.2 - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM5.2 - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf"
+  },
+  {
+   "id": "114MmvmZAXwFqOeveMQfvx5zlOkG_tQ2t",
+   "name": "LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf"
+  },
+  {
+   "id": "1OiL6H-6v02OxCYYTzyEcCnEcuwsfWFN_",
+   "name": "LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf"
+  },
+  {
+   "id": "1v9yO04Khm5bJ7_RdqDe3gdymWcMLqXv5",
+   "name": "LUM6.2 - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM6.2 - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf"
+  },
+  {
+   "id": "14meb01vCvX4nnSp3KAfOIh0QLsri-D6b",
+   "name": "LUM7 - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM7 - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf"
+  },
+  {
+   "id": "16L5-19JDpXkpEdPdet7S8vF85W0Kx4Tp",
+   "name": "LUM8 - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM8 - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf"
+  },
+  {
+   "id": "1CX9dPhjsoRuKcCe4IkSQj-NJDpJ9IMgX",
+   "name": "LUM8.1 - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM8.1 - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf"
+  },
+  {
+   "id": "1MLHj4aOxfexiT5tlj6FBKp-JqrTxSSIE",
+   "name": "LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf"
+  },
+  {
+   "id": "1WHf6jotxZ-SX1KgSHP3rFfgS51xiq6u6",
+   "name": "LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf"
+  },
+  {
+   "id": "1ErfF8LOX-KoCxn9eJ7lpCi0PqyvSA9tF",
+   "name": "LUM9.2 - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM9.2 - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf"
+  },
+  {
+   "id": "1uYrxJdiaea5e9l3GyDsFky_GIxXFYKZv",
+   "name": "LUM10 - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM10 - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf"
+  },
+  {
+   "id": "1zbMA0DJRHpEFugEEnv6Aunbqd8XljEFy",
+   "name": "LUM11 - Path Light DALI - L11 - 10-E033-60-CK.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM11 - Path Light DALI - L11 - 10-E033-60-CK.pdf"
+  },
+  {
+   "id": "1ybxB2J8RP--ZtYFSsE-pE-3aJeFGyK9L",
+   "name": "LUM11.1 - Path Light DALI - L11 - 71-E649-60-OU.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM11.1 - Path Light DALI - L11 - 71-E649-60-OU.pdf"
+  },
+  {
+   "id": "1p1y3u0tTA3UAReEy4s_8BNzdKmR1F_UX",
+   "name": "LUM11.2 - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM11.2 - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf"
+  },
+  {
+   "id": "1zhYLY2jNFFfIY0dG-cki16Zmhv5OyMS-",
+   "name": "LUM12 - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM12 - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf"
+  },
+  {
+   "id": "1KVjVfcU6WwgdB0QH7rIbx9oa_vFwvkPR",
+   "name": "LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf"
+  },
+  {
+   "id": "1rHkJ8_mV_LN0f1BFzEmv-t9VvM4I6_Yv",
+   "name": "LUM14 - Table Lamp for Minibar - D02 - kw3901alb.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM14 - Table Lamp for Minibar - D02 - kw3901alb.pdf"
+  },
+  {
+   "id": "1zQ2Kdgp-d-9-1xcGz9Iq-QYGp1rSI_Wy",
+   "name": "LUM15 - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM15 - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf"
+  },
+  {
+   "id": "1R_eZGsIdXsicZyYsfZmk2pQKIi0x3GTT",
+   "name": "LUM16 - Portable Lamp - P01 - Kando M40R.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/LUM - Luminaires/LUM16 - Portable Lamp - P01 - Kando M40R.pdf"
   },
   {
    "id": "1KwrW7afiNB3XLZq4ijfzaZdSFKDPCsPH",

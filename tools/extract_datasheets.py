@@ -651,7 +651,16 @@ def main():
     # placeholder nobody has numbered, and admitting it put the Reflect
     # weatherstrip in the register under "7.1" - the code printed inside
     # its own summary page.
+    # The bare-capitals rule exists for the pool lights, which really are
+    # filed as "A - ..." and "B - ...". It also matches the marker words, and
+    # a guide named "IG - Salto LA1T17 Mortise Lock.pdf" - no item code at all
+    # - then entered the register as an item whose code was IG. A marker is
+    # never a code: a file that leads with one is a supplement nobody has
+    # filed yet, and belongs in the unfiled report where it can be seen.
+    MARKER_WORDS = {m.strip(" -") for m in KIND}
     def is_code(pre):
+        if pre in MARKER_WORDS:
+            return False
         return bool(re.fullmatch(r"[A-Za-z&]{1,6}[0-9][0-9.]*", pre)
                     or re.fullmatch(r"[A-Z]{1,6}", pre))
 
