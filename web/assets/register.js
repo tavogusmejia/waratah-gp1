@@ -149,8 +149,13 @@
     var st = state.approval[it.key];
     var k = st && st.status;
     if (!k || !WORDS[k]) return "";
+    /* A tooltip is a glance, not a document. A paragraph in one covers the
+       page it is describing and cannot be scrolled; the sheet is where the
+       whole remark lives. */
+    var n = (st.status_note || "").trim();
+    if (n.length > 120) n = n.slice(0, 120).replace(/\s+\S*$/, "") + "…";
     return '<span class="st st-' + k + '" title="' + esc(WORDS[k]) +
-      (st.status_note ? " — " + esc(st.status_note) : "") +
+      (n ? " — " + esc(n) : "") +
       '"><i></i>' + esc(WORDS[k]) + "</span>";
   }
 

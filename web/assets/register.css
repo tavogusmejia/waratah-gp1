@@ -846,3 +846,16 @@ a { color: inherit; }
 }
 .modal .modal-x:hover { background: var(--slate-wash); color: var(--ink); }
 .modal-in h3 { padding-right: 34px; }
+
+/* A reviewer's remark, which may be a sentence or a paragraph. */
+.wf-note, .wf-note-full { margin: 0 0 10px; }
+.wf-note-short, .wf-note-full {
+  margin: 0; font-size: 13px; line-height: 1.5; color: var(--ink-2);
+  white-space: pre-wrap; overflow-wrap: anywhere;
+}
+.wf-note-more { margin-top: 4px; font-size: 12.5px; color: var(--ink-3); }
+.wf-note-more:hover { color: var(--ink); }
+.wf-status textarea {
+  flex: 1; min-width: 180px; resize: none; overflow-y: auto;
+  line-height: 1.45;
+}

@@ -43,7 +43,7 @@ STUB = r"""
     item_status_public: [
       {item_key:"a-a1", status:"submitted", status_note:"", decided_at:null, updated_at:"2026-09-20T10:00:00Z"},
       {item_key:"a-a2", status:"approved", status_note:"", decided_at:"2026-09-22T10:00:00Z", updated_at:"2026-09-22T10:00:00Z"},
-      {item_key:"a-a3", status:"approved_as_noted", status_note:"Finish to be confirmed", decided_at:"2026-09-23T10:00:00Z", updated_at:"2026-09-23T10:00:00Z"},
+      {item_key:"a-a3", status:"approved_as_noted", status_note:"No objection to the equipment as scheduled, subject to the following: the final finish colour is to be confirmed with the architect before any order is placed, the mounting detail is to be coordinated with the structural drawings issued 12 September, and the contractor is to confirm that the unit clears the maintenance access shown on A11-02. Resubmit the coordination drawing for record only.", decided_at:"2026-09-23T10:00:00Z", updated_at:"2026-09-23T10:00:00Z"},
       {item_key:"a-a4", status:"revise_resubmit", status_note:"Wrong voltage", decided_at:"2026-09-24T10:00:00Z", updated_at:"2026-09-24T10:00:00Z"},
       {item_key:"a-a5", status:"rejected", status_note:"", decided_at:"2026-09-25T10:00:00Z", updated_at:"2026-09-25T10:00:00Z"}
     ],

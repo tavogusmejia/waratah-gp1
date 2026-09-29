@@ -488,18 +488,57 @@
 
   /* ---- status ---- */
 
+  /* A reviewer's remark can be a sentence or a paragraph, and the register
+     has both. Showing all of it pushes the datasheet button off the screen;
+     showing a fixed slice of it hides the part that matters. So: the first
+     PREVIEW characters, and a control to see the rest - and no control at all
+     when there is no rest, because a "show more" that reveals nothing is
+     worse than no button.
+
+     Cut at a word, not mid-syllable: "Color to be confir…" reads as damage. */
+  var PREVIEW = 140;
+
+  function noteBlock(n) {
+    if (!n) return "";
+    if (n.length <= PREVIEW) {
+      return '<p class="wf-note-full">' + esc(n) + "</p>";
+    }
+    var cut = n.slice(0, PREVIEW);
+    var sp = cut.lastIndexOf(" ");
+    if (sp > PREVIEW * 0.6) cut = cut.slice(0, sp);
+    return '<div class="wf-note" data-open="0">' +
+      '<p class="wf-note-short">' + esc(cut) + "…</p>" +
+      '<p class="wf-note-full" hidden>' + esc(n) + "</p>" +
+      '<button type="button" class="linkish wf-note-more">Show the rest</button>' +
+      "</div>";
+  }
+
+  function wireNote(root) {
+    var b = root.querySelector(".wf-note-more");
+    if (!b) return;
+    b.addEventListener("click", function () {
+      var box = b.closest(".wf-note");
+      var open = box.dataset.open === "1";
+      box.dataset.open = open ? "0" : "1";
+      box.querySelector(".wf-note-short").hidden = !open;
+      box.querySelector(".wf-note-full").hidden = open;
+      b.textContent = open ? "Show the rest" : "Show less";
+    });
+  }
+
   function statusBlock(it, mine) {
     var sec = section("Submittal status");
     var cur = approval[it.key] || { status: "not_submitted", status_note: "" };
 
     if (!can("admin")) {
       /* Everyone can see where it stands; only an admin moves it. */
+      var n = (cur.status_note || "").trim();
       sec.innerHTML +=
         '<p class="wf-read"><span class="st st-' + esc(cur.status) + '">' +
         "<i></i>" + esc(STATUS_WORDS[cur.status] || cur.status) + "</span>" +
-        (cur.status_note ? " " + esc(cur.status_note) : "") +
         (cur.decided_at ? ' <em>' + esc(when(cur.decided_at)) + "</em>" : "") +
-        "</p>";
+        "</p>" + noteBlock(n);
+      wireNote(sec);
       return sec;
     }
 
@@ -513,13 +552,23 @@
     box.className = "wf-status";
     box.innerHTML =
       '<select aria-label="Submittal status">' + opts + "</select>" +
-      '<input type="text" placeholder="Note — what was noted, or why" ' +
-      'value="' + esc(cur.status_note || "") + '" aria-label="Status note">';
+      '<textarea rows="1" placeholder="Note — what was noted, or why" ' +
+      'aria-label="Status note">' + esc(cur.status_note || "") + "</textarea>";
     sec.appendChild(box);
     var say = msgLine(sec);
 
     var sel = box.querySelector("select");
-    var note = box.querySelector("input");
+    var note = box.querySelector("textarea");
+
+    /* Grows to what it holds. A single line was fine for "Color to be
+       confirmed" and useless for a paragraph, where you could see about a
+       fifth of what you were editing. */
+    function fit() {
+      note.style.height = "auto";
+      note.style.height = Math.min(note.scrollHeight, 220) + "px";
+    }
+    note.addEventListener("input", fit);
+    setTimeout(fit, 0);
 
     /* The select saves on change and the note on blur, rather than behind a
        Save button. A button is how the manufacturer links were lost: typed,

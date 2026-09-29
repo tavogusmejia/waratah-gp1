@@ -1,0 +1,61 @@
+<!doctype html><meta charset="utf-8"><title>n</title>
+<div id="o"></div>
+<script>
+var R=[],done=0,CASES=["viewer","admin"];
+function t(n,ok,d){R.push((ok?"PASS ":"FAIL ")+n+(ok?"":" :: "+String(d).slice(0,60)));}
+CASES.forEach(function(role){
+  var f=document.createElement("iframe");
+  f.src="./__probe_workflow.html?role="+role;
+  f.style.cssText="position:absolute;left:-9999px;width:1100px;height:900px;border:0";
+  f.addEventListener("load",function(){
+    var d=f.contentDocument,n=0;
+    var tick=setInterval(function(){
+      if(!d.querySelector(".card")&&++n<200)return;
+      clearInterval(tick);
+      // open A3, the one with the long remark
+      var card=[].filter.call(d.querySelectorAll(".card"),function(c){
+        var code=c.querySelector("code"); return code&&code.textContent==="A3";})[0];
+      card.click();
+      setTimeout(function(){
+        if(role==="viewer"){
+          var box=d.querySelector(".wf-note");
+          t("viewer gets a shortened preview", !!box, "no .wf-note");
+          if(box){
+            var short=box.querySelector(".wf-note-short").textContent;
+            var full=box.querySelector(".wf-note-full");
+            t("the preview is short", short.length<170, short.length);
+            /* The cut is at a word boundary when the full remark continues
+               with a space exactly where the preview stopped - a mid-word cut
+               would continue with a letter. */
+            var stem=short.replace(/…$/,"");
+            var nextCh=full.textContent.charAt(stem.length);
+            t("it ends on a whole word",
+              full.textContent.indexOf(stem)===0 && (nextCh===" "||nextCh===""),
+              "next char "+JSON.stringify(nextCh));
+            t("the full text starts hidden", full.hidden);
+            var b=box.querySelector(".wf-note-more");
+            t("there is a button", !!b);
+            b.click();
+            t("clicking it reveals the whole remark", !full.hidden&&full.textContent.length>300, full.textContent.length);
+            t("the button changes what it offers", b.textContent==="Show less", b.textContent);
+            b.click();
+            t("and folds it back", full.hidden);
+          }
+          var shortItem=d.querySelector(".wf-note-full:not([hidden])");
+          t("a short remark needs no button",
+            !!d.querySelector(".wf-read") );
+        } else {
+          var ta=d.querySelector(".wf-status textarea");
+          t("admin edits in a textarea", !!ta);
+          if(ta){
+            t("it holds the whole remark", ta.value.length>300, ta.value.length);
+            t("and grew past one line", parseInt(ta.style.height)>40, ta.style.height);
+          }
+        }
+        if(++done===CASES.length) document.title="R:"+R.join(" | ");
+      },700);
+    },40);
+  });
+  document.body.appendChild(f);
+});
+</script>
