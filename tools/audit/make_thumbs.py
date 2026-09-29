@@ -10,6 +10,10 @@ from pathlib import Path
 
 from PIL import Image
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from extract_datasheets import slug                    # noqa: E402
+
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
 WIDE = 260                      # enough to judge a product shot at a glance
@@ -36,9 +40,16 @@ def main():
         p = REPO / "web" / it["image"]
         if not p.exists():
             continue
-        slug = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
-        out[slug] = thumb(p)
-        total += len(out[slug])
+        # Filed under BOTH names on purpose. The picture-flag rows in
+        # audit.json were written against the filename stem; the review grid
+        # is keyed on the item code, which is what survives a rename. Emitting
+        # one and not the other is how build_audit.py came to ask for a
+        # "_stem" that collect_marks.py had long stopped writing.
+        stem = it["pdf"].split("/")[-1].rsplit(".", 1)[0]
+        made = thumb(p)
+        out[stem] = made
+        out[slug(it["key"])] = made
+        total += len(made)
     (HERE / "thumbs.json").write_text(
         json.dumps(out, indent=0), encoding="utf-8")
     print("%d thumbnails, %.1f MB inline" % (len(out), total / 1048576))

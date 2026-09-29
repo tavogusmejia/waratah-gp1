@@ -6,8 +6,30 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from extract_datasheets import slug as _slug          # noqa: E402
+
 rows = json.load(open(HERE / "audit.json", encoding="utf-8"))
-links = json.load(open(HERE / "links.json", encoding="utf-8"))
+# Derived, not stored. links.json was a hand-made snapshot and had already
+# drifted - 45 rows against 46 items actually missing a link, the odd one out
+# being an item added the same morning. The register knows which items have no
+# maker_url; asking it cannot go stale.
+def _open_links():
+    reg = json.loads((REPO / "web/data/datasheets.json").read_text(encoding="utf-8"))
+    out = []
+    for it in reg["items"]:
+        if it.get("maker_url"):
+            continue
+        # Every row here is an item with no maker_url, so the state is always
+        # "none" and the field always starts empty. The three-way kind is kept
+        # because the page styles and counts by it.
+        out.append({"key": it["group"] + "-" + it["code"], "group": it["group"],
+                    "code": it["code"], "title": it["title"],
+                    "manufacturer": it.get("manufacturer", ""),
+                    "slug": _slug(it["key"]), "kind": "none", "url": ""})
+    return out
+links = _open_links()
 e = html.escape
 NL, TAB = chr(10), chr(9)
 
@@ -136,7 +158,13 @@ def prow(it):
     covers two items. The grid used to key on the filename, which is how the
     same mark ended up saved twice under two different names."""
     slug = it["mk"]
-    shot = THUMBS.get(it["_stem"])
+    # The name an override has to be saved under for pick_image to find it:
+    # tools/images/<item key>.jpg. Derived here rather than carried in
+    # pics.json, because a field that has to be written by one script and read
+    # by another is a field that goes missing - which is exactly what happened
+    # to "_stem".
+    want = slug + ".jpg"
+    shot = THUMBS.get(it["mk"])
     face = ('<img class="pshot" src="' + shot + '" alt="" loading="lazy">'
             if shot else
             '<span class="pshot none">No picture</span>')
@@ -156,8 +184,8 @@ def prow(it):
         # because it needs a better picture, so the next thing anyone wants
         # is somewhere to put one.
         '<div class="target">'
-        '<button class="fname cp" type="button" data-copy="' + e(it["want"]) + '">'
-        '<code>' + e(it["want"]) + '</code><span class="act">Copy the name</span>'
+        '<button class="fname cp" type="button" data-copy="' + e(want) + '">'
+        '<code>' + e(want) + '</code><span class="act">Copy the name</span>'
         '</button>'
         '<div class="drop" data-slug="' + e(slug) + '">'
         '<input class="pick" type="file" accept="image/png,image/jpeg,'
