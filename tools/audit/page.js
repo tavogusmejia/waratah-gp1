@@ -455,6 +455,23 @@ document.addEventListener("click", function (ev) {
          different problems with three different answers. */
       var why = (err && (err.code ? err.code + ": " : "") +
                         (err.message || "")) || "no reason given";
+      /* invalid_argument covers the path, the body and the value alike, and
+         which of the three it is decides everything. The startup probe writes
+         {at} and passes; a row writes {url, at} and fails, so the difference
+         is worth establishing rather than guessing at. One escalating retry,
+         only on this code, only once per row. */
+      if (err && err.code === "invalid_argument" && !row._probed) {
+        row._probed = true;
+        try {
+          await ref.set({at: new Date().toISOString()});
+          why += " - but the same document accepted a write WITHOUT the url "
+               + "field, so the value is what it refuses (length " + v.length
+               + ", starts " + JSON.stringify(v.slice(0, 40)) + ")";
+        } catch (e2) {
+          why += " - and it also refused a write with no url field, so it is "
+               + "the document or the path, not the value";
+        }
+      }
       row.setAttribute("title", "Would not save: " + why);
       lastError = why;
       if (window.console) console.error("GP1 link save", row.dataset.slug, err);
