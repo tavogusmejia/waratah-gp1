@@ -32,7 +32,7 @@
      "deviation") and `submittal` (the package number, JANU-SUB-003). Three
      different things behind one word is how the wrong one gets rendered. */
   var state = { items: [], groups: [], q: "", group: "", maker: "",
-               view: "cards", open: null, approval: {} };
+               view: "cards", open: null, approval: {}, picked: {} };
   var els = {};
 
   function esc(s) {
@@ -99,11 +99,14 @@
     return it._h;
   }
 
+  function any(o) { for (var k in o) { if (o[k]) return true; } return false; }
+
   function visible() {
     var q = state.q.trim().toLowerCase();
     return state.items.filter(function (it) {
       if (state.group && it.group !== state.group) return false;
       if (state.maker && it.manufacturer !== state.maker) return false;
+      if (any(state.picked) && !state.picked[statusOf(it)]) return false;
       if (q && haystack(it).indexOf(q) < 0) return false;
       return true;
     });
@@ -130,6 +133,17 @@
     approved_as_noted: "Approved as noted", revise_resubmit: "Revise & resubmit",
     rejected: "Rejected"
   };
+
+  /* Lifecycle order, with the default last: it is always the biggest count
+     and the least interesting, and leading with it would bury the five that
+     someone actually came to look for. */
+  var ORDER = ["submitted", "approved", "approved_as_noted",
+               "revise_resubmit", "rejected", "not_submitted"];
+
+  function statusOf(it) {
+    var st = state.approval[it.key];
+    return (st && st.status) || "not_submitted";
+  }
 
   function pill(it) {
     var st = state.approval[it.key];
@@ -172,6 +186,7 @@
   }
 
   function render() {
+    renderStatusBar();
     var rows = visible();
     els.count.textContent = rows.length === state.items.length
       ? state.items.length + " datasheets"
@@ -210,6 +225,50 @@
       btns[b].setAttribute("aria-pressed", String(state.group === k));
     }
     if (els.groupsel.value !== state.group) els.groupsel.value = state.group;
+  }
+
+  /* Counted over every item, not over what is currently on screen: a filter
+     whose numbers move as you use it cannot be read. */
+  function renderStatusBar() {
+    if (!els.statusbar) return;
+    var n = {}, real = 0;
+    for (var i = 0; i < state.items.length; i++) {
+      var k = statusOf(state.items[i]);
+      n[k] = (n[k] || 0) + 1;
+      if (k !== "not_submitted") real++;
+    }
+    /* Nothing to filter by until something has been set. */
+    els.statusbar.hidden = !real;
+    if (!real) { state.picked = {}; return; }
+
+    /* The counts are over every item, so they do not move while filtering -
+       which means the chips themselves rarely need rebuilding. Redrawing the
+       innerHTML on every render would destroy and recreate them each time a
+       chip is pressed, and a keyboard user would lose their place on the one
+       they just activated. So the markup is rebuilt only when the SET of
+       chips changes, and a press only flips aria-pressed on nodes that stay
+       put. */
+    var sig = [], html = "<b>Status</b>";
+    for (var o = 0; o < ORDER.length; o++) {
+      var k2 = ORDER[o];
+      if (!n[k2]) continue;
+      sig.push(k2 + ":" + n[k2]);
+      html += '<button class="chip st-' + k2 + '" data-st="' + k2 + '" ' +
+        'aria-pressed="' + (state.picked[k2] ? "true" : "false") + '">' +
+        "<s></s>" + esc(WORDS[k2] || "Not submitted") +
+        "<i>" + n[k2] + "</i></button>";
+    }
+    sig = sig.join(",");
+    if (sig !== els.statusbar.dataset.sig) {
+      els.statusbar.dataset.sig = sig;
+      els.statusbar.innerHTML = html;
+      return;
+    }
+    var chips = els.statusbar.querySelectorAll("[data-st]");
+    for (var c = 0; c < chips.length; c++) {
+      chips[c].setAttribute("aria-pressed",
+        state.picked[chips[c].dataset.st] ? "true" : "false");
+    }
   }
 
   function renderMakers() {
@@ -467,12 +526,23 @@
       render();
     });
 
+    /* Guarded like renderStatusBar: a cached copy of the page from before
+       this element existed must still boot, or a stale HTML file takes the
+       whole register down rather than just the filter. */
+    if (els.statusbar) els.statusbar.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-st]");
+      if (!b) return;
+      var k = b.dataset.st;
+      state.picked[k] = !state.picked[k];
+      render();
+    });
+
     document.addEventListener("click", function (e) {
       var c = e.target.closest(".card, .row");
       if (c) { openSheet(c.dataset.id); return; }
       if (e.target.closest("[data-close]") || e.target === els.scrim) { closeSheet(); return; }
       if (e.target.closest("[data-clear]")) {
-        state.q = ""; state.group = ""; state.maker = "";
+        state.q = ""; state.group = ""; state.maker = ""; state.picked = {};
         els.search.value = "";
         els.maker.value = "";
         els.groupsel.value = "";
@@ -595,6 +665,7 @@
   els.search = document.getElementById("q");
   els.maker = document.getElementById("maker");
   els.groupsel = document.getElementById("groupsel");
+  els.statusbar = document.getElementById("statusbar");
   els.sheet = document.getElementById("sheet");
   els.scrim = document.getElementById("scrim");
 

@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8"><title>f</title>
+<iframe id="f" src="./__probe_workflow.html?role=admin" style="width:1200px;height:900px;border:0"></iframe>
+<script>
+var R=[],f=document.getElementById("f");
+function t(n,ok,d){R.push((ok?"PASS ":"FAIL ")+n+(ok?"":" :: "+d));}
+f.addEventListener("load",function(){
+  var d=f.contentDocument,n=0;
+  var tick=setInterval(function(){
+    if(!d.querySelector("#statusbar .chip")&&++n<200)return;
+    clearInterval(tick);
+    var bar=d.getElementById("statusbar");
+    var cards=function(){return d.querySelectorAll(".card").length;};
+    var chip=function(k){return bar.querySelector('[data-st="'+k+'"]');};
+    t("strip visible once statuses exist", !bar.hidden);
+    t("one chip per status in use", bar.querySelectorAll(".chip").length===6);
+    t("all items before filtering", cards()===140, cards());
+    var a=chip("approved"); a.click();
+    setTimeout(function(){
+      t("Approved shows only approved", cards()===1, cards());
+      t("the chip reads as pressed", a.getAttribute("aria-pressed")==="true",
+        a.getAttribute("aria-pressed"));
+      t("the node survived the render", a===chip("approved"));
+      chip("rejected").click();
+      setTimeout(function(){
+        t("adding Rejected shows both", cards()===2, cards());
+        a.click();
+        setTimeout(function(){
+          t("unpressing Approved leaves rejected", cards()===1, cards());
+          chip("rejected").click();
+          setTimeout(function(){
+            t("clearing all restores everything", cards()===140, cards());
+            document.title="R:"+R.join(" | ");
+          },120);
+        },120);
+      },120);
+    },120);
+  },40);
+});
+</script>

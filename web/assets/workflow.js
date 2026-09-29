@@ -443,13 +443,21 @@
     }
 
     wf.appendChild(statusBlock(it, mine));
-    if (can("viewer")) wf.appendChild(notesBlock(it, mine));
+    /* Notes are readable by anyone now, so the list is unconditional and only
+       the composer inside it is gated. */
+    wf.appendChild(notesBlock(it, mine));
     if (can("admin")) wf.appendChild(invoiceBlock(it, mine));
-    if (!me) {
+    if (!can("commenter")) {
+      /* Deliberately says nothing about invoices. Their existence is not
+         something to advertise to a reader who cannot open them and may not
+         be on the team - the word should not be in the DOM at all. */
       var p = document.createElement("p");
       p.className = "wf-quiet";
-      p.innerHTML = 'Notes and invoices are for signed-in people. ' +
-        '<button class="linkish" type="button" data-signin="1">Sign in</button>';
+      p.innerHTML = me
+        ? "You can read the register and its notes. Adding one needs an " +
+          "admin to give you access."
+        : '<button class="linkish" type="button" data-signin="1">Sign in</button>' +
+          " to add a note.";
       wf.appendChild(p);
     }
   }
@@ -576,7 +584,11 @@
   }
 
   async function fillNotes(it, list, mine) {
-    var r = await sb.from("item_note").select("*")
+    /* The view, not the table: it carries the author as a NAME rather than an
+       address, and a `mine` flag so ownership is known without by_email ever
+       reaching the page. Anonymous readers can read it; the table they
+       cannot. */
+    var r = await sb.from("item_note_public").select("*")
                     .eq("item_key", it.key).order("at", { ascending: false });
     if (mine !== token) return;
     if (r.error) {
@@ -590,12 +602,11 @@
     var html = "";
     for (var i = 0; i < r.data.length; i++) {
       var n = r.data[i];
-      var own = me && n.by_email === me.email;
       html += '<li data-note="' + esc(n.id) + '"><p>' + esc(n.body) + "</p>" +
-        '<span class="wf-by" title="' + esc(n.by_email) + '">' +
-        esc(who(n.by_email)) + " &middot; " + esc(when(n.at)) +
+        '<span class="wf-by">' +
+        esc(n.author || "Someone") + " &middot; " + esc(when(n.at)) +
         (n.edited_at ? " &middot; edited" : "") + "</span>" +
-        (own || can("admin")
+        (n.mine || can("admin")
           ? '<button type="button" class="wf-del" data-del="' + esc(n.id) +
             '" aria-label="Delete note">×</button>'
           : "") +

@@ -48,6 +48,7 @@ STUB = r"""
       {item_key:"a-a5", status:"rejected", status_note:"", decided_at:"2026-09-25T10:00:00Z", updated_at:"2026-09-25T10:00:00Z"}
     ],
     item_state: [],
+    item_note_public: [],
     register_user: [
       {email:EMAIL, role:ROLE === "none" ? null : ROLE, name:"Gus", note:"Project lead",
        last_seen_at:"2026-09-28T08:00:00Z"},
@@ -82,6 +83,18 @@ STUB = r"""
   var DENIED = {code:"42501", message:"permission denied"};
 
   function builder(table) {
+    if (table === "item_note_public") {
+      DB.item_note_public = DB.item_note.map(function (n) {
+        var u = DB.register_user.filter(function (x) { return x.email === n.by_email; })[0];
+        var local = String(n.by_email).split("@")[0].replace(/[._]/g, " ");
+        return {id: n.id, item_key: n.item_key, body: n.body, at: n.at,
+                edited_at: n.edited_at,
+                author: (u && u.name) || local.split(" ").map(function (w) {
+                  return w ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+                }).join(" "),
+                mine: !OUT_ && n.by_email === EMAIL};
+      });
+    }
     var rows = (DB[table] || []).slice(), filters = [], b;
     var q = null, lo = 0, hi = 1e9, counting = false;
     function resolve() {
@@ -101,6 +114,7 @@ STUB = r"""
       /* Reads that RLS would refuse come back as errors, not throws. */
       if (table === "item_invoice" && !may("admin")) return {data:null, error:DENIED};
       if (table === "item_note" && !may("viewer")) return {data:null, error:DENIED};
+      /* item_note_public is deliberately NOT gated: anyone may read it. */
       if (table === "register_domain" && !may("admin")) return {data:null, error:DENIED};
       return {data: out, error: null, count: counting ? n : null};
     }

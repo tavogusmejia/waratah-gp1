@@ -238,8 +238,19 @@ def main():
         OUT.write("\nnot signed in at all\n")
         st, b = call("GET", "/rest/v1/item_status_public?select=item_key&limit=1", ANON)
         ok("reads the public status view", st == 200, "%s %s" % (st, b))
-        st, b = call("GET", "/rest/v1/item_note?select=id&limit=1", ANON)
-        ok("cannot read notes", st in (401, 403) or b == [], "%s %s" % (st, b))
+        # Notes are public now. This is the pair that matters: the VIEW opens
+        # and the TABLE stays shut. If the table ever starts answering, every
+        # note's author address is public and nothing else would say so.
+        st, b = call("GET", "/rest/v1/item_note_public?select=author,body&item_key=eq."
+                     + ITEM, ANON)
+        ok("reads notes through the public view",
+           st == 200 and isinstance(b, list) and len(b) >= 1, "%s %s" % (st, b))
+        ok("the author is a name, not an address",
+           isinstance(b, list) and b and "@" not in str(b[0].get("author", "")),
+           str(b)[:120])
+        st, b = call("GET", "/rest/v1/item_note?select=by_email&limit=1", ANON)
+        ok("cannot read the notes table itself",
+           st in (401, 403) or b == [], "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", ANON)
         ok("cannot read invoices", st in (401, 403) or b == [], "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/register_user?select=email", ANON)

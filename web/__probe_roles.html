@@ -25,9 +25,9 @@
 <script>
 /* what each role must and must not be offered */
 var CASES = [
-  {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:false,
+  {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:true,
                      addNote:false, invoices:false, prompt:true}},
-  {role:"none", want:{auth:"me", pills:true, status:"read", notes:false,
+  {role:"none", want:{auth:"me", pills:true, status:"read", notes:true,
                       addNote:false, invoices:false, prompt:false}},
   {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
                         addNote:false, invoices:false, prompt:false}},
@@ -65,6 +65,13 @@ function check(c, d, w) {
       !!wf.querySelector(".wf-inv") === c.want.invoices);
     t("sign-in prompt " + (c.want.prompt ? "shown" : "absent"),
       !!wf.querySelector("[data-signin]") === c.want.prompt);
+  }
+  /* The word must not be in the DOM at all for somebody who cannot open one.
+     Checking the text rather than a selector is the point: this catches a
+     prompt that mentions invoices as readily as a section that renders one. */
+  if (!c.want.invoices) {
+    t("the word invoice appears nowhere",
+      !/invoice/i.test((d.querySelector(".sheet") || d.body).textContent || ""));
   }
   if (c.role === "none") {
     t("told why they cannot do anything",
