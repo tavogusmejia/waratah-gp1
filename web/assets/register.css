@@ -952,3 +952,8 @@ a { color: inherit; }
 
 /* A facet value that is the absence of a value. */
 .fopt .dim { font-style: normal; color: var(--ink-3); }
+
+/* Replacing an item's picture, for a super admin. */
+.wf-pic { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+.wf-pic.busy { opacity: .5; pointer-events: none; }
+.wf-pic .wf-upbtn { padding: 10px 14px; }

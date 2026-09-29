@@ -203,6 +203,12 @@ def main():
            "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", tok)
         ok("reads invoices", st == 200, "%s %s" % (st, b))
+        # Replacing a picture changes what the register shows the world, so it
+        # stops here rather than at admin.
+        st, b = call("POST", "/rest/v1/item_picture", tok,
+                     {"item_key": ITEM, "storage_path": "x/y.png",
+                      "url": "https://example.com/y.png"})
+        ok("an admin cannot replace a picture", st in (401, 403), "%s %s" % (st, b))
         st, b = call("POST", "/rest/v1/register_user", tok,
                      {"email": "gp1-escalation-%s@example.com" % tag, "role": "super_admin"})
         ok("an admin cannot mint a super admin", st in (401, 403), "%s %s" % (st, b))
@@ -256,9 +262,18 @@ def main():
         st, b = call("GET", "/rest/v1/register_user?select=email", ANON)
         ok("cannot read the address book", st in (401, 403) or b == [],
            "%s %s" % (st, b))
+        # The replaced pictures ARE public - they are what the page shows
+        # everybody, and a reader who could not see this row would be looking
+        # at the old picture while everyone else saw the new one.
+        st, b = call("GET", "/rest/v1/item_picture?select=item_key&limit=1", ANON)
+        ok("reads replaced pictures", st == 200, "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_picture", ANON,
+                     {"item_key": ITEM, "storage_path": "x", "url": "x"})
+        ok("cannot replace one", st in (401, 403), "%s %s" % (st, b))
 
     finally:
         OUT.write("\ncleaning up\n")
+        admin("DELETE", "/rest/v1/item_picture?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_note?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_state?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_status_log?item_key=eq." + ITEM)

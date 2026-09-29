@@ -33,6 +33,11 @@
      different things behind one word is how the wrong one gets rendered. */
   var state = { items: [], groups: [], q: "", view: "cards", open: null,
                 approval: {},
+                /* item_key -> url, handed over by workflow.js. A picture
+                   somebody replaced, preferred over the one the extractor
+                   lifted out of the PDF - the same relationship
+                   tools/images/ has with it at build time. */
+                pictures: {},
                 /* One bag of chosen values per facet. Empty means "no
                    opinion", which is not the same as "none of them". */
                 facets: { discipline: {}, group: {}, maker: {}, status: {} } };
@@ -320,11 +325,18 @@
   /* The thumbnail. Eleven of the 45 have no picture, and they get the item
      code on a tinted square rather than a placeholder icon: it keeps every
      card the same shape, and it says "no photograph" instead of miming one. */
+  /* The replacement if there is one, the extracted picture otherwise, and
+     the item's code on a tinted square when there is neither. */
+  function picture(it) {
+    return state.pictures[it.key] || (it.image ? "./" + it.image : "");
+  }
+
   function thumb(it) {
-    if (!it.image) {
+    var src = picture(it);
+    if (!src) {
       return '<span class="thumb none">' + esc(it.code) + "</span>";
     }
-    return '<span class="thumb"><img src="./' + esc(it.image) + '" alt="" ' +
+    return '<span class="thumb"><img src="' + esc(src) + '" alt="" ' +
            'loading="lazy" decoding="async"></span>';
   }
 
@@ -509,8 +521,8 @@
         /* The picture first. Often it is the only thing somebody opened this
            for - they know the item, they just want to see it. Lazy, because
            the sheet is built before it is slid into view. */
-        (it.image
-          ? '<figure class="shot"><img src="./' + esc(it.image) + '" alt="' +
+        (picture(it)
+          ? '<figure class="shot"><img src="' + esc(picture(it)) + '" alt="' +
             esc(it.title) + '" loading="lazy" decoding="async"></figure>'
           : "") +
         (rows ? '<table class="specs">' + rows + "</table>"
@@ -792,6 +804,14 @@
     setApproval: function (map) {
       state.approval = map || {};
       if (state.items.length) render();
+    },
+
+    /* item_key -> url. Same guard as setApproval: this can arrive before the
+       catalogue has loaded. */
+    setPictures: function (map) {
+      state.pictures = map || {};
+      if (state.items.length) render();
+      if (state.open) openSheet(state.open.id);
     }
   };
 

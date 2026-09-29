@@ -452,6 +452,7 @@
     /* Notes are readable by anyone now, so the list is unconditional and only
        the composer inside it is gated. */
     wf.appendChild(notesBlock(it, mine));
+    if (can("super_admin")) wf.appendChild(pictureBlock(it, mine));
     if (can("admin")) wf.appendChild(invoiceBlock(it, mine));
     if (!can("commenter")) {
       /* Deliberately says nothing about invoices. Their existence is not
@@ -679,6 +680,109 @@
       if (r2.error) { b.disabled = false; alert(fail(r2.error)); return; }
       fillNotes(it, list, mine);
     };
+  }
+
+  /* ---- pictures ----
+
+     The pictures in web/img are extracted from the PDFs, and plenty of them
+     are the wrong thing or a poor showing of the right one. Replacing one has
+     meant staging it in the audit artifact, pulling it down with a script,
+     dropping it into tools/images, re-extracting and redeploying. This does
+     it where the item is, with the sign-in and storage the register already
+     has.
+
+     The bucket is public, unlike invoices: this picture is displayed on a
+     page anybody can open, and a signed URL would expire and leave a broken
+     image behind. */
+  var pictures = {};
+
+  async function loadPictures() {
+    var r = await sb.from("item_picture").select("item_key, url");
+    if (r.error) {
+      if (window.console) console.warn("GP1 pictures:", fail(r.error));
+      return;
+    }
+    pictures = {};
+    for (var i = 0; i < r.data.length; i++) {
+      pictures[r.data[i].item_key] = r.data[i].url;
+    }
+    window.GP1.setPictures(pictures);
+  }
+
+  function pictureBlock(it, mine) {
+    var sec = section("Picture", ' <em>super admin</em>');
+    var has = !!pictures[it.key];
+    var box = document.createElement("div");
+    box.className = "wf-pic";
+    box.innerHTML =
+      '<label class="wf-upbtn"><input type="file" accept="image/png,' +
+      'image/jpeg,image/webp,image/gif" hidden>' +
+      (has ? "Replace it again" : "Replace this picture") + "</label>" +
+      (has ? '<button type="button" class="linkish wf-pic-rm">Put the ' +
+             "original back</button>" : "");
+    sec.appendChild(box);
+    var say = msgLine(sec);
+    if (!has) {
+      var hint = document.createElement("p");
+      hint.className = "wf-hint";
+      hint.style.marginTop = "6px";
+      hint.textContent = "The one showing now was lifted out of the datasheet. "
+        + "Anything dropped here replaces it for everybody, straight away.";
+      sec.insertBefore(hint, box);
+    }
+
+    box.querySelector("input").addEventListener("change", async function () {
+      var file = this.files[0];
+      if (!file) return;
+      box.classList.add("busy");
+      say("Uploading…");
+      var path = it.key + "/" + safeName(file.name);
+      var up = await sb.storage.from("item-pictures")
+                       .upload(path, file, { upsert: true });
+      if (up.error) { box.classList.remove("busy"); say(fail(up.error), true); return; }
+
+      var pub = sb.storage.from("item-pictures").getPublicUrl(up.data.path);
+      var url = pub && pub.data && pub.data.publicUrl;
+      if (!url) {
+        box.classList.remove("busy");
+        say("Uploaded, but the storage gave no public address for it.", true);
+        return;
+      }
+      var r = await sb.from("item_picture").upsert({
+        item_key: it.key, storage_path: up.data.path, url: url,
+        filename: file.name, bytes: file.size
+      }, { onConflict: "item_key" }).select("item_key, url");
+      box.classList.remove("busy");
+      if (r.error) {
+        /* The file is in the bucket and the row is not, so nothing on the
+           page changed. Say so rather than leaving a silent orphan. */
+        say(fail(r.error) + " The file uploaded but the record did not save, "
+            + "so the picture has not changed.", true);
+        return;
+      }
+      var got = r.data && r.data[0];
+      if (!got || !got.url) { say("The database did not take that.", true); return; }
+      pictures[it.key] = got.url;
+      say("");
+      /* Redraws the tile and reopens the sheet, so the new picture is
+         visible without anybody reloading. */
+      window.GP1.setPictures(pictures);
+    });
+
+    var rm = box.querySelector(".wf-pic-rm");
+    if (rm) {
+      rm.addEventListener("click", async function () {
+        if (!confirm("Put the extracted picture back? The replacement is "
+                   + "removed for everybody.")) return;
+        rm.disabled = true;
+        var r = await sb.from("item_picture").delete().eq("item_key", it.key);
+        rm.disabled = false;
+        if (r.error) { say(fail(r.error), true); return; }
+        delete pictures[it.key];
+        window.GP1.setPictures(pictures);
+      });
+    }
+    return sec;
   }
 
   /* ---- invoices ----
@@ -1339,6 +1443,8 @@
       db: { schema: "gp1" },
       auth: { persistSession: true, detectSessionInUrl: true }
     });
+
+    loadPictures();
 
     var s = await sb.auth.getSession();
     me = s.data && s.data.session ? s.data.session.user : null;

@@ -49,6 +49,7 @@ STUB = r"""
     ],
     item_state: [],
     item_note_public: [],
+    item_picture: [],
     register_user: [
       {email:EMAIL, role:ROLE === "none" ? null : ROLE, name:"Gus", note:"Project lead",
        last_seen_at:"2026-09-28T08:00:00Z"},
@@ -116,6 +117,7 @@ STUB = r"""
       if (table === "item_note" && !may("viewer")) return {data:null, error:DENIED};
       /* item_note_public is deliberately NOT gated: anyone may read it. */
       if (table === "register_domain" && !may("admin")) return {data:null, error:DENIED};
+      /* item_picture is world-readable: it is what the page shows everyone. */
       return {data: out, error: null, count: counting ? n : null};
     }
     b = {
@@ -134,7 +136,8 @@ STUB = r"""
         return b;
       },
       insert: function (row) {
-        var need = table === "item_note" ? "commenter" : "admin";
+        var need = table === "item_note" ? "commenter"
+                 : table === "item_picture" ? "super_admin" : "admin";
         if (!may(need)) return thenable({data:null, error:DENIED});
         row.id = "new-" + Date.now();
         row.at = new Date().toISOString();
@@ -194,6 +197,9 @@ STUB = r"""
           from: function () {
             return {
               upload: function (p) { return Promise.resolve({data:{path:p}, error:null}); },
+              getPublicUrl: function (p) {
+                return {data:{publicUrl:"https://stub.example.co/pic/"+p}};
+              },
               createSignedUrl: function () {
                 return Promise.resolve({data:{signedUrl:"about:blank"}, error:null});
               },

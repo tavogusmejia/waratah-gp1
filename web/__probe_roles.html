@@ -26,17 +26,17 @@
 /* what each role must and must not be offered */
 var CASES = [
   {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:true,
-                     addNote:false, invoices:false, prompt:true}},
+                     addNote:false, invoices:false, prompt:true, pic:false}},
   {role:"none", want:{auth:"me", pills:true, status:"read", notes:true,
-                      addNote:false, invoices:false, prompt:false}},
+                      addNote:false, invoices:false, prompt:false, pic:false}},
   {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
-                        addNote:false, invoices:false, prompt:false}},
+                        addNote:false, invoices:false, prompt:false, pic:false}},
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
-                           addNote:true, invoices:false, prompt:false}},
+                           addNote:true, invoices:false, prompt:false, pic:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:true, prompt:false}},
+                       addNote:true, invoices:true, prompt:false, pic:false}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                             addNote:true, invoices:true, prompt:false}}
+                             addNote:true, invoices:true, prompt:false, pic:true}}
 ];
 
 var out = document.getElementById("o"), fails = 0, done = 0;
@@ -63,6 +63,10 @@ function check(c, d, w) {
       !!wf.querySelector(".wf-add textarea") === c.want.addNote);
     t("invoices " + (c.want.invoices ? "shown" : "hidden"),
       !!wf.querySelector(".wf-inv") === c.want.invoices);
+    /* Replacing a picture changes what the register shows the world, so it
+       stops at super admin rather than admin. */
+    t("replace-picture " + (c.want.pic ? "offered" : "withheld"),
+      !!wf.querySelector(".wf-pic") === !!c.want.pic);
     t("sign-in prompt " + (c.want.prompt ? "shown" : "absent"),
       !!wf.querySelector("[data-signin]") === c.want.prompt);
   }
