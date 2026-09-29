@@ -425,7 +425,7 @@ document.addEventListener("click", function (ev) {
     z.className = "drop done";
     z.innerHTML =
       '<div class="staged">' +
-        '<img src="/_blob/' + rec.asset + '" alt="">' +
+        '<img src="' + (rec.asset ? "/_blob/" + rec.asset : rec.data) + '" alt="">' +
         '<span class="as"><b>Will be saved as</b>' + rec.filename + '</span>' +
         '<button class="rm" type="button" title="Remove this picture" ' +
           'aria-label="Remove the picture staged for ' + slug + '">&times;</button>' +
@@ -504,8 +504,43 @@ document.addEventListener("click", function (ev) {
     return m ? (BY_EXT[m[1].toLowerCase()] || null) : null;
   }
 
+  /* A picture small enough to live in a database row.
+
+     The asset store keeps the original, which is the better thing to have
+     when it is available. When it is not, the choice is between no picture at
+     all and a smaller one - and the register displays these at about 720px
+     and 12 KB, so a 1200px JPEG is already more than it will ever show. That
+     is a fair trade for a page that works. */
+  function shrink(file) {
+    return new Promise(function (ok, no) {
+      var fr = new FileReader();
+      fr.onerror = function () { no(new Error("could not read that file")); };
+      fr.onload = function () {
+        var img = new Image();
+        img.onerror = function () { no(new Error("that file is not an image")); };
+        img.onload = function () {
+          var w = img.naturalWidth, h = img.naturalHeight, M = 1200;
+          if (w > M || h > M) {
+            var r = Math.min(M / w, M / h);
+            w = Math.round(w * r); h = Math.round(h * r);
+          }
+          var c = document.createElement("canvas");
+          c.width = w; c.height = h;
+          /* White behind it: a PNG cutout flattened onto transparency turns
+             black the moment it becomes a JPEG. */
+          var x = c.getContext("2d");
+          x.fillStyle = "#fff"; x.fillRect(0, 0, w, h);
+          x.drawImage(img, 0, 0, w, h);
+          ok(c.toDataURL("image/jpeg", 0.85));
+        };
+        img.src = fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+  }
+
   async function take(slug, file) {
-    if (!assets || !db || !file) return;
+    if (!db || !file) return;
     var type = typeOf(file);
     if (!type) { fail(slug, "Only PNG, JPEG, GIF, WebP or SVG can be staged."); return; }
     if (file.size > MAX) { fail(slug, REASON.too_large); return; }
@@ -514,16 +549,33 @@ document.addEventListener("click", function (ev) {
     if (z) z.classList.add("busy");
     var previous = staged[slug];
     try {
-      var up = await assets.upload(file, {type: type});
-      var rec = {asset: up.id, filename: slug + "." + EXT[type],
-                 contentType: type, bytes: up.sizeBytes,
-                 stagedAt: new Date().toISOString()};
+      var rec;
+      if (assets) {
+        var up = await assets.upload(file, {type: type});
+        rec = {asset: up.id, filename: slug + "." + EXT[type],
+               contentType: type, bytes: up.sizeBytes,
+               stagedAt: new Date().toISOString()};
+      } else {
+        /* SVG cannot go through a canvas without being rasterised, and a
+           rasterised SVG is not what anyone dropped. */
+        if (type === "image/svg+xml") {
+          fail(slug, "SVG needs the asset store, which this page does not "
+                   + "have. Save it into tools/images/ under the name shown.");
+          if (z) z.classList.remove("busy");
+          return;
+        }
+        var data = await shrink(file);
+        rec = {data: data, filename: slug + ".jpg",
+               contentType: "image/jpeg",
+               bytes: Math.round(data.length * 3 / 4),
+               stagedAt: new Date().toISOString()};
+      }
       staged[slug] = rec;
       await db.doc("staged/" + slug).set(rec);
       paint(slug);
       tally();
       /* Only once the replacement is safely stored. */
-      if (previous && previous.asset !== up.id) {
+      if (assets && previous && previous.asset && previous.asset !== rec.asset) {
         try { await assets.delete(previous.asset); } catch (e) {}
       }
     } catch (err) {
@@ -544,13 +596,13 @@ document.addEventListener("click", function (ev) {
     paint(slug);
     tally();
     try { await db.doc("staged/" + slug).delete(); } catch (e) {}
-    if (assets) { try { await assets.delete(rec.asset); } catch (e) {} }
+    if (assets && rec.asset) { try { await assets.delete(rec.asset); } catch (e) {} }
   }
 
   /* ---- events ---- */
   document.addEventListener("dragover", function (ev) {
     var z = ev.target.closest && ev.target.closest(".drop");
-    if (!z || !assets) return;
+    if (!z || !db) return;
     ev.preventDefault();
     z.classList.add("over");
   });
@@ -560,7 +612,7 @@ document.addEventListener("click", function (ev) {
   });
   document.addEventListener("drop", function (ev) {
     var z = ev.target.closest && ev.target.closest(".drop");
-    if (!z || !assets) return;
+    if (!z || !db) return;
     ev.preventDefault();
     z.classList.remove("over");
     var f = ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files[0];
@@ -990,7 +1042,7 @@ document.addEventListener("click", function (ev) {
        manufacturer link, which needs nothing but the database. One being
        unavailable is not the other being unavailable. */
     var off = document.getElementById("offline");
-    if (!assets) {
+    if (!assets && !db) {
       var zs = document.querySelectorAll(".drop, .fine");
       for (var i = 0; i < zs.length; i++) zs[i].style.display = "none";
     }
@@ -1000,13 +1052,10 @@ document.addEventListener("click", function (ev) {
       off.textContent = "Open this page in the Claude viewer to drag pictures "
         + "straight in and save links. The filenames work either way.";
     } else if (!assets) {
-      /* Name it. A page that silently drops half of itself teaches whoever
-         is using it that the tool is broken, with nothing to act on. */
-      off.textContent = "Pictures cannot be uploaded from here: this page's "
-        + "asset store did not load, which happens when the artifact is "
-        + "shared by public link rather than inside the organisation. The "
-        + "links below still save. Copy the filenames and drop the pictures "
-        + "into tools/images/ instead.";
+      off.textContent = "This page's asset store did not load, so pictures "
+        + "are stored in the database instead and scaled to 1200px on the "
+        + "way in - more than the register shows. Everything works; only an "
+        + "SVG has to be saved into tools/images/ by hand.";
     } else if (!db) {
       off.textContent = "Links cannot be saved from here: the database did "
         + "not load. Pictures can still be staged.";
