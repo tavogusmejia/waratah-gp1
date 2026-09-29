@@ -102,6 +102,7 @@ GROUPS = {
     "iGL": ("iGuzzini Lighting", "Lighting", None),
     "LTRN": ("Lutron Controls", "Lighting", None),
     "PL": ("Pool Lighting", "Pool", "JANU-SUB-009"),
+    "M": ("Manholes & Access Covers", "Site", "JANU-SUB-008"),
 }
 
 

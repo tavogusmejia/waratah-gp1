@@ -8,7 +8,8 @@ one that matches the existing template exactly - measured off
 
     python tools/make_curated.py <spec.json> [--out DIR]
 
-Each entry: code, manufacturer, title, specs [{label, value}], notes, source.
+Each entry: code, manufacturer, title, specs [{label, value}], notes, source,
+and optionally pages [first, last] to take only part of that source.
 """
 import io, json, sys
 from pathlib import Path
@@ -100,7 +101,16 @@ def build(rec, out_dir, source_root):
         src = Path(source_root) / rec["source"]
         if not src.exists():
             raise SystemExit("manufacturer sheet missing: " + str(src))
-        doc.insert_pdf(fitz.open(src))
+        # `pages` takes a 1-based [first, last] slice, for a source that covers
+        # several items at once - a concept sheet showing seven covers over two
+        # pages, where each item wants only the page it is on. Without it every
+        # one of the seven would carry both pages and six-sevenths of what a
+        # reader opened would be about something else.
+        pg = rec.get("pages")
+        if pg:
+            doc.insert_pdf(fitz.open(src), from_page=pg[0] - 1, to_page=pg[1] - 1)
+        else:
+            doc.insert_pdf(fitz.open(src))
     dest = Path(out_dir) / rec["filename"]
     dest.parent.mkdir(parents=True, exist_ok=True)
     doc.save(dest, garbage=3, deflate=True)
