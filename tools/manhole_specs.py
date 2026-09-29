@@ -6,10 +6,10 @@ shape for a register: one entry called "Concept Sheet" says nothing about
 which cover is where, and none of the seven can carry its own status, its own
 note or its own approval.
 
-So each becomes an item, with the concept-sheet page it appears on behind it.
-Page 1 carries the Fortis infill run and the Electrical, Sewer and
-Communications covers; page 2 carries the drainage grate and the water-valve
-and HVAC-drain covers.
+So each becomes an item showing ONLY its own cover: the summary page carries
+that cover's photograph and nothing else. Attaching the concept-sheet page
+instead would give every item two pages, one of which is three-quarters about
+three other covers - which is the thing having seven items was meant to fix.
 
 WHAT IS NOT KNOWN, AND SAYS SO. The sheet is issued for concept and
 appearance approval only - there are no dimensions, no load tables and no
@@ -21,6 +21,9 @@ into it at all, which is a question for somebody rather than a specification.
     python tools/make_curated.py _mh.json --out "<the MH folder>"
 """
 import io, json
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
 
 SRC = (r"C:\Users\gus\Documents\Claude Projects\JANU\04 Project Documents"
        r"\03 Datasheets\GP1 Datasheets\M - Manholes & Tanks")
@@ -43,7 +46,7 @@ CONCEPT = ("Issued for concept and appearance approval only, on 11 September "
 UNKNOWN = "Not stated"
 
 ITEMS = [
- dict(code="MH1", page=1, maker="Fortis",
+ dict(code="MH1", img="m-mh1", maker="Fortis",
       file="MH1 - Recessed Infill Cover - Fortis EN 124 D400.pdf",
       title="Recessed Infill Cover - Fortis, EN 124 D400",
       specs=[("Standard", "EN 124, Class D400"),
@@ -53,7 +56,7 @@ ITEMS = [
              ("Material", "Cast iron"),
              ("Service", "Site service chambers")],
       notes=CONCEPT),
- dict(code="MH2", page=1, maker=UNKNOWN,
+ dict(code="MH2", img="m-mh2", maker=UNKNOWN,
       file="MH2 - Square Access Cover - Electrical.pdf",
       title="Square Access Cover - Electrical",
       specs=[("Standard", "EN 124"),
@@ -62,7 +65,7 @@ ITEMS = [
              ("Material", "Cast iron"),
              ("Service", "Electrical chamber")],
       notes=CONCEPT + " No manufacturer is named on the sheet for this cover."),
- dict(code="MH3", page=1, maker=UNKNOWN,
+ dict(code="MH3", img="m-mh3", maker=UNKNOWN,
       file="MH3 - Square Access Cover - Sewer.pdf",
       title="Square Access Cover - Sewer",
       specs=[("Standard", "EN 124"),
@@ -71,7 +74,7 @@ ITEMS = [
              ("Material", "Cast iron"),
              ("Service", "Foul drainage chamber")],
       notes=CONCEPT + " No manufacturer is named on the sheet for this cover."),
- dict(code="MH4", page=1, maker=UNKNOWN,
+ dict(code="MH4", img="m-mh4", maker=UNKNOWN,
       file="MH4 - Circular Access Cover - Communications.pdf",
       title="Circular Access Cover - Communications",
       specs=[("Standard", "EN 124"),
@@ -80,7 +83,7 @@ ITEMS = [
              ("Material", "Cast iron"),
              ("Service", "Communications chamber")],
       notes=CONCEPT + " No manufacturer is named on the sheet for this cover."),
- dict(code="MH5", page=2, maker=UNKNOWN,
+ dict(code="MH5", img="m-mh5", maker=UNKNOWN,
       file="MH5 - Circular Drainage Grate - Unmarked.pdf",
       title="Circular Drainage Grate - Heavy Duty, Slotted",
       specs=[("Type", "Circular heavy-duty slotted grate"),
@@ -92,7 +95,7 @@ ITEMS = [
                       "service before it is set, or specify a legend: an "
                       "unmarked grate on a finished site is a chamber nobody "
                       "can identify without opening it."),
- dict(code="MH6", page=2, maker=UNKNOWN,
+ dict(code="MH6", img="m-mh6", maker=UNKNOWN,
       file="MH6 - Circular Access Cover with Riser - Water Valve.pdf",
       title="Circular Access Cover with Riser - Water Valve",
       specs=[("Type", "Circular access cover with riser"),
@@ -101,7 +104,7 @@ ITEMS = [
              ("Service", "Water valve chamber"),
              ("Shown as", "Two views - lid, and lid with riser")],
       notes=CONCEPT + " No manufacturer is named on the sheet for this cover."),
- dict(code="MH7", page=2, maker=UNKNOWN,
+ dict(code="MH7", img="m-mh7", maker=UNKNOWN,
       file="MH7 - Circular Access Cover with Riser - HVAC Drain.pdf",
       title="Circular Access Cover with Riser - HVAC Drain",
       specs=[("Type", "Circular access cover with riser"),
@@ -119,8 +122,8 @@ def main():
         out.append({"code": it["code"], "manufacturer": it["maker"],
                     "title": it["title"],
                     "specs": [{"label": a, "value": b} for a, b in it["specs"]],
-                    "notes": it["notes"], "source": SHEET,
-                    "pages": [it["page"], it["page"]],
+                    "notes": it["notes"], "source": "",
+                    "image": str(REPO / "tools/images" / (it["img"] + ".jpg")),
                     "filename": "MH - Manholes and Access Covers\\" + it["file"]})
     json.dump({"source_root": SRC, "items": out},
               io.open(1, "w", encoding="utf-8", closefd=False),

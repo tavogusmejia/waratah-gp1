@@ -9,7 +9,8 @@ one that matches the existing template exactly - measured off
     python tools/make_curated.py <spec.json> [--out DIR]
 
 Each entry: code, manufacturer, title, specs [{label, value}], notes, source,
-and optionally pages [first, last] to take only part of that source.
+and optionally pages [first, last] to take part of that source, or image to
+put one photograph of the item on the summary page itself.
 """
 import io, json, sys
 from pathlib import Path
@@ -88,12 +89,41 @@ def draw(page, rec):
         for line in wrapped(rec["notes"], S_SPEC, 612 - 56.4 - X_NOTE):
             put(X_NOTE, baseline(y, S_SPEC), line, S_SPEC, BLACK)
             y += WRAP
+    return y
+
+
+# The picture sits under the text, inside the same margins the rest of the
+# page uses, and never grows past the bottom of it.
+IMG_GAP, IMG_BOT, IMG_L, IMG_R = 24.0, 56.0, 56.4, 555.6
+
+
+def place(page, y, src):
+    """One photograph of the item, below whatever the text ended on.
+
+    For a source that shows several products on one sheet, appending that
+    sheet gives every item a page that is mostly about something else. A
+    picture of the one thing is both smaller and more use."""
+    img = fitz.open(src)
+    rect = img[0].rect if img.is_pdf else fitz.Rect(0, 0, *fitz.Pixmap(src).irect[2:])
+    img.close()
+    top = y + IMG_GAP
+    room_h, room_w = PAGE[1] - IMG_BOT - top, IMG_R - IMG_L
+    if room_h < 60:
+        return
+    w, h = rect.width or 1, rect.height or 1
+    scale = min(room_w / w, room_h / h)
+    w, h = w * scale, h * scale
+    x = IMG_L + (room_w - w) / 2
+    page.insert_image(fitz.Rect(x, top, x + w, top + h), filename=str(src))
 
 
 def build(rec, out_dir, source_root):
     doc = fitz.open()
     doc.new_page(width=PAGE[0], height=PAGE[1])
-    draw(doc[0], rec)
+    end = draw(doc[0], rec)
+    if rec.get("image"):
+        place(doc[0], end, Path(source_root) / rec["image"]
+              if not Path(rec["image"]).is_absolute() else Path(rec["image"]))
     # An item with no cut sheet is still worth a page: the Palco projector is
     # on the drawings, in the schedule and on order, and iGuzzini have not
     # issued one. A summary that says so beats no entry at all.

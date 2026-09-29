@@ -1495,6 +1495,18 @@
    "path": "L - Lighting/_Lighting (Reference)/6. Spec Sheets/L12_Surface-mounted service downlight_ON-OFF/L12_FM-05RN - RECEIVED.pdf"
   },
   {
+   "id": "1egm3Njj20xcToCMfhvbUaQfSCleKHJqP",
+   "name": "D01_technical_datasheet_ella_out_1.0_ea1010fdtt. - RECEIVED.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/_Lighting (Reference)/6. Spec Sheets/Decoratives/D01_Sconce_DALI/D01_technical_datasheet_ella_out_1.0_ea1010fdtt. - RECEIVED.pdf"
+  },
+  {
+   "id": "1Wwmr7aFKdhmBVommes8h5J1pTRu326_i",
+   "name": "FUENTE_ATENUABLE_DE_VOLTAJE_5_PROTOCOLOS_36_WSDDV225PA_259 - RECEIVED.pdf",
+   "mime": "application/pdf",
+   "path": "L - Lighting/_Lighting (Reference)/6. Spec Sheets/Decoratives/D01_Sconce_DALI/FUENTE_ATENUABLE_DE_VOLTAJE_5_PROTOCOLOS_36_WSDDV225PA_259 - RECEIVED.pdf"
+  },
+  {
    "id": "1tey4-Y0a_nNgKl_oILdpa2Q0irQClmT9",
    "name": "D01.3_1A334-FOIL-US02 - RECEIVED.pdf",
    "mime": "application/pdf",
@@ -1519,7 +1531,5 @@
    "path": "L - Lighting/_Lighting (Reference)/6. Spec Sheets/Decoratives/P01_Portable lamp/P01_Kando-M40R-Outdoor-Usa-Cut-Sheet - RECEIVED.pdf"
   }
  ],
- "unreadable": [
-  "L - Lighting/_Lighting (Reference)/6. Spec Sheets/Decoratives/D01_Sconce_DALI"
- ]
+ "unreadable": []
 }
