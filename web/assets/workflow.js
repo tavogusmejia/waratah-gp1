@@ -452,7 +452,7 @@
     /* Notes are readable by anyone now, so the list is unconditional and only
        the composer inside it is gated. */
     wf.appendChild(notesBlock(it, mine));
-    if (can("super_admin")) wf.appendChild(pictureBlock(it, mine));
+    if (can("admin")) wf.appendChild(pictureBlock(it, mine));
     if (can("admin")) wf.appendChild(invoiceBlock(it, mine));
     if (!can("commenter")) {
       /* Deliberately says nothing about invoices. Their existence is not
@@ -710,7 +710,7 @@
   }
 
   function pictureBlock(it, mine) {
-    var sec = section("Picture", ' <em>super admin</em>');
+    var sec = section("Picture", ' <em>admin only</em>');
     var has = !!pictures[it.key];
     var box = document.createElement("div");
     box.className = "wf-pic";

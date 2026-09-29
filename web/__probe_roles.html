@@ -34,7 +34,7 @@ var CASES = [
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
                            addNote:true, invoices:false, prompt:false, pic:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:true, prompt:false, pic:false}},
+                       addNote:true, invoices:true, prompt:false, pic:true}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
                              addNote:true, invoices:true, prompt:false, pic:true}}
 ];
@@ -63,8 +63,9 @@ function check(c, d, w) {
       !!wf.querySelector(".wf-add textarea") === c.want.addNote);
     t("invoices " + (c.want.invoices ? "shown" : "hidden"),
       !!wf.querySelector(".wf-inv") === c.want.invoices);
-    /* Replacing a picture changes what the register shows the world, so it
-       stops at super admin rather than admin. */
+    /* Whoever may move an item's status and read its invoices may also fix
+       its picture - the more consequential powers are already theirs, and a
+       wrong picture is the most visible and most reversible kind of mistake. */
     t("replace-picture " + (c.want.pic ? "offered" : "withheld"),
       !!wf.querySelector(".wf-pic") === !!c.want.pic);
     t("sign-in prompt " + (c.want.prompt ? "shown" : "absent"),

@@ -203,12 +203,11 @@ def main():
            "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", tok)
         ok("reads invoices", st == 200, "%s %s" % (st, b))
-        # Replacing a picture changes what the register shows the world, so it
-        # stops here rather than at admin.
         st, b = call("POST", "/rest/v1/item_picture", tok,
                      {"item_key": ITEM, "storage_path": "x/y.png",
-                      "url": "https://example.com/y.png"})
-        ok("an admin cannot replace a picture", st in (401, 403), "%s %s" % (st, b))
+                      "url": "https://example.com/y.png"},
+                     prefer="return=representation")
+        ok("replaces a picture", st in (200, 201), "%s %s" % (st, b))
         st, b = call("POST", "/rest/v1/register_user", tok,
                      {"email": "gp1-escalation-%s@example.com" % tag, "role": "super_admin"})
         ok("an admin cannot mint a super admin", st in (401, 403), "%s %s" % (st, b))

@@ -136,8 +136,7 @@ STUB = r"""
         return b;
       },
       insert: function (row) {
-        var need = table === "item_note" ? "commenter"
-                 : table === "item_picture" ? "super_admin" : "admin";
+        var need = table === "item_note" ? "commenter" : "admin";
         if (!may(need)) return thenable({data:null, error:DENIED});
         row.id = "new-" + Date.now();
         row.at = new Date().toISOString();
