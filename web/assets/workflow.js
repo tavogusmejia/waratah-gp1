@@ -565,7 +565,10 @@
        fifth of what you were editing. */
     function fit() {
       note.style.height = "auto";
-      note.style.height = Math.min(note.scrollHeight, 220) + "px";
+      /* Full width now, so a paragraph reaches this far less often - and
+         when it does, scrolling a note is better than a sheet whose Open the
+         datasheet button has been pushed off the bottom. */
+      note.style.height = Math.min(note.scrollHeight, 260) + "px";
     }
     note.addEventListener("input", fit);
     setTimeout(fit, 0);

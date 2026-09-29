@@ -713,9 +713,13 @@ a { color: inherit; }
 .msg.ok  { color: var(--st-ok-ink); }
 .msg.bad { color: var(--st-rej-ink); }
 
-.wf-status { display: flex; gap: 8px; flex-wrap: wrap; }
-.wf-status select { flex: none; }
-.wf-status input { flex: 1; min-width: 180px; }
+/* Stacked, not side by side. A reviewer's remark runs from four words to a
+   paragraph, and beside a dropdown it had a third of the width and grew to
+   220px tall - which stretched the select to match and left it floating in
+   its own empty box. Down here the note has the whole sheet, so the same
+   text needs about half the height, and the shape is the same either way. */
+.wf-status { display: flex; flex-direction: column; gap: 8px; }
+.wf-status select { align-self: flex-start; max-width: 100%; }
 
 .wf input, .wf select, .wf textarea, .modal input, .modal select, .modal textarea {
   font: inherit; font-size: 13.5px; color: var(--ink);
@@ -943,8 +947,7 @@ a { color: inherit; }
 .wf-note-more { margin-top: 4px; font-size: 12.5px; color: var(--ink-3); }
 .wf-note-more:hover { color: var(--ink); }
 .wf-status textarea {
-  flex: 1; min-width: 180px; resize: none; overflow-y: auto;
-  line-height: 1.45;
+  width: 100%; resize: none; overflow-y: auto; line-height: 1.45;
 }
 
 /* A facet value that is the absence of a value. */
