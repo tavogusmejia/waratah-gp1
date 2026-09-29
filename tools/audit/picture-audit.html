@@ -746,7 +746,10 @@ document.addEventListener("click", function (ev) {
      document at startup settles it. */
   async function canWrite() {
     if (!db) return false;
-    var ref = db.doc("_selftest/write");
+    /* Probe the collection the links actually use. A scratch path of its own
+       can be refused by a rule that has nothing to say about maker/, which
+       would condemn a page that works perfectly well. */
+    var ref = db.doc("maker/_selftest");
     try {
       await ref.set({at: new Date().toISOString()});
       var back = await ref.get();
@@ -1112,21 +1115,22 @@ document.addEventListener("click", function (ev) {
        whether this page is a place to do work or a place to lose it. */
     var writable = await canWrite();
     if (!writable) {
-      off.textContent = "This view can READ the database but not write to it"
-        + (lastError ? " (" + lastError + ")" : "") + ". Anything typed here "
-        + "will not be kept. Use “Copy every link” and paste the "
-        + "result into tools/maker-links.csv instead - that path does not "
-        + "depend on any of this. The usual cause is opening the artifact "
-        + "through its public link rather than as its owner.";
+      off.textContent = "A test write to the database was refused"
+        + (lastError ? " (" + lastError + ")" : "") + ", so saving here may "
+        + "not work. Type anyway - then use “Copy every link” and "
+        + "paste the result into tools/maker-links.csv, which does not depend "
+        + "on any of this. A row that does save still turns green.";
       off.className = "offline warn";
-      /* Every field, not one at a time after the fact. */
+      /* WARN, NEVER BLOCK. Locking the fields was the wrong call and made
+         things worse: it turned "saves may fail" into "you cannot work", on
+         the word of a probe that can itself be wrong. Typing stays possible
+         whatever the probe thinks - Copy every link gets it out either way,
+         and a page that refuses input is no use even when it is right. */
       var ins = document.querySelectorAll(".lurl");
       for (var q = 0; q < ins.length; q++) {
-        ins[q].readOnly = true;
-        ins[q].title = "Read-only: this view cannot write to the database.";
+        ins[q].title = "Type freely - use Copy every link to get it out, "
+                     + "because saving may not work in this view.";
       }
-      var zz = document.querySelectorAll(".drop, .fine");
-      for (var z = 0; z < zz.length; z++) zz[z].style.display = "none";
     }
     try {
       var ok = await db.collection("fine").limit(200).get();
