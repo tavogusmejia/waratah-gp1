@@ -9,8 +9,8 @@ one that matches the existing template exactly - measured off
     python tools/make_curated.py <spec.json> [--out DIR]
 
 Each entry: code, manufacturer, title, specs [{label, value}], notes, source,
-and optionally pages [first, last] to take part of that source, or image to
-put one photograph of the item on the summary page itself.
+and optionally pages [first, last] to take part of that source, or image /
+images to put one or two photographs of the item on the summary page.
 """
 import io, json, sys
 from pathlib import Path
@@ -97,33 +97,48 @@ def draw(page, rec):
 IMG_GAP, IMG_BOT, IMG_L, IMG_R = 24.0, 56.0, 56.4, 555.6
 
 
-def place(page, y, src):
-    """One photograph of the item, below whatever the text ended on.
+def place(page, y, srcs):
+    """The item's own photographs, below whatever the text ended on.
 
     For a source that shows several products on one sheet, appending that
     sheet gives every item a page that is mostly about something else. A
-    picture of the one thing is both smaller and more use."""
-    img = fitz.open(src)
-    rect = img[0].rect if img.is_pdf else fitz.Rect(0, 0, *fitz.Pixmap(src).irect[2:])
-    img.close()
+    picture of the one thing is both smaller and more use.
+
+    Two, where two say different things: the lid carries the legend and is how
+    a cover is identified, and the same cover on its riser is how deep the
+    chamber has to be. Side by side, each scaled to the same height so they
+    read as one row rather than two attempts at the same photograph."""
+    if isinstance(srcs, (str, Path)):
+        srcs = [srcs]
+    sizes = []
+    for src in srcs:
+        px = fitz.Pixmap(str(src))
+        sizes.append((px.width or 1, px.height or 1))
+        px = None
     top = y + IMG_GAP
     room_h, room_w = PAGE[1] - IMG_BOT - top, IMG_R - IMG_L
     if room_h < 60:
         return
-    w, h = rect.width or 1, rect.height or 1
-    scale = min(room_w / w, room_h / h)
-    w, h = w * scale, h * scale
-    x = IMG_L + (room_w - w) / 2
-    page.insert_image(fitz.Rect(x, top, x + w, top + h), filename=str(src))
+    gap = 12.0 if len(srcs) > 1 else 0.0
+    # One shared height, so the row has a common baseline and a common top.
+    widths_at_h1 = sum(w / h for w, h in sizes)
+    h = min(room_h, (room_w - gap * (len(srcs) - 1)) / widths_at_h1)
+    total = sum((w / hh) * h for w, hh in sizes) + gap * (len(srcs) - 1)
+    x = IMG_L + (room_w - total) / 2
+    for src, (w, hh) in zip(srcs, sizes):
+        ww = (w / hh) * h
+        page.insert_image(fitz.Rect(x, top, x + ww, top + h), filename=str(src))
+        x += ww + gap
 
 
 def build(rec, out_dir, source_root):
     doc = fitz.open()
     doc.new_page(width=PAGE[0], height=PAGE[1])
     end = draw(doc[0], rec)
-    if rec.get("image"):
-        place(doc[0], end, Path(source_root) / rec["image"]
-              if not Path(rec["image"]).is_absolute() else Path(rec["image"]))
+    pics = rec.get("images") or ([rec["image"]] if rec.get("image") else [])
+    if pics:
+        place(doc[0], end, [Path(q) if Path(q).is_absolute()
+                            else Path(source_root) / q for q in pics])
     # An item with no cut sheet is still worth a page: the Palco projector is
     # on the drawings, in the schedule and on order, and iGuzzini have not
     # issued one. A summary that says so beats no entry at all.

@@ -32,6 +32,12 @@ SRC = (r"C:\Users\gus\Documents\Claude Projects\JANU\04 Project Documents"
 SHEET = (r"MH - Manholes and Access Covers\_Concept (reference)"
          r"\Manhole & Access Covers - Concept Sheet.pdf")
 
+# The photographs the concept sheet was made from, kept beside it. Full
+# resolution off the phone, not the low-res crops lifted back out of the
+# PDF - a datasheet showing a 445px thumbnail of a manhole cover is not
+# showing anybody anything.
+PHOTOS = Path(SRC) / "MH - Manholes and Access Covers" / "_Concept (reference)" / "photographs"
+
 CONCEPT = ("Issued for concept and appearance approval only, on 11 September "
            "2026, under JANU-SUB-008. The sheet carries no dimensions, load "
            "tables or order codes; those are to follow with the product "
@@ -95,7 +101,7 @@ ITEMS = [
                       "service before it is set, or specify a legend: an "
                       "unmarked grate on a finished site is a chamber nobody "
                       "can identify without opening it."),
- dict(code="MH6", img="m-mh6", maker=UNKNOWN,
+ dict(code="MH6", img="m-mh6", views=2, maker=UNKNOWN,
       file="MH6 - Circular Access Cover with Riser - Water Valve.pdf",
       title="Circular Access Cover with Riser - Water Valve",
       specs=[("Type", "Circular access cover with riser"),
@@ -104,7 +110,7 @@ ITEMS = [
              ("Service", "Water valve chamber"),
              ("Shown as", "Two views - lid, and lid with riser")],
       notes=CONCEPT + " No manufacturer is named on the sheet for this cover."),
- dict(code="MH7", img="m-mh7", maker=UNKNOWN,
+ dict(code="MH7", img="m-mh7", views=2, maker=UNKNOWN,
       file="MH7 - Circular Access Cover with Riser - HVAC Drain.pdf",
       title="Circular Access Cover with Riser - HVAC Drain",
       specs=[("Type", "Circular access cover with riser"),
@@ -123,7 +129,8 @@ def main():
                     "title": it["title"],
                     "specs": [{"label": a, "value": b} for a, b in it["specs"]],
                     "notes": it["notes"], "source": "",
-                    "image": str(REPO / "tools/images" / (it["img"] + ".jpg")),
+                    "images": [str(PHOTOS / ("%s-%d.jpg" % (it["img"], n + 1)))
+                               for n in range(it.get("views", 1))],
                     "filename": "MH - Manholes and Access Covers\\" + it["file"]})
     json.dump({"source_root": SRC, "items": out},
               io.open(1, "w", encoding="utf-8", closefd=False),
