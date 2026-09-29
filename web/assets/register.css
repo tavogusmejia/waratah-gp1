@@ -17,6 +17,22 @@
    ========================================================================== */
 
 :root {
+  /* Tell the browser which way to draw the controls it owns - checkboxes,
+     scrollbars, the search field's clear button.
+
+     Without this the page inherits <meta name="color-scheme" content="light
+     dark">, which says "either is fine" and leaves the browser to follow the
+     OPERATING SYSTEM. On a dark desktop that drew dark checkboxes onto this
+     white page, and an unticked box rendered as a filled black square - it
+     read as ticked, which is the worst way for a control to be wrong. Dark
+     mode looked correct only because the two happened to agree there.
+
+     The canvas is white unless somebody asks for dark, so the controls are
+     too, and they follow that choice rather than the desktop's. */
+  color-scheme: light;
+  /* The brand red for a ticked box, rather than the browser's blue. */
+  accent-color: #DB3837;
+
   /* Brand, exact. */
   --red: #DB3837;
   --slate: #65768E;
@@ -79,6 +95,8 @@
    them from 4.04:1 and 3.95:1 on this ground to 5.39:1 and 9.81:1. Still the
    brand, not a different red. */
 :root[data-theme="dark"] {
+  color-scheme: dark;
+  accent-color: #EE5952;
   --red: #EE5952;
   --slate: #B0BFD5;
   --bg: #11151C;
