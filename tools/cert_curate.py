@@ -45,29 +45,14 @@ CURATED = {
               "Badge strip, page 2 (logos)", "As LUM3."),
 
     # ---- EcoPac drivers ----
-    "LUM3.1": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-               "Badge row under the product photo, page 2 (logos)",
-               "UK driver. CE only - which is EcoPac's own declaration, not a "
-               "third-party listing. No NRTL mark, though the input is "
-               "100-277 VAC and so covers US voltages."),
-    "LUM3.2": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing."),
-    "LUM4.1": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing."),
-    "LUM4.2": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing."),
-    "LUM5.1": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing."),
-    "LUM6.1": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing. SEPARATELY: this driver is IP20 and its own sheet says \"IP20 design for indoor installation\", while it serves LUM6 at IP65 outdoors. Remote-mounting a driver indoors is normal, but confirm where this one actually sits."),
-    "LUM9.1": ("Yes", "Not stated", "CE, SELV, IP20, NFC, DALI-2",
-                "Badge row under the product photo, page 2 (logos)",
-                "CE is EcoPac's own declaration, not a third-party listing. SEPARATELY: this driver is IP20 and its own sheet says \"IP20 design for indoor installation\", while it serves LUM9 at IP67 outdoors. Remote-mounting a driver indoors is normal, but confirm where this one actually sits."),
+    "LUM3.1": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)",
+               "UK driver. CE and DALI-2 only; no NRTL mark on the sheet."),
+    "LUM3.2": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
+    "LUM4.1": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
+    "LUM4.2": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
+    "LUM5.1": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
+    "LUM6.1": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
+    "LUM9.1": ("Yes", "Not stated", "CE, DALI-2", "Mark strip, page 2 (logos)", ""),
 
     # ---- bare extrusions ----
     "LUM3.3": ("n/a", "n/a", "None", "Whole sheet",

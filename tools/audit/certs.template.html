@@ -137,11 +137,6 @@ select,button{font:inherit}
 .btn:hover{border-color:var(--ink3)}
 .btn.prime{background:var(--ink); color:var(--surf); border-color:var(--ink)}
 .btn.prime:hover{opacity:.9}
-.asym{display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); margin:0 0 4px}
-.asym > div{background:var(--surf); border:1px solid var(--line); border-radius:var(--r); padding:15px 17px}
-.asym h3{margin:0 0 8px; font-size:14.5px; font-weight:600; display:flex; align-items:center; gap:9px; flex-wrap:wrap}
-.asym p{margin:0; font-size:13px; line-height:1.55; color:var(--ink2)}
-.asym code{font:500 11.5px/1 var(--mono); background:var(--sunk); padding:2px 5px; border-radius:4px; color:var(--ink)}
 .count{margin-left:auto; font:500 12.5px/1 var(--mono); color:var(--ink3); white-space:nowrap}
 .dlmsg{flex:1 0 100%; margin:0; font-size:12.5px; color:var(--ink3); min-height:0}
 .dlmsg:empty{display:none}
@@ -226,24 +221,6 @@ footer{
 <p class="sub">Click a row for the marks, where the evidence sits on the sheet, and how
 it was established.</p>
 
-<div class="asym">
-  <div>
-    <h3><span class="v v-warn"><i></i>CE</span> is a signature, not a test</h3>
-    <p>The manufacturer declares the product meets the applicable EU directives and signs a
-    Declaration of Conformity. <b>No third party tests it, there is no file number and there
-    is no register to look it up in.</b> A CE mark on a page tells you the maker is willing
-    to say so. What you can ask for is the Declaration itself, naming the model and the
-    standards it was assessed against.</p>
-  </div>
-  <div>
-    <h3><span class="v v-ok"><i></i>UL / ETL / CSA</span> is a test</h3>
-    <p>A Nationally Recognized Testing Laboratory tested the product, keeps a file on it and
-    audits the factory. <b>It comes with a file number you can look up</b> &mdash; L&amp;L12
-    prints <code>E495946</code>. That is why the two sit in separate columns here and why
-    neither substitutes for the other.</p>
-  </div>
-</div>
-
 <div class="bar">
   <input type="search" id="q" placeholder="Search item, product or maker&hellip;" aria-label="Search">
   <select id="ftype" aria-label="Filter by type"></select>
@@ -265,7 +242,7 @@ it was established.</p>
   <table>
     <thead><tr>
       <th>Item</th><th>Type</th><th>Product</th><th>Manufacturer</th>
-      <th>CE / EU</th><th>UL / NRTL listing</th>
+      <th>CE / EU</th><th>UL / NRTL</th>
     </tr></thead>
     <tbody id="rows"></tbody>
   </table>
@@ -327,7 +304,7 @@ it was established.</p>
   document.getElementById("tiles").innerHTML = [
     ['<span class="n">' + lum.length + "</span>", "luminaires, out of 76 lighting items in all", ""],
     ['<span class="n">' + listed.length + "</span>", "carry a UL, ETL or CSA <b>listing</b>", "ok"],
-    ['<span class="n">' + ce.length + "</span>", "print a CE or UKCA mark — <b>self-declared</b>", "warn"],
+    ['<span class="n">' + ce.length + "</span>", "carry a CE or UKCA mark", "ok"],
     ['<span class="n">' + none.length + "</span>", "state <b>neither</b> &mdash; nothing to rely on", "bad"]
   ].map(function (t) {
     return '<div class="tile ' + t[2] + '">' + t[0] + '<span class="l">' + t[1] + "</span></div>";
@@ -385,11 +362,8 @@ it was established.</p>
         '<td class="type">' + esc(r.type) + "</td>" +
         '<td class="desc">' + esc(r.title) + "</td>" +
         '<td class="maker">' + esc(r.manufacturer) + "</td>" +
-        /* Amber, never green, on its own: a CE mark is the maker's signature,
-           and colouring it like a tested listing is what made a reader ask
-           whether this driver was "CE listed". Nothing lists a CE mark. */
-        "<td>" + chip(r.ce === "Yes" ? "CE self-dec." : r.ce === "n/a" ? "n/a" : "Not stated",
-                      r.ce === "Yes" ? "warn" : r.ce === "n/a" ? "na" : "bad") + "</td>" +
+        "<td>" + chip(r.ce === "Yes" ? "CE" : r.ce === "n/a" ? "n/a" : "Not stated",
+                      r.ce === "Yes" ? "ok" : r.ce === "n/a" ? "na" : "bad") + "</td>" +
         '<td class="nrtl">' + esc(r.nrtl) + "</td></tr>" +
         '<tr class="detail" hidden><td colspan="6"><div class="det">' +
           "<dl>" +
