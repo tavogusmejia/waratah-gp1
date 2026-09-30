@@ -159,6 +159,9 @@ def main():
         st, b = call("POST", "/rest/v1/item_discontinued", tok,
                      {"item_key": ITEM, "note": "should not land"})
         ok("nor flag one discontinued", st in (401, 403), "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/maker_link", tok,
+                     {"item_key": ITEM, "url": "https://example.com/nope"})
+        ok("nor save a manufacturer link", st in (401, 403), "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/register_user?select=email", tok)
         ok("sees only their own roster row", st == 200 and len(b) <= 1,
            "%s saw %s rows" % (st, len(b) if isinstance(b, list) else b))
@@ -192,6 +195,9 @@ def main():
         st, b = call("POST", "/rest/v1/item_discontinued", tok,
                      {"item_key": ITEM, "note": "should not land"})
         ok("nor flag one discontinued", st in (401, 403), "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/maker_link", tok,
+                     {"item_key": ITEM, "url": "https://example.com/nope"})
+        ok("nor save a manufacturer link", st in (401, 403), "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", tok)
         ok("cannot read invoices", st == 200 and b == [], "%s %s" % (st, b))
 
@@ -221,6 +227,17 @@ def main():
            str(b)[:120])
         st, b = call("DELETE", "/rest/v1/item_discontinued?item_key=eq." + ITEM, tok)
         ok("and can clear it again", st in (200, 204), "%s %s" % (st, b))
+        # Manufacturer links, written from /links on the register site.
+        st, b = call("POST", "/rest/v1/maker_link", tok,
+                     {"item_key": ITEM, "url": "https://example.com/product"},
+                     prefer="return=representation,resolution=merge-duplicates")
+        ok("saves a manufacturer link", st in (200, 201), "%s %s" % (st, b))
+        st, b = call("GET", "/rest/v1/maker_link?select=url,by_email&item_key=eq." + ITEM, tok)
+        ok("and reads it back",
+           st == 200 and isinstance(b, list) and len(b) == 1, "%s %s" % (st, b))
+        ok("stamped with who saved it",
+           isinstance(b, list) and b and "@" in str(b[0].get("by_email", "")),
+           str(b)[:120])
         # Invoices no longer follow the rung. An admin is an admin and sees
         # no prices until somebody ticks the flag - which is the whole point
         # of separating them, so it is worth asserting in both directions.
@@ -354,10 +371,34 @@ def main():
                      {"item_key": ITEM, "note": "should not land"})
         ok("cannot flag anything", st in (401, 403), "%s %s" % (st, b))
 
+        # Manufacturer links, the same pair. /links has to be readable by
+        # somebody with no login at all - that is why it is on the site.
+        admin("POST", "/rest/v1/maker_link",
+              body={"item_key": ITEM, "url": "https://example.com/seed",
+                    "by_email": "system"},
+              prefer="return=representation,resolution=merge-duplicates")
+        st, b = call("GET", "/rest/v1/maker_link_public?select=item_key,url&item_key=eq."
+                     + ITEM, ANON)
+        ok("reads manufacturer links through the public view",
+           st == 200 and isinstance(b, list) and len(b) == 1, "%s %s" % (st, b))
+        st, b = call("GET", "/rest/v1/maker_link?select=by_email&limit=1", ANON)
+        ok("cannot read the links table itself",
+           st in (401, 403) or b == [], "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/maker_link", ANON,
+                     {"item_key": ITEM, "url": "https://example.com/nope"})
+        ok("cannot save a link", st in (401, 403), "%s %s" % (st, b))
+        # The 94 already confirmed were seeded by the migration. A reader with
+        # no login must see them: that is the page's whole job.
+        st, b = call("GET", "/rest/v1/maker_link_public?select=item_key", ANON)
+        ok("the 94 seeded links are public",
+           st == 200 and isinstance(b, list) and len(b) >= 94,
+           "%s %s" % (st, len(b) if isinstance(b, list) else b))
+
     finally:
         OUT.write("\ncleaning up\n")
         admin("DELETE", "/rest/v1/item_picture?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_discontinued?item_key=eq." + ITEM)
+        admin("DELETE", "/rest/v1/maker_link?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_note?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_state?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_status_log?item_key=eq." + ITEM)

@@ -734,7 +734,16 @@ a { color: inherit; }
   cursor: pointer; border: 0; background: none; color: var(--ink-2);
   padding: 8px; border-radius: 6px;
 }
-.auth-menu button:hover { background: var(--slate-wash); color: var(--ink); }
+/* The super-admin tool links sit in the same list as the buttons and must not
+   look like a different kind of thing, so they take the same rule. The arrow
+   is the only difference, because they leave the page. */
+.auth-menu a {
+  display: block; width: 100%; text-align: left; font: inherit; font-size: 13px;
+  cursor: pointer; border: 0; background: none; color: var(--ink-2);
+  padding: 8px; border-radius: 6px; text-decoration: none;
+}
+.auth-menu a::after { content: " ↗"; opacity: .45; }
+.auth-menu button:hover, .auth-menu a:hover { background: var(--slate-wash); color: var(--ink); }
 
 /* ------------------------------------------------------------- the panel */
 

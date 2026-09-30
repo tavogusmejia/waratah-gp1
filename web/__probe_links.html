@@ -1,0 +1,119 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Links page behaviour</title>
+<!--
+  Drives /links signed out, which is the state that matters most: the page has
+  to stay usable for somebody with no session, because the one thing it must
+  never do again is take the fields away on the word of a probe.
+
+    python -m http.server   (from web/)   then open this file
+-->
+<style>
+ body{font:14px/1.6 ui-monospace,Menlo,monospace;margin:24px;max-width:900px}
+ .pass{color:#1F6B44}.fail{color:#9A2F2C;font-weight:700}
+ iframe{position:absolute;left:-9999px;width:1200px;height:900px;border:0}
+</style>
+<h1 id="h">running…</h1>
+<div id="o"></div>
+<script>
+var R = [];
+function t(n, ok, d) {
+  R.push([n, ok]);
+  document.getElementById("o").insertAdjacentHTML("beforeend",
+    '<div class="' + (ok ? "pass" : "fail") + '">' + (ok ? "PASS " : "FAIL ") +
+    n + (ok ? "" : "   [" + String(d).slice(0, 80) + "]") + "</div>");
+}
+
+/* The page shares this origin's localStorage with the real thing, so the
+   probe must not leave its typing behind in it. */
+var KEY = "gp1.links.v1", was = null;
+try { was = localStorage.getItem(KEY); localStorage.removeItem(KEY); } catch (e) {}
+
+var f = document.createElement("iframe");
+f.src = "./links.html";
+document.body.appendChild(f);
+
+f.addEventListener("load", function () {
+  var d = f.contentDocument, w = f.contentWindow, n = 0;
+  var tick = setInterval(function () {
+    /* wait for the rows AND for the database read to have reported */
+    var done = d.querySelector("#diaglist") &&
+               /read the saved links/.test(d.getElementById("diaglist").textContent);
+    if ((!d.querySelector(".row") || !done) && ++n < 250) return;
+    clearInterval(tick);
+    setTimeout(function () { run(d, w); }, 300);
+  }, 40);
+});
+
+function run(d, w) {
+  var rows = d.querySelectorAll(".row");
+  t("the 53 open items are listed", rows.length === 53, rows.length);
+  t("grouped by manufacturer", d.querySelectorAll("section.maker").length > 5,
+    d.querySelectorAll("section.maker").length);
+
+  /* Every row carries its datasheet. Confirming a product page means knowing
+     which product it is. */
+  t("every row links its datasheet",
+    d.querySelectorAll(".ttl a.ds").length === rows.length,
+    d.querySelectorAll(".ttl a.ds").length);
+
+  var diag = d.getElementById("diaglist").textContent;
+  t("it connected to the register database", /connected . yes/i.test(diag), diag.slice(0, 90));
+  t("and read the saved links signed out", /read the saved links . yes/i.test(diag),
+    diag.slice(0, 160));
+  t("the 94 already confirmed came back", /9[4-9] in all|\d{3} in all/.test(diag),
+    diag.slice(0, 160));
+
+  /* THE FIELDS ARE NEVER TAKEN AWAY. Locking them was the wrong call once and
+     turned "saving may fail" into "you cannot work". */
+  var locked = 0, inputs = d.querySelectorAll("input.url");
+  for (var i = 0; i < inputs.length; i++) if (inputs[i].disabled || inputs[i].readOnly) locked++;
+  t("no field is disabled when signed out", locked === 0, locked);
+  t("it says where to sign in", !d.getElementById("who").hidden &&
+    /sign in/i.test(d.getElementById("who").textContent),
+    d.getElementById("who").textContent.slice(0, 70));
+
+  /* Typing is kept immediately, with no database and no session. */
+  var first = inputs[0];
+  first.value = "https://example.com/probe-typed";
+  first.dispatchEvent(new w.Event("input", { bubbles: true }));
+  var held = null;
+  try { held = JSON.parse(w.localStorage.getItem("gp1.links.v1") || "{}"); } catch (e) {}
+  var key = rows[0].getAttribute("data-key");
+  t("a keystroke is kept in this browser at once",
+    !!held && held[key] === "https://example.com/probe-typed", JSON.stringify(held).slice(0, 80));
+  t("and the row says so, not 'saved'",
+    rows[0].classList.contains("local"), rows[0].className);
+
+  /* A bad value is refused as a URL but never thrown away. */
+  first.value = "not a url";
+  first.dispatchEvent(new w.Event("input", { bubbles: true }));
+  t("a non-URL is flagged, not discarded",
+    rows[0].classList.contains("bad") && first.value === "not a url", rows[0].className);
+
+  /* Use this fills from the guess without pretending it is an answer. */
+  first.value = "";
+  first.dispatchEvent(new w.Event("input", { bubbles: true }));
+  var use = rows[0].querySelector("button.use");
+  var guess = first.placeholder;
+  use.click();
+  t("Use this takes the guess", first.value === guess, first.value + " vs " + guess);
+
+  /* The way out that cannot be refused. */
+  var n0 = d.querySelectorAll("input.url").length;
+  d.getElementById("useall").click();
+  var filled = 0;
+  d.querySelectorAll("input.url").forEach(function (x) { if (x.value.trim()) filled++; });
+  t("Use every guess fills every row that has one", filled >= 45, filled + " of " + n0);
+  t("the tally agrees", /(\d+) of 53/.test(d.getElementById("strip").textContent),
+    d.getElementById("strip").textContent.slice(0, 60));
+
+  try { w.localStorage.removeItem("gp1.links.v1"); } catch (e) {}
+  try { if (was === null) localStorage.removeItem(KEY); else localStorage.setItem(KEY, was); } catch (e) {}
+
+  var bad = R.filter(function (r) { return !r[1]; }).length;
+  document.getElementById("h").textContent =
+    bad ? bad + " FAILED of " + R.length : "all " + R.length + " passed";
+  document.title = bad ? "R:FAIL " + bad : "R:PASS " + R.length;
+}
+</script>

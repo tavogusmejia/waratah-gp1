@@ -26,20 +26,20 @@
 /* what each role must and must not be offered */
 var CASES = [
   {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:true,
-                     addNote:false, invoices:false, prompt:true, pic:false, disco:false}},
+                     addNote:false, invoices:false, prompt:true, pic:false, disco:false, tools:false}},
   {role:"none", want:{auth:"me", pills:true, status:"read", notes:true,
-                      addNote:false, invoices:false, prompt:false, pic:false, disco:false}},
+                      addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
   {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
-                        addNote:false, invoices:false, prompt:false, pic:false, disco:false}},
+                        addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
-                           addNote:true, invoices:false, prompt:false, pic:false, disco:false}},
+                           addNote:true, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:false, prompt:false, pic:true, disco:true}},
+                       addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:false}},
   /* Same role, plus the flag: the only difference is the invoices. */
   {role:"admin", money:1, want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:true, prompt:false, pic:true, disco:true}},
+                       addNote:true, invoices:true, prompt:false, pic:true, disco:true, tools:false}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                             addNote:true, invoices:false, prompt:false, pic:true, disco:true}}
+                             addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:true}}
 ];
 
 var out = document.getElementById("o"), fails = 0, done = 0;
@@ -52,6 +52,13 @@ function check(c, d, w) {
   t("auth control", c.want.auth === "Sign in"
       ? !!auth.querySelector(".auth-in")
       : !!auth.querySelector(".auth-me"));
+  /* The two review tools hang off the account menu for a super admin only.
+     Cosmetic, not protection - the pages are public and the boundary is the
+     write policy - but a viewer being shown an admin's tools reads as an
+     invitation, and that is worth asserting either way. */
+  var tools = auth.querySelectorAll('.auth-menu a[href*="certification"], .auth-menu a[href*="links"]');
+  t("tool links " + (c.want.tools ? "offered" : "withheld"),
+    (tools.length === 2) === !!c.want.tools, tools.length);
   t("status pills on cards", (d.querySelectorAll(".card .st").length > 0) === c.want.pills);
 
   var wf = d.querySelector(".wf");

@@ -172,6 +172,15 @@
             "role yet, so you can read the register and nothing more. Ask an " +
             "admin to add you.</p>") +
         (can("admin") ? '<button type="button" data-people="1">Manage people</button>' : "") +
+      /* The two review tools. Gated at super admin because that is what was
+         asked for - but HIDING A LINK IS COSMETIC, not protection: both pages
+         are public by design, and the boundary that matters is the write
+         policy on gp1.maker_link. Anyone who knows the URL can read them, and
+         that is the point. */
+      (can("super_admin")
+        ? '<a href="./certification" target="_blank" rel="noopener">Lighting certification</a>' +
+          '<a href="./links" target="_blank" rel="noopener">Manufacturer links</a>'
+        : "") +
         '<button type="button" data-pw="1">Set a password</button>' +
         '<button type="button" data-out="1">Sign out</button>' +
       "</div></details>";
