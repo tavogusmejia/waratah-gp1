@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>GP1 Manufacturer Links</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FAF7F2; --surf:#FFFFFF; --ink:#17150F; --dim:#6E665B;
+  --line:#E6DFD4; --line2:#D6CCBE;
+  --accent:#DB3837; --ok:#1E7A4D; --warn:#A8620B;
+  --okbg:#E8F3EC; --warnbg:#FBF0DF; --accbg:#FBE9E8;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+  accent-color:#DB3837;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#131210; --surf:#1C1A17; --ink:#EDE8E0; --dim:#968C7E;
+    --line:#302C26; --line2:#403A31;
+    --accent:#F0605F; --ok:#4CBF87; --warn:#E0A040;
+    --okbg:#16291F; --warnbg:#2B2317; --accbg:#2C1B1A;
+    color-scheme:dark; accent-color:#F0605F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#131210; --surf:#1C1A17; --ink:#EDE8E0; --dim:#968C7E;
+  --line:#302C26; --line2:#403A31;
+  --accent:#F0605F; --ok:#4CBF87; --warn:#E0A040;
+  --okbg:#16291F; --warnbg:#2B2317; --accbg:#2C1B1A;
+  color-scheme:dark; accent-color:#F0605F;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font:400 15px/1.5 var(--sans);
+  padding-block:0 64px; padding-left:16px; padding-right:16px;
+}
+.wrap{max-width:1040px; margin:0 auto}
+
+/* ---- header ---- */
+header.top{padding-block:40px 20px; border-bottom:2px solid var(--ink)}
+h1{
+  margin:0; font-size:clamp(28px,4.4vw,40px); font-weight:600;
+  letter-spacing:-.02em; text-wrap:balance;
+}
+.lede{margin:10px 0 0; max-width:62ch; color:var(--dim)}
+.lede b{color:var(--ink); font-weight:500}
+
+/* ---- the status strip: the one thing that must never lie ---- */
+.strip{
+  display:flex; flex-wrap:wrap; gap:8px 18px; align-items:baseline;
+  margin-top:22px; padding:12px 14px; border-radius:2px;
+  background:var(--surf); border:1px solid var(--line);
+  border-left:3px solid var(--line2);
+  font-family:var(--mono); font-size:13px;
+}
+.strip.good{border-left-color:var(--ok)}
+.strip.bad{border-left-color:var(--accent); background:var(--accbg)}
+.strip .n{font-weight:500; font-variant-numeric:tabular-nums}
+.strip .sep{color:var(--line2)}
+
+details.diag{margin-top:10px; font-size:13px}
+details.diag summary{
+  cursor:pointer; color:var(--dim); font-family:var(--mono);
+  padding:4px 0; width:max-content;
+}
+details.diag summary:hover{color:var(--ink)}
+.diaglist{
+  margin:8px 0 0; padding:12px 14px; border:1px solid var(--line);
+  background:var(--surf); font-family:var(--mono); font-size:12.5px;
+  line-height:1.7; white-space:pre-wrap; word-break:break-word;
+}
+.diaglist .y{color:var(--ok)} .diaglist .n{color:var(--accent)}
+.diaglist .q{color:var(--dim)}
+
+.acts{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+button{font:inherit; cursor:pointer}
+.btn{
+  padding:8px 14px; border-radius:2px; border:1px solid var(--line2);
+  background:var(--surf); color:var(--ink); font-size:14px;
+}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.btn.prime{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+.btn:focus-visible,input:focus-visible,summary:focus-visible,a:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px;
+}
+
+/* ---- maker groups ---- */
+.maker{margin-top:38px}
+.makerhd{
+  display:flex; align-items:baseline; gap:12px;
+  padding-bottom:8px; border-bottom:1px solid var(--line2);
+}
+.makerhd h2{
+  margin:0; font-size:17px; font-weight:600; letter-spacing:-.01em;
+}
+.makerhd .cnt{
+  font-family:var(--mono); font-size:12px; color:var(--dim);
+  font-variant-numeric:tabular-nums;
+}
+.makerhd a.site{
+  margin-left:auto; font-size:12.5px; font-family:var(--mono);
+  color:var(--accent); text-decoration:none; border-bottom:1px solid transparent;
+}
+.makerhd a.site:hover{border-bottom-color:currentColor}
+
+.row{
+  display:grid; gap:4px 16px; padding:14px 0 14px 14px;
+  grid-template-columns:150px minmax(0,1fr);
+  border-bottom:1px solid var(--line);
+  border-left:3px solid transparent;
+}
+.row.saved{border-left-color:var(--ok)}
+.row.local{border-left-color:var(--warn)}
+.row.bad{border-left-color:var(--accent)}
+
+.idc{grid-row:1/span 2; display:flex; flex-direction:column; gap:6px}
+code.code{
+  font-family:var(--mono); font-size:12.5px; font-weight:500;
+  padding:3px 7px; border:1px solid var(--line2); border-radius:2px;
+  width:max-content; background:var(--surf);
+}
+.state{font-family:var(--mono); font-size:11.5px; color:var(--dim)}
+.row.saved .state{color:var(--ok)}
+.row.local .state{color:var(--warn)}
+.row.bad .state{color:var(--accent)}
+
+.ttl{font-size:14.5px; line-height:1.4}
+.ttl a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line2)}
+.ttl a:hover{border-bottom-color:var(--accent); color:var(--accent)}
+
+.fld{display:flex; gap:8px; align-items:stretch; min-width:0}
+input.url{
+  flex:1 1 auto; min-width:0; font:400 13px/1.4 var(--mono);
+  padding:8px 10px; border-radius:2px;
+  border:1px solid var(--line2); background:var(--surf); color:var(--ink);
+}
+.row.bad input.url{border-color:var(--accent)}
+.row.saved input.url{border-color:var(--ok)}
+input.url::placeholder{color:var(--dim); opacity:.75}
+.use{
+  flex:0 0 auto; padding:0 12px; border-radius:2px; font-size:12.5px;
+  border:1px solid var(--line2); background:transparent; color:var(--dim);
+  white-space:nowrap;
+}
+.use:hover{color:var(--ink); border-color:var(--ink)}
+.use[hidden]{display:none}
+
+@media (max-width:640px){
+  .row{grid-template-columns:1fr}
+  .idc{grid-row:auto; flex-direction:row; align-items:center; gap:10px}
+}
+
+footer{
+  margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
+  color:var(--dim); font-size:13px; max-width:68ch;
+}
+.toast{
+  position:fixed; left:50%; bottom:22px; transform:translateX(-50%);
+  background:var(--ink); color:var(--paper); padding:9px 16px;
+  border-radius:2px; font-size:13.5px; font-family:var(--mono);
+  opacity:0; pointer-events:none; transition:opacity .18s;
+  max-width:calc(100vw - 32px);
+}
+.toast.on{opacity:1}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Manufacturer links still open</h1>
+  <p class="lede">The last <b>53</b> items on the GP1-MUR register with no manufacturer page.
+  Each one wants the <b>product page</b> &mdash; where the item lives now, with its current
+  finishes, options and pricing &mdash; not the datasheet. The grey text in each box is a
+  guess, usually just the manufacturer&rsquo;s own site &mdash; it is <b>not</b> filled in:
+  paste the real page over it, or press <b>Use this</b> to take the guess as it stands.</p>
+  <p class="lede" style="margin-top:8px">They are grouped by manufacturer, so one open tab
+  does the whole group. <b>Every keystroke is kept in this browser straight away</b>,
+  whatever the database does &mdash; and <b>Copy as CSV</b> reads the boxes themselves, so it
+  is complete either way.</p>
+
+  <p class="strip" id="strip"><span>Starting&hellip;</span></p>
+
+  <details class="diag" id="diag">
+    <summary>Connection detail</summary>
+    <div class="diaglist" id="diaglist">Not checked yet.</div>
+  </details>
+
+  <div class="acts">
+    <button class="btn prime" type="button" id="csv">Copy as CSV</button>
+    <button class="btn" type="button" id="names">Copy the item names</button>
+    <button class="btn" type="button" id="useall">Use every guess</button>
+    <button class="btn" type="button" id="retry">Save to the database again</button>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <p>The CSV is two columns, <code>key,url</code> &mdash; the same shape as
+  <code>tools/maker-links.csv</code> in the repo. Paste it there and the register picks
+  the links up on the next build. Nothing here is lost by closing the tab.</p>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script id="rows" type="application/json">__DATA__</script>
+<script>
+(function () {
+  "use strict";
+
+  var DATA = JSON.parse(document.getElementById("rows").textContent);
+  var LS   = "gp1.links.v1";
+  var PATH = "links/all";
+
+  /* links: what the person has, by item key. The single source the CSV, the
+     database and localStorage are all written from. */
+  var links = {};
+  var inDb  = null;          /* null until the database has answered once */
+  var db = null, user = null;
+  var diag = [];
+  var writeErr = "";
+  var saving = 0;
+
+  /* ---------- the copy that cannot fail ----------
+     localStorage is synchronous, needs no capability and cannot be refused.
+     It is the primary store. The database is what carries a link to another
+     machine, and a failure there costs nobody a keystroke. */
+  function keep() {
+    try { localStorage.setItem(LS, JSON.stringify(links)); return true; }
+    catch (e) { return false; }
+  }
+  function recall() {
+    try {
+      var raw = localStorage.getItem(LS);
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) { return {}; }
+  }
+
+  function isUrl(v) {
+    /* Two URLs run together is a paste that landed mid-field rather than
+       replacing one, and each half reads as a perfectly good link. */
+    return /^https?:\/\/\S+$/i.test(v) && v.split("://").length === 2;
+  }
+
+  /* ---------- rendering ---------- */
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function build() {
+    var main = document.getElementById("main");
+    var order = [], byMaker = {};
+    DATA.forEach(function (r) {
+      var m = r.maker || "No manufacturer stated";
+      if (!byMaker[m]) { byMaker[m] = []; order.push(m); }
+      byMaker[m].push(r);
+    });
+    /* Biggest group first: ten links from one site is the best use of an
+       open tab, and a lone item is the worst. */
+    order.sort(function (a, b) {
+      var d = byMaker[b].length - byMaker[a].length;
+      return d || a.localeCompare(b);
+    });
+
+    order.forEach(function (m) {
+      var rows = byMaker[m];
+      var sec = el("section", "maker");
+      var hd = el("div", "makerhd");
+      hd.appendChild(el("h2", null, m));
+      hd.appendChild(el("span", "cnt", rows.length === 1 ? "1 item" : rows.length + " items"));
+      var site = rows[0].guess;
+      if (site) {
+        var a = el("a", "site", "Open " + site.replace(/^https?:\/\//, "").replace(/\/$/, ""));
+        a.href = site; a.target = "_blank"; a.rel = "noopener noreferrer";
+        hd.appendChild(a);
+      }
+      sec.appendChild(hd);
+
+      rows.forEach(function (r) {
+        var row = el("div", "row");
+        row.setAttribute("data-key", r.key);
+
+        var idc = el("div", "idc");
+        idc.appendChild(el("code", "code", r.code));
+        idc.appendChild(el("span", "state", ""));
+        row.appendChild(idc);
+
+        var ttl = el("div", "ttl");
+        var g = el("a", null, r.title);
+        g.href = "https://www.google.com/search?q=" +
+                 encodeURIComponent(r.title + (r.maker ? " " + r.maker : ""));
+        g.target = "_blank"; g.rel = "noopener noreferrer";
+        g.title = "Search Google for this item";
+        ttl.appendChild(g);
+        row.appendChild(ttl);
+
+        var fld = el("div", "fld");
+        var inp = el("input", "url");
+        inp.type = "url"; inp.inputMode = "url"; inp.spellcheck = false;
+        inp.id = "u-" + r.key.replace(/[^a-z0-9]+/gi, "-");
+        /* The guess sits in the placeholder, not the value: visible, so you can
+           see where Use this would point, and plainly not filled in - a guess
+           counted as an answer is how a wrong link gets shipped. */
+        inp.placeholder = r.guess || "https://… the product page";
+        inp.setAttribute("aria-label", "Manufacturer page for " + r.code);
+        inp.value = links[r.key] || "";
+        fld.appendChild(inp);
+
+        var use = el("button", "use", "Use this");
+        use.type = "button";
+        use.title = r.guess ? "Fill in " + r.guess : "";
+        if (!r.guess) use.hidden = true;
+        use.addEventListener("click", function () {
+          inp.value = r.guess;
+          touched(r.key, row, inp);
+        });
+        fld.appendChild(use);
+        row.appendChild(fld);
+
+        inp.addEventListener("input", function () { touched(r.key, row, inp); });
+        sec.appendChild(row);
+      });
+      main.appendChild(sec);
+    });
+  }
+
+  function rowOf(key) {
+    return document.querySelector('.row[data-key="' + key + '"]');
+  }
+
+  /* ---------- state on a row ----------
+     Three words, and each means one thing only:
+       saved            the database has it, so another machine can see it
+       on this device   typed and kept here, the database has not taken it
+       not a URL        it will not be saved anywhere until it is one */
+  function paint(key) {
+    var row = rowOf(key); if (!row) return;
+    var v = (links[key] || "").trim();
+    var st = row.querySelector(".state");
+    row.classList.remove("saved", "local", "bad");
+    if (!v) { st.textContent = ""; return; }
+    if (!isUrl(v)) { row.classList.add("bad"); st.textContent = "not a URL"; return; }
+    if (inDb && inDb[key] === v) { row.classList.add("saved"); st.textContent = "saved"; return; }
+    row.classList.add("local");
+    st.textContent = inDb === null ? "on this device" : "on this device only";
+  }
+  function paintAll() { DATA.forEach(function (r) { paint(r.key); }); }
+
+  function report() {
+    var strip = document.getElementById("strip");
+    var filled = 0, ok = 0, bad = 0, local = 0;
+    DATA.forEach(function (r) {
+      var v = (links[r.key] || "").trim();
+      if (!v) return;
+      filled++;
+      if (!isUrl(v)) bad++;
+      else if (inDb && inDb[r.key] === v) ok++;
+      else local++;
+    });
+    var bits = [];
+    bits.push('<span class="n">' + filled + " of " + DATA.length + "</span> filled in");
+    if (ok) bits.push('<span class="n">' + ok + "</span> saved to the database");
+    if (local) bits.push('<span class="n">' + local + "</span> kept on this device" +
+                         (writeErr ? " — " + esc(writeErr) : ""));
+    if (bad) bits.push('<span class="n">' + bad + "</span> not a URL");
+    if (saving) bits.push("saving…");
+    if (!filled && !saving) bits = ['<span class="n">0 of ' + DATA.length + "</span> filled in"];
+    strip.innerHTML = bits.join('<span class="sep"> · </span>');
+    strip.className = "strip" + (bad || writeErr ? " bad" : (ok === filled && filled ? " good" : ""));
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>]/g, function (c) {
+      return c === "&" ? "&amp;" : c === "<" ? "&lt;" : "&gt;";
+    });
+  }
+
+  /* ---------- saving ---------- */
+  var timer = null;
+  function touched(key, row, inp) {
+    var v = inp.value.trim();
+    if (v) links[key] = v; else delete links[key];
+    keep();
+    paint(key);
+    report();
+    clearTimeout(timer);
+    timer = setTimeout(push, 700);
+  }
+
+  /* One document holds all 53. Fifty-three separate writes is fifty-three
+     chances to be rate-limited or refused halfway, and leaves no way to tell
+     a saved set from a half-saved one; this is about seven kilobytes, well
+     inside the 256 KiB a document may hold, and it commits or it does not. */
+  async function push() {
+    if (!db) { report(); return; }
+    var body = {};
+    Object.keys(links).forEach(function (k) {
+      var v = (links[k] || "").trim();
+      if (v && isUrl(v)) body[k] = v;
+    });
+    saving++; report();
+    try {
+      await db.doc(PATH).set({ links: body, at: new Date().toISOString() });
+      /* Read it back. A store may answer a read before the write has landed,
+         so a mismatch gets one second look rather than flashing red. */
+      var got = await readDoc();
+      if (!same(got, body)) {
+        await new Promise(function (r) { setTimeout(r, 500); });
+        got = await readDoc();
+      }
+      if (!same(got, body)) throw new Error("the database did not read back what was sent");
+      inDb = got; writeErr = "";
+      note("db write", "y", Object.keys(got).length + " links committed");
+    } catch (err) {
+      writeErr = code(err);
+      note("db write", "n", writeErr);
+      if (window.console) console.error("GP1 links save", err);
+    } finally {
+      saving--; paintAll(); report();
+    }
+  }
+
+  async function readDoc() {
+    var snap = await db.doc(PATH).get();
+    if (!snap || !snap.exists) return {};
+    var body = typeof snap.data === "function" ? snap.data() : snap.data;
+    return (body && body.links) || {};
+  }
+  function same(a, b) {
+    var ka = Object.keys(a || {}), kb = Object.keys(b || {});
+    if (ka.length !== kb.length) return false;
+    for (var i = 0; i < kb.length; i++) if (a[kb[i]] !== b[kb[i]]) return false;
+    return true;
+  }
+  function code(err) {
+    if (!err) return "refused, with no reason given";
+    return (err.code ? err.code + ": " : "") + (err.message || "refused");
+  }
+
+  /* ---------- the diagnosis the old page could not give ----------
+     A database that answers reads can still refuse every write, and the two
+     are separate permissions. When a write is refused the page now says who
+     the viewer is and what the platform says they may do, because that is the
+     difference between a bug to fix and a browser signed in as the wrong
+     person. */
+  function note(what, how, detail) {
+    diag.push({ what: what, how: how, detail: detail });
+    var box = document.getElementById("diaglist");
+    box.innerHTML = diag.map(function (d) {
+      var mark = d.how === "y" ? '<span class="y">yes</span>'
+               : d.how === "n" ? '<span class="n">no</span>'
+                               : '<span class="q">?</span>';
+      return d.what + " — " + mark + (d.detail ? "  " + esc(d.detail) : "");
+    }).join("\n");
+    if (how === "n") document.getElementById("diag").open = true;
+  }
+
+  async function connect() {
+    if (!window.claude || !window.claude.use) {
+      note("this view runs capabilities", "n",
+           "opened outside claude.ai, or as a file");
+      inDb = {}; paintAll(); report(); return;
+    }
+    try { db = await window.claude.use("db"); } catch (e) { db = null; }
+    note("database available", db ? "y" : "n",
+         db ? "" : "not served, not granted, or it failed to load");
+
+    try { user = await window.claude.use("user"); } catch (e) { user = null; }
+    if (user) {
+      var who = [];
+      try { who.push("owner: " + (await user.isOwner())); } catch (e) {}
+      try { who.push("can edit: " + (await user.canEdit())); } catch (e) {}
+      try { who.push("may write shared data: " + (await user.can("data.write"))); } catch (e) {}
+      note("who is viewing", "q", who.join(", "));
+    } else {
+      note("who is viewing", "q", "the platform did not say");
+    }
+
+    if (!db) { inDb = {}; paintAll(); report(); return; }
+
+    try {
+      var got = await readDoc();
+      inDb = got;
+      note("read " + PATH, "y", Object.keys(got).length + " links already there");
+      /* The database is the shared truth and reaches other machines, so it
+         wins over this browser - but only where it actually has something. */
+      Object.keys(got).forEach(function (k) { links[k] = got[k]; });
+      keep();
+      DATA.forEach(function (r) {
+        var inp = document.getElementById("u-" + r.key.replace(/[^a-z0-9]+/gi, "-"));
+        if (inp && links[r.key]) inp.value = links[r.key];
+      });
+    } catch (err) {
+      inDb = {};
+      note("read " + PATH, "n", code(err));
+    }
+    paintAll(); report();
+    /* Settle whether this view can write at all, now, rather than one row at
+       a time after somebody has typed into them. */
+    if (Object.keys(links).length) await push();
+    else await probe();
+  }
+
+  async function probe() {
+    try {
+      await db.doc("links/_probe").set({ at: new Date().toISOString() });
+      var back = await db.doc("links/_probe").get();
+      if (!back || !back.exists) throw new Error("the write did not read back");
+      try { await db.doc("links/_probe").delete(); } catch (e) {}
+      note("this view can write", "y", "");
+    } catch (err) {
+      writeErr = code(err);
+      note("this view can write", "n", writeErr);
+      report();
+    }
+  }
+
+  /* ---------- getting it out ---------- */
+  function toast(msg) {
+    var t = document.getElementById("toast");
+    t.textContent = msg; t.classList.add("on");
+    clearTimeout(t._t); t._t = setTimeout(function () { t.classList.remove("on"); }, 2200);
+  }
+  function copy(text, msg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { toast(msg); },
+                                              function () { fallback(text, msg); });
+    } else fallback(text, msg);
+  }
+  function fallback(text, msg) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); toast(msg); }
+    catch (e) { toast("Could not copy — select the text by hand"); }
+    document.body.removeChild(ta);
+  }
+
+  document.getElementById("csv").addEventListener("click", function () {
+    /* Reads the boxes, not the store, so it is complete whatever the
+       database has done. */
+    var out = ["key,url"];
+    DATA.forEach(function (r) {
+      var inp = document.getElementById("u-" + r.key.replace(/[^a-z0-9]+/gi, "-"));
+      var v = inp ? inp.value.trim() : "";
+      if (v) out.push(r.key + "," + v);
+    });
+    copy(out.join("\n"), (out.length - 1) + " links copied as CSV");
+  });
+
+  document.getElementById("names").addEventListener("click", function () {
+    var out = DATA.map(function (r) {
+      return r.code + "\t" + r.title + (r.maker ? "\t" + r.maker : "");
+    });
+    copy(out.join("\n"), DATA.length + " item names copied");
+  });
+
+  document.getElementById("useall").addEventListener("click", function () {
+    var n = 0;
+    DATA.forEach(function (r) {
+      if (!r.guess || links[r.key]) return;
+      links[r.key] = r.guess; n++;
+      var inp = document.getElementById("u-" + r.key.replace(/[^a-z0-9]+/gi, "-"));
+      if (inp) inp.value = r.guess;
+    });
+    keep(); paintAll(); report();
+    toast(n ? n + " empty boxes filled with the guess" : "Nothing left to fill");
+    if (n) push();
+  });
+
+  document.getElementById("retry").addEventListener("click", function () {
+    writeErr = ""; report(); push();
+  });
+
+  /* ---------- boot ---------- */
+  links = recall();
+  build();
+  paintAll();
+  report();
+  connect();
+})();
+</script>
+</body>
+</html>
