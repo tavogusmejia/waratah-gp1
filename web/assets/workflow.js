@@ -455,6 +455,10 @@
       return;
     }
 
+    /* First, above the status. "This product no longer exists" outranks
+       "it was approved", and an admin scrolling to the status should have
+       passed the reason the status may not matter. */
+    if (can("admin")) wf.appendChild(discoBlock(it, mine));
     wf.appendChild(statusBlock(it, mine));
     /* Notes are readable by anyone now, so the list is unconditional and only
        the composer inside it is gated. */
@@ -703,8 +707,13 @@
      image behind. */
   var pictures = {};
 
+  /* item_picture_public, not item_picture. The table carries by_email, and a
+     signed-out visitor had been able to read the address of whoever replaced
+     each picture - which is what the schema header has always said should not
+     happen ("who set it, and when" is the first row marked private). The
+     WRITE path below still uses the table; a view is not what it upserts to. */
   async function loadPictures() {
-    var r = await sb.from("item_picture").select("item_key, url");
+    var r = await sb.from("item_picture_public").select("item_key, url");
     if (r.error) {
       if (window.console) console.warn("GP1 pictures:", fail(r.error));
       return;
@@ -714,6 +723,112 @@
       pictures[r.data[i].item_key] = r.data[i].url;
     }
     window.GP1.setPictures(pictures);
+  }
+
+  /* ---- discontinued ----
+
+     Not a submittal status, and deliberately not stored as one. An item can
+     be approved AND out of production, and that pairing is the whole reason
+     this exists - a single field would have to choose which of the two to
+     tell you.
+
+     The ROW IS THE FLAG. There is no boolean to read: a key present in this
+     map is flagged, and un-flagging deletes the row. Two ways to say "not
+     discontinued" is one too many.
+
+     Anonymous readers get item_discontinued_public, which drops by_email and
+     renders the seeded rows as "the register build" - nobody ticked those, a
+     migration did, and borrowing a colleague's name for them would be a lie
+     in a field people will trust. */
+  var gone = {};
+
+  async function loadGone() {
+    var r = await sb.from("item_discontinued_public")
+                    .select("item_key, note, at, author");
+    if (r.error) {
+      if (window.console) console.warn("GP1 discontinued:", fail(r.error));
+      return;
+    }
+    gone = {};
+    for (var i = 0; i < r.data.length; i++) gone[r.data[i].item_key] = r.data[i];
+    window.GP1.setDiscontinued(gone);
+  }
+
+  function discoBlock(it, mine) {
+    var sec = section("Discontinued", ' <em>admin only</em>');
+    var has = !!gone[it.key];
+
+    var box = document.createElement("div");
+    box.className = "wf-disco";
+    box.innerHTML =
+      '<label class="wf-check"><input type="checkbox"' + (has ? " checked" : "") +
+      "> This item is no longer available</label>" +
+      '<textarea rows="1" placeholder="Why — what you checked, and when" ' +
+      'aria-label="Why this is discontinued">' +
+      esc(has ? (gone[it.key].note || "") : "") + "</textarea>";
+    sec.appendChild(box);
+    var say = msgLine(sec);
+
+    var tick = box.querySelector("input");
+    var why  = box.querySelector("textarea");
+
+    function fit() {
+      why.style.height = "auto";
+      why.style.height = Math.min(why.scrollHeight, 260) + "px";
+    }
+    why.addEventListener("input", fit);
+    setTimeout(fit, 0);
+    function show() { box.classList.toggle("off", !tick.checked); }
+    show();
+
+    var hint = document.createElement("p");
+    hint.className = "wf-hint";
+    hint.textContent = "This reddens the item everywhere and puts a notice at "
+      + "the top of its sheet, for everyone, signed in or not. Say what you "
+      + "checked and the date \u2014 in six months that is the difference "
+      + "between a judgement and a fact.";
+    sec.insertBefore(hint, box);
+
+    /* Saves on change and on blur, not behind a button. A button is how the
+       manufacturer links were lost: typed, looked saved, never sent. */
+    async function put() {
+      if (mine !== token) return;
+      if (!tick.checked) {
+        say("Saving\u2026");
+        var d = await sb.from("item_discontinued").delete().eq("item_key", it.key);
+        if (d.error) { say(fail(d.error), true); tick.checked = true; show(); return; }
+        delete gone[it.key];
+        window.GP1.setDiscontinued(gone);
+        say("Cleared.");
+        return;
+      }
+      say("Saving\u2026");
+      var row = { item_key: it.key, note: why.value.trim() };
+      var r = await sb.from("item_discontinued").upsert(row, { onConflict: "item_key" })
+                      .select("item_key, note, at");
+      if (r.error) { say(fail(r.error), true); return; }
+      /* Read back what the database holds, not what we sent. */
+      var got = r.data && r.data[0];
+      if (!got || got.item_key !== it.key) {
+        say("The database did not take that. Nothing was saved.", true);
+        return;
+      }
+      /* The view would give the author; the table does not return it, and
+         re-reading for one word is not worth a round trip. It is us. */
+      var n = who(me && me.email);
+      got.author = n.charAt(0).toUpperCase() + n.slice(1);
+      gone[it.key] = got;
+      window.GP1.setDiscontinued(gone);
+      say("Saved \u2014 flagged as discontinued.");
+    }
+
+    tick.addEventListener("change", function () { show(); put(); });
+    why.addEventListener("blur", function () {
+      if (!tick.checked) return;
+      var was = has ? (gone[it.key] && gone[it.key].note) || "" : "";
+      if (why.value.trim() !== was) put();
+    });
+    return sec;
   }
 
   function pictureBlock(it, mine) {
@@ -1476,6 +1591,7 @@
     });
 
     loadPictures();
+    loadGone();
 
     var s = await sb.auth.getSession();
     me = s.data && s.data.session ? s.data.session.user : null;

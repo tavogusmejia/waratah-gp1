@@ -24,7 +24,24 @@ f.addEventListener("load",function(){
       }
       W.GP1.setApproval(m);
     }
-    if(OPEN){ var c=d.querySelector(".card.act")||d.querySelector(".card"); c.click(); }
+    /* ?dc=1 flags the five LedFlex profiles, so the red card, the chip and
+       the sheet banner can be looked at without a Supabase project behind
+       them. These are the real keys. */
+    if(/[?&]dc=1/.test(location.search)){
+      var W2=f.contentWindow, m={};
+      ["lum-lum3.3","lum-lum4.3","lum-lum5.2","lum-lum6.2","lum-lum9.2"]
+        .forEach(function(k){
+          m[k]={note:"LedFlex have folded ledflexusa.com into ledflexgroup.com and added a Product Archive for previous-generation products; the Pro Profile page for this code no longer resolves on the group site. Checked 30 Sep 2026. Confirm the current equivalent with LedFlex before ordering.",
+                at:"2026-09-30T09:00:00Z", author:"the register build"};
+        });
+      W2.GP1.setDiscontinued(m);
+    }
+    if(OPEN){
+      var sel=(/[?&]item=([^&]+)/.exec(location.search)||[])[1];
+      var c=(sel&&d.querySelector('.card[data-id*="'+sel+'"]'))
+            ||d.querySelector(".card.act")||d.querySelector(".card");
+      c.click();
+    }
   },30);
 });
 </script>

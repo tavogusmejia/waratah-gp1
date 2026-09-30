@@ -56,6 +56,12 @@ function run(d, w) {
     return false;
   };
   var pills = function () { return d.querySelectorAll("#showing .pill").length; };
+
+  /* This probe loads the REAL index.html, so workflow.js has already read the
+     real database and the five LedFlex profiles arrive flagged. Start from a
+     known empty state instead: the absent case is one of the things under
+     test, and it cannot be asserted against data somebody may change. */
+  w.GP1.setDiscontinued({});
   var total = cards();
 
   t("the register loaded", total === 147, total);
@@ -123,6 +129,58 @@ function run(d, w) {
   d.querySelector("#showing .clearall").click();
   t("Clear all restores everything", cards() === total, cards());
   t("and takes the Showing row away", d.getElementById("showing").hidden);
+
+  /* ---- Flags ----
+
+     A facet that exists only when something carries the flag. The absent case
+     is the one worth asserting: a button that opens onto an empty list is a
+     control that lies about having something to offer. */
+  t("no Flags facet while nothing is flagged", !facet("flag"));
+
+  var GONE = ["lum-lum3.3", "lum-lum4.3", "lum-lum5.2", "lum-lum6.2", "lum-lum9.2"];
+  var m = {};
+  GONE.forEach(function (k) {
+    m[k] = { note: "Archived by the maker", at: "2026-09-30T09:00:00Z",
+             author: "the register build" };
+  });
+  w.GP1.setDiscontinued(m);
+
+  t("the Flags facet appears once something is flagged", !!facet("flag"));
+  t("five facets now", d.querySelectorAll("#facets .facet").length === 5,
+    d.querySelectorAll("#facets .facet").length);
+  t("five cards turn red", d.querySelectorAll(".card.disco").length === 5,
+    d.querySelectorAll(".card.disco").length);
+  t("each carries the chip", d.querySelectorAll(".card.disco .st-disco").length === 5,
+    d.querySelectorAll(".card.disco .st-disco").length);
+  t("the rest of the register is untouched", cards() === total, cards());
+
+  btn("flag").click();
+  t("Flags offers exactly one value", opts("flag").length === 1, opts("flag").length);
+  t("and counts the five", Number(opts("flag")[0].querySelector("b").textContent) === 5,
+    opts("flag")[0].querySelector("b").textContent);
+  pick("flag", "discontinued");
+  t("Flags narrows to the five", cards() === 5, cards());
+  t("and says Discontinued in Showing",
+    /Discontinued/.test(d.getElementById("showing").textContent),
+    d.getElementById("showing").textContent.slice(0, 60));
+  d.body.click();
+
+  /* AND, like every other facet. All five are LedFlex, so the count holds -
+     and a maker that does NOT make them empties the list. */
+  btn("maker").click();
+  t("Maker now offers only the makers of flagged items",
+    opts("maker").length === 1, opts("maker").length);
+  d.body.click();
+
+  d.querySelector("#showing .clearall").click();
+  t("Clear all drops the flag too", cards() === total, cards());
+
+  /* Un-flagging takes the control away with it, rather than leaving a button
+     that opens onto nothing. */
+  w.GP1.setDiscontinued({});
+  t("the Flags facet goes when the last flag does", !facet("flag"));
+  t("and the cards go back to normal", d.querySelectorAll(".card.disco").length === 0);
+  w.GP1.setDiscontinued(m);
 
   /* ---- search joins in ---- */
   var q = d.getElementById("q");

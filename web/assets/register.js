@@ -38,9 +38,15 @@
                    lifted out of the PDF - the same relationship
                    tools/images/ has with it at build time. */
                 pictures: {},
+                /* item_key -> {note, at, author}. An item somebody has marked
+                   as out of production. Separate from `approval` on purpose:
+                   an item can be approved AND discontinued, and that pairing
+                   is the case worth flagging. */
+                discontinued: {},
                 /* One bag of chosen values per facet. Empty means "no
                    opinion", which is not the same as "none of them". */
-                facets: { discipline: {}, group: {}, maker: {}, status: {} } };
+                facets: { discipline: {}, group: {}, maker: {}, status: {},
+                          flag: {} } };
   var els = {};
 
   function esc(s) {
@@ -134,7 +140,17 @@
       name: function (v) {
         return '<s class="st-' + esc(v) + '"></s>' +
                esc(WORDS[v] || "Not submitted");
-      } }
+      } },
+    /* Flags, plural, though there is one of them today. Discontinued must not
+       join the status enum: an item can be approved and out of production at
+       once, and one field cannot hold both.
+
+       Returning an empty list for an unflagged item is what makes this
+       behave. An unselected facet is no opinion, so nothing is hidden until
+       somebody asks for it, and the popover lists only what exists. */
+    { key: "flag", label: "Flags",
+      of: function (it) { return state.discontinued[it.key] ? ["discontinued"] : []; },
+      name: function () { return '<s class="st-disco"></s>Discontinued'; } }
   ];
 
   /* Distinct from the manufacturer literally named "Not stated" on the
@@ -158,6 +174,7 @@
       return v;
     }
     if (f.key === "status") return WORDS[v] || "Not submitted";
+    if (f.key === "flag") return "Discontinued";
     if (v === NO_MAKER) return "No manufacturer recorded";
     return v;
   }
@@ -240,6 +257,10 @@
       var f = FACETS[i];
       var on = 0, sel = state.facets[f.key];
       for (var k in sel) { if (sel[k]) on++; }
+      /* A facet with no values and nothing chosen is a button that opens onto
+         an empty list. Flags is empty until somebody marks something; the
+         other four always have values, so nothing else moves. */
+      if (!on && !tally(f).keys.length) continue;
       html += '<div class="facet" data-facet="' + f.key + '">' +
         '<button class="fbtn" type="button" aria-expanded="false">' +
         esc(f.label) + (on ? '<i>' + on + "</i>" : "") +
@@ -374,8 +395,22 @@
       '"><i></i>' + esc(WORDS[k]) + "</span>";
   }
 
+  /* Its own colour, not the rejected red. Rejected is a decision somebody
+     made about this submittal; discontinued is a fact about the product, and
+     sharing a swatch would invite reading either one as the other. */
+  function disco(it) {
+    var d = state.discontinued[it.key];
+    if (!d) return "";
+    var n = (d.note || "").trim();
+    if (n.length > 120) n = n.slice(0, 120).replace(/\s+\S*$/, "") + "\u2026";
+    return '<span class="st st-disco" title="Discontinued' +
+      (n ? " \u2014 " + esc(n) : "") + '"><i></i>Discontinued</span>';
+  }
+
   function card(it) {
-    return '<button class="card" data-id="' + esc(it.id) + '">' +
+    return '<button class="card' +
+      (state.discontinued[it.key] ? " disco" : "") +
+      '" data-id="' + esc(it.id) + '">' +
       thumb(it) +
       '<span class="card-body">' +
         '<span class="card-h"><code>' + esc(it.code) + "</code>" +
@@ -385,7 +420,9 @@
           ? '<span class="card-s">' + esc(it.specs[0].value.slice(0, 96)) + "</span>"
           : "") +
         '<span class="card-f">' +
-          pill(it) +
+          /* Both, never one in place of the other. An approved item that no
+             longer exists is exactly what this is for. */
+          disco(it) + pill(it) +
           '<span class="pages">' + it.pages +
           (it.pages === 1 ? " page" : " pages") + "</span>" +
         "</span>" +
@@ -395,11 +432,13 @@
   /* List view carries no pictures on purpose. It is the view for when you know
      what you are looking for and want the most items on screen at once. */
   function row(it) {
-    return '<button class="row" data-id="' + esc(it.id) + '">' +
+    return '<button class="row' +
+      (state.discontinued[it.key] ? " disco" : "") +
+      '" data-id="' + esc(it.id) + '">' +
       "<code>" + esc(it.code) + "</code>" +
       '<span class="row-t">' + esc(it.title) + "</span>" +
       '<span class="row-m">' + esc(it.manufacturer || "") + "</span>" +
-      (pill(it) || '<span class="st-gap"></span>') +
+      (disco(it) + pill(it) || '<span class="st-gap"></span>') +
       '<span class="pages">' + it.pages +
       (it.pages === 1 ? " page" : " pages") + "</span>" +
       "</button>";
@@ -494,6 +533,25 @@
     return it.drive_url || "";
   }
 
+  function alertOf(it) {
+    var d = state.discontinued[it.key];
+    if (!d) return "";
+    return '<div class="sheet-alert" role="note">' +
+      "<strong>This item looks discontinued.</strong>" +
+      (d.note ? "<p>" + esc(d.note) + "</p>" : "") +
+      '<p class="by">Flagged by ' + esc(d.author || "somebody") +
+        (d.at ? " on " + esc(said(d.at)) : "") + "</p>" +
+      "</div>";
+  }
+
+  /* A date a person would say out loud, not an ISO string. */
+  function said(iso) {
+    var t = new Date(iso);
+    if (isNaN(t)) return "";
+    return t.toLocaleDateString(undefined,
+      { day: "numeric", month: "short", year: "numeric" });
+  }
+
   function openSheet(id) {
     var it = null;
     for (var i = 0; i < state.items.length; i++) {
@@ -518,6 +576,12 @@
         "<h2>" + esc(it.title) + "</h2>" +
       "</div>" +
       '<div class="sheet-b">' +
+        /* ABOVE THE PICTURE, not below the specs. This is the one thing that
+           changes what you do next, and workflow.js cannot carry it: that
+           appends to the BOTTOM of this element, and a warning under the
+           specification is a warning nobody reads. Built here, so it shows to
+           somebody who is not signed in as well. */
+        alertOf(it) +
         /* The picture first. Often it is the only thing somebody opened this
            for - they know the item, they just want to see it. Lazy, because
            the sheet is built before it is slid into view. */
@@ -810,6 +874,15 @@
        catalogue has loaded. */
     setPictures: function (map) {
       state.pictures = map || {};
+      if (state.items.length) render();
+      if (state.open) openSheet(state.open.id);
+    },
+
+    /* item_key -> {note, at, author}. Reopens like setPictures does, so an
+       admin ticking the box sees the banner appear under their own cursor
+       rather than after a reload. */
+    setDiscontinued: function (map) {
+      state.discontinued = map || {};
       if (state.items.length) render();
       if (state.open) openSheet(state.open.id);
     }

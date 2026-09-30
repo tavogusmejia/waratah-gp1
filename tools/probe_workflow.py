@@ -55,6 +55,17 @@ STUB = r"""
     item_state: [],
     item_note_public: [],
     item_picture: [],
+    /* The page reads the VIEW now, not the table - the table carries an
+       address and anon no longer sees it. */
+    item_picture_public: [],
+    item_discontinued: [],
+    /* a-a1 is the first card, which is the one ?open=1 opens, so every role
+       case also exercises the banner. a-a2 is APPROVED, so the card grid
+       shows the pairing this feature exists for: approved and gone. */
+    item_discontinued_public: [
+      {item_key:"a-a1", note:"The manufacturer has moved this to their product archive. Checked 30 Sep 2026.", at:"2026-09-30T09:00:00Z", author:"The register build"},
+      {item_key:"a-a2", note:"", at:"2026-09-30T09:00:00Z", author:"Gus"}
+    ],
     register_user: [
       {email:EMAIL, role:ROLE === "none" ? null : ROLE, name:"Gus", note:"Project lead",
        commercial:MONEY,
@@ -123,7 +134,12 @@ STUB = r"""
       if (table === "item_note" && !may("viewer")) return {data:null, error:DENIED};
       /* item_note_public is deliberately NOT gated: anyone may read it. */
       if (table === "register_domain" && !may("admin")) return {data:null, error:DENIED};
-      /* item_picture is world-readable: it is what the page shows everyone. */
+      /* item_picture is world-readable through its view: it is what the page
+         shows everyone. The TABLE is not - it carries by_email. */
+      if (table === "item_picture" && !may("viewer")) return {data:null, error:DENIED};
+      if (table === "item_discontinued" && !may("viewer")) return {data:null, error:DENIED};
+      /* ...and item_discontinued_public, like item_note_public, is not gated:
+         the red card is for everyone, signed in or not. */
       return {data: out, error: null, count: counting ? n : null};
     }
     b = {
@@ -154,11 +170,21 @@ STUB = r"""
         DB[table].push(row);
         return thenable({data:[row], error:null});
       },
+      /* Writes land in whatever the page reads back, which is not always the
+         table it wrote to: status goes to item_state and is read from
+         item_status_public. Hard-wiring one destination here meant a new
+         table's write path silently did nothing under the harness. */
       upsert: function (row) {
         if (!may("admin")) return thenable({data:null, error:DENIED});
-        row.decided_at = new Date().toISOString();
-        var i = DB.item_status_public.findIndex(function (r) { return r.item_key === row.item_key; });
-        if (i < 0) DB.item_status_public.push(row); else DB.item_status_public[i] = row;
+        var into = table === "item_state" ? "item_status_public"
+                 : table === "item_discontinued" ? "item_discontinued_public"
+                 : table === "item_picture" ? "item_picture_public"
+                 : table;
+        if (into === "item_status_public") row.decided_at = new Date().toISOString();
+        if (!row.at) row.at = new Date().toISOString();
+        DB[into] = DB[into] || [];
+        var i = DB[into].findIndex(function (r) { return r.item_key === row.item_key; });
+        if (i < 0) DB[into].push(row); else DB[into][i] = row;
         return thenable({data:[row], error:null});
       },
       update: function (patch) {
@@ -167,6 +193,22 @@ STUB = r"""
       },
       "delete": function () {
         if (!may("admin") && table !== "item_note") return thenable({data:null, error:DENIED});
+        /* It has to really remove the row. The flag IS the row, so a delete
+           that quietly kept it would make un-flagging look like it worked and
+           leave the card red. */
+        var gone = table === "item_discontinued" ? "item_discontinued_public"
+                 : table === "item_picture" ? "item_picture_public" : null;
+        if (gone) {
+          return { eq: function (k, v) {
+                     DB[gone] = (DB[gone] || []).filter(function (r) {
+                       return String(r[k]) !== String(v);
+                     });
+                     return thenable({data:[], error:null});
+                   },
+                   then: function (ok, no) {
+                     return Promise.resolve({data:[], error:null}).then(ok, no);
+                   } };
+        }
         return b;
       },
       then: function (ok, no) { return Promise.resolve(resolve()).then(ok, no); }

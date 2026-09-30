@@ -156,6 +156,9 @@ def main():
         st, b = call("POST", "/rest/v1/item_state", tok,
                      {"item_key": ITEM, "status": "approved"})
         ok("cannot set a status", st in (401, 403), "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_discontinued", tok,
+                     {"item_key": ITEM, "note": "should not land"})
+        ok("nor flag one discontinued", st in (401, 403), "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/register_user?select=email", tok)
         ok("sees only their own roster row", st == 200 and len(b) <= 1,
            "%s saw %s rows" % (st, len(b) if isinstance(b, list) else b))
@@ -186,6 +189,9 @@ def main():
         st, b = call("POST", "/rest/v1/item_state", tok,
                      {"item_key": ITEM, "status": "approved"})
         ok("cannot set a status", st in (401, 403), "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_discontinued", tok,
+                     {"item_key": ITEM, "note": "should not land"})
+        ok("nor flag one discontinued", st in (401, 403), "%s %s" % (st, b))
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", tok)
         ok("cannot read invoices", st == 200 and b == [], "%s %s" % (st, b))
 
@@ -201,6 +207,20 @@ def main():
         st, b = call("GET", "/rest/v1/item_status_log?select=status&item_key=eq." + ITEM, tok)
         ok("the change logged itself", st == 200 and isinstance(b, list) and len(b) >= 1,
            "%s %s" % (st, b))
+        # Discontinued sits on the same rung as the picture and the status.
+        st, b = call("POST", "/rest/v1/item_discontinued", tok,
+                     {"item_key": ITEM, "note": "out of production"},
+                     prefer="return=representation,resolution=merge-duplicates")
+        ok("flags an item discontinued", st in (200, 201), "%s %s" % (st, b))
+        st, b = call("GET", "/rest/v1/item_discontinued?select=note,by_email&item_key=eq."
+                     + ITEM, tok)
+        ok("and reads it back",
+           st == 200 and isinstance(b, list) and len(b) == 1, "%s %s" % (st, b))
+        ok("stamped with who did it",
+           isinstance(b, list) and b and "@" in str(b[0].get("by_email", "")),
+           str(b)[:120])
+        st, b = call("DELETE", "/rest/v1/item_discontinued?item_key=eq." + ITEM, tok)
+        ok("and can clear it again", st in (200, 204), "%s %s" % (st, b))
         # Invoices no longer follow the rung. An admin is an admin and sees
         # no prices until somebody ticks the flag - which is the whole point
         # of separating them, so it is worth asserting in both directions.
@@ -296,16 +316,48 @@ def main():
            "%s %s" % (st, b))
         # The replaced pictures ARE public - they are what the page shows
         # everybody, and a reader who could not see this row would be looking
-        # at the old picture while everyone else saw the new one.
-        st, b = call("GET", "/rest/v1/item_picture?select=item_key&limit=1", ANON)
-        ok("reads replaced pictures", st == 200, "%s %s" % (st, b))
+        # at the old picture while everyone else saw the new one. But the
+        # TABLE carries by_email, so it is the view that is public, and this
+        # is the pair that says so.
+        admin("POST", "/rest/v1/item_picture",
+              body={"item_key": ITEM, "storage_path": "x/y.png",
+                    "url": "https://example.com/y.png", "by_email": "system"},
+              prefer="return=representation,resolution=merge-duplicates")
+        st, b = call("GET", "/rest/v1/item_picture_public?select=item_key,url&item_key=eq."
+                     + ITEM, ANON)
+        ok("reads replaced pictures through the public view",
+           st == 200 and isinstance(b, list) and len(b) == 1, "%s %s" % (st, b))
+        st, b = call("GET", "/rest/v1/item_picture?select=by_email&limit=1", ANON)
+        ok("cannot read the pictures table itself",
+           st in (401, 403) or b == [], "%s %s" % (st, b))
         st, b = call("POST", "/rest/v1/item_picture", ANON,
                      {"item_key": ITEM, "storage_path": "x", "url": "x"})
         ok("cannot replace one", st in (401, 403), "%s %s" % (st, b))
 
+        # Discontinued, the same pair. The red card is for everyone - that is
+        # the point of flagging it - and the address behind it is for nobody.
+        admin("POST", "/rest/v1/item_discontinued",
+              body={"item_key": ITEM, "note": "seeded by the rls test",
+                    "by_email": "system"},
+              prefer="return=representation,resolution=merge-duplicates")
+        st, b = call("GET", "/rest/v1/item_discontinued_public?select=note,author&item_key=eq."
+                     + ITEM, ANON)
+        ok("reads the discontinued flag through the public view",
+           st == 200 and isinstance(b, list) and len(b) == 1, "%s %s" % (st, b))
+        ok("a seeded row says the build did it, not a person",
+           isinstance(b, list) and b and b[0].get("author") == "the register build",
+           str(b)[:140])
+        st, b = call("GET", "/rest/v1/item_discontinued?select=by_email&limit=1", ANON)
+        ok("cannot read the discontinued table itself",
+           st in (401, 403) or b == [], "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_discontinued", ANON,
+                     {"item_key": ITEM, "note": "should not land"})
+        ok("cannot flag anything", st in (401, 403), "%s %s" % (st, b))
+
     finally:
         OUT.write("\ncleaning up\n")
         admin("DELETE", "/rest/v1/item_picture?item_key=eq." + ITEM)
+        admin("DELETE", "/rest/v1/item_discontinued?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_note?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_state?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_status_log?item_key=eq." + ITEM)

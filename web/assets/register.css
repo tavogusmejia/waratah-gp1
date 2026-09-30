@@ -74,6 +74,14 @@
   --st-rev-bg:  #FCF1E2;  --st-rev-ink:  #8A5510;  --st-rev-dot:  #D18F26;
   --st-rej-bg:  #FBEDEC;  --st-rej-ink:  #9A2F2C;  --st-rej-dot:  #B8403A;
 
+  /* Discontinued is the one badge with a SOLID ground. Every status chip is a
+     pale wash, so a filled one cannot be mistaken for one of them - which
+     matters, because the whole point is that it sits NEXT TO a status rather
+     than instead of it, and "Approved / Discontinued" must read as two facts
+     and not as a contradiction. Rejected is a decision about this submittal;
+     this is a fact about the product. */
+  --st-disco-bg:  #8E2420;  --st-disco-ink:  #FFF1EF;  --st-disco-dot:  #FF9C93;
+
   --shadow: 0 1px 2px rgba(28, 37, 48, .05), 0 8px 24px -12px rgba(28, 37, 48, .18);
 
   --sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -121,6 +129,7 @@
   --st-note-bg: #1E2413;  --st-note-ink: #B4C96B;  --st-note-dot: #93B32E;
   --st-rev-bg:  #2A1F10;  --st-rev-ink:  #E4B160;  --st-rev-dot:  #D9972E;
   --st-rej-bg:  #2A1716;  --st-rej-ink:  #EE938D;  --st-rej-dot:  #C9524B;
+  --st-disco-bg:  #9E332D;  --st-disco-ink:  #FFECE9;  --st-disco-dot:  #FFB4AC;
 
   --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px -12px rgba(0, 0, 0, .7);
 }
@@ -447,6 +456,49 @@ a { color: inherit; }
 .st-approved_as_noted { --st-bg: var(--st-note-bg); --st-ink: var(--st-note-ink); --st-dot: var(--st-note-dot); }
 .st-revise_resubmit { --st-bg: var(--st-rev-bg);  --st-ink: var(--st-rev-ink);  --st-dot: var(--st-rev-dot); }
 .st-rejected { --st-bg: var(--st-rej-bg);  --st-ink: var(--st-rej-ink);  --st-dot: var(--st-rej-dot); }
+.st-disco { --st-bg: var(--st-disco-bg); --st-ink: var(--st-disco-ink); --st-dot: var(--st-disco-dot); }
+
+/* ----------------------------------------------------- discontinued
+
+   A tint and a border, not a strike-through: the item is still specified, is
+   still on the drawings and still has a datasheet worth reading. What changed
+   is that you cannot buy it, and that is a warning, not a deletion.
+
+   --red-wash and --red-line are the existing brand tint, already tuned for
+   both themes, so the card reddens without a new colour entering the page. */
+.card.disco {
+  background:
+    linear-gradient(var(--red-wash), var(--red-wash)) padding-box,
+    var(--bg-raise) padding-box;
+  border-color: var(--red-line);
+}
+.card.disco:hover { border-color: var(--red); }
+
+/* The row has no border to redden, so it takes an edge instead. The padding
+   absorbs it, so nothing shifts sideways when the flag goes on. */
+.row.disco {
+  background: var(--red-wash);
+  box-shadow: inset 3px 0 0 var(--red-line);
+}
+.row.disco:hover { box-shadow: inset 3px 0 0 var(--red); }
+
+/* The banner, at the top of the sheet. Loud on purpose - it is above the
+   picture because it changes what you do next, and everything below it is
+   describing something you may not be able to order. */
+.sheet-alert {
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid var(--red-line);
+  border-left: 3px solid var(--red);
+  border-radius: var(--r);
+  background: var(--red-wash);
+}
+.sheet-alert strong {
+  display: block; font-size: 14px; font-weight: 600; color: var(--red);
+  letter-spacing: -.005em;
+}
+.sheet-alert p { margin: 7px 0 0; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+.sheet-alert p.by { margin-top: 9px; font-size: 11.5px; color: var(--ink-3); }
 
 /* ------------------------------------------------- filter by status */
 
@@ -955,6 +1007,16 @@ a { color: inherit; }
 
 /* Replacing an item's picture, for a super admin. */
 .wf-pic { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+
+/* The discontinued control. The checkbox is the switch; the reason fades but
+   never disappears when it is off, because clearing the flag should not look
+   like it has thrown away what somebody wrote about it. */
+.wf-disco { display: flex; flex-direction: column; gap: 8px; }
+.wf-disco textarea { width: 100%; line-height: 1.45; }
+.wf-disco.off textarea { opacity: .5; }
+.wf-check { display: flex; align-items: center; gap: 8px; font-size: 13px; cursor: pointer; }
+.wf-check input { margin: 0; flex: none; }
+.wf-check:has(input:checked) { color: var(--red); font-weight: 500; }
 .wf-pic.busy { opacity: .5; pointer-events: none; }
 .wf-pic .wf-upbtn { padding: 10px 14px; }
 

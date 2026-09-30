@@ -26,20 +26,20 @@
 /* what each role must and must not be offered */
 var CASES = [
   {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:true,
-                     addNote:false, invoices:false, prompt:true, pic:false}},
+                     addNote:false, invoices:false, prompt:true, pic:false, disco:false}},
   {role:"none", want:{auth:"me", pills:true, status:"read", notes:true,
-                      addNote:false, invoices:false, prompt:false, pic:false}},
+                      addNote:false, invoices:false, prompt:false, pic:false, disco:false}},
   {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
-                        addNote:false, invoices:false, prompt:false, pic:false}},
+                        addNote:false, invoices:false, prompt:false, pic:false, disco:false}},
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
-                           addNote:true, invoices:false, prompt:false, pic:false}},
+                           addNote:true, invoices:false, prompt:false, pic:false, disco:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:false, prompt:false, pic:true}},
+                       addNote:true, invoices:false, prompt:false, pic:true, disco:true}},
   /* Same role, plus the flag: the only difference is the invoices. */
   {role:"admin", money:1, want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:true, prompt:false, pic:true}},
+                       addNote:true, invoices:true, prompt:false, pic:true, disco:true}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                             addNote:true, invoices:false, prompt:false, pic:true}}
+                             addNote:true, invoices:false, prompt:false, pic:true, disco:true}}
 ];
 
 var out = document.getElementById("o"), fails = 0, done = 0;
@@ -71,6 +71,17 @@ function check(c, d, w) {
        wrong picture is the most visible and most reversible kind of mistake. */
     t("replace-picture " + (c.want.pic ? "offered" : "withheld"),
       !!wf.querySelector(".wf-pic") === !!c.want.pic);
+    /* Same rung as the picture, and for the same reason: it is the people who
+       already move an item's status who will notice a product has gone. */
+    t("discontinued control " + (c.want.disco ? "offered" : "withheld"),
+      !!wf.querySelector(".wf-disco") === !!c.want.disco);
+    /* It sits ABOVE the status, so nobody scrolls past the reason the status
+       may no longer matter. */
+    if (c.want.disco) {
+      var secs = wf.querySelectorAll(".wf-sec");
+      t("discontinued comes before the status",
+        secs.length > 1 && secs[0].querySelector(".wf-disco") !== null);
+    }
     t("sign-in prompt " + (c.want.prompt ? "shown" : "absent"),
       !!wf.querySelector("[data-signin]") === c.want.prompt);
   }
@@ -81,6 +92,26 @@ function check(c, d, w) {
     t("the word invoice appears nowhere",
       !/invoice/i.test((d.querySelector(".sheet") || d.body).textContent || ""));
   }
+  /* THE BANNER IS FOR EVERYONE. a-a1 is seeded as discontinued and is the
+     card ?open=1 opens, so this asserts on every role including signed-out -
+     which is the whole point of reading it from a public view. */
+  var sheet = d.querySelector(".sheet");
+  t("discontinued banner on the sheet", !!(sheet && sheet.querySelector(".sheet-alert")));
+  t("banner sits above the picture", !!(sheet && (function () {
+    var b = sheet.querySelector(".sheet-b");
+    return b && b.firstElementChild && b.firstElementChild.className === "sheet-alert";
+  })()));
+  t("red card in the grid", !!d.querySelector(".card.disco"));
+  /* Approved AND discontinued: a-a2 carries both, and one must not hide the
+     other. This is the case the whole feature exists for. */
+  t("approved and discontinued show together", !!(function () {
+    var c2 = d.querySelectorAll(".card.disco");
+    for (var i = 0; i < c2.length; i++) {
+      if (c2[i].querySelector(".st-disco") && c2[i].querySelector(".st-approved")) return true;
+    }
+    return false;
+  })());
+
   if (c.role === "none") {
     t("told why they cannot do anything",
       !!d.querySelector(".auth-warn") || !!d.querySelector(".auth-menu"));
