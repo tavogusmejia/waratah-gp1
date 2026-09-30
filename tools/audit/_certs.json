@@ -1,0 +1,2981 @@
+[
+ {
+  "key": "lum-lum3",
+  "code": "LUM3",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Indirect LED Strip - Eco Flex 240, 2700 K",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+  "drive_url": "https://drive.google.com/file/d/196ArPE6va29hGP2HnIjEgFwc8hg2pB4c/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1411,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum3.1",
+  "code": "LUM3.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Indirect LED Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1nQd6KsrIBCV9Dfn1Cq4r3IhkcEif1Ix7/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3755,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum3.2",
+  "code": "LUM3.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Indirect LED Strip Driver, 100 W - EcoPac ELED-100-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/12iHKvNM4IAFdpFVzy8-JugzN5Rzt2Ysw/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP66 Safety standards I/P-O/P:3.75KVAC I/P-",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP66 Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP66 Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0."
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3796,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "lum-lum3.3",
+  "code": "LUM3.3",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Indirect LED Strip Profile - Pro 0209",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM3.3 - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+  "drive_url": "https://drive.google.com/file/d/1gGCktTmeyOdb72TfXKMd-gjhdlgzAg-z/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 867,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum4",
+  "code": "LUM4",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "LED Strip in Furniture, 2.93 W/ft - Eco Flex 240, 2700 K",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+  "drive_url": "https://drive.google.com/file/d/1a7SK-bpqx0jqSkWCUynM5BuyUkJwyl0y/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1398,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum4.1",
+  "code": "LUM4.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1xSoqYKvqJBJ98CQaIlSDluCeeErafMjX/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3755,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum4.2",
+  "code": "LUM4.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Driver, 60 W - EcoPac ELED-60-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1LAZRvDP7juwGRLfwrs--JTp_jCQ_uXFX/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3747,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum4.3",
+  "code": "LUM4.3",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Profile - Pro 0209",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM4.3 - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+  "drive_url": "https://drive.google.com/file/d/1sDJd_6IyhNIRspjX67aP55vCl6iAY9vb/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 867,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum5",
+  "code": "LUM5",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "LED Strip in Furniture, 0.73 W/ft - Eco Flex 240, 2700 K",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+  "drive_url": "https://drive.google.com/file/d/1XAG09mkYRypOLnoZoQXR3K3V2GtGhTQI/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1385,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum5.1",
+  "code": "LUM5.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1SYvYvyqLZ18FDgTcIFZSuSbHv2PCRid9/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3755,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum5.2",
+  "code": "LUM5.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Profile - Pro 0209",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM5.2 - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+  "drive_url": "https://drive.google.com/file/d/1cJvdQruFRlqyLVBa8IE35xU6JjxzsNcm/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 867,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum6",
+  "code": "LUM6",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "LED Strip in Furniture, IP65 - Eco Flex 240, 2700 K",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+  "drive_url": "https://drive.google.com/file/d/114MmvmZAXwFqOeveMQfvx5zlOkG_tQ2t/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1477,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum6.1",
+  "code": "LUM6.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1OiL6H-6v02OxCYYTzyEcCnEcuwsfWFN_/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3755,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum6.2",
+  "code": "LUM6.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Furniture Strip Profile - Pro 0409",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM6.2 - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
+  "drive_url": "https://drive.google.com/file/d/1v9yO04Khm5bJ7_RdqDe3gdymWcMLqXv5/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 867,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum7",
+  "code": "LUM7",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Integrated Mini Downlight Driver, 350 mA - CC20-D-350-N",
+  "manufacturer": "TCI",
+  "source": "L - Lighting/LUM - Luminaires/LUM7 - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
+  "drive_url": "https://drive.google.com/file/d/14meb01vCvX4nnSp3KAfOIh0QLsri-D6b/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 1620,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum8",
+  "code": "LUM8",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Courtesy Wall Light - Profilo 1.0 BORTOP02-2K7",
+  "manufacturer": "Simes",
+  "source": "L - Lighting/LUM - Luminaires/LUM8 - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
+  "drive_url": "https://drive.google.com/file/d/16L5-19JDpXkpEdPdet7S8vF85W0Kx4Tp/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "cable : Proteciones : Seguridad Fotobiologica : Grupo riesgo 1 segun EN62471:2006 Duepi Group Srl - Via Artigianato, 23 36030 Povolaro di Dueville"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 4,
+   "text_chars": 2210,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "lum-lum8.1",
+  "code": "LUM8.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Courtesy Wall Light Driver - Mini Jolly DALI 20",
+  "manufacturer": "TCI",
+  "source": "L - Lighting/LUM - Luminaires/LUM8.1 - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
+  "drive_url": "https://drive.google.com/file/d/1CX9dPhjsoRuKcCe4IkSQj-NJDpJ9IMgX/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "CSA",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "power ≤ 0,5 W Output current ripple ≤ 3% (1) Standards compliance CSA C22.2 no. 223 (2) EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN",
+      "DIM-TO-WARM R - 41049751 IS 15885 (Part 2 / Sec 13) (3) UL-LED CLASS2 CSA-LVLE (7) (7) (5) (2) (8) RECEIVED 26-07-24 L07 TCI professional LED"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ripple ≤ 3% (1) Standards compliance CSA C22.2 no. 223 (2) EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 EN 62386-",
+      "1) Standards compliance CSA C22.2 no. 223 (2) EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 EN 62386-101 EN 62386-1",
+      "compliance CSA C22.2 no. 223 (2) EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 EN 62386-101 EN 62386-102 EN 62386-2"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 3,
+   "text_chars": 6178,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "CSA"
+ },
+ {
+  "key": "lum-lum9",
+  "code": "LUM9",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Exterior Step LED Strip, IP67 - Eco Flex 240, 2700 K",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
+  "drive_url": "https://drive.google.com/file/d/1MLHj4aOxfexiT5tlj6FBKp-JqrTxSSIE/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1369,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum9.1",
+  "code": "LUM9.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Exterior Step Strip Driver, 30 W - EcoPac ELED-30-24DP2",
+  "manufacturer": "EcoPac Power",
+  "source": "L - Lighting/LUM - Luminaires/LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
+  "drive_url": "https://drive.google.com/file/d/1WHf6jotxZ-SX1KgSHP3rFfgS51xiq6u6/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ure Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG:0.5"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "xes Vibration ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3",
+      "on ±0.03%/°C (0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I",
+      "0-50°C) Temperature Coefficient Safety & EMC EN61347-1, EN61347-2-13, EN62493, IP20 , UL8750 (US) Safety standards I/P-O/P:3.75KVAC I/P-FG:1.88KV"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3750,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: UL standard, EN / IEC standard"
+ },
+ {
+  "key": "lum-lum9.2",
+  "code": "LUM9.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Exterior Step Strip Profile - Pro 0409",
+  "manufacturer": "LedFlex Group",
+  "source": "L - Lighting/LUM - Luminaires/LUM9.2 - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
+  "drive_url": "https://drive.google.com/file/d/1ErfF8LOX-KoCxn9eJ7lpCi0PqyvSA9tF/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 875,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum10",
+  "code": "LUM10",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Exterior Courtesy Wall Light - Tiny Short 05-E146-Z5-CL",
+  "manufacturer": "LEDS C4",
+  "source": "L - Lighting/LUM - Luminaires/LUM10 - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
+  "drive_url": "https://drive.google.com/file/d/1uYrxJdiaea5e9l3GyDsFky_GIxXFYKZv/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 5,
+   "text_chars": 4096,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum11",
+  "code": "LUM11",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Path Light - Sinia 600 mm Bollard 10-E033-60-CK",
+  "manufacturer": "LEDS C4",
+  "source": "L - Lighting/LUM - Luminaires/LUM11 - Path Light DALI - L11 - 10-E033-60-CK.pdf",
+  "drive_url": "https://drive.google.com/file/d/1zbMA0DJRHpEFugEEnv6Aunbqd8XljEFy/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 5,
+   "text_chars": 3853,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum11.1",
+  "code": "LUM11.1",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Path Light, Alternate - 71-E649-60-OU",
+  "manufacturer": "LEDS C4",
+  "source": "L - Lighting/LUM - Luminaires/LUM11.1 - Path Light DALI - L11 - 71-E649-60-OU.pdf",
+  "drive_url": "https://drive.google.com/file/d/1ybxB2J8RP--ZtYFSsE-pE-3aJeFGyK9L/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 1523,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum11.2",
+  "code": "LUM11.2",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Path Light Driver - Maxi Jolly SV DALI IPR1-70",
+  "manufacturer": "TCI",
+  "source": "L - Lighting/LUM - Luminaires/LUM11.2 - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
+  "drive_url": "https://drive.google.com/file/d/1p1y3u0tTA3UAReEy4s_8BNzdKmR1F_UX/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "0,5 W Output current ripple ≤ 3% (1) Standards compliance EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 Max. pcs f",
+      "current ripple ≤ 3% (1) Standards compliance EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 Max. pcs for CB B16A (s",
+      "le ≤ 3% (1) Standards compliance EN 55015 EN 61000-3-2 EN 61000-3-3 EN 61347-1 EN 61347-2-13 EN 61547 EN 62384 Max. pcs for CB B16A (see page info1"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 3,
+   "text_chars": 5809,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "lum-lum12",
+  "code": "LUM12",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Surface-Mounted Service Downlight - WAC FM-05RN",
+  "manufacturer": "WAC Lighting",
+  "source": "L - Lighting/LUM - Luminaires/LUM12 - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
+  "drive_url": "https://drive.google.com/file/d/1zhYLY2jNFFfIY0dG-cki16Zmhv5OyMS-/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "ETL / Intertek",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "oated White Operating Temp: -40°F to 122°F (-40°C to 50°C) Standards: ETL, cETL, Wet Location Listed, ADA, Title 24 JA8 Compliant FINISHES: B",
+      "White Operating Temp: -40°F to 122°F (-40°C to 50°C) Standards: ETL, cETL, Wet Location Listed, ADA, Title 24 JA8 Compliant FINISHES: Black"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 1767,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "ETL / Intertek"
+ },
+ {
+  "key": "lum-lum13",
+  "code": "LUM13",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Indirect Wall Lamp - Foil 1A334-FOIL-US02",
+  "manufacturer": "Vibia",
+  "source": "L - Lighting/LUM - Luminaires/LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
+  "drive_url": "https://drive.google.com/file/d/1KVjVfcU6WwgdB0QH7rIbx9oa_vFwvkPR/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 834,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum14",
+  "code": "LUM14",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Table Lamp for Minibar - Kelly Wearstler Una Small KW 3901ALB",
+  "manufacturer": "Visual Comfort",
+  "source": "L - Lighting/LUM - Luminaires/LUM14 - Table Lamp for Minibar - D02 - kw3901alb.pdf",
+  "drive_url": "https://drive.google.com/file/d/1rHkJ8_mV_LN0f1BFzEmv-t9VvM4I6_Yv/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 498,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum15",
+  "code": "LUM15",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Floor Lamp, Pool Terrace - Kando P111",
+  "manufacturer": "Bover",
+  "source": "L - Lighting/LUM - Luminaires/LUM15 - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
+  "drive_url": "https://drive.google.com/file/d/1zQ2Kdgp-d-9-1xcGz9Iq-QYGp1rSI_Wy/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 1768,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "lum-lum16",
+  "code": "LUM16",
+  "group": "LUM",
+  "group_name": "Luminaires",
+  "title": "Portable Lamp - Kando M40R",
+  "manufacturer": "Bover",
+  "source": "L - Lighting/LUM - Luminaires/LUM16 - Portable Lamp - P01 - Kando M40R.pdf",
+  "drive_url": "https://drive.google.com/file/d/1R_eZGsIdXsicZyYsfZmk2pQKIi0x3GTT/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 2429,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "l&l-l&l12",
+  "code": "L&L12",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+  "drive_url": "https://drive.google.com/file/d/1b4QrqG5UrcPVXZ4oH1IdznA0Nk1y7g81/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      6
+     ],
+     "evidence": [
+      "ling by free air convection IP66 for indoor and outdoor DALI Protocol IEC62386; DIM 0-100% dimming depth: 0.1% Frequency 4K Hz, reaching the exempti"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 6,
+   "text_chars": 5973,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "l&l-l&l12.1",
+  "code": "L&L12.1",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Pool Fixture Driver, 30 W - AV0D024V03066",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+  "drive_url": "https://drive.google.com/file/d/1W-cie3TxhyhDcl4Ymgk3613LFyFHQZNB/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      ",Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 (EU) & UL8750 UL1310 (US) Withstand voltage I/P-O/P:3.75KVAC I/P-FG:1.88KVAC O/P-FG"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE in a mark list",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "UL (pending) / cUL (pending) / FCC (pending) / (ENEC pending) / SAA / CE / CB / RoHS Output DC Voltage 24V (24-26V adjust by NFC) Voltage Tole"
+     ]
+    },
+    {
+     "mark": "ENEC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "024V03066 Certificate UL (pending) / cUL (pending) / FCC (pending) / (ENEC pending) / SAA / CE / CB / RoHS Output DC Voltage 24V (24-26V adjust"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2,
+      3
+     ],
+     "evidence": [
+      "ling by free air convection IP66 for indoor and outdoor DALI Protocol IEC62386; DIM 0-100% dimming depth: 0.1% Frequency 4K Hz, reaching the exempti",
+      "period for 72min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 (EU) & UL8750 UL1310 (US) Withstand voltage I/P-O/P:3.75",
+      "72min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 (EU) & UL8750 UL1310 (US) Withstand voltage I/P-O/P:3.75KVAC I/P-F"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "g) / cUL (pending) / FCC (pending) / (ENEC pending) / SAA / CE / CB / RoHS Output DC Voltage 24V (24-26V adjust by NFC) Voltage Tolerance ±0.2V"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "cation Model AV0D024V03066 Certificate UL (pending) / cUL (pending) / FCC (pending) / (ENEC pending) / SAA / CE / CB / RoHS Output DC Voltage 2",
+      "4-2,3,4,5,6,11 EN61547 EMC Emission EN55015 EN61000-3-2,3（≥50%)(EU) & FCC Part 15 Subpart B(US) Others Net Weight 0.35kg Dimension 268*38.5*23."
+     ]
+    },
+    {
+     "mark": "SAA",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "icate UL (pending) / cUL (pending) / FCC (pending) / (ENEC pending) / SAA / CE / CB / RoHS Output DC Voltage 24V (24-26V adjust by NFC) Voltage"
+     ]
+    }
+   ],
+   "pages": 9,
+   "text_chars": 5722,
+   "searchable": true
+  },
+  "verdict": "CE / EU",
+  "why": "CE in a mark list, ENEC"
+ },
+ {
+  "key": "l&l-l&l12.2",
+  "code": "L&L12.2",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+  "drive_url": "https://drive.google.com/file/d/1BIZ39vrIlNU_h7bGcXZwdfiTd1NKVEUA/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:3.75KVAC I"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      ",Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:3.75KVAC I/P-FG:1."
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "ENEC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "4 RECEIVED 26-07-24 Specification Model AV0D024V06066 Certificate CE ENEC UL cUL FCC SELV DALI2 Output DC Voltage 24V (24-26V adjust by NFC) Vo"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "period for 60min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltag",
+      "60min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:",
+      "n resistance I/P-O/P:100MΩ / 500VDC / 25℃/ 70%RH EMC Emission EN55015 EN61000-3-2,3（≥50%load）& FCC Part 15 Subpart B Others Net Weight 0.70Kg Dimensi"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "6-07-24 Specification Model AV0D024V06066 Certificate CE ENEC UL cUL FCC SELV DALI2 Output DC Voltage 24V (24-26V adjust by NFC) Voltage Toler",
+      "Ω / 500VDC / 25℃/ 70%RH EMC Emission EN55015 EN61000-3-2,3（≥50%load）& FCC Part 15 Subpart B Others Net Weight 0.70Kg Dimension 200*78*25.1mm (L"
+     ]
+    }
+   ],
+   "pages": 9,
+   "text_chars": 5339,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: CSA / EU: ENEC"
+ },
+ {
+  "key": "l&l-l&l13",
+  "code": "L&L13",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Submersible Pool Fixture - L&L Bright 3.0 316L",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+  "drive_url": "https://drive.google.com/file/d/1rN195vXV20WccQoDf3Dalp8PuVVKOj11/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3,
+      4
+     ],
+     "evidence": [
+      "obiological safety: photobiological safety: risk group 1 according to EN 62471:2006; Appliance class: class III; Weight: 1150 g; Dimensions: Ø80x69",
+      "tobiological safety photobiological safety: risk group 1 according to EN 62471:2006 Notes suitable for use in sea water, the 7W version and the RGB"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 7,
+   "text_chars": 6937,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "l&l-l&l13.1",
+  "code": "L&L13.1",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+  "drive_url": "https://drive.google.com/file/d/1K0WGtHxbs-CmAAktGp4sUGTNo8bVM4Hs/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:3.75KVAC I"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      ",Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:3.75KVAC I/P-FG:1."
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "ENEC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "4 RECEIVED 26-07-24 Specification Model AV0D024V06066 Certificate CE ENEC UL cUL FCC SELV DALI2 Output DC Voltage 24V (24-26V adjust by NFC) Vo"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "period for 60min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltag",
+      "60min. each along X,Y,Z axes Safety & EMC Safety standards EN61347-1 EN61347-2-13 UL8750 CAN/CSA-C22.2 No. 250.13, UL1310 Withstand voltage I/P-O/P:",
+      "n resistance I/P-O/P:100MΩ / 500VDC / 25℃/ 70%RH EMC Emission EN55015 EN61000-3-2,3（≥50%load）& FCC Part 15 Subpart B Others Net Weight 0.70Kg Dimensi"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "6-07-24 Specification Model AV0D024V06066 Certificate CE ENEC UL cUL FCC SELV DALI2 Output DC Voltage 24V (24-26V adjust by NFC) Voltage Toler",
+      "Ω / 500VDC / 25℃/ 70%RH EMC Emission EN55015 EN61000-3-2,3（≥50%load）& FCC Part 15 Subpart B Others Net Weight 0.70Kg Dimension 200*78*25.1mm (L"
+     ]
+    }
+   ],
+   "pages": 9,
+   "text_chars": 5338,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: CSA / EU: ENEC"
+ },
+ {
+  "key": "l&l-l&l14",
+  "code": "L&L14",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Vegetation Projector - L&L Pivot Mini",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+  "drive_url": "https://drive.google.com/file/d/1N3TEe4EP4_5KXTkH0VvxvKB75oHE1vXg/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2,
+      3
+     ],
+     "evidence": [
+      "obiological safety: photobiological safety: risk group 1 according to EN 62471:2006; Appliance class: class III; Weight: 135 g; Dimensions: Ø25x49 m",
+      "tobiological safety photobiological safety: risk group 1 according to EN 62471:2006 Notes Casambi control using the Casambi app with dedicated elect"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 4,
+   "text_chars": 5288,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "l&l-l&l17",
+  "code": "L&L17",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Sconce - L&L Ella OUT 1.0",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/L&L - Luce & Light/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+  "drive_url": "https://drive.google.com/file/d/15-wy9dhA6uyiao3lPBSQWoim67ZQ_wvA/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2,
+      3
+     ],
+     "evidence": [
+      "obiological safety: photobiological safety: risk group 1 according to EN 62471:2006; Appliance class: class I; Weight: 400 g; Dimensions: 123x80x29",
+      "tobiological safety photobiological safety: risk group 1 according to EN 62471:2006 L&L Luce&Light srl / via Trescalini, 5 / 36031 Dueville, Vicenza"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 4,
+   "text_chars": 3384,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "l&l-l&l17.1",
+  "code": "L&L17.1",
+  "group": "L&L",
+  "group_name": "Luce & Light",
+  "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+  "manufacturer": "Wago",
+  "source": "L - Lighting/L&L - Luce & Light/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+  "drive_url": "https://drive.google.com/file/d/12B4Sr44JI8V8JmmnCepsbRCztcpuuxeL/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "1 ciclo, período para 60 min. cada uno a lo largo de los ejes, X,Y,Z UL8750 + UL1310, CAN/CSA-C22.2 No.250.13 TENSIÓN SOPORTADA RESISTENCIA AL"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "para 60 min. cada uno a lo largo de los ejes, X,Y,Z UL8750 + UL1310, CAN/CSA-C22.2 No.250.13 TENSIÓN SOPORTADA RESISTENCIA AL AISLAMIENTO EMISI"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "O / P: 1.88 K VAC I / P - O / P : 100 M Ω / 500 VDC / 25 °C / 70 % RH FCC 47 CFR Part. 15 B Subparte B Por convección 350 g IP 20 Al usar do"
+     ]
+    }
+   ],
+   "pages": 5,
+   "text_chars": 7220,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "CSA"
+ },
+ {
+  "key": "igl-igl1",
+  "code": "iGL1",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 Fixed Round",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+  "drive_url": "https://drive.google.com/file/d/1XwJRJ6DL5RmnL_TXnzA5S9x8SKngGS4T/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improvements,"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      1,
+      2
+     ],
+     "evidence": [
+      "); clearance 2½ in (64 mm) Control DALI, remote driver (iGL7) Listing cULus damp location, interior use only Notes Model Note 5: LD2-02 schedules",
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improv"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 7,
+   "text_chars": 10161,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl2",
+  "code": "iGL2",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Laser 25 Plaster Frame, New Construction - iGuzzini BN-LAS25RT-NC",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL2 - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
+  "drive_url": "https://drive.google.com/file/d/1DwxWmT4kadF__Dq4rgaK1HO1om_LWhjn/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improvements,"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improv"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 7,
+   "text_chars": 9708,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl3",
+  "code": "iGL3",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 Fixed Round, Base Output",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL3 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+  "drive_url": "https://drive.google.com/file/d/12HUp6vHKW43NChEVvvjUz9O0jYWmOXA3/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 LASER 38"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      1,
+      2
+     ],
+     "evidence": [
+      "learance 3 9/16 in (91 mm) Control DALI, remote driver (iGL8) Listing cULus damp location, interior use only Notes Two flags. Model Note 2: the s",
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 L"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 11,
+   "text_chars": 20682,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl4",
+  "code": "iGL4",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Laser 38 Plaster Frame, New Construction - iGuzzini BN-LAS38RT-NC",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL4 - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
+  "drive_url": "https://drive.google.com/file/d/1G3J-2oxY6wPMNaLZf94CXHghBdqFgIN3/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 LASER 38"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 L"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 11,
+   "text_chars": 20133,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl5",
+  "code": "iGL5",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Laser 38 Chicago Plenum Housing - iGuzzini BN-LAS38RT-CP",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL5 - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
+  "drive_url": "https://drive.google.com/file/d/1OGdhLERLeTXL_tizqzjKsnV3sIVCJZdJ/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 LASER 38"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 L"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 11,
+   "text_chars": 20386,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl6",
+  "code": "iGL6",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Recessed Ceiling Projector 24° - iGuzzini Palco Ø 19 mm",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL6 - Recessed Projector Ceiling 24deg DALI - L02.1 - Palco 19.pdf",
+  "drive_url": "https://drive.google.com/file/d/1oJ0VM5GaGr3-CTt6KlpQ9Q4VoE8U6M41/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 1,
+   "text_chars": 798,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "igl-igl7",
+  "code": "iGL7",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Remote DALI Driver, 30 W - eldoLED ECOdrive 4450-0700-030-UNV-EDA",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL7 - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
+  "drive_url": "https://drive.google.com/file/d/1I4QLYOjlxLrJtOy3jtd5Ho70pLua8CGJ/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improvements,"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y. Rating: IP20, IP43 (visible parts once installed) Certification: cULus listed for damp location. Interior use only. Due to continuous improv"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 7,
+   "text_chars": 9911,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "igl-igl8",
+  "code": "iGL8",
+  "group": "iGL",
+  "group_name": "iGuzzini Lighting",
+  "title": "Remote DALI Driver, 19 W - eldoLED ECOdrive 4450-0350-019-UNV-EDA",
+  "manufacturer": "iGuzzini",
+  "source": "L - Lighting/iGL - iGuzzini Lighting/iGL8 - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
+  "drive_url": "https://drive.google.com/file/d/11t7a3C9ZdFQc9xMVkli8Xw6XjB5G3lhK/view",
+  "maker_url": "",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 LASER 38"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted warranty. Rating: IP20, IP43 (under the ceiling) Certification: cULus listed for damp location. Interior use only. RECEIVED 26-07-24 L02 L"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 11,
+   "text_chars": 20305,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark"
+ },
+ {
+  "key": "ltrn-ltrn1",
+  "code": "LTRN1",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN1 - DS - Lutron myRoom XC Processor - MP-1L-GCU",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN1 - DS - Lutron myRoom XC Processor - MP-1L-GCU.pdf",
+  "drive_url": "https://drive.google.com/file/d/1NvmPEvP8Regl3mzqAU3l-CNJU8X0e5jw/view",
+  "maker_url": "https://support.lutron.com/uk/en/product/myroom-xc/component/processors-and-interfaces/guest-room-edge-processor/mp-1l-gcu/documents",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "uipment 3691255c 2 10.02.24 Specifications Regulatory Approvals • cULus • NOM • CE Compliant • UKCA Compliant • FCC • IC Power • Processor: 2"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "5c 2 10.02.24 Specifications Regulatory Approvals • cULus • NOM • CE Compliant • UKCA Compliant • FCC • IC Power • Processor: 24–36 V- 250 mA • Lin"
+     ]
+    },
+    {
+     "mark": "UKCA",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "24 Specifications Regulatory Approvals • cULus • NOM • CE Compliant • UKCA Compliant • FCC • IC Power • Processor: 24–36 V- 250 mA • Links: 24–"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "Regulatory Approvals • cULus • NOM • CE Compliant • UKCA Compliant • FCC • IC Power • Processor: 24–36 V- 250 mA • Links: 24–36 V- 1 A per l"
+     ]
+    }
+   ],
+   "pages": 13,
+   "text_chars": 20469,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: cULus mark / EU: CE marking, UKCA"
+ },
+ {
+  "key": "ltrn-ltrn2",
+  "code": "LTRN2",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN2 - DS - Lutron QS Power Supply - MQSPS-DH-1-30",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN2 - DS - Lutron QS Power Supply - MQSPS-DH-1-30.pdf",
+  "drive_url": "https://drive.google.com/file/d/13DZxkOcIo9TljJ-mATpvvaCXa8dsNE6g/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/power-supplies/myroom-qs-link/mqsps-dh-1-30",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      1
+     ],
+     "evidence": [
+      "× 0.89 in (22.5 mm) × 3.54 in (90 mm) Regulatory Approvals • cULR • CE compliant • RoHS compliant • NOM compliant Efficiency • Meets the U.S. Departme"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      1
+     ],
+     "evidence": [
+      "f Mounting • Mount using 1.38 in (35 mm) DIN rail in accordance with EN 60715 • Can be mounted in LV16, LV21, PD4-36, PD8-64, or PD9-64 panels. Op"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      1
+     ],
+     "evidence": [
+      "mm) × 3.54 in (90 mm) Regulatory Approvals • cULR • CE compliant • RoHS compliant • NOM compliant Efficiency • Meets the U.S. Department of E"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 4,
+   "text_chars": 5572,
+   "searchable": true
+  },
+  "verdict": "CE / EU",
+  "why": "CE marking"
+ },
+ {
+  "key": "ltrn-ltrn3",
+  "code": "LTRN3",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel - PD4-36F-120",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN3 - DS - Lutron Feed-Through DIN Panel - PD4-36F-120.pdf",
+  "drive_url": "https://drive.google.com/file/d/1FZhXMM-6rSUY4BgJh_Ka6W4ecPDQIwSM/view",
+  "maker_url": "https://support.lutron.com/us/en/product/homeworks/component/panels/pd4/pd4-36f-120/documents",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "r processor. PD9-59F-120: Nine DPMs and one WLB. Regulatory Approvals cULus, NOM Environment Ambient operating temperature­: 32 °F to 104 °F (0 °"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 10,
+   "text_chars": 10005,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "cULus mark"
+ },
+ {
+  "key": "ltrn-ltrn4",
+  "code": "LTRN4",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN4 - DS - Lutron Phase-Adaptive Power Module - MQSE-4A1-D",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN4 - DS - Lutron Phase-Adaptive Power Module - MQSE-4A1-D.pdf",
+  "drive_url": "https://drive.google.com/file/d/16RQlPNmEvJKPkaktQ_a87-_w91e-Je0y/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/load-controllers/phase-dimming/mqse-4a1-d",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      4
+     ],
+     "evidence": [
+      "Adaptive 369849j 4 04.09.24 Specifications Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220",
+      "9j 4 04.09.24 Specifications Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220 –240 V~ 50 /"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      4,
+      5
+     ],
+     "evidence": [
+      "s • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220 –240 V~ 50 / 60 Hz only) • Lutron Quality Systems registered to",
+      "• Lightning strike protection meets ANSI / IEEE standard C62.41 and IEC 61000-4-5. Can withstand voltage surges of up to 6 000 V~ and current surges",
+      "d for use with an electronic switch or dimmer per Clause 8.3 of IEC / EN 60669-2-1. C Actual lamp wattage. Each zone is rated for the following w"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      4
+     ],
+     "evidence": [
+      "ons Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220 –240 V~ 50 / 60 Hz only) • Lutron Qu"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 8,
+   "text_chars": 16629,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing"
+ },
+ {
+  "key": "ltrn-ltrn5",
+  "code": "LTRN5",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN5 - DS - Lutron Switching Power Module - MQSE-2S1-D",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN5 - DS - Lutron Switching Power Module - MQSE-2S1-D.pdf",
+  "drive_url": "https://drive.google.com/file/d/1rvUt4zEfCMP0NTvNoHXAqgQ20ZctlC3r/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/load-controllers/non-dim/mqse-2s1-d",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      4
+     ],
+     "evidence": [
+      "itching 369841e 4 02.27.24 Specifications Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (2",
+      "e 4 02.27.24 Specifications Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220-240 V~ 50/"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      1,
+      4
+     ],
+     "evidence": [
+      "ions in relay timing. • Rated for lighting loads as defined by IEC / EN 60669, NEMA 410, as well as INC, LED, MLV, and ELV. • Includes QS link",
+      "UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220-240 V~ 50/60 Hz only) • Lutron Quality Systems registered to I",
+      "• Lightning strike protection meets ANSI / IEEE standard C62.41 and IEC 61000-4-5. Can withstand voltage surges up to 6 000 V~ and current surges up"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      4
+     ],
+     "evidence": [
+      "Regulatory Approvals • UL® Listed • cUL Listed • NOM Certified • RoHS Compliant • IEC / EN 60669 (220-240 V~ 50/60 Hz only) • Lutron Qua"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 9,
+   "text_chars": 15279,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing"
+ },
+ {
+  "key": "ltrn-ltrn6",
+  "code": "LTRN6",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN6 - DS - Lutron Energi Savr Node DALI - QSN-1DALUNV-D",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN6 - DS - Lutron Energi Savr Node DALI - QSN-1DALUNV-D.pdf",
+  "drive_url": "https://drive.google.com/file/d/1JNIVE4BdkmFk_jrDjSQsDiG_Fgkk65_7/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/load-controllers/dali/qsn-1dalunv-d",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "6-103 ed.2 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Evaluated by ULR for use in emergency lighting systems in accorda",
+      "O 9001:2015 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Complies with requirements for use in other spaces used for envir"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "6-103 ed.2 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Evaluated by ULR for use in emergency lighting systems in",
+      "O 9001:2015 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Complies with requirements for use in other spaces used fo"
+     ]
+    },
+    {
+     "mark": "UL file number",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ystems in accordance with UL924 when paired with a LUT-ELI-3PH (ULR file E234628) QSN-2DALUNV-S • Lutron Quality Systems registered to ISO 9001:2015"
+     ]
+    },
+    {
+     "mark": "UL standard",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ated by ULR for use in emergency lighting systems in accordance with UL924 when paired with a LUT-ELI-3PH (ULR file E234628) QSN-2DALUNV-S •"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      1,
+      3
+     ],
+     "evidence": [
+      "bus 64 64 64 64 # of Lutron zones per bus 64 64 64 64 Supports DALIR IEC62386-102 standard fade times     Fade time support of up to 4 hours X X ",
+      "mes     Fade time support of up to 4 hours X X   Supports DALIR IEC62386-202 (Type 1) self-contained emergency loads  X   Supports DALIR IEC62",
+      "6-202 (Type 1) self-contained emergency loads  X   Supports DALIR IEC62386-209 (Type 8) tunable white (tc) loads X X   Supports dual channel whit"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      1,
+      3,
+      6
+     ],
+     "evidence": [
+      "n México Assemblé en Mexique This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (1) Thi",
+      "101 and IEC62386-103 ed.2 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Evaluated by ULR for use in emergency ligh",
+      "egistered to ISO 9001:2015 • NOM Certified • ICES-3(B) / NMB-3(B) • FCC Part 15 • cULus Listed • Complies with requirements for use in othe"
+     ]
+    }
+   ],
+   "pages": 13,
+   "text_chars": 30199,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark, UL file number"
+ },
+ {
+  "key": "ltrn-ltrn7",
+  "code": "LTRN7",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E.pdf",
+  "drive_url": "https://drive.google.com/file/d/1TEhEJhNlj9mhKwkbKgUuaECya1raQWLU/view",
+  "maker_url": "https://luxury.lutron.com/uk/en/controls/alisse-keypad",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "latory Approvals Lutron Quality Systems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient oper"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "tems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient operating temperature: 32 °F to 104 °F"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "s Lutron Quality Systems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient operating temperat"
+     ]
+    }
+   ],
+   "pages": 16,
+   "text_chars": 16312,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "cULus mark"
+ },
+ {
+  "key": "ltrn-ltrn8",
+  "code": "LTRN8",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN8 - DS - Lutron Alisse 2-Column Keypad - FIX-18-27 - HW-NW-KP-S2-E",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN8 - DS - Lutron Alisse 2-Column Keypad - FIX-18-27 - HW-NW-KP-S2-E.pdf",
+  "drive_url": "https://drive.google.com/file/d/1idJ7bZ6zt7IazYZryfkExuFebSxndnj6/view",
+  "maker_url": "https://luxury.lutron.com/uk/en/controls/alisse-keypad",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "latory Approvals Lutron Quality Systems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient oper"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "tems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient operating temperature: 32 °F to 104 °F"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "s Lutron Quality Systems registered to ISO 9001:2015. cULus, CE, NOM, FCC, ICES-003, and RoHS Compliant Environment Ambient operating temperat"
+     ]
+    }
+   ],
+   "pages": 16,
+   "text_chars": 16312,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "cULus mark"
+ },
+ {
+  "key": "ltrn-ltrn9",
+  "code": "LTRN9",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN9 - DS - Lutron Alisse Keypad Base - HW-QS-B-S1",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN9 - DS - Lutron Alisse Keypad Base - HW-QS-B-S1.pdf",
+  "drive_url": "https://drive.google.com/file/d/1IFJO-FZ-p4gvapvdlVcVGH3mAGx2iwgn/view",
+  "maker_url": "https://luxury.lutron.com/uk/en/controls/alisse-keypad",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      1,
+      2
+     ],
+     "evidence": [
+      "B-S1 and HW-QS-B-S3 only) QS Connector Adapter to Base Unit Assembly FCC/IC Information Please visit www.lutron.com/FCC Backbox Base Unit Sq",
+      "to Base Unit Assembly FCC/IC Information Please visit www.lutron.com/FCC Backbox Base Unit Square Backbox Mounting Screws (2) Square Adapter",
+      "lacement NW-CON Unité de base avec adaptateur Raccord QS Informations FCC/ IC Veuillez consulter www.lutron.com/FCC Vis de montage (HW-QS-B-S1"
+     ]
+    }
+   ],
+   "pages": 7,
+   "text_chars": 48395,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn10",
+  "code": "LTRN10",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN10 - DS - Lutron Wallbox - EBB-1-SQ",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN10 - DS - Lutron Wallbox - EBB-1-SQ.pdf",
+  "drive_url": "https://drive.google.com/file/d/16njbQnhfJgmdN1fRXn4wF48jOm7MKl_w/view",
+  "maker_url": "https://support.lutron.com/us/en/product/homeworks/article/dimmers-and-keypads/app-note-705-international-palladiom-keypad-installation-best-practices",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 1,
+   "text_chars": 505,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn11",
+  "code": "LTRN11",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor - LRF2-OCR2B-P-WH",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor - LRF2-OCR2B-P-WH.pdf",
+  "drive_url": "https://drive.google.com/file/d/1deN_rmkplkuvJ-VrdlYBRX4K0kvLzm1P/view",
+  "maker_url": "https://support.lutron.com/us/en/product/vive/component/sensors/radio-powr-savr-ceiling/lrf2-ocr2b-p",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ity Systems Registered to ISO 9001:2015 Regulatory Approvals LRF2- • cULus Listed • FCC certified • IC certified • Meets CA (U.S.A.) Energy Commissi"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ity Systems Registered to ISO 9001:2015 Regulatory Approvals LRF2- • cULus Listed • FCC certified • IC certified • Meets CA (U.S.A.) Energy C"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• COFETEL certified • ANATEL certified • SUTEL certified LRF3- • CE marked • UKCA • TDRA type approval • CITC type approval LRF4- • SRRC typ"
+     ]
+    },
+    {
+     "mark": "UKCA",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ertified • ANATEL certified • SUTEL certified LRF3- • CE marked • UKCA • TDRA type approval • CITC type approval LRF4- • SRRC type approv"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      1
+     ],
+     "evidence": [
+      "test buttons make programming easy • 10-year battery life design • RoHS compliant Models Available • LRF -OCR2B-P- Color Code O"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "stered to ISO 9001:2015 Regulatory Approvals LRF2- • cULus Listed • FCC certified • IC certified • Meets CA (U.S.A.) Energy Commission Titl",
+      "al • iMDA registered LRF5- • WPC Type LRF6- • 007YUUL0689 LRF7- • FCC Power / Performance • Operating voltage: 3 V- • Operating current:"
+     ]
+    }
+   ],
+   "pages": 6,
+   "text_chars": 11015,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing, cULus mark / EU: CE marking, UKCA"
+ },
+ {
+  "key": "ltrn-ltrn12",
+  "code": "LTRN12",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN12 - DS - Lutron QS Sensor Module - QSM2-XW-C",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN12 - DS - Lutron QS Sensor Module - QSM2-XW-C.pdf",
+  "drive_url": "https://drive.google.com/file/d/1vG6jPt8lPrQ0RGVIwFh0OXIou0KlWDpl/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/processors/qs-sensor-module/qsm2-xw-c",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "cULus mark",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "(Rx) device. Product has no wireless transmit functionality. QSM2 – • cUL US Listed (U.S.A. and Canada) • FCC Compliant. Complies with the limits"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "(U.S.A.). • IC Certified. (Canada) • SCT Certified (Mexico) QSM3 – • CE Marked (European Union) QSM5 – • WPC Type Approved (India) QSM7 – • FCC Comp"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "uption. Regulatory • Lutron quality systems registered to ISO 9001. • RoHS compliant • Wireless receiver (Rx) device. Product has no wireless tr"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "transmit functionality. QSM2 – • cUL US Listed (U.S.A. and Canada) • FCC Compliant. Complies with the limits for a Class B digital device, per",
+      "h the limits for a Class B digital device, persuant to Part 15 of the FCC Rules (U.S.A.). • IC Certified. (Canada) • SCT Certified (Mexico) QSM",
+      "E Marked (European Union) QSM5 – • WPC Type Approved (India) QSM7 – • FCC Compliant. Complies with the limits for a Class B digital device, per"
+     ]
+    }
+   ],
+   "pages": 6,
+   "text_chars": 11124,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: cULus mark / EU: CE marking"
+ },
+ {
+  "key": "ltrn-ltrn13",
+  "code": "LTRN13",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN13 - DS - Lutron Maestro Occupancy Switch - MS-OPS2-WH",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN13 - DS - Lutron Maestro Occupancy Switch - MS-OPS2-WH.pdf",
+  "drive_url": "https://drive.google.com/file/d/1vf6reUcUmfH4qbYYBBGq2HEvY0DSsU5o/view",
+  "maker_url": "https://www.lutron.com/us/en/control/occupancy-sensors-timers/in-wall-motion-sensor-switches?sku=ms-ops2-wh",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "nsor 369659b 3 04.02.26 Specifications Regulatory Approvals • \u0007UL Listed to U.S. and Canadian safety requirements. • \u0007NOM Certification (pend"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 10,
+   "text_chars": 12428,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing"
+ },
+ {
+  "key": "ltrn-ltrn14",
+  "code": "LTRN14",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN14 - DS - Lutron Claro Wallplate - CW-1-WH",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN14 - DS - Lutron Claro Wallplate - CW-1-WH.pdf",
+  "drive_url": "https://drive.google.com/file/d/1QGKFn01VFEfoEIjoWbP_0ZarXLxZX2SZ/view",
+  "maker_url": "https://www.lutron.com/us/en/controls/wallplates-accessories/designer-style",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ely. Important notes • Receptacles and plugs for dimming use are UL Listed for use with all Lutron wallbox dimmers included in this catalog. •"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "plicationnotes. Replacement dimming plugs 120/125 V RP-FDU-10-XX1 UL/CSA/NOM regulatory approvals. Replacement plug for dimming • This plug"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 8379,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, CSA"
+ },
+ {
+  "key": "ltrn-ltrn15",
+  "code": "LTRN15",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A.pdf",
+  "drive_url": "https://drive.google.com/file/d/1sojRBgq0tqgBfCeI3IzTTvKB5yv_OKtX/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/palladiom-thermostat/mwp-t-ohw/documents",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ty Systems registered to ISO 9001:2015 • Compliant with IEC 60730 • cULus Listed • NOM Certified • RoHS Compliant • FCC Part 15 Compliant • ICES-"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ty Systems registered to ISO 9001:2015 • Compliant with IEC 60730 • cULus Listed • NOM Certified • RoHS Compliant • FCC Part 15 Compliant •"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "d • RoHS Compliant • FCC Part 15 Compliant • ICES-003 Compliant • CE Marked • UKCA Marked Power Input • IEC PELV / SELV / NECR Class 2 • Opera"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "Lutron Quality Systems registered to ISO 9001:2015 • Compliant with IEC 60730 • cULus Listed • NOM Certified • RoHS Compliant • FCC Part 15 Co"
+     ]
+    },
+    {
+     "mark": "UKCA",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "pliant • FCC Part 15 Compliant • ICES-003 Compliant • CE Marked • UKCA Marked Power Input • IEC PELV / SELV / NECR Class 2 • Operating vol"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "2015 • Compliant with IEC 60730 • cULus Listed • NOM Certified • RoHS Compliant • FCC Part 15 Compliant • ICES-003 Compliant • CE Marked"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "with IEC 60730 • cULus Listed • NOM Certified • RoHS Compliant • FCC Part 15 Compliant • ICES-003 Compliant • CE Marked • UKCA Marked P"
+     ]
+    }
+   ],
+   "pages": 13,
+   "text_chars": 22010,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing, cULus mark / EU: CE marking, UKCA"
+ },
+ {
+  "key": "ltrn-ltrn16",
+  "code": "LTRN16",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN16 - DS - Lutron Fan-Coil Controller - SMC55-MYRM",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN16 - DS - Lutron Fan-Coil Controller - SMC55-MYRM.pdf",
+  "drive_url": "https://drive.google.com/file/d/1bT0sGK8istVgCxv3N_kI2p4F4W6uFCDg/view",
+  "maker_url": "https://support.lutron.com/us/en/product/myroom-xc/component/temperature-control/fan-coil-unit-controller/smc55-myrm",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ron Fan Coil Unit Controller Specifications Regulatory Approvals • cULus Listed • CE Certified • NOM certified • RoHS compliant • FCC 15 / ICES-003"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "ron Fan Coil Unit Controller Specifications Regulatory Approvals • cULus Listed • CE Certified • NOM certified • RoHS compliant • FCC 15 / IC"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "nit Controller Specifications Regulatory Approvals • cULus Listed • CE Certified • NOM certified • RoHS compliant • FCC 15 / ICES-003 Class B Input"
+     ]
+    },
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      3,
+      4,
+      6
+     ],
+     "evidence": [
+      "d NEMA Type-1 enclosure or IP20 rated enclosure with conformance to IEC 61439-3 (or equivalent standard) • Enclosure should be secured by a keyed or",
+      "EMA® Type-1 enclosure or IP20 rated enclosure with conformance to IEC 61439-3 (or equivalent standard)1 QS Link Palladiom QS Thermostat Valve and",
+      "d NEMA® Type-1 enclosure or IP20 rated enclosure with conformance to IEC 61439-3 (or equivalent standard). Enclosure must meet the minimum clearance r"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "Regulatory Approvals • cULus Listed • CE Certified • NOM certified • RoHS compliant • FCC 15 / ICES-003 Class B Input Characteristics • \u0007Pow"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      3
+     ],
+     "evidence": [
+      "als • cULus Listed • CE Certified • NOM certified • RoHS compliant • FCC 15 / ICES-003 Class B Input Characteristics • \u0007Power supply (not is"
+     ]
+    }
+   ],
+   "pages": 15,
+   "text_chars": 20029,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing, cULus mark / EU: CE marking"
+ },
+ {
+  "key": "ltrn-ltrn17",
+  "code": "LTRN17",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN17 - DS - Lutron Contact-Closure Interface - QSE-IO",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN17 - DS - Lutron Contact-Closure Interface - QSE-IO.pdf",
+  "drive_url": "https://drive.google.com/file/d/1XWeenedb6a2J2OMAL6vHlv-HvflI9Emv/view",
+  "maker_url": "https://support.lutron.com/us/en/product/homeworks/component/control-interfaces/qse-io",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "rface 369374h 2 04.23.26 Specifications Regulatory Approvals • UL ® Listed • cUL ® Listed • CE compliant • RoHS compliant Power • SE",
+      "04.23.26 Specifications Regulatory Approvals • UL ® Listed • cUL ® Listed • CE compliant • RoHS compliant Power • SELV / PELV / NEC® C"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ications Regulatory Approvals • UL ® Listed • cUL ® Listed • CE compliant • RoHS compliant Power • SELV / PELV / NEC® Class 2 • Operat"
+     ]
+    },
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "y Approvals • UL ® Listed • cUL ® Listed • CE compliant • RoHS compliant Power • SELV / PELV / NEC® Class 2 • Operating voltag"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 10,
+   "text_chars": 20251,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing / EU: CE marking"
+ },
+ {
+  "key": "ltrn-ltrn18",
+  "code": "LTRN18",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN18 - DS - Lutron Comercial System Warranty - LSC-L2-P8LTD",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN18 - DS - Lutron Comercial System Warranty - LSC-L2-P8LTD.pdf",
+  "drive_url": "https://drive.google.com/file/d/1AK42XyTpE37ZMZZrep5kdEgJYx6YlgxY/view",
+  "maker_url": "https://support.lutron.com/us/en/warranty",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 5,
+   "text_chars": 12070,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn19",
+  "code": "LTRN19",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL.pdf",
+  "drive_url": "https://drive.google.com/file/d/1PAD0CU-GS5PCZRAEpVipcE3-uTGNUvGs/view",
+  "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/new-architectural/usb/ltr-15-cctr/documents/installation-guide",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 12,
+   "text_chars": 11773,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn20",
+  "code": "LTRN20",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN20 - DS - Lutron Architectural Receptacle - LTR-15-TR-BL",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN20 - DS - Lutron Architectural Receptacle - LTR-15-TR-BL.pdf",
+  "drive_url": "https://drive.google.com/file/d/1B-4licAJEtBnj6gPSA9gzvqTkz-TH37s/view",
+  "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/new-architectural/tamper-resistant/ltr-15-tr",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 12,
+   "text_chars": 11773,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn21",
+  "code": "LTRN21",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB.pdf",
+  "drive_url": "https://drive.google.com/file/d/1Efk9ociNirUh7IPxe0C7ErcwD7uYL7Si/view",
+  "maker_url": "https://www.lutron.com/us/en/controls/wallplates-accessories/palladiom-wallplates",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• Lutron Quality Systems registered to ISO 9001:2015 • Complies with IEC 60669-2-1 and IEC 60884-2-1 Environment • Ambient operating temperature: 0 °C",
+      "Systems registered to ISO 9001:2015 • Complies with IEC 60669-2-1 and IEC 60884-2-1 Environment • Ambient operating temperature: 0 °C to 40 °C (32 °F t"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 7,
+   "text_chars": 6528,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "ltrn-ltrn22",
+  "code": "LTRN22",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN22 - DS - Lutron Nova T GFCI Receptacle - NTR-15-GFST-BL",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN22 - DS - Lutron Nova T GFCI Receptacle - NTR-15-GFST-BL.pdf",
+  "drive_url": "https://drive.google.com/file/d/1020T4XkuJ90jmUb-yxGR9HBcG9zXCFDz/view",
+  "maker_url": "https://support.lutron.com/us/en/product/receptacles/component/designer/gfci/documents/installation-guide",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• Complies to NEC®, CEC & OSHA, UL File E-41978, CSA File LR-24886 • cULus Listed • NOM Certified • UL 943 Dust Test: Meets performance requirement se"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• Complies to NEC®, CEC & OSHA, UL File E-41978, CSA File LR-24886 • cULus Listed • NOM Certified • UL 943 Dust Test: Meets performance requirem"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "8 for receptacles • Complies to NEC®, CEC & OSHA, UL File E-41978, CSA File LR-24886 • cULus Listed • NOM Certified • UL 943 Dust Test: Meet"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "RoHS / REACH",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "Dust Test: Meets performance requirement section 6.20 UL 943 GFCI • RoHS Compliant Power • 15 A: 125 V~ (102 V~ – 132 V~) 60 Hz • 20 A: 125 V"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 6207,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark, CSA"
+ },
+ {
+  "key": "ltrn-ltrn23",
+  "code": "LTRN23",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB.pdf",
+  "drive_url": "https://drive.google.com/file/d/1j0inBoUbutdxk_LyfEHJfYz0ICANIaFn/view",
+  "maker_url": "https://assets.lutron.com/a/documents/Spec%20Guide%20Volume%201%20Custom%20Architectural%20Wallplates.pdf",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      16,
+      22,
+      23,
+      24
+     ],
+     "evidence": [
+      "rtant application notes: • Receptacles and plugs for dimming use are UL listed for use with all Lutron wallbox dimmers included in this catalog •",
+      "utron Technical Support for information on interfaces with Vierti. †UL listed for FULL wattage indicated (derate capacity only if ganged with other",
+      "tron.com | 1.800.523.9466 | Appendix | Lighting load interfaces †UL listed for FULL wattage indicated (derate capacity only if ganged with other"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      16,
+      38
+     ],
+     "evidence": [
+      "otes 120/125 V RP-FDU-10-WH White 120/125 V RP-FDU-10-BR Brown UL/CSA/NOM regulatory approvals Replacement plugs for dimming (use with re",
+      "del Number Insert Code Control Size Nova® N-1PS- S small N-1PS-374- -CSA- S small N-3PS- S small N-3PS-374- -CSA- S small N-4PS- S small N-600",
+      "a® N-1PS- S small N-1PS-374- -CSA- S small N-3PS- S small N-3PS-374- -CSA- S small N-4PS- S small N-600- S small N-603P- P small N-1000- S smal"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 44,
+   "text_chars": 58660,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, CSA"
+ },
+ {
+  "key": "ltrn-ltrn24",
+  "code": "LTRN24",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN24 - DS - Lutron Grafik Eye Control Cable - GRX-CBL-46L-500",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN24 - DS - Lutron Grafik Eye Control Cable - GRX-CBL-46L-500.pdf",
+  "drive_url": "https://drive.google.com/file/d/1ieocq0yP3-E2Dz4nDDpFhKhYjiM75XDd/view",
+  "maker_url": "https://assets.lutron.com/a/documents/GRX_CBL_DMX_Cable_Accessories.pdf",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "evidence": [
+      "ameter: 0.21 in (5.3 mm). • 300 V rated. • PVC sheath, 75 °C rated. • UL Listed. • Rated FT4. • cULus or CSA Listed. • CPR Classification: ECA • Capa",
+      "eter: 0.325 in (8.25 mm). • 300 V rated. • PVC sheath, 75 °C rated. • UL Listed. • Rated FT4. • cULus or CSA Listed. • CPR Classification: ECA • Capa",
+      "ameter: 0.31 in (7.9 mm). • 300 V rated. • PVC sheath, 90 °C rated. • UL Listed. • Rated FT6. • CPR Classification: ECA • Capacitance of 22 AWG (0.25"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      1,
+      2,
+      4
+     ],
+     "evidence": [
+      "GRX-CBL-346S-500 – 500 ft (150 m) spool • \u0007Listed as type CL3R or CMR cULus. • Five stranded conductors: Common – 18 AWG (0.75 mm2) Power – 1",
+      "• 300 V rated. • PVC sheath, 75 °C rated. • UL Listed. • Rated FT4. • cULus or CSA Listed. • CPR Classification: ECA • Capacitance of 22 AWG (0.2",
+      "GRX-CBL-46L-500 – 500 ft (150 m) spool • \u0007Listed as type CL3R or CMG cULus. • Six stranded conductors: Common – 12 AWG (4.0 mm2) Power – 12"
+     ]
+    },
+    {
+     "mark": "CSA",
+     "pages": [
+      1,
+      2
+     ],
+     "evidence": [
+      "ated. • PVC sheath, 75 °C rated. • UL Listed. • Rated FT4. • cULus or CSA Listed. • CPR Classification: ECA • Capacitance of 22 AWG (0.25 mm2)"
+     ]
+    }
+   ],
+   "eu": [],
+   "other": [],
+   "pages": 4,
+   "text_chars": 6511,
+   "searchable": true
+  },
+  "verdict": "UL / NRTL",
+  "why": "UL listing, cULus mark, CSA"
+ },
+ {
+  "key": "ltrn-ltrn25",
+  "code": "LTRN25",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100.pdf",
+  "drive_url": "https://drive.google.com/file/d/1OUtcTADlyfh83BpEiNWfSVKB7XmAx55Y/view",
+  "maker_url": "https://luxury.lutron.com/uk/en/blinds/sivoiaqs-roller-blinds",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 24,
+   "text_chars": 25909,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn25.1",
+  "code": "LTRN25.1",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits - WIN-BRK",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits - WIN-BRK.pdf",
+  "drive_url": "https://drive.google.com/file/d/1yh5TTwpudRoQSliDLJBhYffe3kDYSp0r/view",
+  "maker_url": "https://luxury.lutron.com/uk/en/blinds/sivoiaqs-roller-blinds",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 3,
+   "text_chars": 8223,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn25.2",
+  "code": "LTRN25.2",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
+  "drive_url": "https://drive.google.com/file/d/1HbSU779DS2nFHqflPIo-3jPQWm7lZ7cp/view",
+  "maker_url": "https://www.lutron.com/us/en/window-treatments/drapery/sivoia-drapery?sku=sivoia-ripplefold-straight-d145-nopts-drapery",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• U.S. Department of Energy Level VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• U.S. Department of Energy Level VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "vel VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "iant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified Environment • Ambient te"
+     ]
+    },
+    {
+     "mark": "CCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified Environment • Ambient temperature operati"
+     ]
+    }
+   ],
+   "pages": 5,
+   "text_chars": 6070,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing, cULus mark / EU: CE marking"
+ },
+ {
+  "key": "ltrn-ltrn26",
+  "code": "LTRN26",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN26 - DS - Lutron Drapery Track System - D145",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26 - DS - Lutron Drapery Track System - D145.pdf",
+  "drive_url": "https://drive.google.com/file/d/1NLV80HyzMl2Y66GH7pSIqHKvbIp8OmFS/view",
+  "maker_url": "https://www.lutron.com/us/en/window-treatments/drapery/sivoia-drapery?sku=sivoia-ripplefold-straight-d145-nopts-drapery",
+  "found": {
+   "nrtl": [],
+   "eu": [],
+   "other": [],
+   "pages": 2,
+   "text_chars": 3526,
+   "searchable": true
+  },
+  "verdict": "None found",
+  "why": "nothing in the sheet names a listing"
+ },
+ {
+  "key": "ltrn-ltrn26.1",
+  "code": "LTRN26.1",
+  "group": "LTRN",
+  "group_name": "Lutron Controls",
+  "title": "LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V",
+  "manufacturer": "",
+  "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
+  "drive_url": "https://drive.google.com/file/d/1IWW3aC-oynEVX-HSPyYslOcQWuYyu3gD/view",
+  "maker_url": "https://support.lutron.com/us/en/product/homeworks/component/power-supplies/qsps-p1-1-35v",
+  "found": {
+   "nrtl": [
+    {
+     "mark": "UL listing",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• U.S. Department of Energy Level VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC"
+     ]
+    },
+    {
+     "mark": "cULus mark",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "• U.S. Department of Energy Level VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant"
+     ]
+    }
+   ],
+   "eu": [
+    {
+     "mark": "CE marking",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "vel VI Compliant • NRCan Compliant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified"
+     ]
+    }
+   ],
+   "other": [
+    {
+     "mark": "FCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "iant • cULus Listed • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified Environment • Ambient te"
+     ]
+    },
+    {
+     "mark": "CCC",
+     "pages": [
+      2
+     ],
+     "evidence": [
+      "ted • IEC Compliant (CE Marked) • NOM Certified • FCC Compliant • CCC Certified • PSE Certified Environment • Ambient temperature operati"
+     ]
+    }
+   ],
+   "pages": 5,
+   "text_chars": 6070,
+   "searchable": true
+  },
+  "verdict": "Both",
+  "why": "NRTL: UL listing, cULus mark / EU: CE marking"
+ },
+ {
+  "key": "pl-a",
+  "code": "A",
+  "group": "PL",
+  "group_name": "Pool Lighting",
+  "title": "Pool Light L09 - L&L Bright 1.6 316L",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/PL - Pool Lighting/A - Pool Light L09 (CW16005DI).pdf",
+  "drive_url": "https://drive.google.com/file/d/1KwrW7afiNB3XLZq4ijfzaZdSFKDPCsPH/view",
+  "maker_url": "https://www.lucelight.it/en/prodotto.php/3686",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      5
+     ],
+     "evidence": [
+      "ling by free air convection IP66 for indoor and outdoor DALI Protocol IEC62386; DIM 0-100% dimming depth: 0.1% Frequency 4K Hz, reaching the exempti"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 5,
+   "text_chars": 5627,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ },
+ {
+  "key": "pl-b",
+  "code": "B",
+  "group": "PL",
+  "group_name": "Pool Lighting",
+  "title": "Pool Light L09.1 - L&L Bright 3.0 316L",
+  "manufacturer": "L&L Luce&Light",
+  "source": "L - Lighting/PL - Pool Lighting/B - Pool Light L09.1 (CW300005WI).pdf",
+  "drive_url": "https://drive.google.com/file/d/15-BPVPLJ-slJY71cR3mkMouuti8PFSTN/view",
+  "maker_url": "https://www.lucelight.it/en/prodotto.php/108089",
+  "found": {
+   "nrtl": [],
+   "eu": [
+    {
+     "mark": "EN / IEC standard",
+     "pages": [
+      2,
+      3
+     ],
+     "evidence": [
+      "obiological safety: photobiological safety: risk group 1 according to EN 62471:2006; Appliance class: class III; Weight: 1150 g; Dimensions: Ø80x69",
+      "tobiological safety photobiological safety: risk group 1 according to EN 62471:2006 Notes suitable for use in sea water, the 7W version and the RGB"
+     ]
+    }
+   ],
+   "other": [],
+   "pages": 6,
+   "text_chars": 6619,
+   "searchable": true
+  },
+  "verdict": "Unclear",
+  "why": "only indirect signs: EN / IEC standard"
+ }
+]

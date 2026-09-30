@@ -1,0 +1,662 @@
+{
+ "8e5a78df7e3a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
+  "codes": [
+   "LUM3"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Indirect LED Strip - Eco Flex 240, 2700 K"
+ },
+ "373e958ada02": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
+  "codes": [
+   "LUM3.1"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Indirect LED Strip Driver, 30 W - EcoPac ELED-30-24DP2"
+ },
+ "c578fdf97276": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
+  "codes": [
+   "LUM3.2"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Indirect LED Strip Driver, 100 W - EcoPac ELED-100-24DP2"
+ },
+ "c1fc7a5f961a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM3.3 - Indirect LED Strip Profile Pro 0209 - L03 - 021-0202.pdf",
+  "codes": [
+   "LUM3.3"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Indirect LED Strip Profile - Pro 0209"
+ },
+ "ce33728d77f3": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
+  "codes": [
+   "LUM4"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "LED Strip in Furniture, 2.93 W/ft - Eco Flex 240, 2700 K"
+ },
+ "94d505f981f7": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
+  "codes": [
+   "LUM4.1"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2"
+ },
+ "7fc4d6c19773": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
+  "codes": [
+   "LUM4.2"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Furniture Strip Driver, 60 W - EcoPac ELED-60-24DP2"
+ },
+ "f9f6e224d120": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM4.3 - LED Strip in Furniture Profile Pro 0209 - L05.1 - 021-0202.pdf",
+  "codes": [
+   "LUM4.3"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Furniture Strip Profile - Pro 0209"
+ },
+ "eef392274e19": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
+  "codes": [
+   "LUM5"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "LED Strip in Furniture, 0.73 W/ft - Eco Flex 240, 2700 K"
+ },
+ "65d8f062f50a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
+  "codes": [
+   "LUM5.1"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2"
+ },
+ "b7690435f1bf": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM5.2 - LED Strip in Furniture Profile Pro 0209 - L05.2 - 021-0202.pdf",
+  "codes": [
+   "LUM5.2"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Furniture Strip Profile - Pro 0209"
+ },
+ "18814a54d92b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
+  "codes": [
+   "LUM6"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "LED Strip in Furniture, IP65 - Eco Flex 240, 2700 K"
+ },
+ "3526c0f8b50a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
+  "codes": [
+   "LUM6.1"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Furniture Strip Driver, 30 W - EcoPac ELED-30-24DP2"
+ },
+ "a4c13f3a745c": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM6.2 - LED Strip in Furniture Profile Pro 0409 - L05.4 - 021-0402.pdf",
+  "codes": [
+   "LUM6.2"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Furniture Strip Profile - Pro 0409"
+ },
+ "b6a585e5c77e": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM7 - Integrated Mini Downlight Driver 350mA DALI - L06.1 - CC20-D-350-N.pdf",
+  "codes": [
+   "LUM7"
+  ],
+  "v": "None found",
+  "mfr": "TCI",
+  "title": "Integrated Mini Downlight Driver, 350 mA - CC20-D-350-N"
+ },
+ "25a9e18fd1ee": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM8 - Courtesy Wall Light DALI - L07 - BORTOP02-2K7.pdf",
+  "codes": [
+   "LUM8"
+  ],
+  "v": "Unclear",
+  "mfr": "Simes",
+  "title": "Courtesy Wall Light - Profilo 1.0 BORTOP02-2K7"
+ },
+ "cb138ab897e9": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM8.1 - Courtesy Wall Light Driver DALI - L07 - MINI JOLLY DALI 20.pdf",
+  "codes": [
+   "LUM8.1"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "TCI",
+  "title": "Courtesy Wall Light Driver - Mini Jolly DALI 20"
+ },
+ "bc591ce9a571": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
+  "codes": [
+   "LUM9"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Exterior Step LED Strip, IP67 - Eco Flex 240, 2700 K"
+ },
+ "48b3f9be95e3": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
+  "codes": [
+   "LUM9.1"
+  ],
+  "v": "Unclear",
+  "mfr": "EcoPac Power",
+  "title": "Exterior Step Strip Driver, 30 W - EcoPac ELED-30-24DP2"
+ },
+ "adb6b27c6046": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM9.2 - LED Strip Exterior Step Profile Pro 0409 - L07.2 - 021-0402.pdf",
+  "codes": [
+   "LUM9.2"
+  ],
+  "v": "None found",
+  "mfr": "LedFlex Group",
+  "title": "Exterior Step Strip Profile - Pro 0409"
+ },
+ "a0b903a6216b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM10 - Courtesy Wall Light Exterior ON-OFF - L07.3 - 05-E146-Z5-CL.pdf",
+  "codes": [
+   "LUM10"
+  ],
+  "v": "None found",
+  "mfr": "LEDS C4",
+  "title": "Exterior Courtesy Wall Light - Tiny Short 05-E146-Z5-CL"
+ },
+ "d4707308976a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM11 - Path Light DALI - L11 - 10-E033-60-CK.pdf",
+  "codes": [
+   "LUM11"
+  ],
+  "v": "None found",
+  "mfr": "LEDS C4",
+  "title": "Path Light - Sinia 600 mm Bollard 10-E033-60-CK"
+ },
+ "7ad205d4dcb9": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM11.1 - Path Light DALI - L11 - 71-E649-60-OU.pdf",
+  "codes": [
+   "LUM11.1"
+  ],
+  "v": "None found",
+  "mfr": "LEDS C4",
+  "title": "Path Light, Alternate - 71-E649-60-OU"
+ },
+ "0a63f9668274": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM11.2 - Path Light Driver DALI - L11 - MAXI JOLLY SV DALI IPR1-70.pdf",
+  "codes": [
+   "LUM11.2"
+  ],
+  "v": "Unclear",
+  "mfr": "TCI",
+  "title": "Path Light Driver - Maxi Jolly SV DALI IPR1-70"
+ },
+ "de6de0e865b4": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM12 - Surface-Mounted Service Downlight ON-OFF - L12 - FM-05RN.pdf",
+  "codes": [
+   "LUM12"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "WAC Lighting",
+  "title": "Surface-Mounted Service Downlight - WAC FM-05RN"
+ },
+ "00955e8937e8": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
+  "codes": [
+   "LUM13"
+  ],
+  "v": "None found",
+  "mfr": "Vibia",
+  "title": "Indirect Wall Lamp - Foil 1A334-FOIL-US02"
+ },
+ "fedfcc5d4ba7": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM14 - Table Lamp for Minibar - D02 - kw3901alb.pdf",
+  "codes": [
+   "LUM14"
+  ],
+  "v": "None found",
+  "mfr": "Visual Comfort",
+  "title": "Table Lamp for Minibar - Kelly Wearstler Una Small KW 3901ALB"
+ },
+ "e887255e2545": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM15 - Floor Lamp Pool Terrace PHASE-DIM - D03 - Kando P111.pdf",
+  "codes": [
+   "LUM15"
+  ],
+  "v": "None found",
+  "mfr": "Bover",
+  "title": "Floor Lamp, Pool Terrace - Kando P111"
+ },
+ "c76381006aa2": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LUM - Luminaires\\LUM16 - Portable Lamp - P01 - Kando M40R.pdf",
+  "codes": [
+   "LUM16"
+  ],
+  "v": "None found",
+  "mfr": "Bover",
+  "title": "Portable Lamp - Kando M40R"
+ },
+ "5b84f8e08c25": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
+  "codes": [
+   "L&L12"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Submersible Pool Fixture, Steps - L&L Bright 1.6 316L"
+ },
+ "b191988d579b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
+  "codes": [
+   "L&L12.1"
+  ],
+  "v": "CE / EU",
+  "mfr": "L&L Luce&Light",
+  "title": "Pool Fixture Driver, 30 W - AV0D024V03066"
+ },
+ "56520ddbb947": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
+  "codes": [
+   "L&L12.2"
+  ],
+  "v": "Both",
+  "mfr": "L&L Luce&Light",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066"
+ },
+ "5e2fc8d5c34b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
+  "codes": [
+   "L&L13"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Submersible Pool Fixture - L&L Bright 3.0 316L"
+ },
+ "194d9425f29a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
+  "codes": [
+   "L&L13.1"
+  ],
+  "v": "Both",
+  "mfr": "L&L Luce&Light",
+  "title": "Pool Fixture Driver, 60 W - AV0D024V06066"
+ },
+ "fa1fbffb6dce": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
+  "codes": [
+   "L&L14"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Vegetation Projector - L&L Pivot Mini"
+ },
+ "ffa0ca8d79a0": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
+  "codes": [
+   "L&L17"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Sconce - L&L Ella OUT 1.0"
+ },
+ "a1089881f0e3": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\L&L - Luce & Light\\L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
+  "codes": [
+   "L&L17.1"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "Wago",
+  "title": "Sconce Driver, 5-Protocol - WSDDV225PA"
+ },
+ "64f6ec2c2d37": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL1 - Recessed Downlight Ceiling 14deg DALI - L01 - Laser-25mm.pdf",
+  "codes": [
+   "iGL1"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Recessed Ceiling Downlight 14° - iGuzzini Laser 25 Fixed Round"
+ },
+ "9f5cf10deb04": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL2 - Downlight Plaster Frame NC - L01 - BN-LAS25RT-NC.pdf",
+  "codes": [
+   "iGL2"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Laser 25 Plaster Frame, New Construction - iGuzzini BN-LAS25RT-NC"
+ },
+ "f59f23b89a8c": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL3 - Recessed Downlight Ceiling 26deg DALI - L02 - Laser-38mm.pdf",
+  "codes": [
+   "iGL3"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Recessed Ceiling Downlight 26° - iGuzzini Laser 38 Fixed Round, Base Output"
+ },
+ "d1fc786be7d1": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL4 - Downlight Plaster Frame NC - L02 - BN-LAS38RT-NC.pdf",
+  "codes": [
+   "iGL4"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Laser 38 Plaster Frame, New Construction - iGuzzini BN-LAS38RT-NC"
+ },
+ "6bb0bd48e72a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL5 - Downlight Chicago Plenum Housing - L02 - BN-LAS38RT-CP.pdf",
+  "codes": [
+   "iGL5"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Laser 38 Chicago Plenum Housing - iGuzzini BN-LAS38RT-CP"
+ },
+ "11b0e52a8a9b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL6 - Recessed Projector Ceiling 24deg DALI - L02.1 - Palco 19.pdf",
+  "codes": [
+   "iGL6"
+  ],
+  "v": "None found",
+  "mfr": "iGuzzini",
+  "title": "Recessed Ceiling Projector 24° - iGuzzini Palco Ø 19 mm"
+ },
+ "1e9ab27e97dc": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL7 - Remote DALI Driver 30W - L01 - 4450-0700-030-UNV-EDA.pdf",
+  "codes": [
+   "iGL7"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Remote DALI Driver, 30 W - eldoLED ECOdrive 4450-0700-030-UNV-EDA"
+ },
+ "6fe0a57510ae": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\iGL - iGuzzini Lighting\\iGL8 - Remote DALI Driver 19W - L02 - 4450-0350-019-UNV-EDA.pdf",
+  "codes": [
+   "iGL8"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "iGuzzini",
+  "title": "Remote DALI Driver, 19 W - eldoLED ECOdrive 4450-0350-019-UNV-EDA"
+ },
+ "adaea4739420": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN1 - DS - Lutron myRoom XC Processor - MP-1L-GCU.pdf",
+  "codes": [
+   "LTRN1"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN1 - DS - Lutron myRoom XC Processor - MP-1L-GCU"
+ },
+ "70aa97f0498e": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN2 - DS - Lutron QS Power Supply - MQSPS-DH-1-30.pdf",
+  "codes": [
+   "LTRN2"
+  ],
+  "v": "CE / EU",
+  "mfr": "",
+  "title": "LTRN2 - DS - Lutron QS Power Supply - MQSPS-DH-1-30"
+ },
+ "879275267b49": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN3 - DS - Lutron Feed-Through DIN Panel - PD4-36F-120.pdf",
+  "codes": [
+   "LTRN3"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN3 - DS - Lutron Feed-Through DIN Panel - PD4-36F-120"
+ },
+ "d10bca45f7ae": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN4 - DS - Lutron Phase-Adaptive Power Module - MQSE-4A1-D.pdf",
+  "codes": [
+   "LTRN4"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN4 - DS - Lutron Phase-Adaptive Power Module - MQSE-4A1-D"
+ },
+ "104b3e5b4e27": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN5 - DS - Lutron Switching Power Module - MQSE-2S1-D.pdf",
+  "codes": [
+   "LTRN5"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN5 - DS - Lutron Switching Power Module - MQSE-2S1-D"
+ },
+ "7332843811a8": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN6 - DS - Lutron Energi Savr Node DALI - QSN-1DALUNV-D.pdf",
+  "codes": [
+   "LTRN6"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN6 - DS - Lutron Energi Savr Node DALI - QSN-1DALUNV-D"
+ },
+ "36958b00ad1b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E.pdf",
+  "codes": [
+   "LTRN7",
+   "LTRN8"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E"
+ },
+ "b55f7f1cfe2d": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN9 - DS - Lutron Alisse Keypad Base - HW-QS-B-S1.pdf",
+  "codes": [
+   "LTRN9"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN9 - DS - Lutron Alisse Keypad Base - HW-QS-B-S1"
+ },
+ "d90b55ddb6f3": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN10 - DS - Lutron Wallbox - EBB-1-SQ.pdf",
+  "codes": [
+   "LTRN10"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN10 - DS - Lutron Wallbox - EBB-1-SQ"
+ },
+ "acd239736a04": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor - LRF2-OCR2B-P-WH.pdf",
+  "codes": [
+   "LTRN11"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN11 - DS - Lutron Radio Powr Savr Occupancy Sensor - LRF2-OCR2B-P-WH"
+ },
+ "bb03956a4b5a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN12 - DS - Lutron QS Sensor Module - QSM2-XW-C.pdf",
+  "codes": [
+   "LTRN12"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN12 - DS - Lutron QS Sensor Module - QSM2-XW-C"
+ },
+ "6bbccc0e573e": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN13 - DS - Lutron Maestro Occupancy Switch - MS-OPS2-WH.pdf",
+  "codes": [
+   "LTRN13"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN13 - DS - Lutron Maestro Occupancy Switch - MS-OPS2-WH"
+ },
+ "28edb646ddc7": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN14 - DS - Lutron Claro Wallplate - CW-1-WH.pdf",
+  "codes": [
+   "LTRN14"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN14 - DS - Lutron Claro Wallplate - CW-1-WH"
+ },
+ "4a999719b4fe": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A.pdf",
+  "codes": [
+   "LTRN15"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN15 - DS - Lutron Palladiom Thermostat - FIX-28 - MWP-T-OHW-WH-A"
+ },
+ "cfe14d05cf4a": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN16 - DS - Lutron Fan-Coil Controller - SMC55-MYRM.pdf",
+  "codes": [
+   "LTRN16"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN16 - DS - Lutron Fan-Coil Controller - SMC55-MYRM"
+ },
+ "2ff7fa42a027": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN17 - DS - Lutron Contact-Closure Interface - QSE-IO.pdf",
+  "codes": [
+   "LTRN17"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN17 - DS - Lutron Contact-Closure Interface - QSE-IO"
+ },
+ "4932626b116d": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN18 - DS - Lutron Comercial System Warranty - LSC-L2-P8LTD.pdf",
+  "codes": [
+   "LTRN18"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN18 - DS - Lutron Comercial System Warranty - LSC-L2-P8LTD"
+ },
+ "5cef11859036": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL.pdf",
+  "codes": [
+   "LTRN19",
+   "LTRN20"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL"
+ },
+ "b65c4b0786d2": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB.pdf",
+  "codes": [
+   "LTRN21"
+  ],
+  "v": "Unclear",
+  "mfr": "",
+  "title": "LTRN21 - DS - Lutron Palladiom Faceplate - LWT-U-P-SB"
+ },
+ "3acd1df65273": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN22 - DS - Lutron Nova T GFCI Receptacle - NTR-15-GFST-BL.pdf",
+  "codes": [
+   "LTRN22"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN22 - DS - Lutron Nova T GFCI Receptacle - NTR-15-GFST-BL"
+ },
+ "da5bacf67e1e": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB.pdf",
+  "codes": [
+   "LTRN23"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN23 - DS - Lutron Nova T Architectural Plate - NT-R3-NFB-SB"
+ },
+ "11392930df42": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN24 - DS - Lutron Grafik Eye Control Cable - GRX-CBL-46L-500.pdf",
+  "codes": [
+   "LTRN24"
+  ],
+  "v": "UL / NRTL",
+  "mfr": "",
+  "title": "LTRN24 - DS - Lutron Grafik Eye Control Cable - GRX-CBL-46L-500"
+ },
+ "4564ce4c4170": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100.pdf",
+  "codes": [
+   "LTRN25"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN25 - DS - Lutron Sivoia QS Roller Shade - Roller 100"
+ },
+ "29258079e317": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits - WIN-BRK.pdf",
+  "codes": [
+   "LTRN25.1"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN25.1 - DS - Lutron Sivoia QS Dual Shade Bracketry Kits - WIN-BRK"
+ },
+ "880b92441af4": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
+  "codes": [
+   "LTRN25.2",
+   "LTRN26.1"
+  ],
+  "v": "Both",
+  "mfr": "",
+  "title": "LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V"
+ },
+ "ed010524aad4": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\LTRN - Lutron Lighting\\LTRN26 - DS - Lutron Drapery Track System - D145.pdf",
+  "codes": [
+   "LTRN26"
+  ],
+  "v": "None found",
+  "mfr": "",
+  "title": "LTRN26 - DS - Lutron Drapery Track System - D145"
+ },
+ "190d78ea0b5b": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\PL - Pool Lighting\\A - Pool Light L09 (CW16005DI).pdf",
+  "codes": [
+   "A"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Pool Light L09 - L&L Bright 1.6 316L"
+ },
+ "56fa1e0c553e": {
+  "path": "C:/Users/gus/Documents/Claude Projects/JANU/04 Project Documents/03 Datasheets/GP1 Datasheets\\L - Lighting\\PL - Pool Lighting\\B - Pool Light L09.1 (CW300005WI).pdf",
+  "codes": [
+   "B"
+  ],
+  "v": "Unclear",
+  "mfr": "L&L Luce&Light",
+  "title": "Pool Light L09.1 - L&L Bright 3.0 316L"
+ }
+}
