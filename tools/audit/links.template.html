@@ -136,6 +136,15 @@ code.code{
 .ttl{font-size:14.5px; line-height:1.4}
 .ttl a{color:inherit; text-decoration:none; border-bottom:1px solid var(--line2)}
 .ttl a:hover{border-bottom-color:var(--accent); color:var(--accent)}
+.ttl a.ds{
+  display:inline-flex; align-items:center; gap:4px; margin-left:10px;
+  font:500 10.5px/1 var(--mono); letter-spacing:.06em; text-transform:uppercase;
+  color:var(--dim); border:1px solid var(--line2); border-bottom-color:var(--line2);
+  border-radius:999px; padding:4px 8px; vertical-align:2px; white-space:nowrap;
+}
+.ttl a.ds:hover{color:var(--accent); border-color:var(--accent); background:var(--accbg)}
+.ttl a.ds svg{width:10px; height:10px; fill:none; stroke:currentColor; stroke-width:2.4;
+  stroke-linecap:round; stroke-linejoin:round}
 
 .fld{display:flex; gap:8px; align-items:stretch; min-width:0}
 input.url{
@@ -307,6 +316,21 @@ footer{
         g.target = "_blank"; g.rel = "noopener noreferrer";
         g.title = "Search Google for this item";
         ttl.appendChild(g);
+        /* The submitted datasheet, next to the name. Finding the right product
+           page means knowing which product it is, and the sheet is the only
+           thing here that says so without guessing - it carries the catalogue
+           number the item was specified under. */
+        if (r.drive) {
+          var ds = el("a", "ds", "Datasheet");
+          ds.href = r.drive;
+          ds.target = "_blank"; ds.rel = "noopener noreferrer";
+          ds.title = "Open the submitted datasheet for " + r.code +
+                     (r.pages ? " (" + r.pages + (r.pages === 1 ? " page)" : " pages)") : "");
+          ds.innerHTML = "Datasheet" +
+            '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+            '<path d="M7 17L17 7M9 7h8v8"/></svg>';
+          ttl.appendChild(ds);
+        }
         row.appendChild(ttl);
 
         var fld = el("div", "fld");
