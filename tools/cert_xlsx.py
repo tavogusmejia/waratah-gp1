@@ -18,7 +18,7 @@ COLS = [
     ("Description", "title", 52),
     ("Manufacturer", "manufacturer", 18),
     ("CE", "ce", 12),
-    ("UL / NRTL", "nrtl", 34),
+    ("UL / NRTL listing", "nrtl", 34),
     ("Marks on the sheet", "marks", 52),
     ("Where the evidence is", "evidence", 40),
     ("How established", "how", 20),
@@ -100,11 +100,19 @@ ws.auto_filter.ref = "A%d:%s%d" % (HR, get_column_letter(len(COLS)), HR + len(RO
 k = wb.create_sheet("How to read it")
 notes = [
     ("Column", "What it means"),
-    ("CE", "Yes = a CE mark or an EU/UKCA declaration appears on the sheet. "
-           "Not stated = it does not, which is not the same as 'not CE marked'."),
-    ("UL / NRTL", "A Nationally Recognized Testing Laboratory listing: UL, ETL (Intertek) "
-                  "or CSA. Only a LISTING counts here. cURus = Recognized Component, "
-                  "which is valid only inside other listed equipment."),
+    ("CE", "A SIGNATURE, NOT A TEST. The manufacturer declares the product meets the "
+           "applicable EU directives and signs a Declaration of Conformity. No third party "
+           "tests it, there is no file number and there is no register to look it up in. "
+           "Yes = a CE or UKCA mark appears on the sheet. Not stated = it does not, which "
+           "is not the same as 'not CE marked'. Nothing 'lists' a CE mark."),
+    ("UL / NRTL listing", "A TEST. A Nationally Recognized Testing Laboratory tested the "
+                  "product, keeps a file on it and audits the factory - UL, ETL (Intertek) "
+                  "or CSA - and it comes with a file number you can look up. Only a LISTING "
+                  "counts here. cURus = Recognized Component, valid only inside other "
+                  "listed equipment, not as a standalone device."),
+    ("Why they are separate columns",
+     "Neither substitutes for the other, and a CE mark is not a weaker grade of a UL "
+     "listing - it is a different kind of claim, made by a different party."),
     ("Green", "Both a CE/EU mark and an NRTL listing are stated."),
     ("Amber", "One of the two is stated."),
     ("Red", "Neither is stated, or a listing is marked pending."),
