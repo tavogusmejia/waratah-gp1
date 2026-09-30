@@ -175,6 +175,16 @@ td.type{color:var(--ink3); font-size:12.5px; white-space:nowrap}
 .v-bad{--vb:var(--bad-bg); --vi:var(--bad-ink); --vd:var(--bad-dot)}
 .v-na{--vb:var(--na-bg); --vi:var(--na-ink); --vd:var(--na-dot)}
 td.nrtl{color:var(--ink2); line-height:1.4; min-width:170px}
+td.pdf{white-space:nowrap; width:1%}
+td.pdf a{
+  display:inline-flex; align-items:center; gap:4px;
+  font:500 11px/1 var(--sans); letter-spacing:.05em; text-transform:uppercase;
+  color:var(--ink2); text-decoration:none;
+  padding:5px 8px; border:1px solid var(--line); border-radius:999px;
+}
+td.pdf a:hover{color:var(--red); border-color:var(--red); background:var(--red-wash)}
+td.pdf svg{width:11px; height:11px; fill:none; stroke:currentColor; stroke-width:2.2;
+  stroke-linecap:round; stroke-linejoin:round}
 
 tr.detail td{background:var(--sunk); padding:0; border-bottom:1px solid var(--line)}
 .det{padding:14px 16px 16px; display:grid; gap:12px}
@@ -242,7 +252,7 @@ it was established.</p>
   <table>
     <thead><tr>
       <th>Item</th><th>Type</th><th>Product</th><th>Manufacturer</th>
-      <th>CE / EU</th><th>UL / NRTL</th>
+      <th>CE / EU</th><th>UL / NRTL</th><th>Sheet</th>
     </tr></thead>
     <tbody id="rows"></tbody>
   </table>
@@ -364,15 +374,19 @@ it was established.</p>
         '<td class="maker">' + esc(r.manufacturer) + "</td>" +
         "<td>" + chip(r.ce === "Yes" ? "CE" : r.ce === "n/a" ? "n/a" : "Not stated",
                       r.ce === "Yes" ? "ok" : r.ce === "n/a" ? "na" : "bad") + "</td>" +
-        '<td class="nrtl">' + esc(r.nrtl) + "</td></tr>" +
-        '<tr class="detail" hidden><td colspan="6"><div class="det">' +
+        '<td class="nrtl">' + esc(r.nrtl) + "</td>" +
+        '<td class="pdf">' + (r.drive_url
+          ? '<a href="' + esc(r.drive_url) + '" target="_blank" rel="noopener noreferrer" ' +
+            'title="Open the submitted datasheet for ' + esc(r.code) + '">PDF' +
+            '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>' +
+            "</a>"
+          : "") + "</td></tr>" +
+        '<tr class="detail" hidden><td colspan="7"><div class="det">' +
           "<dl>" +
           "<dt>Marks on the sheet</dt><dd>" + esc(r.marks) + "</dd>" +
           "<dt>Where it sits</dt><dd>" + esc(r.evidence) + "</dd>" +
           "<dt>How established</dt><dd>" + esc(r.how) + "</dd>" +
           "<dt>Group</dt><dd>" + esc(r.group) + " &middot; " + esc(r.group_name) + "</dd>" +
-          (r.drive_url ? '<dt>Datasheet</dt><dd><a href="' + esc(r.drive_url) +
-            '" target="_blank" rel="noopener noreferrer">Open the submitted PDF</a></dd>' : "") +
           "</dl>" +
           (r.note ? '<p class="note">' + esc(r.note) + "</p>" : "") +
         "</div></td></tr>";
@@ -381,6 +395,9 @@ it was established.</p>
   }
 
   tb.addEventListener("click", function (e) {
+    /* The row toggles on click and now holds a link. Without this, opening a
+       datasheet also expands the row behind it. */
+    if (e.target.closest("td.pdf a")) return;
     var tr = e.target.closest("tr.r");
     if (!tr) return;
     var d = tr.nextElementSibling;
