@@ -957,3 +957,11 @@ a { color: inherit; }
 .wf-pic { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
 .wf-pic.busy { opacity: .5; pointer-events: none; }
 .wf-pic .wf-upbtn { padding: 10px 14px; }
+
+/* Invoice access, beside the role rather than on it. */
+.wf-money { flex: none; display: flex; align-items: center; cursor: pointer; }
+.wf-money input { margin: 0; }
+.wf-money span { font-size: 13px; color: var(--ink-3); margin-left: 4px; }
+.wf-money input:checked + span { color: var(--ink); font-weight: 500; }
+.wf-money input:disabled { cursor: default; }
+.wf-money:has(input:disabled) { opacity: .45; cursor: default; }

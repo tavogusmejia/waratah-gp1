@@ -201,8 +201,41 @@ def main():
         st, b = call("GET", "/rest/v1/item_status_log?select=status&item_key=eq." + ITEM, tok)
         ok("the change logged itself", st == 200 and isinstance(b, list) and len(b) >= 1,
            "%s %s" % (st, b))
+        # Invoices no longer follow the rung. An admin is an admin and sees
+        # no prices until somebody ticks the flag - which is the whole point
+        # of separating them, so it is worth asserting in both directions.
         st, b = call("GET", "/rest/v1/item_invoice?select=id&limit=1", tok)
-        ok("reads invoices", st == 200, "%s %s" % (st, b))
+        ok("an admin does NOT see invoices", st == 200 and b == [], "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/rpc/is_commercial", tok, {})
+        ok("and is not commercial", b is False, "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_invoice", tok,
+                     {"item_key": ITEM, "drive_url": "https://example.com/i.pdf"})
+        ok("nor may add one", st in (401, 403), "%s %s" % (st, b))
+        st, b = call("PATCH", "/rest/v1/register_user?email=eq." + neutral, tok,
+                     {"commercial": True}, prefer="return=representation")
+        ok("an admin cannot grant themselves commercial access",
+           st in (401, 403) or b == [] or "super admin" in str(b), "%s %s" % (st, b))
+
+        # With the flag, granted the only way it can be.
+        admin("PATCH", "/rest/v1/register_user?email=eq." + neutral,
+              body={"commercial": True})
+        tok = sign_in(neutral, pw)
+        # Seed one as the server, so "can read" means a row comes back. A
+        # SELECT under row-level security answers 200 with an EMPTY LIST when
+        # it is refused, and asserting on the status alone reads that as
+        # access - which is exactly how the guard bug got a passing test.
+        admin("POST", "/rest/v1/item_invoice",
+              body={"item_key": ITEM, "drive_url": "https://example.com/seed.pdf",
+                    "by_email": "system"})
+        st, b = call("GET", "/rest/v1/item_invoice?select=id&item_key=eq." + ITEM, tok)
+        ok("with commercial access, invoices open",
+           st == 200 and isinstance(b, list) and len(b) >= 1, "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/rpc/is_commercial", tok, {})
+        ok("is_commercial agrees", b is True, "%s %s" % (st, b))
+        st, b = call("POST", "/rest/v1/item_invoice", tok,
+                     {"item_key": ITEM, "drive_url": "https://example.com/i.pdf"},
+                     prefer="return=representation")
+        ok("and can be added", st in (200, 201), "%s %s" % (st, b))
         st, b = call("POST", "/rest/v1/item_picture", tok,
                      {"item_key": ITEM, "storage_path": "x/y.png",
                       "url": "https://example.com/y.png"},

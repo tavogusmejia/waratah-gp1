@@ -34,9 +34,12 @@ var CASES = [
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
                            addNote:true, invoices:false, prompt:false, pic:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
+                       addNote:true, invoices:false, prompt:false, pic:true}},
+  /* Same role, plus the flag: the only difference is the invoices. */
+  {role:"admin", money:1, want:{auth:"me", pills:true, status:"edit", notes:true,
                        addNote:true, invoices:true, prompt:false, pic:true}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                             addNote:true, invoices:true, prompt:false, pic:true}}
+                             addNote:true, invoices:false, prompt:false, pic:true}}
 ];
 
 var out = document.getElementById("o"), fails = 0, done = 0;
@@ -83,7 +86,7 @@ function check(c, d, w) {
       !!d.querySelector(".auth-warn") || !!d.querySelector(".auth-menu"));
   }
 
-  var h = "<h2>" + c.role + "</h2>";
+  var h = "<h2>" + c.role + (c.money ? " + commercial" : "") + "</h2>";
   for (var i = 0; i < r.length; i++) {
     h += '<div class="' + (r[i][1] ? "pass" : "fail") + '">' +
          (r[i][1] ? "PASS " : "FAIL ") + r[i][0] + "</div>";
@@ -98,7 +101,8 @@ function check(c, d, w) {
 
 CASES.forEach(function (c) {
   var f = document.createElement("iframe");
-  f.src = "./__probe_workflow.html?role=" + c.role + "&open=1";
+  f.src = "./__probe_workflow.html?role=" + c.role + "&open=1" +
+          (c.money ? "&money=1" : "");
   f.addEventListener("load", function () {
     var d = f.contentDocument, n = 0;
     var tick = setInterval(function () {

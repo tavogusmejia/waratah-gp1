@@ -38,6 +38,11 @@ STUB = r"""
   var ROLE = Q.get("role") || "admin";
   var OUT_ = ROLE === "out";
   var EMAIL = "gus@example.com";
+  /* Invoices hang off a flag beside the role, so the harness drives the two
+     independently: ?money=1 grants it to whatever role is in play. Declared
+     HERE, above DB, because DB reads it - `var` hoists the name and not the
+     value, so below it every seeded row got `undefined`. */
+  var MONEY = /[?&]money=1/.test(location.search);
 
   var DB = {
     item_status_public: [
@@ -52,6 +57,7 @@ STUB = r"""
     item_picture: [],
     register_user: [
       {email:EMAIL, role:ROLE === "none" ? null : ROLE, name:"Gus", note:"Project lead",
+       commercial:MONEY,
        last_seen_at:"2026-09-28T08:00:00Z"},
       {email:"lighting@example.com", role:"commenter", name:"Dana Ruiz",
        note:"Lighting designer", last_seen_at:null},
@@ -113,7 +119,7 @@ STUB = r"""
       var n = out.length;
       out = out.slice(lo, hi + 1);
       /* Reads that RLS would refuse come back as errors, not throws. */
-      if (table === "item_invoice" && !may("admin")) return {data:null, error:DENIED};
+      if (table === "item_invoice" && !MONEY) return {data:null, error:DENIED};
       if (table === "item_note" && !may("viewer")) return {data:null, error:DENIED};
       /* item_note_public is deliberately NOT gated: anyone may read it. */
       if (table === "register_domain" && !may("admin")) return {data:null, error:DENIED};
@@ -136,8 +142,12 @@ STUB = r"""
         return b;
       },
       insert: function (row) {
-        var need = table === "item_note" ? "commenter" : "admin";
-        if (!may(need)) return thenable({data:null, error:DENIED});
+        if (table === "item_invoice") {
+          if (!MONEY) return thenable({data:null, error:DENIED});
+        } else {
+          var need = table === "item_note" ? "commenter" : "admin";
+          if (!may(need)) return thenable({data:null, error:DENIED});
+        }
         row.id = "new-" + Date.now();
         row.at = new Date().toISOString();
         row.by_email = EMAIL;

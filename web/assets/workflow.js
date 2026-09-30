@@ -40,6 +40,10 @@
   var sb = null;         /* the client, once the library is in */
   var me = null;         /* {email} once signed in */
   var role = null;       /* 'viewer' | 'commenter' | 'admin' | 'super_admin' */
+  /* Beside the role, not on it. Invoices are not a rung on the ladder - they
+     are a different kind of access, and somebody can be an admin who never
+     sees a price or a commenter who handles every one of them. */
+  var commercial = false;
   var approval = {};     /* item_key -> row, mirrored into the register */
 
   /* Must stay in step with the gp1.role enum, weakest first. */
@@ -57,6 +61,7 @@
   };
 
   function can(r) { return !!role && ROLES.indexOf(role) >= ROLES.indexOf(r); }
+  function canMoney() { return commercial; }
 
   /* Every panel carries one. Cancel and Save are the considered ways out;
      this is the one for changing your mind, and it has to be somewhere the
@@ -136,12 +141,14 @@
     /* Your own row is always readable, whatever your role - that is what
        makes "why can I not edit this" answerable. No row means no rights,
        which is the default for anyone who has merely signed in. */
-    var r = await sb.from("register_user").select("role").eq("email", me.email);
+    var r = await sb.from("register_user").select("role, commercial")
+                    .eq("email", me.email);
     if (r.error) {
       if (window.console) console.warn("GP1 role:", fail(r.error));
       return;
     }
     role = r.data && r.data.length ? r.data[0].role : null;
+    commercial = !!(r.data && r.data.length && r.data[0].commercial);
     if (role) sb.rpc("touch_me").then(function () {}, function () {});
   }
 
@@ -453,7 +460,7 @@
        the composer inside it is gated. */
     wf.appendChild(notesBlock(it, mine));
     if (can("admin")) wf.appendChild(pictureBlock(it, mine));
-    if (can("admin")) wf.appendChild(invoiceBlock(it, mine));
+    if (canMoney()) wf.appendChild(invoiceBlock(it, mine));
     if (!can("commenter")) {
       /* Deliberately says nothing about invoices. Their existence is not
          something to advertise to a reader who cannot open them and may not
@@ -795,7 +802,7 @@
 
      Several files at once, because invoices arrive in batches. */
   function invoiceBlock(it, mine) {
-    var sec = section("Invoices", ' <em>admin only</em>');
+    var sec = section("Invoices", ' <em>commercial access only</em>');
     var list = document.createElement("ul");
     list.className = "wf-inv";
     list.innerHTML = '<li class="wf-wait">Loading…</li>';
@@ -1039,6 +1046,9 @@
       '<div class="modal-in wide" role="dialog" aria-modal="true" aria-label="People">' +
         MODAL_X + "<h3>People</h3>" +
         '<p class="wf-counts">Loading…</p>' +
+        '<p class="wf-hint">The ¤ column is invoices, and it is separate '
+        + 'from the role: an admin does not see prices unless it is ticked, '
+        + 'and only a super admin can tick it.</p>' +
 
         (can("super_admin")
           ? '<details class="wf-fold"><summary>Domain rules</summary>' +
@@ -1202,6 +1212,12 @@
             '<span class="wf-p-s">' + (u.blocked ? "blocked"
               : u.last_seen_at ? "seen " + esc(when(u.last_seen_at))
               : "never signed in") + "</span>" +
+          /* Only a super admin may move this - the database refuses it from
+             anyone else, so offering the control would be a lie. */
+          '<label class="wf-money" title="May see, add and remove invoices">' +
+            '<input type="checkbox" data-money="' + esc(u.email) + '"' +
+            (u.commercial ? " checked" : "") +
+            (can("super_admin") ? "" : " disabled") + "><span>¤</span></label>" +
             '<select data-role="' + esc(u.email) + '"' + (mayEdit ? "" : " disabled") +
               ">" + opts + "</select>" +
             (mayEdit
@@ -1250,6 +1266,21 @@
     list.addEventListener("change", async function (e) {
       var p = e.target.closest("[data-pick]");
       if (p) { sel[p.dataset.pick] = p.checked; showBulk(); return; }
+      var m = e.target.closest("[data-money]");
+      if (m) {
+        say("Saving…");
+        var rm = await sb.from("register_user").update({ commercial: m.checked })
+                         .eq("email", m.dataset.money).select("email, commercial");
+        if (rm.error) { say(fail(rm.error), true); m.checked = !m.checked; return; }
+        if (!rm.data || !rm.data.length) {
+          say("That change was refused. Nothing was saved.", true);
+          m.checked = !m.checked;
+          return;
+        }
+        say(who(m.dataset.money) + (rm.data[0].commercial
+          ? " can now see invoices." : " can no longer see invoices."));
+        return;
+      }
       var s = e.target.closest("[data-role]");
       if (!s) return;
       say("Saving…");
