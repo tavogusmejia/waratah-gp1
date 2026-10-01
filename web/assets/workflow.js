@@ -35,7 +35,11 @@
   if (!window.GP1) return;
 
   var CFG = window.GP1_CONFIG || {};
-  var LIB = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js";
+  /* PINNED, not @2. A floating major means every page load fetches whatever
+     jsDelivr calls 2 today, so a breaking release would reach the register
+     with no commit, no deploy and nothing to roll back to. Raise this
+     deliberately, having read what changed. */
+  var LIB = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js";
 
   var sb = null;         /* the client, once the library is in */
   var me = null;         /* {email} once signed in */

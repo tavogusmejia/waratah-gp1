@@ -49,7 +49,11 @@ CONCEPT = ("Issued for concept and appearance approval only, on 11 September "
 # the honest thing to put there is that fact - which also makes the gap
 # visible in the register's manufacturer filter, where somebody has to close
 # it before any of them can be ordered.
-UNKNOWN = "Not stated"
+# An empty manufacturer, not the words "Not stated". The register's Maker
+# facet already renders an absent maker as "None recorded" and groups them
+# together; a literal string makes it offer "Not stated" as though it were a
+# brand, in the list beside Pentair and iGuzzini.
+UNKNOWN = ""
 
 ITEMS = [
  dict(code="MH1", img="m-mh1", maker="Fortis",

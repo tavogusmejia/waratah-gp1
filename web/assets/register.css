@@ -567,8 +567,18 @@ a { color: inherit; }
   transform: translateX(100%); transition: transform .26s cubic-bezier(.2, .7, .3, 1);
 }
 .sheet.on { transform: none; }
+/* Everything, not just the sheet. The rule named two elements while the page
+   also fades the splash, slides the facet popovers and eases the cards - all
+   of which somebody who asked for less motion asked not to see. Scoped with
+   !important because several of those transitions are set on more specific
+   selectors further down. */
 @media (prefers-reduced-motion: reduce) {
-  .sheet, .scrim { transition: none; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 @media (max-width: 560px) {
   .sheet { top: auto; height: 92vh; width: 100vw; border-left: 0; border-top: 1px solid var(--line);
@@ -637,6 +647,14 @@ a { color: inherit; }
 .specs td { color: var(--ink); }
 
 .sheet-note { margin: 16px 0 0; font-size: 13.5px; color: var(--ink-2); }
+/* What the curated sheet itself declares, as distinct from what the team has
+   since decided. Quiet, because the live status is the one that governs. */
+.sheet-said {
+  margin: 14px 0 0; padding: 9px 12px; border-radius: var(--r);
+  background: var(--slate-wash); font-size: 12.5px; color: var(--ink-2);
+  line-height: 1.5;
+}
+.sheet-said b { color: var(--ink); font-weight: 500; }
 .sheet-meta { margin: 18px 0 0; font-size: 12px; color: var(--ink-3); display: grid; gap: 4px; }
 
 .sheet-f { padding: 14px 20px; border-top: 1px solid var(--line); background: var(--bg); }

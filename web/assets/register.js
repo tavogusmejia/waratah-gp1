@@ -369,7 +369,11 @@
     if (!src) {
       return '<span class="thumb none">' + esc(it.code) + "</span>";
     }
-    return '<span class="thumb"><img src="' + esc(src) + '" alt="" ' +
+    /* Not alt="". It is a photograph of the specified product, which is
+       information, and the card around it is a button whose only other label
+       is the code and the title. */
+    return '<span class="thumb"><img src="' + esc(src) + '" alt="' +
+           esc(it.title) + '" ' +
            'loading="lazy" decoding="async"></span>';
   }
 
@@ -606,6 +610,16 @@
                 "curated summary in front of it, so there is nothing to tabulate. " +
                 "Open the datasheet.</p>") +
         (it.notes ? '<p class="sheet-note">' + esc(it.notes) + "</p>" : "") +
+        /* The submittal banner printed on the curated sheet itself. It is a
+           different fact from the live submittal status - this is what the
+           sheet SAYS it is, that is what the team has since decided - so it is
+           labelled and sits apart from the status block below. It was set on
+           19 items and read by nothing, which is how a field starts to drift
+           and then misleads somebody. */
+        (it.status_text
+          ? '<p class="sheet-said"><b>On the datasheet:</b> ' +
+            esc(it.status_text) + "</p>"
+          : "") +
         '<div class="sheet-meta">' +
           (it.category ? "<span>" + esc(it.category) + "</span>" : "") +
           (it.submittal ? "<span>Submittal " + esc(it.submittal) + "</span>" : "") +
@@ -876,7 +890,7 @@
 
     /* item_key -> {status, status_note, ...}. The guard matters: this can
        arrive before the catalogue has finished loading, and rendering 0 of
-       139 items would flash "nothing matches that" over a working page. */
+       147 items would flash "nothing matches that" over a working page. */
     setApproval: function (map) {
       state.approval = map || {};
       if (state.items.length) render();
@@ -910,6 +924,11 @@
 
   function boot(data) {
     state.items = data.items;
+    /* The footer said 45 for as long as the register held 45, and then for
+       102 items after that. A number written by hand is a number that goes
+       stale, so it is read from the catalogue now. */
+    var fn = document.getElementById("foot-n");
+    if (fn) fn.textContent = data.items.length;
     state.groups = data.groups;
 
     /* A key that names two items cannot carry one item's approval. P9 is the

@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Seventy Improvements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F5F7FA; --surf:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#1C2530; --ink2:#5A6675; --ink3:#8A97AA;
+  --line:#E3E7ED; --line2:#EDF0F4;
+  --red:#DB3837; --red-wash:rgba(219,56,55,.07); --red-line:rgba(219,56,55,.30);
+  --ok-bg:#E9F5EE; --ok-ink:#1F6B44; --ok-dot:#2E9E63;
+  --warn-bg:#FCF1E2; --warn-ink:#8A5510;
+  --sans:"Public Sans",system-ui,-apple-system,Segoe UI,sans-serif;
+  --disp:"Archivo",var(--sans);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:8px;
+  --shadow:0 1px 2px rgba(28,37,48,.05), 0 8px 24px -14px rgba(28,37,48,.22);
+  color-scheme:light; accent-color:#DB3837;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --bg:#11151C; --surf:#171D26; --sunk:#0C1015;
+  --ink:#E8ECF2; --ink2:#A7B3C5; --ink3:#6E7C91;
+  --line:#242C38; --line2:#1C232D;
+  --red:#EE5952; --red-wash:rgba(238,89,82,.12); --red-line:rgba(238,89,82,.38);
+  --ok-bg:#14271D; --ok-ink:#74CE9C; --ok-dot:#3FAF72;
+  --warn-bg:#2A1F10; --warn-ink:#E4B160;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+  color-scheme:dark; accent-color:#EE5952;
+}}
+:root[data-theme="dark"]{
+  --bg:#11151C; --surf:#171D26; --sunk:#0C1015;
+  --ink:#E8ECF2; --ink2:#A7B3C5; --ink3:#6E7C91;
+  --line:#242C38; --line2:#1C232D;
+  --red:#EE5952; --red-wash:rgba(238,89,82,.12); --red-line:rgba(238,89,82,.38);
+  --ok-bg:#14271D; --ok-ink:#74CE9C; --ok-dot:#3FAF72;
+  --warn-bg:#2A1F10; --warn-ink:#E4B160;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+  color-scheme:dark; accent-color:#EE5952;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font:400 15px/1.55 var(--sans);
+  padding-block:0 80px; padding-left:16px; padding-right:16px;
+}
+.wrap{max-width:980px; margin:0 auto}
+
+header.top{padding-block:40px 0}
+.eyebrow{
+  font:500 11px/1 var(--mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--red); margin:0 0 14px;
+}
+h1{
+  margin:0; font-family:var(--disp); font-weight:700;
+  font-size:clamp(30px,4.6vw,46px); letter-spacing:-.025em; line-height:1.05;
+  text-wrap:balance;
+}
+.lede{margin:14px 0 0; max-width:66ch; color:var(--ink2); font-size:16px}
+.lede b{color:var(--ink); font-weight:600}
+
+.bar{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  margin:24px 0 0; padding:12px; background:var(--surf);
+  border:1px solid var(--line); border-radius:var(--r);
+  position:sticky; top:0; z-index:5; box-shadow:var(--shadow);
+}
+.btn{
+  padding:8px 14px; border-radius:6px; font:inherit; font-size:13.5px; cursor:pointer;
+  border:1px solid var(--line); background:var(--bg); color:var(--ink);
+}
+.btn:hover{border-color:var(--ink3)}
+.btn.prime{background:var(--ink); color:var(--surf); border-color:var(--ink)}
+.btn.prime:hover{opacity:.9}
+.btn:disabled{opacity:.45; cursor:default}
+.tally{
+  margin-left:auto; font:500 13px/1 var(--mono); color:var(--ink2);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
+.tally b{color:var(--red); font-size:15px}
+.msg{flex:1 0 100%; margin:0; font-size:12.5px; color:var(--ink3)}
+.msg:empty{display:none}
+.msg.bad{color:var(--red)}
+:focus-visible{outline:2px solid var(--red); outline-offset:2px}
+
+h2{
+  font-family:var(--disp); font-weight:600; letter-spacing:-.015em;
+  font-size:19px; margin:40px 0 2px; display:flex; align-items:baseline; gap:10px;
+}
+h2 span{font:500 11px/1 var(--mono); color:var(--ink3); letter-spacing:.06em}
+.sect-why{margin:0 0 14px; color:var(--ink2); font-size:13.5px; max-width:70ch}
+
+ul.list{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+li.it{
+  background:var(--surf); border:1px solid var(--line); border-radius:var(--r);
+  display:grid; grid-template-columns:auto 34px minmax(0,1fr); gap:4px 12px;
+  padding:13px 15px; align-items:start; cursor:pointer;
+}
+li.it:hover{border-color:var(--ink3)}
+li.it.on{background:var(--red-wash); border-color:var(--red-line)}
+li.it input{margin:3px 0 0; width:16px; height:16px; flex:none; cursor:pointer}
+li.it .n{
+  font:500 12px/1.5 var(--mono); color:var(--ink3); font-variant-numeric:tabular-nums;
+}
+li.it.on .n{color:var(--red)}
+li.it .t{font-size:14.5px; font-weight:500; line-height:1.4; grid-column:3}
+li.it .d{
+  grid-column:3; font-size:13px; color:var(--ink2); line-height:1.5; margin-top:3px;
+  max-width:74ch;
+}
+li.it .d code{
+  font:500 11.5px/1 var(--mono); background:var(--sunk); padding:2px 5px;
+  border-radius:4px; color:var(--ink);
+}
+.tags{grid-column:3; display:flex; gap:6px; flex-wrap:wrap; margin-top:8px}
+.tag{
+  font:500 10px/1 var(--sans); letter-spacing:.05em; text-transform:uppercase;
+  padding:4px 7px; border-radius:999px; background:var(--sunk); color:var(--ink3);
+}
+.tag.s{background:var(--ok-bg); color:var(--ok-ink)}
+.tag.m{background:var(--sunk); color:var(--ink2)}
+.tag.l{background:var(--warn-bg); color:var(--warn-ink)}
+.tag.ask{background:var(--red-wash); color:var(--red)}
+
+footer{
+  margin-top:48px; padding-top:18px; border-top:1px solid var(--line);
+  color:var(--ink3); font-size:12.5px; max-width:74ch; line-height:1.6;
+}
+.toast{
+  position:fixed; left:50%; bottom:22px; transform:translateX(-50%);
+  background:var(--ink); color:var(--surf); padding:9px 16px; border-radius:6px;
+  font:500 13px/1 var(--mono); opacity:0; pointer-events:none; transition:opacity .18s;
+  max-width:calc(100vw - 32px); z-index:20;
+}
+.toast.on{opacity:1}
+@media (max-width:560px){
+  li.it{grid-template-columns:auto minmax(0,1fr)}
+  li.it .n{grid-column:2; margin-bottom:-2px}
+  li.it .t, li.it .d, .tags{grid-column:2}
+  .bar{position:static}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="eyebrow">GP1-MUR &middot; 1 Oct 2026</p>
+  <h1>Seventy things I can do without asking</h1>
+  <p class="lede">Every one of these needs <b>no decision from you</b> &mdash; I can start and
+  finish it, and show you the result. They came out of the register as it stands today, not
+  from a list of good ideas: the counts below are real, and where something is already wrong
+  I have said which file and which line.</p>
+  <p class="lede" style="margin-top:10px"><b>Tick the ones you want</b> and press Save. I read
+  the ticks straight off this page &mdash; nothing to paste back.</p>
+
+  <div class="bar">
+    <button class="btn prime" type="button" id="save">Save my picks</button>
+    <button class="btn" type="button" id="copy">Copy the selected</button>
+    <button class="btn" type="button" id="none">Clear</button>
+    <button class="btn" type="button" id="quick">Tick every quick one</button>
+    <span class="tally" id="tally"><b>0</b> of 70</span>
+    <p class="msg" id="msg" role="status"></p>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer>
+  <p><b>Effort is my time, not yours.</b> <span class="tag s">quick</span> is under an hour,
+  <span class="tag m">a session</span> is a few hours, <span class="tag l">a project</span> is
+  a day or more. <span class="tag ask">one word</span> marks the three that are automatic
+  right up to a last step that is yours &mdash; a repository name, a Vercel setting, a
+  credential &mdash; and I will stop and ask rather than guess.</p>
+  <p style="margin-top:10px">Nothing here changes anything on its own. Ticking is a shopping
+  list, not an instruction.</p>
+</footer>
+
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* id, title, detail, effort, needsYou */
+  var SECTIONS = [
+    ["Data the register already gets wrong",
+     "Found by counting what is actually in datasheets.json today. These are not opinions.", [
+      [1, "The footer says 45 datasheets. There are 147.",
+       "Twice: <code>index.html:9</code> in the meta description, which is what a link preview shows, and <code>index.html:277</code> in the footer. It has said 45 since the register held 45.", "s"],
+      [2, "A comment in register.js still says 139 items.",
+       "<code>register.js:879</code>. Harmless, but it is the comment explaining a guard that exists because the count matters.", "s"],
+      [3, "45 items show “no curated summary” because they have no specs.",
+       "DH18, C2–C6, H1–H8, P-series and others carry <code>curated: false</code> and an empty specs array, so the sheet shows a paragraph of apology instead of a table. I can read each manufacturer sheet and build the summary.", "l"],
+      [4, "Four items have no picture at all.",
+       "DH18, iGL6, LTRN9 and LTRN21 fall back to a code tile. Each has a sheet with an image in it.", "m"],
+      [5, "<code>status_text</code> is set on 19 items and read by nothing.",
+       "It holds the build-time submittal banner. Either put it on the sheet or take it out, but a field nobody reads will drift and then mislead somebody.", "s"],
+      [6, "“Not stated” is stored as a manufacturer name.",
+       "On the manhole items. It makes the Maker facet offer it as though it were a brand, next to Pentair and iGuzzini. It should be empty, which the facet already handles.", "s"],
+      [7, "138 of 147 items have no category.",
+       "Nine have one. Either fill them from the group and title or drop the field; half a field is worse than none.", "m"],
+      [8, "118 items have no submittal number.",
+       "The real numbers are in <code>06 Submittals</code>, which I have already read once to import the statuses.", "m"],
+      [9, "DH18 has no proper item code.",
+       "The Reflect door jamb weatherstrip entered the register as “DHx” and still has no number on the drawings.", "s"],
+      [10, "Three groups of items point at byte-identical PDFs.",
+       "Same SHA, different items. Either they are genuinely the same product and should say so, or two items are sharing one sheet by mistake.", "s"],
+      [11, "iGL6 has no manufacturer sheet behind it.",
+       "The PDF is one page — our own summary and nothing else. Every other iGuzzini item has the real sheet attached.", "m"],
+      [12, "Nothing has ever run the orphan check.",
+       "<code>gp1.orphan_item_state()</code> exists to list notes, statuses, pictures and links left behind by a renamed item. It has never been called.", "s"]
+     ]],
+
+    ["Finishing the certification review",
+     "The CE/UL pass covered the 76 lighting items and left clear threads.", [
+      [13, "Re-check the five luminaires that state nothing.",
+       "LUM10, LUM11, LUM11.1, LUM13 and iGL6. Their makers' current sites may carry a declaration the submitted sheet does not.", "m"],
+      [14, "Chase the LedFlex UL claim.",
+       "Five strips print a bare UL logo with no listing wording and no file number, next to CE and RoHS. Compare L&amp;L12, which prints <code>E495946</code>.", "m"],
+      [15, "Re-check L&amp;L12.1, whose UL was marked pending.",
+       "Its own sheet said “UL (pending) / cUL (pending)”. Pending has a date on it; this one is from 2024.", "s"],
+      [16, "Extend the scan to the other 71 items.",
+       "Pool, plumbing, electrical, doors and site were never checked. Same two rules: a standard is not a listing, and the marks are pictures.", "l"],
+      [17, "Cross-check every driver's IP rating against the fixture it serves.",
+       "LUM6.1 and LUM9.1 are IP20 drivers on IP65 and IP67 fixtures. That is normal if they sit indoors and a problem if they do not — and nothing in the register says which.", "m"],
+      [18, "Verify the quoted NRTL file numbers against UL's public database.",
+       "<code>E495946</code> is the only one quoted. A file number that does not resolve is worse than no file number.", "s"],
+      [19, "Put the certification verdict on the register itself.",
+       "As a flag beside Discontinued, with the same Flags facet. The review is a snapshot in a spreadsheet; this would make it something the register knows.", "m"],
+      [20, "A submittal-ready certification summary per group.",
+       "One page per submittal package, listing what each item carries, for sending to the consultant.", "m"]
+     ]],
+
+    ["Keeping the catalogue current",
+     "Everything in the register is a claim about a product that may have moved.", [
+      [21, "Fetch every manufacturer link and report what comes back.",
+       "404s, redirects, and the “product archive” pages that caught the LedFlex profiles. 113 links to check.", "m"],
+      [22, "Re-verify all the Drive links by page title, not status code.",
+       "Drive answers 200 with a request-access wall, so a status check proves nothing. This was done once in September.", "m"],
+      [23, "Hunt for more discontinued products using the LedFlex pattern.",
+       "A maker with an archive section and a 404 on the product page. That is how the Pro 0209 was caught.", "m"],
+      [24, "Check each maker's site for a newer revision of the sheet we hold.",
+       "Several of ours are marked “RECEIVED 26-07-24”. Fifteen months is long enough for a revision.", "l"],
+      [25, "Record each datasheet's issue or revision date.",
+       "Most sheets print one. The register does not hold it, so there is no way to ask which of these is oldest.", "m"],
+      [26, "Flag items whose catalogue number no longer appears on the maker's site.",
+       "The earliest warning that something has changed, and the one the Pro 0209 would have tripped a year ago.", "m"],
+      [27, "Snapshot every manufacturer page to the Internet Archive.",
+       "So the link still shows what was specified after the maker redesigns. Free, and it is the only thing that survives a product being withdrawn.", "s"],
+      [28, "Report links that point at a range page rather than the product.",
+       "Several of the ones saved this week do — <code>/eco-flex/?ECO+FLEX+240</code> is a family, not an item. Sometimes right, worth knowing either way.", "s"]
+     ]],
+
+    ["The register itself",
+     "Things the people using it will notice.", [
+      [29, "Deep links: <code>#LUM3</code> opens that item.",
+       "So a link in an email lands on the thing being discussed instead of the top of the register.", "s"],
+      [30, "Remember the last filter and view.",
+       "Come back to the register and it is where you left it.", "s"],
+      [31, "Keyboard: <code>/</code> to search, j and k to move, Enter to open.",
+       "For the person going through fifty items in a sitting.", "m"],
+      [32, "A print stylesheet.",
+       "So a group prints as a clean schedule instead of a screenshot of a web page.", "m"],
+      [33, "Export what is on screen as CSV or Excel.",
+       "The certification page already does this; the register cannot.", "m"],
+      [34, "A “copy this item” button.",
+       "Code, title, maker and specs as text, for pasting into an email to a supplier.", "s"],
+      [35, "Jump-to-group navigation.",
+       "Fifteen groups and no way to get to Manholes without scrolling past Lighting's 74 items.", "s"],
+      [36, "Compare two or three items side by side.",
+       "The register has five LED strips that differ by one number each.", "l"],
+      [37, "Say what is outstanding on the landing page.",
+       "How many lack a picture, a link, a status, a certification. The work is visible on four separate pages and nowhere together.", "m"],
+      [38, "A “recently changed” strip.",
+       "What moved in the last week, from the data already stamped with who and when.", "m"],
+      [39, "Per-group progress.",
+       "Pool is complete; Lighting is not. Nothing says so.", "m"],
+      [40, "A real empty state when a filter matches nothing.",
+       "Naming which filter to drop, rather than “nothing matches that”.", "s"]
+     ]],
+
+    ["Accessibility",
+     "The register is read by consultants and contractors on whatever they have.", [
+      [41, "Trap focus in the sheet and the modals, and return it on close.",
+       "Tab currently walks out of the open sheet into the page behind it.", "m"],
+      [42, "Announce filter results to screen readers.",
+       "The count changes silently; an <code>aria-live</code> region would say “23 items”.", "s"],
+      [43, "Audit contrast across both themes.",
+       "The status chips especially — they were tuned by eye, not measured.", "m"],
+      [44, "Make the facet popovers fully keyboard-operable.",
+       "They open on click and close on outside-click; arrow keys and Home/End do nothing.", "m"],
+      [45, "Give informative images a real alt.",
+       "Card thumbnails are <code>alt=\"\"</code>, which is right for decoration and wrong for a photograph of the specified product.", "s"],
+      [46, "Honour <code>prefers-reduced-motion</code> everywhere.",
+       "The sheet slide and the splash still animate for somebody who asked them not to.", "s"]
+     ]],
+
+    ["Weight and speed",
+     "Measured, not guessed.", [
+      [47, "The .git directory is 97 MB.",
+       "Every revision of every PDF is in history. A clean-repo swap drops it to a few megabytes and makes a clone fast again.", "l", 1],
+      [48, "Serve images at the size they are displayed.",
+       "143 images, 2.8 MB, all served full size into a 288px tile. <code>srcset</code> would cut what a phone downloads by most of that.", "m"],
+      [49, "Preload <code>data/datasheets.json</code>.",
+       "200 KB, and nothing renders until it lands. The browser does not know to start it early.", "s"],
+      [50, "Cache headers for <code>/img</code>.",
+       "<code>/assets</code>, <code>/data</code> and <code>/api</code> have them; the 2.8 MB of pictures does not.", "s"],
+      [51, "Inline the critical CSS.",
+       "One render-blocking stylesheet stands between the viewer and the first paint.", "m"],
+      [52, "A service worker, so the register opens on site.",
+       "Mockup rooms have bad signal and the whole catalogue is 200 KB.", "l"],
+      [53, "Measure and report Core Web Vitals on the deployed site.",
+       "Everything above is a guess until something has been measured.", "s"]
+     ]],
+
+    ["The database behind it",
+     "Four tables, three public views and a cron, and some of it is unguarded.", [
+      [54, "<code>supabase-js@2</code> is a floating major version.",
+       "Every page load fetches whatever jsDelivr calls 2 today. A breaking release would ship itself to the register without a commit.", "s"],
+      [55, "Index <code>item_note(item_key, at desc)</code>.",
+       "Read on every sheet open, unindexed beyond the primary key.", "s"],
+      [56, "An audit log for <code>maker_link</code> and <code>item_picture</code>.",
+       "<code>item_state</code> has one. A changed link or a replaced picture leaves no trace of what it was before.", "m"],
+      [57, "RLS coverage for the storage buckets.",
+       "The 60-assertion suite covers tables and views. The invoices bucket and the pictures bucket are tested by nothing.", "m"],
+      [58, "A nightly export of every gp1 table into the repo.",
+       "A backup you can read, diff and restore without a console.", "m"],
+      [59, "Report on the keepalive.",
+       "It has been running since 28 September. Nobody has looked at whether it has missed a beat.", "s"],
+      [60, "One view returning everything per item.",
+       "The page makes four calls on boot — statuses, pictures, discontinued, links. One would do.", "m"],
+      [61, "Prune rows whose item no longer exists.",
+       "Once the orphan check has run and you have seen what it found.", "s"]
+     ]],
+
+    ["Tooling, tests and the repository",
+     "What makes the next change cheaper than the last.", [
+      [62, "Run the probes and the RLS suite on every push.",
+       "They exist and are green; nothing runs them but me, by hand, when I remember.", "m", 1],
+      [63, "Declare the Python dependencies.",
+       "<code>fitz</code>, <code>openpyxl</code> and <code>pillow-heif</code> are imported and written down nowhere. A fresh machine cannot run the tools.", "s"],
+      [64, "One task runner.",
+       "<code>build</code>, <code>probe</code>, <code>test</code>, <code>deploy</code> as one command each, instead of a path to a script each time.", "s"],
+      [65, "Dedupe the certification page's two templates.",
+       "One builds the artifact, one builds the site page, and only the site page is used now.", "s"],
+      [66, "Probe coverage for <code>/certification</code>.",
+       "The links page has 19 assertions. The certification page has none — not even that it renders.", "m"],
+      [67, "A link checker over the register's own assets.",
+       "Every image, every datasheet path, every internal href. A missing file currently shows as a blank tile.", "s"],
+      [68, "Screenshot regression on both themes at two widths.",
+       "I take screenshots by hand and compare by eye. Four captures and a diff would catch what the eye misses.", "m"],
+      [69, "Expand the README.",
+       "How to build, probe, migrate and deploy. Today that knowledge is in commit messages and in me.", "m"],
+      [70, "A changelog from the commit subjects.",
+       "They are already written as headlines. Nobody outside the repository can read them.", "s"]
+     ]]
+  ];
+
+  var ALL = [];
+  SECTIONS.forEach(function (sec) { sec[2].forEach(function (r) { ALL.push(r); }); });
+
+  var LS = "gp1.backlog.v1";
+  var chosen = {};
+  try { chosen = JSON.parse(localStorage.getItem(LS) || "{}") || {}; } catch (e) { chosen = {}; }
+
+  var EFFORT = { s: ["quick", "s"], m: ["a session", "m"], l: ["a project", "l"] };
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function render() {
+    document.getElementById("main").innerHTML = SECTIONS.map(function (sec) {
+      return '<h2>' + esc(sec[0]) + "<span>" + sec[2].length + "</span></h2>" +
+        '<p class="sect-why">' + esc(sec[1]) + "</p>" +
+        '<ul class="list">' + sec[2].map(function (r) {
+          var e = EFFORT[r[3]] || EFFORT.m;
+          return '<li class="it' + (chosen[r[0]] ? " on" : "") + '" data-id="' + r[0] + '">' +
+            '<input type="checkbox" id="c' + r[0] + '"' + (chosen[r[0]] ? " checked" : "") +
+              ' aria-labelledby="t' + r[0] + '">' +
+            '<span class="n">' + r[0] + "</span>" +
+            '<span class="t" id="t' + r[0] + '">' + r[1] + "</span>" +
+            '<span class="d">' + r[2] + "</span>" +
+            '<span class="tags"><span class="tag ' + e[1] + '">' + e[0] + "</span>" +
+              (r[4] ? '<span class="tag ask">one word from you</span>' : "") +
+            "</span></li>";
+        }).join("") + "</ul>";
+    }).join("");
+    tally();
+  }
+
+  function tally() {
+    var n = 0;
+    ALL.forEach(function (r) { if (chosen[r[0]]) n++; });
+    document.getElementById("tally").innerHTML = "<b>" + n + "</b> of " + ALL.length;
+    document.getElementById("copy").disabled = !n;
+  }
+
+  function keep() {
+    try { localStorage.setItem(LS, JSON.stringify(chosen)); } catch (e) {}
+  }
+
+  document.getElementById("main").addEventListener("click", function (e) {
+    var li = e.target.closest("li.it");
+    if (!li) return;
+    var id = li.getAttribute("data-id");
+    var box = li.querySelector("input");
+    /* A click on the box already toggles it; a click anywhere else on the row
+       should do the same thing rather than nothing. */
+    if (e.target !== box) box.checked = !box.checked;
+    if (box.checked) chosen[id] = true; else delete chosen[id];
+    li.classList.toggle("on", box.checked);
+    keep(); tally(); say("");
+  });
+
+  document.getElementById("none").addEventListener("click", function () {
+    chosen = {}; keep(); render(); say("");
+  });
+  document.getElementById("quick").addEventListener("click", function () {
+    ALL.forEach(function (r) { if (r[3] === "s") chosen[r[0]] = true; });
+    keep(); render(); say("");
+  });
+
+  function say(t, bad) {
+    var m = document.getElementById("msg");
+    m.textContent = t || "";
+    m.className = "msg" + (bad ? " bad" : "");
+  }
+  function toast(t) {
+    var el = document.getElementById("toast");
+    el.textContent = t; el.classList.add("on");
+    clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove("on"); }, 2400);
+  }
+
+  function picked() {
+    return ALL.filter(function (r) { return chosen[r[0]]; });
+  }
+
+  document.getElementById("copy").addEventListener("click", function () {
+    var txt = picked().map(function (r) {
+      return r[0] + ". " + r[1].replace(/<[^>]+>/g, "");
+    }).join("\n");
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(
+        function () { toast(picked().length + " copied"); },
+        function () { fallback(txt); });
+    } else fallback(txt);
+    function fallback(t) {
+      var ta = document.createElement("textarea");
+      ta.value = t; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); toast(picked().length + " copied"); }
+      catch (e) { toast("Could not copy — select the list by hand"); }
+      ta.remove();
+    }
+  });
+
+  /* ---- where the picks go ----
+     localStorage first, because it is synchronous and cannot be refused: a
+     tick survives a reload whatever else happens. The database is what lets me
+     read them without you pasting anything, and if it is not there the Copy
+     button still is - which is the arrangement that saved a session of
+     manufacturer links in September. */
+  var db = null;
+  (async function () {
+    try {
+      db = window.claude && window.claude.use ? await window.claude.use("db") : null;
+    } catch (e) { db = null; }
+    if (!db) {
+      say("Saving to this browser only — use Copy the selected and paste it to me.");
+      return;
+    }
+    try {
+      var snap = await db.doc("picks/state").get();
+      if (snap && snap.exists) {
+        var body = typeof snap.data === "function" ? snap.data() : snap.data;
+        var saved = (body && body.chosen) || [];
+        if (saved.length && !Object.keys(chosen).length) {
+          saved.forEach(function (id) { chosen[id] = true; });
+          keep(); render();
+          say(saved.length + " picks read back from last time.");
+        }
+      }
+    } catch (e) { /* nothing saved yet is the normal case */ }
+  })();
+
+  document.getElementById("save").addEventListener("click", async function () {
+    keep();
+    var ids = picked().map(function (r) { return String(r[0]); });
+    if (!db) {
+      say("No database in this view — press Copy the selected and paste it to me.", true);
+      return;
+    }
+    say("Saving…");
+    try {
+      await db.doc("picks/state").set({ chosen: ids, at: new Date().toISOString() });
+      var back = await db.doc("picks/state").get();
+      var body = back && back.exists
+        ? (typeof back.data === "function" ? back.data() : back.data) : null;
+      if (!body || (body.chosen || []).length !== ids.length) {
+        throw new Error("the database did not read back what was sent");
+      }
+      say("");
+      toast(ids.length + " saved — I can read them from here");
+    } catch (err) {
+      say("Would not save (" + ((err && err.code ? err.code + ": " : "") +
+          (err && err.message || "refused")) + ") — press Copy the selected instead.", true);
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

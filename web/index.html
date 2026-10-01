@@ -6,7 +6,7 @@
 <!-- The stylesheet sets color-scheme on :root to match the page's own
      theme; this only declares that both exist. -->
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="GP1-MUR Material &amp; Hardware Register — 45 curated datasheets for mockup room 1, each with the manufacturer sheet attached.">
+<meta name="description" content="GP1-MUR Material &amp; Hardware Register — 147 datasheets for mockup room 1, each with the manufacturer sheet attached.">
 <title>GP1-MUR Material &amp; Hardware Register</title>
 
 <!-- Provisional brand favicon: a simplified three-petal fan, because the real
@@ -153,6 +153,10 @@
 <noscript>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
   <link rel="stylesheet" href="./assets/register.css">
+  <!-- Nothing on this page renders until the catalogue arrives, and the
+       browser cannot know that until register.js has parsed and asked for it.
+       Telling it up front starts the request about a stylesheet earlier. -->
+  <link rel="preload" href="./data/datasheets.json" as="fetch" crossorigin="anonymous">
   <style>#splash{display:none}</style>
 </noscript>
 </head>
@@ -261,7 +265,7 @@
       <button data-v="cards" aria-label="Cards with previews" aria-pressed="true"></button>
       <button data-v="rows" aria-label="List, no previews" aria-pressed="false"></button>
     </div>
-    <span class="count" id="count"></span>
+    <span class="count" id="count" role="status" aria-live="polite" aria-atomic="true"></span>
   </div>
 
   <!-- Only present when something is filtered: it exists to answer "why am I
@@ -274,7 +278,7 @@
 </main>
 
 <footer class="wrap foot">
-  <span>GP1-MUR &middot; 45 curated datasheets</span>
+  <span>GP1-MUR &middot; <span id="foot-n">147</span> datasheets</span>
   <span class="sp"></span>
   <a href="./data/datasheets.json">datasheets.json</a>
 </footer>

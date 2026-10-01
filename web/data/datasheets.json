@@ -6305,7 +6305,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Square Access Cover - Electrical",
    "specs": [
@@ -6352,7 +6352,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Square Access Cover - Sewer",
    "specs": [
@@ -6399,7 +6399,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Circular Access Cover - Communications",
    "specs": [
@@ -6446,7 +6446,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Circular Drainage Grate - Heavy Duty, Slotted",
    "specs": [
@@ -6489,7 +6489,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Circular Access Cover with Riser - Water Valve",
    "specs": [
@@ -6536,7 +6536,7 @@
    "group_name": "Manholes & Access Covers",
    "discipline": "Site",
    "submittal": "JANU-SUB-008",
-   "manufacturer": "Not stated",
+   "manufacturer": "",
    "category": "",
    "title": "Circular Access Cover with Riser - HVAC Drain",
    "specs": [

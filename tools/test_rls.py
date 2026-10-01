@@ -402,6 +402,10 @@ def main():
 
     finally:
         OUT.write("\ncleaning up\n")
+        # item_invoice FIRST, and it was missing until the orphan check
+        # found ten rows of it on 1 Oct - every run of this suite had been
+        # leaving its invoices behind since the commercial flag landed.
+        admin("DELETE", "/rest/v1/item_invoice?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_picture?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/item_discontinued?item_key=eq." + ITEM)
         admin("DELETE", "/rest/v1/maker_link?item_key=eq." + ITEM)

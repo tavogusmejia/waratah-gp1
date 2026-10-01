@@ -1,0 +1,12 @@
+# What tools/ needs. Every one of these was imported and written down nowhere,
+# so a fresh machine could not run the build, the probes or the certification
+# scan. Versions are the ones this was developed against.
+#
+#   python -m pip install -r tools/requirements.txt
+#
+# pillow-heif is not here: it is only needed to read the .heic photographs the
+# manhole pictures came from, which is a one-off, not part of any build.
+#
+Pillow>=10.0
+PyMuPDF==1.28.0
+openpyxl==3.1.5
