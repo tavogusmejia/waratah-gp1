@@ -127,6 +127,22 @@
     out.push("  horizontal overflow      " +
              (over > 1 ? over + "px  <-- OVERFLOWS" : "none"));
     document.getElementById("probe").textContent = out.join("\n");
+
+    /* A VERDICT, not just measurements. This probe has only ever printed
+       numbers for a person to read, which meant the task runner could not
+       include it - so nothing has ever failed because the landing overflowed,
+       the exact thing the file says it exists to catch.
+
+       Two things decide it: the landing must not push the page sideways, and
+       the register underneath must signal ready. The rest is context. */
+    var fails = [];
+    if (over > 1) {
+      fails.push("the landing overflows by " + over + "px at " + W + "px wide");
+    }
+    if (!readyAt) fails.push("the register never signalled ready");
+    document.title = fails.length
+      ? "R:FAIL " + fails.join("; ")
+      : "R:PASS landing fits at " + W + "px, register ready in " + n(readyAt);
   }
 
   /* Geometry has to be read while the landing still exists, so take it early
