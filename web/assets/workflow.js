@@ -473,6 +473,9 @@
        the composer inside it is gated. */
     wf.appendChild(notesBlock(it, mine));
     if (can("admin")) wf.appendChild(pictureBlock(it, mine));
+    /* Beside the picture: both answer "what does the register say about this
+       item", and both are overrides on something the build produced. */
+    if (can("admin")) wf.appendChild(makerBlock(it, mine));
     if (canMoney()) wf.appendChild(invoiceBlock(it, mine));
     if (!can("commenter")) {
       /* Deliberately says nothing about invoices. Their existence is not
@@ -837,6 +840,111 @@
       var was = has ? (gone[it.key] && gone[it.key].note) || "" : "";
       if (why.value.trim() !== was) put();
     });
+    return sec;
+  }
+
+  /* ---- the manufacturer's page ----
+
+     datasheets.json carries one per item, written at build time from
+     tools/maker-links.csv. This table overrides it, so a link confirmed on
+     /links is on the item at the next load rather than at the next rebuild -
+     which is the whole point: the loop no longer runs through a person with
+     the repository checked out.
+
+     Public, like the pictures and the statuses: a manufacturer page is on a
+     page anybody can already open. Read through the view, which drops the
+     address of whoever confirmed it. */
+  var makers = {};
+
+  async function loadMakerLinks() {
+    var r = await sb.from("maker_link_public").select("item_key, url");
+    if (r.error) {
+      if (window.console) console.warn("GP1 maker links:", fail(r.error));
+      return;
+    }
+    makers = {};
+    for (var i = 0; i < r.data.length; i++) makers[r.data[i].item_key] = r.data[i].url;
+    window.GP1.setMakerLinks(makers);
+  }
+
+  function isUrl(v) {
+    /* Two URLs run together is a paste that landed mid-field rather than
+       replacing one, and each half reads as a perfectly good link. */
+    return /^https?:\/\/\S+$/i.test(v) && v.split("://").length === 2;
+  }
+
+  function makerBlock(it, mine) {
+    var sec = section("Manufacturer page", ' <em>admin only</em>');
+    var live = makers[it.key] || "";
+    var built = it.maker_url || "";
+
+    var box = document.createElement("div");
+    box.className = "wf-maker";
+    box.innerHTML =
+      '<input type="url" inputmode="url" spellcheck="false" ' +
+      'placeholder="https://\u2026 the product page" ' +
+      'aria-label="Manufacturer page for ' + esc(it.code) + '" value="' +
+      esc(live || built) + '">' +
+      (live ? '<button type="button" class="linkish wf-maker-rm">Put the ' +
+              "original back</button>" : "");
+    sec.appendChild(box);
+    var say = msgLine(sec);
+
+    var hint = document.createElement("p");
+    hint.className = "wf-hint";
+    hint.textContent = live
+      ? "Confirmed here or on the links page. It replaces whatever the build "
+        + "put on this item, for everyone."
+      : (built
+          ? "This one came from the build. Anything typed here replaces it for "
+            + "everyone, straight away."
+          : "Nothing recorded yet. The product page \u2014 where the item lives "
+            + "now, with its current finishes and options \u2014 not the datasheet.");
+    sec.insertBefore(hint, box);
+
+    var inp = box.querySelector("input");
+
+    async function put() {
+      if (mine !== token) return;
+      var v = inp.value.trim();
+      if (v && !isUrl(v)) { say("That is not a web address.", true); return; }
+      say("Saving\u2026");
+      if (!v) {
+        var d = await sb.from("maker_link").delete().eq("item_key", it.key);
+        if (d.error) { say(fail(d.error), true); return; }
+        delete makers[it.key];
+        window.GP1.setMakerLinks(makers);
+        say(built ? "Cleared \u2014 back to the one from the build." : "Cleared.");
+        return;
+      }
+      var r = await sb.from("maker_link").upsert({ item_key: it.key, url: v },
+                                                 { onConflict: "item_key" })
+                      .select("item_key, url");
+      if (r.error) { say(fail(r.error), true); return; }
+      /* Read back what the database holds, not what we sent. */
+      var got = r.data && r.data[0];
+      if (!got || got.url !== v) {
+        say("The database did not take that. Nothing was saved.", true);
+        return;
+      }
+      makers[it.key] = got.url;
+      window.GP1.setMakerLinks(makers);
+      say("Saved.");
+    }
+
+    inp.addEventListener("blur", function () {
+      if (inp.value.trim() !== (live || built)) put();
+    });
+
+    var rm = box.querySelector(".wf-maker-rm");
+    if (rm) {
+      rm.addEventListener("click", async function () {
+        rm.disabled = true;
+        inp.value = "";
+        await put();
+        rm.disabled = false;
+      });
+    }
     return sec;
   }
 
@@ -1601,6 +1709,7 @@
 
     loadPictures();
     loadGone();
+    loadMakerLinks();
 
     var s = await sb.auth.getSession();
     me = s.data && s.data.session ? s.data.session.user : null;

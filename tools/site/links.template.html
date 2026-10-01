@@ -124,6 +124,8 @@ button{font:inherit; cursor:pointer}
   border-left:3px solid transparent;
 }
 .row.saved{border-left-color:var(--ok)}
+.row.done{opacity:.5}
+.row.done:focus-within{opacity:1}
 .row.local{border-left-color:var(--warn)}
 .row.bad{border-left-color:var(--accent)}
 
@@ -195,7 +197,9 @@ footer{
 
 <header class="top">
   <h1>Manufacturer links still open</h1>
-  <p class="lede">The last <b>53</b> items on the GP1-MUR register with no manufacturer page.
+  <p class="lede">Every item on the GP1-MUR register with <b>no manufacturer page yet</b>.
+  The list works itself out each time you open it &mdash; confirm one and it is gone,
+  add an item to the register and it appears.
   Each one wants the <b>product page</b> &mdash; where the item lives now, with its current
   finishes, options and pricing &mdash; not the datasheet. The grey text in each box is a
   guess, usually just the manufacturer&rsquo;s own site &mdash; it is <b>not</b> filled in:
@@ -225,9 +229,14 @@ footer{
 <main id="main"></main>
 
 <footer>
-  <p>The CSV is two columns, <code>key,url</code> &mdash; the same shape as
-  <code>tools/maker-links.csv</code> in the repo. Paste it there and the register picks
-  the links up on the next build. Nothing here is lost by closing the tab.</p>
+  <p><b>A confirmed link is on the item straight away</b> &mdash; the register reads
+  these directly, so there is no build to wait for and nobody to ask. To change one
+  after the fact, open the item on the register: any admin can edit its manufacturer
+  page there, or put the original back.</p>
+  <p style="margin-top:10px">The CSV is two columns, <code>key,url</code> &mdash; every
+  link, not just the ones here. It is the same shape as <code>tools/maker-links.csv</code>
+  in the repo, which is now a snapshot rather than the source: nothing depends on it
+  being current. Nothing here is lost by closing the tab.</p>
 </footer>
 
 </div>
@@ -235,12 +244,16 @@ footer{
 
 <script src="assets/config.js"></script>
 <script src="assets/brand.js" defer></script>
-<script id="rows" type="application/json">__DATA__</script>
 <script>
 (function () {
   "use strict";
 
-  var DATA = JSON.parse(document.getElementById("rows").textContent);
+  /* THE LIST IS NOT BAKED IN. It is worked out on load from the catalogue
+     the register itself reads and the links already saved, so it is exactly
+     what is outstanding - today, and next month when an item is added or a
+     link is confirmed. Nothing here needs rebuilding by anybody. */
+  var DATA = [];
+  var ALL  = {};              /* every saved link, for the CSV export */
   var LS   = "gp1.links.v1";
   var CFG  = window.GP1_CONFIG || {};
   var LIB  = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js";
@@ -270,6 +283,59 @@ footer{
       var raw = localStorage.getItem(LS);
       return raw ? JSON.parse(raw) : {};
     } catch (e) { return {}; }
+  }
+
+  /* A guess is the manufacturer's own site, which is where you start looking.
+     Derived rather than baked: first a short map of the makers here, then the
+     commonest host among that maker's ALREADY CONFIRMED links - so the guesses
+     improve as the work gets done, instead of ageing. */
+  var HOME = {
+    "LedFlex Group": "https://ledflexgroup.com/",
+    "iGuzzini": "https://www.iguzzini.com/",
+    "EcoPac Power": "https://www.ecopacpower.co.uk/",
+    "L&L Luce&Light": "https://www.lucelight.it/",
+    "TCI": "https://www.tci.it/",
+    "LEDS C4": "https://www.ledsc4.com/",
+    "Bover": "https://bover.es/",
+    "Simes": "https://www.simes.it/",
+    "WAC Lighting": "https://www.waclighting.com/",
+    "Vibia": "https://vibia.com/",
+    "Visual Comfort": "https://www.visualcomfort.com/",
+    "Wago": "https://www.wago.com/",
+    "Salto Systems": "https://saltosystems.com/"
+  };
+
+  function worklist(items, saved) {
+    /* Hosts already confirmed, per maker. */
+    var host = {};
+    items.forEach(function (it) {
+      var u = saved[it.key] || it.maker_url;
+      var m = (it.manufacturer || "").trim();
+      if (!u || !m) return;
+      var h = /^https?:\/\/[^\/]+/.exec(u);
+      if (!h) return;
+      host[m] = host[m] || {};
+      host[m][h[0]] = (host[m][h[0]] || 0) + 1;
+    });
+    function guess(m) {
+      if (!m) return "";
+      if (HOME[m]) return HOME[m];
+      var c = host[m], best = "", top = 0;
+      for (var k in c) { if (c[k] > top) { top = c[k]; best = k; } }
+      return best ? best + "/" : "";
+    }
+
+    var out = [];
+    items.forEach(function (it) {
+      /* Missing means missing from BOTH: the table overrides the build, so an
+         item with either one is done. */
+      if (saved[it.key] || it.maker_url) return;
+      var m = (it.manufacturer || "").trim();
+      if (m === "Not stated") m = "";
+      out.push({ key: it.key, code: it.code, maker: m, title: it.title,
+                 guess: guess(m), drive: it.drive_url || "", pages: it.pages || 0 });
+    });
+    return out;
   }
 
   function isUrl(v) {
@@ -394,7 +460,14 @@ footer{
     row.classList.remove("saved", "local", "bad");
     if (!v) { st.textContent = ""; return; }
     if (!isUrl(v)) { row.classList.add("bad"); st.textContent = "not a URL"; return; }
-    if (inDb && inDb[key] === v) { row.classList.add("saved"); st.textContent = "saved"; return; }
+    /* Saved rows are gone from this page on the next load - that is what the
+       list being worked out means. Taking one away under the cursor the moment
+       it saves would be hostile, so it fades and says so instead. */
+    if (inDb && inDb[key] === v) {
+      row.classList.add("saved", "done");
+      st.textContent = "saved \u2014 gone on reload";
+      return;
+    }
     row.classList.add("local");
     st.textContent = inDb === null ? "on this device" : "on this device only";
   }
@@ -542,30 +615,48 @@ footer{
     }
     note("connected", "y", "");
 
-    /* Anyone may read, signed in or not: the view is public and the links are
-       on a page anybody can open. */
+    /* Two reads, in parallel: the catalogue the register itself uses, and
+       every link already saved. Between them they say what is outstanding.
+       Anyone may do both, signed in or not - the view is public and the links
+       are on a page anybody can already open. */
+    var items = null;
     try {
-      var r = await sb.from("maker_link_public").select("item_key, url");
-      if (r.error) throw r.error;
-      inDb = {};
-      (r.data || []).forEach(function (x) { inDb[x.item_key] = x.url; });
-      var mine = 0;
-      DATA.forEach(function (d) { if (inDb[d.key]) mine++; });
-      note("read the saved links", "y",
-           (r.data || []).length + " in all, " + mine + " of the " + DATA.length + " here");
-      /* The database is the shared truth and reaches other machines, so it
-         wins over this browser - but only where it actually has something. */
-      DATA.forEach(function (d) {
-        if (!inDb[d.key]) return;
-        links[d.key] = inDb[d.key];
-        var inp = document.getElementById("u-" + d.key.replace(/[^a-z0-9]+/gi, "-"));
-        if (inp) inp.value = inDb[d.key];
-      });
-      keep();
+      var both = await Promise.all([
+        fetch("./data/datasheets.json", { cache: "no-cache" }).then(function (x) {
+          if (!x.ok) throw new Error("datasheets.json: " + x.status);
+          return x.json();
+        }),
+        sb.from("maker_link_public").select("item_key, url")
+      ]);
+      items = both[0].items || [];
+      if (both[1].error) throw both[1].error;
+      ALL = {}; inDb = {};
+      (both[1].data || []).forEach(function (x) { ALL[x.item_key] = x.url; });
+      note("read the register", "y", items.length + " items");
+      note("read the saved links", "y", Object.keys(ALL).length + " already confirmed");
     } catch (err) {
-      inDb = {};
-      note("read the saved links", "n", fail(err));
+      note("worked out what is outstanding", "n", fail(err));
+      /* Without the catalogue there is no list to show, and inventing one
+         would be worse than saying so. */
+      document.getElementById("main").innerHTML =
+        '<p class="lede">The list could not be worked out, so nothing is shown '
+        + "rather than something wrong. Reload, and if it keeps happening the "
+        + "Connection detail above says why.</p>";
+      report(); return;
     }
+
+    DATA = worklist(items, ALL);
+    note("still outstanding", DATA.length ? "q" : "y",
+         DATA.length + " of " + items.length + " items have no manufacturer page");
+    build();
+
+    /* Whatever this browser was holding for a row that is still outstanding.
+       A row that has since been confirmed is simply not here any more. */
+    DATA.forEach(function (d) {
+      if (!links[d.key]) return;
+      var inp = document.getElementById("u-" + d.key.replace(/[^a-z0-9]+/gi, "-"));
+      if (inp) inp.value = links[d.key];
+    });
     paintAll(); report();
 
     /* Who is this, and may they write? Settled now, in words, rather than one
@@ -621,15 +712,21 @@ footer{
   }
 
   document.getElementById("csv").addEventListener("click", function () {
-    /* Reads the boxes, not the store, so it is complete whatever the
-       database has done. */
-    var out = ["key,url"];
+    /* EVERY link, not just the ones on screen. This is what refreshes
+       tools/maker-links.csv in the repo, and a snapshot holding only the
+       outstanding work would be worse than none. The boxes win over the
+       store, so anything typed and not yet saved is still in it. */
+    var out = {}, k;
+    for (k in ALL) out[k] = ALL[k];
     DATA.forEach(function (r) {
       var inp = document.getElementById("u-" + r.key.replace(/[^a-z0-9]+/gi, "-"));
       var v = inp ? inp.value.trim() : "";
-      if (v) out.push(r.key + "," + v);
+      if (v) out[r.key] = v;
     });
-    copy(out.join("\n"), (out.length - 1) + " links copied as CSV");
+    var keys = Object.keys(out).sort();
+    var csv = ["key,url"];
+    keys.forEach(function (x) { csv.push(x + "," + out[x]); });
+    copy(csv.join("\n"), keys.length + " links copied as CSV \u2014 all of them, not just these");
   });
 
   document.getElementById("names").addEventListener("click", function () {
@@ -657,9 +754,9 @@ footer{
   });
 
   /* ---------- boot ---------- */
+  /* No build() here: there is nothing to build until the list has been
+     worked out, which needs the network. connect() does both. */
   links = recall();
-  build();
-  paintAll();
   report();
   connect();
 })();

@@ -26,20 +26,20 @@
 /* what each role must and must not be offered */
 var CASES = [
   {role:"out", want:{auth:"Sign in", pills:true, status:"read", notes:true,
-                     addNote:false, invoices:false, prompt:true, pic:false, disco:false, tools:false}},
+                     addNote:false, invoices:false, prompt:true, pic:false, disco:false, tools:false, maker:false}},
   {role:"none", want:{auth:"me", pills:true, status:"read", notes:true,
-                      addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
+                      addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false, maker:false}},
   {role:"viewer", want:{auth:"me", pills:true, status:"read", notes:true,
-                        addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
+                        addNote:false, invoices:false, prompt:false, pic:false, disco:false, tools:false, maker:false}},
   {role:"commenter", want:{auth:"me", pills:true, status:"read", notes:true,
-                           addNote:true, invoices:false, prompt:false, pic:false, disco:false, tools:false}},
+                           addNote:true, invoices:false, prompt:false, pic:false, disco:false, tools:false, maker:false}},
   {role:"admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:false}},
+                       addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:false, maker:true}},
   /* Same role, plus the flag: the only difference is the invoices. */
   {role:"admin", money:1, want:{auth:"me", pills:true, status:"edit", notes:true,
-                       addNote:true, invoices:true, prompt:false, pic:true, disco:true, tools:false}},
+                       addNote:true, invoices:true, prompt:false, pic:true, disco:true, tools:false, maker:true}},
   {role:"super_admin", want:{auth:"me", pills:true, status:"edit", notes:true,
-                             addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:true}}
+                             addNote:true, invoices:false, prompt:false, pic:true, disco:true, tools:true, maker:true}}
 ];
 
 var out = document.getElementById("o"), fails = 0, done = 0;
@@ -82,6 +82,11 @@ function check(c, d, w) {
        already move an item's status who will notice a product has gone. */
     t("discontinued control " + (c.want.disco ? "offered" : "withheld"),
       !!wf.querySelector(".wf-disco") === !!c.want.disco);
+    /* Same rung again: whoever may replace a picture may fix the link it sits
+       next to. This is what makes "saved links leave the worklist for good"
+       safe - a finished one is still reachable, on the item. */
+    t("manufacturer-link editor " + (c.want.maker ? "offered" : "withheld"),
+      !!wf.querySelector(".wf-maker") === !!c.want.maker);
     /* It sits ABOVE the status, so nobody scrolls past the reason the status
        may no longer matter. */
     if (c.want.disco) {
@@ -103,6 +108,15 @@ function check(c, d, w) {
      card ?open=1 opens, so this asserts on every role including signed-out -
      which is the whole point of reading it from a public view. */
   var sheet = d.querySelector(".sheet");
+  /* THE LIVE LINK WINS. a-a1 has a Pentair url baked into datasheets.json and
+     a different one in the table; the footer must show the table's. Asserted
+     for every role, because the register shows it to everybody - this is the
+     one thing that stops a confirmed link needing a rebuild, and nothing else
+     tests it. */
+  var mk = sheet && sheet.querySelector("a.extra.maker");
+  t("the manufacturer button uses the confirmed link, not the build's",
+    !!mk && /confirmed-by-hand/.test(mk.getAttribute("href") || ""),
+    mk ? mk.getAttribute("href") : "no button");
   t("discontinued banner on the sheet", !!(sheet && sheet.querySelector(".sheet-alert")));
   t("banner sits above the picture", !!(sheet && (function () {
     var b = sheet.querySelector(".sheet-b");

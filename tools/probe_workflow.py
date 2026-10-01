@@ -59,6 +59,13 @@ STUB = r"""
        address and anon no longer sees it. */
     item_picture_public: [],
     item_discontinued: [],
+    maker_link: [],
+    /* a-a1's build-time link points at Pentair. This overrides it, so the
+       sheet footer showing THIS url is the proof that the table wins over
+       datasheets.json - which is the whole point of the live link. */
+    maker_link_public: [
+      {item_key:"a-a1", url:"https://example.com/confirmed-by-hand", at:"2026-10-01T09:00:00Z"}
+    ],
     /* a-a1 is the first card, which is the one ?open=1 opens, so every role
        case also exercises the banner. a-a2 is APPROVED, so the card grid
        shows the pairing this feature exists for: approved and gone. */
@@ -138,6 +145,9 @@ STUB = r"""
          shows everyone. The TABLE is not - it carries by_email. */
       if (table === "item_picture" && !may("viewer")) return {data:null, error:DENIED};
       if (table === "item_discontinued" && !may("viewer")) return {data:null, error:DENIED};
+      if (table === "maker_link" && !may("viewer")) return {data:null, error:DENIED};
+      /* maker_link_public is not gated either: the register shows these to
+         everyone, signed in or not. */
       /* ...and item_discontinued_public, like item_note_public, is not gated:
          the red card is for everyone, signed in or not. */
       return {data: out, error: null, count: counting ? n : null};
@@ -179,6 +189,7 @@ STUB = r"""
         var into = table === "item_state" ? "item_status_public"
                  : table === "item_discontinued" ? "item_discontinued_public"
                  : table === "item_picture" ? "item_picture_public"
+                 : table === "maker_link" ? "maker_link_public"
                  : table;
         if (into === "item_status_public") row.decided_at = new Date().toISOString();
         if (!row.at) row.at = new Date().toISOString();
@@ -197,7 +208,8 @@ STUB = r"""
            that quietly kept it would make un-flagging look like it worked and
            leave the card red. */
         var gone = table === "item_discontinued" ? "item_discontinued_public"
-                 : table === "item_picture" ? "item_picture_public" : null;
+                 : table === "item_picture" ? "item_picture_public"
+                 : table === "maker_link" ? "maker_link_public" : null;
         if (gone) {
           return { eq: function (k, v) {
                      DB[gone] = (DB[gone] || []).filter(function (r) {

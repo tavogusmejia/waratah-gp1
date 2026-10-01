@@ -43,6 +43,13 @@
                    an item can be approved AND discontinued, and that pairing
                    is the case worth flagging. */
                 discontinued: {},
+                /* item_key -> url, handed over by workflow.js. A manufacturer
+                   page somebody confirmed, preferred over the one baked into
+                   datasheets.json at build time - the same relationship
+                   `pictures` has with the extracted image. Confirming one on
+                   /links puts it on the item at the next load, with no rebuild
+                   and nobody to ask. */
+                makerLinks: {},
                 /* One bag of chosen values per facet. Empty means "no
                    opinion", which is not the same as "none of them". */
                 facets: { discipline: {}, group: {}, maker: {}, status: {},
@@ -352,6 +359,11 @@
     return state.pictures[it.key] || (it.image ? "./" + it.image : "");
   }
 
+  /* The confirmed page if there is one, the one from the build otherwise. */
+  function makerUrl(it) {
+    return state.makerLinks[it.key] || it.maker_url || "";
+  }
+
   function thumb(it) {
     var src = picture(it);
     if (!src) {
@@ -609,8 +621,8 @@
            having in front of somebody standing at the door with a
            screwdriver. */
         '<div class="extras">' +
-        (it.maker_url
-          ? '<a class="extra maker" href="' + esc(it.maker_url) + '" ' +
+        (makerUrl(it)
+          ? '<a class="extra maker" href="' + esc(makerUrl(it)) + '" ' +
             'target="_blank" rel="noopener noreferrer">' + icon(I.out) +
             esc(it.manufacturer || "Manufacturer") + " page</a>"
           : "") +
@@ -884,6 +896,14 @@
     setDiscontinued: function (map) {
       state.discontinued = map || {};
       if (state.items.length) render();
+      if (state.open) openSheet(state.open.id);
+    },
+
+    /* item_key -> url. Only the open sheet shows a manufacturer link, so this
+       does not have to re-render the grid - but it reopens, so an admin
+       editing one sees the button move under their own cursor. */
+    setMakerLinks: function (map) {
+      state.makerLinks = map || {};
       if (state.open) openSheet(state.open.id);
     }
   };

@@ -238,6 +238,12 @@ def main():
         ok("stamped with who saved it",
            isinstance(b, list) and b and "@" in str(b[0].get("by_email", "")),
            str(b)[:120])
+        # Putting the original back: the row goes, and the item falls back to
+        # whatever the build put in datasheets.json.
+        st, b = call("DELETE", "/rest/v1/maker_link?item_key=eq." + ITEM, tok)
+        ok("and can put the original back", st in (200, 204), "%s %s" % (st, b))
+        st, b = call("GET", "/rest/v1/maker_link?select=url&item_key=eq." + ITEM, tok)
+        ok("the override is really gone", st == 200 and b == [], "%s %s" % (st, b))
         # Invoices no longer follow the rung. An admin is an admin and sees
         # no prices until somebody ticks the flag - which is the whole point
         # of separating them, so it is worth asserting in both directions.

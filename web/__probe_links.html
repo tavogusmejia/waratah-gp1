@@ -38,17 +38,62 @@ f.addEventListener("load", function () {
   var tick = setInterval(function () {
     /* wait for the rows AND for the database read to have reported */
     var done = d.querySelector("#diaglist") &&
-               /read the saved links/.test(d.getElementById("diaglist").textContent);
+               /still outstanding/.test(d.getElementById("diaglist").textContent);
     if ((!d.querySelector(".row") || !done) && ++n < 250) return;
     clearInterval(tick);
-    setTimeout(function () { run(d, w); }, 300);
+    /* Ask the same two sources the page asked, independently, so the probe is
+       checking the RULE rather than trusting the page's own bookkeeping. */
+    var cfg = w.GP1_CONFIG || {};
+    Promise.all([
+      fetch("./data/datasheets.json").then(function (x) { return x.json(); }),
+      fetch(cfg.url + "/rest/v1/maker_link_public?select=item_key,url",
+            { headers: { apikey: cfg.anonKey, Authorization: "Bearer " + cfg.anonKey,
+                         "Accept-Profile": "gp1" } }).then(function (x) { return x.json(); })
+    ]).then(function (both) {
+      var have = {};
+      (both[0].items || []).forEach(function (it) { if (it.maker_url) have[it.key] = it.maker_url; });
+      (both[1] || []).forEach(function (r) { have[r.item_key] = r.url; });
+      w.__probeLinks = have;
+      w.__probeItems = (both[0].items || []).length;
+      setTimeout(function () { run(d, w); }, 200);
+    }, function (e) {
+      w.__probeLinks = null;
+      setTimeout(function () { run(d, w); }, 200);
+    });
   }, 40);
 });
 
 function run(d, w) {
   var rows = d.querySelectorAll(".row");
-  t("the 53 open items are listed", rows.length === 53, rows.length);
-  t("grouped by manufacturer", d.querySelectorAll("section.maker").length > 5,
+  var diag0 = d.getElementById("diaglist").textContent;
+
+  /* THE LIST IS WORKED OUT, NOT BAKED. The count is whatever is true today,
+     so the assertion is about the rule, not the number: every row shown has a
+     link in neither the catalogue nor the table, and nothing with one appears.
+     That is what makes this page need nobody to rebuild it. */
+  t("it shows some outstanding work", rows.length > 0, rows.length);
+  t("it read the catalogue, not a baked-in list", /read the register . yes/i.test(diag0),
+    diag0.slice(0, 120));
+
+  var keys = [], i;
+  for (i = 0; i < rows.length; i++) keys.push(rows[i].getAttribute("data-key"));
+  var withLink = w.__probeLinks;
+  t("the probe could check the sources itself", !!withLink, "fetch failed");
+  if (withLink) {
+    var wrong = keys.filter(function (k) { return withLink[k]; });
+    t("every row shown really has a link in neither source",
+      wrong.length === 0, wrong.slice(0, 4).join(","));
+    /* The other direction, which is the one the user asked for: nothing with
+       a link may appear. Counting proves none was missed, not just that the
+       ones on screen happen to be right. */
+    t("and nothing with a link was left on the list",
+      rows.length === w.__probeItems - Object.keys(withLink).length,
+      rows.length + " shown, " + w.__probeItems + " items, " +
+      Object.keys(withLink).length + " linked");
+  }
+  t("and the count matches what it reported",
+    diag0.indexOf(rows.length + " of ") > -1, diag0.slice(-100));
+  t("grouped by manufacturer", d.querySelectorAll("section.maker").length > 2,
     d.querySelectorAll("section.maker").length);
 
   /* Every row carries its datasheet. Confirming a product page means knowing
@@ -61,8 +106,8 @@ function run(d, w) {
   t("it connected to the register database", /connected . yes/i.test(diag), diag.slice(0, 90));
   t("and read the saved links signed out", /read the saved links . yes/i.test(diag),
     diag.slice(0, 160));
-  t("the 94 already confirmed came back", /9[4-9] in all|\d{3} in all/.test(diag),
-    diag.slice(0, 160));
+  t("the links already confirmed came back",
+    / already confirmed/.test(diag), diag.slice(0, 170));
 
   /* THE FIELDS ARE NEVER TAKEN AWAY. Locking them was the wrong call once and
      turned "saving may fail" into "you cannot work". */
@@ -104,9 +149,10 @@ function run(d, w) {
   d.getElementById("useall").click();
   var filled = 0;
   d.querySelectorAll("input.url").forEach(function (x) { if (x.value.trim()) filled++; });
-  t("Use every guess fills every row that has one", filled >= 45, filled + " of " + n0);
-  t("the tally agrees", /(\d+) of 53/.test(d.getElementById("strip").textContent),
-    d.getElementById("strip").textContent.slice(0, 60));
+  t("Use every guess fills the rows that have one", filled > 0, filled + " of " + n0);
+  t("the tally agrees with the list",
+    d.getElementById("strip").textContent.indexOf("of " + n0) > -1,
+    d.getElementById("strip").textContent.slice(0, 70));
 
   try { w.localStorage.removeItem("gp1.links.v1"); } catch (e) {}
   try { if (was === null) localStorage.removeItem(KEY); else localStorage.setItem(KEY, was); } catch (e) {}

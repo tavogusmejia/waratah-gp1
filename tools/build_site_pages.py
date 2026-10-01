@@ -36,5 +36,13 @@ def build(template, data_file, out, pick=None):
 
 
 build("certification.template.html", "_certs_final.json", "certification.html")
-build("links.template.html", "_links53.json", "links.html",
-      pick=("key", "code", "maker", "title", "guess", "drive", "pages"))
+# links.html carries no data: it works its list out at run time from
+# data/datasheets.json and the saved links, so a new item appears on the
+# worklist on its own and a confirmed one leaves it. Nothing to inject.
+src = os.path.join(HERE, "site", "links.template.html")
+dst = os.path.join(ROOT, "web", "links.html")
+t = io.open(src, encoding="utf-8").read()
+if "__DATA__" in t:
+    raise SystemExit("links.template.html still has a __DATA__ placeholder")
+io.open(dst, "w", encoding="utf-8", newline="\n").write(t)
+print("%-24s %5s       %7d bytes" % ("links.html", "live", os.path.getsize(dst)))
