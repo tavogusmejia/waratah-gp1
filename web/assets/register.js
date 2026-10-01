@@ -32,6 +32,7 @@
      "deviation") and `submittal` (the package number, JANU-SUB-003). Three
      different things behind one word is how the wrong one gets rendered. */
   var state = { items: [], groups: [], q: "", view: "cards", open: null,
+                cameFrom: null,
                 approval: {},
                 /* item_key -> url, handed over by workflow.js. A picture
                    somebody replaced, preferred over the one the extractor
@@ -75,7 +76,9 @@
             '<rect x="13.5" y="3.5" width="7" height="7" rx="1.4"/>' +
             '<rect x="3.5" y="13.5" width="7" height="7" rx="1.4"/>' +
             '<rect x="13.5" y="13.5" width="7" height="7" rx="1.4"/>',
-    rows:   '<path d="M3.5 6h17M3.5 12h17M3.5 18h17"/>'
+    rows:   '<path d="M3.5 6h17M3.5 12h17M3.5 18h17"/>',
+    copy:   '<rect x="9" y="9" width="11" height="11" rx="2"/>' +
+            '<path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/>'
   };
 
   /* ------------------------------------------------------------ theming */
@@ -348,6 +351,46 @@
     render();
   }
 
+  /* ---- what you were looking at ----
+
+     Come back to the register and it is where you left it. The view toggle
+     and the theme have been remembered since the beginning; the filters, which
+     take far more work to set, were not.
+
+     Stored under a version key: a saved shape from an older build that no
+     longer matches FACETS is dropped rather than half-applied, because a
+     filter you cannot see is worse than no filter. */
+  var SAVED = "gp1.filters.v1";
+
+  function rememberFilters() {
+    var f = {};
+    for (var i = 0; i < FACETS.length; i++) {
+      var k = FACETS[i].key, on = [];
+      for (var v in state.facets[k]) { if (state.facets[k][v]) on.push(v); }
+      if (on.length) f[k] = on;
+    }
+    var any = state.q || Object.keys(f).length;
+    try {
+      if (any) store(SAVED, JSON.stringify({ q: state.q, f: f }));
+      else localStorage.removeItem(SAVED);
+    } catch (e) {}
+  }
+
+  function restoreFilters() {
+    var raw = recall(SAVED);
+    if (!raw) return false;
+    var o;
+    try { o = JSON.parse(raw); } catch (e) { return false; }
+    if (!o || typeof o !== "object") return false;
+    var used = false;
+    if (o.q) { state.q = o.q; if (els.search) els.search.value = o.q; used = true; }
+    for (var k in (o.f || {})) {
+      if (!state.facets[k]) continue;        /* a facet this build no longer has */
+      (o.f[k] || []).forEach(function (v) { state.facets[k][v] = true; used = true; });
+    }
+    return used;
+  }
+
   /* -------------------------------------------------------------- render */
 
   /* The thumbnail. Eleven of the 45 have no picture, and they get the item
@@ -487,6 +530,28 @@
     }
     renderShowing();
     paintList();
+    renderJump();
+    rememberFilters();
+  }
+
+  /* Only the groups with something in them under the current filters: a jump
+     to an empty heading is a jump to nothing, and the list would otherwise
+     offer all fifteen however narrow the view had been made. */
+  function renderJump() {
+    if (!els.jump) return;
+    var rows = visible(), seen = {}, order = [];
+    rows.forEach(function (it) {
+      if (!seen[it.group]) { seen[it.group] = 0; order.push(it.group); }
+      seen[it.group]++;
+    });
+    var html = '<option value="">Jump to…</option>';
+    state.groups.forEach(function (g) {
+      if (!seen[g.key]) return;
+      html += '<option value="' + esc(g.key) + '">' + esc(g.key) + " · " +
+              esc(g.name) + " (" + seen[g.key] + ")</option>";
+    });
+    els.jump.innerHTML = html;
+    els.jump.disabled = order.length < 2;
   }
 
   function paintList() {
@@ -496,8 +561,31 @@
       : rows.length + " of " + state.items.length;
 
     if (!rows.length) {
-      els.list.innerHTML = '<p class="none">Nothing matches that. ' +
-        '<button class="chip" data-clear="1">Clear the filters</button></p>';
+      /* Name what is on, and let each one go on its own. "Nothing matches
+         that" is true and useless: with four facets and a search box the
+         question is always WHICH of them to drop, and the answer is usually
+         one of them rather than all. */
+      var on = [];
+      if (state.q) {
+        on.push('<button class="chip" data-dropall="q">the search ' +
+                "\u201c" + esc(state.q) + "\u201d</button>");
+      }
+      for (var f = 0; f < FACETS.length; f++) {
+        var fk = FACETS[f].key, picks = [];
+        for (var pv in state.facets[fk]) { if (state.facets[fk][pv]) picks.push(pv); }
+        if (!picks.length) continue;
+        on.push('<button class="chip" data-dropall="' + fk + '">' +
+                esc(FACETS[f].label.toLowerCase()) +
+                (picks.length === 1 ? " \u2014 " + esc(valueLabel(FACETS[f], picks[0]))
+                                    : " \u2014 " + picks.length + " chosen") +
+                "</button>");
+      }
+      els.list.innerHTML = '<p class="none">' +
+        (on.length
+          ? "Nothing matches all of that. Drop one:</p>" +
+            '<p class="none-drop">' + on.join("") +
+            '<button class="chip" data-clear="1">all of them</button></p>'
+          : "Nothing matches that.</p>");
       return;
     }
 
@@ -568,13 +656,54 @@
       { day: "numeric", month: "short", year: "numeric" });
   }
 
+  /* ---- deep links ----
+
+     An item's CODE in the hash, not its id: #LUM3 is what somebody types into
+     an email, and the id is a forty-character slug nobody would. Codes are
+     unique across the register (checked at build), so this is unambiguous.
+
+     Written with replaceState while the sheet is open and cleared on close, so
+     the back button leaves the register rather than walking back through every
+     item somebody looked at - which is what pushState would have done, and
+     would have made Back useless on a page people browse. */
+  function hashFor(it) { return "#" + encodeURIComponent(it.code); }
+
+  function byCode(code) {
+    code = decodeURIComponent(String(code || "")).toLowerCase();
+    if (!code) return null;
+    for (var i = 0; i < state.items.length; i++) {
+      if (String(state.items[i].code).toLowerCase() === code) return state.items[i];
+    }
+    return null;
+  }
+
+  function openFromHash() {
+    var it = byCode((location.hash || "").slice(1));
+    if (it) openSheet(it.id);
+    else if (state.open) closeSheet();
+  }
+
   function openSheet(id) {
     var it = null;
     for (var i = 0; i < state.items.length; i++) {
       if (state.items[i].id === id) { it = state.items[i]; break; }
     }
     if (!it) return;
+    /* Where focus came from, so Escape can give it back. Without this the tab
+       order restarts at the top of the document every time a sheet closes,
+       which for somebody working down the grid by keyboard means starting
+       the whole page again after every item. */
+    if (!state.open && document.activeElement &&
+        document.activeElement.closest &&
+        document.activeElement.closest(".card, .row")) {
+      state.cameFrom = document.activeElement;
+    }
     state.open = it;
+    try {
+      if (location.hash !== hashFor(it)) {
+        history.replaceState(null, "", hashFor(it));
+      }
+    } catch (e) {}
 
     var rows = "";
     for (var s = 0; s < it.specs.length; s++) {
@@ -653,6 +782,8 @@
             }).join("")
           : "") +
         "</div>" +
+        '<button class="extra copy" type="button" data-copyitem="1">' +
+          icon(I.copy) + "Copy the details</button>" +
         /* A gap has to read as a gap. With neither a link nor a local copy
            there is nothing to open, so say so rather than hand over a button
            that 404s - the extent still says what you are missing. */
@@ -680,8 +811,55 @@
     document.documentElement.style.overflow = "hidden";
   }
 
+  /* ---- #34 copy this item ----
+     Code, title, maker, the specs and the datasheet link, as plain text for
+     an email to a supplier. The sheet is the one place that has all of it
+     already assembled, and until now the only way out of it was retyping. */
+  function copyItem() {
+    var it = state.open;
+    if (!it) return;
+    var out = [it.code + " \u2014 " + it.title];
+    if (it.manufacturer) out.push("Manufacturer: " + it.manufacturer);
+    out.push("Group " + it.group + " \u00b7 " + it.group_name +
+             (it.submittal ? " \u00b7 Submittal " + it.submittal : ""));
+    if (it.specs && it.specs.length) {
+      out.push("");
+      it.specs.forEach(function (s) { out.push(s.label + ": " + s.value); });
+    }
+    if (it.notes) { out.push(""); out.push(it.notes); }
+    var u = makerUrl(it);
+    if (u) { out.push(""); out.push("Manufacturer page: " + u); }
+    if (it.drive_url) out.push("Datasheet: " + it.drive_url);
+    var txt = out.join("\n");
+
+    var btn = els.sheet.querySelector("[data-copyitem]");
+    function said(t) { if (btn) { btn.textContent = t; setTimeout(function () {
+      if (btn) btn.textContent = "Copy the details"; }, 1800); } }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { said("Copied"); },
+                                              function () { fallback(); });
+    } else fallback();
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = txt; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); said("Copied"); }
+      catch (e) { said("Could not copy"); }
+      ta.remove();
+    }
+  }
+
   function closeSheet() {
     state.open = null;
+    try {
+      if (location.hash) {
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+    } catch (e) {}
+    /* #41: give the keyboard back to the card that opened this. */
+    var back = state.cameFrom;
+    state.cameFrom = null;
+    if (back && document.contains(back)) { try { back.focus(); } catch (e) {} }
     els.sheet.classList.remove("on", "dragging");
     els.scrim.classList.remove("on", "dragging");
     els.sheet.style.transform = "";
@@ -844,8 +1022,43 @@
         closeSheet();
         return;
       }
-      if (e.target.closest("[data-clear]")) clearFilters();
+      if (e.target.closest("[data-clear]")) { clearFilters(); return; }
+      /* data-dropAll, not data-drop: the Showing pills already carry
+         data-drop plus a data-v, and they mean "drop this one VALUE". This
+         document-level handler would have fired on them too and cleared the
+         entire facet behind the pill's back - which looks identical when a
+         facet holds one value and is plainly wrong when it holds two. */
+      var drop = e.target.closest("[data-dropall]");
+      if (drop) {
+        var k = drop.getAttribute("data-dropall");
+        if (k === "q") { state.q = ""; if (els.search) els.search.value = ""; }
+        else if (state.facets[k]) state.facets[k] = {};
+        render();
+        return;
+      }
+      var jump = e.target.closest("[data-jump]");
+      if (jump) {
+        var g = document.getElementById("g-" + jump.getAttribute("data-jump"));
+        if (g) g.scrollIntoView({ block: "start", behavior: "smooth" });
+        return;
+      }
+      var cp = e.target.closest("[data-copyitem]");
+      if (cp) { copyItem(); return; }
     });
+
+    if (els.jump) {
+      els.jump.addEventListener("change", function () {
+        var g = els.jump.value && document.getElementById("g-" + els.jump.value);
+        if (g) g.scrollIntoView({ block: "start", behavior: "smooth" });
+        /* Back to the placeholder, so the control reads as an action rather
+           than as a setting now stuck on Manholes. */
+        els.jump.value = "";
+      });
+    }
+
+    /* Back and forward, and somebody pasting a different #code into the bar
+       of a page that is already open. */
+    window.addEventListener("hashchange", openFromHash);
 
     document.querySelector(".themeq").addEventListener("click", function (e) {
       var b = e.target.closest("button[data-t]");
@@ -966,9 +1179,16 @@
       "datasheet attached. Search it, filter it, open what you need.</p>";
 
     setView(recall("gp1.view") || "cards");
+    /* A hash wins over remembered filters: somebody following a link to #LUM3
+       wants that item, not the four facets they left on last Tuesday hiding
+       it. Restoring first and then opening would show the sheet over an empty
+       grid, which looks broken. */
+    if (location.hash && byCode(location.hash.slice(1))) clearFilters();
+    else restoreFilters();
     render();
     wire();
     setTheme(recall("gp1.theme") || "light");
+    openFromHash();
     ready();
   }
 
@@ -976,6 +1196,7 @@
 
   els.list = document.getElementById("list");
   els.count = document.getElementById("count");
+  els.jump = document.getElementById("jump");
   els.search = document.getElementById("q");
   els.facets = document.getElementById("facets");
   els.showing = document.getElementById("showing");

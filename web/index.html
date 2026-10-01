@@ -261,6 +261,13 @@
              aria-label="Search the register" autocomplete="off">
     </label>
     <div class="facets" id="facets"></div>
+    <!-- Fifteen groups and no way to reach Manholes without scrolling past
+         Lighting's 74 items. This scrolls; the Group facet filters. They are
+         different jobs and the bar now offers both. -->
+    <label class="jumpq">
+      <span class="vh">Jump to a group</span>
+      <select id="jump" aria-label="Jump to a group"></select>
+    </label>
     <div class="viewq" role="group" aria-label="View">
       <button data-v="cards" aria-label="Cards with previews" aria-pressed="true"></button>
       <button data-v="rows" aria-label="List, no previews" aria-pressed="false"></button>

@@ -182,6 +182,71 @@ function run(d, w) {
   t("and the cards go back to normal", d.querySelectorAll(".card.disco").length === 0);
   w.GP1.setDiscontinued(m);
 
+  /* ---- what the register remembers, and what a link reaches ---- */
+
+  /* #30: the filters are written through on every change, so a reload lands
+     where you left it. Asserted against localStorage rather than a reload,
+     which the iframe cannot do without losing the handle on it. */
+  btn("discipline").click();
+  pick("discipline", "Doors");
+  d.body.click();
+  var saved = null;
+  try { saved = JSON.parse(w.localStorage.getItem("gp1.filters.v1") || "null"); } catch (e) {}
+  t("the filters are remembered", !!(saved && saved.f && saved.f.discipline &&
+    saved.f.discipline.indexOf("Doors") > -1), JSON.stringify(saved));
+  d.querySelector("#showing .clearall").click();
+  var after = null;
+  try { after = w.localStorage.getItem("gp1.filters.v1"); } catch (e) {}
+  t("and clearing them forgets, rather than saving an empty shape", !after, after);
+
+  /* #40: the empty state names what is on instead of saying nothing matches.
+     Two facets that cannot both be true gets there. */
+  btn("discipline").click(); pick("discipline", "Doors"); d.body.click();
+  var q2 = d.getElementById("q");
+  q2.value = "pentair";
+  q2.dispatchEvent(new w.Event("input", { bubbles: true }));
+  t("an impossible combination empties the list", cards() === 0, cards());
+  var drops = d.querySelectorAll("[data-dropall]");
+  var which = [];
+  for (var di = 0; di < drops.length; di++) which.push(drops[di].getAttribute("data-dropall"));
+  /* One button per filter that is actually on, whatever that number is - the
+     probe reads the state rather than hardcoding a count, so it keeps telling
+     the truth when a facet is added. */
+  t("the empty state offers each filter separately",
+    drops.length === 2 && which.indexOf("q") > -1 &&
+    which.indexOf("discipline") > -1, which.join(","));
+  t("one of them is the search", !!d.querySelector('[data-drop="q"]'));
+  d.querySelector('[data-dropall="q"]').click();
+  t("dropping the search alone brings the rest back", cards() > 0, cards());
+
+  /* THE REGRESSION THIS FOUND. A Showing pill carries data-drop plus a
+     data-v and means "drop this one value"; the empty-state buttons mean
+     "drop the whole facet". They shared an attribute for about an hour, and
+     with one value selected the two are indistinguishable - so this picks
+     TWO disciplines and checks the pill takes only its own. */
+  /* From a clean start: the discipline from the empty-state test above is
+     still on, and an assertion that counts pills has to know what it began
+     with. */
+  var ca = d.querySelector("#showing .clearall");
+  if (ca) ca.click();
+  btn("discipline").click();
+  pick("discipline", "Pool");
+  pick("discipline", "Site");
+  d.body.click();
+  var two = cards();
+  t("two disciplines are on", pills() === 2, pills());
+  d.querySelectorAll("#showing .pill")[1].click();
+  t("a pill drops its own value and leaves the other", pills() === 1 && cards() < two,
+    pills() + " pills, " + cards() + " cards, was " + two);
+  d.querySelector("#showing .clearall").click();
+
+  /* #35: the jump control lists only groups with something in them. */
+  var jump = d.getElementById("jump");
+  t("the jump control lists every group", jump.options.length === 16, jump.options.length);
+  btn("discipline").click(); pick("discipline", "Site"); d.body.click();
+  t("and narrows with the filters", jump.options.length === 2, jump.options.length);
+  d.querySelector("#showing .clearall").click();
+
   /* ---- search joins in ---- */
   var q = d.getElementById("q");
   q.value = "pentair";
