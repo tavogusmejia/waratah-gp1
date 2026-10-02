@@ -1,0 +1,59 @@
+<!doctype html><meta charset="utf-8"><title>bulk</title>
+<!--
+  Setting a status on several items at once.
+
+  A submittal comes back as a package - one letter about eleven items - and
+  doing that one sheet at a time is eleven opens, eleven waits and eleven
+  closes. This drives the whole gesture: turn selection on, pick three,
+  check that a tap does NOT open a sheet, apply a status, and check the
+  cards repaint.
+
+  The mode is explicit rather than a modifier key, because on a touch screen
+  there is no Shift and a grid where a tap sometimes opens and sometimes
+  selects is a grid you cannot trust.
+
+      python tools/run.py probe
+-->
+<iframe id="f" src="./__probe_workflow.html?role=admin" style="position:absolute;left:-9999px;width:1400px;height:900px;border:0"></iframe>
+<script>
+var R=[];function t(n,ok,d){R.push((ok?"PASS ":"FAIL ")+n+(ok?"":" ["+String(d).slice(0,50)+"]"));}
+document.getElementById("f").addEventListener("load",function(){
+  var d=document.getElementById("f").contentDocument,w=document.getElementById("f").contentWindow,n=0;
+  var tk=setInterval(function(){
+    if(!d.querySelector(".card")&&++n<250)return;
+    clearInterval(tk);setTimeout(function(){go(d,w);},900);
+  },40);
+});
+async function go(d,w){
+  var btn=d.getElementById("pickbtn");
+  t("Select button exists",!!btn);
+  t("and is shown to an admin",btn&&!btn.hidden,btn&&btn.hidden);
+  btn.click();
+  t("selection mode on",btn.getAttribute("aria-pressed")==="true");
+  t("cards become pickable",d.querySelectorAll(".card.pickable").length>0,d.querySelectorAll(".card.pickable").length);
+  var bar=d.getElementById("pickbar");
+  t("context bar appears",bar&&!bar.hidden);
+  var cards=d.querySelectorAll(".card");
+  cards[0].click();cards[1].click();cards[2].click();
+  t("three selected",d.querySelectorAll(".card.picked").length===3,d.querySelectorAll(".card.picked").length);
+  t("no sheet opened",!d.querySelector(".sheet.on"));
+  t("bar counts them",/3 items selected/.test(bar.textContent),bar.textContent.slice(0,40));
+  cards[2].click();
+  t("clicking again deselects",d.querySelectorAll(".card.picked").length===2);
+  var sel=d.getElementById("pickstatus");
+  t("a status chooser is offered",!!sel);
+  sel.value="approved";
+  d.querySelector("[data-pickgo]").click();
+  await new Promise(function(r){setTimeout(r,900);});
+  t("the picks clear after applying",d.querySelectorAll(".card.picked").length===0,d.querySelectorAll(".card.picked").length);
+  var pills=d.querySelectorAll(".card .st-approved").length;
+  t("the cards now show Approved",pills>=2,pills);
+  d.querySelector("[data-pickall]")&&d.querySelector("[data-pickall]").click();
+  t("select-all takes what is showing",d.querySelectorAll(".card.picked").length===d.querySelectorAll(".card").length,
+    d.querySelectorAll(".card.picked").length+" of "+d.querySelectorAll(".card").length);
+  d.querySelector("[data-pickoff]").click();
+  t("Done leaves selection mode",!d.querySelector(".card.pickable")&&d.getElementById("pickbar").hidden);
+  var bad=R.filter(function(x){return x.indexOf("FAIL")===0;}).length;
+  document.title=(bad?"R:FAIL "+bad+" ":"R:PASS "+R.length+" ")+R.join(" | ");
+}
+</script>

@@ -1082,3 +1082,63 @@ a { color: inherit; }
 
 /* An absence that is information, not a gap in the data. */
 .meta-none { color: var(--ink-3); font-style: italic; }
+
+/* ------------------------------------------------- selecting several */
+.pickbtn {
+  flex: none; font: inherit; font-size: 13px; cursor: pointer;
+  color: var(--ink-2); background: var(--bg-raise);
+  border: 1px solid var(--line); border-radius: var(--r); padding: 8px 12px;
+}
+.pickbtn:hover { border-color: var(--slate); color: var(--ink); }
+.pickbtn[aria-pressed="true"] {
+  background: var(--red); border-color: var(--red); color: #fff;
+}
+
+.pickbar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  margin: 10px 0 0; padding: 10px 12px;
+  background: var(--bg-raise); border: 1px solid var(--red-line);
+  border-radius: var(--r); box-shadow: var(--shadow);
+  position: sticky; top: 8px; z-index: 6;
+}
+.pick-n { font: 500 13px/1 var(--mono); color: var(--ink); white-space: nowrap; }
+.pick-sp { flex: 1 1 auto; }
+.pick-hint { font-size: 12.5px; color: var(--ink-3); }
+.pick-set { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--ink-2); }
+.pick-set select {
+  font: inherit; font-size: 13px; color: var(--ink);
+  background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 6px 8px;
+}
+.btn-apply {
+  font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap;
+  background: var(--red); color: #fff; border: 1px solid var(--red);
+  border-radius: 6px; padding: 7px 13px;
+}
+.btn-apply:hover { filter: brightness(1.06); }
+.btn-apply:disabled { opacity: .5; cursor: default; }
+.pick-msg { flex: 1 0 100%; margin: 0; font-size: 12.5px; color: var(--ink-3); }
+.pick-msg:empty { display: none; }
+.pick-msg.bad { color: var(--red); }
+
+/* A selectable card says so before it is touched, and a selected one is
+   unmistakable at a glance across a grid of eighty. */
+.card.pickable, .row.pickable { cursor: pointer; }
+.card.pickable { padding-left: 38px; }
+.card .tick {
+  position: absolute; left: 13px; top: 15px; width: 17px; height: 17px;
+  border: 1.5px solid var(--slate); border-radius: 4px; background: var(--bg);
+}
+.card.picked { border-color: var(--red); background: var(--red-wash); }
+.card.picked .tick { background: var(--red); border-color: var(--red); }
+.card.picked .tick::after {
+  content: ""; position: absolute; left: 5px; top: 1px;
+  width: 5px; height: 10px; border: solid #fff;
+  border-width: 0 2px 2px 0; transform: rotate(45deg);
+}
+.row.picked { background: var(--red-wash); box-shadow: inset 3px 0 0 var(--red); }
+
+@media (max-width: 560px) {
+  .pickbar { position: static; }
+  .pick-sp { display: none; }
+}

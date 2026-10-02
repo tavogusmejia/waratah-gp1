@@ -33,6 +33,10 @@
      different things behind one word is how the wrong one gets rendered. */
   var state = { items: [], groups: [], q: "", view: "cards", open: null,
                 cameFrom: null,
+                /* Selection mode. Off unless somebody who may change a status
+                   turns it on, because a control that selects things you
+                   cannot then do anything to is worse than no control. */
+                picking: false, picked: {},
                 approval: {},
                 /* item_key -> url, handed over by workflow.js. A picture
                    somebody replaced, preferred over the one the extractor
@@ -469,7 +473,11 @@
   function card(it) {
     return '<button class="card' +
       (state.discontinued[it.key] ? " disco" : "") +
-      '" data-id="' + esc(it.id) + '">' +
+      (state.picking ? " pickable" : "") +
+      (state.picked[it.key] ? " picked" : "") +
+      '" data-id="' + esc(it.id) + '"' +
+      (state.picking ? ' aria-pressed="' + (!!state.picked[it.key]) + '"' : "") + ">" +
+      (state.picking ? '<span class="tick" aria-hidden="true"></span>' : "") +
       thumb(it) +
       '<span class="card-body">' +
         '<span class="card-h"><code>' + esc(it.code) + "</code>" +
@@ -493,7 +501,10 @@
   function row(it) {
     return '<button class="row' +
       (state.discontinued[it.key] ? " disco" : "") +
-      '" data-id="' + esc(it.id) + '">' +
+      (state.picking ? " pickable" : "") +
+      (state.picked[it.key] ? " picked" : "") +
+      '" data-id="' + esc(it.id) + '"' +
+      (state.picking ? ' aria-pressed="' + (!!state.picked[it.key]) + '"' : "") + ">" +
       "<code>" + esc(it.code) + "</code>" +
       '<span class="row-t">' + esc(it.title) + "</span>" +
       '<span class="row-m">' + esc(it.manufacturer || "") + "</span>" +
@@ -531,12 +542,59 @@
     renderShowing();
     paintList();
     renderJump();
+    renderPick();
     rememberFilters();
   }
 
   /* Only the groups with something in them under the current filters: a jump
      to an empty heading is a jump to nothing, and the list would otherwise
      offer all fifteen however narrow the view had been made. */
+  /* ---- selecting several ----
+
+     A status set one item at a time means opening a sheet, choosing, waiting
+     for it to save and closing it, for every item in a submittal package -
+     and a package is where a status usually changes, all at once, because
+     one letter came back about all of it.
+
+     The mode is explicit rather than a modifier key: on a touch screen there
+     is no Shift, and a grid where a plain tap sometimes opens and sometimes
+     selects is a grid you cannot trust. */
+  function renderPick() {
+    var bar = els.pick;
+    if (!bar) return;
+    var keys = Object.keys(state.picked).filter(function (k) { return state.picked[k]; });
+    if (!state.picking) { bar.hidden = true; bar.innerHTML = ""; return; }
+    bar.hidden = false;
+    var opts = ORDER.map(function (k) {
+      return '<option value="' + esc(k) + '">' + esc(WORDS[k] || "Not submitted") + "</option>";
+    }).join("");
+    bar.innerHTML =
+      '<span class="pick-n">' + (keys.length || "No") +
+        (keys.length === 1 ? " item" : " items") + " selected</span>" +
+      '<button class="chip" type="button" data-pickall="1">Select all showing</button>' +
+      '<button class="chip" type="button" data-picknone="1">Clear</button>' +
+      '<span class="pick-sp"></span>' +
+      (keys.length
+        ? '<label class="pick-set">Set status to ' +
+            '<select id="pickstatus">' + opts + "</select></label>" +
+          '<button class="btn-apply" type="button" data-pickgo="1">Apply to ' +
+            keys.length + "</button>"
+        : '<span class="pick-hint">Pick the items this applies to.</span>') +
+      '<button class="chip" type="button" data-pickoff="1">Done</button>' +
+      '<p class="pick-msg" id="pickmsg" role="status"></p>';
+  }
+
+  function pickedKeys() {
+    return Object.keys(state.picked).filter(function (k) { return state.picked[k]; });
+  }
+
+  function setPicking(on) {
+    state.picking = !!on;
+    if (!state.picking) state.picked = {};
+    if (els.pickbtn) els.pickbtn.setAttribute("aria-pressed", String(state.picking));
+    render();
+  }
+
   function renderJump() {
     if (!els.jump) return;
     var rows = visible(), seen = {}, order = [];
@@ -823,6 +881,36 @@
      Code, title, maker, the specs and the datasheet link, as plain text for
      an email to a supplier. The sheet is the one place that has all of it
      already assembled, and until now the only way out of it was retyping. */
+  /* The register does not write anything itself. workflow.js sets
+     GP1.onBulkStatus and owns the database, the permission and the error -
+     exactly as it owns the sheet through onSheet. */
+  async function applyPick() {
+    var keys = pickedKeys();
+    var sel = document.getElementById("pickstatus");
+    var msg = document.getElementById("pickmsg");
+    if (!keys.length || !sel || !GP1.onBulkStatus) return;
+    function say(t, bad) {
+      if (!msg) return;
+      msg.textContent = t || "";
+      msg.className = "pick-msg" + (t ? (bad ? " bad" : " ok") : "");
+    }
+    var btn = document.querySelector("[data-pickgo]");
+    if (btn) btn.disabled = true;
+    say("Saving " + keys.length + "\u2026");
+    try {
+      var out = await GP1.onBulkStatus(keys, sel.value);
+      say(out && out.message ? out.message : "Saved.");
+      if (!out || out.ok !== false) {
+        state.picked = {};
+        render();
+        say(keys.length + " updated.");
+      }
+    } catch (err) {
+      say((err && err.message) || "That did not save.", true);
+    }
+    if (btn) btn.disabled = false;
+  }
+
   function copyItem() {
     var it = state.open;
     if (!it) return;
@@ -1025,7 +1113,36 @@
        every test that opens one failed, which is how it was caught. */
     document.addEventListener("click", function (e) {
       var c = e.target.closest(".card, .row");
-      if (c) { openSheet(c.dataset.id); return; }
+      if (c) {
+        if (state.picking) {
+          /* A tap selects. It must never also open, or a careless finger
+             loses the selection behind a sheet. */
+          var it = null;
+          for (var ci = 0; ci < state.items.length; ci++) {
+            if (state.items[ci].id === c.dataset.id) { it = state.items[ci]; break; }
+          }
+          if (it) {
+            if (state.picked[it.key]) delete state.picked[it.key];
+            else state.picked[it.key] = true;
+            c.classList.toggle("picked", !!state.picked[it.key]);
+            c.setAttribute("aria-pressed", String(!!state.picked[it.key]));
+            renderPick();
+          }
+          return;
+        }
+        openSheet(c.dataset.id);
+        return;
+      }
+      if (e.target.closest("[data-pickoff]")) { setPicking(false); return; }
+      if (e.target.closest("[data-picknone]")) { state.picked = {}; render(); return; }
+      if (e.target.closest("[data-pickall]")) {
+        /* Everything the filters are currently showing, which is the whole
+           point: filter to a submittal, then take all of it. */
+        visible().forEach(function (it) { state.picked[it.key] = true; });
+        render();
+        return;
+      }
+      if (e.target.closest("[data-pickgo]")) { applyPick(); return; }
       if (e.target.closest("[data-close]") || e.target === els.scrim) {
         closeSheet();
         return;
@@ -1053,6 +1170,10 @@
       var cp = e.target.closest("[data-copyitem]");
       if (cp) { copyItem(); return; }
     });
+
+    if (els.pickbtn) {
+      els.pickbtn.addEventListener("click", function () { setPicking(!state.picking); });
+    }
 
     if (els.jump) {
       els.jump.addEventListener("change", function () {
@@ -1104,6 +1225,18 @@
     open:    function () { return state.open; },
     render:  function () { render(); },
     onSheet: null,          /* workflow.js sets this: fn(item, sheetElement) */
+
+    /* fn(itemKeys, status) -> {ok, message}. Set by workflow.js when the
+       signed-in person may change a status; its presence is what puts the
+       Select control in the bar at all. */
+    onBulkStatus: null,
+
+    /* Called by workflow.js once the role is known. */
+    allowBulk: function (on) {
+      if (!els.pickbtn) return;
+      els.pickbtn.hidden = !on;
+      if (!on && state.picking) setPicking(false);
+    },
 
     /* Rebuild the open sheet in place. Signing in or out changes which
        controls belong in it, and the sheet is built once on open. */
@@ -1205,6 +1338,8 @@
   els.list = document.getElementById("list");
   els.count = document.getElementById("count");
   els.jump = document.getElementById("jump");
+  els.pick = document.getElementById("pickbar");
+  els.pickbtn = document.getElementById("pickbtn");
   els.search = document.getElementById("q");
   els.facets = document.getElementById("facets");
   els.showing = document.getElementById("showing");

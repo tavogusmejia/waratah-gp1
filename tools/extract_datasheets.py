@@ -111,6 +111,38 @@ GROUPS = {
 }
 
 
+# Brands the register knows, for reading a manufacturer off a FILENAME when
+# the sheet has no curated summary page to read one from. 47 items had no
+# manufacturer at all - every Dornbracht, every Lutron, the Cantex conduit -
+# so the Maker facet could not reach a third of the register and typing "dorn"
+# into its search box found nothing.
+#
+# A LIST, NOT A GUESS. "the first word after DS -" would read "THHN" as a
+# brand off "C2 - THHN-THWN Copper Building Wire" and "Ground" off "C6 -
+# Ground Rods". Only a name already known to this project counts, and an item
+# whose brand is genuinely not in its filename keeps an empty manufacturer,
+# which the facet already groups as "None recorded".
+KNOWN_MAKERS = (
+    "Dornbracht", "TOTO", "Lutron", "Cantex", "Salto", "Hafele", "H\u00e4fele",
+    "Assa Abloy", "Pentair", "Hayward", "AquaStar", "Spears", "Jandy",
+    "Gulfstream", "Taco", "BrassCraft", "ProFlo", "Charlotte Pipe", "Charlotte",
+    "Bradford White", "Johns Manville", "Burndy", "Southwire", "ABB", "Wago",
+    "iGuzzini", "LedFlex", "EcoPac", "Simes", "Vibia", "Bover", "LEDS C4",
+    "WAC Lighting", "Visual Comfort", "Davide Groppi", "Siec Led", "Schluter",
+    "U.S. Solid", "Robert Manufacturing", "Bonomi", "Aquaram", "Fortis",
+)
+
+
+def maker_from_name(stem):
+    """The brand in a filename, if it is one this project already knows.
+
+    Longest match wins, so "Charlotte Pipe" is not reported as "Charlotte".
+    """
+    low = stem.lower()
+    hits = [m for m in KNOWN_MAKERS if m.lower() in low]
+    return max(hits, key=len) if hits else ""
+
+
 def group_of(rel):
     """The submittal letter, taken from the first folder named like one.
 
@@ -717,6 +749,11 @@ def main():
             curated = False
         else:
             curated = True
+
+        # A sheet with no curated page has no manufacturer either, and an
+        # item nobody can find by maker is an item that is hard to find at all.
+        if not (rec.get("manufacturer") or "").strip():
+            rec["manufacturer"] = maker_from_name(p.stem)
 
         # The FILENAME carries the item code, not the summary page. The two
         # drift: the door sheets say "4" inside while the file is called

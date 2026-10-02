@@ -847,6 +847,47 @@
     return sec;
   }
 
+  /* ---- setting a status on several items at once ----
+
+     A submittal comes back as a package: one letter about eleven items. Doing
+     that one sheet at a time is eleven opens, eleven waits and eleven closes,
+     and the register is for exactly this.
+
+     ONE UPSERT, NOT A LOOP. Eleven round trips is eleven chances to fail
+     halfway and no way afterwards to say which took - the same reason the
+     links page sends its rows together. PostgREST takes an array and the
+     whole set lands or none of it does.
+
+     The note is deliberately left alone. A status is a fact about all of
+     them; a note is a sentence about one, and writing the same sentence onto
+     eleven items would be worse than leaving each as it was. */
+  async function bulkStatus(keys, status) {
+    if (!sb) return { ok: false, message: "No database in this view." };
+    if (!can("admin")) return { ok: false, message: "Setting a status needs admin." };
+    if (!keys || !keys.length) return { ok: false, message: "Nothing selected." };
+
+    var rows = keys.map(function (k) {
+      /* The note is carried forward, not cleared: upsert replaces the whole
+         row, so omitting status_note would silently wipe a remark somebody
+         wrote against a single item. */
+      var had = approval[k] || {};
+      return { item_key: k, status: status, status_note: had.status_note || "" };
+    });
+    var r = await sb.from("item_state").upsert(rows, { onConflict: "item_key" })
+                    .select("item_key, status, status_note, decided_at");
+    if (r.error) return { ok: false, message: fail(r.error) };
+
+    var got = r.data || [];
+    if (got.length !== keys.length) {
+      return { ok: false, message: "The database took " + got.length + " of " +
+                                   keys.length + ". Reload before trying again." };
+    }
+    got.forEach(function (x) { approval[x.item_key] = x; });
+    window.GP1.setApproval(approval);
+    return { ok: true, message: got.length + " set to " +
+                                (STATUS_WORDS[status] || status) + "." };
+  }
+
   /* ---- the manufacturer's page ----
 
      datasheets.json carries one per item, written at build time from
@@ -1719,6 +1760,7 @@
     me = s.data && s.data.session ? s.data.session.user : null;
     await readRole();
     authBox();
+    if (window.GP1.allowBulk) window.GP1.allowBulk(can("admin"));
     loadApproval();
 
     sb.auth.onAuthStateChange(async function (evt, session) {
@@ -1736,6 +1778,7 @@
       if ((me && me.email) === was) return;
       await readRole();
       authBox();
+      if (window.GP1.allowBulk) window.GP1.allowBulk(can("admin"));
       /* A sheet open across a sign-in is showing the wrong set of controls. */
       window.GP1.reopen();
     });
@@ -1753,6 +1796,7 @@
   }, true);
 
   window.GP1.onSheet = decorate;
+  window.GP1.onBulkStatus = bulkStatus;
 
   document.addEventListener("click", function (e) {
     if (e.target.closest(".auth-in, [data-signin]")) { signInPanel(); return; }

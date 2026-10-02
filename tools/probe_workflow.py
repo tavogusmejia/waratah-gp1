@@ -184,8 +184,17 @@ STUB = r"""
          table it wrote to: status goes to item_state and is read from
          item_status_public. Hard-wiring one destination here meant a new
          table's write path silently did nothing under the harness. */
+      /* An ARRAY, or one row. Setting a status on a whole submittal sends
+         every item in one upsert - PostgREST takes an array and the set lands
+         or none of it does - and this stub only ever handled a single object,
+         so it wrote the array itself as one row and answered with one result
+         for eleven items. */
       upsert: function (row) {
         if (!may("admin")) return thenable({data:null, error:DENIED});
+        if (Array.isArray(row)) {
+          var outRows = row.map(function (r) { return b.upsert(r)._row; });
+          return thenable({data: outRows, error: null});
+        }
         var into = table === "item_state" ? "item_status_public"
                  : table === "item_discontinued" ? "item_discontinued_public"
                  : table === "item_picture" ? "item_picture_public"
@@ -196,7 +205,9 @@ STUB = r"""
         DB[into] = DB[into] || [];
         var i = DB[into].findIndex(function (r) { return r.item_key === row.item_key; });
         if (i < 0) DB[into].push(row); else DB[into][i] = row;
-        return thenable({data:[row], error:null});
+        var th = thenable({data:[row], error:null});
+        th._row = row;          /* so an array upsert can collect them */
+        return th;
       },
       update: function (patch) {
         if (!may("admin")) return thenable({data:null, error:DENIED});

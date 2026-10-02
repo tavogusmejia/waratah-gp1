@@ -272,8 +272,13 @@
       <button data-v="cards" aria-label="Cards with previews" aria-pressed="true"></button>
       <button data-v="rows" aria-label="List, no previews" aria-pressed="false"></button>
     </div>
+    <!-- Hidden until workflow.js says the signed-in person may set a status.
+         A control that selects things you cannot then act on is worse than
+         no control. -->
+    <button class="pickbtn" id="pickbtn" type="button" aria-pressed="false" hidden>Select</button>
     <span class="count" id="count" role="status" aria-live="polite" aria-atomic="true"></span>
   </div>
+  <div class="pickbar" id="pickbar" hidden></div>
 
   <!-- Only present when something is filtered: it exists to answer "why am I
        seeing 23 items", which has no answer when the answer is "all of them". -->
