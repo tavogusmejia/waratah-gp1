@@ -751,7 +751,15 @@
           : "") +
         '<div class="sheet-meta">' +
           (it.category ? "<span>" + esc(it.category) + "</span>" : "") +
-          (it.submittal ? "<span>Submittal " + esc(it.submittal) + "</span>" : "") +
+          /* An absent submittal number read as missing data. It is not:
+             of the thirteen packages issued on this project, five cover
+             groups in this register and all five are recorded. The other
+             118 items are not in a package because they HAVE NOT BEEN
+             SUBMITTED, which is a fact worth stating rather than a blank
+             worth filling. */
+          (it.submittal
+            ? "<span>Submittal " + esc(it.submittal) + "</span>"
+            : '<span class="meta-none">Not in a submittal package yet</span>') +
           "<span>Group " + esc(it.group) + " &middot; " + esc(it.group_name) + "</span>" +
           "<span>" + esc(it.discipline) + "</span>" +
         "</div>" +

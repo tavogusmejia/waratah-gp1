@@ -236,6 +236,31 @@ def main():
                 report["drive"].append({"code": code, **r})
         print("  %d checked, %d not readable" % (len(urls), len(report["drive"])))
 
+    # ---- one url doing duty for several items ----
+    if everything or a.maker:
+        print("
+ONE PAGE, SEVERAL ITEMS")
+        print("  A product page names a product. A url shared by five items is")
+        print("  a family page, which is sometimes right and always worth knowing.")
+        share = {}
+        for k, u in makers.items():
+            share.setdefault(u, []).append(k)
+        n = 0
+        for u, keys in sorted(share.items(), key=lambda t: -len(t[1])):
+            if len(keys) < 2:
+                continue
+            n += 1
+            titles = {items[k]["title"] for k in keys if k in items}
+            codes = [items[k]["code"] for k in sorted(keys) if k in items]
+            kind = ("THE SAME PRODUCT under two codes" if len(titles) == 1
+                    else "a family page")
+            print("  %d items - %s" % (len(keys), kind))
+            print("      %s" % u[:96])
+            print("      %s" % ", ".join(codes))
+            report.setdefault("shared", []).append(
+                {"url": u, "codes": codes, "same_product": len(titles) == 1})
+        print("  %d shared urls" % n)
+
     out = os.path.join(HERE, "audit", "_links_health.json")
     io.open(out, "w", encoding="utf-8").write(
         json.dumps(report, indent=1, ensure_ascii=False))
