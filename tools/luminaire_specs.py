@@ -12,8 +12,16 @@ left out rather than guessed.
 import io, json, re, sys
 from pathlib import Path
 
-SRC = (r"C:\Users\gus\Documents\Claude Projects\JANU\04 Project Documents"
-       r"\03 Datasheets\GP1 Datasheets\L - Lighting\L&L - Luminaires")
+# The luminaires are spread across three folders and were in one when this was
+# written. "L&L - Luminaires" no longer exists - it became "LUM - Luminaires"
+# and "L&L - Luce & Light" - so main() globbed an absent directory, found
+# nothing, and the only signal was "NO CONTENT FOR" never firing. The module
+# has been quietly unable to rebuild anything since that split, which is why
+# two wrong manufacturers sat in it uncorrected.
+LIGHTING = (r"C:\Users\gus\Documents\Claude Projects\JANU\04 Project Documents"
+            r"\03 Datasheets\GP1 Datasheets\L - Lighting")
+SRC_DIRS = ["LUM - Luminaires", "L&L - Luce & Light", "iGL - iGuzzini Lighting"]
+SRC = LIGHTING
 
 # code: (manufacturer, title, [(label, value)...], notes)
 # Drivers and profiles carry what a driver or profile is asked for; fixtures
@@ -137,7 +145,7 @@ L = {
     ("Diameter", "5 in round"), ("Control", "ON-OFF"),
     ("Mounting", "Surface, ceiling or wall"),
     ("Ambient", "-40 \u00b0F to 122 \u00b0F (-40 \u00b0C to 50 \u00b0C)")], ""),
-"LUM13": ("Vibia", "Indirect Wall Lamp - Foil 1A334-FOIL-US02", [
+"LUM13": ("Davide Groppi", "Indirect Wall Lamp - Foil 1A334-FOIL-US02", [
     ("Control", "Phase dimming"),
     ("Mounting", "Wall and ceiling, architectural"),
     ("Design", "967 Design, 2011")],
@@ -190,7 +198,7 @@ L = {
     ("Ingress", "IP65"), ("Impact", "IK08"), ("Control", "DALI"),
     ("Model", "ea1010fdtt"), ("Mounting", "Wall")],
     "Runs with driver L&L17.1."),
-"L&L17.1": ("Wago", "Sconce Driver, 5-Protocol - WSDDV225PA", [
+"L&L17.1": ("Siec Led", "Sconce Driver, 5-Protocol - SDDV225PA", [
     ("Output", "36 W"), ("Control", "5-protocol dimming"),
     ("Ingress", "IP20"), ("Serves", "L&L17 - sconce, tag D01")],
     "The driver is not an L&L part; it keeps the L&L17 number because it "
@@ -199,9 +207,11 @@ L = {
 
 
 def main():
-    src = Path(SRC)
+    pdfs = []
+    for sub in SRC_DIRS:
+        pdfs += sorted((Path(LIGHTING) / sub).glob("*.pdf"))
     items, missing = [], []
-    for p in sorted(src.glob("*.pdf")):
+    for p in pdfs:
         code = p.stem.split(" - ")[0]
         if code not in L:
             missing.append(p.name)
@@ -215,7 +225,7 @@ def main():
         items.append({
             "code": code, "manufacturer": maker, "title": title,
             "specs": rows, "notes": notes,
-            "source": p.name,
+            "source": str(p.relative_to(LIGHTING)).replace(chr(92), "/"),
             "filename": p.name.replace(" - DS - ", " - ", 1),
         })
     if missing:

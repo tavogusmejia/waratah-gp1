@@ -80,7 +80,22 @@ SOURCE = Path(os.environ.get(
 # item's datasheet, so it stays in the submittal folder and out of the
 # register - J9 had it sitting beside the two sheets it compares.
 SKIP = ("reference", "Item Index & Links",
-        "Mockup Room 1 - Electrical Distribution", "- Comparison -")
+        "Mockup Room 1 - Electrical Distribution", "- Comparison -",
+        # HELD BACK, PENDING A DECISION - 2 Oct 2026.
+        #
+        # "PD - Dornbracht Fixtures" is a renumbered replacement for group H:
+        # PD1 is H1's basin spout, PD7 is H7's tissue holder, PD8 is H8's TOTO
+        # toilet, same part numbers. Ingesting it while H is still here puts
+        # both on the register as separate items, which is the one thing the
+        # register must not do.
+        #
+        # It also exposes a real limit: of the eleven PD sheets only five were
+        # picked up, because the code parser does not accept a letter suffix -
+        # PD2A, PD2B, PD5A, PD5B, PD5C and PD5D were all dropped silently.
+        #
+        # Remove this line once it is settled whether PD retires H or sits
+        # beside it, and once the parser handles PD5A.
+        "PD - Dornbracht Fixtures")
 
 # The groups, in the order the register reads them. The letters are the
 # submittal's own, which is why there is no C or I - and why D now means Doors

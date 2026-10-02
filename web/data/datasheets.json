@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-02T04:26:08Z",
+ "generated": "2026-10-02T19:12:15Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -4266,7 +4266,7 @@
    "group_name": "Luminaires",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "Vibia",
+   "manufacturer": "Davide Groppi",
    "category": "",
    "title": "Indirect Wall Lamp - Foil 1A334-FOIL-US02",
    "specs": [
@@ -4292,9 +4292,9 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/lum13-indirect-wall-lamp-foil-phase-dim-d01-3-1a334-foil-us02.pdf",
-   "pages": 3,
-   "bytes": 420178,
-   "sha": "670003573463e418",
+   "pages": 4,
+   "bytes": 423267,
+   "sha": "59bdc6f9c2b10a12",
    "source": "L - Lighting/LUM - Luminaires/LUM13 - Indirect Wall Lamp Foil PHASE-DIM - D01.3 - 1A334-FOIL-US02.pdf",
    "key": "lum-lum13",
    "drive_url": "https://drive.google.com/file/d/1KVjVfcU6WwgdB0QH7rIbx9oa_vFwvkPR/view",
@@ -4873,15 +4873,15 @@
    "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
   },
   {
-   "id": "l-l-l-l17-1-sconce-driver-5-protocol-wsddv225pa",
+   "id": "l-l-l-l17-1-sconce-driver-5-protocol-sddv225pa",
    "code": "L&L17.1",
    "group": "L&L",
    "group_name": "Luce & Light",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "Wago",
+   "manufacturer": "Siec Led",
    "category": "",
-   "title": "Sconce Driver, 5-Protocol - WSDDV225PA",
+   "title": "Sconce Driver, 5-Protocol - SDDV225PA",
    "specs": [
     {
      "label": "Fixture tag",
@@ -4909,9 +4909,9 @@
    "status_text": "",
    "curated": true,
    "pdf": "datasheets/l-l17-1-sconce-driver-5-protocol-d01-wsddv225pa.pdf",
-   "pages": 5,
-   "bytes": 292270,
-   "sha": "e64d76ac1d3d0438",
+   "pages": 6,
+   "bytes": 295500,
+   "sha": "6b6c0b7e37ddba78",
    "source": "L - Lighting/L&L - Luce & Light/L&L17.1 - Sconce Driver 5-Protocol - D01 - WSDDV225PA.pdf",
    "key": "l&l-l&l17.1",
    "drive_url": "https://drive.google.com/file/d/12B4Sr44JI8V8JmmnCepsbRCztcpuuxeL/view",
