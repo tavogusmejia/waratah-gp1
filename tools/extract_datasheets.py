@@ -81,21 +81,7 @@ SOURCE = Path(os.environ.get(
 # register - J9 had it sitting beside the two sheets it compares.
 SKIP = ("reference", "Item Index & Links",
         "Mockup Room 1 - Electrical Distribution", "- Comparison -",
-        # HELD BACK, PENDING A DECISION - 2 Oct 2026.
-        #
-        # "PD - Dornbracht Fixtures" is a renumbered replacement for group H:
-        # PD1 is H1's basin spout, PD7 is H7's tissue holder, PD8 is H8's TOTO
-        # toilet, same part numbers. Ingesting it while H is still here puts
-        # both on the register as separate items, which is the one thing the
-        # register must not do.
-        #
-        # It also exposes a real limit: of the eleven PD sheets only five were
-        # picked up, because the code parser does not accept a letter suffix -
-        # PD2A, PD2B, PD5A, PD5B, PD5C and PD5D were all dropped silently.
-        #
-        # Remove this line once it is settled whether PD retires H or sits
-        # beside it, and once the parser handles PD5A.
-        "PD - Dornbracht Fixtures")
+        )
 
 # The groups, in the order the register reads them. The letters are the
 # submittal's own, which is why there is no C or I - and why D now means Doors
@@ -109,7 +95,11 @@ GROUPS = {
     "F": ("Balancing Tank Accessories", "Pool", None),
     "G": ("Piping and Valves", "Pool", None),
     "C": ("Cables and Bonding", "Pool", None),
-    "H": ("Bathroom and Shower Fixtures", "Plumbing", None),
+    # H is retired. "PD - Dornbracht Fixtures" supersedes it: same scope,
+    # renumbered against the FIX- tags, with parts added and changed. The
+    # old folder is "_Superseded H (replaced by PD)" and the underscore
+    # keeps it out of the register.
+    "PD": ("Bathroom and Shower Fixtures", "Plumbing", None),
     "P": ("Plumbing", "Plumbing", None),
     "L": ("Lighting", "Lighting", None),
     "LUM": ("Luminaires", "Lighting", None),
@@ -389,10 +379,12 @@ def code_key(code):
     and/or dotted numbers - A1, J14, 09, 6.1 - so split them into their parts
     and compare the numbers as numbers.
     """
-    m = re.match(r"([A-Za-z]*)\s*([\d.]*)", code.strip())
-    alpha, nums = (m.group(1).upper(), m.group(2)) if m else (code, "")
+    m = re.match(r"([A-Za-z]*)\s*([\d.]*)([A-Za-z]?)", code.strip())
+    alpha, nums, suffix = ((m.group(1).upper(), m.group(2), m.group(3).upper())
+                           if m else (code, "", ""))
     parts = [int(n) for n in nums.split(".") if n.isdigit()]
-    return (alpha, parts, code)
+    # The suffix sorts last and within its number: PD2A, PD2B, then PD3.
+    return (alpha, parts, suffix, code)
 
 
 def code_prefix(stem):
@@ -692,7 +684,11 @@ def main():
     def is_code(pre):
         if pre in MARKER_WORDS:
             return False
-        return bool(re.fullmatch(r"[A-Za-z&]{1,6}[0-9][0-9.]*", pre)
+        # The trailing letter matters: PD2A is the cold deck valve and
+        # PD2B the hot, PD5A to PD5D are four separate xTOOL parts. Without
+        # it six of the eleven Dornbracht sheets failed is_code and went to
+        # the unfiled list, which nothing reads.
+        return bool(re.fullmatch(r"[A-Za-z&]{1,6}[0-9][0-9.]*[A-Za-z]?", pre)
                     or re.fullmatch(r"[A-Z]{1,6}", pre))
 
     filed, unfiled = [], []

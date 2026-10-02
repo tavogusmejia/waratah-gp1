@@ -64,7 +64,11 @@ function run(d, w) {
   w.GP1.setDiscontinued({});
   var total = cards();
 
-  t("the register loaded", total === 147, total);
+  /* Not 147. The register grows: group H retired and PD arrived and the
+     number moved to 149 inside a day. Ask the catalogue what it holds and
+     assert the page agrees with it - that is the thing worth testing. */
+  var expect = w.GP1.items().length;
+  t("the register loaded", total === expect && total > 100, total + " of " + expect);
   t("four facets", d.querySelectorAll("#facets .facet").length === 4);
   t("Showing is absent until something is filtered",
     d.getElementById("showing").hidden);
