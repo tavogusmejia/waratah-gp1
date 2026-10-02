@@ -251,6 +251,41 @@ function run(d, w) {
   t("and narrows with the filters", jump.options.length === 2, jump.options.length);
   d.querySelector("#showing .clearall").click();
 
+  /* ---- searching the way people type ----
+
+     Every search here was a literal substring match, so "hafele" found
+     nothing because the register spells it with an umlaut, and "led flex"
+     found nothing because the maker is "LedFlex". Four real queries that
+     returned nothing, in the control whose whole job is finding things. */
+  var ca2 = d.querySelector("#showing .clearall");
+  if (ca2) ca2.click();
+  var qq = d.getElementById("q");
+  [["hafele", "Hafele with no umlaut"],
+   ["led flex", "a space the maker does not have"],
+   ["us solid", "dots the query omits"],
+   ["dornbracht", "a plain name, as a control"]].forEach(function (pair) {
+    qq.value = pair[0];
+    qq.dispatchEvent(new w.Event("input", { bubbles: true }));
+    t("search finds “" + pair[0] + "” — " + pair[1], cards() > 0, cards());
+  });
+  qq.value = "";
+  qq.dispatchEvent(new w.Event("input", { bubbles: true }));
+
+  /* and the same inside the Maker facet's own box */
+  btn("maker").click();
+  var fs = facet("maker").querySelector(".fsearch");
+  t("the maker box is focused on open", d.activeElement === fs);
+  ["hafele", "eco pac", "us solid"].forEach(function (s2) {
+    fs.value = s2;
+    fs.dispatchEvent(new w.Event("input", { bubbles: true }));
+    var vis = 0;
+    facet("maker").querySelectorAll(".fopt").forEach(function (o) { if (!o.hidden) vis++; });
+    t("the maker box finds “" + s2 + "”", vis > 0, vis);
+  });
+  fs.value = "";
+  fs.dispatchEvent(new w.Event("input", { bubbles: true }));
+  d.body.click();
+
   /* ---- search joins in ---- */
   var q = d.getElementById("q");
   q.value = "pentair";

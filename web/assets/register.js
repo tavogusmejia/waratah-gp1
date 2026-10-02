@@ -195,6 +195,26 @@
 
   function any(o) { for (var k in o) { if (o[k]) return true; } return false; }
 
+  /* Search the way somebody types, not the way the data is spelled.
+
+     Every search here was a literal substring match, which fails on exactly
+     what a person reaches for:
+
+       hafele    missed Hafele, because the register spells it Hafele with an
+                 umlaut and no keyboard offers one by default
+       led flex  missed "LedFlex Group"
+       eco pac   missed "EcoPac Power"
+       us solid  missed "U.S. Solid"
+
+     Folding away accents and everything that is not a letter or a digit makes
+     all four work, and costs nothing: a query and a name that differ only by
+     punctuation were never meant to be different things. */
+  function fold(v) {
+    v = String(v == null ? "" : v);
+    if (v.normalize) v = v.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    return v.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  }
+
   function hay(it) {
     if (it._h) return it._h;
     var parts = [it.code, it.title, it.manufacturer, it.group_name,
@@ -202,7 +222,7 @@
     for (var i = 0; i < it.specs.length; i++) {
       parts.push(it.specs[i].label, it.specs[i].value);
     }
-    it._h = parts.join(" ").toLowerCase();
+    it._h = fold(parts.join(" "));
     return it._h;
   }
 
@@ -213,7 +233,7 @@
      and 0 beside everything else, which tells you nothing about what you
      could pick instead. */
   function passes(it, skip) {
-    var q = state.q.trim().toLowerCase();
+    var q = fold(state.q);
     if (q && hay(it).indexOf(q) < 0) return false;
     for (var i = 0; i < FACETS.length; i++) {
       var f = FACETS[i];
@@ -1066,10 +1086,10 @@
     els.facets.addEventListener("input", function (e) {
       var box = e.target.closest(".facet");
       if (!box || !e.target.classList.contains("fsearch")) return;
-      var q = e.target.value.trim().toLowerCase();
+      var q = fold(e.target.value);
       var opts = box.querySelectorAll(".fopt");
       for (var i = 0; i < opts.length; i++) {
-        var v = opts[i].querySelector("input").value.toLowerCase();
+        var v = fold(opts[i].querySelector("input").value);
         /* A ticked value stays visible whatever is typed - hiding one would
            read as having lost it. */
         opts[i].hidden = !!q && v.indexOf(q) < 0 &&
