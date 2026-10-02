@@ -320,6 +320,15 @@ a { color: inherit; }
   border-radius: 6px; padding: 7px 9px; margin-bottom: 6px;
 }
 
+/* An author `display` beats the browser's [hidden] { display: none },
+   so setting .hidden on one of these did nothing at all. The Maker
+   search has been correctly hiding every non-matching option since the
+   facet bar was built, and the browser has been ignoring it - the
+   control looked broken while the code was right.
+
+   The register already carries this rule for .showing, .statusbar,
+   .wf-bulk, .wf-pager and .wf-forgot. These three were missed. */
+.fopt[hidden] { display: none; }
 .fopt {
   display: flex; align-items: center; gap: 9px;
   padding: 7px 8px; border-radius: 6px; cursor: pointer; font-size: 13px;
@@ -906,6 +915,7 @@ a { color: inherit; }
   background: var(--slate-wash); border-color: var(--slate); color: var(--ink);
   font-weight: 500;
 }
+.wf-pw[hidden] { display: none; }
 .wf-pw { margin-top: 12px; }
 .wf-forgot { margin: 12px 0 0; font-size: 12.5px; }
 .wf-forgot[hidden] { display: none; }
@@ -1094,6 +1104,7 @@ a { color: inherit; }
   background: var(--red); border-color: var(--red); color: #fff;
 }
 
+.pickbar[hidden] { display: none; }
 .pickbar {
   display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
   margin: 10px 0 0; padding: 10px 12px;

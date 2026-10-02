@@ -56,6 +56,16 @@ function run(d, w) {
     return false;
   };
   var pills = function () { return d.querySelectorAll("#showing .pill").length; };
+  /* WHAT THE EYE SEES, not what the attribute says.
+     The Maker search set .hidden on every non-matching option and the browser
+     ignored it, because .fopt carries an author `display: flex` which beats
+     [hidden] { display: none }. The control did nothing for weeks while this
+     probe passed, because the probe asked the same question the code did.
+     Ask the layout instead. */
+  var shown = function (el) {
+    return !!(el && el.offsetParent !== null &&
+              w.getComputedStyle(el).display !== "none");
+  };
 
   /* This probe loads the REAL index.html, so workflow.js has already read the
      real database and the five LedFlex profiles arrive flagged. Start from a
@@ -271,6 +281,24 @@ function run(d, w) {
   qq.value = "";
   qq.dispatchEvent(new w.Event("input", { bubbles: true }));
 
+  /* The same question asked of the thing that was actually broken: with a
+     query typed, the options that do not match must be GONE FROM THE LAYOUT,
+     not merely carrying an attribute that says so. */
+  t("non-matching makers actually disappear", (function () {
+    btn("maker").click();
+    var fs2 = facet("maker").querySelector(".fsearch");
+    fs2.value = "dorn";
+    fs2.dispatchEvent(new w.Event("input", { bubbles: true }));
+    var vis = 0, all = 0;
+    facet("maker").querySelectorAll(".fopt").forEach(function (o) {
+      all++; if (shown(o)) vis++;
+    });
+    fs2.value = "";
+    fs2.dispatchEvent(new w.Event("input", { bubbles: true }));
+    d.body.click();
+    return vis > 0 && vis < all;
+  })());
+
   /* and the same inside the Maker facet's own box */
   btn("maker").click();
   var fs = facet("maker").querySelector(".fsearch");
@@ -279,7 +307,7 @@ function run(d, w) {
     fs.value = s2;
     fs.dispatchEvent(new w.Event("input", { bubbles: true }));
     var vis = 0;
-    facet("maker").querySelectorAll(".fopt").forEach(function (o) { if (!o.hidden) vis++; });
+    facet("maker").querySelectorAll(".fopt").forEach(function (o) { if (shown(o)) vis++; });
     t("the maker box finds “" + s2 + "”", vis > 0, vis);
   });
   fs.value = "";
