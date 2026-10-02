@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-29T18:39:58Z",
+ "generated": "2026-10-02T04:26:08Z",
  "project": "GP1-MUR",
  "title": "Material & Hardware Register",
  "groups": [
@@ -3047,7 +3047,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM3 - Indirect LED Strip Eco Flex 240 2700K DALI - L03 - EF240272009.pdf",
    "key": "lum-lum3",
    "drive_url": "https://drive.google.com/file/d/196ArPE6va29hGP2HnIjEgFwc8hg2pB4c/view",
-   "maker_url": "",
+   "maker_url": "https://ledflexgroup.com/product/flex-range/eco-flex/?ECO+FLEX+240",
    "extras": [],
    "image": "img/lum3-indirect-led-strip-eco-flex-240-2700k-dali-l03-ef240272009.webp"
   },
@@ -3094,7 +3094,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM3.1 - Indirect LED Strip Driver 30W DALI - L03 - ELED-30-24DP2.pdf",
    "key": "lum-lum3.1",
    "drive_url": "https://drive.google.com/file/d/1nQd6KsrIBCV9Dfn1Cq4r3IhkcEif1Ix7/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-30-dp2-series",
    "extras": [],
    "image": "img/lum3-1-indirect-led-strip-driver-30w-dali-l03-eled-30-24dp2.webp"
   },
@@ -3137,7 +3137,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM3.2 - Indirect LED Strip Driver 100W DALI - L03 - ELED-100-24DP2.pdf",
    "key": "lum-lum3.2",
    "drive_url": "https://drive.google.com/file/d/12iHKvNM4IAFdpFVzy8-JugzN5Rzt2Ysw/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-100-dp2-series",
    "extras": [],
    "image": "img/lum3-2-indirect-led-strip-driver-100w-dali-l03-eled-100-24dp2.webp"
   },
@@ -3239,7 +3239,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM4 - LED Strip in Furniture 2.93Wft DALI - L05.1 - EF240272009.pdf",
    "key": "lum-lum4",
    "drive_url": "https://drive.google.com/file/d/1a7SK-bpqx0jqSkWCUynM5BuyUkJwyl0y/view",
-   "maker_url": "",
+   "maker_url": "https://ledflexgroup.com/product/flex-range/eco-flex/?ECO+FLEX+240",
    "extras": [],
    "image": "img/lum4-led-strip-in-furniture-2-93wft-dali-l05-1-ef240272009.webp"
   },
@@ -3286,7 +3286,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM4.1 - LED Strip in Furniture Driver 30W DALI - L05.1 - ELED-30-24DP2.pdf",
    "key": "lum-lum4.1",
    "drive_url": "https://drive.google.com/file/d/1xSoqYKvqJBJ98CQaIlSDluCeeErafMjX/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-30-dp2-series",
    "extras": [],
    "image": "img/lum4-1-led-strip-in-furniture-driver-30w-dali-l05-1-eled-30-24dp2.webp"
   },
@@ -3333,7 +3333,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM4.2 - LED Strip in Furniture Driver 60W DALI - L05.1 - ELED-60-24DP2.pdf",
    "key": "lum-lum4.2",
    "drive_url": "https://drive.google.com/file/d/1LAZRvDP7juwGRLfwrs--JTp_jCQ_uXFX/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-60-dp2-series",
    "extras": [],
    "image": "img/lum4-2-led-strip-in-furniture-driver-60w-dali-l05-1-eled-60-24dp2.webp"
   },
@@ -3435,7 +3435,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM5 - LED Strip in Furniture 0.73Wft DALI - L05.2 - EF240272002.pdf",
    "key": "lum-lum5",
    "drive_url": "https://drive.google.com/file/d/1XAG09mkYRypOLnoZoQXR3K3V2GtGhTQI/view",
-   "maker_url": "",
+   "maker_url": "https://ledflexgroup.com/product/flex-range/eco-flex/?ECO+FLEX+240",
    "extras": [],
    "image": "img/lum5-led-strip-in-furniture-0-73wft-dali-l05-2-ef240272002.webp"
   },
@@ -3482,7 +3482,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM5.1 - LED Strip in Furniture Driver 30W DALI - L05.2 - ELED-30-24DP2.pdf",
    "key": "lum-lum5.1",
    "drive_url": "https://drive.google.com/file/d/1SYvYvyqLZ18FDgTcIFZSuSbHv2PCRid9/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-30-dp2-series",
    "extras": [],
    "image": "img/lum5-1-led-strip-in-furniture-driver-30w-dali-l05-2-eled-30-24dp2.webp"
   },
@@ -3580,7 +3580,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM6 - LED Strip in Furniture IP65 DALI - L05.4 - EF240272002.pdf",
    "key": "lum-lum6",
    "drive_url": "https://drive.google.com/file/d/114MmvmZAXwFqOeveMQfvx5zlOkG_tQ2t/view",
-   "maker_url": "",
+   "maker_url": "https://ledflexgroup.com/product/flex-range/eco-flex/?ECO+FLEX+240",
    "extras": [],
    "image": "img/lum6-led-strip-in-furniture-ip65-dali-l05-4-ef240272002.webp"
   },
@@ -3627,7 +3627,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM6.1 - LED Strip in Furniture Driver 30W DALI - L05.4 - ELED-30-24DP2.pdf",
    "key": "lum-lum6.1",
    "drive_url": "https://drive.google.com/file/d/1OiL6H-6v02OxCYYTzyEcCnEcuwsfWFN_/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-30-dp2-series",
    "extras": [],
    "image": "img/lum6-1-led-strip-in-furniture-driver-30w-dali-l05-4-eled-30-24dp2.webp"
   },
@@ -3882,7 +3882,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM9 - LED Strip Exterior Step Eco Flex 240 IP67 DALI - L07.2 - EF240276702.pdf",
    "key": "lum-lum9",
    "drive_url": "https://drive.google.com/file/d/1MLHj4aOxfexiT5tlj6FBKp-JqrTxSSIE/view",
-   "maker_url": "",
+   "maker_url": "https://ledflexgroup.com/product/flex-range/eco-flex/?ECO+FLEX+240",
    "extras": [],
    "image": "img/lum9-led-strip-exterior-step-eco-flex-240-ip67-dali-l07-2-ef240276702.webp"
   },
@@ -3925,7 +3925,7 @@
    "source": "L - Lighting/LUM - Luminaires/LUM9.1 - LED Strip Exterior Step Driver 30W DALI - L07.2 - ELED-30-24DP2.pdf",
    "key": "lum-lum9.1",
    "drive_url": "https://drive.google.com/file/d/1WHf6jotxZ-SX1KgSHP3rFfgS51xiq6u6/view",
-   "maker_url": "",
+   "maker_url": "https://www.ecopacpower.co.uk/led-drivers/constant-voltage-led-drivers/eled-30-dp2-series",
    "extras": [],
    "image": "img/lum9-1-led-strip-exterior-step-driver-30w-dali-l07-2-eled-30-24dp2.webp"
   },
@@ -4518,7 +4518,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L12 - Submersible Pool Fixture Steps DALI - L09 - CW16005DI.pdf",
    "key": "l&l-l&l12",
    "drive_url": "https://drive.google.com/file/d/1b4QrqG5UrcPVXZ4oH1IdznA0Nk1y7g81/view",
-   "maker_url": "",
+   "maker_url": "http://lucelight.it/en/prodotto.php/3686",
    "extras": [],
    "image": "img/l-l12-submersible-pool-fixture-steps-dali-l09-cw16005di.webp"
   },
@@ -4565,7 +4565,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L12.1 - Submersible Pool Fixture Driver 30W DALI - L09 - AV0D024V03066.pdf",
    "key": "l&l-l&l12.1",
    "drive_url": "https://drive.google.com/file/d/1W-cie3TxhyhDcl4Ymgk3613LFyFHQZNB/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/alimentatore.php/173499",
    "extras": [],
    "image": "img/l-l12-1-submersible-pool-fixture-driver-30w-dali-l09-av0d024v03066.webp"
   },
@@ -4612,7 +4612,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L12.2 - Submersible Pool Fixture Driver 60W DALI - L09 - AV0D024V06066.pdf",
    "key": "l&l-l&l12.2",
    "drive_url": "https://drive.google.com/file/d/1BIZ39vrIlNU_h7bGcXZwdfiTd1NKVEUA/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/alimentatore.php/173501",
    "extras": [],
    "image": "img/l-l12-2-submersible-pool-fixture-driver-60w-dali-l09-av0d024v06066.webp"
   },
@@ -4683,7 +4683,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L13 - Submersible Pool Fixture DALI - L09.1 - CW300005WI.pdf",
    "key": "l&l-l&l13",
    "drive_url": "https://drive.google.com/file/d/1rN195vXV20WccQoDf3Dalp8PuVVKOj11/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/prodotto.php/108089",
    "extras": [],
    "image": "img/l-l13-submersible-pool-fixture-dali-l09-1-cw300005wi.webp"
   },
@@ -4730,7 +4730,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L13.1 - Submersible Pool Fixture Driver 60W DALI - L09.1 - AV0D024V06066.pdf",
    "key": "l&l-l&l13.1",
    "drive_url": "https://drive.google.com/file/d/1K0WGtHxbs-CmAAktGp4sUGTNo8bVM4Hs/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/alimentatore.php/173501",
    "extras": [],
    "image": "img/l-l13-1-submersible-pool-fixture-driver-60w-dali-l09-1-av0d024v06066.webp"
   },
@@ -4801,7 +4801,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L14 - Vegetation Projector DALI - L10 - Pivot Mini cp0100100150lt-4.pdf",
    "key": "l&l-l&l14",
    "drive_url": "https://drive.google.com/file/d/1N3TEe4EP4_5KXTkH0VvxvKB75oHE1vXg/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/prodotto.php/132272",
    "extras": [],
    "image": "img/l-l14-vegetation-projector-dali-l10-pivot-mini-cp0100100150lt-4.webp"
   },
@@ -4868,7 +4868,7 @@
    "source": "L - Lighting/L&L - Luce & Light/L&L17 - Sconce DALI - D01 - Ella OUT 1.0 ea1010fdtt.pdf",
    "key": "l&l-l&l17",
    "drive_url": "https://drive.google.com/file/d/15-wy9dhA6uyiao3lPBSQWoim67ZQ_wvA/view",
-   "maker_url": "",
+   "maker_url": "https://www.lucelight.it/en/prodotto.php/3447",
    "extras": [],
    "image": "img/l-l17-sconce-dali-d01-ella-out-1-0-ea1010fdtt.webp"
   },
@@ -5568,24 +5568,65 @@
    "image": "img/ltrn6-ds-lutron-energi-savr-node-dali-qsn-1dalunv-d.webp"
   },
   {
-   "id": "ltrn-ltrn7-ltrn7-ds-lutron-alisse-1-column-keyp",
+   "id": "ltrn-ltrn7-wired-keypad-1-column-alisse-hw-nw-kp",
    "code": "LTRN7",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E",
-   "specs": [],
-   "notes": "",
+   "title": "Wired Keypad, 1 column - Alisse HW-NW-KP-S1-E",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "HW-NW-KP-S1-E"
+    },
+    {
+     "label": "System",
+     "value": "HomeWorks wired, QS link"
+    },
+    {
+     "label": "Supply",
+     "value": "24-36 V·, 30 mA per base unit"
+    },
+    {
+     "label": "Power consumption",
+     "value": "370 mW at 24 V· (keypad + base)"
+    },
+    {
+     "label": "QS link load",
+     "value": "1 device, 1 power draw unit per base"
+    },
+    {
+     "label": "Wiring",
+     "value": "SELV / PELV / NEC Class 2"
+    },
+    {
+     "label": "Backbox",
+     "value": "Square 75 x 75 x 35 mm, or round 68 mm dia x 35 mm"
+    },
+    {
+     "label": "Environment",
+     "value": "0 °C to 40 °C, 0-90% RH, indoor only"
+    },
+    {
+     "label": "Approvals",
+     "value": "cULus, CE, NOM, FCC, ICES-003, RoHS; ADA compliant"
+    },
+    {
+     "label": "Fixture tag",
+     "value": "FIX-18-27"
+    }
+   ],
+   "notes": "Shares one datasheet with LTRN8. The sheet covers the 1-, 2- and 3-column keypad; this is the 1-column, and the power figure above is the one for that column count.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn7-ds-lutron-alisse-1-column-keypad-fix-18-27-hw-nw-kp-s1-e.pdf",
-   "pages": 16,
-   "bytes": 7935058,
-   "sha": "eca1dd1d4ba980d7",
+   "pages": 17,
+   "bytes": 7851059,
+   "sha": "41edb6fadab259d1",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN7 - DS - Lutron Alisse 1-Column Keypad - FIX-18-27 - HW-NW-KP-S1-E.pdf",
    "key": "ltrn-ltrn7",
    "drive_url": "https://drive.google.com/file/d/1TEhEJhNlj9mhKwkbKgUuaECya1raQWLU/view",
@@ -5594,24 +5635,65 @@
    "image": "img/ltrn7-ds-lutron-alisse-1-column-keypad-fix-18-27-hw-nw-kp-s1-e.webp"
   },
   {
-   "id": "ltrn-ltrn8-ltrn8-ds-lutron-alisse-2-column-keyp",
+   "id": "ltrn-ltrn8-wired-keypad-2-column-alisse-hw-nw-kp",
    "code": "LTRN8",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN8 - DS - Lutron Alisse 2-Column Keypad - FIX-18-27 - HW-NW-KP-S2-E",
-   "specs": [],
-   "notes": "",
+   "title": "Wired Keypad, 2 column - Alisse HW-NW-KP-S2-E",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "HW-NW-KP-S2-E"
+    },
+    {
+     "label": "System",
+     "value": "HomeWorks wired, QS link"
+    },
+    {
+     "label": "Supply",
+     "value": "24-36 V·, 30 mA per base unit"
+    },
+    {
+     "label": "Power consumption",
+     "value": "449 mW at 24 V· (keypad + base)"
+    },
+    {
+     "label": "QS link load",
+     "value": "1 device, 1 power draw unit per base"
+    },
+    {
+     "label": "Wiring",
+     "value": "SELV / PELV / NEC Class 2"
+    },
+    {
+     "label": "Backbox",
+     "value": "Square 75 x 75 x 35 mm, or round 68 mm dia x 35 mm"
+    },
+    {
+     "label": "Environment",
+     "value": "0 °C to 40 °C, 0-90% RH, indoor only"
+    },
+    {
+     "label": "Approvals",
+     "value": "cULus, CE, NOM, FCC, ICES-003, RoHS; ADA compliant"
+    },
+    {
+     "label": "Fixture tag",
+     "value": "FIX-18-27"
+    }
+   ],
+   "notes": "Shares one datasheet with LTRN7. Two columns rather than one, which is the 449 mW figure above against LTRN7's 370 mW.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn8-ds-lutron-alisse-2-column-keypad-fix-18-27-hw-nw-kp-s2-e.pdf",
-   "pages": 16,
-   "bytes": 7935058,
-   "sha": "eca1dd1d4ba980d7",
+   "pages": 17,
+   "bytes": 7851009,
+   "sha": "89c5786b9d69e8e0",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN8 - DS - Lutron Alisse 2-Column Keypad - FIX-18-27 - HW-NW-KP-S2-E.pdf",
    "key": "ltrn-ltrn8",
    "drive_url": "https://drive.google.com/file/d/1idJ7bZ6zt7IazYZryfkExuFebSxndnj6/view",
@@ -5880,24 +5962,57 @@
    "image": "img/ltrn18-ds-lutron-comercial-system-warranty-lsc-l2-p8ltd.webp"
   },
   {
-   "id": "ltrn-ltrn19-ltrn19-ds-lutron-palladiom-usb-recep",
+   "id": "ltrn-ltrn19-usb-receptacle-type-c-c-palladiom-l",
    "code": "LTRN19",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL",
-   "specs": [],
-   "notes": "",
+   "title": "USB Receptacle, Type C + C - Palladiom LTR-15-CCTR-BL",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "LTR-15-CCTR-BL"
+    },
+    {
+     "label": "Type",
+     "value": "15 A, USB Type C + C receptacle"
+    },
+    {
+     "label": "Supply",
+     "value": "125 V~ only (US-style wallbox)"
+    },
+    {
+     "label": "Protection",
+     "value": "Tamper resistant"
+    },
+    {
+     "label": "Installation",
+     "value": "Side or back wire"
+    },
+    {
+     "label": "Finish",
+     "value": "Black plastic receptacle, behind a new architectural faceplate"
+    },
+    {
+     "label": "Compatibility",
+     "value": "New architectural faceplates only; gangs with Palladiom keypads"
+    },
+    {
+     "label": "Document",
+     "value": "Lutron 369921p, New Architectural Accessories"
+    }
+   ],
+   "notes": "Shares one datasheet with LTRN20. That sheet covers the whole receptacle family - 15 A duplex, 15 A USB A+C, 15 A USB C+C and 20 A duplex - and this is the USB Type C + C. For a GFCI version see Lutron application note 681.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl.pdf",
-   "pages": 12,
-   "bytes": 2652695,
-   "sha": "7b0a957fd409ce14",
+   "pages": 13,
+   "bytes": 2577443,
+   "sha": "eec71e9e68a489a8",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN19 - DS - Lutron Palladiom USB Receptacle - LTR-15-CCTR-BL.pdf",
    "key": "ltrn-ltrn19",
    "drive_url": "https://drive.google.com/file/d/1PAD0CU-GS5PCZRAEpVipcE3-uTGNUvGs/view",
@@ -5906,24 +6021,57 @@
    "image": "img/ltrn19-ds-lutron-palladiom-usb-receptacle-ltr-15-cctr-bl.webp"
   },
   {
-   "id": "ltrn-ltrn20-ltrn20-ds-lutron-architectural-recep",
+   "id": "ltrn-ltrn20-architectural-receptacle-15-a-palladi",
    "code": "LTRN20",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN20 - DS - Lutron Architectural Receptacle - LTR-15-TR-BL",
-   "specs": [],
-   "notes": "",
+   "title": "Architectural Receptacle, 15 A - Palladiom LTR-15-TR-BL",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "LTR-15-TR-BL"
+    },
+    {
+     "label": "Type",
+     "value": "15 A duplex receptacle"
+    },
+    {
+     "label": "Supply",
+     "value": "125 V~ only (US-style wallbox)"
+    },
+    {
+     "label": "Protection",
+     "value": "Tamper resistant"
+    },
+    {
+     "label": "Installation",
+     "value": "Side or back wire"
+    },
+    {
+     "label": "Finish",
+     "value": "Black plastic receptacle, behind a new architectural faceplate"
+    },
+    {
+     "label": "Compatibility",
+     "value": "New architectural faceplates only; gangs with Palladiom keypads"
+    },
+    {
+     "label": "Document",
+     "value": "Lutron 369921p, New Architectural Accessories"
+    }
+   ],
+   "notes": "Shares one datasheet with LTRN19. A plain duplex rather than the USB version.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn20-ds-lutron-architectural-receptacle-ltr-15-tr-bl.pdf",
-   "pages": 12,
-   "bytes": 2652695,
-   "sha": "7b0a957fd409ce14",
+   "pages": 13,
+   "bytes": 2577118,
+   "sha": "9e75ddce6aead275",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN20 - DS - Lutron Architectural Receptacle - LTR-15-TR-BL.pdf",
    "key": "ltrn-ltrn20",
    "drive_url": "https://drive.google.com/file/d/1B-4licAJEtBnj6gPSA9gzvqTkz-TH37s/view",
@@ -6088,24 +6236,61 @@
    "image": "img/ltrn25-1-ds-lutron-sivoia-qs-dual-shade-bracketry-kits-win-brk.webp"
   },
   {
-   "id": "ltrn-ltrn25-2-ltrn25-2-ds-lutron-qs-link-shading-p",
+   "id": "ltrn-ltrn25-2-qs-link-plug-in-power-supply-qsps-p1-1",
    "code": "LTRN25.2",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V",
-   "specs": [],
-   "notes": "",
+   "title": "QS Link Plug-In Power Supply - QSPS-P1-1-35V",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "QSPS-P1-1-35V"
+    },
+    {
+     "label": "Input",
+     "value": "120-240 V~, 50/60 Hz, 1.2 A"
+    },
+    {
+     "label": "Output",
+     "value": "35 V·, 0.143 A, 5 W"
+    },
+    {
+     "label": "Capacity",
+     "value": "One QS window treatment drive, or up to 8 QS PDUs"
+    },
+    {
+     "label": "Input wiring",
+     "value": "AC cord with IEC C13 connector, 1.83 m supplied"
+    },
+    {
+     "label": "Output wiring",
+     "value": "0.5-4.0 mm² solid or stranded, 6 mm strip"
+    },
+    {
+     "label": "Environment",
+     "value": "0 °C to 40 °C, 0-90% RH, indoor only; not for plenum"
+    },
+    {
+     "label": "Approvals",
+     "value": "cULus Listed, CE, NOM, FCC, CCC, PSE; DOE Level VI"
+    },
+    {
+     "label": "Serves",
+     "value": "LTRN25 - Sivoia QS roller shade"
+    }
+   ],
+   "notes": "NOT A DUPLICATE OF LTRN26.1, though the datasheet is the same file. The supply powers ANY ONE window treatment drive, and this job has two - the roller shade and the drapery track - so two are required, one per drive.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn25-2-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.pdf",
-   "pages": 5,
-   "bytes": 445416,
-   "sha": "055d2e07651ed3e0",
+   "pages": 6,
+   "bytes": 438670,
+   "sha": "ef07dcab6730ab78",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN25.2 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "key": "ltrn-ltrn25.2",
    "drive_url": "https://drive.google.com/file/d/1HbSU779DS2nFHqflPIo-3jPQWm7lZ7cp/view",
@@ -6140,24 +6325,61 @@
    "image": "img/ltrn26-ds-lutron-drapery-track-system-d145.webp"
   },
   {
-   "id": "ltrn-ltrn26-1-ltrn26-1-ds-lutron-qs-link-shading-p",
+   "id": "ltrn-ltrn26-1-qs-link-plug-in-power-supply-qsps-p1-1",
    "code": "LTRN26.1",
    "group": "LTRN",
    "group_name": "Lutron Controls",
    "discipline": "Lighting",
    "submittal": null,
-   "manufacturer": "",
+   "manufacturer": "Lutron",
    "category": "",
-   "title": "LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V",
-   "specs": [],
-   "notes": "",
+   "title": "QS Link Plug-In Power Supply - QSPS-P1-1-35V",
+   "specs": [
+    {
+     "label": "Model",
+     "value": "QSPS-P1-1-35V"
+    },
+    {
+     "label": "Input",
+     "value": "120-240 V~, 50/60 Hz, 1.2 A"
+    },
+    {
+     "label": "Output",
+     "value": "35 V·, 0.143 A, 5 W"
+    },
+    {
+     "label": "Capacity",
+     "value": "One QS window treatment drive, or up to 8 QS PDUs"
+    },
+    {
+     "label": "Input wiring",
+     "value": "AC cord with IEC C13 connector, 1.83 m supplied"
+    },
+    {
+     "label": "Output wiring",
+     "value": "0.5-4.0 mm² solid or stranded, 6 mm strip"
+    },
+    {
+     "label": "Environment",
+     "value": "0 °C to 40 °C, 0-90% RH, indoor only; not for plenum"
+    },
+    {
+     "label": "Approvals",
+     "value": "cULus Listed, CE, NOM, FCC, CCC, PSE; DOE Level VI"
+    },
+    {
+     "label": "Serves",
+     "value": "LTRN26 - Sivoia drapery track D145"
+    }
+   ],
+   "notes": "The same product as LTRN25.2 and correctly listed twice: one supply per window treatment drive, and there are two drives on this job.",
    "status": "not_stated",
    "status_text": "",
-   "curated": false,
+   "curated": true,
    "pdf": "datasheets/ltrn26-1-ds-lutron-qs-link-shading-power-supply-qsps-p1-1-35v.pdf",
-   "pages": 5,
-   "bytes": 445416,
-   "sha": "055d2e07651ed3e0",
+   "pages": 6,
+   "bytes": 438590,
+   "sha": "a270fba46d0e13c0",
    "source": "L - Lighting/LTRN - Lutron Lighting/LTRN26.1 - DS - Lutron QS Link Shading Power Supply - QSPS-P1-1-35V.pdf",
    "key": "ltrn-ltrn26.1",
    "drive_url": "https://drive.google.com/file/d/1IWW3aC-oynEVX-HSPyYslOcQWuYyu3gD/view",

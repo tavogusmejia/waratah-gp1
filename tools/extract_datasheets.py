@@ -556,6 +556,13 @@ def parse_summary(page):
         return " ".join(out)
 
     rec["manufacturer"] = run(lambda s: ink(s["color"]) == ORANGE)
+    # "Not stated" is a sentence, not a brand. It is drawn onto the manhole
+    # summary pages, so reading it back put it in the Maker facet beside
+    # Pentair and iGuzzini. Normalised here rather than in the generator
+    # alone, because the generator only affects sheets drawn AFTER the fix and
+    # this has to survive a re-extract of the ones already drawn.
+    if rec["manufacturer"].strip().lower() in ("not stated", "none", "n/a", "-"):
+        rec["manufacturer"] = ""
     rec["code"] = run(lambda s: ink(s["color"]) == NAVY and 11.5 <= s["size"] <= 13.0)
     rec["title"] = run(lambda s: ink(s["color"]) == NAVY and s["size"] >= 13.5)
     # Door sheets carry a category above the title - HINGES, HANDLES. Nothing
@@ -638,6 +645,14 @@ def main():
     pdfs = sorted(
         p for p in SOURCE.rglob("*.pdf")
         if not any(k.lower() in str(p).lower() for k in SKIP)
+        # A LEADING UNDERSCORE MEANS "NOT PART OF THE REGISTER". The source
+        # tree has used it that way from the start - _Superseded, _Lighting
+        # (Reference), _Removed from GP1 register - but only by accident of
+        # where those folders sat: nothing enforced it. Putting six original
+        # sheets in an _Originals folder beside the curated ones added six
+        # phantom items sharing the real ones' keys, and because they shared
+        # keys a count of unique keys still read 147 and hid it.
+        and not any(part.startswith("_") for part in p.relative_to(SOURCE).parts)
     )
     pdfs, extras = split_supplements(pdfs, SOURCE)
 
